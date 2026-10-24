@@ -21,13 +21,16 @@ export function EditorialPicks({ items, state, t }) {
         </span>
       </div>
       <div className="editorial-grid">
-        {picks.map((pick) => (
+        {picks.map((pick, index) => (
           <Card
             key={pick.repo}
             size="small"
             className="editorial-card"
             data-featured={pick.repo}
           >
+            <span className="editorial-index">
+              {String(index + 1).padStart(2, "0")}
+            </span>
             <h3>{pick[`title_${state.lang}`]}</h3>
             <Typography.Link
               className="editorial-repo"
@@ -37,12 +40,15 @@ export function EditorialPicks({ items, state, t }) {
             >
               {pick.repo}
             </Typography.Link>
-            <p className="editorial-reason">
-              <strong>{t("recommendationReason")}</strong>
-              {pick[`reason_${state.lang}`]}
-            </p>
-            <PlatformTags item={pick.item} t={t} />
-            <InstallationActions item={pick.item} lang={state.lang} t={t} />
+            <details className="editorial-details">
+              <summary>{t("editorialMore")} ↗</summary>
+              <p className="editorial-reason">
+                <strong>{t("recommendationReason")}</strong>
+                {pick[`reason_${state.lang}`]}
+              </p>
+              <PlatformTags item={pick.item} t={t} />
+              <InstallationActions item={pick.item} lang={state.lang} t={t} />
+            </details>
           </Card>
         ))}
       </div>

@@ -21,8 +21,14 @@ export function QualityBadges({ item, t }) {
   return (
     <Space size={[4, 4]} wrap>
       {item.skills_count != null && <Tag>{item.skills_count} skills</Tag>}
-      {item.verifies_citations && <Tag color="purple">{t("citeCheck")} ✓</Tag>}
-      {item.stale && <Tag>{t("staleTag")}</Tag>}
+      {item.verifies_citations && (
+        <Tag className="warm-tag">{t("citeCheck")} ✓</Tag>
+      )}
+      {item.stale && (
+        <Tag color="red" data-testid="stale-tag">
+          {t("staleTag")}
+        </Tag>
+      )}
     </Space>
   );
 }
@@ -131,7 +137,7 @@ export function RepositoryViews({
       title: t("category"),
       key: "category",
       width: 120,
-      render: (_, item) => <Tag color="purple">{cat(item)}</Tag>,
+      render: (_, item) => <Tag className="warm-tag">{cat(item)}</Tag>,
     },
     {
       title: t("referenceMetrics"),
@@ -184,7 +190,7 @@ export function RepositoryViews({
             </div>
             {link(item)}
             <div className="card-tags">
-              <Tag color="purple">{cat(item)}</Tag>
+              <Tag className="warm-tag">{cat(item)}</Tag>
               <span className="trend-value">{item.trend?.[state.lang]}</span>
             </div>
             <SummaryText item={item} lang={state.lang} t={t} />

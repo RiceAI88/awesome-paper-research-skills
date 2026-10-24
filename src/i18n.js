@@ -1,5 +1,22 @@
 export const translations = {
   zh: {
+    chartsLoading: "正在加载数据图表…",
+    chartUnavailable: "图表暂不可用，可继续使用下方榜单。",
+    insightsTitle: "数据洞察",
+    insightsScope: "当前筛选范围：",
+    historyWindow: "历史窗口",
+    insightTrend: "Stars 增长趋势",
+    insightTrendNote: "当前范围 Stars 最高的 3 个仓库 · 按实际快照日期展示",
+    insightCategories: "科研方向分布",
+    insightGrowth: "近 7 日增长",
+    insightGrowthNote: "近 7 日新增 Stars 最高的 5 个仓库 · 不随历史窗口切换",
+    insightScatter: "规模与增长",
+    insightScatterNote: "横轴 Stars（对数） · 纵轴近 7 日新增 · 点击查看仓库",
+    historyProvenance: "2026-10-24 前的快照来自原项目；只绘制已有数据。",
+    noGrowth: "当前范围没有正增长记录。",
+    viewChartData: "查看数据与仓库详情",
+    editorialMore: "查看推荐理由",
+
     noDescription: "暂无简介",
     platformDocumented: "平台已按项目文档核对",
     platformInferred: "平台根据仓库标签及简介识别，请以项目文档为准",
@@ -140,6 +157,26 @@ export const translations = {
     compareHint: "曲线为相对各自窗口起点的 Stars 增长百分比。",
   },
   en: {
+    chartsLoading: "Loading data charts…",
+    chartUnavailable: "Chart unavailable. The ranking below remains available.",
+    insightsTitle: "Data insights",
+    insightsScope: "Current selection:",
+    historyWindow: "History window",
+    insightTrend: "Stars over time",
+    insightTrendNote:
+      "Top 3 by Stars in this selection · actual snapshot dates",
+    insightCategories: "Research categories",
+    insightGrowth: "7-day growth",
+    insightGrowthNote:
+      "Top 5 by 7-day Stars gained · independent of history window",
+    insightScatter: "Scale and growth",
+    insightScatterNote: "Stars (log) × 7-day change · click to view repository",
+    historyProvenance:
+      "Snapshots before 2026-10-24 come from the original project; only recorded data is plotted.",
+    noGrowth: "No positive growth in this selection.",
+    viewChartData: "View data and repository details",
+    editorialMore: "Why try this",
+
     noDescription: "No description",
     platformDocumented: "Platforms checked against project documentation",
     platformInferred:

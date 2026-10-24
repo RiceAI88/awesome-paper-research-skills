@@ -1,4 +1,11 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  lazy,
+  Suspense,
+} from "react";
 import {
   App as AntApp,
   Button,
@@ -48,7 +55,10 @@ import { UpdateStatus } from "./components/UpdateStatus";
 import { DataTransparency } from "./components/DataTransparency";
 import { RepositoryViews } from "./components/RepositoryViews";
 import { RepositoryDrawer } from "./components/RepositoryDrawer";
+import { ChartBoundary } from "./components/ChartBoundary";
 import { ComparisonChart } from "./components/TrendCharts";
+
+const Insights = lazy(() => import("./components/Insights"));
 
 const dataset = window.ACADEMIC_SKILLS_RANKINGS || {};
 const items = Array.isArray(dataset.items)
@@ -66,7 +76,6 @@ const defaults = {
   theme: matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light",
   view: matchMedia("(max-width: 760px)").matches ? "card" : "table",
 };
-const date = (dataset.metadata?.generated_at || "").slice(0, 10) || "—";
 const base = import.meta.env.BASE_URL;
 const taskLabels = {
   find: "taskFind",
@@ -127,16 +136,17 @@ export default function App() {
         algorithm:
           state.theme === "dark" ? theme.darkAlgorithm : theme.defaultAlgorithm,
         token: {
-          colorPrimary: "#691eff",
-          colorLink: state.theme === "dark" ? "#b593ff" : "#691eff",
-          colorLinkHover: state.theme === "dark" ? "#d4bfff" : "#8448ff",
-          colorLinkActive: state.theme === "dark" ? "#b593ff" : "#5416d0",
+          colorPrimary: state.theme === "dark" ? "#D4A4B9" : "#866178",
+          colorLink: state.theme === "dark" ? "#D4A4B9" : "#866178",
+          colorLinkHover: state.theme === "dark" ? "#E5C2D2" : "#6C4B60",
+          colorLinkActive: state.theme === "dark" ? "#D4A4B9" : "#6C4B60",
           fontFamily: FONT_FAMILY,
-          borderRadius: 8,
-          colorBgLayout: state.theme === "dark" ? "#14111c" : "#ffffff",
+          colorBgContainer: state.theme === "dark" ? "#201C1F" : "#FEFDFC",
+          borderRadius: 4,
+          colorBgLayout: state.theme === "dark" ? "#181517" : "#FEFDFC",
         },
         components: {
-          Table: { headerBg: state.theme === "dark" ? "#251e32" : "#f7f5ff" },
+          Table: { headerBg: state.theme === "dark" ? "#241F23" : "#FEFDFC" },
         },
       }}
     >
@@ -169,9 +179,6 @@ function Dashboard({ state, update }) {
   const platformIds = new Set(items.flatMap(detectAgents));
   const totalStars = items.reduce((sum, i) => sum + (i.stars || 0), 0),
     net7 = items.reduce((sum, i) => sum + (i.star_delta_7d || 0), 0);
-  const hot = items.toSorted(
-    (a, b) => (b.star_delta_7d || 0) - (a.star_delta_7d || 0),
-  )[0];
   const toggleCompare = (repo) => {
     if (!state.compare.includes(repo) && state.compare.length >= 3) {
       message.info(t("compareFull"));
@@ -251,21 +258,11 @@ function Dashboard({ state, update }) {
     a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
-  const issue = Math.max(
-    1,
-    Math.floor(
-      ((date === "—" ? Date.now() : Date.parse(date)) - Date.UTC(2026, 5, 30)) /
-        86400000,
-    ) + 1,
-  );
   const statistics = [
+    [t("repos"), items.length],
     [t("statTotalStars"), totalStars],
-    [
-      t("statAvgStars"),
-      items.length ? Math.round(totalStars / items.length) : 0,
-    ],
     [t("statNet7d"), net7],
-    [t("statHotRepo"), hot?.repo.split("/").pop() || "—"],
+    [t("statCats"), categories.length],
   ];
   return (
     <div className="prs-page">
@@ -337,17 +334,6 @@ function Dashboard({ state, update }) {
         </nav>
         <section className="hero container">
           <div className="hero-copy">
-            <div className="masthead">
-              <span>Vol.1</span>
-              <span>·</span>
-              <span>No.{issue}</span>
-              <span>·</span>
-              <UpdateStatus
-                generatedAt={dataset.metadata?.generated_at}
-                lang={state.lang}
-                t={t}
-              />
-            </div>
             <h1>
               {state.lang === "zh" ? (
                 <>
@@ -360,88 +346,73 @@ function Dashboard({ state, update }) {
               )}
             </h1>
             <p className="hero-subtitle">{t("heroSubtitle")}</p>
-            <label className="hero-search" htmlFor="searchInput">
-              <span>{t("searchLabel")}</span>
-              <Input
-                ref={search}
-                id="searchInput"
-                type="search"
-                size="large"
-                allowClear
-                prefix={<SearchOutlined aria-hidden="true" />}
-                placeholder={t("searchPlaceholder")}
-                value={state.query}
-                onChange={(e) =>
-                  update((s) => ({ ...s, query: e.target.value }))
-                }
+            <div className="masthead">
+              <UpdateStatus
+                generatedAt={dataset.metadata?.generated_at}
+                lang={state.lang}
+                t={t}
               />
-            </label>
-            <section className="task-navigation" aria-labelledby="taskHeading">
-              <div className="task-heading">
-                <h2 id="taskHeading">{t("taskHeading")}</h2>
-                <Button
-                  type="link"
-                  size="small"
-                  aria-pressed={state.task === "all"}
-                  onClick={() =>
-                    update((s) => ({ ...s, task: "all", category: "all" }))
+            </div>
+            <div className="discovery-controls">
+              <label className="hero-search" htmlFor="searchInput">
+                <span>{t("searchLabel")}</span>
+                <Input
+                  ref={search}
+                  id="searchInput"
+                  type="search"
+                  size="large"
+                  allowClear
+                  prefix={<SearchOutlined aria-hidden="true" />}
+                  placeholder={t("searchPlaceholder")}
+                  value={state.query}
+                  onChange={(e) =>
+                    update((s) => ({ ...s, query: e.target.value }))
                   }
-                >
-                  {t("taskAll")}
-                </Button>
-              </div>
-              <div className="task-list">
-                {RESEARCH_TASKS.map((task) => (
+                />
+              </label>
+              <section
+                className="task-navigation"
+                aria-labelledby="taskHeading"
+              >
+                <div className="task-heading">
+                  <h2 id="taskHeading">{t("taskHeading")}</h2>
                   <Button
-                    key={task.id}
-                    type={state.task === task.id ? "primary" : "default"}
-                    aria-pressed={state.task === task.id}
+                    type="link"
+                    size="small"
+                    aria-pressed={state.task === "all"}
                     onClick={() =>
-                      update((s) => ({ ...s, task: task.id, category: "all" }))
+                      update((s) => ({ ...s, task: "all", category: "all" }))
                     }
                   >
-                    {t(taskLabels[task.id])}
+                    {t("taskAll")}
                   </Button>
-                ))}
-              </div>
-            </section>
+                </div>
+                <div className="task-list">
+                  {RESEARCH_TASKS.map((task) => (
+                    <Button
+                      key={task.id}
+                      type={state.task === task.id ? "primary" : "default"}
+                      aria-pressed={state.task === task.id}
+                      onClick={() =>
+                        update((s) => ({
+                          ...s,
+                          task: task.id,
+                          category: "all",
+                        }))
+                      }
+                    >
+                      {t(taskLabels[task.id])}
+                    </Button>
+                  ))}
+                </div>
+              </section>
+            </div>
             <p className="hero-hint">
               {state.lang === "zh"
                 ? "按 / 搜索 · t 主题 · l 语言 · v 视图"
                 : "Press / to search · t theme · l language · v view"}
             </p>
           </div>
-          <Card className="directory-card" size="small">
-            <h2>{t("tocTitle")}</h2>
-            <div className="directory-list">
-              {categories
-                .toSorted(
-                  (a, b) =>
-                    items.filter((i) => i.category.id === b.id).length -
-                    items.filter((i) => i.category.id === a.id).length,
-                )
-                .map((category) => (
-                  <div key={category.id}>
-                    <span>{category[state.lang]}</span>
-                    <b>
-                      {fmt(
-                        items.filter((i) => i.category.id === category.id)
-                          .length,
-                      )}
-                    </b>
-                  </div>
-                ))}
-            </div>
-            <div className="directory-summary">
-              <span>
-                <b>{fmt(items.length)}</b> repos
-              </span>
-              <span>
-                <b>{fmt(totalStars)}</b> ★
-              </span>
-              <span>{date}</span>
-            </div>
-          </Card>
         </section>
         <section
           className="statistics container"
@@ -451,13 +422,13 @@ function Dashboard({ state, update }) {
             <Card
               key={title}
               size="small"
-              className={i === 3 ? "hot-statistic" : ""}
+              className={i === 2 ? "growth-statistic" : ""}
             >
               <Statistic
                 title={title}
                 value={value}
-                prefix={i === 2 ? "+" : undefined}
-                valueStyle={{ fontSize: i === 3 ? 14 : 22, fontWeight: 650 }}
+                prefix={i === 2 && value > 0 ? "+" : undefined}
+                valueStyle={{ fontSize: 30, fontWeight: 600 }}
               />
             </Card>
           ))}
@@ -550,6 +521,25 @@ function Dashboard({ state, update }) {
             <Tag variant="borderless">{state.favorites.length}</Tag>
           </Button>
         </section>
+        <ChartBoundary fallback={t("chartUnavailable")}>
+          <Suspense
+            fallback={
+              <p className="charts-loading" role="status">
+                {t("chartsLoading")}
+              </p>
+            }
+          >
+            <Insights
+              items={visible}
+              allItems={items}
+              history={historyData}
+              generatedAt={dataset.metadata?.generated_at}
+              state={state}
+              update={update}
+              t={t}
+            />
+          </Suspense>
+        </ChartBoundary>
         <EditorialPicks items={visible} state={state} t={t} />
         <Card className="ranking-section" styles={{ body: { padding: 0 } }}>
           <div className="ranking-header">

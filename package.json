@@ -17,7 +17,8 @@
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "antd": "6.6.7",
-    "@ant-design/icons": "^6.0.0"
+    "@ant-design/icons": "^6.0.0",
+    "@ant-design/plots": "2.6.8"
   },
   "devDependencies": {
     "vite": "8.3.5",
