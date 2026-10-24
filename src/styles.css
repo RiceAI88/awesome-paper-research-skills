@@ -795,18 +795,33 @@ h1 em {
   justify-content: space-between;
 }
 .task-list .ant-btn {
-  border: 0;
-  box-shadow: none;
-  background: transparent;
-  color: var(--prs-muted);
   min-height: 40px;
   padding: 6px;
   font-size: 12px;
   border-radius: 0;
 }
-.task-list .ant-btn-primary {
+.task-list .ant-btn,
+.task-list .ant-btn:not(:disabled):hover,
+.task-list .ant-btn:not(:disabled):active {
+  border: 0;
+  border-bottom: 2px solid transparent;
+  box-shadow: none;
+  background: transparent;
+  color: var(--prs-muted);
+}
+.task-list .ant-btn:not(:disabled):hover,
+.task-list .ant-btn:not(:disabled):active {
   color: var(--prs-primary);
-  border-bottom: 2px solid var(--prs-primary);
+}
+.task-list .ant-btn[aria-pressed="true"],
+.task-list .ant-btn[aria-pressed="true"]:not(:disabled):hover,
+.task-list .ant-btn[aria-pressed="true"]:not(:disabled):active {
+  color: var(--prs-primary);
+  border-bottom-color: var(--prs-primary);
+}
+.task-list .ant-btn:focus-visible {
+  outline: 2px solid var(--prs-primary);
+  outline-offset: 3px;
 }
 .hero-hint {
   margin-top: 10px;

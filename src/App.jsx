@@ -391,7 +391,7 @@ function Dashboard({ state, update }) {
                   {RESEARCH_TASKS.map((task) => (
                     <Button
                       key={task.id}
-                      type={state.task === task.id ? "primary" : "default"}
+                      type="text"
                       aria-pressed={state.task === task.id}
                       onClick={() =>
                         update((s) => ({
