@@ -285,7 +285,7 @@ function Dashboard({ state, update }) {
         <nav className="site-nav container" aria-label="Primary">
           <a className="brand" href={base}>
             <span className="brand-mark">PRS</span>
-            <span>Paper Research Skills</span>
+            <span>Awesome Paper Research Skills</span>
           </a>
           <Space size={8} wrap className="nav-actions">
             <Segmented
@@ -586,26 +586,7 @@ function Dashboard({ state, update }) {
             }}
           />
         </Card>
-        <DataTransparency
-          metadata={dataset.metadata || {}}
-          lang={state.lang}
-          t={t}
-          base={base}
-        />
-        <section className="method-section">
-          <div>
-            <h2>{t("methodTitle")}</h2>
-            <p>{t("methodCopy")}</p>
-          </div>
-          <div className="method-details">
-            {["A", "B", "C"].map((key) => (
-              <div key={key}>
-                <strong>{t("method" + key)}</strong>
-                <span>{t("method" + key + "Detail")}</span>
-              </div>
-            ))}
-          </div>
-        </section>
+        <DataTransparency t={t} base={base} />
       </main>
       <footer className="site-footer container">
         <span>

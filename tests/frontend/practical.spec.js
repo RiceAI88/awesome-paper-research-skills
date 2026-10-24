@@ -21,7 +21,7 @@ test("practical information, editorial reasons and history provenance are visibl
   await expect(page.locator("[data-featured]")).toHaveCount(4);
   await expect(page.getByTestId("editorial-picks")).toContainText("推荐理由：");
   await expect(page.getByTestId("data-transparency")).toContainText(
-    "此前的历史快照继承自原项目",
+    "通过 GitHub API 每日自动采集",
   );
   await expect(page.getByTestId("update-status")).toContainText("更新状态未知");
   await page

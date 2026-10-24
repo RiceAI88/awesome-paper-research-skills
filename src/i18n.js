@@ -14,13 +14,15 @@ export const translations = {
       "按具体科研任务挑选，推荐理由来自项目文档；不参与自动排名。随当前筛选条件显示。",
     recommendationReason: "推荐理由：",
     transparencyTitle: "榜单与数据说明",
-    rankingBasis: "自动榜单如何排名",
+    rankingBasis: "排名依据：",
     rankingBasisCopy:
-      "默认按 Stars 从高到低排名；Stars 相同时，依次按趋势分和仓库名排序。切换排序只影响当前列表。热度不等于科研质量或适用性。",
+      "默认按 GitHub Stars 从高到低排序；Stars 相同时，先按趋势分从高到低，再按仓库名排序。支持切换为趋势、更新时间等排序方式。",
     trendWindows: "趋势窗口",
     days: "天",
     fullMethodology: "查看完整收录与趋势计算规则",
-    historySource: "历史数据来源",
+    dataSource: "数据来源：",
+    dataSourceCopy:
+      "通过 GitHub API 每日自动采集仓库的 Stars、简介和更新时间等公开信息，筛选符合科研与 Skill / Agent / Workflow 条件的项目。仓库简介保留作者原文，增长趋势根据历史快照计算。",
     viewUpstreamHistory: "查看原项目历史数据快照",
     contentBasis: "简介与精选依据",
     contentBasisCopy:
@@ -153,13 +155,15 @@ export const translations = {
       "Task-based picks with reasons drawn from project docs, separate from automatic rankings. Matches your current filters.",
     recommendationReason: "Why try it: ",
     transparencyTitle: "Ranking and data notes",
-    rankingBasis: "How the automatic ranking works",
+    rankingBasis: "Ranking:",
     rankingBasisCopy:
-      "Default ranking is Stars descending, then trend score descending and repository name for ties. Other sort modes affect this view only. Popularity does not measure research quality or suitability.",
+      "Repositories are ranked by GitHub Stars descending, then trend score descending and repository name for ties. You can also sort by trends or recent updates.",
     trendWindows: "Trend windows",
     days: "days",
     fullMethodology: "Read inclusion and trend calculation rules",
-    historySource: "Historical data source",
+    dataSource: "Data source:",
+    dataSourceCopy:
+      "Public repository data, including Stars, descriptions and update times, is collected daily through the GitHub API. Projects are filtered for research and Skill / Agent / Workflow signals. Descriptions retain the authors’ original text, and growth trends are calculated from historical snapshots.",
     viewUpstreamHistory: "View original history snapshot",
     contentBasis: "Summaries and editorial sources",
     contentBasisCopy:
