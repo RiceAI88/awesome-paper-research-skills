@@ -6,6 +6,7 @@ test("full project name and concise ranking and data source explanation", async 
   await expect(page.locator(".brand")).toContainText(
     "Awesome Paper Research Skills",
   );
+  await expect(page.locator(".brand-mark")).toHaveText("APRS");
   const notes = page.getByTestId("data-transparency");
   await expect(notes.locator("p")).toHaveCount(2);
   await expect(notes).toContainText("Stars");

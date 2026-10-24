@@ -284,7 +284,7 @@ function Dashboard({ state, update }) {
       <header className="site-header">
         <nav className="site-nav container" aria-label="Primary">
           <a className="brand" href={base}>
-            <span className="brand-mark">PRS</span>
+            <span className="brand-mark">APRS</span>
             <span>Awesome Paper Research Skills</span>
           </a>
           <Space size={8} wrap className="nav-actions">
