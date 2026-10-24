@@ -1,23 +1,8 @@
-import descriptionRegistry from "../config/descriptions.zh.json" with { type: "json" };
 import editorial from "../config/editorial.json" with { type: "json" };
 import { safeExternalUrl } from "./domain.js";
-export const EDITORIAL_CONTENT = {
-  ...editorial,
-  descriptions: descriptionRegistry.entries,
-};
+export const EDITORIAL_CONTENT = editorial;
 export const UPDATE_RUNS_URL =
   "https://api.github.com/repos/RiceAI88/awesome-paper-research-skills/actions/workflows/update-rankings.yml/runs?branch=main&per_page=1";
-export function summaryFor(item, lang, content = EDITORIAL_CONTENT) {
-  if (lang !== "zh") return { text: item.description || "", pending: false };
-  const entry = content.descriptions?.[item.repo];
-  const valid =
-    entry?.summary_zh && entry.source_description === item.description;
-  return {
-    text: valid ? entry.summary_zh : item.description || "",
-    pending: !valid,
-    reason: entry ? "changed" : "missing",
-  };
-}
 export function installationFor(item, content = EDITORIAL_CONTENT) {
   const entry = content.installations?.[item.repo];
   const source = entry?.reviewed_at && safeExternalUrl(entry.source_url);
@@ -35,10 +20,8 @@ export function installationFor(item, content = EDITORIAL_CONTENT) {
       };
 }
 export function enrichItem(item, content = EDITORIAL_CONTENT) {
-  const summary = summaryFor(item, "zh", content);
   return {
     ...item,
-    description_zh: summary.pending ? null : summary.text,
     agents: content.platforms?.[item.repo] || item.agents,
   };
 }

@@ -2,22 +2,14 @@ import React from "react";
 import { App, Button, Space, Tag, Tooltip } from "antd";
 import { CopyOutlined, ExportOutlined } from "@ant-design/icons";
 import { AGENT_PLATFORMS, detectAgents } from "../domain";
-import { EDITORIAL_CONTENT, summaryFor, installationFor } from "../practical";
+import { EDITORIAL_CONTENT, installationFor } from "../practical";
 import { copyText } from "../clipboard";
-export function SummaryText({ item, lang, t }) {
-  const summary = summaryFor(item, lang);
+export function SummaryText({ item, t }) {
   return (
     <div className="practical-description">
-      <p className="description-clamp" title={summary.text}>
-        {summary.text || t("noDescription")}
+      <p className="description-clamp" title={item.description}>
+        {item.description || t("noDescription")}
       </p>
-      {summary.pending && (
-        <Tag className="summary-pending">
-          {t(
-            summary.reason === "changed" ? "summaryChanged" : "summaryPending",
-          )}
-        </Tag>
-      )}
     </div>
   );
 }

@@ -1,11 +1,5 @@
 import { test, expect } from "@playwright/test";
 import { readFileSync } from "node:fs";
-const descriptions = JSON.parse(
-  readFileSync(
-    new URL("../../config/descriptions.zh.json", import.meta.url),
-    "utf8",
-  ),
-);
 const ranking = JSON.parse(
   readFileSync(new URL("../../data/rankings.json", import.meta.url), "utf8"),
 );
@@ -19,9 +13,7 @@ test("practical information, editorial reasons and history provenance are visibl
   );
   await page.goto("./");
   const row = page.locator(".ant-table-row").first();
-  await expect(row).toContainText(
-    descriptions.entries[ranking.items[0].repo].summary_zh,
-  );
+  await expect(row).toContainText(ranking.items[0].description);
   await expect(row.getByText("Claude Code", { exact: true })).toBeVisible();
   await expect(
     row.getByRole("button", { name: "复制安装命令", exact: true }),
@@ -36,7 +28,7 @@ test("practical information, editorial reasons and history provenance are visibl
     .getByRole("searchbox")
     .fill("juliaError/econ-TopJournal-writing-Skill");
   await expect(page.locator(".ant-table-row")).toHaveCount(1);
-  await expect(page.locator(".ant-table-row")).toContainText("中文简介待补充");
+  await expect(page.locator(".summary-pending")).toHaveCount(0);
   await expect(
     page
       .locator(".ant-table-row")

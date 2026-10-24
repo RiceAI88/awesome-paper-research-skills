@@ -169,12 +169,6 @@ export function RepositoryDrawer({ item, state, update, t, fmt }) {
       {item && (
         <>
           <SummaryText item={item} lang={state.lang} t={t} />
-          {state.lang === "zh" && (
-            <details className="original-description">
-              <summary>{t("originalDescription")}</summary>
-              <p>{item.description}</p>
-            </details>
-          )}
           <InstallationActions item={item} lang={state.lang} t={t} details />
           <QualityBadges item={item} t={t} />
           <div className="drawer-statistics">

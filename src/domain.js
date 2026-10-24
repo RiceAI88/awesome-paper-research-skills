@@ -177,7 +177,6 @@ export function filterItems(items, state) {
       [
         item.repo,
         item.description,
-        item.description_zh,
         item.category?.zh,
         item.category?.en,
         item.trend?.zh,

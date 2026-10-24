@@ -160,8 +160,8 @@ The ranking requires **both** a skill/agent/workflow signal **and** an academic/
 
 MIT
 
-### 维护中文简介与编辑精选
+### 简介来源与编辑精选
 
-- `config/descriptions.zh.json`：按仓库名维护 `summary_zh` 与对应的 `source_description`。只有原文完全匹配时才显示中文；新增或原文变更时自动显示原文并标注待补充，不调用翻译服务。
+- 仓库简介直接使用 GitHub API 返回的原始 Description，由各仓库作者维护；本站不另行翻译或改写。
 - `config/editorial.json`：维护精选理由、项目文档来源、核对日期、平台与安装方式。安装命令必须核对官方说明；无可靠命令时仅提供文档入口。精选与自动榜单分开，随当前筛选条件显示。
 - 页面更新状态在加载时查询 GitHub Actions 公开 API，接口不可用时显示未知；状态描述数据采集任务，部署可能稍有延迟。

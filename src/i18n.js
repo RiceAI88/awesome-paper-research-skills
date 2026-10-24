@@ -1,8 +1,6 @@
 export const translations = {
   zh: {
     noDescription: "暂无简介",
-    summaryChanged: "原文已变更 · 中文待复核",
-    summaryPending: "中文简介待补充",
     platformDocumented: "平台已按项目文档核对",
     platformInferred: "平台根据仓库标签及简介识别，请以项目文档为准",
     platformUnspecified: "平台未注明",
@@ -11,7 +9,6 @@ export const translations = {
     docsChecked: "文档核对",
     installation: "安装方式",
     referenceMetrics: "参考指标",
-    originalDescription: "查看原始简介",
     editorialTitle: "编辑精选 · 值得先试",
     editorialSubtitle:
       "按具体科研任务挑选，推荐理由来自项目文档；不参与自动排名。随当前筛选条件显示。",
@@ -27,7 +24,7 @@ export const translations = {
     viewUpstreamHistory: "查看原项目历史数据快照",
     contentBasis: "简介与精选依据",
     contentBasisCopy:
-      "中文简介在本地维护；缺失或原文变更时显示原文并标记待补充。精选基于项目文档，未表示本站已实测。仅核对过的安装命令支持复制，其余链接至项目说明。",
+      "简介直接展示 GitHub 仓库作者填写的原始 Description，不另行翻译或改写。精选基于项目文档，未表示本站已实测。仅核对过的安装命令支持复制，其余链接至项目说明。",
     statusPublicApi:
       "更新状态来自 GitHub Actions 公开 API，页面加载时查询；接口不可用时显示未知。状态反映数据更新任务，不代表站点部署已完成。",
     dataUpdated: "数据更新时间",
@@ -142,8 +139,6 @@ export const translations = {
   },
   en: {
     noDescription: "No description",
-    summaryChanged: "Source changed · Chinese review pending",
-    summaryPending: "Chinese summary pending",
     platformDocumented: "Platforms checked against project documentation",
     platformInferred:
       "Platforms inferred from repository metadata; check project docs",
@@ -153,7 +148,6 @@ export const translations = {
     docsChecked: "Docs reviewed",
     installation: "Installation",
     referenceMetrics: "Reference metrics",
-    originalDescription: "Original description",
     editorialTitle: "Editor picks · Try these first",
     editorialSubtitle:
       "Task-based picks with reasons drawn from project docs, separate from automatic rankings. Matches your current filters.",
@@ -169,7 +163,7 @@ export const translations = {
     viewUpstreamHistory: "View original history snapshot",
     contentBasis: "Summaries and editorial sources",
     contentBasisCopy:
-      "Chinese summaries are maintained locally. Missing or changed descriptions fall back to the original and are marked for review. Picks are based on documentation, not hands-on testing. Only reviewed installation commands can be copied; other entries link to project instructions.",
+      "Descriptions are shown as written by repository authors in GitHub, without translation or rewriting. Picks are based on documentation, not hands-on testing. Only reviewed installation commands can be copied; other entries link to project instructions.",
     statusPublicApi:
       "Status comes from the public GitHub Actions API at page load; unavailable results are unknown. It describes the data update job, not completion of website deployment.",
     dataUpdated: "Data updated",

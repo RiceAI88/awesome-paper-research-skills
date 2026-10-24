@@ -1,7 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {
-  summaryFor,
   installationFor,
   editorialPicks,
   enrichItem,
@@ -14,12 +13,6 @@ const item = {
   agents: ["codex"],
 };
 const content = {
-  descriptions: {
-    "sample/tool": {
-      source_description: "Original summary",
-      summary_zh: "基于原文的中文简介",
-    },
-  },
   installations: {
     "sample/tool": {
       command: "npx skills add sample/tool",
@@ -36,22 +29,6 @@ const content = {
   ],
   platforms: { "sample/tool": ["claude-code", "codex"] },
 };
-test("Chinese summaries are valid only while the source description matches", () => {
-  assert.equal(summaryFor(item, "zh", content).text, "基于原文的中文简介");
-  assert.equal(
-    summaryFor({ ...item, description: "Changed" }, "zh", content).text,
-    "Changed",
-  );
-  assert.equal(
-    summaryFor({ ...item, description: "Changed" }, "zh", content).pending,
-    true,
-  );
-  assert.equal(
-    summaryFor({ ...item, repo: "new/tool" }, "zh", content).pending,
-    true,
-  );
-  assert.equal(summaryFor(item, "en", content).text, item.description);
-});
 test("unverified installation commands are not invented", () => {
   assert.equal(
     installationFor(item, content).command,
