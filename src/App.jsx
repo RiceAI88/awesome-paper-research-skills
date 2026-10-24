@@ -42,12 +42,18 @@ import {
   serializeState,
 } from "./domain";
 import { translations } from "./i18n";
+import { enrichItem } from "./practical";
+import { EditorialPicks } from "./components/EditorialPicks";
+import { UpdateStatus } from "./components/UpdateStatus";
+import { DataTransparency } from "./components/DataTransparency";
 import { RepositoryViews } from "./components/RepositoryViews";
 import { RepositoryDrawer } from "./components/RepositoryDrawer";
 import { ComparisonChart } from "./components/TrendCharts";
 
 const dataset = window.ACADEMIC_SKILLS_RANKINGS || {};
-const items = Array.isArray(dataset.items) ? dataset.items : [];
+const items = Array.isArray(dataset.items)
+  ? dataset.items.map((item) => enrichItem(item))
+  : [];
 const historyData = window.ACADEMIC_SKILLS_HISTORY || { series: {} };
 let storage;
 try {
@@ -336,7 +342,11 @@ function Dashboard({ state, update }) {
               <span>·</span>
               <span>No.{issue}</span>
               <span>·</span>
-              <span>{date}</span>
+              <UpdateStatus
+                generatedAt={dataset.metadata?.generated_at}
+                lang={state.lang}
+                t={t}
+              />
             </div>
             <h1>
               {state.lang === "zh" ? (
@@ -540,6 +550,7 @@ function Dashboard({ state, update }) {
             <Tag variant="borderless">{state.favorites.length}</Tag>
           </Button>
         </section>
+        <EditorialPicks items={visible} state={state} t={t} />
         <Card className="ranking-section" styles={{ body: { padding: 0 } }}>
           <div className="ranking-header">
             <div>
@@ -575,6 +586,12 @@ function Dashboard({ state, update }) {
             }}
           />
         </Card>
+        <DataTransparency
+          metadata={dataset.metadata || {}}
+          lang={state.lang}
+          t={t}
+          base={base}
+        />
         <section className="method-section">
           <div>
             <h2>{t("methodTitle")}</h2>

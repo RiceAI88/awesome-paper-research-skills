@@ -10,6 +10,11 @@ import {
   Typography,
 } from "antd";
 import { StarFilled, StarOutlined, SwapOutlined } from "@ant-design/icons";
+import {
+  SummaryText,
+  PlatformTags,
+  InstallationActions,
+} from "./PracticalInfo";
 import { Sparkline } from "./TrendCharts";
 import { safeExternalUrl } from "../domain";
 export function QualityBadges({ item, t }) {
@@ -95,70 +100,57 @@ export function RepositoryViews({
     </Typography.Link>
   );
   const columns = [
-    { title: "#", dataIndex: "rank", width: 55 },
+    { title: "#", dataIndex: "rank", width: 50 },
     {
       title: t("repo"),
       key: "repo",
-      width: 300,
+      width: 350,
       render: (_, item) => (
         <div>
           {link(item)}
-          <div className="repo-meta">
-            {item.language || "GitHub"}
-            {item.topics?.length
-              ? ` · ${item.topics.slice(0, 3).join(", ")}`
-              : ""}
-          </div>
+          <SummaryText item={item} lang={state.lang} t={t} />
           <QualityBadges item={item} t={t} />
         </div>
       ),
     },
     {
-      title: "Stars",
-      dataIndex: "stars",
-      width: 125,
-      render: (stars, item) => (
-        <div className="stars-value">
-          {fmt(stars)}
-          {item.star_delta_7d > 0 && <small>+{fmt(item.star_delta_7d)}</small>}
-        </div>
-      ),
+      title: t("drAgent"),
+      key: "platforms",
+      width: 190,
+      render: (_, item) => <PlatformTags item={item} t={t} />,
     },
     {
-      title: t("trend"),
-      key: "trend",
-      width: 130,
+      title: t("installation"),
+      key: "installation",
+      width: 250,
       render: (_, item) => (
-        <span className="trend-value">
-          {item.trend?.[state.lang] || item.trend?.en || "—"}
-        </span>
-      ),
-    },
-    {
-      title: t("spark"),
-      key: "spark",
-      width: 125,
-      render: (_, item) => (
-        <Sparkline repo={item.repo} history={history} label={t("noHistory")} />
+        <InstallationActions item={item} lang={state.lang} t={t} />
       ),
     },
     {
       title: t("category"),
       key: "category",
-      width: 115,
+      width: 120,
       render: (_, item) => <Tag color="purple">{cat(item)}</Tag>,
     },
     {
-      title: t("description"),
-      dataIndex: "description",
-      width: 260,
-      render: (value) => (
-        <div className="description-clamp" title={value}>
-          {value || "—"}
+      title: t("referenceMetrics"),
+      key: "metrics",
+      width: 180,
+      render: (_, item) => (
+        <div className="reference-metrics">
+          <span>
+            {fmt(item.stars)} Stars · +{fmt(item.star_delta_7d || 0)} / 7d
+          </span>
+          <span>{item.trend?.[state.lang] || "—"}</span>
+          <Sparkline
+            repo={item.repo}
+            history={history}
+            label={t("noHistory")}
+          />
         </div>
       ),
     },
-    { title: t("updatedCol"), dataIndex: "last_push_date", width: 110 },
     {
       title: "",
       key: "actions",
@@ -195,16 +187,16 @@ export function RepositoryViews({
               <Tag color="purple">{cat(item)}</Tag>
               <span className="trend-value">{item.trend?.[state.lang]}</span>
             </div>
-            <div className="card-stars">
-              {fmt(item.stars)} <small>Stars</small>
-            </div>
-            <p className="description-clamp">{item.description}</p>
-            <div className="card-chart">
+            <SummaryText item={item} lang={state.lang} t={t} />
+            <PlatformTags item={item} t={t} />
+            <InstallationActions item={item} lang={state.lang} t={t} />
+            <div className="reference-metrics card-metrics">
+              <span>
+                {fmt(item.stars)} Stars · +{fmt(item.star_delta_7d || 0)} / 7d
+              </span>
               <Sparkline
                 repo={item.repo}
                 history={history}
-                width={240}
-                height={32}
                 label={t("noHistory")}
               />
             </div>

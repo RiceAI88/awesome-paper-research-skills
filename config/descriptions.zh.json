@@ -1,0 +1,461 @@
+{
+  "reviewed_at": "2026-10-24",
+  "entries": {
+    "K-Dense-AI/scientific-agent-skills": {
+      "summary_zh": "面向科研任务的 Agent Skills 库，涵盖生物、化学、医学等领域，并整合科学数据库与研究工具。",
+      "source_description": "Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 250,000+ scientists worldwide. 177 ready-to-use validated skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery. Compatible with Cursor, Claude Code, Codex, Pi, Antigravity, and the open Agent Skills standard."
+    },
+    "Imbad0202/academic-research-skills": {
+      "summary_zh": "面向 Claude Code 的学术研究技能套件，按研究、写作、审阅、修订到定稿组织工作流。",
+      "source_description": "Academic Research Skills for Claude Code: research → write → review → revise → finalize"
+    },
+    "Yuan1z0825/nature-skills": {
+      "summary_zh": "提供 Nature 风格学术表达、论文阅读与科研绘图相关的可复用技能。",
+      "source_description": "符合nature论文学术表达和科研绘图的Skill"
+    },
+    "wanshuiyin/Auto-claude-code-research-in-sleep": {
+      "summary_zh": "用 Markdown 技能组织自主机器学习研究，涵盖想法探索、实验自动化与跨模型评审。",
+      "source_description": "ARIS ⚔️ (Auto-Research-In-Sleep) — Lightweight Markdown-only skills for autonomous ML research: cross-model review loops, idea discovery, and experiment automation. No framework, no lock-in — works with Claude Code, Codex, OpenClaw, or any LLM agent."
+    },
+    "Orchestra-Research/AI-Research-SKILLs": {
+      "summary_zh": "面向 AI 研究与工程的技能库，可与 Claude Code、Codex、Gemini 等研究工作流结合。",
+      "source_description": "Comprehensive open-source library of AI research and engineering skills for any AI model. Package the skills and your claude code/codex/gemini agent will be an AI research agent with full horsepower. Maintained by Orchestra Research."
+    },
+    "Imbad0202/academic-research-skills-codex": {
+      "summary_zh": "面向 Codex 的学术研究技能套件，强调人在流程中的确认与协作。",
+      "source_description": "Codex-native Academic Research Skills suite for human-in-the-loop academic research workflows"
+    },
+    "HKUSTDial/Supervisor-Skills": {
+      "summary_zh": "将科研指导经验整理为可调用的 AI 技能，覆盖想法构思到论文投稿。",
+      "source_description": "将博导十年科研经验炼化为可直接调用的 AI 技能。从 Idea 构思到论文投稿，你的 AI 科研副导师。"
+    },
+    "hoochanlon/hamuleite": {
+      "summary_zh": "汇总学术论文、教材与金融研报等资源，提供跨领域资料导航。",
+      "source_description": "🌊深度整合全球顶尖学术、金融与教育资源：学术板块汇聚 JSTOR、Taylor & Francis、剑桥大学出版社等权威平台的论文，并接入 Z-Library 影子图书馆的海量电子书；教育板块收录香港、新加坡从小学到高中以及大学学科教科书；金融板块则聚合香橼、摩根、野村等顶级机构的深度研报，只为打破信息孤岛，构建知识平权普惠知识库。"
+    },
+    "ChenLiu-1996/figures4papers": {
+      "summary_zh": "提供面向 AI 会议与期刊论文的科研绘图 Python 脚本。",
+      "source_description": "My Python scripts to make high-quality figures for publications in top AI conferences and journals."
+    },
+    "Master-cai/Research-Paper-Writing-Skills": {
+      "summary_zh": "面向机器学习、计算机视觉和自然语言处理论文写作的技能包，适配多种 Agent。",
+      "source_description": "Skill package for ML/CV/NLP paper writing, curated and adapted from Prof. Peng Sida's open notes for Codex, Claude Code, and Gemini."
+    },
+    "jihe520/MathModelAgent": {
+      "summary_zh": "面向数学建模的 Agent 与技能集合，覆盖建模分析及论文生成流程。",
+      "source_description": "🤖📐专为数学建模设计的 Agent & skills ,自动完成数学建模，生成一份完整的可以直接提交的论文。 An Agent Designed for Mathematical Modeling ,Automatically complete mathmodel and generate a complete paper ready for submission."
+    },
+    "zLanqing/codex-claude-academic-skills": {
+      "summary_zh": "面向中文科研用户，覆盖论文阅读与汇报、论文写作与审稿回复、MATLAB/Python 计算和绘图。",
+      "source_description": "本仓库包含三个面向学术科研人员的Skills，覆盖从文献阅读、论文写作到科学计算的完整研究工作流。office-academic-skill 负责论文阅读报告与学术 PPT/Word 文档生成；research-writing-skill 提供论文写作、润色与审稿回复辅助；scientific-toolkit-skill 整合 MATLAB/Python 科学计算与期刊级图表生成。三个 Skill 专为中文科研用户设计，可在 Claude Code 和 codex 中一键调用。"
+    },
+    "brycewang-stanford/Auto-Empirical-Research-Skills": {
+      "summary_zh": "面向社会科学实证研究的 Agent Skills 集合，覆盖多个学科的研究工作流。",
+      "source_description": "🔬 A curated collection of 23,000+ agent skills for empirical research across 8 social science disciplines. | 精选 23,000+ AI Agent 技能库，覆盖8大社会科学学科的实证研究。CoPaper.AI 20分钟完成一篇可复现的规范实证论文，并支持用户上传 Skills。-- Maintained by CoPaper.AI from Stanford REAP."
+    },
+    "Adkid-Zephyr/anti-defensive-writing-Skill": {
+      "summary_zh": "提供中英文学术写作原则与提示词，帮助减少防御性、过度自我辩护的论文表达。",
+      "source_description": "极致轻量｜阻止论文的防御性写作 | Anti-defensive writing for academic papers — 学术写作原则 Skill + prompt pack (CN/EN)"
+    },
+    "Norman-bury/research-writing-skill": {
+      "summary_zh": "用于辅助科研论文写作的技能集合。",
+      "source_description": "科研写作助手 (Research Writing Assistant)"
+    },
+    "yilewang/llm-for-zotero": {
+      "summary_zh": "围绕 Zotero 文献库构建的开源科研 Agent 系统。",
+      "source_description": "An open-source research agent system for your Zotero library."
+    },
+    "OpenNSWM-Lab/FAROS": {
+      "summary_zh": "以研究蓝图组织自动科研流程，串联想法生成、实验、论文写作与同行评审。",
+      "source_description": "A blueprint-driven AutoResearch runtime for orchestrating AI research workflows from idea generation and experiments to paper writing and peer review."
+    },
+    "huangwb8/ChineseResearchLaTeX": {
+      "summary_zh": "汇集中国科研场景中常用的 LaTeX 模板。",
+      "source_description": "中国科研常用LaTeX模板集"
+    },
+    "openags/paper-search-mcp": {
+      "summary_zh": "通过 MCP、命令行与 Skills 从 arXiv、PubMed、bioRxiv 等多个来源检索和下载论文。",
+      "source_description": "MCP, CLI, Skills for searching and downloading academic papers from multiple sources like arXiv, PubMed, bioRxiv, etc."
+    },
+    "LigphiDonk/academic-figure-generator": {
+      "summary_zh": "根据论文内容生成科研配图提示词与图片，并提供供 Agent 使用的配套技能。",
+      "source_description": "AI 驱动的学术论文配图生成平台。上传论文 → AI 分析内容生成 Prompt → 一键生成高质量科研配图，还有配套的skill可在主流agent中使用"
+    },
+    "HughYau/AcademicForge": {
+      "summary_zh": "汇集学术写作与研究技能，支持按需要配置科研工作流。",
+      "source_description": "One Forge, All Skills: A curated skill collection for academic writing and research.  点开即用，按需配置的一站式学术研究skills平台。"
+    },
+    "AIScientists-Dev/academic-humanizer": {
+      "summary_zh": "辅助调整论文和基金申请书中的 AI 风格表达，保留学术语气并将论断与证据关联。",
+      "source_description": "Strip AI-writing tells from papers and grant proposals (NSF/NIH), while keeping scholarly voice and tying claims to evidence. A skill for Claude Code, Codex, and MorphMind."
+    },
+    "llmsresearch/paperbanana": {
+      "summary_zh": "用于自动生成学术图表、示意图等研究视觉材料的 PaperBanana 开源实现及扩展。",
+      "source_description": "Open source implementation and extension of Google Research’s PaperBanana for automated academic figures, diagrams, and research visuals, expanded to new domains like slide generation."
+    },
+    "Weizhena/Deep-Research-skills": {
+      "summary_zh": "适用于 Claude Code、OpenCode 与 Codex 的结构化深度研究技能，支持人工控制研究过程。",
+      "source_description": "Structured deep research skill for Claude Code/Open Code/Codex with human-in-the-loop control"
+    },
+    "yb2460/harness-anything": {
+      "summary_zh": "为 AI Agent 提供 WPS、Office、Zotero 等应用与命令行工具的操作入口，并包含学术技能。",
+      "source_description": "Harness Anything - AI agent control hub: WPS, MS Office, Zotero, Photoshop, 47 CLI commands, 27 academic skills, SVG-to-PPTX"
+    },
+    "bohyy/academic-ai-prompt": {
+      "summary_zh": "面向研究生与研究者的提示词库，涵盖选题评估、论文查找、文献综述和论证模板。",
+      "source_description": "一套为研究生和学术研究者设计的完整AI Prompt库  📖 包含内容： ✨ 40+ 精心设计的AI Prompt ✨ 论文选题系统方法（生成、评估、论证） ✨ 论文查找快速方案（8个不同方案） ✨ 文献综述框架和工具 ✨ Excel自动评估表格 ✨ 3个完整的论证模板  🚀 核心优势： ⚡ 节省时间 50-70%（选题3-5天而不是2-3周） 🎯 科学方法（基于系统的5维度评估体系） 💡 即插即用（所有Prompt直接复制可用） 📚 全流程覆盖（从选题到出版的完整方案）  🎓 适用人群： 👨‍🎓 硕士研究生 | 博士研究生 | 本科毕业设计 | 学术研究者 | 内容创作者  "
+    },
+    "aipoch/medical-research-skills": {
+      "summary_zh": "面向医学研究的技能集合，涵盖研究方案、数据分析、证据整理与学术写作。",
+      "source_description": "Hundreds of agent skills for medical research, including protocol design, data analysis, evidence insights, and academic writing."
+    },
+    "XiaoMaColtAI/math-modeling-skill": {
+      "summary_zh": "面向数学建模竞赛，串联建模分析、Python/MATLAB 编程与 DOCX 论文生成。",
+      "source_description": "数学建模技能 - 面向 CUMCM、MCM/ICM 等数学建模竞赛的三阶段工作流：建模分析、Python/MATLAB 编程与 DOCX 论文生成。包含丰富的算法资源库(优化/预测/评价/图论/机器学习等)、角色指导文档、论文模板和实用工具脚本"
+    },
+    "VoltAgent/awesome-ai-agent-papers": {
+      "summary_zh": "收集 AI Agent 研究论文，覆盖工程、记忆、评估、工作流与自主系统等主题。",
+      "source_description": "A curated collection of AI agent research papers released in 2026, covering agent engineering, memory, evaluation, workflows, and autonomous systems."
+    },
+    "delibae/claude-prism": {
+      "summary_zh": "基于 Claude 的本地科学写作工作台，结合 LaTeX、Python 与科研技能。",
+      "source_description": "An offline-first scientific writing workspace powered by Claude. LaTeX + Python + 100+ scientific skills all running locally."
+    },
+    "juliye2025/evil-read-arxiv": {
+      "summary_zh": "结合 Claude Code 与 Obsidian 的论文阅读技能与工作流。",
+      "source_description": "Claude Code+Obsidian，邪修读论文就是快"
+    },
+    "pedrohcgs/claude-code-my-workflow": {
+      "summary_zh": "面向学者的 Claude Code 项目模板，结合 LaTeX/Beamer、R、多 Agent 评审和复现协议。",
+      "source_description": "A ready-to-fork Claude Code template for academics using LaTeX/Beamer + R. Multi-agent review, quality gates, adversarial QA, and replication protocols."
+    },
+    "PaperDebugger/paperdebugger": {
+      "summary_zh": "面向编辑器内学术写作、评审与修改的插件式多 Agent 系统。",
+      "source_description": "A Plugin-Based Multi-Agent System for In-Editor Academic Writing, Review, and Editing"
+    },
+    "lishix520/academic-paper-skills": {
+      "summary_zh": "用 Claude Code 规划和撰写学术论文，包含策略规划、正文写作及质量检查环节。",
+      "source_description": "Systematic framework for planning and writing academic papers using Claude Code. Includes strategist (planning) and composer (writing) skills with quality checkpoints."
+    },
+    "zsyggg/paper-craft-skills": {
+      "summary_zh": "面向论文的 Claude Code 技能，涵盖深度分析、图文呈现与速览总结。",
+      "source_description": "Claude Code skills for academic papers: deep analysis, comics, summaries | 论文工艺：深度解读、漫画生成、速览总结"
+    },
+    "Kiterlin/anti-defensive-writing": {
+      "summary_zh": "面向 Codex 的学术写作技能，帮助减少防御性表达并强化行文。",
+      "source_description": "Codex skill for removing defensive writing and strengthening prose."
+    },
+    "brycewang-stanford/Awesome-Journal-Skills": {
+      "summary_zh": "面向不同期刊的 Claude Code/Codex 技能包，覆盖选题、识别策略、表格规范及审稿回复。",
+      "source_description": "Journal-specific Claude Code/Codex skill packs covering mainstream journals — AER, QJE, Nature, Cell, 管理世界, 经济研究 & 200+ more — your fast track to getting published. ｜ 覆盖主流期刊的 Claude Code/Codex 期刊技能包，从选题、识别策略到表格规范与审稿回复全流程，助你快速发论文。"
+    },
+    "Spark-To-Paper-Skills/paperjury": {
+      "summary_zh": "面向投稿前的 AI 评审压力测试，按评审、判断、修订与核验组织论文检查。",
+      "source_description": "Pre-submission AI review stress-test for research papers. A Claude Code skill: review, verdict, revise, verify."
+    },
+    "199-biotechnologies/claude-deep-research-skill": {
+      "summary_zh": "包含八阶段流程的深度研究技能，提供来源可信度评分与自动核验。",
+      "source_description": "Enterprise-grade deep research skill for Claude Code with 8-phase pipeline, source credibility scoring, and automated validation. Outperforms OpenAI, Gemini, and Claude Desktop in quality and verification."
+    },
+    "OpenLAIR/dr-claw": {
+      "summary_zh": "面向科研场景的 AI 助手与研究工作台项目。",
+      "source_description": "A Super AI Lab with massive AI Doctors as Assistants. Best IDE for Research via AI Power. "
+    },
+    "pengjunchi0/codex-visio-paper-figure-skill": {
+      "summary_zh": "面向 Codex 的科研绘图技能，可将图片或生成图转为 Visio 等可编辑格式。",
+      "source_description": "科研绘图skill、论文绘图skill、图片转visio等可编辑格式，将生成图转化为论文可编辑图，便于作者调整绘图细节"
+    },
+    "Edwardxlai/easyread": {
+      "summary_zh": "将英文 PDF 论文转为便于中文阅读的形式，支持原文对照、阅读问答与文献管理。",
+      "source_description": "把英文论文读成舒服的中文：本地 PDF 论文翻译、原文对照、边读边问 AI、文献管理。Read English papers in comfortable Chinese."
+    },
+    "cookjohn/cnki-skills": {
+      "summary_zh": "供 Claude Code 检索知网、浏览期刊、下载 PDF 并导出至 Zotero 的技能，使用浏览器 MCP。",
+      "source_description": "CNKI (中国知网) skills for Claude Code — search, browse journals, download PDFs, export to Zotero via Chrome DevTools MCP"
+    },
+    "LeonChaoX/qinyan-academic-skills": {
+      "summary_zh": "多语言学术研究技能库，覆盖文献发现、论文写作、基金、生物信息、临床研究与数据分析。",
+      "source_description": "A curated, multilingual library of 182 installable AI agent skills for end-to-end academic research—spanning literature discovery, scientific writing, grant development, bioinformatics, drug discovery, clinical research, machine learning, and data analysis."
+    },
+    "alephpi/Texo": {
+      "summary_zh": "可在浏览器中运行的轻量 LaTeX 公式识别模型，并提供训练与复现代码。",
+      "source_description": "A minimalist SOTA LaTeX OCR model with only 20M parameters, running in browser. Full training pipeline available for self-reproduction. | 超轻量SOTA LaTeX公式识别模型，仅20M参数量，可在浏览器中运行。训练全流程代码开源，以便自学复现。"
+    },
+    "Trae1ounG/paper-plot-skills": {
+      "summary_zh": "用于复现顶会论文图表和绘制科研图表的技能集合。",
+      "source_description": "Top-Conference Paper Figure Reproduction & Plotting Skills | 顶会论文图表复现绘制Skills"
+    },
+    "Light0305/Light-skills": {
+      "summary_zh": "面向科研、竞赛和创新项目的 AI 工作流技能包。",
+      "source_description": "An AI workflow skill pack for research, competitions, and innovation projects."
+    },
+    "ganzhi-black/humanities-thesis-skill": {
+      "summary_zh": "面向人文社科论文写作，覆盖选题到发表，并提供学术数据库、审查规则和防幻觉检查。",
+      "source_description": "AI skill for humanities thesis writing — from topic selection to publication. 8 academic databases, 21 review rules, anti-hallucination guardrails. 人文社科论文写作 AI Skill"
+    },
+    "LigphiDonk/Oh-my--paper": {
+      "summary_zh": "将 Claude Code 终端工作流串联为文献综述、实验执行与论文写作流程的插件。",
+      "source_description": "A Claude Code plugin that turns your terminal into an autonomous research lab — literature survey, experiment execution, paper writing, all in one pipeline."
+    },
+    "M1n-n9/paper-lifecycle": {
+      "summary_zh": "面向 Codex 的论文全生命周期分析与修订技能。",
+      "source_description": "Codex skill for full academic paper lifecycle analysis and revision"
+    },
+    "cheneternity/Zotero-Analytical-Workflow-Skills": {
+      "summary_zh": "将 Zotero 论文转换并导入 Obsidian，提供文献管理、精读和笔记模板。",
+      "source_description": "主要是用于zotero论文导入obsidian的转换和管理，包括论文精读和精读模板"
+    },
+    "Ar9av/PaperOrchestra": {
+      "summary_zh": "通过编码 Agent 组织研究论文写作，结合基准评估与自动评分流程。",
+      "source_description": "An automated AI research-paper writer based off Google's PaperOrchestra paper's implementation through a skills -  benchmark + autoraters using any coding agent (Claude Code, Cursor, Antigravity, Cline, Aider). No API keys, no LLM SDKs."
+    },
+    "7toCR/paper2patent": {
+      "summary_zh": "面向科研成果转化的论文转专利模板与技能，涵盖中国发明专利文本和附图生成。",
+      "source_description": "📄→💡 Paper2Patent：面向科研成果转化的论文转专利智能模板库，提供 Flash/Pro Prompt、专利附图生成与 Agent Skills，辅助规范生成中国发明专利申请文本。"
+    },
+    "hanlulong/econ-writing-skill": {
+      "summary_zh": "面向经济学论文写作的 Agent Skill，整理多位研究者的写作指南，适用于 Claude Code 和 Codex。",
+      "source_description": "Agent Skill that transforms AI assistants into expert economics paper writers. Synthesizes 50+ guides by Cochrane, McCloskey, Shapiro, Head, Bellemare, Goldin, Kremer. Compatible with Claude Code and OpenAI Codex."
+    },
+    "Doryoku1223/lunwen-skill": {
+      "summary_zh": "面向计算机专业本科论文初稿，支持样文、开题报告和模板，并辅助生成流程图与 ER 图。",
+      "source_description": "面向本科计科学生的一键论文初稿 Skill，支持样文/开题报告/模板驱动生成，并补全流程图、ER 图和项目截图"
+    },
+    "xiaofenggan01/aigc-reduce": {
+      "summary_zh": "面向 Claude Code 的学术文本改写技能，项目关注 AI 生成文本检测结果。",
+      "source_description": "降低学术论文 AIGC 查重率的 Claude Code Skill | A Claude Code skill for reducing AIGC detection rates in academic papers"
+    },
+    "jimmc414/Kosmos": {
+      "summary_zh": "基于 Kosmos 研究的 AI 科研实现，通过 Claude Code 或 API 组织自主发现流程。",
+      "source_description": "Kosmos: An AI Scientist for Autonomous Discovery - An implementation and adaptation to be driven by Claude Code or API - Based on the Kosmos AI Paper -  https://arxiv.org/abs/2511.02824"
+    },
+    "xiao24bei/xiaobei-skill": {
+      "summary_zh": "面向 Codex 的科研技能合集，包含图片转 VBA、学术论文转 PPT 等工作流。",
+      "source_description": "小北在读研开源 Codex Skills 合集：Image to VBA、Academic Paper to PPT 等 AI + 科研工作流。"
+    },
+    "1692775560/dsh-Mimir-Academic-research": {
+      "summary_zh": "一站式科研工作台插件，涵盖 LaTeX 编译、arXiv 文献、实验追踪、图表和远程 GPU 任务。",
+      "source_description": "Mimir — 一站式科研工作台插件：LaTeX 论文边写边编译、arXiv 文献管理、实验追踪、指标图表、GPU 服务器 SSH 任务编排，管理科研全周期。An open-source research workbench plugin for the whole research cycle."
+    },
+    "yjz211/vivid-illustration-skill": {
+      "summary_zh": "依据数据与绘图配方生成科研图表，交付图片及源码；项目限定个人非商业使用。",
+      "source_description": "让 AI 用你的数据生成科研图表：108 个配方，鲜艳与稳重两种风格，多套配色，交付图片与源码。仅限个人非商业使用。"
+    },
+    "TingxiYu/academic-figure-skill": {
+      "summary_zh": "面向科研配图生成的技能，覆盖数据理解、图表类型推荐与格式要求。",
+      "source_description": "A skill for academic research figure generation that autonomously handles the full workflow — data understanding, chart type recommendation, and format-compliant generation."
+    },
+    "alfonso0512/research-writing-skill": {
+      "summary_zh": "用提示词模板辅助论文写作、翻译润色、文献综述、投稿回复与基金申请。",
+      "source_description": "🎓 AI 科研论文写作助手 - 30 个 Prompt 模板覆盖论文写作全流程。支持中英文翻译、润色、文献综述、投稿回复、基金申请等。"
+    },
+    "claesbackman/AI-research-feedback": {
+      "summary_zh": "面向学术研究评审的 Claude Code 技能集合。",
+      "source_description": "A collection of Claude Code skills for academic research review. These tools were developed by Claes Bäckman."
+    },
+    "hkcanan/katmer-code": {
+      "summary_zh": "Obsidian 的多模型 AI 侧边栏，提供 Claude、Gemini、Codex 等接入及学术研究技能。",
+      "source_description": "Multi-provider AI sidebar for Obsidian — Claude, Gemini, Codex, Antigravity. Per-tab routing, same-tab consult, inline diff, CLAUDE.md auto-mirror, academic research skills."
+    },
+    "modelscope/Awesome-Vibe-Research": {
+      "summary_zh": "面向 AI 辅助科研的资源集合，整理科研全流程的 Agent、Skills、工作流与实践。",
+      "source_description": "An open, collaboratively-built repository for AI-assisted scientific research — collecting and curating agents, skills, workflows, tools, and best practices across the full research lifecycle. 面向 AI 辅助科研的开放共建仓库 收集和沉淀科研全流程中的 agents、skills、workflows、tools 与最佳实践"
+    },
+    "Adkid-Zephyr/oral-paper-skill": {
+      "summary_zh": "从 Oral 论文摘要中整理研究与写作模式，用于对照改进论文和研究复盘。",
+      "source_description": "向顶会优秀论文学科研｜Oral Paper Skill — 从 883 篇 Oral 论文摘要中“蒸馏”共通做法，用于论文对照改进与学习复盘 · Skill + prompt pack (CN/EN). Learn from 883 Oral paper abstracts to improve your research and writing."
+    },
+    "fcakyon/phd-skills": {
+      "summary_zh": "面向 Claude Code 的博士科研技能，覆盖论文复现、实验设计、论文评审和结果对比。",
+      "source_description": "PhD Research Skills for Claude Code: paper reproduction, experiment design, paper review, result comparison and more."
+    },
+    "LimHyungTae/awesome-claudecode-paper-proofreading": {
+      "summary_zh": "用于 Claude Code 辅助科研论文校对的提示词。",
+      "source_description": "Claude Code-driven research paper proofreading prompt"
+    },
+    "fakerqwq/social-science-paper-writing-skill": {
+      "summary_zh": "面向社会科学论文写作的 Codex/ChatGPT 技能，覆盖选题、大纲、文献、证据检查与投稿准备。",
+      "source_description": "social-science-paper-writing 是一个面向社会科学论文写作的 Codex/ChatGPT skill，用于辅助完成选题诊断、研究问题细化、论文大纲搭建、文献综述规划、CNKI/Google Scholar 到 Zotero 的文献工作流、草稿评审、章节修订、引用与证据风险检查，以及投稿前检查。  它的核心目标不是“把文字润色得更像论文”，而是帮助作者把论文写成一个可检验、可论证、证据和方法相匹配的社会科学研究。"
+    },
+    "Lupynow/math-modeling-skills": {
+      "summary_zh": "覆盖国赛和美赛题型的数学建模技能工具链，串联赛题分析与论文交付。",
+      "source_description": "数学建模竞赛完整工具链：从拿到赛题到交出论文，一条龙解决。  覆盖 国赛 CUMCM（A/B/C） 和 美赛 MCM/ICM（A-F） 全部题型。"
+    },
+    "CloudWave818/ieee-skills": {
+      "summary_zh": "面向 IEEE 风格论文的 Codex 技能，覆盖写作、润色、评审、实验、图表与引用。",
+      "source_description": "面向 IEEE 风格论文写作、润色、审稿、实验、图表、LaTeX、引用和论文阅读的 Codex skills。"
+    },
+    "WenyuChiou/ai-research-skills": {
+      "summary_zh": "面向多种 Agent 的科研 SKILL.md 目录，涵盖文献综述、研究设计、项目记忆和论文写作。",
+      "source_description": "Universal SKILL.md catalog for research workflows: literature review, research design, project memory, manuscript writing, and cross-agent delegation for Claude Code, Codex, Gemini, Cursor, OpenClaw, and generic AI clients."
+    },
+    "Rimagination/instsci": {
+      "summary_zh": "提供学术论文检索，结合开放获取回退和浏览器支持的机构访问。",
+      "source_description": "InstSci: academic paper retrieval with Open Access fallback and browser-backed institutional access for AI agents and CLI workflows."
+    },
+    "chtc66/academic-skills": {
+      "summary_zh": "覆盖论文阅读、综述写作、实验总结、审稿回复与课题组周报的学术技能。",
+      "source_description": "Academic workflow skills for paper reading, survey writing, experiment summarization, rebuttal drafting, and weekly lab updates."
+    },
+    "wp-a/nature-academic-search": {
+      "summary_zh": "面向中文科研用户的跨源论文检索 Skill 与 MCP，涵盖去重、引用核验、引文图谱和审计导出。",
+      "source_description": "Academic Paper Search：中文科研用户的 Codex / Claude Code / DeepSeek Harness Skill + MCP；跨 CrossRef、PubMed、arXiv、OpenAlex、Europe PMC 检索去重，支持 MeSH、引用核验、引文图谱、试验检索与审计导出。"
+    },
+    "lzh-phd/topic-feasibility-screener": {
+      "summary_zh": "辅助把研究想法展开为候选选题，并结合文献检索与初步回归评估可行性。",
+      "source_description": "有大致的想法不知道怎么选题？只要给这个skills扔点数据，他能自动帮你延伸出多个idea，检索文献，并帮你跑初步回归验证实证可行性和理论可行性，最后打分排名，让你的科研第一步不再难堪！"
+    },
+    "zheng95z/teach-yourself-research": {
+      "summary_zh": "帮助学习科研基础能力的资源仓库，包括技术写作、论文阅读、汇报和笔记。",
+      "source_description": "This repo is expected to help you develop basic research skills, including technical writing, paper reading, presentation, note-taking, etc."
+    },
+    "LMDHQ-0420/ResearchPilot-Skills": {
+      "summary_zh": "自动化科研工作流技能，涵盖方向探索、文献综述、想法发展、实验、代码与论文写作。",
+      "source_description": "Automated Academic Research Workflow Skill. From direction exploration, literature review, and idea development to experiment design, code implementation, and paper writing."
+    },
+    "yipng05-max/-skills": {
+      "summary_zh": "覆盖选题、综述、研究设计、数据收集分析、论文写作与学术阅读的科研技能集合。",
+      "source_description": "由学术志联合创始人一平博士创立。涵盖学术科研各场景包括选题、文献综述、研究设计、数据收集、数据分析、期刊论文写作、博士论文写作、学术阅读等的高质量skills"
+    },
+    "wentorai/research-plugins": {
+      "summary_zh": "面向 Research-Claw 与 AI Agent 的学术研究技能、MCP 配置和插件集合。",
+      "source_description": "350+ academic research skills, MCP configs, and plugins for Research-Claw and AI agents"
+    },
+    "hrdZhu/modelviz-skill": {
+      "summary_zh": "面向数学建模与科研写作的绘图技能，利用可独立运行的模板生成可复现图表。",
+      "source_description": "数学建模AI科研skill可视化绘图：ModelViz 是一个面向数学建模竞赛与科研写作场景的可视化 Skill。项目内置上百个覆盖多种建模场景的高质量科研绘图模板，将不同功能的图表按统一类别和编号管理，并确保模板源码可独立运行、稳定输出图片。后续系统将通过结构化模板信息、数据特征分析与检索规则，根据用户上传的数据和自然语言需求，推荐适合的图表类型、字段映射与配色方案，再调用对应模板生成可复现的 PNG、SVG 或 PDF 图像。项目重点解决通用大模型直接生成绘图代码时风格不统一、运行不稳定、参数难复用等问题，强调模板驱动、配置清晰、结果可复现和科研表达规范。"
+    },
+    "zouchenzhen/thesis-defense-pptx-skill": {
+      "summary_zh": "从论文 PDF 或 LaTeX 生成可编辑答辩 PPTX，并保留指定 PowerPoint 模板风格。",
+      "source_description": "Codex / Claude Skill for editable thesis-defense PPTX from PDF or LaTeX while preserving a PowerPoint template. 从论文 PDF / LaTeX 生成可编辑答辩 PPTX，并保留指定 PPT 模板风格。"
+    },
+    "maxwell2732/codex-stata-for-economists": {
+      "summary_zh": "面向经济学研究者的 Codex 与 Stata 分析工作流。",
+      "source_description": "A Codex Stata pipeline for Economists by 朱晨 | 遗传社科研究"
+    },
+    "cpt13-g/clarify-research-idea": {
+      "summary_zh": "用六阶段 Codex 工作流，将模糊研究方向整理为可证伪、有证据支持的研究想法说明。",
+      "source_description": "Turn vague research directions into falsifiable, evidence-grounded Research Idea Briefs with a six-stage Codex workflow."
+    },
+    "jihe520/sci-box": {
+      "summary_zh": "提供可供 Agent 调用的科研绘图复刻模板，辅助生成图表。",
+      "source_description": "sci-box 提供一组可直接调用的科研绘图复刻模板，帮助 Agent 快速生成高质量图表。sci-box provides a set of directly callable scientific drawing replication templates to help Agents quickly generate high-quality charts."
+    },
+    "0Antique/Auto-Visio-Helper": {
+      "summary_zh": "通过 Codex 操作本地 Visio，将自然语言或参考图片转成可编辑科研图，并支持预览导出。",
+      "source_description": "用于帮助Codex操作本地Visio生成可编辑科研绘图的skill，支持自然语言转图、图片复现、JVSDX 生成和预览导出。欢迎大家使用~~"
+    },
+    "SNL-UCSB/paper-writing-skill": {
+      "summary_zh": "面向 Claude Code 的论文写作技能，结合编辑原则、章节表达与从构思到压缩修订的流程。",
+      "source_description": "A Claude Code skill that encodes battle-tested editorial principles, section-specific rhetorical moves, and a structured writing pipeline for research papers. Brainstorm → Draft 0 → Evaluate → Write → Compress."
+    },
+    "Haojae/scipilot-writing-skill": {
+      "summary_zh": "学术写作与润色助手，结合写作质量检查和审稿人自查形成核验链条。",
+      "source_description": "SciPilot family: academic writing and polishing co-pilot, with a machine-checked writing-quality evidence chain (AI-tell linter + reviewer self-check loop)."
+    },
+    "brycewang-stanford/Auto-Research-Skills": {
+      "summary_zh": "汇集自主科研技能与 Agent，覆盖从研究想法到论文的工作流。",
+      "source_description": "A curated hub of autonomous-research skills & agents — from idea to paper, on autopilot. | 自主科研技能与智能体精选库 —— 从灵感到论文全文，全程自动完成。"
+    },
+    "ShZhao27208/Aut_Sci_Write": {
+      "summary_zh": "科研 Agent 技能套件，涵盖文献检索下载、PDF 提取、图件裁剪、综述、Zotero 和汇报生成。",
+      "source_description": " Academic research skills suite for AI Agent — literature search/download (WoS+Elsevier+Springer), PDF   extraction, figure cropping, review writing, Zotero sync, and PPT/Html generation. "
+    },
+    "yanlin-cheng/skill-thesis-writer": {
+      "summary_zh": "面向本科与研究生论文写作，结合多学科写作、数据分析与符合国标的参考文献管理。",
+      "source_description": " 一个专为本科/研究生论文写作设计的AI技能，支持工科、心理学、教育学、管理学等多学科领域，提供符合中国学术规范（GB/T 7714-2015）的论文写作、数据分析、参考文献管理一体化解决方案。"
+    },
+    "stephenlzc/AI-Powered-Literature-Review-Skills": {
+      "summary_zh": "用八阶段流程与多 Agent 组织系统性学术文献综述。",
+      "source_description": "AI驱动的系统性学术文献回顾工具 | AI-Powered Literature Survey Tool with 8-Phase Workflow & Agent Swarm Architecture"
+    },
+    "congcongwang0122/zotero-skill": {
+      "summary_zh": "围绕 Zotero 文献库整理和总结论文，并辅助生成综述。",
+      "source_description": "「帮我整理总结一下 Zotero 中 XXX 栏所有的文献，并生成一个一万字的综述」**—— 这句话，现在真的可以被实现了。"
+    },
+    "STRYXTN/awesome-ai-research-writing": {
+      "summary_zh": "收集 AI 论文写作提示词模板与 Agent Skills。",
+      "source_description": "来自顶尖研究机构的 AI 论文写作 Prompt 模板库与 Agent Skills 集合 ✨"
+    },
+    "DQXCJ-a11y/thesis-skill-hub": {
+      "summary_zh": "聚合硕士论文审查与写作技能，并整理为可使用的 SKILL.md。",
+      "source_description": "硕士论文审查与写作SKILL聚合项目 | 持续收录GitHub上最优质的论文写作skill并归纳为一份可直接使用的SKILL.md"
+    },
+    "z-liu-xiugou/research-workbench-assistant": {
+      "summary_zh": "面向 Codex 的本地科研记忆工具，提供检查点、进度记录及 Markdown/JSON 论文笔记，处于早期阶段。",
+      "source_description": "Local-first research memory for Codex: checkpoints, progress ledgers, and Markdown/JSON paper notes. Early alpha."
+    },
+    "wilbert-MD-PhD/medical-illustration": {
+      "summary_zh": "面向科研 Agent 的医学绘图技能，根据证据制作医学插画、科普漫画与示意图，并保留可编辑成果。",
+      "source_description": "面向 Codex、Claude Code 等 AI Agent 的医学绘图 Skill，基于可信证据制作医学插画、科普漫画与科研示意图，提供可编辑成果与审核记录。 · Evidence-backed medical illustration, comics and research figures for Codex, Claude Code and other AI agents, with editable output and review records."
+    },
+    "Drchronx/ai-agent-research-starter-kit": {
+      "summary_zh": "面向学生的科研 Agent 入门教学包，覆盖工具部署、文献、实验、数据分析、论文写作与投稿准备。",
+      "source_description": "AI Agent 科研全流程教学包，能教学生从零部署 Codex、Claude Code、OpenClaw、Hermes 等 Agent，学会使用 Skills、飞书、AMiner、AI4Scholar、Zotero、Obsidian 等工具，完成真实文献检索、文献日报、知识库搭建、选题生成、理论建构、情景实验设计、量表开发、统计分析、因果推断、文本挖掘、EEG/ERP 实验、BCI 脑电智能建模、论文写作、审稿自查、期刊排版和盲审投稿包制作；学生学完后可以按课程模板一步步让 AI Agent 协助完成从“找文献、定选题、做实验、分析数据”到“写论文、查引用、改格式、准备投稿”的完整科研流程。"
+    },
+    "aspi6246/Claude-Code-Skills-for-Academics": {
+      "summary_zh": "面向学术研究者的 Skills 集合；项目简介未进一步列出具体能力。",
+      "source_description": "A collection of Skills for academics."
+    },
+    "Liuxiangjian-ai/reference-checker-skill": {
+      "summary_zh": "逐条核验参考文献真实性的投稿前检查技能。",
+      "source_description": "逐条检查参考文献是否真实 /An exhaustive pre-submission reference verification skill for checking scholarly references item by item."
+    },
+    "SmBai1998/sci-ps-skill": {
+      "summary_zh": "按参考图拆解与生成素材，并通过 Photoshop 分层重建科研图，输出可继续编辑的 PSD。",
+      "source_description": "科研绘图不再只是 AI 生一张图。这个 Skill 会自动分析参考图、拆解组件、生成素材，再进入 Photoshop 按图层逐步重建，并对位置、大小、形状、透视、色调、阴影、光效和遮挡关系进行逐层校准。最终不是一张扁平图片，而是一份可以继续修改的完整 PSD。Science 封面、Nature 风格机制图、3D 科研示意图都可以按这套流程处理。"
+    },
+    "flonat/flonat-research": {
+      "summary_zh": "面向博士研究者的 Claude Code 与 Codex 基础配置，包含技能、Agent、钩子和工作规则。",
+      "source_description": "Shareable Claude Code + Codex infrastructure for PhD researchers — skills, agents, hooks, and rules for academic workflows"
+    },
+    "0xE1337/thesis-figure-skill": {
+      "summary_zh": "将论文文本转成 LaTeX/TikZ 学术示意图的 Claude 技能。",
+      "source_description": "🎓 Claude Skill: Paste your paper text, auto-generate publication-ready LaTeX/TikZ diagrams. 粘贴论文文案，自动生成学术级配图。"
+    },
+    "xujingchen1996/research-app-toolkit": {
+      "summary_zh": "面向博士、MRes、MPhil 等研究学位申请的 Claude Code 插件。",
+      "source_description": "Research Application Toolkit - Claude Code plugin for PhD, MRes, MPhil applications"
+    },
+    "wycmochi/cn-academic-spark": {
+      "summary_zh": "根据论文、报告等材料生成可编辑学术 PPTX，支持答辩、组会、开题和综述等场景。",
+      "source_description": "专为中国宝宝设计的可编辑学术 PPT 生成skill。可根据学术汇报场景（论文答辩、组会汇报、课程报告、开题报告、文献综述等），依据上传的论文、报告等材料分析研究框架并输出带讲稿、带技术路线图、可编辑的pptx文件。"
+    },
+    "maxwell2732/paper-replicate-agent-demo": {
+      "summary_zh": "通过 Claude Code 组织 UK Biobank 数据上的实证论文复现工作流。",
+      "source_description": "A structured Claude Code workflow for empirically replicating published research using UK Biobank (UKB) data, created by Chen Zhu 朱晨 | 遗传社科研究."
+    },
+    "cLin-c/paper-skill": {
+      "summary_zh": "面向 Claude Code 的论文写作提示词库，覆盖润色、评审、翻译及投稿准备。",
+      "source_description": "🎓 Claude Code skill — AI prompt library for academic paper writing, polishing, reviewing, translating and submitting to SCI/IEEE/Nature/TRO journals"
+    },
+    "liangdabiao/stem-illustration-skill": {
+      "summary_zh": "面向 STEM 领域的科研示意图和教学插图生成技能，提供多学科场景模板与视觉风格。",
+      "source_description": "面向 STEM（科学、技术、工程、数学）领域的 AI 图像生成 Skill。  生成科研示意图、教学插图、技术架构图等概念性图像，覆盖生物医学、化学、物理、工程、数学 6 大学科。  功能特性 24 个场景模板：信号通路、实验流程、细胞结构、概念信息图、学术海报、机制图、质粒图、机器学习架构等 6 大学科适配：生命科学/医学/化学/物理/工程/数学 4 种风格变体：academic / textbook / infographic / 3d-render"
+    },
+    "HaonanAlex/MGMT-Paper-Skills": {
+      "summary_zh": "面向管理学研究论文的 Skills 与 MCP 工作流，适用于 Codex 和 Claude。",
+      "source_description": "Management research paper skills and MCP workflows for Codex and Claude"
+    },
+    "Citrus-bit/Anaxa": {
+      "summary_zh": "可追踪的科研 Agent 工作流，串联文献检索、证据审计、实验、论文写作、评审检查和成果打包。",
+      "source_description": "Anaxa 是一个面向科研工作流的开源智能体系统。它不是单纯的聊天机器人，也不是无人监管的自动发论文机器，而是把文献检索、证据审计、实验执行、论文写作、同行评审式检查和最终产物打包放进同一个可追踪的研究生命周期中。"
+    },
+    "Dushiqi1987/codex-remote-Skill": {
+      "summary_zh": "通过 SSH 隧道让本地 Codex 连接科研服务器上的 Codex CLI，支持网络转发与连接配置。",
+      "source_description": "本地 Codex 连接服务器 Codex CLI：通过 SSH 反向隧道共享本地 HTTP 代理或直连网络，适用于 AutoDL 等 GPU 科研服务器。含 Python 转发器、PowerShell 隧道脚本、中文教程与测试。"
+    },
+    "yrui-cmd/Cell": {
+      "summary_zh": "Cell 主题科研技能集合，包含选题、计划、综述、投稿、科研绘图与 PowerPoint 编辑。",
+      "source_description": "Cell 科研工作 Skill 集合：选题、计划、综述、投稿、科研绘图与 PowerPoint 编辑。"
+    },
+    "anon-research-tools/academic-literature-route": {
+      "summary_zh": "面向 Codex 的学术论文检索技能，强调检索路线可追溯。",
+      "source_description": "用于建立可追溯文献检索路线的 Codex 学术论文搜索 Skill"
+    },
+    "csmar432/finai-research": {
+      "summary_zh": "面向经济与金融研究的证据优先工作流，串联文献、识别策略、数据、计量分析与可核验 LaTeX。",
+      "source_description": "Evidence-first AI workflow for economic and financial research: literature → identification → data → econometrics → verifiable LaTeX. 43 data sources, 58 method modules, 18 AI skills, 30 journal templates."
+    }
+  }
+}

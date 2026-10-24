@@ -43,9 +43,12 @@ test("favorites persist, drawer copies commands and links restore detail", async
     "aria-pressed",
     "true",
   );
-  await page.locator(".ant-table-row").first().click();
+  await page.locator(".ant-table-row").first().locator("td").first().click();
   await expect(page.getByRole("dialog")).toBeVisible();
-  await page.getByRole("button", { name: "复制安装命令", exact: true }).click();
+  await page
+    .getByRole("dialog")
+    .getByRole("button", { name: "复制安装命令", exact: true })
+    .click();
   await expect
     .poll(() => page.evaluate(() => navigator.clipboard.readText()))
     .toBe(`npx skills add ${firstRepo}`);

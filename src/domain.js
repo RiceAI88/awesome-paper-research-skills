@@ -39,6 +39,8 @@ export const RESEARCH_TASKS = [
 
 /* Agent platform catalog — the order here is the display/sort order. */
 export const AGENT_PLATFORMS = [
+  { id: "antigravity", label: "Antigravity", match: ["antigravity"] },
+  { id: "windsurf", label: "Windsurf", match: ["windsurf"] },
   {
     id: "claude-code",
     label: "Claude Code",
@@ -175,6 +177,7 @@ export function filterItems(items, state) {
       [
         item.repo,
         item.description,
+        item.description_zh,
         item.category?.zh,
         item.category?.en,
         item.trend?.zh,

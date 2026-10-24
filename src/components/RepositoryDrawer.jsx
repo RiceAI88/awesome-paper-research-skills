@@ -9,7 +9,7 @@ import {
   Tag,
   Typography,
 } from "antd";
-import { CopyOutlined, ExportOutlined } from "@ant-design/icons";
+import { ExportOutlined } from "@ant-design/icons";
 import {
   AGENT_PLATFORMS,
   detectAgents,
@@ -17,22 +17,8 @@ import {
   safeExternalUrl,
 } from "../domain";
 import { QualityBadges } from "./RepositoryViews";
-export async function copyText(text) {
-  try {
-    await navigator.clipboard.writeText(text);
-    return;
-  } catch {
-    const textarea = document.createElement("textarea");
-    textarea.value = text;
-    textarea.style.position = "fixed";
-    textarea.style.opacity = "0";
-    document.body.appendChild(textarea);
-    textarea.select();
-    const copied = document.execCommand("copy");
-    textarea.remove();
-    if (!copied) throw Error("Clipboard unavailable");
-  }
-}
+import { copyText } from "../clipboard";
+import { SummaryText, InstallationActions } from "./PracticalInfo";
 export function RepositoryDrawer({ item, state, update, t, fmt }) {
   const { message } = App.useApp();
   const copy = async (text, label) => {
@@ -170,14 +156,6 @@ export function RepositoryDrawer({ item, state, update, t, fmt }) {
                 {t("drHomepage")}
               </Button>
             )}
-            <Button
-              icon={<CopyOutlined aria-hidden="true" />}
-              onClick={() =>
-                copy(`npx skills add ${item.repo}`, t("toastCopiedInstall"))
-              }
-            >
-              {t("copyInstall")}
-            </Button>
             <Button onClick={() => copy(markdown, t("toastCopied"))}>
               {t("drCopyMd")}
             </Button>
@@ -190,7 +168,14 @@ export function RepositoryDrawer({ item, state, update, t, fmt }) {
     >
       {item && (
         <>
-          <Typography.Paragraph>{item.description}</Typography.Paragraph>
+          <SummaryText item={item} lang={state.lang} t={t} />
+          {state.lang === "zh" && (
+            <details className="original-description">
+              <summary>{t("originalDescription")}</summary>
+              <p>{item.description}</p>
+            </details>
+          )}
+          <InstallationActions item={item} lang={state.lang} t={t} details />
           <QualityBadges item={item} t={t} />
           <div className="drawer-statistics">
             {[

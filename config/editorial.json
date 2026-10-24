@@ -1,0 +1,92 @@
+{
+  "reviewed_at": "2026-10-24",
+  "provenance": {
+    "upstream_repository": "https://github.com/kael-odin/awesome-academic-research-skills",
+    "upstream_commit": "9e006159f3d4388c8933fc1d4c12e46714999930",
+    "imported_history_before": "2026-10-24",
+    "local_collection_since": "2026-10-24"
+  },
+  "platforms": {
+    "K-Dense-AI/scientific-agent-skills": [
+      "claude-code",
+      "codex",
+      "cursor",
+      "gemini",
+      "antigravity"
+    ],
+    "Imbad0202/academic-research-skills": ["claude-code"],
+    "Yuan1z0825/nature-skills": ["codex", "claude-code"],
+    "zsyggg/paper-craft-skills": ["claude-code", "codex", "cursor", "windsurf"],
+    "openags/paper-search-mcp": ["mcp", "claude-code"]
+  },
+  "installations": {
+    "K-Dense-AI/scientific-agent-skills": {
+      "command": "npx skills add K-Dense-AI/scientific-agent-skills",
+      "context_zh": "在终端执行，按提示选择技能与 Agent",
+      "context_en": "Run in a terminal and select skills and agent",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/README.md",
+      "reviewed_at": "2026-10-24"
+    },
+    "Imbad0202/academic-research-skills": {
+      "command": "/plugin marketplace add Imbad0202/academic-research-skills\n/plugin install academic-research-skills",
+      "context_zh": "在 Claude Code 会话内执行这两条命令",
+      "context_en": "Run these two commands inside Claude Code",
+      "source_url": "https://github.com/Imbad0202/academic-research-skills/blob/main/README.md#quick-install",
+      "reviewed_at": "2026-10-24"
+    },
+    "Yuan1z0825/nature-skills": {
+      "command": "npx skills add Yuan1z0825/nature-skills --agent codex --skill nature-figure --yes --copy",
+      "context_zh": "在终端为当前项目安装 nature-figure（Codex）",
+      "context_en": "Install nature-figure for Codex in the current project",
+      "source_url": "https://github.com/Yuan1z0825/nature-skills/blob/main/README.md#51-npx-skills-安装方式",
+      "reviewed_at": "2026-10-24"
+    },
+    "zsyggg/paper-craft-skills": {
+      "command": "npx skills add zsyggg/paper-craft-skills",
+      "context_zh": "在终端执行，按提示选择安装目标",
+      "context_en": "Run in a terminal and choose installation targets",
+      "source_url": "https://github.com/zsyggg/paper-craft-skills/blob/main/README.md#how-to-install",
+      "reviewed_at": "2026-10-24"
+    },
+    "openags/paper-search-mcp": {
+      "context_zh": "Claude Code Skill 需 uv；MCP 等接入方式见官方步骤",
+      "context_en": "Claude Code skill requires uv; see docs for MCP and other setups",
+      "source_url": "https://github.com/openags/paper-search-mcp/blob/main/README.md#installation",
+      "reviewed_at": "2026-10-24"
+    }
+  },
+  "featured": [
+    {
+      "repo": "openags/paper-search-mcp",
+      "title_zh": "跨源检索文献",
+      "title_en": "Search across paper sources",
+      "reason_zh": "提供 MCP、CLI 和 Claude Code Skill 接入步骤，适合从一个明确的论文检索任务开始尝试。",
+      "reason_en": "Offers documented MCP, CLI and Claude Code skill setups, making paper retrieval a concrete starting task.",
+      "source_url": "https://github.com/openags/paper-search-mcp/blob/main/README.md"
+    },
+    {
+      "repo": "zsyggg/paper-craft-skills",
+      "title_zh": "读论文并准备汇报",
+      "title_en": "Turn reading into a presentation",
+      "reason_zh": "将论文分析、方法图示与汇报材料连接起来，适合把阅读结果转成可分享的研究产物。",
+      "reason_en": "Connects paper analysis with method figures and slide decks, helping turn reading into shareable research material.",
+      "source_url": "https://github.com/zsyggg/paper-craft-skills/blob/main/README.md"
+    },
+    {
+      "repo": "Imbad0202/academic-research-skills",
+      "title_zh": "分阶段推进论文写作",
+      "title_en": "Work through a paper in stages",
+      "reason_zh": "按研究、写作、审阅和修订组织技能，适合需要明确阶段与人工确认节点的写作流程。",
+      "reason_en": "Organizes research, writing, review and revision into stages with human checkpoints.",
+      "source_url": "https://github.com/Imbad0202/academic-research-skills/blob/main/README.md"
+    },
+    {
+      "repo": "Yuan1z0825/nature-skills",
+      "title_zh": "先试一个科研绘图技能",
+      "title_en": "Start with one figure-making skill",
+      "reason_zh": "文档给出了为 Codex 单独安装 nature-figure 的方法，可以从具体绘图任务入手，再按需扩展。",
+      "reason_en": "Documents installing nature-figure separately for Codex, allowing a focused trial before adding more skills.",
+      "source_url": "https://github.com/Yuan1z0825/nature-skills/blob/main/README.md"
+    }
+  ]
+}
