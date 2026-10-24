@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kael-odin.github.io/awesome-academic-research-skills/sitemap.xml
+Sitemap: https://riceai88.github.io/awesome-paper-research-skills/sitemap.xml

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="460" viewBox="0 0 1200 460" role="img" aria-labelledby="t d">
-  <title id="t">Awesome Academic Research Skills</title>
+  <title id="t">Awesome Paper Research Skills</title>
   <desc id="d">每日自动更新的 GitHub 学术科研 Agent Skill 排行榜:42 仓库,177,946 stars,榜首 38,520 stars。</desc>
 
   <defs>
@@ -28,7 +28,7 @@
   <!-- LEFT: title block -->
   <g font-family="Inter, 'Segoe UI', 'Microsoft YaHei', sans-serif">
     <text x="80" y="92" font-size="22" font-weight="600" fill="#8a94a6" letter-spacing="1.5">每日自动更新 · DAILY RANKING</text>
-    <text x="76" y="172" font-size="76" font-weight="800" fill="#e6ebf2">学术论文 Skill 排行</text>
+    <text x="76" y="172" font-size="76" font-weight="800" fill="#e6ebf2">论文科研 Skills 排行榜</text>
     <text x="78" y="232" font-size="22" font-weight="500" fill="#9ee7d8">面向中文用户的 Agent Skill / Workflow 仓库榜单</text>
 
     <!-- stat row -->

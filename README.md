@@ -1,15 +1,15 @@
-# Awesome Academic Research Skills
+# Awesome Paper Research Skills
 
 > 面向中文用户的学术论文与科研 Agent Skill 每日排行榜。自动搜索、过滤并排名 GitHub 上与论文写作、文献综述、深度研究、评审反馈、实验复现相关的 Skill / Agent / Workflow 仓库。
 
 [![Last update](https://img.shields.io/badge/updated-2026--10--24-0f766e)](#今日榜单)
 [![Repositories](https://img.shields.io/badge/repositories-115-2563eb)](#今日榜单)
 [![Min stars](https://img.shields.io/badge/min%20stars-100-334155)](#收录标准)
-[![Online dashboard](https://img.shields.io/badge/online-dashboard-b3552a)](https://kael-odin.github.io/awesome-academic-research-skills/)
+[![Online dashboard](https://img.shields.io/badge/online-dashboard-b3552a)](https://riceai88.github.io/awesome-paper-research-skills/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-22c55e)](LICENSE)
 [![Auto update](https://img.shields.io/badge/auto%20update-daily-6366f1)](.github/workflows/update-rankings.yml)
 
-[English](#english) · [可视化页面](https://kael-odin.github.io/awesome-academic-research-skills/) · [English Dashboard](https://kael-odin.github.io/awesome-academic-research-skills/en/) · [月报](reports/) · [JSON](data/rankings.json) · [CSV](data/rankings.csv) · [RSS](feed.xml) · [Sitemap](sitemap.xml) · [排名方法](docs/methodology.md) · [更新日志](docs/changelog.md) · [贡献指南](CONTRIBUTING.md)
+[English](#english) · [可视化页面](https://riceai88.github.io/awesome-paper-research-skills/) · [English Dashboard](https://riceai88.github.io/awesome-paper-research-skills/en/) · [月报](reports/) · [JSON](data/rankings.json) · [CSV](data/rankings.csv) · [RSS](feed.xml) · [Sitemap](sitemap.xml) · [排名方法](docs/methodology.md) · [更新日志](docs/changelog.md) · [贡献指南](CONTRIBUTING.md)
 
 ## 项目特色
 
@@ -108,7 +108,7 @@
 ## 使用方式
 
 1. 浏览上方榜单，优先查看 Stars、趋势（7 天增量）和分类。
-2. 打开 [可视化页面](https://kael-odin.github.io/awesome-academic-research-skills/) 使用搜索、分类筛选、排序和中英文切换。
+2. 打开 [可视化页面](https://riceai88.github.io/awesome-paper-research-skills/) 使用搜索、分类筛选、排序和中英文切换。
 3. 机器读取请使用 [data/rankings.json](data/rankings.json) 或 [data/rankings.csv](data/rankings.csv)。
 4. 如需推荐新仓库，提交 Issue（附仓库链接和一句推荐理由）或直接 PR 修改 `config/ranking.json`。
 
@@ -138,7 +138,7 @@ python -m unittest discover -s tests -v
 
 ## English
 
-**Awesome Academic Research Skills** is a daily-updated ranking of GitHub repositories that provide academic, paper-writing, literature-review, deep-research, peer-review, and experiment-reproducibility skills for AI coding agents (Claude Code, Codex, OpenCode, Cursor, Gemini, …).
+**Awesome Paper Research Skills** is a daily-updated ranking of GitHub repositories that provide academic, paper-writing, literature-review, deep-research, peer-review, and experiment-reproducibility skills for AI coding agents (Claude Code, Codex, OpenCode, Cursor, Gemini, …).
 
 The ranking requires **both** a skill/agent/workflow signal **and** an academic/research/paper signal. Low-star, archived, forked, and clearly unrelated repositories are excluded. The trend column shows 7-day star growth, with a 30-day sparkline in the dashboard.
 

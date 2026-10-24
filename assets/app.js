@@ -47,7 +47,7 @@
     zh: {
       skipToContent: "跳到主内容",
       mastheadVol: "Vol.1",
-      heroTitle: '学术论文 Skill <em>排行</em>',
+      heroTitle: '论文科研 Skills <em>排行榜</em>',
       heroSubtitle: "每天自动发现、过滤并排名 GitHub 上服务论文写作、文献综述、深度研究、评审反馈和实验复现的 Agent Skill 仓库。",
       heroHint: "提示：按 <b>/</b> 聚焦搜索 · <b>t</b> 主题 · <b>l</b> 语言 · <b>v</b> 视图",
       tocTitle: "本期目录",
@@ -91,7 +91,7 @@
     en: {
       skipToContent: "Skip to content",
       mastheadVol: "Vol.1",
-      heroTitle: 'Academic Research <em>Skills</em>',
+      heroTitle: 'Paper Research <em>Skills</em>',
       heroSubtitle: "A daily updated ranking of GitHub repositories for paper writing, literature review, deep research, peer review, and experiment reproducibility agent skills.",
       heroHint: "Tip: press <b>/</b> to search · <b>t</b> theme · <b>l</b> language · <b>v</b> view",
       tocTitle: "In this issue",
@@ -165,7 +165,7 @@
       b.classList.toggle("active", on);
       b.setAttribute("aria-pressed", String(on));
     });
-    document.title = (lang === "zh" ? "学术论文 Skill 排行" : "Academic Research Skills Ranking") + " · Awesome Academic Research Skills";
+    document.title = (lang === "zh" ? "论文科研 Skills 排行榜" : "Paper Research Skills Ranking") + " · Awesome Paper Research Skills";
     populateAgentFilter();
     render();
   }
@@ -544,7 +544,7 @@
     const lic = (item.license && (item.license.name || item.license.spdx_id)) || "-";
     const topics = (item.topics || []).map((tp) => `<span class="topic-chip">${esc(tp)}</span>`).join("");
     const sigs = (item.precision_signals || []).map((s) => `<span class="sig-tag">${esc(s)}</span>`).join("");
-    const suggestUrl = `https://github.com/kael-odin/awesome-academic-research-skills/issues/new?title=${encodeURIComponent("Recommend: " + item.repo)}&body=${encodeURIComponent("I'd like to recommend **" + item.repo + "** (" + item.url + ") for inclusion.\n\nReason: \n")}`;
+    const suggestUrl = `https://github.com/RiceAI88/awesome-paper-research-skills/issues/new?title=${encodeURIComponent("Recommend: " + item.repo)}&body=${encodeURIComponent("I'd like to recommend **" + item.repo + "** (" + item.url + ") for inclusion.\n\nReason: \n")}`;
     const foot = [
       `<a class="data-link" href="${esc(item.url)}" target="_blank" rel="noreferrer">${t("drOpenRepo")} ↗</a>`,
       item.homepage ? `<a class="data-link" href="${esc(item.homepage)}" target="_blank" rel="noreferrer">${t("drHomepage")} ↗</a>` : "",
@@ -739,9 +739,9 @@
     const payload = {
       "@context": "https://schema.org",
       "@type": "ItemList",
-      "name": "Awesome Academic Research Skills",
+      "name": "Awesome Paper Research Skills",
       "description": "Daily ranking of academic & research agent skills on GitHub.",
-      "url": "https://kael-odin.github.io/awesome-academic-research-skills/",
+      "url": "https://riceai88.github.io/awesome-paper-research-skills/",
       "itemListElement": top.map((it, i) => ({
         "@type": "ListItem",
         "position": i + 1,

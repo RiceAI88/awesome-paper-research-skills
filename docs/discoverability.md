@@ -34,7 +34,7 @@ academic-writing  daily-update  ranking  curated-list
 在同一个 About 面板里，把 Homepage 设为 GitHub Pages 地址：
 
 ```
-https://kael-odin.github.io/awesome-academic-research-skills/
+https://riceai88.github.io/awesome-paper-research-skills/
 ```
 
 这样仓库卡片右侧会显示一个可点击的可视化页面入口。
@@ -69,4 +69,4 @@ Settings → Branches → 给 `main` 加规则：要求 PR 通过测试再合并
 - 在相关仓库的 Issue / Discussions 里**适度**介绍（避免垃圾营销）。
 - 在知乎、小红书、V2EX、即刻、X 等平台发一条"我做了个每日自动更新的科研 Agent Skill 排行榜"。
 - 提交到 [awesome](https://github.com/sindresorhus/awesome) 列表的 `awesome-ai` / `awesome-claude-code` 等子列表（需符合它们的格式要求）。
-- 在被收录的高星仓库的 README/Discussion 里提一句"已收录到 awesome-academic-research-skills 榜单"（征得作者同意）。
+- 在被收录的高星仓库的 README/Discussion 里提一句"已收录到 awesome-paper-research-skills 榜单"（征得作者同意）。

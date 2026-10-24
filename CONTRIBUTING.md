@@ -13,7 +13,7 @@
 
 ### 方式一：提 Issue（最简单）
 
-使用 [推荐新仓库模板](https://github.com/kael-odin/awesome-academic-research-skills/issues/new?labels=recommendation&template=recommend-repo.yml) 提交，附上仓库链接和一句推荐理由。维护者会评估并加入种子列表。
+使用 [推荐新仓库模板](https://github.com/RiceAI88/awesome-paper-research-skills/issues/new?labels=recommendation&template=recommend-repo.yml) 提交，附上仓库链接和一句推荐理由。维护者会评估并加入种子列表。
 
 ### 方式二：提 PR
 

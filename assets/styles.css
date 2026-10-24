@@ -1,5 +1,5 @@
 /* ============================================================
-   Awesome Academic Research Skills — design system
+   Awesome Paper Research Skills — design system
    An editorial / bibliographic take on a research-skill index:
    the page reads like a journal issue's table of contents, with
    proofreader's marks for trend. Serif display for titles, mono
@@ -244,6 +244,7 @@ a { color: inherit; }
 .hero h1 em {
   font-style: italic; font-weight: 500;
   color: var(--ars-teal);
+  white-space: nowrap;
 }
 .hero p {
   margin: 22px 0 0; max-width: 640px;

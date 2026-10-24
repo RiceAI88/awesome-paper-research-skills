@@ -39,7 +39,7 @@ OG_COVER_PATH = ROOT / "assets" / "og-cover.svg"
 OG_COVER_PNG_PATH = ROOT / "assets" / "og-cover.png"
 
 # Canonical public URL (GitHub Pages). Used for sitemap / RSS / Open Graph.
-SITE_URL = "https://kael-odin.github.io/awesome-academic-research-skills"
+SITE_URL = "https://riceai88.github.io/awesome-paper-research-skills"
 
 # How many days of history to retain on disk. Older snapshots are pruned so the
 # repo does not grow unboundedly over time.
@@ -58,6 +58,7 @@ DEFAULT_MIN_STARS = 100
 # stay out of its own leaderboard (its description matches every signal by
 # construction), while still being fetched normally when listed as a seed.
 DEFAULT_EXCLUDED_REPOSITORIES = [
+    "RiceAI88/awesome-paper-research-skills",
     "kael-odin/awesome-academic-research-skills",
 ]
 
@@ -707,7 +708,7 @@ def github_request(
     headers = {
         "Accept": "application/vnd.github+json",
         "X-GitHub-Api-Version": "2022-11-28",
-        "User-Agent": "awesome-academic-research-skills-updater",
+        "User-Agent": "awesome-paper-research-skills-updater",
     }
     if token:
         headers["Authorization"] = f"Bearer {token}"
@@ -1019,18 +1020,18 @@ def render_readme(data: dict[str, Any], window_snapshot: dict[str, Any] | None =
             + "\n"
         )
 
-    return f"""# Awesome Academic Research Skills
+    return f"""# Awesome Paper Research Skills
 
 > 面向中文用户的学术论文与科研 Agent Skill 每日排行榜。自动搜索、过滤并排名 GitHub 上与论文写作、文献综述、深度研究、评审反馈、实验复现相关的 Skill / Agent / Workflow 仓库。
 
 [![Last update](https://img.shields.io/badge/updated-{metadata['generated_at'][:10].replace('-', '--')}-0f766e)](#今日榜单)
 [![Repositories](https://img.shields.io/badge/repositories-{metadata['total']}-2563eb)](#今日榜单)
 [![Min stars](https://img.shields.io/badge/min%20stars-{metadata['min_stars']}-334155)](#收录标准)
-[![Online dashboard](https://img.shields.io/badge/online-dashboard-b3552a)](https://kael-odin.github.io/awesome-academic-research-skills/)
+[![Online dashboard](https://img.shields.io/badge/online-dashboard-b3552a)](https://riceai88.github.io/awesome-paper-research-skills/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-22c55e)](LICENSE)
 [![Auto update](https://img.shields.io/badge/auto%20update-daily-6366f1)](.github/workflows/update-rankings.yml)
 
-[English](#english) · [可视化页面](https://kael-odin.github.io/awesome-academic-research-skills/) · [English Dashboard](https://kael-odin.github.io/awesome-academic-research-skills/en/) · [月报](reports/) · [JSON](data/rankings.json) · [CSV](data/rankings.csv) · [RSS](feed.xml) · [Sitemap](sitemap.xml) · [排名方法](docs/methodology.md) · [更新日志](docs/changelog.md) · [贡献指南](CONTRIBUTING.md)
+[English](#english) · [可视化页面](https://riceai88.github.io/awesome-paper-research-skills/) · [English Dashboard](https://riceai88.github.io/awesome-paper-research-skills/en/) · [月报](reports/) · [JSON](data/rankings.json) · [CSV](data/rankings.csv) · [RSS](feed.xml) · [Sitemap](sitemap.xml) · [排名方法](docs/methodology.md) · [更新日志](docs/changelog.md) · [贡献指南](CONTRIBUTING.md)
 
 ## 项目特色
 
@@ -1072,7 +1073,7 @@ def render_readme(data: dict[str, Any], window_snapshot: dict[str, Any] | None =
 ## 使用方式
 
 1. 浏览上方榜单，优先查看 Stars、趋势（7 天增量）和分类。
-2. 打开 [可视化页面](https://kael-odin.github.io/awesome-academic-research-skills/) 使用搜索、分类筛选、排序和中英文切换。
+2. 打开 [可视化页面](https://riceai88.github.io/awesome-paper-research-skills/) 使用搜索、分类筛选、排序和中英文切换。
 3. 机器读取请使用 [data/rankings.json](data/rankings.json) 或 [data/rankings.csv](data/rankings.csv)。
 4. 如需推荐新仓库，提交 Issue（附仓库链接和一句推荐理由）或直接 PR 修改 `config/ranking.json`。
 
@@ -1102,7 +1103,7 @@ python -m unittest discover -s tests -v
 
 ## English
 
-**Awesome Academic Research Skills** is a daily-updated ranking of GitHub repositories that provide academic, paper-writing, literature-review, deep-research, peer-review, and experiment-reproducibility skills for AI coding agents (Claude Code, Codex, OpenCode, Cursor, Gemini, …).
+**Awesome Paper Research Skills** is a daily-updated ranking of GitHub repositories that provide academic, paper-writing, literature-review, deep-research, peer-review, and experiment-reproducibility skills for AI coding agents (Claude Code, Codex, OpenCode, Cursor, Gemini, …).
 
 The ranking requires **both** a skill/agent/workflow signal **and** an academic/research/paper signal. Low-star, archived, forked, and clearly unrelated repositories are excluded. The trend column shows 7-day star growth, with a 30-day sparkline in the dashboard.
 
@@ -1356,7 +1357,7 @@ def render_month_report(
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>{month} 月度报告 · Awesome Academic Research Skills</title>
+<title>{month} 月度报告 · Awesome Paper Research Skills</title>
 <link rel="stylesheet" href="../assets/styles.css" />
 <link rel="canonical" href="{SITE_URL}/reports/{month}.html" />
 </head>
@@ -1421,7 +1422,7 @@ def build_monthly_reports(history: dict[str, dict[str, dict[str, Any]]]) -> None
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>月度报告 · Awesome Academic Research Skills</title>
+<title>月度报告 · Awesome Paper Research Skills</title>
 <link rel="stylesheet" href="../assets/styles.css" />
 <link rel="canonical" href="{SITE_URL}/reports/" />
 </head>
@@ -1519,7 +1520,7 @@ def render_feed(data: dict[str, Any], window_snapshot: dict[str, Any] | None = N
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
         "  <channel>\n"
-        f"    <title>Awesome Academic Research Skills</title>\n"
+        f"    <title>Awesome Paper Research Skills</title>\n"
         f"    <link>{SITE_URL}/</link>\n"
         "    <description>每日自动更新的学术论文与科研 Agent Skill 排行榜 · Daily ranking of academic research agent skills on GitHub</description>\n"
         f"    <language>{'zh-CN'}</language>\n"
@@ -1563,8 +1564,8 @@ def render_og_cover(data: dict[str, Any]) -> str:
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
   <rect x="0" y="0" width="1200" height="8" fill="url(#accent)"/>
-  <text x="80" y="150" font-family="{font}" font-size="34" fill="#8a94a6" font-weight="600">Awesome Academic Research Skills</text>
-  <text x="78" y="260" font-family="{font}" font-size="84" fill="#e6ebf2" font-weight="800">学术论文 Skill 排行</text>
+  <text x="80" y="150" font-family="{font}" font-size="34" fill="#8a94a6" font-weight="600">Awesome Paper Research Skills</text>
+  <text x="78" y="260" font-family="{font}" font-size="84" fill="#e6ebf2" font-weight="800">论文科研 Skills 排行榜</text>
   <text x="80" y="330" font-family="{font}" font-size="30" fill="#9ee7d8" font-weight="600">{total} repos · {total_stars:,} stars · updated {generated}</text>
   <rect x="80" y="390" width="1040" height="160" rx="20" fill="#161f30" stroke="#25304a" stroke-width="1"/>
   <text x="112" y="445" font-family="{font}" font-size="24" fill="#8a94a6" font-weight="600">#1 TOP</text>
