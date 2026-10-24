@@ -77,6 +77,7 @@ test("chart bundle failure leaves ranking usable", async ({ page }) => {
 test("scatter has visible data marks and clicking a point opens details", async ({
   page,
 }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("./");
   const canvas = page.getByTestId("insight-scatter").locator("canvas");
   await expect(canvas).toBeVisible();

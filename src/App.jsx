@@ -16,7 +16,6 @@ import {
   Segmented,
   Select,
   Space,
-  Statistic,
   Tag,
   Tooltip,
   Typography,
@@ -55,6 +54,7 @@ import { UpdateStatus } from "./components/UpdateStatus";
 import { DataTransparency } from "./components/DataTransparency";
 import { RepositoryViews } from "./components/RepositoryViews";
 import { RepositoryDrawer } from "./components/RepositoryDrawer";
+import { AnimatedStatistic } from "./components/AnimatedStatistic";
 import { ChartBoundary } from "./components/ChartBoundary";
 import { ComparisonChart } from "./components/TrendCharts";
 
@@ -420,15 +420,15 @@ function Dashboard({ state, update }) {
         >
           {statistics.map(([title, value], i) => (
             <Card
-              key={title}
+              key={i}
               size="small"
               className={i === 2 ? "growth-statistic" : ""}
             >
-              <Statistic
+              <AnimatedStatistic
                 title={title}
                 value={value}
                 prefix={i === 2 && value > 0 ? "+" : undefined}
-                valueStyle={{ fontSize: 30, fontWeight: 600 }}
+                lang={state.lang}
               />
             </Card>
           ))}
