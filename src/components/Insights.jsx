@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Bar, Line, Pie, Scatter } from "@ant-design/plots";
 import { Empty, Select } from "antd";
 import { buildInsightData, createColorMaps } from "../insights";
@@ -36,6 +36,31 @@ export default function Insights({
   update,
   t,
 }) {
+  const entered = useRef(new Set());
+  const [reducedMotion, setReducedMotion] = useState(
+    () => matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
+  useEffect(() => {
+    const media = matchMedia("(prefers-reduced-motion: reduce)");
+    const change = () => setReducedMotion(media.matches);
+    media.addEventListener("change", change);
+    return () => media.removeEventListener("change", change);
+  }, []);
+  const entrance = (id) => {
+    if (reducedMotion || entered.current.has(id)) return false;
+    const settings = {
+      trend: { type: "pathIn", duration: 900, delay: 0 },
+      categories: { type: "waveIn", duration: 800, delay: 80 },
+      growth: { type: "scaleInY", duration: 700, delay: 140 },
+      scatter: { type: "fadeIn", duration: 600, delay: 200 },
+    };
+    return {
+      enter: { ...settings[id], easing: "ease-out" },
+      update: false,
+      exit: false,
+    };
+  };
+  const trendEntrance = entrance("trend");
   const [days, setDays] = useState(60);
   const data = useMemo(
     () => buildInsightData(items, history, generatedAt, days),
@@ -61,12 +86,14 @@ export default function Insights({
   const category = (id) =>
     update((s) => ({ ...s, category: s.category === id ? "all" : id }));
   const bind =
-    (callback) =>
-    ({ chart }) =>
+    (id, callback) =>
+    ({ chart }) => {
+      entered.current.add(id);
       chart.on("element:click", (event) => {
         const datum = event.data?.data;
         if (datum) callback(datum);
       });
+    };
   const base = {
     autoFit: true,
     height: 280,
@@ -175,6 +202,7 @@ export default function Insights({
             >
               <Line
                 {...base}
+                animate={trendEntrance}
                 data={data.trends}
                 xField="time"
                 yField="stars"
@@ -198,7 +226,17 @@ export default function Insights({
                   y: numericAxis,
                 }}
                 style={{ lineWidth: 1.8 }}
-                point={{ style: { r: 1 }, tooltip: false }}
+                point={{
+                  style: { r: 1 },
+                  tooltip: false,
+                  animate: trendEntrance
+                    ? {
+                        enter: { type: "fadeIn", duration: 150, delay: 750 },
+                        update: false,
+                        exit: false,
+                      }
+                    : false,
+                }}
                 tooltip={{
                   title: (datum) => datum.date,
                   items: [
@@ -208,7 +246,7 @@ export default function Insights({
                     }),
                   ],
                 }}
-                onReady={bind((d) => open(d.repo))}
+                onReady={bind("trend", (d) => open(d.repo))}
               />
             </div>
           ) : (
@@ -234,6 +272,7 @@ export default function Insights({
                 >
                   <Pie
                     {...base}
+                    animate={entrance("categories")}
                     height={210}
                     padding={0}
                     paddingLeft={0}
@@ -254,7 +293,7 @@ export default function Insights({
                       title: "label",
                       items: [{ field: "count", name: t("repos") }],
                     }}
-                    onReady={bind((d) => category(d.id))}
+                    onReady={bind("categories", (d) => category(d.id))}
                   />
                 </div>
                 <div className="donut-center" aria-hidden="true">
@@ -298,6 +337,7 @@ export default function Insights({
               >
                 <Bar
                   {...base}
+                  animate={entrance("growth")}
                   height={250}
                   data={data.growth}
                   xField="repo"
@@ -333,7 +373,7 @@ export default function Insights({
                       },
                     ],
                   }}
-                  onReady={bind((d) => open(d.repo))}
+                  onReady={bind("growth", (d) => open(d.repo))}
                 />
               </div>
               <div className="growth-values">
@@ -374,6 +414,7 @@ export default function Insights({
               >
                 <Scatter
                   {...base}
+                  animate={entrance("scatter")}
                   height={300}
                   data={data.scatter}
                   xField="stars"
@@ -407,7 +448,7 @@ export default function Insights({
                       },
                     ],
                   }}
-                  onReady={bind((d) => open(d.repo))}
+                  onReady={bind("scatter", (d) => open(d.repo))}
                 />
               </div>
               <details className="chart-data">
