@@ -7,3 +7,6 @@ Thumbs.db
 .venv/
 node_modules/
 .claude/
+dist/
+playwright-report/
+test-results/

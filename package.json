@@ -1,0 +1,27 @@
+{
+  "name": "awesome-paper-research-skills",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build && node scripts/build-site.mjs",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --test tests/frontend/*.test.js",
+    "test:e2e": "playwright test"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "antd": "6.6.7",
+    "@ant-design/icons": "^6.0.0"
+  },
+  "devDependencies": {
+    "vite": "8.3.5",
+    "@vitejs/plugin-react": "6.1.2",
+    "@playwright/test": "^1.58.0"
+  }
+}

@@ -33,3 +33,24 @@ jobs:
 
       - name: Run tests
         run: python -m unittest discover -s tests -v
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Build website
+        run: npm run build
+
+      - name: Frontend logic and production asset tests
+        run: npm test
+
+      - name: Install browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Browser regression tests
+        run: npm run test:e2e

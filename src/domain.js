@@ -1,0 +1,229 @@
+export const RESEARCH_TASKS = [
+  {
+    id: "find",
+    categories: ["literature-review"],
+    pattern:
+      /\b(?:literature[ -](?:search|retrieval|discovery)|paper[ -](?:search|finder|discovery)|academic[ -]search|semantic[ -]scholar|zotero|pubmed|arxiv|cnki)\b|文献.{0,4}(?:检索|搜索|查找|发现)|(?:搜索|检索|查找).{0,4}(?:论文|文献)|知网/i,
+  },
+  {
+    id: "read",
+    categories: ["literature-review"],
+    pattern:
+      /\b(?:read(?:ing|er)?|summari[sz](?:e|ation|ing)|translat(?:e|ion|ing)|zotero)\b|读论文|论文.{0,4}(?:解读|阅读|翻译)|文献阅读/i,
+  },
+  {
+    id: "write",
+    categories: ["paper-writing"],
+    pattern:
+      /\b(?:academic[ -]writing|paper[ -]writing|latex|proofread(?:ing)?|manuscript)\b|论文写作|学术写作|论文润色|论文撰写/i,
+  },
+  {
+    id: "figures",
+    categories: [],
+    pattern:
+      /\b(?:figures?|plots?|plotting|visuali[sz](?:ation|e)|illustrations?|diagrams?|charts?|figures4papers)\b|科研绘图|论文配图|科学绘图|图表|画图|绘制/i,
+  },
+  {
+    id: "reproduce",
+    categories: ["experiment-reproducibility"],
+    pattern:
+      /\b(?:reproduc(?:e|ibility|tion)|replicat(?:e|ion)|benchmark(?:ing)?|experiment(?:al|s)?|ablation)\b|实验复现|实验设计|复现实验|基准测试|消融/i,
+  },
+  {
+    id: "review",
+    categories: ["peer-review"],
+    pattern:
+      /\b(?:peer[ -]review|reviewers?|referee|rebuttal|submission|revision|revise|review[ -](?:paper|manuscript)|pre[ -]submission)\b|审稿|评审|投稿|返修|回复审稿/i,
+  },
+];
+
+/* Agent platform catalog — the order here is the display/sort order. */
+export const AGENT_PLATFORMS = [
+  {
+    id: "claude-code",
+    label: "Claude Code",
+    match: ["claude code", "claude-code", "claude code skill"],
+  },
+  { id: "codex", label: "Codex", match: ["codex"] },
+  {
+    id: "opencode",
+    label: "OpenCode",
+    match: ["opencode", "open code", "open-code"],
+  },
+  { id: "cursor", label: "Cursor", match: ["cursor"] },
+  { id: "gemini", label: "Gemini", match: ["gemini"] },
+  { id: "cline", label: "Cline", match: ["cline"] },
+  { id: "mcp", label: "MCP", match: ["mcp"] },
+];
+
+export const FONT_FAMILY =
+  '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"';
+export const REPOSITORY_URL =
+  "https://github.com/RiceAI88/awesome-paper-research-skills";
+export function detectAgents(item) {
+  if (Array.isArray(item.agents) && item.agents.length) return item.agents;
+  const text = [item.repo, item.description, ...(item.topics || [])]
+    .join(" ")
+    .toLowerCase();
+  return AGENT_PLATFORMS.filter((p) =>
+    p.match.some((term) => text.includes(term)),
+  ).map((p) => p.id);
+}
+const valid = (value, allowed, fallback) =>
+  allowed.includes(value) ? value : fallback;
+export function restoreState(storage, hash = "", defaults = {}, items = []) {
+  const get = (key) => {
+    try {
+      return storage?.getItem(key);
+    } catch {
+      return null;
+    }
+  };
+  const array = (key) => {
+    try {
+      const parsed = JSON.parse(get(key));
+      return Array.isArray(parsed)
+        ? [...new Set(parsed.filter((v) => typeof v === "string"))]
+        : [];
+    } catch {
+      return [];
+    }
+  };
+  const p = new URLSearchParams(hash.replace(/^#/, ""));
+  const repositories = new Set(items.map((i) => i.repo));
+  return {
+    query: p.get("q") || "",
+    category: valid(
+      p.get("cat"),
+      ["all", ...items.map((i) => i.category?.id)],
+      "all",
+    ),
+    task: valid(
+      p.get("task"),
+      RESEARCH_TASKS.map((t) => t.id),
+      "all",
+    ),
+    agent: valid(
+      p.get("agent"),
+      AGENT_PLATFORMS.map((a) => a.id),
+      "all",
+    ),
+    sort: valid(
+      p.get("sort"),
+      ["rank", "trend", "stars", "updated", "delta30"],
+      "rank",
+    ),
+    lang: valid(
+      p.get("lang"),
+      ["zh", "en"],
+      valid(get("ars-lang"), ["zh", "en"], defaults.lang || "zh"),
+    ),
+    theme: valid(
+      p.get("theme"),
+      ["light", "dark"],
+      valid(get("ars-theme"), ["light", "dark"], defaults.theme || "light"),
+    ),
+    view: valid(
+      p.get("view"),
+      ["table", "card"],
+      valid(get("ars-view"), ["table", "card"], defaults.view || "table"),
+    ),
+    favorites: array("ars-favorites"),
+    compare: array("ars-compare")
+      .filter((repo) => repositories.has(repo))
+      .slice(0, 3),
+    favOnly: p.get("fav") === "1",
+    repo: repositories.has(p.get("repo")) ? p.get("repo") : null,
+  };
+}
+export function serializeState(state) {
+  const p = new URLSearchParams();
+  if (state.query) p.set("q", state.query);
+  for (const [key, param, fallback] of [
+    ["category", "cat", "all"],
+    ["task", "task", "all"],
+    ["agent", "agent", "all"],
+    ["sort", "sort", "rank"],
+    ["view", "view", "table"],
+    ["lang", "lang", "zh"],
+    ["theme", "theme", "light"],
+  ])
+    if (state[key] !== fallback) p.set(param, state[key]);
+  if (state.favOnly) p.set("fav", "1");
+  if (state.repo) p.set("repo", state.repo);
+  return p.size ? "#" + p.toString() : "";
+}
+export function filterItems(items, state) {
+  const q = state.query.trim().toLowerCase();
+  const task = RESEARCH_TASKS.find((t) => t.id === state.task);
+  const result = items.filter((item) => {
+    if (
+      task &&
+      !task.categories.includes(item.category?.id) &&
+      !task.pattern.test(
+        [item.repo, item.description, ...(item.topics || [])].join(" "),
+      )
+    )
+      return false;
+    if (state.category !== "all" && item.category?.id !== state.category)
+      return false;
+    if (state.agent !== "all" && !detectAgents(item).includes(state.agent))
+      return false;
+    if (state.favOnly && !state.favorites.includes(item.repo)) return false;
+    return (
+      !q ||
+      [
+        item.repo,
+        item.description,
+        item.category?.zh,
+        item.category?.en,
+        item.trend?.zh,
+        item.trend?.en,
+        ...(item.topics || []),
+        item.language,
+        ...detectAgents(item).flatMap((id) => [
+          id,
+          AGENT_PLATFORMS.find((a) => a.id === id)?.label,
+        ]),
+      ]
+        .join(" ")
+        .toLowerCase()
+        .includes(q)
+    );
+  });
+  const ranks = (a, b) => a.rank - b.rank;
+  const sorts = {
+    rank: ranks,
+    stars: (a, b) => b.stars - a.stars || ranks(a, b),
+    trend: (a, b) => b.trend_score - a.trend_score || b.stars - a.stars,
+    updated: (a, b) =>
+      (b.last_push_date || "").localeCompare(a.last_push_date || ""),
+    delta30: (a, b) =>
+      (b.star_delta_30d ?? b.star_delta_7d ?? 0) -
+        (a.star_delta_30d ?? a.star_delta_7d ?? 0) || b.stars - a.stars,
+  };
+  return result.sort(sorts[state.sort] || ranks);
+}
+export function persistState(storage, state) {
+  for (const [key, value] of Object.entries({
+    lang: state.lang,
+    theme: state.theme,
+    view: state.view,
+    favorites: JSON.stringify(state.favorites),
+    compare: JSON.stringify(state.compare),
+  })) {
+    try {
+      storage?.setItem("ars-" + key, value);
+    } catch {
+      /* Browsing remains available when storage is disabled. */
+    }
+  }
+}
+export function safeExternalUrl(url) {
+  try {
+    const parsed = new URL(url);
+    return ["https:", "http:"].includes(parsed.protocol) ? parsed.href : null;
+  } catch {
+    return null;
+  }
+}
