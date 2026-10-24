@@ -1553,24 +1553,24 @@ def render_og_cover(data: dict[str, Any]) -> str:
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0e1521"/>
-      <stop offset="55%" stop-color="#13233a"/>
-      <stop offset="100%" stop-color="#0f3a36"/>
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="55%" stop-color="#faf8ff"/>
+      <stop offset="100%" stop-color="#f0e9ff"/>
     </linearGradient>
     <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#2dd4bf"/>
-      <stop offset="100%" stop-color="#60a5fa"/>
+      <stop offset="0%" stop-color="#691eff"/>
+      <stop offset="100%" stop-color="#ab7cff"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
   <rect x="0" y="0" width="1200" height="8" fill="url(#accent)"/>
-  <text x="80" y="150" font-family="{font}" font-size="34" fill="#8a94a6" font-weight="600">Awesome Paper Research Skills</text>
-  <text x="78" y="260" font-family="{font}" font-size="84" fill="#e6ebf2" font-weight="800">论文科研 Skills 排行榜</text>
-  <text x="80" y="330" font-family="{font}" font-size="30" fill="#9ee7d8" font-weight="600">{total} repos · {total_stars:,} stars · updated {generated}</text>
-  <rect x="80" y="390" width="1040" height="160" rx="20" fill="#161f30" stroke="#25304a" stroke-width="1"/>
-  <text x="112" y="445" font-family="{font}" font-size="24" fill="#8a94a6" font-weight="600">#1 TOP</text>
-  <text x="112" y="498" font-family="{font}" font-size="38" fill="#e6ebf2" font-weight="700">{xml_escape(top_name)}</text>
-  <text x="112" y="532" font-family="{font}" font-size="26" fill="#fbbf24" font-weight="800">{xml_escape(top_stars)}</text>
+  <text x="80" y="150" font-family="{font}" font-size="34" fill="#625d73" font-weight="600">Awesome Paper Research Skills</text>
+  <text x="78" y="260" font-family="{font}" font-size="84" fill="#1f1f26" font-weight="800">论文科研 Skills 排行榜</text>
+  <text x="80" y="330" font-family="{font}" font-size="30" fill="#691eff" font-weight="600">{total} repos · {total_stars:,} stars · updated {generated}</text>
+  <rect x="80" y="390" width="1040" height="160" rx="20" fill="#ffffff" stroke="#e7e3ef" stroke-width="1"/>
+  <text x="112" y="445" font-family="{font}" font-size="24" fill="#625d73" font-weight="600">#1 TOP</text>
+  <text x="112" y="498" font-family="{font}" font-size="38" fill="#1f1f26" font-weight="700">{xml_escape(top_name)}</text>
+  <text x="112" y="532" font-family="{font}" font-size="26" fill="#691eff" font-weight="800">{xml_escape(top_stars)}</text>
 </svg>
 """
 

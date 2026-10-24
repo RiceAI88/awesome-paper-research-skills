@@ -1,35 +1,32 @@
 /* ============================================================
    Awesome Paper Research Skills — design system
-   An editorial / bibliographic take on a research-skill index:
-   the page reads like a journal issue's table of contents, with
-   proofreader's marks for trend. Serif display for titles, mono
-   for data, Inter for UI.
+   White and purple theme with a shared system-font stack.
    Tokens → light/dark · components → layout → responsive
    ============================================================ */
 
 :root {
-  /* palette — paper / ink (light, default) */
-  --ars-bg: #fbfaf6;
-  --ars-bg-tint: #f4f1e9;
-  --ars-ink: #14202b;
-  --ars-ink-soft: #2c3a47;
-  --ars-muted: #5b6470;
-  --ars-faint: #8a8f99;
-  --ars-rule: #e3ddd0;
-  --ars-rule-soft: #efe9dd;
+  /* palette — white / purple (light, default) */
+  --ars-bg: #ffffff;
+  --ars-bg-tint: #f7f5ff;
+  --ars-ink: #1f1f26;
+  --ars-ink-soft: #444052;
+  --ars-muted: #625d73;
+  --ars-faint: #817b91;
+  --ars-rule: #e7e3ef;
+  --ars-rule-soft: #f0ecf8;
   --ars-panel: #ffffff;
-  --ars-panel-2: #f6f2e9;
-  --ars-teal: #0f6e5c;
-  --ars-teal-soft: #d9efe7;
-  --ars-teal-deep: #0a4f42;
-  --ars-ember: #b3552a;
-  --ars-ember-soft: #f6e2d3;
-  --ars-gold: #9a7218;
-  --ars-shadow-1: 0 2px 10px rgba(20, 32, 43, 0.05);
-  --ars-shadow-2: 0 14px 40px rgba(20, 32, 43, 0.10);
-  --ars-shadow-hover: 0 20px 50px rgba(20, 32, 43, 0.14);
-  --ars-focus: rgba(15, 110, 92, 0.24);
-  --ars-fav: #c4860f;
+  --ars-panel-2: #faf9ff;
+  --ars-teal: #691eff;
+  --ars-teal-soft: #f0e9ff;
+  --ars-teal-deep: #5416d0;
+  --ars-ember: #a63dc4;
+  --ars-ember-soft: #f5f0ff;
+  --ars-gold: #44309a;
+  --ars-shadow-1: 0 2px 10px rgba(49, 27, 92, 0.05);
+  --ars-shadow-2: 0 14px 40px rgba(49, 27, 92, 0.08);
+  --ars-shadow-hover: 0 20px 50px rgba(49, 27, 92, 0.12);
+  --ars-focus: rgba(105, 30, 255, 0.18);
+  --ars-fav: #691eff;
 
   /* scale */
   --ars-space-1: 4px;
@@ -45,34 +42,34 @@
   --ars-radius-lg: 12px;
   --ars-maxw: 1180px;
 
-  /* type — three roles */
-  --ars-font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
-  --ars-serif: "Newsreader", Georgia, "Songti SC", "SimSun", serif;
-  --ars-mono: "JetBrains Mono", ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  /* typography — one system-font stack across all components */
+  --ars-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --ars-serif: var(--ars-font);
+  --ars-mono: var(--ars-font);
 }
 
 [data-theme="dark"] {
-  --ars-bg: #14171c;
-  --ars-bg-tint: #181c22;
-  --ars-ink: #e8e3d6;
-  --ars-ink-soft: #d2cfc4;
-  --ars-muted: #9a968a;
-  --ars-faint: #6b6860;
-  --ars-rule: #2a2f37;
-  --ars-rule-soft: #20242b;
-  --ars-panel: #1a1e25;
-  --ars-panel-2: #161a20;
-  --ars-teal: #2dd4bf;
-  --ars-teal-soft: #0e3a35;
-  --ars-teal-deep: #5eead4;
-  --ars-ember: #e08a5b;
-  --ars-ember-soft: #3a2418;
-  --ars-gold: #d6a64b;
+  --ars-bg: #14111c;
+  --ars-bg-tint: #1a1525;
+  --ars-ink: #f1edf8;
+  --ars-ink-soft: #d7cfe7;
+  --ars-muted: #b3a8c6;
+  --ars-faint: #9385a7;
+  --ars-rule: #352b46;
+  --ars-rule-soft: #251e32;
+  --ars-panel: #1e182a;
+  --ars-panel-2: #191421;
+  --ars-teal: #b593ff;
+  --ars-teal-soft: #2d1d4e;
+  --ars-teal-deep: #d4bfff;
+  --ars-ember: #e3a1ff;
+  --ars-ember-soft: #302044;
+  --ars-gold: #d4bfff;
   --ars-shadow-1: 0 2px 12px rgba(0, 0, 0, 0.30);
   --ars-shadow-2: 0 14px 40px rgba(0, 0, 0, 0.40);
   --ars-shadow-hover: 0 24px 55px rgba(0, 0, 0, 0.50);
-  --ars-focus: rgba(45, 212, 191, 0.30);
-  --ars-fav: #fbbf24;
+  --ars-focus: rgba(181, 147, 255, 0.25);
+  --ars-fav: #c9aaff;
 }
 
 * { box-sizing: border-box; }
@@ -88,12 +85,9 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   transition: background-color 0.25s ease, color 0.25s ease;
-  /* subtle paper grain via layered radial tints */
-  background-image:
-    radial-gradient(1200px 600px at 80% -5%, var(--ars-teal-soft), transparent 60%),
-    radial-gradient(900px 500px at 0% 0%, var(--ars-ember-soft), transparent 55%);
-  background-attachment: fixed;
 }
+
+button, input, select, textarea, code, pre, kbd, samp { font-family: var(--ars-font); }
 
 a { color: inherit; }
 
@@ -119,7 +113,7 @@ a { color: inherit; }
 
 /* ---------- header / nav ---------- */
 .site-header {
-  background: linear-gradient(180deg, transparent 0%, var(--ars-bg-tint) 100%);
+  background: linear-gradient(120deg, var(--ars-bg-tint) 0%, var(--ars-bg) 90%);
   border-bottom: 1px solid var(--ars-rule);
 }
 
@@ -145,14 +139,14 @@ a { color: inherit; }
   width: 34px; height: 34px;
   border-radius: var(--ars-radius-sm);
   color: var(--ars-bg);
-  background: var(--ars-ink);
+  background: var(--ars-teal);
   font-family: var(--ars-mono); font-size: 12px; font-weight: 700;
   letter-spacing: 0.02em;
 }
 .brand-text {
   font-family: var(--ars-serif);
   font-size: 19px; font-weight: 600;
-  font-style: italic;
+  font-style: normal;
   color: var(--ars-ink);
 }
 
@@ -174,7 +168,7 @@ a { color: inherit; }
   cursor: pointer; transition: background 0.15s, color 0.15s;
 }
 .seg button + button { border-left: 1px solid var(--ars-rule); }
-.seg button.active { background: var(--ars-ink); color: var(--ars-bg); }
+.seg button.active { background: var(--ars-teal); color: var(--ars-bg); }
 
 .icon-button, .lang-button, .github-link, .data-link, .fav-toggle {
   border: 1px solid var(--ars-rule);
@@ -198,12 +192,12 @@ a { color: inherit; }
   border-color: var(--ars-teal);
 }
 .lang-button.active {
-  background: var(--ars-ink); color: var(--ars-bg); border-color: var(--ars-ink);
+  background: var(--ars-teal); color: var(--ars-bg); border-color: var(--ars-teal);
 }
-[data-theme="dark"] .lang-button.active { background: var(--ars-teal); color: #06120f; border-color: var(--ars-teal); }
+[data-theme="dark"] .lang-button.active { background: var(--ars-teal); color: #14111c; border-color: var(--ars-teal); }
 
 .fav-toggle[aria-pressed="true"] {
-  background: var(--ars-fav); color: #1a1205; border-color: var(--ars-fav);
+  background: var(--ars-fav); color: var(--ars-bg); border-color: var(--ars-fav);
 }
 .fav-count {
   display: inline-grid; place-items: center;
@@ -242,7 +236,7 @@ a { color: inherit; }
   color: var(--ars-ink);
 }
 .hero h1 em {
-  font-style: italic; font-weight: 500;
+  font-style: normal; font-weight: 500;
   color: var(--ars-teal);
   white-space: nowrap;
 }
@@ -371,6 +365,7 @@ input:focus, select:focus { border-color: var(--ars-teal); }
 }
 .category-card {
   text-align: left;
+  color: var(--ars-ink);
   background: var(--ars-panel);
   border: 1px solid var(--ars-rule);
   border-radius: var(--ars-radius-sm);
@@ -387,7 +382,7 @@ input:focus, select:focus { border-color: var(--ars-teal); }
 .category-card span {
   display: block; margin-top: 3px; color: var(--ars-muted);
   font-size: 12px; line-height: 1.35;
-  font-family: var(--ars-serif); font-style: italic;
+  font-family: var(--ars-serif); font-style: normal;
 }
 
 /* ---------- table — bibliography entries ---------- */
@@ -474,7 +469,7 @@ tbody tr:nth-child(-n+3) .rank-cell { color: var(--ars-ember); }
   display: inline-flex; align-items: center;
   min-height: 24px; border-radius: 4px;
   padding: 0 8px;
-  font-family: var(--ars-serif); font-style: italic;
+  font-family: var(--ars-serif); font-style: normal;
   font-size: 12px; font-weight: 500; white-space: nowrap;
   color: var(--ars-teal-deep);
   background: var(--ars-teal-soft);
@@ -543,7 +538,7 @@ tbody tr:nth-child(-n+3) .rank-cell { color: var(--ars-ember); }
 
 .empty-state {
   padding: 40px 24px; color: var(--ars-muted); text-align: center;
-  font-family: var(--ars-serif); font-style: italic; font-size: 16px;
+  font-family: var(--ars-serif); font-style: normal; font-size: 16px;
 }
 
 /* ---------- method ---------- */
@@ -560,7 +555,7 @@ tbody tr:nth-child(-n+3) .rank-cell { color: var(--ars-ember); }
 }
 .method-grid strong {
   display: block; font-family: var(--ars-serif); font-size: 16px;
-  font-style: italic; color: var(--ars-teal);
+  font-style: normal; color: var(--ars-teal);
 }
 .method-grid span { display: block; margin-top: 8px; color: var(--ars-muted); font-size: 13px; line-height: 1.5; }
 
