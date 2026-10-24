@@ -150,6 +150,10 @@ export const translations = {
     skillsCount: "Skills 数",
     citeCheck: "引用核验",
     staleTag: "疑似停更",
+    staleReason:
+      "自动判断依据：至少 30 天未推送仓库更新，且近 7 天 Stars 增量不大于 0。这是提示，不代表作者已确认停止维护。",
+    showMoreCharts: "展开其他 3 张图",
+    hideMoreCharts: "收起其他图表",
     compareFull: "对比列表已满（最多 3 个）",
     compareTray: "对比",
     compareTitle: "增长对比",
@@ -310,6 +314,10 @@ export const translations = {
     skillsCount: "Skills",
     citeCheck: "Citations verified",
     staleTag: "Possibly stale",
+    staleReason:
+      "Automatic signal: no repository push for at least 30 days and no positive Stars growth in the last 7 days. This does not confirm that maintenance has stopped.",
+    showMoreCharts: "Show 3 more charts",
+    hideMoreCharts: "Hide other charts",
     compareFull: "Compare list is full (max 3)",
     compareTray: "Compare",
     compareTitle: "Growth comparison",

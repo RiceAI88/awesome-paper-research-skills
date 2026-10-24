@@ -25,9 +25,17 @@ export function QualityBadges({ item, t }) {
         <Tag className="warm-tag">{t("citeCheck")} ✓</Tag>
       )}
       {item.stale && (
-        <Tag color="red" data-testid="stale-tag">
-          {t("staleTag")}
-        </Tag>
+        <Tooltip title={t("staleReason")} trigger={["hover", "focus", "click"]}>
+          <Tag
+            color="red"
+            className="stale-tag"
+            data-testid="stale-tag"
+            tabIndex={0}
+            onClick={(event) => event.stopPropagation()}
+          >
+            {t("staleTag")}
+          </Tag>
+        </Tooltip>
       )}
     </Space>
   );

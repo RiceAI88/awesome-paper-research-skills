@@ -1203,3 +1203,34 @@ h1 em {
   font-size: 12px;
   color: var(--prs-muted);
 }
+
+.stale-tag:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+.insights-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.mobile-chart-toggle {
+  display: none;
+}
+.insights-bottom[hidden] {
+  display: none;
+}
+@media (max-width: 760px) {
+  .insights-actions {
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .mobile-chart-toggle {
+    display: inline-flex;
+    color: var(--prs-primary);
+  }
+  .insights-placeholder .insights-top .insight-panel:nth-child(2),
+  .insights-placeholder .insights-bottom {
+    display: none;
+  }
+}

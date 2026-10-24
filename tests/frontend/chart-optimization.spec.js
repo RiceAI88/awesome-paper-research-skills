@@ -69,6 +69,10 @@ test("offscreen charts defer download, then load once with the latest selection"
   await page.getByRole("searchbox").fill("Imbad0202/academic-research-skills");
   await page.getByTestId("insights-viewport").scrollIntoViewIfNeeded();
   await expect(page.getByTestId("insight-count")).toHaveText(narrowCount);
+  await expect(page.getByTestId("insights").locator("canvas")).toHaveCount(1);
+  await page
+    .getByRole("button", { name: "展开其他 3 张图", exact: true })
+    .click();
   await expect(page.getByTestId("insights").locator("canvas")).toHaveCount(4);
   expect(requests).toHaveLength(1);
   await page.getByRole("combobox", { name: "历史窗口", exact: true }).click();
@@ -87,5 +91,9 @@ test("browsers without IntersectionObserver still show functional charts", async
     window.IntersectionObserver = undefined;
   });
   await page.goto("./");
+  await expect(page.getByTestId("insights").locator("canvas")).toHaveCount(1);
+  await page
+    .getByRole("button", { name: "展开其他 3 张图", exact: true })
+    .click();
   await expect(page.getByTestId("insights").locator("canvas")).toHaveCount(4);
 });

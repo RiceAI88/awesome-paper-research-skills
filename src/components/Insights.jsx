@@ -6,23 +6,29 @@ import React, {
   useState,
 } from "react";
 import { Bar, Line, Pie, Scatter } from "@ant-design/plots";
-import { Empty, Select } from "antd";
+import { Button, Empty, Select } from "antd";
 import { buildInsightData, createColorMaps } from "../insights";
 import { FONT_FAMILY } from "../domain";
 import { ChartBoundary } from "./ChartBoundary";
 
-function ChartFrame({ title, note, id, children, t }) {
+function ChartFrame({ title, note, id, children, t, hidden = false }) {
   return (
     <article
       className={`insight-panel insight-${id}`}
       data-testid={`insight-${id}`}
+      id={`insight-panel-${id}`}
+      hidden={hidden}
       aria-labelledby={`insight-title-${id}`}
     >
       <div className="insight-panel-heading">
         <h3 id={`insight-title-${id}`}>{title}</h3>
         {note && <p>{note}</p>}
       </div>
-      <ChartBoundary fallback={t("chartUnavailable")}>{children}</ChartBoundary>
+      {!hidden && (
+        <ChartBoundary fallback={t("chartUnavailable")}>
+          {children}
+        </ChartBoundary>
+      )}
     </article>
   );
 }
@@ -42,6 +48,17 @@ export default function Insights({
   update,
   t,
 }) {
+  const [isMobile, setIsMobile] = useState(
+    () => matchMedia("(max-width: 760px)").matches,
+  );
+  const [expanded, setExpanded] = useState(false);
+  useEffect(() => {
+    const query = matchMedia("(max-width: 760px)");
+    const change = () => setIsMobile(query.matches);
+    query.addEventListener("change", change);
+    return () => query.removeEventListener("change", change);
+  }, []);
+  const showAdditional = !isMobile || expanded;
   const entered = useRef(new Set());
   const [reducedMotion, setReducedMotion] = useState(
     () => matchMedia("(prefers-reduced-motion: reduce)").matches,
@@ -169,18 +186,30 @@ export default function Insights({
             <b data-testid="insight-count">{items.length}</b> {t("repos")}
           </p>
         </div>
-        <label className="history-window">
-          <span>{t("historyWindow")}</span>
-          <Select
-            aria-label={t("historyWindow")}
-            value={days}
-            onChange={setDays}
-            options={[30, 60].map((value) => ({
-              value,
-              label: `${value} ${t("days")}`,
-            }))}
-          />
-        </label>
+        <div className="insights-actions">
+          <label className="history-window">
+            <span>{t("historyWindow")}</span>
+            <Select
+              aria-label={t("historyWindow")}
+              value={days}
+              onChange={setDays}
+              options={[30, 60].map((value) => ({
+                value,
+                label: `${value} ${t("days")}`,
+              }))}
+            />
+          </label>
+          <Button
+            className="mobile-chart-toggle"
+            type="text"
+            size="small"
+            aria-expanded={showAdditional}
+            aria-controls="insight-panel-categories insight-panel-growth insight-panel-scatter"
+            onClick={() => setExpanded((value) => !value)}
+          >
+            {t(expanded ? "hideMoreCharts" : "showMoreCharts")}
+          </Button>
+        </div>
       </div>
       <div className="insights-top">
         <ChartFrame
@@ -273,7 +302,12 @@ export default function Insights({
             {t("historyProvenance")}
           </p>
         </ChartFrame>
-        <ChartFrame id="categories" title={t("insightCategories")} t={t}>
+        <ChartFrame
+          id="categories"
+          hidden={!showAdditional}
+          title={t("insightCategories")}
+          t={t}
+        >
           {categories.length ? (
             <>
               <div className="donut-wrap">
@@ -333,9 +367,10 @@ export default function Insights({
           )}
         </ChartFrame>
       </div>
-      <div className="insights-bottom">
+      <div className="insights-bottom" hidden={!showAdditional}>
         <ChartFrame
           id="growth"
+          hidden={!showAdditional}
           title={t("insightGrowth")}
           note={t("insightGrowthNote")}
           t={t}
@@ -413,6 +448,7 @@ export default function Insights({
         </ChartFrame>
         <ChartFrame
           id="scatter"
+          hidden={!showAdditional}
           title={t("insightScatter")}
           note={t("insightScatterNote")}
           t={t}
