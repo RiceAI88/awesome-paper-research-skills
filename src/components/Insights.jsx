@@ -1,4 +1,10 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { Bar, Line, Pie, Scatter } from "@ant-design/plots";
 import { Empty, Select } from "antd";
 import { buildInsightData, createColorMaps } from "../insights";
@@ -85,13 +91,19 @@ export default function Insights({
   };
   const category = (id) =>
     update((s) => ({ ...s, category: s.category === id ? "all" : id }));
+  const handlers = useRef({ open, category });
+  useLayoutEffect(() => {
+    handlers.current = { open, category };
+  });
   const bind =
-    (id, callback) =>
+    (id) =>
     ({ chart }) => {
       entered.current.add(id);
       chart.on("element:click", (event) => {
         const datum = event.data?.data;
-        if (datum) callback(datum);
+        if (!datum) return;
+        if (id === "categories") handlers.current.category(datum.id);
+        else handlers.current.open(datum.repo);
       });
     };
   const base = {
@@ -246,7 +258,7 @@ export default function Insights({
                     }),
                   ],
                 }}
-                onReady={bind("trend", (d) => open(d.repo))}
+                onReady={bind("trend")}
               />
             </div>
           ) : (
@@ -293,7 +305,7 @@ export default function Insights({
                       title: "label",
                       items: [{ field: "count", name: t("repos") }],
                     }}
-                    onReady={bind("categories", (d) => category(d.id))}
+                    onReady={bind("categories")}
                   />
                 </div>
                 <div className="donut-center" aria-hidden="true">
@@ -373,7 +385,7 @@ export default function Insights({
                       },
                     ],
                   }}
-                  onReady={bind("growth", (d) => open(d.repo))}
+                  onReady={bind("growth")}
                 />
               </div>
               <div className="growth-values">
@@ -448,7 +460,7 @@ export default function Insights({
                       },
                     ],
                   }}
-                  onReady={bind("scatter", (d) => open(d.repo))}
+                  onReady={bind("scatter")}
                 />
               </div>
               <details className="chart-data">

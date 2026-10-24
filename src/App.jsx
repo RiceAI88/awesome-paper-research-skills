@@ -1,11 +1,4 @@
-import React, {
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  lazy,
-  Suspense,
-} from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
   App as AntApp,
   Button,
@@ -55,10 +48,8 @@ import { DataTransparency } from "./components/DataTransparency";
 import { RepositoryViews } from "./components/RepositoryViews";
 import { RepositoryDrawer } from "./components/RepositoryDrawer";
 import { AnimatedStatistic } from "./components/AnimatedStatistic";
-import { ChartBoundary } from "./components/ChartBoundary";
+import { ViewportInsights } from "./components/ViewportInsights";
 import { ComparisonChart } from "./components/TrendCharts";
-
-const Insights = lazy(() => import("./components/Insights"));
 
 const dataset = window.ACADEMIC_SKILLS_RANKINGS || {};
 const items = Array.isArray(dataset.items)
@@ -521,25 +512,15 @@ function Dashboard({ state, update }) {
             <Tag variant="borderless">{state.favorites.length}</Tag>
           </Button>
         </section>
-        <ChartBoundary fallback={t("chartUnavailable")}>
-          <Suspense
-            fallback={
-              <p className="charts-loading" role="status">
-                {t("chartsLoading")}
-              </p>
-            }
-          >
-            <Insights
-              items={visible}
-              allItems={items}
-              history={historyData}
-              generatedAt={dataset.metadata?.generated_at}
-              state={state}
-              update={update}
-              t={t}
-            />
-          </Suspense>
-        </ChartBoundary>
+        <ViewportInsights
+          items={visible}
+          allItems={items}
+          history={historyData}
+          generatedAt={dataset.metadata?.generated_at}
+          state={state}
+          update={update}
+          t={t}
+        />
         <EditorialPicks items={visible} state={state} t={t} />
         <Card className="ranking-section" styles={{ body: { padding: 0 } }}>
           <div className="ranking-header">
