@@ -11,6 +11,7 @@
     view: localStorage.getItem("ars-view") || (matchMedia("(max-width: 760px)").matches ? "card" : "table"),
     query: "",
     category: "all",
+    task: "all",
     agent: "all",
     sort: "rank",
     favorites: JSON.parse(localStorage.getItem("ars-favorites") || "[]"),
@@ -19,18 +20,15 @@
     compare: JSON.parse(localStorage.getItem("ars-compare") || "[]").slice(0, 3),
   };
 
-  /* Research-stage ordering of the categories (选题 → 文献 → 实验 → 写作 →
-     评审 → 学科 → 综合); the strip renders in this fixed order. */
-  const STAGE_ORDER = [
-    "deep-research",
-    "literature-review",
-    "experiment-reproducibility",
-    "paper-writing",
-    "peer-review",
-    "discipline-specific",
-    "general-research",
+  /* Tasks can overlap: match capabilities across repository categories. */
+  const RESEARCH_TASKS = [
+    { id: "find", categories: ["literature-review"], pattern: /\b(?:literature[ -](?:search|retrieval|discovery)|paper[ -](?:search|finder|discovery)|academic[ -]search|semantic[ -]scholar|zotero|pubmed|arxiv|cnki)\b|文献.{0,4}(?:检索|搜索|查找|发现)|(?:搜索|检索|查找).{0,4}(?:论文|文献)|知网/i },
+    { id: "read", categories: ["literature-review"], pattern: /\b(?:read(?:ing|er)?|summari[sz](?:e|ation|ing)|translat(?:e|ion|ing)|zotero)\b|读论文|论文.{0,4}(?:解读|阅读|翻译)|文献阅读/i },
+    { id: "write", categories: ["paper-writing"], pattern: /\b(?:academic[ -]writing|paper[ -]writing|latex|proofread(?:ing)?|manuscript)\b|论文写作|学术写作|论文润色|论文撰写/i },
+    { id: "figures", categories: [], pattern: /\b(?:figures?|plots?|plotting|visuali[sz](?:ation|e)|illustrations?|diagrams?|charts?|figures4papers)\b|科研绘图|论文配图|科学绘图|图表|画图|绘制/i },
+    { id: "reproduce", categories: ["experiment-reproducibility"], pattern: /\b(?:reproduc(?:e|ibility|tion)|replicat(?:e|ion)|benchmark(?:ing)?|experiment(?:al|s)?|ablation)\b|实验复现|实验设计|复现实验|基准测试|消融/i },
+    { id: "review", categories: ["peer-review"], pattern: /\b(?:peer[ -]review|reviewers?|referee|rebuttal|submission|revision|revise|review[ -](?:paper|manuscript)|pre[ -]submission)\b|审稿|评审|投稿|返修|回复审稿/i },
   ];
-  const STAGE_GLYPHS = ["①", "②", "③", "④", "⑤", "⑥", "⑦"];
 
   /* Agent platform catalog — the order here is the display/sort order. */
   const AGENT_PLATFORMS = [
@@ -48,11 +46,15 @@
       skipToContent: "跳到主内容",
       mastheadVol: "Vol.1",
       heroTitle: '论文科研 Skills <em>排行榜</em>',
-      heroSubtitle: "每天自动发现、过滤并排名 GitHub 上服务论文写作、文献综述、深度研究、评审反馈和实验复现的 Agent Skill 仓库。",
+      heroSubtitle: "发现论文写作、文献阅读与科研实践所需的 Agent Skills，每日自动更新。",
+      taskHeading: "按科研任务找 Skills", taskAll: "全部 Skills",
+      taskFind: "找文献", taskRead: "读论文", taskWrite: "写论文",
+      taskFigures: "科研绘图", taskReproduce: "实验复现", taskReview: "投稿审稿",
       heroHint: "提示：按 <b>/</b> 聚焦搜索 · <b>t</b> 主题 · <b>l</b> 语言 · <b>v</b> 视图",
       tocTitle: "本期目录",
       repos: "收录仓库", minStars: "最低 Stars", updated: "最近更新",
       searchLabel: "搜索仓库、简介、分类", categoryLabel: "分类", allCategories: "全部分类",
+      searchPlaceholder: "例如：论文写作、Zotero、科研绘图",
       agentLabel: "平台", allAgents: "全部平台", agentGeneral: "通用",
       sortLabel: "排序", sortRank: "综合排名", sortTrend: "趋势优先", sortStars: "Stars 优先",
       sortUpdated: "最近更新", sortDelta30: "30 天增量",
@@ -92,11 +94,15 @@
       skipToContent: "Skip to content",
       mastheadVol: "Vol.1",
       heroTitle: 'Paper Research <em>Skills</em>',
-      heroSubtitle: "A daily updated ranking of GitHub repositories for paper writing, literature review, deep research, peer review, and experiment reproducibility agent skills.",
+      heroSubtitle: "Discover agent skills for reading, writing and research. Updated daily.",
+      taskHeading: "Find skills for your research task", taskAll: "All skills",
+      taskFind: "Find papers", taskRead: "Read papers", taskWrite: "Write papers",
+      taskFigures: "Create figures", taskReproduce: "Reproduce results", taskReview: "Submit & review",
       heroHint: "Tip: press <b>/</b> to search · <b>t</b> theme · <b>l</b> language · <b>v</b> view",
       tocTitle: "In this issue",
       repos: "Repositories", minStars: "Min Stars", updated: "Updated",
       searchLabel: "Search repositories, descriptions, categories", categoryLabel: "Category", allCategories: "All categories",
+      searchPlaceholder: "Try paper writing, Zotero, figures...",
       agentLabel: "Platform", allAgents: "All platforms", agentGeneral: "General",
       sortLabel: "Sort", sortRank: "Ranking", sortTrend: "Trend first", sortStars: "Stars first",
       sortUpdated: "Recently updated", sortDelta30: "30-day growth",
@@ -160,6 +166,9 @@
     // innerHTML so the markup survives; values are hardcoded in translations.
     document.querySelectorAll("[data-i18n-html]").forEach((n) => { n.innerHTML = t(n.dataset.i18nHtml); });
     document.querySelectorAll("[data-i18n-title]").forEach((n) => { n.title = t(n.dataset.i18nTitle); });
+    const search = document.getElementById("searchInput");
+    search.placeholder = t("searchPlaceholder");
+    search.setAttribute("aria-label", t("searchLabel"));
     document.querySelectorAll(".lang-button").forEach((b) => {
       const on = b.dataset.lang === lang;
       b.classList.toggle("active", on);
@@ -336,7 +345,10 @@
   /* ---------- filtering / sorting ---------- */
   function filteredItems() {
     const q = state.query.trim().toLowerCase();
+    const task = RESEARCH_TASKS.find((entry) => entry.id === state.task);
     let items = data.items.filter((item) => {
+      if (task && !task.categories.includes(item.category.id) &&
+          !task.pattern.test([item.repo, item.description, ...(item.topics || [])].join(" "))) return false;
       if (state.category !== "all" && item.category.id !== state.category) return false;
       if (state.agent !== "all" && !detectAgents(item).includes(state.agent)) return false;
       if (state.favOnly && !isFav(item.repo)) return false;
@@ -355,32 +367,12 @@
     return items;
   }
 
-  /* ---------- category strip (research-stage order) ---------- */
-  function renderCategoryStrip() {
-    const c = document.getElementById("categoryStrip");
-    const counts = new Map();
-    data.items.forEach((it) => {
-      const cur = counts.get(it.category.id) || { category: it.category, count: 0 };
-      cur.count += 1; counts.set(it.category.id, cur);
-    });
-    c.innerHTML = "";
-    const all = document.createElement("button");
-    all.className = "category-card" + (state.category === "all" ? " active" : "");
-    all.innerHTML = `<strong>${fmt(data.items.length)}</strong><span>${t("allCategories")}</span>`;
-    all.onclick = () => { state.category = "all"; document.getElementById("categoryFilter").value = "all"; syncHash(); render(); };
-    c.appendChild(all);
-    // Fixed research-stage order (选题→文献→实验→写作→评审→学科→综合) instead
-    // of count sorting, so the strip mirrors the actual research pipeline.
-    STAGE_ORDER.forEach((catId, idx) => {
-      const entry = counts.get(catId);
-      if (!entry) return;
-      const glyph = STAGE_GLYPHS[idx] || "";
-      const card = document.createElement("button");
-      card.className = "category-card" + (state.category === catId ? " active" : "");
-      card.title = state.lang === "zh" ? "按科研阶段浏览" : "Browse by research stage";
-      card.innerHTML = `<strong>${fmt(entry.count)}</strong><span>${glyph} ${state.lang === "zh" ? entry.category.zh : entry.category.en}</span>`;
-      card.onclick = () => { state.category = catId; document.getElementById("categoryFilter").value = catId; syncHash(); render(); };
-      c.appendChild(card);
+  /* ---------- research-task shortcuts ---------- */
+  function renderTaskFilters() {
+    document.querySelectorAll("[data-task]").forEach((button) => {
+      const active = button.dataset.task === state.task;
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-pressed", String(active));
     });
   }
 
@@ -620,6 +612,7 @@
     const p = new URLSearchParams();
     if (state.query) p.set("q", state.query);
     if (state.category !== "all") p.set("cat", state.category);
+    if (state.task !== "all") p.set("task", state.task);
     if (state.agent !== "all") p.set("agent", state.agent);
     if (state.sort !== "rank") p.set("sort", state.sort);
     if (state.view !== "table") p.set("view", state.view);
@@ -634,6 +627,7 @@
     const m = new URLSearchParams(location.hash.slice(1));
     if (m.has("q")) state.query = m.get("q");
     if (m.has("cat")) state.category = m.get("cat");
+    state.task = RESEARCH_TASKS.some((task) => task.id === m.get("task")) ? m.get("task") : "all";
     if (m.has("agent")) state.agent = m.get("agent");
     if (m.has("sort")) state.sort = m.get("sort");
     if (m.has("view")) state.view = m.get("view");
@@ -758,7 +752,7 @@
     renderSummary();
     renderToc();
     renderStatStrip();
-    renderCategoryStrip();
+    renderTaskFilters();
     if (state.view === "card") { renderCards(); } else { renderTable(); }
     renderLdJson();
     updateFavUI();
@@ -767,6 +761,12 @@
 
   /* ---------- events ---------- */
   function wire() {
+    document.querySelectorAll("[data-task]").forEach((button) => button.addEventListener("click", () => {
+      state.task = button.dataset.task;
+      state.category = "all";
+      document.getElementById("categoryFilter").value = "all";
+      render();
+    }));
     document.querySelectorAll(".lang-button").forEach((b) => b.addEventListener("click", () => setLanguage(b.dataset.lang)));
     document.getElementById("themeToggle").addEventListener("click", toggleTheme);
     document.querySelectorAll(".view-button").forEach((b) => b.addEventListener("click", () => setView(b.dataset.view)));

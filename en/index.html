@@ -28,7 +28,7 @@
     <meta property="og:title" content="Paper Research Skills Ranking · Awesome Paper Research Skills" />
     <meta
       property="og:description"
-      content="A daily-updated ranking of GitHub repositories for paper writing, literature review, deep research, peer review, and experiment reproducibility agent skills."
+      content="Discover agent skills for reading, writing and research. Updated daily."
     />
     <meta property="og:image" content="https://riceai88.github.io/awesome-paper-research-skills/assets/og-cover.png" />
 
@@ -37,7 +37,7 @@
     <meta name="twitter:title" content="Paper Research Skills Ranking · Awesome Paper Research Skills" />
     <meta
       name="twitter:description"
-      content="A daily-updated ranking of GitHub repositories for paper writing, literature review, deep research, peer review, and experiment reproducibility agent skills."
+      content="Discover agent skills for reading, writing and research. Updated daily."
     />
     <meta name="twitter:image" content="https://riceai88.github.io/awesome-paper-research-skills/assets/og-cover.png" />
 
@@ -93,8 +93,26 @@
           </div>
           <h1 data-i18n-html="heroTitle">Paper Research <em>Skills</em></h1>
           <p data-i18n="heroSubtitle">
-            A daily-updated ranking of GitHub repositories for paper writing, literature review, deep research, peer review, and experiment reproducibility agent skills.
+            Discover agent skills for reading, writing and research. Updated daily.
           </p>
+          <label class="search-field hero-search">
+            <span data-i18n="searchLabel">Search repositories, descriptions, categories</span>
+            <input id="searchInput" type="search" placeholder="Try paper writing, Zotero, figures..." aria-label="Search" />
+          </label>
+          <section class="task-navigation" aria-labelledby="taskHeading">
+            <div class="task-heading">
+              <h2 id="taskHeading" data-i18n="taskHeading">Find skills for your research task</h2>
+              <button class="task-all active" type="button" data-task="all" aria-pressed="true" data-i18n="taskAll">All skills</button>
+            </div>
+            <div class="task-list" id="taskList">
+              <button class="task-button" type="button" data-task="find" aria-pressed="false" data-i18n="taskFind">Find papers</button>
+              <button class="task-button" type="button" data-task="read" aria-pressed="false" data-i18n="taskRead">Read papers</button>
+              <button class="task-button" type="button" data-task="write" aria-pressed="false" data-i18n="taskWrite">Write papers</button>
+              <button class="task-button" type="button" data-task="figures" aria-pressed="false" data-i18n="taskFigures">Create figures</button>
+              <button class="task-button" type="button" data-task="reproduce" aria-pressed="false" data-i18n="taskReproduce">Reproduce results</button>
+              <button class="task-button" type="button" data-task="review" aria-pressed="false" data-i18n="taskReview">Submit & review</button>
+            </div>
+          </section>
           <p class="hero-hint" data-i18n-html="heroHint">Tip: press <b>/</b> to search · <b>t</b> theme · <b>l</b> language · <b>v</b> view</p>
         </div>
         <div class="hero-panel" aria-label="In this issue">
@@ -113,10 +131,6 @@
 
     <main id="main">
       <section class="controls" aria-label="Ranking controls">
-        <label class="search-field">
-          <span data-i18n="searchLabel">Search repositories, descriptions, categories</span>
-          <input id="searchInput" type="search" placeholder="paper writing, literature, review..." aria-label="Search" />
-        </label>
         <label class="select-field">
           <span data-i18n="categoryLabel">Category</span>
           <select id="categoryFilter">
@@ -153,8 +167,6 @@
           <span class="fav-count" id="favCount">0</span>
         </button>
       </section>
-
-      <section class="category-strip" id="categoryStrip" aria-label="Category summary"></section>
 
       <section class="table-section">
         <div class="table-header">

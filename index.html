@@ -26,7 +26,7 @@
     <meta property="og:title" content="论文科研 Skills 排行榜 · Awesome Paper Research Skills" />
     <meta
       property="og:description"
-      content="每天自动发现、过滤并排名 GitHub 上服务论文写作、文献综述、深度研究、评审反馈和实验复现的 Agent Skill 仓库。"
+      content="发现论文写作、文献阅读与科研实践所需的 Agent Skills，每日自动更新。"
     />
     <meta property="og:image" content="https://riceai88.github.io/awesome-paper-research-skills/assets/og-cover.png" />
 
@@ -35,7 +35,7 @@
     <meta name="twitter:title" content="论文科研 Skills 排行榜 · Awesome Paper Research Skills" />
     <meta
       name="twitter:description"
-      content="每天自动发现、过滤并排名 GitHub 上服务论文写作、文献综述、深度研究、评审反馈和实验复现的 Agent Skill 仓库。"
+      content="发现论文写作、文献阅读与科研实践所需的 Agent Skills，每日自动更新。"
     />
     <meta name="twitter:image" content="https://riceai88.github.io/awesome-paper-research-skills/assets/og-cover.png" />
 
@@ -87,8 +87,26 @@
           </div>
           <h1 data-i18n-html="heroTitle">论文科研 Skills <em>排行榜</em></h1>
           <p data-i18n="heroSubtitle">
-            每天自动发现、过滤并排名 GitHub 上服务论文写作、文献综述、深度研究、评审反馈和实验复现的 Agent Skill 仓库。
+            发现论文写作、文献阅读与科研实践所需的 Agent Skills，每日自动更新。
           </p>
+          <label class="search-field hero-search">
+            <span data-i18n="searchLabel">搜索仓库、简介、分类</span>
+            <input id="searchInput" type="search" placeholder="例如：论文写作、Zotero、科研绘图" aria-label="Search" />
+          </label>
+          <section class="task-navigation" aria-labelledby="taskHeading">
+            <div class="task-heading">
+              <h2 id="taskHeading" data-i18n="taskHeading">按科研任务找 Skills</h2>
+              <button class="task-all active" type="button" data-task="all" aria-pressed="true" data-i18n="taskAll">全部 Skills</button>
+            </div>
+            <div class="task-list" id="taskList">
+              <button class="task-button" type="button" data-task="find" aria-pressed="false" data-i18n="taskFind">找文献</button>
+              <button class="task-button" type="button" data-task="read" aria-pressed="false" data-i18n="taskRead">读论文</button>
+              <button class="task-button" type="button" data-task="write" aria-pressed="false" data-i18n="taskWrite">写论文</button>
+              <button class="task-button" type="button" data-task="figures" aria-pressed="false" data-i18n="taskFigures">科研绘图</button>
+              <button class="task-button" type="button" data-task="reproduce" aria-pressed="false" data-i18n="taskReproduce">实验复现</button>
+              <button class="task-button" type="button" data-task="review" aria-pressed="false" data-i18n="taskReview">投稿审稿</button>
+            </div>
+          </section>
           <p class="hero-hint" data-i18n-html="heroHint">提示：按 / 聚焦搜索 · t 切换主题 · l 切语言 · v 切视图</p>
         </div>
         <div class="hero-panel" aria-label="In this issue">
@@ -107,10 +125,6 @@
 
     <main id="main">
       <section class="controls" aria-label="Ranking controls">
-        <label class="search-field">
-          <span data-i18n="searchLabel">搜索仓库、简介、分类</span>
-          <input id="searchInput" type="search" placeholder="paper writing, literature, review..." aria-label="Search" />
-        </label>
         <label class="select-field">
           <span data-i18n="categoryLabel">分类</span>
           <select id="categoryFilter">
@@ -147,8 +161,6 @@
           <span class="fav-count" id="favCount">0</span>
         </button>
       </section>
-
-      <section class="category-strip" id="categoryStrip" aria-label="Category summary"></section>
 
       <section class="table-section">
         <div class="table-header">
