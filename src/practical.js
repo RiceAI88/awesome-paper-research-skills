@@ -6,13 +6,19 @@ export const UPDATE_RUNS_URL =
 export function installationFor(item, content = EDITORIAL_CONTENT) {
   const entry = content.installations?.[item.repo];
   const source = entry?.reviewed_at && safeExternalUrl(entry.source_url);
+  const command =
+    typeof entry?.command === "string" && entry.command.trim()
+      ? entry.command
+      : null;
   return source
     ? {
         ...entry,
-        command: typeof entry.command === "string" ? entry.command : null,
+        command,
+        mode: command ? "command" : entry.mode === "manual" ? "manual" : "docs",
         source_url: source,
       }
     : {
+        mode: "docs",
         command: null,
         source_url:
           (safeExternalUrl(item.url) ||

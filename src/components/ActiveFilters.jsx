@@ -1,0 +1,71 @@
+import React from "react";
+import { Button } from "antd";
+import { CloseOutlined } from "@ant-design/icons";
+import { AGENT_PLATFORMS } from "../domain";
+const taskKeys = {
+  find: "taskFind",
+  read: "taskRead",
+  write: "taskWrite",
+  figures: "taskFigures",
+  reproduce: "taskReproduce",
+  review: "taskReview",
+};
+const resets = {
+  query: "",
+  task: "all",
+  category: "all",
+  agent: "all",
+  favOnly: false,
+};
+export function ActiveFilters({ state, update, categories, t, empty }) {
+  const conditions = [];
+  if (state.query.trim())
+    conditions.push(["query", t("filterSearch") + state.query.trim()]);
+  if (state.task !== "all") conditions.push(["task", t(taskKeys[state.task])]);
+  if (state.category !== "all") {
+    const category = categories.find((c) => c.id === state.category);
+    conditions.push([
+      "category",
+      category?.[state.lang] || category?.en || state.category,
+    ]);
+  }
+  if (state.agent !== "all")
+    conditions.push([
+      "agent",
+      AGENT_PLATFORMS.find((a) => a.id === state.agent)?.label || state.agent,
+    ]);
+  if (state.favOnly) conditions.push(["favOnly", t("favoritesOnly")]);
+  if (!conditions.length) return null;
+  return (
+    <section
+      className="active-filters"
+      data-testid="active-filters"
+      aria-label={t("activeFilters")}
+    >
+      <div className="active-filter-list">
+        <span className="muted">{t("activeFilters")}</span>
+        {conditions.map(([key, label]) => (
+          <Button
+            key={key}
+            size="small"
+            className="active-filter-chip"
+            data-filter-key={key}
+            aria-label={t("removeFilter") + label}
+            onClick={() => update((s) => ({ ...s, [key]: resets[key] }))}
+          >
+            <span className="active-filter-label">{label}</span>
+            <CloseOutlined aria-hidden="true" />
+          </Button>
+        ))}
+        <Button
+          size="small"
+          type="link"
+          onClick={() => update((s) => ({ ...s, ...resets }))}
+        >
+          {t("clearFilters")}
+        </Button>
+      </div>
+      {empty && <p className="muted">{t("relaxFilters")}</p>}
+    </section>
+  );
+}

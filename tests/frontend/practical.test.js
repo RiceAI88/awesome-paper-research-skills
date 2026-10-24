@@ -107,3 +107,49 @@ test("workflow status distinguishes success, failure, running, pending publicati
     "unknown",
   );
 });
+test("installation mode is grounded in reviewed metadata and never guesses unknown setup", () => {
+  assert.equal(installationFor(item, content).mode, "command");
+  const manual = {
+    installations: {
+      "sample/tool": {
+        mode: "manual",
+        source_url: item.url,
+        reviewed_at: "2026-10-25",
+      },
+    },
+  };
+  assert.equal(installationFor(item, manual).mode, "manual");
+  assert.equal(
+    installationFor({ ...item, repo: "unknown/repo" }, content).mode,
+    "docs",
+  );
+  assert.equal(
+    installationFor(item, {
+      installations: { "sample/tool": { mode: "manual", command: "invented" } },
+    }).mode,
+    "docs",
+  );
+  assert.equal(
+    installationFor(item, {
+      installations: {
+        "sample/tool": {
+          mode: "manual",
+          source_url: "javascript:alert(1)",
+          reviewed_at: "2026-10-25",
+        },
+      },
+    }).mode,
+    "docs",
+  );
+  assert.equal(
+    installationFor(item, {
+      installations: {
+        "sample/tool": {
+          ...content.installations["sample/tool"],
+          command: "   ",
+        },
+      },
+    }).mode,
+    "docs",
+  );
+});

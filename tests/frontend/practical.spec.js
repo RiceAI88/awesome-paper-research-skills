@@ -37,7 +37,7 @@ test("practical information, editorial reasons and history provenance are visibl
   await expect(
     page
       .locator(".ant-table-row")
-      .getByRole("link", { name: "安装说明", exact: true }),
+      .getByRole("link", { name: "项目文档", exact: true }),
   ).toHaveAttribute("href", /github.com/);
   await expect(page.getByTestId("editorial-picks")).toHaveCount(0);
   await page.getByRole("searchbox").fill("paper-craft");

@@ -1234,3 +1234,36 @@ h1 em {
     display: none;
   }
 }
+
+.installation-status {
+  margin-bottom: 6px;
+}
+.active-filters {
+  padding: 12px 20px;
+  border-top: 1px solid var(--prs-border);
+}
+.active-filter-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.active-filter-chip {
+  max-width: 100%;
+  height: auto;
+  min-height: 28px;
+  white-space: normal;
+  text-align: left;
+}
+.active-filter-label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.active-filters p {
+  margin: 8px 0 0;
+}
+@media (max-width: 760px) {
+  .active-filters {
+    padding: 12px;
+  }
+}

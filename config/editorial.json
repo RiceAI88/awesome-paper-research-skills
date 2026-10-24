@@ -1,5 +1,5 @@
 {
-  "reviewed_at": "2026-10-24",
+  "reviewed_at": "2026-10-25",
   "provenance": {
     "upstream_repository": "https://github.com/kael-odin/awesome-academic-research-skills",
     "upstream_commit": "9e006159f3d4388c8933fc1d4c12e46714999930",
@@ -25,34 +25,35 @@
       "context_zh": "在终端执行，按提示选择技能与 Agent",
       "context_en": "Run in a terminal and select skills and agent",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/README.md",
-      "reviewed_at": "2026-10-24"
+      "reviewed_at": "2026-10-25"
     },
     "Imbad0202/academic-research-skills": {
       "command": "/plugin marketplace add Imbad0202/academic-research-skills\n/plugin install academic-research-skills",
       "context_zh": "在 Claude Code 会话内执行这两条命令",
       "context_en": "Run these two commands inside Claude Code",
       "source_url": "https://github.com/Imbad0202/academic-research-skills/blob/main/README.md#quick-install",
-      "reviewed_at": "2026-10-24"
+      "reviewed_at": "2026-10-25"
     },
     "Yuan1z0825/nature-skills": {
       "command": "npx skills add Yuan1z0825/nature-skills --agent codex --skill nature-figure --yes --copy",
       "context_zh": "在终端为当前项目安装 nature-figure（Codex）",
       "context_en": "Install nature-figure for Codex in the current project",
       "source_url": "https://github.com/Yuan1z0825/nature-skills/blob/main/README.md#51-npx-skills-安装方式",
-      "reviewed_at": "2026-10-24"
+      "reviewed_at": "2026-10-25"
     },
     "zsyggg/paper-craft-skills": {
       "command": "npx skills add zsyggg/paper-craft-skills",
       "context_zh": "在终端执行，按提示选择安装目标",
       "context_en": "Run in a terminal and choose installation targets",
       "source_url": "https://github.com/zsyggg/paper-craft-skills/blob/main/README.md#how-to-install",
-      "reviewed_at": "2026-10-24"
+      "reviewed_at": "2026-10-25"
     },
     "openags/paper-search-mcp": {
+      "mode": "manual",
       "context_zh": "Claude Code Skill 需 uv；MCP 等接入方式见官方步骤",
       "context_en": "Claude Code skill requires uv; see docs for MCP and other setups",
       "source_url": "https://github.com/openags/paper-search-mcp/blob/main/README.md#installation",
-      "reviewed_at": "2026-10-24"
+      "reviewed_at": "2026-10-25"
     }
   },
   "featured": [

@@ -45,6 +45,7 @@ import { enrichItem } from "./practical";
 import { EditorialPicks } from "./components/EditorialPicks";
 import { UpdateStatus } from "./components/UpdateStatus";
 import { DataTransparency } from "./components/DataTransparency";
+import { ActiveFilters } from "./components/ActiveFilters";
 import { RepositoryViews } from "./components/RepositoryViews";
 import { RepositoryDrawer } from "./components/RepositoryDrawer";
 import { AnimatedStatistic } from "./components/AnimatedStatistic";
@@ -545,6 +546,10 @@ function Dashboard({ state, update }) {
               </Button>
             </Space>
           </div>
+          <ActiveFilters
+            {...{ state, update, categories, t }}
+            empty={!visible.length}
+          />
           <RepositoryViews
             {...{
               items: visible,

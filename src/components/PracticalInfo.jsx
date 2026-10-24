@@ -51,6 +51,17 @@ export function InstallationActions({ item, lang, t, details = false }) {
         if (event.target.closest("button,a")) event.stopPropagation();
       }}
     >
+      <div className="installation-status">
+        <Tag className="warm-tag" data-testid="installation-mode">
+          {t(
+            {
+              command: "installCommandMode",
+              manual: "installManualMode",
+              docs: "installUnknownMode",
+            }[installation.mode],
+          )}
+        </Tag>
+      </div>
       {installation[`context_${lang}`] && (
         <div className="installation-context">
           {installation[`context_${lang}`]}
@@ -78,9 +89,12 @@ export function InstallationActions({ item, lang, t, details = false }) {
           target="_blank"
           rel="noreferrer"
         >
-          {t("installDocs")}
+          {t(installation.mode === "docs" ? "projectDocs" : "installDocs")}
         </Button>
       </Space>
+      {details && installation.mode === "docs" && (
+        <p className="muted">{t("installUnreviewedHint")}</p>
+      )}
       {details && installation.command && (
         <pre className="install-command">{installation.command}</pre>
       )}
