@@ -22,7 +22,8 @@ test("mobile card entry does not download table, detail or comparison code until
   await page.getByTestId("open-compare").click();
   await expect(page.locator(".ant-modal")).toBeVisible();
   expect(requests.some((url) => /ComparisonDialog-/.test(url))).toBe(true);
-  await page.keyboard.press("Escape");
+  await page.locator(".ant-modal-close").click();
+  await expect(page.locator(".ant-modal")).not.toBeVisible();
   await page
     .getByRole("radio", { name: "表格", exact: true })
     .locator("..")

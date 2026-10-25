@@ -629,7 +629,7 @@ function Dashboard({ state, update }) {
                   setInsightsJump(true);
                 }}
               >
-                {t("viewInsights")} ↓
+                {t("insightsTitle")} ↓
               </Button>
               <Button
                 icon={<DownloadOutlined aria-hidden="true" />}

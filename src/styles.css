@@ -1488,3 +1488,8 @@ h1 em {
 @media (max-width: 640px) {
   .statistics .panel-body, .statistics .panel:first-child .panel-body { padding-top: 8px; padding-bottom: 8px; }
 }
+
+@media (max-width: 760px) {
+  .hero { padding-top: 20px; padding-bottom: 12px; }
+  .statistics .panel-body, .statistics .panel:first-child .panel-body { padding-top: 4px; padding-bottom: 4px; }
+}

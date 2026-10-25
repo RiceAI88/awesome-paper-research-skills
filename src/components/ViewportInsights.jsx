@@ -19,7 +19,7 @@ function Placeholder({ t, count, loading = false }) {
         {loading && <p role="status">{t("chartsLoading")}</p>}
       </div>
       {[
-        ["insightTrend", "insightCategories"],
+        ["insightTrend", "categoryLabel"],
         ["insightGrowth", "insightScatter"],
       ].map((row, index) => (
         <div key={index} className={index ? "insights-bottom" : "insights-top"}>

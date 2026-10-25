@@ -28,7 +28,7 @@ test.describe("mobile charts and touch", () => {
     page,
   }) => {
     await page.goto("./");
-    await page.getByTestId("insights-viewport").scrollIntoViewIfNeeded();
+    await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
     await expect(page.getByTestId("insight-trend")).toBeVisible();
     await expect(page.getByTestId("insight-categories")).toBeHidden();
     await expect(
@@ -39,8 +39,11 @@ test.describe("mobile charts and touch", () => {
       exact: true,
     });
     await expect(expand).toHaveAttribute("aria-expanded", "false");
-    await page.getByRole("combobox", { name: "历史窗口", exact: true }).click();
-    await page.locator('.ant-select-item-option[title="30 天"]').click();
+    const history = page.getByRole("combobox", { name: "历史窗口", exact: true });
+    await history.click();
+    await history.press("ArrowUp");
+    await history.press("Enter");
+    await expect(page.locator(".history-window")).toContainText("30 天");
     await expand.click();
     await expect(
       page.getByTestId("insights").locator(".plot-host svg"),

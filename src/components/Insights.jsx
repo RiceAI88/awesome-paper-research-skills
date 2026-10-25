@@ -12,6 +12,33 @@ import { buildInsightData, createColorMaps } from "../insights";
 import { FONT_FAMILY } from "../domain";
 import { ChartBoundary } from "./ChartBoundary";
 
+const chartLabels = {
+  zh: {
+    insightTrendNote: "当前范围 Stars 最高的 3 个仓库 · 相对窗口内各自起点",
+    insightGrowthNote: "近 7 日新增 Stars 最高的 5 个仓库 · 不随历史窗口切换",
+    insightScatterNote: "横轴 Stars（对数） · 纵轴近 7 日新增 · 点击查看仓库",
+    historyProvenance: "2026-10-24 前的快照来自原项目；只绘制已有数据。",
+    noGrowth: "当前范围没有正增长记录。",
+    viewChartData: "查看数据与仓库详情",
+    backToRanking: "返回榜单",
+    insightBaseline: "起点",
+    insightSingleSnapshot: "仅一次快照",
+    insightBaselineNote: "起点为各仓库窗口内首个非零快照，日期可能不同；缺失日期不补值。",
+  },
+  en: {
+    insightTrendNote: "Top 3 by Stars · relative to each repository’s first observation in the window",
+    insightGrowthNote: "Top 5 by 7-day Stars gained · independent of history window",
+    insightScatterNote: "Stars (log) × 7-day change · click to view repository",
+    historyProvenance: "Snapshots before 2026-10-24 come from the original project; only recorded data is plotted.",
+    noGrowth: "No positive growth in this selection.",
+    viewChartData: "View data and repository details",
+    backToRanking: "Back to ranking",
+    insightBaseline: "Baseline",
+    insightSingleSnapshot: "Single observation",
+    insightBaselineNote: "Each baseline is its first non-zero snapshot in this window; dates may differ. No missing dates are filled.",
+  },
+};
+
 function SvgPlot({ plot: Plot, onReady, ...props }) {
   // Keep renderer internals out of the React wrapper's recursive config walk.
   // The canvas owns its renderer and disposes it with this plot instance.
@@ -57,8 +84,9 @@ export default function Insights({
   generatedAt,
   state,
   update,
-  t,
+  t: translate,
 }) {
+  const t = (key) => chartLabels[state.lang][key] || translate(key);
   const [isMobile, setIsMobile] = useState(
     () => matchMedia("(max-width: 760px)").matches,
   );
@@ -392,7 +420,7 @@ export default function Insights({
         <ChartFrame
           id="categories"
           hidden={!showAdditional}
-          title={t("insightCategories")}
+          title={t("categoryLabel")}
           t={t}
         >
           {categories.length ? (
@@ -400,7 +428,7 @@ export default function Insights({
               <div
                 className="plot-host"
                 role="img"
-                aria-label={t("insightCategories")}
+                aria-label={t("categoryLabel")}
               >
                 <SvgPlot
                   plot={Bar}
