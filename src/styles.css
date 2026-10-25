@@ -1423,3 +1423,68 @@ h1 em {
 .search-option-description { margin-top: 3px; color: var(--prs-muted); font-size: 12px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .search-suggestion-hint { padding: 7px 12px; font-size: 11px; border-top: 1px solid var(--prs-border); color: var(--prs-muted); }
 .search-match { color: var(--prs-text); background: var(--prs-tint); font-weight: 600; border-radius: 2px; }
+
+/* Put research tasks first; categories remain an optional second dimension. */
+.discovery-controls { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+.task-list { flex-wrap: wrap; justify-content: flex-start; gap: 8px; }
+.task-list .ant-btn,
+.task-list .ant-btn:not(:disabled):hover,
+.task-list .ant-btn:not(:disabled):active {
+  flex: 0 0 auto;
+  min-height: 34px;
+  border: 1px solid var(--prs-border);
+  border-radius: 18px;
+  padding: 5px 12px;
+  background: var(--prs-panel);
+  color: var(--prs-muted);
+}
+.task-list .ant-btn:not(:disabled):hover { border-color: var(--prs-primary); color: var(--prs-primary); }
+.task-list .ant-btn[aria-pressed="true"],
+.task-list .ant-btn[aria-pressed="true"]:not(:disabled):hover,
+.task-list .ant-btn[aria-pressed="true"]:not(:disabled):active {
+  border: 1px solid var(--prs-primary);
+  color: var(--prs-primary);
+  background: var(--prs-tint);
+  font-weight: 600;
+}
+.task-count { font-size: 11px; font-variant-numeric: tabular-nums; }
+.secondary-filters { min-width: 0; }
+.secondary-filters summary { border: 1px solid var(--prs-border); border-radius: 4px; min-height: 32px; padding: 5px 10px; cursor: pointer; font-size: 13px; }
+.secondary-filters summary small { color: var(--prs-muted); font-size: 11px; margin-left: 8px; }
+.secondary-filters label { display: grid; gap: 5px; margin-top: 10px; font-size: 11px; color: var(--prs-muted); }
+.secondary-filters p { font-size: 11px; line-height: 1.6; color: var(--prs-muted); margin: 8px 0 0; }
+.editorial-section { margin: 12px 0 16px; padding: 12px 0; border-top: 1px solid var(--prs-border); border-bottom: 1px solid var(--prs-border); }
+.editorial-heading { margin-bottom: 10px; }
+.editorial-heading h2 { font-size: 15px; margin: 0; }
+.editorial-grid { grid-template-columns: repeat(4, minmax(180px, 1fr)); gap: 0; overflow-x: auto; align-items: start; max-width: 100%; }
+.editorial-card .panel-body, .editorial-card:first-child .panel-body { padding: 8px 12px; }
+.editorial-card:first-child .panel-body { padding-left: 0; }
+.editorial-card, .editorial-card:first-child { border-bottom: 0; }
+.editorial-details { margin: 0; }
+.editorial-details summary { font-size: 13px; line-height: 1.7; color: var(--prs-text); }
+.editorial-title { font-weight: 600; }
+.editorial-expanded { margin-top: 12px; }
+.editorial-card > .panel-body > .editorial-review-notice { margin: 6px 0 0; }
+.editorial-card .editorial-review-notice .ant-tag { font-size: 10px; white-space: normal; }
+#rankings, #data-insights { scroll-margin-top: calc(var(--ranking-filter-height, 80px) + 12px); }
+#data-insights { margin-top: 32px; border-top: 1px solid var(--prs-border); padding-top: 8px; }
+.trend-baseline { display: block; margin-top: 2px; font-size: 10px; color: var(--prs-muted); }
+.back-to-ranking { display: inline-block; margin: 6px 0; font-size: 12px; }
+.category-filter-controls { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.category-filter-controls:focus-within { position: static; width: auto; height: auto; overflow: visible; clip-path: none; margin-top: 10px; }
+@media(max-width:640px) {
+  .task-list { gap: 6px; }
+  .task-list .ant-btn { font-size: 12px; padding: 5px 9px; }
+  .editorial-grid { grid-template-columns: repeat(4, minmax(190px, 1fr)); }
+  .editorial-heading { flex-direction: row; }
+}
+
+.statistics { padding: 10px 0; }
+.statistics .panel-body { padding-top: 4px; padding-bottom: 4px; }
+.editorial-section { padding: 8px 0; margin: 8px 0 12px; }
+.editorial-heading { margin-bottom: 6px; }
+.editorial-card .panel-body, .editorial-card:first-child .panel-body { padding-top: 4px; padding-bottom: 4px; }
+.ranking-header { padding-top: 12px; padding-bottom: 12px; }
+@media (max-width: 640px) {
+  .statistics .panel-body, .statistics .panel:first-child .panel-body { padding-top: 8px; padding-bottom: 8px; }
+}

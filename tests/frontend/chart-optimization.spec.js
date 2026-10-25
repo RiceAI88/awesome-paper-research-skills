@@ -16,11 +16,14 @@ test("chart clicks use current results after expanding an initial narrow search"
 }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("./#q=Imbad0202%2Facademic-research-skills");
+  await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
   await expect(page.getByTestId("insight-count")).toHaveText(narrowCount);
   await expect(
     page.getByTestId("insight-growth").locator(".plot-host svg"),
   ).toHaveCount(1);
   await page.getByRole("searchbox").clear();
+  await expect(page.locator(".ant-table-row")).toHaveCount(items.length);
+  await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
   await expect(page.getByTestId("insight-count")).toHaveText(
     String(items.length),
   );

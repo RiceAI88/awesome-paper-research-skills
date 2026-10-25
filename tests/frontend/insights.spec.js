@@ -10,17 +10,20 @@ test("real charts render, filter by category, change window and open repository 
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("./");
+  await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
   await expect(
     page.getByTestId("insights").locator(".plot-host svg"),
   ).toHaveCount(4);
   await expect(page.getByTestId("insight-count")).toHaveText(
     String(items.length),
   );
-  await page.locator('[data-chart-category="paper-writing"]').click();
+  await page.locator('[data-chart-category="paper-writing"]').focus();
+  await page.locator('[data-chart-category="paper-writing"]').press("Enter");
   const writing = items.filter((i) => i.category.id === "paper-writing").length;
   await expect(page.locator(".ant-table-row")).toHaveCount(writing);
   await expect(page.getByTestId("insight-count")).toHaveText(String(writing));
-  await page.locator('[data-chart-category="paper-writing"]').click();
+  await page.locator('[data-chart-category="paper-writing"]').focus();
+  await page.locator('[data-chart-category="paper-writing"]').press("Enter");
   await expect(page.getByTestId("insight-count")).toHaveText(
     String(items.length),
   );
@@ -45,6 +48,7 @@ test("missing historical data has an honest empty state and current charts still
     }),
   );
   await page.goto("./");
+  await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
   await expect(page.getByTestId("insight-trend")).toContainText("暂无历史数据");
   await expect(
     page.getByTestId("insight-scatter").locator(".plot-host svg"),
@@ -70,6 +74,7 @@ test("suspected stale repositories have red tags in table, cards and drawer", as
 test("chart bundle failure leaves ranking usable", async ({ page }) => {
   await page.route("**/assets/Insights-*.js", (route) => route.abort());
   await page.goto("./");
+  await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
   await expect(page.locator(".chart-unavailable")).toBeVisible();
   await expect(page.locator(".ant-table-row")).toHaveCount(items.length);
   await page.getByRole("searchbox").fill(items[0].repo);
@@ -81,6 +86,7 @@ test("scatter has visible data marks and clicking a point opens details", async 
 }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("./");
+  await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
   const marks = page
     .getByTestId("insight-scatter")
     .locator(".plot-host svg .element");

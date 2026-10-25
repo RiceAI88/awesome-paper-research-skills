@@ -231,3 +231,42 @@ export function safeExternalUrl(url) {
     return null;
   }
 }
+
+export function taskCountsFor(items, state) {
+  const eligible = filterItems(items, {
+    ...state,
+    task: "all",
+    category: "all",
+  });
+  return Object.fromEntries([
+    ["all", eligible.length],
+    ...RESEARCH_TASKS.map((task) => [
+      task.id,
+      eligible.filter((item) => matchesResearchTask(item, task)).length,
+    ]),
+  ]);
+}
+export function recentlyUpdatedCount(items, generatedAt, days = 30) {
+  const day = String(generatedAt).slice(0, 10);
+  const anchor = Date.parse(day + "T00:00:00Z");
+  if (
+    !Number.isFinite(anchor) ||
+    new Date(anchor).toISOString().slice(0, 10) !== day ||
+    !Number.isInteger(days) ||
+    days < 1
+  )
+    return 0;
+  const cutoff = anchor - (days - 1) * 86400000;
+  return items.filter((item) => {
+    const date = item.last_push_date;
+    if (typeof date !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(date))
+      return false;
+    const timestamp = Date.parse(date + "T00:00:00Z");
+    return (
+      Number.isFinite(timestamp) &&
+      new Date(timestamp).toISOString().slice(0, 10) === date &&
+      timestamp >= cutoff &&
+      timestamp <= anchor
+    );
+  }).length;
+}

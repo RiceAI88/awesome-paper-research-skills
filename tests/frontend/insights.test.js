@@ -93,3 +93,45 @@ test("series colors remain bound to full repository/category identifiers when fi
     ["b/second"],
   );
 });
+test("trend growth compares each repository with its first positive snapshot in the selected window", () => {
+  const history = { series: {
+    "a/first": [
+      { date: "2026-09-01", stars: 10 },
+      { date: "2026-10-01", stars: 100 },
+      { date: "2026-10-20", stars: 150 },
+      { date: "2026-10-24", stars: 200 },
+    ],
+    "b/second": [
+      { date: "2026-10-20", stars: 40 },
+      { date: "2026-10-24", stars: 30 },
+    ],
+  } };
+  const data = buildInsightData(items, history, "2026-10-24", 30);
+  assert.deepEqual(data.trends.map(p => [p.repo, p.date, p.stars, p.growthPercent]), [
+    ["a/first", "2026-10-01", 100, 0],
+    ["a/first", "2026-10-20", 150, 50],
+    ["a/first", "2026-10-24", 200, 100],
+    ["b/second", "2026-10-20", 40, 0],
+    ["b/second", "2026-10-24", 30, -25],
+  ]);
+  assert.equal(data.trends[0].baselineDate, "2026-10-01");
+  assert.equal(data.trends.at(-1).baselineDate, "2026-10-20");
+  const shorter = buildInsightData(items, history, "2026-10-24", 5);
+  assert.equal(shorter.trends[0].baselineStars, 150);
+  assert.ok(Math.abs(shorter.trends[1].growthPercent - 100 / 3) < 1e-10);
+});
+test("zero baselines stay undefined and a single snapshot stays a single baseline point", () => {
+  const data = buildInsightData(items, { series: {
+    "a/first": [
+      { date: "2026-10-01", stars: 0 },
+      { date: "2026-10-20", stars: 50 },
+      { date: "2026-10-24", stars: 0 },
+    ],
+    "b/second": [{ date: "2026-10-24", stars: 12 }],
+    "c/third": [{ date: "2026-10-24", stars: 0 }],
+  } }, "2026-10-24", 30);
+  assert.deepEqual(data.trends.map(p => p.growthPercent), [null, 0, -100, 0, null]);
+  assert.deepEqual(data.trends.filter(p => p.repo === "b/second").map(p => [p.date, p.snapshotCount, p.growthPercent]), [["2026-10-24", 1, 0]]);
+  assert.equal(data.trends.at(-1).baselineDate, null);
+  assert.ok(data.trends.every(p => p.growthPercent === null || Number.isFinite(p.growthPercent)));
+});

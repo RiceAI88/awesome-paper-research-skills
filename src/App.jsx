@@ -1,6 +1,13 @@
 import { SearchBox } from "./components/SearchBox";
 import { Panel } from "./components/Panel";
-import React, { lazy, useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  lazy,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import {
   Button,
   ConfigProvider,
@@ -29,6 +36,8 @@ import {
   AGENT_PLATFORMS,
   detectAgents,
   filterItems,
+  taskCountsFor,
+  recentlyUpdatedCount,
   FONT_FAMILY,
   persistState,
   REPOSITORY_URL,
@@ -177,13 +186,31 @@ function Dashboard({ state, update }) {
       window.removeEventListener("resize", measure);
     };
   }, []);
+  const visible = useMemo(() => filterItems(items, state), [state]);
+  const rankingKey = `${state.view}:${visible.length ? "items" : "empty"}`;
+  const [readyView, setReadyView] = useState(null);
+  const [insightsJump, setInsightsJump] = useState(false);
+  const onRankingReady = useCallback(() => setReadyView(rankingKey), [rankingKey]);
+  useEffect(() => {
+    if (!insightsJump || readyView !== rankingKey) return;
+    const frame = requestAnimationFrame(() => {
+      const target = document.getElementById("data-insights");
+      target?.scrollIntoView({ block: "start", behavior: "instant" });
+      target?.focus({ preventScroll: true });
+      setInsightsJump(false);
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [insightsJump, readyView, rankingKey]);
   const search = useRef(null);
   const t = (key) => translations[state.lang][key] || key;
   const fmt = (value) =>
     new Intl.NumberFormat(state.lang === "zh" ? "zh-CN" : "en-US").format(
       value || 0,
     );
-  const visible = useMemo(() => filterItems(items, state), [state]);
+  const taskCounts = useMemo(
+    () => taskCountsFor(items, state),
+    [state.query, state.agent, state.favOnly, state.favorites],
+  );
   const selected = items.find((item) => item.repo === state.repo);
   const categories = useMemo(
     () =>
@@ -280,7 +307,10 @@ function Dashboard({ state, update }) {
     [t("repos"), items.length],
     [t("statTotalStars"), totalStars],
     [t("statNet7d"), net7],
-    [t("statCats"), categories.length],
+    [
+      t("statRecentPush"),
+      recentlyUpdatedCount(items, dataset.metadata?.generated_at),
+    ],
   ];
   return (
     <div className="prs-page">
@@ -387,24 +417,42 @@ function Dashboard({ state, update }) {
                 className="task-navigation"
                 aria-labelledby="taskHeading"
               >
-                <div className="task-heading">
-                  <h2 id="taskHeading">{t("taskHeading")}</h2>
+                <h2 id="taskHeading" className="sr-only">
+                  {t("taskHeading")}
+                </h2>
+                <span className="sr-only" id="taskCountHint">
+                  {t("taskCountHint")}
+                </span>
+                <div className="task-list" title={t("taskCountHint")}>
                   <Button
-                    type="link"
-                    size="small"
+                    type="default"
+                    data-task="all"
+                    aria-label={t("taskAll")}
                     aria-pressed={state.task === "all"}
+                    aria-description={`${taskCounts.all} ${t("repos")}`}
                     onClick={() =>
-                      update((s) => ({ ...s, task: "all", category: "all" }))
+                      update((previous) => ({
+                        ...previous,
+                        task: "all",
+                        category: "all",
+                      }))
                     }
                   >
-                    {t("taskAll")}
+                    {t("taskAll")}{" "}
+                    <span className="task-count" aria-hidden="true">
+                      {taskCounts.all}
+                    </span>
                   </Button>
-                </div>
-                <div className="task-list">
                   {RESEARCH_TASKS.map((task) => (
                     <Button
                       key={task.id}
-                      type="text"
+                      type="default"
+                      data-task={task.id}
+                      aria-label={t(taskLabels[task.id])}
+                      aria-description={`${taskCounts[task.id]} ${t("repos")}`}
+                      disabled={
+                        taskCounts[task.id] === 0 && state.task !== task.id
+                      }
                       aria-pressed={state.task === task.id}
                       onClick={() =>
                         update((s) => ({
@@ -414,7 +462,10 @@ function Dashboard({ state, update }) {
                         }))
                       }
                     >
-                      {t(taskLabels[task.id])}
+                      {t(taskLabels[task.id])}{" "}
+                      <span className="task-count" aria-hidden="true">
+                        {taskCounts[task.id]}
+                      </span>
                     </Button>
                   ))}
                 </div>
@@ -454,21 +505,37 @@ function Dashboard({ state, update }) {
           className="filters"
           aria-label="Ranking controls"
         >
-          <label htmlFor="categoryFilter">
-            <span>{t("categoryLabel")}</span>
-            <Select
-              id="categoryFilter"
-              value={state.category}
-              onChange={(category) => update((s) => ({ ...s, category }))}
-              options={[
-                { value: "all", label: t("allCategories") },
-                ...categories.map((c) => ({
-                  value: c.id,
-                  label: c[state.lang],
-                })),
-              ]}
-            />
-          </label>
+          <details
+            className="secondary-filters"
+            open={state.category !== "all"}
+          >
+            <summary>
+              {t("categoryLabel")}
+              <small>
+                {state.category === "all"
+                  ? t("optionalFilter")
+                  : categories.find(
+                      (category) => category.id === state.category,
+                    )?.[state.lang]}
+              </small>
+            </summary>
+            <label htmlFor="categoryFilter">
+              <span>{t("categoryLabel")}</span>
+              <Select
+                id="categoryFilter"
+                value={state.category}
+                onChange={(category) => update((s) => ({ ...s, category }))}
+                options={[
+                  { value: "all", label: t("allCategories") },
+                  ...categories.map((c) => ({
+                    value: c.id,
+                    label: c[state.lang],
+                  })),
+                ]}
+              />
+            </label>
+            <p>{t("taskCountHint")}</p>
+          </details>
           <label htmlFor="agentFilter">
             <span>{t("agentLabel")}</span>
             <Select
@@ -539,17 +606,13 @@ function Dashboard({ state, update }) {
             <Tag variant="borderless">{state.favorites.length}</Tag>
           </Button>
         </section>
-        <ViewportInsights
-          items={visible}
-          allItems={items}
-          history={historyData}
-          generatedAt={dataset.metadata?.generated_at}
-          state={state}
-          update={update}
-          t={t}
-        />
         <EditorialPicks items={visible} state={state} t={t} />
-        <Panel className="ranking-section" bodyStyle={{ padding: 0 }}>
+        <Panel
+          id="rankings"
+          tabIndex={-1}
+          className="ranking-section"
+          bodyStyle={{ padding: 0 }}
+        >
           <div className="ranking-header">
             <div>
               <h2>
@@ -558,6 +621,16 @@ function Dashboard({ state, update }) {
               <p>{t("tableHint")}</p>
             </div>
             <Space wrap size={8}>
+              <Button
+                type="link"
+                href="#data-insights"
+                onClick={(event) => {
+                  event.preventDefault();
+                  setInsightsJump(true);
+                }}
+              >
+                {t("viewInsights")} ↓
+              </Button>
               <Button
                 icon={<DownloadOutlined aria-hidden="true" />}
                 onClick={exportFavorites}
@@ -580,6 +653,7 @@ function Dashboard({ state, update }) {
             {...{
               items: visible,
               filterHeight,
+              onReady: onRankingReady,
               state,
               update,
               toggleCompare,
@@ -589,6 +663,16 @@ function Dashboard({ state, update }) {
             }}
           />
         </Panel>
+        <ViewportInsights
+          enabled={readyView === rankingKey}
+          items={visible}
+          allItems={items}
+          history={historyData}
+          generatedAt={dataset.metadata?.generated_at}
+          state={state}
+          update={update}
+          t={t}
+        />
         <DataTransparency t={t} base={base} />
       </main>
       <footer className="site-footer container">

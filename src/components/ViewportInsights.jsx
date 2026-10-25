@@ -40,7 +40,7 @@ export function ViewportInsights(props) {
   const container = useRef(null);
   const [active, setActive] = useState(false);
   useEffect(() => {
-    if (active) return;
+    if (active || props.enabled === false) return;
     if (typeof IntersectionObserver === "undefined") {
       setActive(true);
       return;
@@ -56,9 +56,14 @@ export function ViewportInsights(props) {
     );
     observer.observe(container.current);
     return () => observer.disconnect();
-  }, [active]);
+  }, [active, props.enabled]);
   return (
-    <div ref={container} data-testid="insights-viewport">
+    <div
+      ref={container}
+      id="data-insights"
+      tabIndex={-1}
+      data-testid="insights-viewport"
+    >
       {active ? (
         <ChartBoundary fallback={props.t("chartUnavailable")}>
           <Suspense

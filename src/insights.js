@@ -87,7 +87,18 @@ export function buildInsightData(items, history, generatedAt, days = 60) {
         stars: p.stars,
       });
     }
-    return [...byDate.values()].sort((a, b) => a.time - b.time);
+    const snapshots = [...byDate.values()].sort((a, b) => a.time - b.time);
+    const baseline = snapshots.find((point) => point.stars > 0);
+    return snapshots.map((point) => ({
+      ...point,
+      baselineDate: baseline?.date || null,
+      baselineStars: baseline?.stars ?? null,
+      snapshotCount: snapshots.length,
+      growthPercent:
+        baseline && point.time >= baseline.time
+          ? ((point.stars - baseline.stars) / baseline.stars) * 100
+          : null,
+    }));
   });
   const growth = [...items]
     .filter((i) => Number.isFinite(i.star_delta_7d) && i.star_delta_7d > 0)

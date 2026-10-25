@@ -45,7 +45,8 @@ test.describe("mobile charts and touch", () => {
     await expect(
       page.getByTestId("insights").locator(".plot-host svg"),
     ).toHaveCount(4);
-    await page.locator('[data-chart-category="paper-writing"]').click();
+    await page.locator('[data-chart-category="paper-writing"]').focus();
+    await page.locator('[data-chart-category="paper-writing"]').press("Enter");
     await page
       .getByRole("button", { name: "收起其他图表", exact: true })
       .click();

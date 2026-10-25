@@ -7,9 +7,10 @@ export function EditorialReviewNotice({
   t,
   details = false,
   evidenceOnly = false,
+  compact = false,
 }) {
   const review = editorialReviewFor(repo);
-  if (!review) return null;
+  if (!review || (!details && review.kind !== "changed")) return null;
   return (
     <div className="editorial-review-notice" data-review-state={review.kind}>
       {!evidenceOnly && (
@@ -25,7 +26,9 @@ export function EditorialReviewNotice({
           )}
         </Tag>
       )}
-      {!evidenceOnly && review.kind === "changed" && <p>{t("reviewHint")}</p>}
+      {!compact && !evidenceOnly && review.kind === "changed" && (
+        <p>{t("reviewHint")}</p>
+      )}
       {details && (
         <>
           {review.checkedAt && (

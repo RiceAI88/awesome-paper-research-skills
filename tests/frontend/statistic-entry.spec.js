@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { recentlyUpdatedCount } from "../../src/domain.js";
 import { readFileSync } from "node:fs";
 const items = JSON.parse(
   readFileSync(new URL("../../data/rankings.json", import.meta.url), "utf8"),
@@ -7,7 +8,15 @@ const targets = [
   items.length,
   items.reduce((s, i) => s + i.stars, 0),
   items.reduce((s, i) => s + (i.star_delta_7d || 0), 0),
-  new Set(items.map((i) => i.category.id)).size,
+  recentlyUpdatedCount(
+    items,
+    JSON.parse(
+      readFileSync(
+        new URL("../../data/rankings.json", import.meta.url),
+        "utf8",
+      ),
+    ).metadata.generated_at,
+  ),
 ];
 const readNumbers = (page) =>
   page

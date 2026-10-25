@@ -5,7 +5,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { Bar, Line, Pie, Scatter } from "@ant-design/plots";
+import { Bar, Line, Scatter } from "@ant-design/plots";
 import { Renderer as SVGRenderer } from "@antv/g-svg";
 import { Button, Empty, Select } from "antd";
 import { buildInsightData, createColorMaps } from "../insights";
@@ -84,7 +84,7 @@ export default function Insights({
     if (reducedMotion || entered.current.has(id)) return false;
     const settings = {
       trend: { type: "pathIn", duration: 900, delay: 0 },
-      categories: { type: "waveIn", duration: 800, delay: 80 },
+      categories: { type: "scaleInY", duration: 800, delay: 80 },
       growth: { type: "scaleInY", duration: 700, delay: 140 },
       scatter: { type: "fadeIn", duration: 600, delay: 200 },
     };
@@ -109,6 +109,12 @@ export default function Insights({
       value,
     );
   const signed = (value) => (value > 0 ? "+" : "") + fmt(value);
+  const percent = (value) =>
+    (value > 0 ? "+" : "") +
+    new Intl.NumberFormat(state.lang === "zh" ? "zh-CN" : "en-US", {
+      maximumFractionDigits: 1,
+    }).format(value) +
+    "%";
   const short = (value) =>
     String(value).length > 24
       ? String(value).slice(0, 23) + "…"
@@ -178,11 +184,26 @@ export default function Insights({
     catDomain = Object.keys(colors.categories),
     catRange = Object.values(colors.categories);
   const latest = new Map(data.trends.map((p) => [p.repo, p]));
+  const trendDomain = data.trendRepos.map((item) => item.repo);
+  const trendRange = dark
+    ? ["#DBA8C0", "#C9C1BB", "#D77F88"]
+    : ["#6E344F", "#514B48", "#B76473"];
+  const trendDashes = [[], [7, 4], [2, 4]];
+  const trendStyles = Object.fromEntries(
+    trendDomain.map((repo, index) => [
+      repo,
+      { color: trendRange[index], dash: trendDashes[index] },
+    ]),
+  );
+  const hasTrend = data.trends.some((point) =>
+    Number.isFinite(point.growthPercent),
+  );
   const recordedDates = data.trends.map((p) => p.date).sort();
   const categories = data.categories.map((c) => ({
     ...c,
     label: c[state.lang],
   }));
+  const categoryMax = Math.max(0, ...categories.map((c) => c.count));
   return (
     <section
       className="insights"
@@ -192,6 +213,18 @@ export default function Insights({
       <div className="insights-heading">
         <div>
           <h2 id="insights-heading">{t("insightsTitle")}</h2>
+          <a
+            className="back-to-ranking"
+            href="#rankings"
+            onClick={(event) => {
+              event.preventDefault();
+              const target = document.getElementById("rankings");
+              target?.scrollIntoView({ block: "start" });
+              target?.focus({ preventScroll: true });
+            }}
+          >
+            {t("backToRanking")} ↑
+          </a>
           <p>
             {t("insightsScope")}{" "}
             <b data-testid="insight-count">{items.length}</b> {t("repos")}
@@ -236,17 +269,49 @@ export default function Insights({
                 onClick={() => open(item.repo)}
                 title={`${item.repo}${latest.has(item.repo) ? " · " + latest.get(item.repo).date : ""}`}
               >
-                <i style={{ background: colors.repos[item.repo] }} />
-                <span>{item.repo.split("/").pop()}</span>
+                <i
+                  style={{
+                    background: "none",
+                    border: 0,
+                    borderRadius: 0,
+                    width: 26,
+                    height: 10,
+                    flexShrink: 0,
+                  }}
+                  aria-hidden="true"
+                >
+                  <svg width="26" height="10" viewBox="0 0 26 10">
+                    <line
+                      x1="0"
+                      y1="5"
+                      x2="26"
+                      y2="5"
+                      stroke={trendStyles[item.repo].color}
+                      strokeWidth="2"
+                      strokeDasharray={trendStyles[item.repo].dash.join(" ")}
+                    />
+                  </svg>
+                </i>
+                <span>
+                  {item.repo.split("/").pop()}
+                  <small className="trend-baseline">
+                    {t("insightBaseline")}:{" "}
+                    {latest.get(item.repo)?.baselineDate || "—"}
+                    {latest.get(item.repo)?.snapshotCount === 1 &&
+                      ` · ${t("insightSingleSnapshot")}`}
+                  </small>
+                </span>
                 <b>
                   {latest.has(item.repo)
-                    ? fmt(latest.get(item.repo).stars)
+                    ? Number.isFinite(latest.get(item.repo).growthPercent)
+                      ? percent(latest.get(item.repo).growthPercent)
+                      : "—"
                     : "—"}
                 </b>
               </button>
             ))}
           </div>
-          {data.trends.length ? (
+          {hasTrend ? (
             <div
               className="plot-host"
               role="img"
@@ -258,12 +323,12 @@ export default function Insights({
                 animate={trendEntrance}
                 data={data.trends}
                 xField="time"
-                yField="stars"
+                yField="growthPercent"
                 colorField="repo"
                 scale={{
                   x: { type: "time", tickCount: 4 },
-                  y: { zero: true, nice: true },
-                  color: { domain: repoDomain, range: repoRange },
+                  y: { zero: false, nice: true },
+                  color: { domain: trendDomain, range: trendRange },
                 }}
                 axis={{
                   x: {
@@ -276,11 +341,15 @@ export default function Insights({
                     labelFormatter: (value) =>
                       new Date(value).toISOString().slice(5, 10),
                   },
-                  y: numericAxis,
+                  y: { ...numericAxis, labelFormatter: (value) => `${value}%` },
                 }}
-                style={{ lineWidth: 1.8 }}
+                style={{
+                  lineWidth: 2,
+                  // G2 passes the entire series to a line mark's style callback.
+                  lineDash: (series) => trendStyles[series[0]?.repo]?.dash || [],
+                }}
                 point={{
-                  style: { r: 1 },
+                  style: { r: 2.5 },
                   tooltip: false,
                   animate: trendEntrance
                     ? {
@@ -295,7 +364,11 @@ export default function Insights({
                   items: [
                     (datum) => ({
                       name: datum.repo,
-                      value: `${fmt(datum.stars)} Stars`,
+                      value: `${percent(datum.growthPercent)} · ${fmt(datum.stars)} Stars`,
+                    }),
+                    (datum) => ({
+                      name: t("insightBaseline"),
+                      value: `${datum.baselineDate} · ${fmt(datum.baselineStars)} Stars`,
                     }),
                   ],
                 }}
@@ -312,6 +385,8 @@ export default function Insights({
               </span>
             )}
             {t("historyProvenance")}
+            {" · "}
+            {t("insightBaselineNote")}
           </p>
         </ChartFrame>
         <ChartFrame
@@ -322,45 +397,66 @@ export default function Insights({
         >
           {categories.length ? (
             <>
-              <div className="donut-wrap">
-                <div
-                  className="plot-host"
-                  role="img"
-                  aria-label={t("insightCategories")}
-                >
-                  <SvgPlot
-                    plot={Pie}
-                    {...base}
-                    animate={entrance("categories")}
-                    height={210}
-                    padding={0}
-                    paddingLeft={0}
-                    paddingRight={0}
-                    paddingTop={0}
-                    paddingBottom={0}
-                    data={categories}
-                    angleField="count"
-                    colorField="id"
-                    innerRadius={0.7}
-                    radius={0.94}
-                    scale={{ color: { domain: catDomain, range: catRange } }}
-                    style={{
-                      stroke: dark ? "#201C1F" : "#FEFDFC",
-                      lineWidth: 2,
-                    }}
-                    tooltip={{
-                      title: "label",
-                      items: [{ field: "count", name: t("repos") }],
-                    }}
-                    onReady={bind("categories")}
-                  />
-                </div>
-                <div className="donut-center" aria-hidden="true">
-                  <b>{items.length}</b>
-                  <span>{t("repos")}</span>
-                </div>
+              <div
+                className="plot-host"
+                role="img"
+                aria-label={t("insightCategories")}
+              >
+                <SvgPlot
+                  plot={Bar}
+                  {...base}
+                  animate={entrance("categories")}
+                  height={280}
+                  paddingLeft={state.lang === "zh" ? 125 : 175}
+                  paddingRight={40}
+                  data={categories}
+                  xField="label"
+                  yField="count"
+                  colorField="id"
+                  scale={{
+                    color: { domain: catDomain, range: catRange },
+                    y: {
+                      zero: true,
+                      nice: true,
+                      domain: [
+                        0,
+                        categoryMax + Math.max(4, Math.ceil(categoryMax * 0.2)),
+                      ],
+                    },
+                  }}
+                  axis={{
+                    x: {
+                      title: false,
+                      tick: false,
+                      line: false,
+                      labelFill: muted,
+                      labelOpacity: 1,
+                      labelFontFamily: FONT_FAMILY,
+                      labelFontSize: 11,
+                      labelAutoEllipsis: false,
+                    },
+                    y: { ...numericAxis, tickCount: 3 },
+                  }}
+                  label={{
+                    text: "count",
+                    position: "right",
+                    style: {
+                      fill: muted,
+                      fontFamily: FONT_FAMILY,
+                      fontSize: 12,
+                      textAlign: "start",
+                      dx: 6,
+                    },
+                  }}
+                  style={{ maxWidth: 16 }}
+                  tooltip={{
+                    title: "label",
+                    items: [{ field: "count", name: t("repos") }],
+                  }}
+                  onReady={bind("categories")}
+                />
               </div>
-              <div className="category-legend">
+              <div className="category-legend category-filter-controls">
                 {categories.map((c) => (
                   <button
                     key={c.id}

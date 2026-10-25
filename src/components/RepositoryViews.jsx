@@ -1,6 +1,6 @@
 import { SearchHighlight } from "./SearchHighlight";
 import { Panel } from "./Panel";
-import React, { lazy } from "react";
+import React, { lazy, useEffect } from "react";
 import { Button, Empty, Space, Tag, Tooltip } from "antd";
 import { StarFilled, StarOutlined, SwapOutlined } from "@ant-design/icons";
 import {
@@ -86,6 +86,7 @@ function Actions({ item, state, update, toggleCompare, t }) {
 export function RepositoryViews({
   items,
   filterHeight,
+  onReady,
   state,
   update,
   toggleCompare,
@@ -93,6 +94,9 @@ export function RepositoryViews({
   fmt,
   history,
 }) {
+  useEffect(() => {
+    if (state.view === "card" || !items.length) onReady?.(state.view);
+  }, [state.view, items.length, onReady]);
   const cat = (item) => item.category?.[state.lang] || item.category?.en || "";
   const actions = (item) => (
     <Actions {...{ item, state, update, toggleCompare, t }} />
@@ -232,6 +236,7 @@ export function RepositoryViews({
   return (
     <DeferredFeature t={t}>
       <RepositoryTable
+        onReady={onReady}
         className="ranking-table"
         rowKey="repo"
         columns={columns}

@@ -16,6 +16,8 @@ for (const lang of ["zh", "en"]) {
     await expect(picks).toHaveCount(4);
     for (const pick of editorial.featured) {
       const card = page.locator(`[data-featured="${pick.repo}"]`);
+      await expect(card.getByTestId("pick-audience")).not.toBeVisible();
+      await card.locator("summary").click();
       await expect(card.getByTestId("pick-audience")).toBeVisible();
       await expect(card.getByTestId("pick-outcome")).toBeVisible();
       await expect(card.getByTestId("pick-audience")).toContainText(
@@ -24,7 +26,6 @@ for (const lang of ["zh", "en"]) {
       await expect(card.getByTestId("pick-outcome")).toContainText(
         pick[`outcome_${lang}`],
       );
-      await card.locator("summary").click();
       await expect(card.locator(".editorial-evidence time")).toHaveAttribute(
         "datetime",
         pick.reviewed_at,
