@@ -26,7 +26,7 @@ export default function RepositoryTable({
     {
       title: t("repo"),
       key: "repo",
-      width: 350,
+      width: 330,
       render: (_, item) => (
         <div>
           {link(item)}
@@ -43,13 +43,13 @@ export default function RepositoryTable({
     {
       title: t("drAgent"),
       key: "platforms",
-      width: 190,
+      width: 180,
       render: (_, item) => <PlatformTags item={item} t={t} />,
     },
     {
       title: t("installation"),
       key: "installation",
-      width: 250,
+      width: 220,
       render: (_, item) => (
         <InstallationActions item={item} lang={state.lang} t={t} />
       ),
@@ -66,8 +66,9 @@ export default function RepositoryTable({
       width: 180,
       render: (_, item) => (
         <div className="reference-metrics">
-          <span>
-            {fmt(item.stars)} Stars · +{fmt(item.star_delta_7d || 0)} / 7d
+          <span>{fmt(item.stars)} Stars</span>
+          <span className="table-growth">
+            +{fmt(item.star_delta_7d || 0)} / 7d
           </span>
           <span>{item.trend?.[state.lang] || "—"}</span>
           <Sparkline
@@ -79,9 +80,10 @@ export default function RepositoryTable({
       ),
     },
     {
-      title: "",
+      title: t("actions"),
       key: "actions",
-      width: 85,
+      width: 100,
+      fixed: "right",
       render: (_, item) => actions(item),
     },
   ];

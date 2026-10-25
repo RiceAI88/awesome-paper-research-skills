@@ -3,7 +3,7 @@ import { Panel } from "./Panel";
 import React, { lazy, useEffect, useState } from "react";
 import { Button, Empty, Space, Tag, Tooltip } from "antd";
 import { StarFilled, StarOutlined, SwapOutlined } from "@ant-design/icons";
-import { PlatformTags } from "./PracticalInfo";
+import { PlatformTags, SummaryText } from "./PracticalInfo";
 import { useFeedback } from "./FeedbackProvider";
 import { DeferredFeature } from "./DeferredFeature";
 const RepositoryTable = lazy(() => import("./RepositoryTable"));
@@ -31,7 +31,15 @@ export function QualityBadges({ item, t }) {
     </Space>
   );
 }
-function Actions({ item, state, update, toggleCompare, t, labels = false }) {
+export function RepositoryActions({
+  item,
+  state,
+  update,
+  toggleCompare,
+  t,
+  labels = false,
+  context = "ranking",
+}) {
   const message = useFeedback();
   const favorite = state.favorites.includes(item.repo),
     compared = state.compare.includes(item.repo);
@@ -50,7 +58,7 @@ function Actions({ item, state, update, toggleCompare, t, labels = false }) {
           }
           aria-label={`${t("favoriteAction")} ${item.repo}`}
           aria-pressed={favorite}
-          data-testid={`favorite-${item.repo}`}
+          data-testid={`${context === "detail" ? "detail-" : ""}favorite-${item.repo}`}
           style={{ color: favorite ? "var(--prs-primary)" : undefined }}
           onClick={(e) => {
             e.stopPropagation();
@@ -140,7 +148,7 @@ export function RepositoryViews({
   );
   const cat = (item) => item.category?.[state.lang] || item.category?.en || "";
   const actions = (item) => (
-    <Actions
+    <RepositoryActions
       {...{ item, state, update, toggleCompare, t }}
       labels={state.view === "card"}
     />
@@ -219,6 +227,7 @@ export function RepositoryViews({
                   <span>{t("statNet7d")}</span>
                 </div>
               </div>
+              <SummaryText item={item} t={t} query={state.query} />
               <div className="card-tags">
                 <Tag className="warm-tag">{cat(item)}</Tag>
               </div>
@@ -241,7 +250,7 @@ export function RepositoryViews({
           badges={(item) => <QualityBadges item={item} t={t} />}
           dataSource={entries}
           pagination={false}
-          scroll={{ x: 1305 }}
+          scroll={{ x: 1180 }}
           sticky={{ offsetHeader: filterHeight }}
           size="middle"
           onRow={(item) => ({

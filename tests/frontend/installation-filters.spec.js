@@ -12,7 +12,7 @@ test("installation expectations and original command source are visible in list 
   await page.goto("./#q=K-Dense-AI%2Fscientific-agent-skills");
   const row = page.locator(".ant-table-row");
   await expect(row.getByTestId("installation-mode")).toHaveText("命令安装");
-  await row.click();
+  await row.locator("td").first().click();
   const drawer = page.getByRole("dialog");
   await expect(drawer.getByTestId("installation-mode")).toHaveText("命令安装");
   await expect(drawer.locator(".install-command")).toHaveText(

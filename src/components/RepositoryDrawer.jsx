@@ -16,11 +16,19 @@ import {
   REPOSITORY_URL,
   safeExternalUrl,
 } from "../domain";
-import { QualityBadges } from "./RepositoryViews";
+import { QualityBadges, RepositoryActions } from "./RepositoryViews";
 import { useFeedback } from "./FeedbackProvider";
 import { copyText } from "../clipboard";
 import { SummaryText, InstallationActions } from "./PracticalInfo";
-export function RepositoryDrawer({ item, items, state, update, t, fmt }) {
+export function RepositoryDrawer({
+  item,
+  items,
+  state,
+  update,
+  toggleCompare,
+  t,
+  fmt,
+}) {
   const contentRef = useRef(null);
   const position = items.findIndex((entry) => entry.repo === item?.repo);
   useEffect(() => {
@@ -53,8 +61,8 @@ export function RepositoryDrawer({ item, items, state, update, t, fmt }) {
   const markdown = item
     ? `| ${item.rank} | [${item.repo}](${item.url}) | ${item.stars.toLocaleString()}${item.star_delta_7d ? ` (+${item.star_delta_7d})` : ""} | ${category} | ${agentNames.join(" · ") || t("agentGeneral")} | ${item.last_push_date || ""} |`
     : "";
-  const suggest = item
-    ? `${REPOSITORY_URL}/issues/new?title=${encodeURIComponent("Recommend: " + item.repo)}&body=${encodeURIComponent(`I'd like to recommend **${item.repo}** (${item.url}) for inclusion.\n\nReason: \n`)}`
+  const feedback = item
+    ? `${REPOSITORY_URL}/issues/new?title=${encodeURIComponent("Information issue: " + item.repo)}&body=${encodeURIComponent(`Repository: **${item.repo}** (${item.url})\n\nIncorrect or outdated information:\n\nSuggested correction and source:\n`)}`
     : "";
   const details = item
     ? [
@@ -175,32 +183,41 @@ export function RepositoryDrawer({ item, items, state, update, t, fmt }) {
       className="repository-drawer"
       footer={
         item ? (
-          <Space wrap>
-            <Button
-              type="primary"
-              icon={<ExportOutlined aria-hidden="true" />}
-              href={safeExternalUrl(item.url) || undefined}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {t("drOpenRepo")}
-            </Button>
-            {safeExternalUrl(item.homepage) && (
+          <div className="drawer-footer-actions">
+            <div className="drawer-primary-actions">
+              <RepositoryActions
+                {...{ item, state, update, toggleCompare, t }}
+                labels
+                context="detail"
+              />
               <Button
-                href={safeExternalUrl(item.homepage)}
+                type="primary"
+                icon={<ExportOutlined aria-hidden="true" />}
+                href={safeExternalUrl(item.url) || undefined}
                 target="_blank"
                 rel="noreferrer"
               >
-                {t("drHomepage")}
+                {t("drOpenRepo")}
               </Button>
-            )}
-            <Button onClick={() => copy(markdown, t("toastCopied"))}>
-              {t("drCopyMd")}
-            </Button>
-            <Button href={suggest} target="_blank" rel="noreferrer">
-              {t("drSuggest")}
-            </Button>
-          </Space>
+            </div>
+            <Space wrap className="drawer-secondary-actions">
+              {safeExternalUrl(item.homepage) && (
+                <Button
+                  href={safeExternalUrl(item.homepage)}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {t("drHomepage")}
+                </Button>
+              )}
+              <Button onClick={() => copy(markdown, t("toastCopied"))}>
+                {t("drCopyMd")}
+              </Button>
+              <Button href={feedback} target="_blank" rel="noreferrer">
+                {t("drFeedback")}
+              </Button>
+            </Space>
+          </div>
         ) : null
       }
     >

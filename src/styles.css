@@ -1643,3 +1643,44 @@ h1 em {
 .card-top .repository-actions .ant-btn-icon .anticon { display: flex; align-items: center; }
 .card-top .repository-actions .anticon-star { transform: translateY(0.5px); }
 .card-top .repository-actions .anticon svg { display: block; width: 14px; height: 14px; }
+
+/* Reading hierarchy: body copy 14px, supporting copy 13px, metadata 12px. */
+.task-list .ant-btn { font-size: 13px; }
+.filters > label > span,
+.compact-statistics,
+.editorial-preview,
+.ranking-header p,
+.ranking-header > .ant-space .ant-btn,
+.export-menu,
+.installation-context,
+.reference-metrics { font-size: 13px; }
+.hero-search label,
+.task-count-note,
+.update-status-summary,
+.card-key-metrics span,
+.repository-card .ant-tag,
+.repository-card .platform-tags .ant-tag,
+.repository-card .card-tags .ant-tag,
+.install-mode,
+.drawer-eyebrow,
+.detail-position { font-size: 12px; }
+.repo-title,
+.description-clamp,
+.install-requirements,
+.repository-drawer .installation-context { font-size: 14px; }
+.reference-metrics > span:first-child { font-size: 14px; color: var(--prs-text); }
+.reference-metrics .table-growth { font-size: 14px; white-space: nowrap; color: var(--prs-secondary); }
+.ranking-table .description-clamp { -webkit-line-clamp: 2; }
+.repository-card .description-clamp { -webkit-line-clamp: 2; line-height: 22px; height: 44px; margin: 8px 0; }
+.ranking-table .ant-table-cell-fix-right { background: var(--prs-panel); }
+.repository-drawer .repository-actions .ant-btn { min-height: 32px; }
+.drawer-footer-actions { display: grid; gap: 8px; }
+.drawer-primary-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.drawer-secondary-actions .ant-btn { font-size: 13px; padding-inline: 8px; }
+@media (max-width: 760px) {
+  .hero { padding-top: 8px; padding-bottom: 4px; }
+  .editorial-section { padding-block: 4px; }
+  .ranking-header { padding-block: 6px; }
+  .repository-card .card-top { margin-bottom: 4px; }
+  .card-key-metrics { margin-top: 6px; }
+}

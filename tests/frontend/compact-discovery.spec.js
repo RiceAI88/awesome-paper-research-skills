@@ -36,9 +36,9 @@ test("compact cards open details via title and preserve an explicit external lin
   await page.goto("./#view=card");
   const card = page.getByTestId("repo-card").first();
   await expect(card.locator(".installation-actions")).toHaveCount(0);
-  await expect(card.locator(".practical-description")).toHaveCount(0);
+  await expect(card.locator(".practical-description")).toHaveCount(1);
   await expect(card.locator(".card-meta")).toHaveCount(0);
-  expect((await card.boundingBox()).height).toBeLessThan(300);
+  expect((await card.boundingBox()).height).toBeLessThan(380);
   await expect(card.locator(".repository-external")).toHaveAttribute(
     "target",
     "_blank",

@@ -782,7 +782,15 @@ function Dashboard({ state, update }) {
       {(selected || drawerRequested) && (
         <DeferredFeature t={t}>
           <RepositoryDrawer
-            {...{ item: selected, items: visible, state, update, t, fmt }}
+            {...{
+              item: selected,
+              items: visible,
+              state,
+              update,
+              toggleCompare,
+              t,
+              fmt,
+            }}
           />
         </DeferredFeature>
       )}
