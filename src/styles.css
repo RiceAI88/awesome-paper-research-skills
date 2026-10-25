@@ -1447,7 +1447,7 @@ h1 em {
   background: var(--prs-tint);
   font-weight: 600;
 }
-.task-count { font-size: 11px; font-variant-numeric: tabular-nums; }
+.task-count { font-size: inherit; font-variant-numeric: tabular-nums; }
 .secondary-filters { min-width: 0; }
 .secondary-filters summary { border: 1px solid var(--prs-border); border-radius: 4px; min-height: 32px; padding: 5px 10px; cursor: pointer; font-size: 13px; }
 .secondary-filters summary small { color: var(--prs-muted); font-size: 11px; margin-left: 8px; }
@@ -1636,3 +1636,10 @@ h1 em {
 /* Keep pill labels/counts on the same line box and center within each row. */
 .task-list { align-items: center; }
 .task-list .ant-btn > span { display: inline-flex; align-items: center; line-height: 20px; min-height: 20px; }
+
+/* Share one text line; optically align the SVG with Chinese glyphs. */
+.card-top .repository-actions .ant-btn { line-height: 20px; gap: 6px; }
+.card-top .repository-actions .ant-btn > span { display: inline-flex; align-items: center; height: 20px; line-height: 20px; }
+.card-top .repository-actions .ant-btn-icon .anticon { display: flex; align-items: center; }
+.card-top .repository-actions .anticon-star { transform: translateY(0.5px); }
+.card-top .repository-actions .anticon svg { display: block; width: 14px; height: 14px; }

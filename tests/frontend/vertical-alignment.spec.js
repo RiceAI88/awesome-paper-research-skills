@@ -29,6 +29,35 @@ for (const width of [1440, 390]) {
       ).toBeLessThan(0.5);
       for (const span of spans) expect(span.offset).toBeLessThan(0.75);
     }
+    const typography = await page
+      .locator(".task-list button")
+      .evaluateAll((elements) =>
+        elements.map((element) =>
+          [...element.children].map((child) => {
+            const style = getComputedStyle(child);
+            return `${style.fontSize}/${style.lineHeight}/${style.fontFamily}`;
+          }),
+        ),
+      );
+    for (const fonts of typography) expect(new Set(fonts).size).toBe(1);
+    const actions = await page
+      .locator(".card-top button")
+      .evaluateAll((elements) =>
+        elements.slice(0, 8).map((element) => {
+          const icon = element.querySelector(".ant-btn-icon");
+          const label = element.lastElementChild;
+          return {
+            iconHeight: icon.getBoundingClientRect().height,
+            labelHeight: label.getBoundingClientRect().height,
+            lineHeight: getComputedStyle(label).lineHeight,
+          };
+        }),
+      );
+    for (const action of actions) {
+      expect(action.iconHeight).toBe(20);
+      expect(action.labelHeight).toBe(20);
+      expect(action.lineHeight).toBe("20px");
+    }
     const titles = await page
       .locator(".card-title-row")
       .evaluateAll((elements) =>

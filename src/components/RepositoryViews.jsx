@@ -36,7 +36,7 @@ function Actions({ item, state, update, toggleCompare, t, labels = false }) {
   const favorite = state.favorites.includes(item.repo),
     compared = state.compare.includes(item.repo);
   return (
-    <Space size={0}>
+    <Space size={0} className="repository-actions">
       <Tooltip title={t("favoritesOnly")}>
         <Button
           type="text"
