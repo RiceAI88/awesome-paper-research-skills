@@ -18,7 +18,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from email.utils import format_datetime
 from pathlib import Path
 from typing import Any
@@ -32,6 +32,7 @@ HISTORY_JS_PATH = ROOT / "data" / "history.js"
 CSV_PATH = ROOT / "data" / "rankings.csv"
 README_PATH = ROOT / "README.md"
 HISTORY_DIR = ROOT / "data" / "history"
+FIRST_SEEN_PATH = ROOT / "data" / "first-seen.json"
 REPORTS_DIR = ROOT / "reports"
 SITEMAP_PATH = ROOT / "sitemap.xml"
 FEED_PATH = ROOT / "feed.xml"
@@ -625,6 +626,74 @@ def load_config(path: Path = CONFIG_PATH) -> dict[str, Any]:
     return load_json(path, {})
 
 
+def validate_snapshot_date(value: str) -> str:
+    """Accept only real, canonical YYYY-MM-DD dates."""
+    if not isinstance(value, str) or date.fromisoformat(value).isoformat() != value:
+        raise ValueError(f"Invalid snapshot date: {value!r}")
+    return value
+
+
+def annotate_first_seen(
+    data: dict[str, Any],
+    history: dict[str, dict[str, Any]],
+    registry: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Annotate actual inclusion dates and retain identities beyond history pruning.
+
+    The first global observation is a baseline: its existing repositories are
+    not evidence of new inclusion. Names are case-insensitive on GitHub.
+    """
+    generated = datetime.fromisoformat(data["metadata"]["generated_at"].replace("Z", "+00:00"))
+    if generated.tzinfo is None:
+        raise ValueError("Snapshot timestamp must include its timezone")
+    today = generated.astimezone(timezone.utc).date().isoformat()
+    for day in history:
+        validate_snapshot_date(day)
+        if day > today:
+            raise ValueError(f"History date {day} is after snapshot {today}")
+
+    if registry:
+        baseline = validate_snapshot_date(registry["baseline_date"])
+        records = {repo.casefold(): dict(record) for repo, record in registry["repositories"].items()}
+        for record in records.values():
+            recorded = validate_snapshot_date(record["first_seen_date"])
+            if recorded < baseline or recorded > today or not isinstance(record["first_seen_is_baseline"], bool):
+                raise ValueError("Invalid first-seen registry record")
+    else:
+        baseline = min(history, default=today)
+        records = {}
+
+    for day in sorted(history):
+        for repo in history[day]:
+            records.setdefault(repo.casefold(), {
+                "first_seen_date": day,
+                "first_seen_is_baseline": day == baseline,
+            })
+    for item in data["items"]:
+        record = records.setdefault(item["repo"].casefold(), {
+            "first_seen_date": today,
+            "first_seen_is_baseline": today == baseline,
+        })
+        item.update(record)
+    data["metadata"]["first_seen_baseline_date"] = baseline
+    data["metadata"]["first_seen_source"] = "ranking_snapshots"
+    return {"baseline_date": baseline, "repositories": dict(sorted(records.items()))}
+
+
+def persist_first_seen(data: dict[str, Any], history: dict[str, dict[str, Any]]) -> None:
+    registry = annotate_first_seen(data, history, load_json(FIRST_SEEN_PATH, None))
+    FIRST_SEEN_PATH.parent.mkdir(parents=True, exist_ok=True)
+    FIRST_SEEN_PATH.write_text(json.dumps(registry, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def backfill_first_seen() -> None:
+    """Migrate existing rankings offline, preserving their original timestamp."""
+    data = load_json(DATA_PATH, {})
+    persist_first_seen(data, load_history_snapshots())
+    DATA_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    DATA_JS_PATH.write_text(render_data_js(data), encoding="utf-8")
+
+
 def load_previous_snapshot(path: Path = DATA_PATH) -> dict[str, Any]:
     data = load_json(path, {})
     items = data.get("items", []) if isinstance(data, dict) else []
@@ -646,6 +715,7 @@ def load_history_snapshots() -> dict[str, dict[str, Any]]:
     if not HISTORY_DIR.exists():
         return snapshots
     for entry in HISTORY_DIR.glob("*.json"):
+        validate_snapshot_date(entry.stem)
         data = load_json(entry, {})
         items = data.get("items", []) if isinstance(data, dict) else []
         snapshots[entry.stem] = {item["repo"]: item for item in items if item.get("repo")}
@@ -1255,6 +1325,8 @@ def build_dataset(
         "items": items,
     }
 
+    # Keep the lifetime registry before the rolling history can prune entries.
+    persist_first_seen(data, history)
     # Persist today's snapshot so future runs can compute the 7-day delta.
     save_history_snapshot(data, now)
     return data, window_snapshot
@@ -1607,7 +1679,12 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Update academic research skill rankings")
     parser.add_argument("--config", default=str(CONFIG_PATH), help="Path to ranking config JSON")
     parser.add_argument("--offline-fixture", help="Use a local JSON list of repository objects instead of GitHub API")
+    parser.add_argument("--backfill-first-seen", action="store_true", help="Annotate existing rankings from local history only (no API or other outputs)")
     args = parser.parse_args()
+
+    if args.backfill_first_seen:
+        backfill_first_seen()
+        return 0
 
     config = load_config(Path(args.config))
     if args.offline_fixture:

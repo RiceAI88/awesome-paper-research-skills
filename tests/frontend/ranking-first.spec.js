@@ -48,7 +48,7 @@ test("task pills show counts with All first; submission uses actual task matches
   const all = page.locator(".task-list button").first();
   await expect(all).toHaveAttribute("data-task", "all");
   await expect(all).toContainText(String(data.items.length));
-  await expect(page.locator("#categoryFilter")).not.toBeVisible();
+  await expect(page.locator("#categoryFilter")).toBeVisible();
   await page.getByRole("button", { name: "投稿审稿", exact: true }).click();
   await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, reviewCount));
   await expect(page.locator('[data-task="review"]')).toContainText(
@@ -58,9 +58,8 @@ test("task pills show counts with All first; submission uses actual task matches
     "aria-pressed",
     "true",
   );
-  await page.locator(".secondary-filters summary").click();
   await expect(page.locator("#categoryFilter")).toBeVisible();
-  await expect(page.locator(".secondary-filters")).toContainText("科研分类");
+  await expect(page.locator("label[for=categoryFilter]")).toContainText("科研分类");
 });
 for (const lang of ["zh", "en"])
   test(`mobile path is one scrollable row and ${lang} page has no overflow`, async ({

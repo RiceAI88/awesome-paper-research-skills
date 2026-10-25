@@ -30,7 +30,8 @@ test("real charts render, filter by category, change window and open repository 
   await page.getByRole("combobox", { name: "历史窗口", exact: true }).click();
   await page.locator('.ant-select-item-option[title="30 天"]').click();
   await expect(page.locator(".history-window")).toContainText("30 天");
-  await page.locator("[data-growth-repo]").first().click();
+  await page.locator("[data-growth-repo]").first().focus();
+  await page.locator("[data-growth-repo]").first().press("Enter");
   await expect(page.getByRole("dialog")).toBeVisible();
   await page.keyboard.press("Escape");
   await page.getByRole("searchbox").fill("no-match-insights-000");

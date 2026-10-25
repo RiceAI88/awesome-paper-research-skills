@@ -7,7 +7,9 @@
     "ranking": "stars_desc_then_trend_score",
     "trend_window_days": 7,
     "long_window_days": 30,
-    "history_retention_days": 60
+    "history_retention_days": 60,
+    "first_seen_baseline_date": "2026-08-27",
+    "first_seen_source": "ranking_snapshots"
   },
   "items": [
     {
@@ -82,7 +84,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 177
+      "skills_count": 177,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 2,
@@ -146,7 +150,9 @@
         "name": "Other",
         "spdx_id": "NOASSERTION"
       },
-      "skills_count": 5
+      "skills_count": 5,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 3,
@@ -203,7 +209,9 @@
         "name": "Apache License 2.0",
         "spdx_id": "Apache-2.0"
       },
-      "skills_count": 23
+      "skills_count": 23,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 4,
@@ -281,7 +289,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 197
+      "skills_count": 197,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 5,
@@ -350,7 +360,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 98
+      "skills_count": 98,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 6,
@@ -415,7 +427,9 @@
         "name": "Other",
         "spdx_id": "NOASSERTION"
       },
-      "skills_count": 2
+      "skills_count": 2,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 7,
@@ -475,7 +489,9 @@
         "name": "Other",
         "spdx_id": "NOASSERTION"
       },
-      "skills_count": 12
+      "skills_count": 12,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 8,
@@ -533,7 +549,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 0
+      "skills_count": 0,
+      "first_seen_date": "2026-09-07",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 9,
@@ -603,7 +621,9 @@
         "name": "Other",
         "spdx_id": "NOASSERTION"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 10,
@@ -658,7 +678,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 11,
@@ -712,7 +734,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 11
+      "skills_count": 11,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 12,
@@ -767,7 +791,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 24
+      "skills_count": 24,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 13,
@@ -837,7 +863,9 @@
         "name": "Other",
         "spdx_id": "NOASSERTION"
       },
-      "skills_count": 1172
+      "skills_count": 1172,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 14,
@@ -893,7 +921,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 2
+      "skills_count": 2,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 15,
@@ -942,7 +972,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 20
+      "skills_count": 20,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 16,
@@ -1007,7 +1039,9 @@
         "name": "GNU Affero General Public License v3.0",
         "spdx_id": "AGPL-3.0"
       },
-      "skills_count": 0
+      "skills_count": 0,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 17,
@@ -1078,7 +1112,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 0
+      "skills_count": 0,
+      "first_seen_date": "2026-08-30",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 18,
@@ -1141,7 +1177,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 26
+      "skills_count": 26,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 19,
@@ -1200,7 +1238,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 2
+      "skills_count": 2,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 20,
@@ -1250,7 +1290,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 2
+      "skills_count": 2,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 21,
@@ -1307,7 +1349,9 @@
         "name": "Other",
         "spdx_id": "NOASSERTION"
       },
-      "skills_count": 33
+      "skills_count": 33,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 22,
@@ -1371,7 +1415,9 @@
         "name": "Other",
         "spdx_id": "NOASSERTION"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 23,
@@ -1429,7 +1475,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 3
+      "skills_count": 3,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 24,
@@ -1492,7 +1540,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 20
+      "skills_count": 20,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 25,
@@ -1567,7 +1617,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 3
+      "skills_count": 3,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 26,
@@ -1629,7 +1681,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 0
+      "skills_count": 0,
+      "first_seen_date": "2026-09-03",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 27,
@@ -1694,7 +1748,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 605
+      "skills_count": 605,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 28,
@@ -1757,7 +1813,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 20
+      "skills_count": 20,
+      "first_seen_date": "2026-09-05",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 29,
@@ -1815,7 +1873,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 0
+      "skills_count": 0,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 30,
@@ -1887,7 +1947,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 0
+      "skills_count": 0,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 31,
@@ -1937,7 +1999,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 5
+      "skills_count": 5,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 32,
@@ -2002,7 +2066,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 61
+      "skills_count": 61,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 33,
@@ -2071,7 +2137,9 @@
         "name": "GNU Affero General Public License v3.0",
         "spdx_id": "AGPL-3.0"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 34,
@@ -2132,7 +2200,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 2
+      "skills_count": 2,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 35,
@@ -2195,7 +2265,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 3
+      "skills_count": 3,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 36,
@@ -2252,7 +2324,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 2
+      "skills_count": 2,
+      "first_seen_date": "2026-10-20",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 37,
@@ -2329,7 +2403,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 4166
+      "skills_count": 4166,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 38,
@@ -2392,7 +2468,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 39,
@@ -2445,7 +2523,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 40,
@@ -2508,7 +2588,9 @@
         "name": "Other",
         "spdx_id": "NOASSERTION"
       },
-      "skills_count": 175
+      "skills_count": 175,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 41,
@@ -2570,7 +2652,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 42,
@@ -2636,7 +2720,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 2
+      "skills_count": 2,
+      "first_seen_date": "2026-10-03",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 43,
@@ -2688,7 +2774,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 10
+      "skills_count": 10,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 44,
@@ -2753,7 +2841,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 187
+      "skills_count": 187,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 45,
@@ -2808,7 +2898,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 2
+      "skills_count": 2,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 46,
@@ -2876,7 +2968,9 @@
         "name": "GNU Affero General Public License v3.0",
         "spdx_id": "AGPL-3.0"
       },
-      "skills_count": 0
+      "skills_count": 0,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 47,
@@ -2947,7 +3041,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 23
+      "skills_count": 23,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 48,
@@ -2997,7 +3093,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 49,
@@ -3052,7 +3150,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 71
+      "skills_count": 71,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 50,
@@ -3103,7 +3203,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 2
+      "skills_count": 2,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 51,
@@ -3152,7 +3254,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 7
+      "skills_count": 7,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 52,
@@ -3229,7 +3333,9 @@
         "name": "Other",
         "spdx_id": "NOASSERTION"
       },
-      "skills_count": 9
+      "skills_count": 9,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 53,
@@ -3280,7 +3386,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 2
+      "skills_count": 2,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 54,
@@ -3345,7 +3453,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 3
+      "skills_count": 3,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 55,
@@ -3392,7 +3502,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 56,
@@ -3445,7 +3557,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 57,
@@ -3496,7 +3610,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 164
+      "skills_count": 164,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 58,
@@ -3571,7 +3687,9 @@
         "name": "Apache License 2.0",
         "spdx_id": "Apache-2.0"
       },
-      "skills_count": 3
+      "skills_count": 3,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 59,
@@ -3634,7 +3752,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 0
+      "skills_count": 0,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 60,
@@ -3681,7 +3801,9 @@
         "name": "Other",
         "spdx_id": "NOASSERTION"
       },
-      "skills_count": 3
+      "skills_count": 3,
+      "first_seen_date": "2026-10-18",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 61,
@@ -3730,7 +3852,9 @@
         "name": "Apache License 2.0",
         "spdx_id": "Apache-2.0"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 62,
@@ -3791,7 +3915,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 63,
@@ -3845,7 +3971,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 12
+      "skills_count": 12,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 64,
@@ -3911,7 +4039,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 0
+      "skills_count": 0,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 65,
@@ -3962,7 +4092,9 @@
         "name": "Apache License 2.0",
         "spdx_id": "Apache-2.0"
       },
-      "skills_count": 0
+      "skills_count": 0,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 66,
@@ -4026,7 +4158,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 67,
@@ -4103,7 +4237,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 12
+      "skills_count": 12,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 68,
@@ -4156,7 +4292,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 69,
@@ -4209,7 +4347,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 0
+      "skills_count": 0,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 70,
@@ -4267,7 +4407,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 2
+      "skills_count": 2,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 71,
@@ -4321,7 +4463,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 10
+      "skills_count": 10,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 72,
@@ -4399,7 +4543,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 0
+      "skills_count": 0,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 73,
@@ -4448,7 +4594,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 74,
@@ -4500,7 +4648,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 8
+      "skills_count": 8,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 75,
@@ -4577,7 +4727,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 2
+      "skills_count": 2,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 76,
@@ -4627,7 +4779,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 77,
@@ -4678,7 +4832,9 @@
         "name": "Creative Commons Zero v1.0 Universal",
         "spdx_id": "CC0-1.0"
       },
-      "skills_count": 0
+      "skills_count": 0,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 78,
@@ -4730,7 +4886,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 33
+      "skills_count": 33,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 79,
@@ -4781,7 +4939,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 37
+      "skills_count": 37,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 80,
@@ -4833,7 +4993,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 473
+      "skills_count": 473,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 81,
@@ -4893,7 +5055,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 82,
@@ -4959,7 +5123,9 @@
         "name": "Apache License 2.0",
         "spdx_id": "Apache-2.0"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 83,
@@ -5009,7 +5175,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 19
+      "skills_count": 19,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 84,
@@ -5070,7 +5238,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 85,
@@ -5124,7 +5294,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 2
+      "skills_count": 2,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 86,
@@ -5175,7 +5347,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 87,
@@ -5235,7 +5409,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 88,
@@ -5283,7 +5459,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 89,
@@ -5357,7 +5535,9 @@
         "name": "Creative Commons Zero v1.0 Universal",
         "spdx_id": "CC0-1.0"
       },
-      "skills_count": 0
+      "skills_count": 0,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 90,
@@ -5404,7 +5584,9 @@
         "name": "Other",
         "spdx_id": "NOASSERTION"
       },
-      "skills_count": 5
+      "skills_count": 5,
+      "first_seen_date": "2026-10-10",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 91,
@@ -5471,7 +5653,9 @@
         "name": "Other",
         "spdx_id": "NOASSERTION"
       },
-      "skills_count": 9
+      "skills_count": 9,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 92,
@@ -5521,7 +5705,9 @@
         "name": "Mulan Permissive Software License, Version 2",
         "spdx_id": "MulanPSL-2.0"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 93,
@@ -5583,7 +5769,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 94,
@@ -5631,7 +5819,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     {
       "rank": 95,
@@ -5681,7 +5871,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 0
+      "skills_count": 0,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 96,
@@ -5729,7 +5921,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 97,
@@ -5792,7 +5986,9 @@
         "name": "Apache License 2.0",
         "spdx_id": "Apache-2.0"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-28",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 98,
@@ -5854,7 +6050,9 @@
         "name": "Other",
         "spdx_id": "NOASSERTION"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-28",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 99,
@@ -5909,7 +6107,9 @@
         "name": "Other",
         "spdx_id": "NOASSERTION"
       },
-      "skills_count": 355
+      "skills_count": 355,
+      "first_seen_date": "2026-09-19",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 100,
@@ -5959,7 +6159,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 18
+      "skills_count": 18,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 101,
@@ -6007,7 +6209,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-28",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 102,
@@ -6055,7 +6259,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-28",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 103,
@@ -6119,7 +6325,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 87
+      "skills_count": 87,
+      "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 104,
@@ -6178,7 +6386,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 2
+      "skills_count": 2,
+      "first_seen_date": "2026-09-28",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 105,
@@ -6228,7 +6438,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-21",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 106,
@@ -6279,7 +6491,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 27
+      "skills_count": 27,
+      "first_seen_date": "2026-10-14",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 107,
@@ -6331,7 +6545,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 11
+      "skills_count": 11,
+      "first_seen_date": "2026-09-28",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 108,
@@ -6393,7 +6609,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-28",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 109,
@@ -6445,7 +6663,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-09-28",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 110,
@@ -6498,7 +6718,9 @@
         "name": "Other",
         "spdx_id": "NOASSERTION"
       },
-      "skills_count": 17
+      "skills_count": 17,
+      "first_seen_date": "2026-09-28",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 111,
@@ -6569,7 +6791,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 29
+      "skills_count": 29,
+      "first_seen_date": "2026-09-28",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 112,
@@ -6619,7 +6843,9 @@
         "name": "",
         "spdx_id": ""
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-10-15",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 113,
@@ -6668,7 +6894,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 15
+      "skills_count": 15,
+      "first_seen_date": "2026-10-08",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 114,
@@ -6721,7 +6949,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 1
+      "skills_count": 1,
+      "first_seen_date": "2026-10-20",
+      "first_seen_is_baseline": false
     },
     {
       "rank": 115,
@@ -6795,7 +7025,9 @@
         "name": "MIT License",
         "spdx_id": "MIT"
       },
-      "skills_count": 35
+      "skills_count": 35,
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     }
   ]
 }

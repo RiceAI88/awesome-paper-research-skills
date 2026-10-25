@@ -57,12 +57,7 @@ export function EditorialPicks({ items, state, t }) {
                 <p className="editorial-outcome" data-testid="pick-outcome">
                   {pick[`outcome_${state.lang}`]}
                 </p>
-                <EditorialReviewNotice
-                  repo={pick.repo}
-                  t={t}
-                  details
-                  evidenceOnly
-                />
+                <EditorialReviewNotice repo={pick.repo} t={t} details />
                 <p className="editorial-reason">
                   <strong>{t("recommendationReason")}</strong>
                   {pick[`reason_${state.lang}`]}
@@ -81,7 +76,7 @@ export function EditorialPicks({ items, state, t }) {
                 <InstallationActions item={pick.item} lang={state.lang} t={t} />
               </div>
             </details>
-            <EditorialReviewNotice repo={pick.repo} t={t} compact />
+            <p className="editorial-preview">{pick[`outcome_${state.lang}`]}</p>
           </Panel>
         ))}
       </div>

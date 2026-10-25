@@ -25,12 +25,12 @@ for (const width of [1440, 390])
         Math.round((await page.locator(".filters").boundingBox()).y),
       )
       .toBe(0);
-    const filters = await page.locator(".filters").boundingBox();
+
     const header = page.locator(".ant-table-sticky-holder");
     await expect(header).toBeVisible();
     await expect
-      .poll(async () => Math.round((await header.boundingBox()).y))
-      .toBe(Math.ceil(filters.height));
+      .poll(async () => Math.round((await header.boundingBox()).y) - Math.ceil((await page.locator(".filters").boundingBox()).height))
+      .toBe(0);
     await expect(page.locator("#sortSelect")).toBeInViewport();
     expect(
       await page.evaluate(

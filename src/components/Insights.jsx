@@ -7,33 +7,47 @@ import React, {
 } from "react";
 import { Bar, Line, Scatter } from "@ant-design/plots";
 import { Renderer as SVGRenderer } from "@antv/g-svg";
-import { Button, Empty, Select } from "antd";
+import { Button, Empty, Select, Tooltip } from "antd";
 import { buildInsightData, createColorMaps } from "../insights";
 import { FONT_FAMILY } from "../domain";
 import { ChartBoundary } from "./ChartBoundary";
 
 const chartLabels = {
   zh: {
-    insightTrendNote: "当前范围 Stars 最高的 3 个仓库 · 相对窗口内各自起点",
+    insightTrendNote: "窗口内增长最快的 3 个项目",
     insightGrowthNote: "近 7 日新增 Stars 最高的 5 个仓库 · 不随历史窗口切换",
     insightScatterNote: "横轴 Stars（对数） · 纵轴近 7 日新增 · 点击查看仓库",
+    comparisonNote: "已选比较仓库 · 相对窗口内各自起点",
+    dataSince: "数据自",
+    historyDetails: "数据与排名说明",
+    categoryTooltip: "分类",
     historyProvenance: "2026-10-24 前的快照来自原项目；只绘制已有数据。",
     noGrowth: "当前范围没有正增长记录。",
     viewChartData: "查看数据与仓库详情",
     insightBaseline: "起点",
     insightSingleSnapshot: "仅一次快照",
-    insightBaselineNote: "起点为各仓库窗口内首个非零快照，日期可能不同；缺失日期不补值。",
+    insightBaselineNote:
+      "起点为各仓库窗口内首个非零快照，日期可能不同；缺失日期不补值。增长率=(末次Stars−起点Stars)/起点Stars；至少两次有效快照优先，再按增长率降序、仓库名排序。零起点之前不计算增长率。",
   },
   en: {
-    insightTrendNote: "Top 3 by Stars · relative to each repository’s first observation in the window",
-    insightGrowthNote: "Top 5 by 7-day Stars gained · independent of history window",
+    insightTrendNote:
+      "Top 3 by window growth · at least two valid observations first",
+    insightGrowthNote:
+      "Top 5 by 7-day Stars gained · independent of history window",
     insightScatterNote: "Stars (log) × 7-day change · click to view repository",
-    historyProvenance: "Snapshots before 2026-10-24 come from the original project; only recorded data is plotted.",
+    comparisonNote:
+      "Selected comparisons · relative to each baseline in this window",
+    dataSince: "Data since",
+    historyDetails: "Data and ranking details",
+    categoryTooltip: "Category",
+    historyProvenance:
+      "Snapshots before 2026-10-24 come from the original project; only recorded data is plotted.",
     noGrowth: "No positive growth in this selection.",
     viewChartData: "View data and repository details",
     insightBaseline: "Baseline",
     insightSingleSnapshot: "Single observation",
-    insightBaselineNote: "Each baseline is its first non-zero snapshot in this window; dates may differ. No missing dates are filled.",
+    insightBaselineNote:
+      "Each baseline is its first non-zero snapshot in this window; dates may differ. No missing dates are filled. Growth = (last Stars − baseline Stars) / baseline Stars. Rank series with at least two valid observations first, then growth descending and repository name. Growth before a positive baseline is undefined.",
   },
 };
 
@@ -47,7 +61,7 @@ function SvgPlot({ plot: Plot, onReady, ...props }) {
   return <Plot {...props} onReady={ready} />;
 }
 
-function ChartFrame({ title, note, id, children, t, hidden = false }) {
+function ChartFrame({ title, note, action, id, children, t, hidden = false }) {
   return (
     <article
       className={`insight-panel insight-${id}`}
@@ -57,7 +71,10 @@ function ChartFrame({ title, note, id, children, t, hidden = false }) {
       aria-labelledby={`insight-title-${id}`}
     >
       <div className="insight-panel-heading">
-        <h3 id={`insight-title-${id}`}>{title}</h3>
+        <div className="trend-title-row">
+          <h3 id={`insight-title-${id}`}>{title}</h3>
+          {action}
+        </div>
         {note && <p>{note}</p>}
       </div>
       {!hidden && (
@@ -122,9 +139,16 @@ export default function Insights({
   };
   const trendEntrance = entrance("trend");
   const [days, setDays] = useState(60);
+  const selectedTrends = useMemo(
+    () =>
+      (state.compare || [])
+        .map((repo) => allItems.find((item) => item.repo === repo))
+        .filter(Boolean),
+    [allItems, state.compare],
+  );
   const data = useMemo(
-    () => buildInsightData(items, history, generatedAt, days),
-    [items, history, generatedAt, days],
+    () => buildInsightData(items, history, generatedAt, days, selectedTrends),
+    [items, history, generatedAt, days, selectedTrends],
   );
   const colors = useMemo(() => createColorMaps(allItems), [allItems]);
   const dark = state.theme === "dark";
@@ -146,7 +170,7 @@ export default function Insights({
       ? String(value).slice(0, 23) + "…"
       : String(value);
   const open = (repo) => {
-    if (repo && items.some((i) => i.repo === repo))
+    if (repo && allItems.some((i) => i.repo === repo))
       update((s) => ({ ...s, repo }));
   };
   const category = (id) =>
@@ -225,6 +249,32 @@ export default function Insights({
     Number.isFinite(point.growthPercent),
   );
   const recordedDates = data.trends.map((p) => p.date).sort();
+  const trendStart = Date.parse(recordedDates[0] + "T00:00:00Z");
+  const trendEnd = Date.parse(recordedDates.at(-1) + "T00:00:00Z");
+  const trendTicks = Number.isFinite(trendStart)
+    ? [
+        ...new Set([
+          trendStart,
+          Math.round((trendStart + trendEnd) / 2 / 86400000) * 86400000,
+          trendEnd,
+        ]),
+      ]
+    : [];
+  const starValues = data.scatter.map((item) => item.stars);
+  const minExponent = Math.floor(Math.log10(Math.min(...starValues, Infinity)));
+  const maxExponent = Math.max(
+    minExponent + 1,
+    Math.ceil(Math.log10(Math.max(...starValues, 1))),
+  );
+  const scatterDomain = starValues.length
+    ? [10 ** minExponent, 10 ** maxExponent]
+    : [1, 10];
+  const scatterTicks = starValues.length
+    ? Array.from(
+        { length: maxExponent - minExponent + 1 },
+        (_, index) => 10 ** (minExponent + index),
+      )
+    : [1, 10];
   const categories = data.categories.map((c) => ({
     ...c,
     label: c[state.lang],
@@ -245,18 +295,6 @@ export default function Insights({
           </p>
         </div>
         <div className="insights-actions">
-          <label className="history-window">
-            <span>{t("historyWindow")}</span>
-            <Select
-              aria-label={t("historyWindow")}
-              value={days}
-              onChange={setDays}
-              options={[30, 60].map((value) => ({
-                value,
-                label: `${value} ${t("days")}`,
-              }))}
-            />
-          </label>
           <Button
             className="mobile-chart-toggle"
             type="text"
@@ -273,55 +311,32 @@ export default function Insights({
         <ChartFrame
           id="trend"
           title={t("insightTrend")}
-          note={t("insightTrendNote")}
+          note={t(
+            selectedTrends.length ? "comparisonNote" : "insightTrendNote",
+          )}
+          action={
+            <label className="history-window">
+              <span>{t("historyWindow")}</span>
+              <Select
+                aria-label={t("historyWindow")}
+                value={days}
+                onChange={setDays}
+                options={[30, 60].map((value) => ({
+                  value,
+                  label: `${value} ${t("days")}`,
+                }))}
+              />
+            </label>
+          }
           t={t}
         >
-          <div className="insight-legend">
+          <div className="chart-keyboard-controls">
             {data.trendRepos.map((item) => (
-              <button
-                key={item.repo}
-                onClick={() => open(item.repo)}
-                title={`${item.repo}${latest.has(item.repo) ? " · " + latest.get(item.repo).date : ""}`}
-              >
-                <i
-                  style={{
-                    background: "none",
-                    border: 0,
-                    borderRadius: 0,
-                    width: 26,
-                    height: 10,
-                    flexShrink: 0,
-                  }}
-                  aria-hidden="true"
-                >
-                  <svg width="26" height="10" viewBox="0 0 26 10">
-                    <line
-                      x1="0"
-                      y1="5"
-                      x2="26"
-                      y2="5"
-                      stroke={trendStyles[item.repo].color}
-                      strokeWidth="2"
-                      strokeDasharray={trendStyles[item.repo].dash.join(" ")}
-                    />
-                  </svg>
-                </i>
-                <span>
-                  {item.repo.split("/").pop()}
-                  <small className="trend-baseline">
-                    {t("insightBaseline")}:{" "}
-                    {latest.get(item.repo)?.baselineDate || "—"}
-                    {latest.get(item.repo)?.snapshotCount === 1 &&
-                      ` · ${t("insightSingleSnapshot")}`}
-                  </small>
-                </span>
-                <b>
-                  {latest.has(item.repo)
-                    ? Number.isFinite(latest.get(item.repo).growthPercent)
-                      ? percent(latest.get(item.repo).growthPercent)
-                      : "—"
-                    : "—"}
-                </b>
+              <button key={item.repo} onClick={() => open(item.repo)}>
+                {item.repo} · {latest.get(item.repo)?.date || "—"} ·{" "}
+                {Number.isFinite(latest.get(item.repo)?.growthPercent)
+                  ? percent(latest.get(item.repo).growthPercent)
+                  : "—"}
               </button>
             ))}
           </div>
@@ -334,13 +349,14 @@ export default function Insights({
               <SvgPlot
                 plot={Line}
                 {...base}
+                paddingRight={135}
                 animate={trendEntrance}
                 data={data.trends}
                 xField="time"
                 yField="growthPercent"
                 colorField="repo"
                 scale={{
-                  x: { type: "time", tickCount: 4 },
+                  x: { type: "time", tickMethod: () => trendTicks },
                   y: { zero: false, nice: true },
                   color: { domain: trendDomain, range: trendRange },
                 }}
@@ -360,10 +376,14 @@ export default function Insights({
                 style={{
                   lineWidth: 2,
                   // G2 passes the entire series to a line mark's style callback.
-                  lineDash: (series) => trendStyles[series[0]?.repo]?.dash || [],
+                  lineDash: (series) =>
+                    trendStyles[series[0]?.repo]?.dash || [],
                 }}
                 point={{
-                  style: { r: 2.5 },
+                  style: {
+                    r: (datum) =>
+                      latest.get(datum.repo)?.time === datum.time ? 2.8 : 0,
+                  },
                   tooltip: false,
                   animate: trendEntrance
                     ? {
@@ -372,6 +392,19 @@ export default function Insights({
                         exit: false,
                       }
                     : false,
+                }}
+                label={{
+                  text: (datum) =>
+                    latest.get(datum.repo)?.time === datum.time
+                      ? datum.repo.split("/").pop()
+                      : "",
+                  style: {
+                    dx: 7,
+                    textAlign: "left",
+                    fontSize: 10,
+                    fill: muted,
+                  },
+                  transform: [{ type: "overlapDodgeY" }],
                 }}
                 tooltip={{
                   title: (datum) => datum.date,
@@ -395,12 +428,16 @@ export default function Insights({
           <p className="chart-footnote">
             {recordedDates.length > 0 && (
               <span>
-                {recordedDates[0]} — {recordedDates.at(-1)} ·{" "}
+                {t("dataSince")} {recordedDates[0]}{" "}
               </span>
             )}
-            {t("historyProvenance")}
-            {" · "}
-            {t("insightBaselineNote")}
+            <Tooltip
+              title={`${t("historyProvenance")} ${t("insightBaselineNote")}`}
+            >
+              <button className="chart-help" aria-label={t("historyDetails")}>
+                ?
+              </button>
+            </Tooltip>
           </p>
         </ChartFrame>
         <ChartFrame
@@ -420,15 +457,13 @@ export default function Insights({
                   plot={Bar}
                   {...base}
                   animate={entrance("categories")}
-                  height={280}
+                  height={Math.max(150, categories.length * 27 + 30)}
                   paddingLeft={state.lang === "zh" ? 125 : 175}
                   paddingRight={40}
                   data={categories}
                   xField="label"
                   yField="count"
-                  colorField="id"
                   scale={{
-                    color: { domain: catDomain, range: catRange },
                     y: {
                       zero: true,
                       nice: true,
@@ -449,7 +484,7 @@ export default function Insights({
                       labelFontSize: 11,
                       labelAutoEllipsis: false,
                     },
-                    y: { ...numericAxis, tickCount: 3 },
+                    y: false,
                   }}
                   label={{
                     text: "count",
@@ -462,7 +497,17 @@ export default function Insights({
                       dx: 6,
                     },
                   }}
-                  style={{ maxWidth: 16 }}
+                  style={{
+                    maxWidth: 14,
+                    fill: (datum) =>
+                      state.category === datum.id
+                        ? dark
+                          ? "#E1A3B4"
+                          : "#6E344F"
+                        : dark
+                          ? "#A48C98"
+                          : "#B49BA7",
+                  }}
                   tooltip={{
                     title: "label",
                     items: [{ field: "count", name: t("repos") }],
@@ -470,7 +515,7 @@ export default function Insights({
                   onReady={bind("categories")}
                 />
               </div>
-              <div className="category-legend category-filter-controls">
+              <div className="chart-keyboard-controls category-filter-controls">
                 {categories.map((c) => (
                   <button
                     key={c.id}
@@ -478,7 +523,7 @@ export default function Insights({
                     onClick={() => category(c.id)}
                     aria-pressed={state.category === c.id}
                   >
-                    <i style={{ background: colors.categories[c.id] }} />
+                    <i style={{ background: dark ? "#A48C98" : "#B49BA7" }} />
                     <span>{c.label}</span>
                     <b>{c.count}</b>
                   </button>
@@ -509,7 +554,8 @@ export default function Insights({
                   plot={Bar}
                   {...base}
                   animate={entrance("growth")}
-                  height={250}
+                  height={220}
+                  paddingRight={65}
                   data={data.growth}
                   xField="repo"
                   yField="growth"
@@ -533,6 +579,16 @@ export default function Insights({
                     y: numericAxis,
                   }}
                   paddingLeft={165}
+                  label={{
+                    text: (datum) => signed(datum.growth),
+                    position: "right",
+                    style: {
+                      dx: 6,
+                      fill: muted,
+                      fontSize: 11,
+                      textAlign: "left",
+                    },
+                  }}
                   style={{ maxWidth: 12 }}
                   tooltip={{
                     title: "repo",
@@ -547,7 +603,7 @@ export default function Insights({
                   onReady={bind("growth")}
                 />
               </div>
-              <div className="growth-values">
+              <div className="chart-keyboard-controls">
                 {data.growth.map((item) => (
                   <button
                     key={item.repo}
@@ -594,7 +650,12 @@ export default function Insights({
                   yField="growth"
                   colorField="category"
                   scale={{
-                    x: { type: "log", nice: true, tickCount: 4 },
+                    x: {
+                      type: "log",
+                      base: 10,
+                      domain: scatterDomain,
+                      tickMethod: () => scatterTicks,
+                    },
                     y: { zero: true, nice: true },
                     color: { domain: catDomain, range: catRange },
                   }}
@@ -602,17 +663,30 @@ export default function Insights({
                     x: { ...numericAxis, title: "Stars (log)", grid: false },
                     y: numericAxis,
                   }}
+                  label={{
+                    text: (datum) =>
+                      datum.highlight ? datum.repo.split("/").pop() : "",
+                    style: { dy: -10, fill: muted, fontSize: 10 },
+                    transform: [{ type: "overlapHide" }],
+                  }}
                   shapeField={() => "point"}
                   style={{
                     fill: (datum) => colors.categories[datum.category],
-                    fillOpacity: 0.8,
+                    fillOpacity: (datum) => (datum.highlight ? 0.95 : 0.25),
                     stroke: (datum) => colors.categories[datum.category],
-                    r: 3,
+                    r: (datum) => (datum.highlight ? 4 : 2.5),
                     lineWidth: 0.5,
                   }}
                   tooltip={{
                     title: "repo",
                     items: [
+                      (datum) => ({
+                        name: t("categoryTooltip"),
+                        value:
+                          state.lang === "zh"
+                            ? datum.categoryZh
+                            : datum.categoryEn,
+                      }),
                       { field: "stars", name: "Stars" },
                       {
                         field: "growth",
@@ -623,6 +697,14 @@ export default function Insights({
                   }}
                   onReady={bind("scatter")}
                 />
+              </div>
+              <div className="scatter-legend" aria-label={t("categoryLabel")}>
+                {categories.map((item) => (
+                  <span key={item.id}>
+                    <i style={{ background: colors.categories[item.id] }} />
+                    {item.label}
+                  </span>
+                ))}
               </div>
               <details className="chart-data">
                 <summary>{t("viewChartData")}</summary>

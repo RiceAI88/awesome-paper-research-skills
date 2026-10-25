@@ -34,35 +34,15 @@ test("cards emphasize metrics, explain actions and align installation footers", 
     "收藏",
   );
   await expect(card.locator("svg.mini-area-chart")).toHaveCount(0);
-  await expect(card.locator("[data-install]")).not.toHaveClass(
-    /ant-btn-primary/,
-  );
-  await expect(card.locator(".card-meta")).toContainText("最近更新");
-  const context = card.locator(".installation-context");
-  const full = await context.textContent();
-  await expect(context).toHaveCSS("white-space", "nowrap");
-  await expect
-    .poll(async () => {
-      const boxes = await cards
-        .locator(".card-footer")
-        .evaluateAll((es) =>
-          es.slice(0, 3).map((e) => e.getBoundingClientRect()),
-        );
-      return (
-        Math.max(...boxes.map((x) => x.bottom)) -
-        Math.min(...boxes.map((x) => x.bottom))
-      );
-    })
-    .toBeLessThan(2);
-  await card.locator(".repo-name").focus();
-  await card.focus();
-  await page.keyboard.press("Enter");
-  await expect(
-    page.getByRole("dialog").locator(".installation-context"),
-  ).toHaveText(full);
-  await expect(
-    page.getByRole("dialog").locator(".installation-context"),
-  ).not.toHaveCSS("white-space", "nowrap");
+  await expect(card.locator(".installation-actions")).toHaveCount(0);
+  await expect(card.locator(".card-meta")).toHaveCount(0);
+  await expect.poll(async () => {
+    const boxes = await cards.evaluateAll((es) => es.slice(0, 4).map((e) => e.getBoundingClientRect()));
+    return Math.max(...boxes.map((x) => x.bottom)) - Math.min(...boxes.map((x) => x.bottom));
+  }).toBeLessThan(2);
+  await card.locator(".repo-title").click();
+  await expect(page.getByRole("dialog").locator(".installation-context")).toBeVisible();
+  await expect(page.getByRole("dialog").locator(".installation-context")).not.toHaveCSS("white-space", "nowrap");
 });
 test("back to top appears only after one viewport and keeps filters", async ({
   page,

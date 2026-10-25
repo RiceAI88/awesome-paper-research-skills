@@ -135,3 +135,39 @@ test("zero baselines stay undefined and a single snapshot stays a single baselin
   assert.equal(data.trends.at(-1).baselineDate, null);
   assert.ok(data.trends.every(p => p.growthPercent === null || Number.isFinite(p.growthPercent)));
 });
+
+test("default trend ranks window growth with two real observations before sparse or high-star repositories", () => {
+  const candidates = [
+    { repo: "big/stable", stars: 100000 },
+    { repo: "small/fast", stars: 30 },
+    { repo: "small/steady", stars: 40 },
+    { repo: "sparse/new", stars: 900 },
+  ];
+  const series = Object.fromEntries(candidates.map((item, index) => [item.repo,
+    index === 3 ? [{ date: "2026-10-24", stars: 900 }] : [
+      { date: "2026-10-01", stars: [100000, 10, 20][index] },
+      { date: "2026-10-24", stars: [100001, 30, 40][index] },
+    ]]));
+  const data = buildInsightData(candidates, { series }, "2026-10-24", 30);
+  assert.deepEqual(data.trendRepos.map(item => item.repo), ["small/fast", "small/steady", "big/stable"]);
+});
+
+test("explicit trend candidates can cross filters without changing category, growth, or scatter scope", () => {
+  const selected = [items[2], items[0]];
+  const data = buildInsightData([items[1]], { series: {
+    "c/third": [{ date: "2026-10-24", stars: 10 }],
+    "a/first": [{ date: "2026-10-24", stars: 20 }],
+  } }, "2026-10-24", 30, selected);
+  assert.deepEqual(data.trendRepos.map(item => item.repo), selected.map(item => item.repo));
+  assert.deepEqual(data.scatter.map(item => item.repo), ["b/second"]);
+  assert.equal(data.categories[0].count, 1);
+});
+
+test("scatter highlights the three largest signed seven-day changes and retains category names", () => {
+  const data = buildInsightData(items, {}, "2026-10-24", 30);
+  assert.deepEqual(data.scatter.filter(point => point.highlight).map(point => point.repo), ["a/first", "b/second", "c/third"]);
+  assert.equal(data.scatter[0].categoryZh, "写作");
+  assert.equal(data.scatter[0].categoryEn, "Writing");
+  const more = buildInsightData([...items, { repo: "huge/slow", stars: 100000, star_delta_7d: -20 }], {}, "2026-10-24", 30);
+  assert.equal(more.scatter.find(point => point.repo === "huge/slow").highlight, false);
+});

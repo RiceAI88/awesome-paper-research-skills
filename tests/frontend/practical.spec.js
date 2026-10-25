@@ -83,7 +83,9 @@ for (const [name, run, kind] of [
     );
     await page.goto("./");
     await expect(page.locator(`[data-status="${kind}"]`)).toBeVisible();
-    await expect(page.getByTestId("update-status")).toContainText("状态查询于");
+    await page.locator(".update-status-summary").hover();
+    await expect(page.getByRole("tooltip")).toContainText("状态查询于");
+    await expect(page.getByTestId("update-status").locator("time")).toHaveAttribute("title", /UTC\+8/);
   });
 test("unavailable API does not report success", async ({ page }) => {
   await page.route(api, (route) =>

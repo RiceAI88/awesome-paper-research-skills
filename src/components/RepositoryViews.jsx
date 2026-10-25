@@ -3,11 +3,8 @@ import { Panel } from "./Panel";
 import React, { lazy, useEffect, useState } from "react";
 import { Button, Empty, Space, Tag, Tooltip } from "antd";
 import { StarFilled, StarOutlined, SwapOutlined } from "@ant-design/icons";
-import {
-  SummaryText,
-  PlatformTags,
-  InstallationActions,
-} from "./PracticalInfo";
+import { PlatformTags } from "./PracticalInfo";
+import { useFeedback } from "./FeedbackProvider";
 import { DeferredFeature } from "./DeferredFeature";
 const RepositoryTable = lazy(() => import("./RepositoryTable"));
 import { safeExternalUrl } from "../domain";
@@ -35,6 +32,7 @@ export function QualityBadges({ item, t }) {
   );
 }
 function Actions({ item, state, update, toggleCompare, t, labels = false }) {
+  const message = useFeedback();
   const favorite = state.favorites.includes(item.repo),
     compared = state.compare.includes(item.repo);
   return (
@@ -56,6 +54,7 @@ function Actions({ item, state, update, toggleCompare, t, labels = false }) {
           style={{ color: favorite ? "var(--prs-primary)" : undefined }}
           onClick={(e) => {
             e.stopPropagation();
+            message.success(t(favorite ? "favoriteRemoved" : "favoriteSaved"));
             update((s) => ({
               ...s,
               favorites: favorite
@@ -107,6 +106,7 @@ export function RepositoryViews({
     state.agent,
     state.sort,
     state.favOnly,
+    state.newOnly,
     items.map((item) => item.repo),
   ]);
   const [batch, setBatch] = useState({ key: resultKey, limit: 30 });
@@ -183,7 +183,29 @@ export function RepositoryViews({
                 <Tag>#{item.rank}</Tag>
                 {actions(item)}
               </div>
-              {link(item)}
+              <div className="card-title-row">
+                <button
+                  type="button"
+                  className="repo-name repo-title"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    open(item);
+                  }}
+                >
+                  <SearchHighlight text={item.repo} query={state.query} />
+                </button>
+                <a
+                  className="repository-external"
+                  href={safeExternalUrl(item.url) || undefined}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${t("drOpenRepo")} ${item.repo}`}
+                  title="GitHub"
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  ↗
+                </a>
+              </div>
               <div className="card-key-metrics">
                 <div>
                   <strong>{fmt(item.stars)}</strong>
@@ -199,27 +221,9 @@ export function RepositoryViews({
               </div>
               <div className="card-tags">
                 <Tag className="warm-tag">{cat(item)}</Tag>
-                <span className="trend-value">{item.trend?.[state.lang]}</span>
               </div>
-              <SummaryText
-                item={item}
-                lang={state.lang}
-                t={t}
-                query={state.query}
-              />
               <PlatformTags item={item} t={t} />
               <QualityBadges item={item} t={t} />
-              <div className="card-footer">
-                <InstallationActions item={item} lang={state.lang} t={t} />
-                <div className="card-meta">
-                  <span>
-                    {t("drLanguage")}: {item.language || "—"}
-                  </span>
-                  <span>
-                    {t("drPushed")}: {item.last_push_date || "—"}
-                  </span>
-                </div>
-              </div>
             </Panel>
           ))}
         </div>

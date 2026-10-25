@@ -27,7 +27,6 @@ import {
   BulbOutlined,
   CalendarOutlined,
   CloseOutlined,
-  DownloadOutlined,
   GithubOutlined,
   StarFilled,
   StarOutlined,
@@ -39,6 +38,7 @@ import {
   filterItems,
   taskCountsFor,
   recentlyUpdatedCount,
+  isNewThisWeek,
   FONT_FAMILY,
   persistState,
   REPOSITORY_URL,
@@ -61,12 +61,14 @@ const RepositoryDrawer = lazy(() =>
   })),
 );
 const ComparisonDialog = lazy(() => import("./components/ComparisonDialog"));
-import { AnimatedStatistic } from "./components/AnimatedStatistic";
 import { ViewportInsights } from "./components/ViewportInsights";
 
 const dataset = window.ACADEMIC_SKILLS_RANKINGS || {};
 const items = Array.isArray(dataset.items)
-  ? dataset.items.map((item) => enrichItem(item))
+  ? dataset.items.map((item) => ({
+      ...enrichItem(item),
+      new_this_week: isNewThisWeek(item, dataset.metadata?.generated_at),
+    }))
   : [];
 const historyData = window.ACADEMIC_SKILLS_HISTORY || { series: {} };
 let storage;
@@ -191,7 +193,10 @@ function Dashboard({ state, update }) {
   const rankingKey = `${state.view}:${visible.length ? "items" : "empty"}`;
   const [readyView, setReadyView] = useState(null);
   const [insightsJump, setInsightsJump] = useState(false);
-  const onRankingReady = useCallback(() => setReadyView(rankingKey), [rankingKey]);
+  const onRankingReady = useCallback(
+    () => setReadyView(rankingKey),
+    [rankingKey],
+  );
   useEffect(() => {
     if (!insightsJump || readyView !== rankingKey) return;
     const frame = requestAnimationFrame(() => {
@@ -203,6 +208,23 @@ function Dashboard({ state, update }) {
     return () => cancelAnimationFrame(frame);
   }, [insightsJump, readyView, rankingKey]);
   const search = useRef(null);
+  const stickySearch = useRef(null);
+  const [stickySearchVisible, setStickySearchVisible] = useState(false);
+  useEffect(() => {
+    const input = search.current?.input;
+    if (!input) return;
+    const measure = () => {
+      if (document.activeElement?.id === "stickySearchInput") return;
+      setStickySearchVisible(input.getBoundingClientRect().bottom < 0);
+    };
+    measure();
+    addEventListener("scroll", measure, { passive: true });
+    addEventListener("resize", measure);
+    return () => {
+      removeEventListener("scroll", measure);
+      removeEventListener("resize", measure);
+    };
+  }, []);
   const t = (key) => translations[state.lang][key] || key;
   const fmt = (value) =>
     new Intl.NumberFormat(state.lang === "zh" ? "zh-CN" : "en-US").format(
@@ -210,7 +232,7 @@ function Dashboard({ state, update }) {
     );
   const taskCounts = useMemo(
     () => taskCountsFor(items, state),
-    [state.query, state.agent, state.favOnly, state.favorites],
+    [state.query, state.agent, state.favOnly, state.favorites, state.newOnly],
   );
   const selected = items.find((item) => item.repo === state.repo);
   const categories = useMemo(
@@ -223,8 +245,7 @@ function Dashboard({ state, update }) {
     [],
   );
   const platformIds = new Set(items.flatMap(detectAgents));
-  const totalStars = items.reduce((sum, i) => sum + (i.stars || 0), 0),
-    net7 = items.reduce((sum, i) => sum + (i.star_delta_7d || 0), 0);
+  const net7 = items.reduce((sum, i) => sum + (i.star_delta_7d || 0), 0);
   const toggleCompare = (repo) => {
     if (!state.compare.includes(repo) && state.compare.length >= 3) {
       message.info(t("compareFull"));
@@ -259,7 +280,7 @@ function Dashboard({ state, update }) {
         return;
       if (e.key === "/") {
         e.preventDefault();
-        search.current?.focus();
+        (stickySearch.current || search.current)?.focus();
       }
       if (e.key === "t")
         update((s) => ({
@@ -304,17 +325,15 @@ function Dashboard({ state, update }) {
     a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
-  const statistics = [
-    [t("repos"), items.length],
-    [t("statTotalStars"), totalStars],
-    [t("statNet7d"), net7],
-    [
-      t("statRecentPush"),
-      recentlyUpdatedCount(items, dataset.metadata?.generated_at),
-    ],
-  ];
+  const recentCount = recentlyUpdatedCount(
+    items,
+    dataset.metadata?.generated_at,
+  );
+  const newcomers = items.filter((item) => item.new_this_week).length;
   return (
-    <div className="prs-page">
+    <div
+      className={`prs-page${stickySearchVisible ? " sticky-search-active" : ""}`}
+    >
       <a
         className="skip-link"
         href="#main"
@@ -348,7 +367,9 @@ function Dashboard({ state, update }) {
                 aria-label={t("reportsLink")}
                 icon={<CalendarOutlined aria-hidden="true" />}
                 href={localFile("reports/")}
-              />
+              >
+                {t("reportsLink")}
+              </Button>
             </Tooltip>
             <Tooltip title={t("subscribeTitle")}>
               <Button
@@ -369,7 +390,9 @@ function Dashboard({ state, update }) {
                     theme: s.theme === "light" ? "dark" : "light",
                   }))
                 }
-              />
+              >
+                {t("themeLabel")}
+              </Button>
             </Tooltip>
             <Button
               icon={<GithubOutlined aria-hidden="true" />}
@@ -404,6 +427,7 @@ function Dashboard({ state, update }) {
             </div>
             <div className="discovery-controls">
               <SearchBox
+                inactive={stickySearchVisible}
                 inputRef={search}
                 state={state}
                 update={update}
@@ -470,6 +494,7 @@ function Dashboard({ state, update }) {
                     </Button>
                   ))}
                 </div>
+                <p className="task-count-note">{t("taskCountNote")}</p>
               </section>
             </div>
             <p className="hero-hint">
@@ -478,21 +503,6 @@ function Dashboard({ state, update }) {
                 : "Press / to search · t theme · l language · v view"}
             </p>
           </div>
-        </section>
-        <section
-          className="statistics container"
-          aria-label="Aggregate statistics"
-        >
-          {statistics.map(([title, value], i) => (
-            <Panel key={i} className={i === 2 ? "growth-statistic" : ""}>
-              <AnimatedStatistic
-                title={title}
-                value={value}
-                prefix={i === 2 && value > 0 ? "+" : undefined}
-                lang={state.lang}
-              />
-            </Panel>
-          ))}
         </section>
       </header>
       <main
@@ -506,37 +516,46 @@ function Dashboard({ state, update }) {
           className="filters"
           aria-label="Ranking controls"
         >
-          <details
-            className="secondary-filters"
-            open={state.category !== "all"}
-          >
-            <summary>
-              {t("categoryLabel")}
-              <small>
-                {state.category === "all"
-                  ? t("optionalFilter")
-                  : categories.find(
-                      (category) => category.id === state.category,
-                    )?.[state.lang]}
-              </small>
-            </summary>
-            <label htmlFor="categoryFilter">
-              <span>{t("categoryLabel")}</span>
-              <Select
-                id="categoryFilter"
-                value={state.category}
-                onChange={(category) => update((s) => ({ ...s, category }))}
-                options={[
-                  { value: "all", label: t("allCategories") },
-                  ...categories.map((c) => ({
-                    value: c.id,
-                    label: c[state.lang],
-                  })),
-                ]}
+          {stickySearchVisible && (
+            <div className="sticky-search-slot">
+              <SearchBox
+                inputRef={stickySearch}
+                state={state}
+                update={update}
+                items={visible}
+                taskOptions={RESEARCH_TASKS.map((task) => ({
+                  id: task.id,
+                  label: t(taskLabels[task.id]),
+                }))}
+                t={t}
+                onBlur={() =>
+                  setStickySearchVisible(
+                    Boolean(
+                      search.current?.input &&
+                      search.current.input.getBoundingClientRect().bottom < 0,
+                    ),
+                  )
+                }
+                inputId="stickySearchInput"
+                compact
               />
-            </label>
-            <p>{t("taskCountHint")}</p>
-          </details>
+            </div>
+          )}
+          <label htmlFor="categoryFilter">
+            <span>{t("categoryLabel")}</span>
+            <Select
+              id="categoryFilter"
+              value={state.category}
+              onChange={(category) => update((s) => ({ ...s, category }))}
+              options={[
+                { value: "all", label: t("allCategories") },
+                ...categories.map((c) => ({
+                  value: c.id,
+                  label: c[state.lang],
+                })),
+              ]}
+            />
+          </label>
           <label htmlFor="agentFilter">
             <span>{t("agentLabel")}</span>
             <Select
@@ -573,39 +592,75 @@ function Dashboard({ state, update }) {
               )}
             />
           </label>
-          <Segmented
-            aria-label="View"
-            value={state.view}
-            onChange={(view) => update((s) => ({ ...s, view }))}
-            options={[
-              {
-                value: "table",
-                icon: <BarsOutlined aria-hidden="true" />,
-                label: <span className="sr-only">{t("viewTable")}</span>,
-              },
-              {
-                value: "card",
-                icon: <AppstoreOutlined aria-hidden="true" />,
-                label: <span className="sr-only">{t("viewCard")}</span>,
-              },
-            ]}
-          />
-          <Button
-            data-testid="favorites-only"
-            icon={
-              state.favOnly ? (
-                <StarFilled aria-hidden="true" />
-              ) : (
-                <StarOutlined aria-hidden="true" />
-              )
-            }
-            type={state.favOnly ? "primary" : "default"}
-            aria-pressed={state.favOnly}
-            onClick={() => update((s) => ({ ...s, favOnly: !s.favOnly }))}
-          >
-            {t("favoritesOnly")}{" "}
-            <Tag variant="borderless">{state.favorites.length}</Tag>
-          </Button>
+          <div className="view-controls">
+            <Segmented
+              aria-label="View"
+              value={state.view}
+              onChange={(view) => update((s) => ({ ...s, view }))}
+              options={[
+                {
+                  value: "table",
+                  icon: <BarsOutlined aria-hidden="true" />,
+                  label: <span className="sr-only">{t("viewTable")}</span>,
+                },
+                {
+                  value: "card",
+                  icon: <AppstoreOutlined aria-hidden="true" />,
+                  label: <span className="sr-only">{t("viewCard")}</span>,
+                },
+              ]}
+            />
+            <Button
+              aria-label={t("favoritesOnly")}
+              data-testid="favorites-only"
+              icon={
+                state.favOnly ? (
+                  <StarFilled aria-hidden="true" />
+                ) : (
+                  <StarOutlined aria-hidden="true" />
+                )
+              }
+              type={state.favOnly ? "primary" : "default"}
+              aria-pressed={state.favOnly}
+              onClick={() => update((s) => ({ ...s, favOnly: !s.favOnly }))}
+            >
+              <span className="favorite-filter-label">
+                {t("favoritesOnly")}
+              </span>{" "}
+              <Tag variant="borderless">{state.favorites.length}</Tag>
+            </Button>
+          </div>
+        </section>
+        <section
+          className="statistics compact-statistics"
+          aria-label="Aggregate statistics"
+        >
+          <span>
+            {t("repos")} <strong>{fmt(items.length)}</strong>
+          </span>
+          <Tooltip title={t("newWeekHelp")}>
+            <button
+              type="button"
+              data-testid="new-this-week"
+              aria-pressed={state.newOnly}
+              onClick={() => update((s) => ({ ...s, newOnly: !s.newOnly }))}
+            >
+              {t("statNewWeek")} <strong>{fmt(newcomers)}</strong>
+            </button>
+          </Tooltip>
+          <span>
+            {t("statNet7d")}{" "}
+            <strong>
+              {net7 > 0 ? "+" : ""}
+              {fmt(net7)}
+            </strong>
+          </span>
+          <span>
+            {t("statRecentPush")}{" "}
+            <strong>
+              {fmt(recentCount)} / {fmt(items.length)}
+            </strong>
+          </span>
         </section>
         <EditorialPicks items={visible} state={state} t={t} />
         <Panel
@@ -619,7 +674,28 @@ function Dashboard({ state, update }) {
               <h2>
                 {t("tableTitle")} <Tag>{fmt(visible.length)}</Tag>
               </h2>
-              <p>{t("tableHint")}</p>
+              <p>
+                <span className="ranking-sort-prefix">
+                  {t(
+                    {
+                      rank: "sortRank",
+                      stars: "sortStars",
+                      trend: "sortTrend",
+                      updated: "sortUpdated",
+                      delta30: "sortDelta30",
+                    }[state.sort],
+                  )}{" "}
+                  ·{" "}
+                </span>
+                {t(state.view === "card" ? "tableHintCard" : "tableHintTable")}{" "}
+                <a
+                  href={localFile("docs/methodology.md")}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {t("methodTitle")}
+                </a>
+              </p>
             </div>
             <Space wrap size={8}>
               <Button
@@ -632,18 +708,34 @@ function Dashboard({ state, update }) {
               >
                 {t("insightsTitle")} ↓
               </Button>
-              <Button
-                icon={<DownloadOutlined aria-hidden="true" />}
-                onClick={exportFavorites}
-              >
-                {t("exportFav")}
-              </Button>
-              <Button href={localFile("data/rankings.json")}>
-                {t("downloadJson")}
-              </Button>
-              <Button href={localFile("data/rankings.csv")}>
-                {t("downloadCsv")}
-              </Button>
+              <details className="export-menu">
+                <summary>{t("exportMenu")} ⌄</summary>
+                <div
+                  className="export-options"
+                  role="group"
+                  aria-label={t("exportMenu")}
+                >
+                  <button
+                    type="button"
+                    disabled={!state.favorites.length}
+                    onClick={exportFavorites}
+                  >
+                    {t("exportFav")}
+                  </button>
+                  <a
+                    download="rankings.json"
+                    href={localFile("data/rankings.json")}
+                  >
+                    {t("downloadJson")}
+                  </a>
+                  <a
+                    download="rankings.csv"
+                    href={localFile("data/rankings.csv")}
+                  >
+                    {t("downloadCsv")}
+                  </a>
+                </div>
+              </details>
             </Space>
           </div>
           <ActiveFilters
@@ -685,7 +777,7 @@ function Dashboard({ state, update }) {
             kael-odin
           </a>
         </span>
-        <span>{t("shortcuts")}</span>
+        <span className="keyboard-hint">{t("shortcuts")}</span>
       </footer>
       {(selected || drawerRequested) && (
         <DeferredFeature t={t}>
@@ -722,7 +814,10 @@ function Dashboard({ state, update }) {
           </Tooltip>
         </div>
       )}
-      <BackToTop label={t("backToTop")} comparisonOpen={state.compare.length > 0} />
+      <BackToTop
+        label={t("backToTop")}
+        comparisonOpen={state.compare.length > 0}
+      />
       {(compareOpen || comparisonRequested) && (
         <DeferredFeature t={t}>
           <ComparisonDialog

@@ -1,21 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Tag, Tooltip } from "antd";
+import { Tooltip } from "antd";
 import { classifyUpdateRun, UPDATE_RUNS_URL } from "../practical";
-function timestamp(value, lang) {
-  const time = new Date(value);
-  return Number.isNaN(time.getTime())
-    ? "—"
-    : new Intl.DateTimeFormat(lang === "zh" ? "zh-CN" : "en-GB", {
-        timeZone: "Asia/Shanghai",
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit",
-        hourCycle: "h23",
-      }).format(time);
-}
+import { exactTimestamp, relativeTimestamp } from "../time";
 export function UpdateStatus({ generatedAt, lang, t }) {
+  const [now, setNow] = useState(Date.now());
+  useEffect(() => {
+    const timer = setInterval(() => setNow(Date.now()), 60000);
+    return () => clearInterval(timer);
+  }, []);
   const [status, setStatus] = useState({ kind: "checking" });
   useEffect(() => {
     const controller = new AbortController();
@@ -56,40 +48,39 @@ export function UpdateStatus({ generatedAt, lang, t }) {
     publishing: "updatePublishing",
     unknown: "updateUnknown",
   };
-  const colors = {
-    checking: "processing",
-    success: "success",
-    failure: "error",
-    running: "processing",
-    publishing: "warning",
-  };
+  const precision = exactTimestamp(generatedAt, lang);
   return (
     <span className="update-status" data-testid="update-status">
-      <span>
-        {t("dataUpdated")}{" "}
-        <time dateTime={generatedAt}>{timestamp(generatedAt, lang)}</time> UTC+8
-      </span>
       <Tooltip
         title={
-          status.checkedAt
-            ? `${t("statusChecked")} ${timestamp(status.checkedAt, lang)} UTC+8 · ${t("statusPublicApi")}`
-            : t("statusPublicApi")
+          <span>
+            {precision} · {t(labels[status.kind])}
+            {status.checkedAt &&
+              ` · ${t("statusChecked")} ${exactTimestamp(status.checkedAt, lang)}`}
+            {status.url && (
+              <>
+                {" "}
+                ·{" "}
+                <a href={status.url} target="_blank" rel="noreferrer">
+                  {t("viewRun")}
+                </a>
+              </>
+            )}
+          </span>
         }
       >
-        <Tag color={colors[status.kind]} data-status={status.kind}>
-          {t(labels[status.kind])}
-        </Tag>
+        <span className="update-status-summary" tabIndex={0}>
+          <i
+            className={`status-dot status-${status.kind}`}
+            data-status={status.kind}
+            aria-hidden="true"
+          />
+          <time dateTime={generatedAt} title={precision}>
+            {t("dataUpdated")} {relativeTimestamp(generatedAt, lang, now)}
+          </time>
+          <span className="sr-only">{t(labels[status.kind])}</span>
+        </span>
       </Tooltip>
-      {status.url && (
-        <a href={status.url} target="_blank" rel="noreferrer">
-          {t("viewRun")}
-        </a>
-      )}
-      {status.checkedAt && (
-        <small>
-          {t("statusChecked")} {timestamp(status.checkedAt, lang)} UTC+8
-        </small>
-      )}
     </span>
   );
 }

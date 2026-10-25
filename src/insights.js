@@ -41,7 +41,13 @@ export function createColorMaps(items) {
     ),
   };
 }
-export function buildInsightData(items, history, generatedAt, days = 60) {
+export function buildInsightData(
+  items,
+  history,
+  generatedAt,
+  days = 60,
+  selectedTrends = null,
+) {
   const anchor = Date.parse(String(generatedAt).slice(0, 10) + "T00:00:00Z");
   const cutoff = anchor - (days - 1) * 86400000;
   const categoryMap = new Map();
@@ -59,47 +65,74 @@ export function buildInsightData(items, history, generatedAt, days = 60) {
   const categories = [...categoryMap.values()].sort(
     (a, b) => b.count - a.count || a.id.localeCompare(b.id),
   );
-  const trendRepos = [...items]
-    .sort(
-      (a, b) => (b.stars || 0) - (a.stars || 0) || a.repo.localeCompare(b.repo),
-    )
-    .slice(0, 3);
-  const trends = trendRepos.flatMap((item) => {
-    const byDate = new Map();
-    for (const p of history?.series?.[item.repo] || []) {
-      const timestamp = Date.parse(p.date + "T00:00:00Z");
-      if (
-        typeof p.date !== "string" ||
-        !/^\d{4}-\d{2}-\d{2}$/.test(p.date) ||
-        !Number.isFinite(timestamp) ||
-        new Date(timestamp).toISOString().slice(0, 10) !== p.date ||
-        !Number.isFinite(p.stars) ||
-        p.stars < 0 ||
-        !Number.isFinite(anchor) ||
-        timestamp < cutoff ||
-        timestamp > anchor
-      )
-        continue;
-      byDate.set(p.date, {
-        repo: item.repo,
-        date: p.date,
-        time: timestamp,
-        stars: p.stars,
-      });
-    }
-    const snapshots = [...byDate.values()].sort((a, b) => a.time - b.time);
-    const baseline = snapshots.find((point) => point.stars > 0);
-    return snapshots.map((point) => ({
-      ...point,
-      baselineDate: baseline?.date || null,
-      baselineStars: baseline?.stars ?? null,
-      snapshotCount: snapshots.length,
-      growthPercent:
-        baseline && point.time >= baseline.time
-          ? ((point.stars - baseline.stars) / baseline.stars) * 100
-          : null,
-    }));
-  });
+  const candidates = selectedTrends?.length ? selectedTrends : items;
+  const seriesByRepo = new Map(
+    candidates.map((item) => {
+      const byDate = new Map();
+      for (const p of history?.series?.[item.repo] || []) {
+        const timestamp = Date.parse(p.date + "T00:00:00Z");
+        if (
+          typeof p.date !== "string" ||
+          !/^\d{4}-\d{2}-\d{2}$/.test(p.date) ||
+          !Number.isFinite(timestamp) ||
+          new Date(timestamp).toISOString().slice(0, 10) !== p.date ||
+          !Number.isFinite(p.stars) ||
+          p.stars < 0 ||
+          !Number.isFinite(anchor) ||
+          timestamp < cutoff ||
+          timestamp > anchor
+        )
+          continue;
+        byDate.set(p.date, {
+          repo: item.repo,
+          date: p.date,
+          time: timestamp,
+          stars: p.stars,
+        });
+      }
+      const snapshots = [...byDate.values()].sort((a, b) => a.time - b.time);
+      const baseline = snapshots.find((point) => point.stars > 0);
+      return [
+        item.repo,
+        snapshots.map((point) => ({
+          ...point,
+          baselineDate: baseline?.date || null,
+          baselineStars: baseline?.stars ?? null,
+          snapshotCount: snapshots.length,
+          growthPercent:
+            baseline && point.time >= baseline.time
+              ? ((point.stars - baseline.stars) / baseline.stars) * 100
+              : null,
+        })),
+      ];
+    }),
+  );
+  // Rank measured growth before sparse series. Never substitute present-day Stars
+  // for a missing historical observation or divide by a zero baseline.
+  const score = (item) => {
+    const points = seriesByRepo.get(item.repo);
+    const measured = points.filter((point) =>
+      Number.isFinite(point.growthPercent),
+    );
+    return {
+      enough: measured.length >= 2,
+      growth: measured.at(-1)?.growthPercent ?? -Infinity,
+    };
+  };
+  const trendRepos = selectedTrends?.length
+    ? [...selectedTrends]
+    : [...items]
+        .sort((a, b) => {
+          const left = score(a),
+            right = score(b);
+          return (
+            Number(right.enough) - Number(left.enough) ||
+            (right.growth === left.growth ? 0 : right.growth - left.growth) ||
+            a.repo.localeCompare(b.repo)
+          );
+        })
+        .slice(0, 3);
+  const trends = trendRepos.flatMap((item) => seriesByRepo.get(item.repo));
   const growth = [...items]
     .filter((i) => Number.isFinite(i.star_delta_7d) && i.star_delta_7d > 0)
     .sort(
@@ -124,6 +157,15 @@ export function buildInsightData(items, history, generatedAt, days = 60) {
       stars: i.stars,
       growth: i.star_delta_7d,
       category: i.category?.id || "other",
+      categoryZh: i.category?.zh || "other",
+      categoryEn: i.category?.en || "Other",
     }));
+  const topScatter = new Set(
+    [...scatter]
+      .sort((a, b) => b.growth - a.growth || a.repo.localeCompare(b.repo))
+      .slice(0, 3)
+      .map((item) => item.repo),
+  );
+  for (const point of scatter) point.highlight = topScatter.has(point.repo);
   return { categories, trendRepos, trends, growth, scatter };
 }

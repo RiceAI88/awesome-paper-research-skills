@@ -17,9 +17,8 @@ test("repository descriptions match GitHub originals in both languages, cards an
   await expect(page.getByRole("dialog").locator("details")).toHaveCount(0);
   await page.keyboard.press("Escape");
   await page.goto("./#view=card");
-  await expect(
-    page.getByTestId("repo-card").first().locator(".practical-description p"),
-  ).toHaveText(items[0].description);
+  await page.getByTestId("repo-card").first().locator(".repo-title").click();
+  await expect(page.getByRole("dialog").locator(".practical-description p")).toHaveText(items[0].description);
   await page.goto("./en/#view=table");
   await expect(
     page.locator(".ant-table-row").first().locator(".practical-description p"),

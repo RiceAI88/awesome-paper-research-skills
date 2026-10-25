@@ -34,13 +34,15 @@ test("installation expectations and original command source are visible in list 
   const card = page.getByTestId("repo-card").filter({
     has: page.locator(".repo-name").getByText(unknown.repo, { exact: true }),
   });
-  await expect(card.getByTestId("installation-mode")).toHaveText(
+  await card.locator(".repo-title").click();
+  const compactDetails = page.getByRole("dialog");
+  await expect(compactDetails.getByTestId("installation-mode")).toHaveText(
     "安装方式待核对",
   );
   await expect(
-    card.getByRole("link", { name: "项目文档", exact: true }),
+    compactDetails.getByRole("link", { name: "项目文档", exact: true }),
   ).toHaveAttribute("href", unknown.url + "#readme");
-  await expect(card.locator("[data-install]")).toHaveCount(0);
+  await expect(compactDetails.locator("[data-install]")).toHaveCount(0);
 });
 test("each active restriction can be removed independently without changing other state", async ({
   page,

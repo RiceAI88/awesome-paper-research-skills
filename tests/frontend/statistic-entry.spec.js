@@ -1,51 +1,29 @@
 import { test, expect } from "@playwright/test";
-import { recentlyUpdatedCount } from "../../src/domain.js";
+import { recentlyUpdatedCount, isNewThisWeek } from "../../src/domain.js";
 import { readFileSync } from "node:fs";
-const items = JSON.parse(
+const { items, metadata } = JSON.parse(
   readFileSync(new URL("../../data/rankings.json", import.meta.url), "utf8"),
-).items;
-const targets = [
-  items.length,
-  items.reduce((s, i) => s + i.stars, 0),
-  items.reduce((s, i) => s + (i.star_delta_7d || 0), 0),
-  recentlyUpdatedCount(
-    items,
-    JSON.parse(
-      readFileSync(
-        new URL("../../data/rankings.json", import.meta.url),
-        "utf8",
-      ),
-    ).metadata.generated_at,
+);
+const expected = [
+  String(items.length),
+  String(
+    items.filter((item) => isNewThisWeek(item, metadata.generated_at)).length,
   ),
+  "+" +
+    items
+      .reduce((sum, item) => sum + (item.star_delta_7d || 0), 0)
+      .toLocaleString("en-US"),
+  `${recentlyUpdatedCount(items, metadata.generated_at)} / ${items.length}`,
 ];
-const readNumbers = (page) =>
-  page
-    .locator(".statistics .ant-statistic-content")
-    .allTextContents()
-    .then((texts) => texts.map((t) => Number(t.replace(/[^\d-]/g, ""))));
-test("top statistics count up once to real totals and do not replay on filtering or language changes", async ({
-  page,
-}) => {
-  await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.goto("./", { waitUntil: "domcontentloaded" });
-  await expect(page.locator(".statistics .ant-statistic-content")).toHaveCount(
-    4,
-  );
-  const initial = await readNumbers(page);
-  expect(initial[1]).toBeLessThan(targets[1]);
-  await expect.poll(() => readNumbers(page)).toEqual(targets);
-  await page.getByRole("button", { name: "读论文", exact: true }).click();
-  expect(await readNumbers(page)).toEqual(targets);
-  await page.getByText("EN", { exact: true }).click();
-  expect(await readNumbers(page)).toEqual(targets);
-});
-test("reduced motion shows final statistic totals immediately", async ({
-  page,
-}) => {
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("./", { waitUntil: "domcontentloaded" });
-  await expect(page.locator(".statistics .ant-statistic-content")).toHaveCount(
-    4,
-  );
-  expect(await readNumbers(page)).toEqual(targets);
-});
+for (const motion of ["reduce", "no-preference"])
+  test(`compact statistics retain global totals with ${motion} motion`, async ({
+    page,
+  }) => {
+    await page.emulateMedia({ reducedMotion: motion });
+    await page.goto("./");
+    await expect(page.locator(".statistics strong")).toHaveText(expected);
+    await page.getByRole("button", { name: "读论文", exact: true }).click();
+    await expect(page.locator(".statistics strong")).toHaveText(expected);
+    await page.getByText("EN", { exact: true }).click();
+    await expect(page.locator(".statistics strong")).toHaveText(expected);
+  });

@@ -4,7 +4,18 @@ import { SearchOutlined } from "@ant-design/icons";
 import { suggestedTaskIds } from "../search";
 import { DeferredFeature } from "./DeferredFeature";
 const SearchSuggestions = lazy(() => import("./SearchSuggestions"));
-export function SearchBox({ inputRef, state, update, items, taskOptions, t }) {
+export function SearchBox({
+  inputRef,
+  state,
+  update,
+  items,
+  taskOptions,
+  t,
+  inputId = "searchInput",
+  compact = false,
+  inactive = false,
+  onBlur,
+}) {
   const [draft, setDraft] = useState(state.query);
   const [focused, setFocused] = useState(false);
   const [expanded, setExpanded] = useState(false);
@@ -18,13 +29,17 @@ export function SearchBox({ inputRef, state, update, items, taskOptions, t }) {
     update((previous) => ({ ...previous, query: value }));
   }
   return (
-    <div className="hero-search">
-      <label htmlFor="searchInput">{t("searchLabel")}</label>
+    <div
+      className={`hero-search${compact ? " compact-search" : ""}`}
+      inert={inactive || undefined}
+      aria-hidden={inactive || undefined}
+    >
+      <label htmlFor={inputId}>{t("searchLabel")}</label>
       <Input
         ref={inputRef}
-        id="searchInput"
+        id={inputId}
         type="search"
-        size="large"
+        size={compact ? "middle" : "large"}
         allowClear
         autoComplete="off"
         prefix={<SearchOutlined aria-hidden="true" />}
@@ -38,6 +53,7 @@ export function SearchBox({ inputRef, state, update, items, taskOptions, t }) {
         onBlur={() => {
           setFocused(false);
           setExpanded(false);
+          onBlur?.();
         }}
         onChange={(event) => {
           setDraft(event.target.value);

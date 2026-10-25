@@ -58,6 +58,7 @@ test("favorites persist, drawer copies commands and links restore detail", async
   await expect(page.getByRole("dialog")).not.toBeVisible();
   await page.getByTestId("favorites-only").click();
   await expect(page.locator(".ant-table-row")).toHaveCount(1);
+  await page.locator(".export-menu summary").click();
   const downloadPromise = page.waitForEvent("download");
   await page.getByRole("button", { name: "导出收藏", exact: true }).click();
   expect((await downloadPromise).suggestedFilename()).toBe(

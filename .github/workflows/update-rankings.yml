@@ -55,7 +55,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update academic research skill rankings"
-          file_pattern: README.md data/editorial-status.json data/rankings.json data/rankings.js data/history.js data/rankings.csv data/history/*.json sitemap.xml feed.xml assets/og-cover.svg assets/og-cover.png assets/og-cover-en.svg assets/og-cover-en.png reports/*.html
+          file_pattern: README.md data/first-seen.json data/editorial-status.json data/rankings.json data/rankings.js data/history.js data/rankings.csv data/history/*.json sitemap.xml feed.xml assets/og-cover.svg assets/og-cover.png assets/og-cover-en.svg assets/og-cover-en.png reports/*.html
 
       - name: Redeploy GitHub Pages
         # The auto-commit uses GITHUB_TOKEN, whose pushes do NOT trigger other

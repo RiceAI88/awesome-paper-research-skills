@@ -136,6 +136,7 @@ export function restoreState(storage, hash = "", defaults = {}, items = []) {
       .filter((repo) => repositories.has(repo))
       .slice(0, 3),
     favOnly: p.get("fav") === "1",
+    newOnly: p.get("new") === "1",
     repo: repositories.has(p.get("repo")) ? p.get("repo") : null,
   };
 }
@@ -153,6 +154,7 @@ export function serializeState(state) {
   ])
     if (state[key] !== fallback) p.set(param, state[key]);
   if (state.favOnly) p.set("fav", "1");
+  if (state.newOnly) p.set("new", "1");
   if (state.repo) p.set("repo", state.repo);
   return p.size ? "#" + p.toString() : "";
 }
@@ -169,6 +171,7 @@ export function filterItems(items, state) {
   const search = createSearch(q);
   const task = RESEARCH_TASKS.find((t) => t.id === state.task);
   const result = items.filter((item) => {
+    if (state.newOnly && !item.new_this_week) return false;
     if (task && !matchesResearchTask(item, task)) return false;
     if (state.category !== "all" && item.category?.id !== state.category)
       return false;
@@ -269,4 +272,29 @@ export function recentlyUpdatedCount(items, generatedAt, days = 30) {
       timestamp <= anchor
     );
   }).length;
+}
+
+export function isNewThisWeek(item, generatedAt) {
+  if (item.first_seen_is_baseline) return false;
+  const rawDay = String(generatedAt).slice(0, 10),
+    first = item.first_seen_date;
+  const rawDate = Date.parse(rawDay + "T00:00:00Z"),
+    instant = Date.parse(generatedAt);
+  if (
+    !Number.isFinite(rawDate) ||
+    !Number.isFinite(instant) ||
+    new Date(rawDate).toISOString().slice(0, 10) !== rawDay
+  )
+    return false;
+  const day = new Date(instant).toISOString().slice(0, 10);
+  const now = Date.parse(day + "T00:00:00Z"),
+    stamp = Date.parse(first + "T00:00:00Z");
+  if (
+    !Number.isFinite(now) ||
+    !Number.isFinite(stamp) ||
+    new Date(stamp).toISOString().slice(0, 10) !== first
+  )
+    return false;
+  const monday = now - ((new Date(now).getUTCDay() + 6) % 7) * 86400000;
+  return stamp >= monday && stamp <= now;
 }

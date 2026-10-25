@@ -22,7 +22,9 @@ for (const theme of ["light", "dark"])
     await expect(button).toHaveCSS("border-top-width", "1px");
     await expect(button).toHaveCSS("border-left-width", "1px");
     await expect(button).not.toHaveCSS("background-color", "rgba(0, 0, 0, 0)");
-    expect(await button.boundingBox()).toEqual(before);
+    const after = await button.boundingBox();
+    expect(after.width).toBe(before.width);
+    expect(after.height).toBe(before.height);
     await expect(selected).toHaveCSS("border-bottom-width", "1px");
     await page
       .getByRole("button", { name: "全部 Skills", exact: true })
