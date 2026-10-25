@@ -1,3 +1,4 @@
+import { EditorialReviewNotice } from "./EditorialReviewNotice";
 import { Panel } from "./Panel";
 import React from "react";
 import { Typography } from "antd";
@@ -44,8 +45,10 @@ export function EditorialPicks({ items, state, t }) {
             <p className="editorial-outcome" data-testid="pick-outcome">
               {pick[`outcome_${state.lang}`]}
             </p>
+            <EditorialReviewNotice repo={pick.repo} t={t} />
             <details className="editorial-details">
               <summary>{t("editorialMore")} ↗</summary>
+              <EditorialReviewNotice repo={pick.repo} t={t} details evidenceOnly />
               <p className="editorial-reason">
                 <strong>{t("recommendationReason")}</strong>
                 {pick[`reason_${state.lang}`]}

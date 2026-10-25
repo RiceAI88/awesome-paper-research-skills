@@ -1,0 +1,59 @@
+{
+  "repos": {
+    "openags/paper-search-mcp": {
+      "reviewed_at": "2026-10-25",
+      "documents": [
+        {
+          "path": "README.md",
+          "ref": "main",
+          "blob_sha": "a68831a246ea113b0ce1520375f7032d8a273aec",
+          "reviewed_commit": "cab1b5cc276a0cd004a0044003926a6440088049",
+          "source_url": "https://github.com/openags/paper-search-mcp/blob/cab1b5cc276a0cd004a0044003926a6440088049/README.md"
+        }
+      ]
+    },
+    "zsyggg/paper-craft-skills": {
+      "reviewed_at": "2026-10-25",
+      "documents": [
+        {
+          "path": "README.md",
+          "ref": "main",
+          "blob_sha": "aee77e7778c34957d9c0fa29779acd98eb06b3ec",
+          "reviewed_commit": "3be47a2a53cc35a411c587bca5231a08de57287a",
+          "source_url": "https://github.com/zsyggg/paper-craft-skills/blob/3be47a2a53cc35a411c587bca5231a08de57287a/README.md"
+        }
+      ]
+    },
+    "Imbad0202/academic-research-skills": {
+      "reviewed_at": "2026-10-25",
+      "documents": [
+        {
+          "path": "README.md",
+          "ref": "main",
+          "blob_sha": "64627eda97188c2c2e9de4d2cb8174a45fa877f4",
+          "reviewed_commit": "09a5d0b15c7b50a20d9fc68d5947bb9897f438b5",
+          "source_url": "https://github.com/Imbad0202/academic-research-skills/blob/09a5d0b15c7b50a20d9fc68d5947bb9897f438b5/README.md"
+        },
+        {
+          "path": "docs/SETUP.md",
+          "ref": "main",
+          "blob_sha": "a4445ca1b8ee558364f5770ee11250b2fb81ed94",
+          "reviewed_commit": "09a5d0b15c7b50a20d9fc68d5947bb9897f438b5",
+          "source_url": "https://github.com/Imbad0202/academic-research-skills/blob/09a5d0b15c7b50a20d9fc68d5947bb9897f438b5/docs/SETUP.md"
+        }
+      ]
+    },
+    "Yuan1z0825/nature-skills": {
+      "reviewed_at": "2026-10-25",
+      "documents": [
+        {
+          "path": "README.md",
+          "ref": "main",
+          "blob_sha": "3e038d2f64f279e65c8d19465b351a6cae0f3ba6",
+          "reviewed_commit": "8f28a61d42c2b251d224cdb0a59229df9879a68e",
+          "source_url": "https://github.com/Yuan1z0825/nature-skills/blob/8f28a61d42c2b251d224cdb0a59229df9879a68e/README.md"
+        }
+      ]
+    }
+  }
+}

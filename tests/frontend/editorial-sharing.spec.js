@@ -25,7 +25,7 @@ for (const lang of ["zh", "en"]) {
         pick[`outcome_${lang}`],
       );
       await card.locator("summary").click();
-      await expect(card.locator("time")).toHaveAttribute(
+      await expect(card.locator(".editorial-evidence time")).toHaveAttribute(
         "datetime",
         pick.reviewed_at,
       );

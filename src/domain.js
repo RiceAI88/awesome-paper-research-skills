@@ -155,18 +155,19 @@ export function serializeState(state) {
   if (state.repo) p.set("repo", state.repo);
   return p.size ? "#" + p.toString() : "";
 }
+export function matchesResearchTask(item, task) {
+  return (
+    task.categories.includes(item.category?.id) ||
+    task.pattern.test(
+      [item.repo, item.description, ...(item.topics || [])].join(" "),
+    )
+  );
+}
 export function filterItems(items, state) {
   const q = state.query.trim().toLowerCase();
   const task = RESEARCH_TASKS.find((t) => t.id === state.task);
   const result = items.filter((item) => {
-    if (
-      task &&
-      !task.categories.includes(item.category?.id) &&
-      !task.pattern.test(
-        [item.repo, item.description, ...(item.topics || [])].join(" "),
-      )
-    )
-      return false;
+    if (task && !matchesResearchTask(item, task)) return false;
     if (state.category !== "all" && item.category?.id !== state.category)
       return false;
     if (state.agent !== "all" && !detectAgents(item).includes(state.agent))

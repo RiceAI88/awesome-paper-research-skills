@@ -622,6 +622,8 @@ function Dashboard({ state, update }) {
             open={compareOpen}
             onClose={() => setCompareOpen(false)}
             repos={state.compare}
+            items={items}
+            lang={state.lang}
             history={historyData}
             t={t}
           />

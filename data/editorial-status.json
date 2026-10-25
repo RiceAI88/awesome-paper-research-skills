@@ -1,0 +1,87 @@
+{
+  "checked_at": "2026-10-25T02:56:22.096286Z",
+  "repos": {
+    "openags/paper-search-mcp": {
+      "status": "current",
+      "needs_review": false,
+      "baseline": {
+        "README.md": "a68831a246ea113b0ce1520375f7032d8a273aec"
+      },
+      "documents": [
+        {
+          "path": "README.md",
+          "status": "current",
+          "reviewed_blob_sha": "a68831a246ea113b0ce1520375f7032d8a273aec",
+          "current_blob_sha": "a68831a246ea113b0ce1520375f7032d8a273aec",
+          "reviewed_url": "https://github.com/openags/paper-search-mcp/blob/cab1b5cc276a0cd004a0044003926a6440088049/README.md",
+          "current_url": "https://github.com/openags/paper-search-mcp/blob/cab1b5cc276a0cd004a0044003926a6440088049/README.md",
+          "diff_url": "https://github.com/openags/paper-search-mcp/compare/cab1b5cc276a0cd004a0044003926a6440088049...cab1b5cc276a0cd004a0044003926a6440088049"
+        }
+      ]
+    },
+    "zsyggg/paper-craft-skills": {
+      "status": "current",
+      "needs_review": false,
+      "baseline": {
+        "README.md": "aee77e7778c34957d9c0fa29779acd98eb06b3ec"
+      },
+      "documents": [
+        {
+          "path": "README.md",
+          "status": "current",
+          "reviewed_blob_sha": "aee77e7778c34957d9c0fa29779acd98eb06b3ec",
+          "current_blob_sha": "aee77e7778c34957d9c0fa29779acd98eb06b3ec",
+          "reviewed_url": "https://github.com/zsyggg/paper-craft-skills/blob/3be47a2a53cc35a411c587bca5231a08de57287a/README.md",
+          "current_url": "https://github.com/zsyggg/paper-craft-skills/blob/3be47a2a53cc35a411c587bca5231a08de57287a/README.md",
+          "diff_url": "https://github.com/zsyggg/paper-craft-skills/compare/3be47a2a53cc35a411c587bca5231a08de57287a...3be47a2a53cc35a411c587bca5231a08de57287a"
+        }
+      ]
+    },
+    "Imbad0202/academic-research-skills": {
+      "status": "current",
+      "needs_review": false,
+      "baseline": {
+        "README.md": "64627eda97188c2c2e9de4d2cb8174a45fa877f4",
+        "docs/SETUP.md": "a4445ca1b8ee558364f5770ee11250b2fb81ed94"
+      },
+      "documents": [
+        {
+          "path": "README.md",
+          "status": "current",
+          "reviewed_blob_sha": "64627eda97188c2c2e9de4d2cb8174a45fa877f4",
+          "current_blob_sha": "64627eda97188c2c2e9de4d2cb8174a45fa877f4",
+          "reviewed_url": "https://github.com/Imbad0202/academic-research-skills/blob/09a5d0b15c7b50a20d9fc68d5947bb9897f438b5/README.md",
+          "current_url": "https://github.com/Imbad0202/academic-research-skills/blob/09a5d0b15c7b50a20d9fc68d5947bb9897f438b5/README.md",
+          "diff_url": "https://github.com/Imbad0202/academic-research-skills/compare/09a5d0b15c7b50a20d9fc68d5947bb9897f438b5...09a5d0b15c7b50a20d9fc68d5947bb9897f438b5"
+        },
+        {
+          "path": "docs/SETUP.md",
+          "status": "current",
+          "reviewed_blob_sha": "a4445ca1b8ee558364f5770ee11250b2fb81ed94",
+          "current_blob_sha": "a4445ca1b8ee558364f5770ee11250b2fb81ed94",
+          "reviewed_url": "https://github.com/Imbad0202/academic-research-skills/blob/09a5d0b15c7b50a20d9fc68d5947bb9897f438b5/docs/SETUP.md",
+          "current_url": "https://github.com/Imbad0202/academic-research-skills/blob/09a5d0b15c7b50a20d9fc68d5947bb9897f438b5/docs/SETUP.md",
+          "diff_url": "https://github.com/Imbad0202/academic-research-skills/compare/09a5d0b15c7b50a20d9fc68d5947bb9897f438b5...09a5d0b15c7b50a20d9fc68d5947bb9897f438b5"
+        }
+      ]
+    },
+    "Yuan1z0825/nature-skills": {
+      "status": "changed",
+      "needs_review": true,
+      "baseline": {
+        "README.md": "3e038d2f64f279e65c8d19465b351a6cae0f3ba6"
+      },
+      "documents": [
+        {
+          "path": "README.md",
+          "status": "changed",
+          "reviewed_blob_sha": "3e038d2f64f279e65c8d19465b351a6cae0f3ba6",
+          "current_blob_sha": "a2ed779c1be20b2e77bdd3e0940e6ab63a50f484",
+          "reviewed_url": "https://github.com/Yuan1z0825/nature-skills/blob/8f28a61d42c2b251d224cdb0a59229df9879a68e/README.md",
+          "current_url": "https://github.com/Yuan1z0825/nature-skills/blob/8a98ea7dcbc34dfc77ec4ba3b9f1d0a9407f39cc/README.md",
+          "diff_url": "https://github.com/Yuan1z0825/nature-skills/compare/8f28a61d42c2b251d224cdb0a59229df9879a68e...8a98ea7dcbc34dfc77ec4ba3b9f1d0a9407f39cc"
+        }
+      ]
+    }
+  }
+}

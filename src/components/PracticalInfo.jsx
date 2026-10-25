@@ -1,4 +1,5 @@
 import React from "react";
+import { EditorialReviewNotice } from "./EditorialReviewNotice";
 import { Button, Space, Tag, Tooltip } from "antd";
 import { CopyOutlined, ExportOutlined } from "@ant-design/icons";
 import { AGENT_PLATFORMS, detectAgents, safeExternalUrl } from "../domain";
@@ -104,6 +105,7 @@ export function InstallationActions({
           )}
         </Button>
       </Space>
+      {details && <EditorialReviewNotice repo={item.repo} t={t} details />}
       {details && installation.mode === "docs" && (
         <p className="muted">{t("installUnreviewedHint")}</p>
       )}
