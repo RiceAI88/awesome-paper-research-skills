@@ -1267,3 +1267,24 @@ h1 em {
     padding: 12px;
   }
 }
+
+.editorial-audience,
+.editorial-outcome {
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 10px 0;
+}
+.editorial-audience {
+  color: var(--prs-muted);
+}
+.editorial-audience strong {
+  font-weight: 500;
+}
+.editorial-evidence {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--prs-muted);
+  margin: 10px 0;
+}

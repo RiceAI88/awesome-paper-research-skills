@@ -1468,7 +1468,7 @@ def render_sitemap(data: dict[str, Any]) -> str:
     ]
     entries = []
     for path, lm, prio, freq in urls:
-        loc = f"{SITE_URL}/{path}".rstrip("/") if path else SITE_URL + "/"
+        loc = f"{SITE_URL}/{path}" if path else SITE_URL + "/"
         entries.append(
             "  <url>\n"
             f"    <loc>{xml_escape(loc)}</loc>\n"
@@ -1531,7 +1531,7 @@ def render_feed(data: dict[str, Any], window_snapshot: dict[str, Any] | None = N
     )
 
 
-def render_og_cover(data: dict[str, Any]) -> str:
+def render_og_cover(data: dict[str, Any], lang: str = "zh") -> str:
     """Generate a simple SVG Open Graph cover showing the day's headline stats."""
     metadata = data.get("metadata", {})
     items = data.get("items", [])
@@ -1549,28 +1549,25 @@ def render_og_cover(data: dict[str, Any]) -> str:
     # later entries keep local (Windows/macOS) previews readable.
     font = "Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif"
 
+    title = "Paper Research" if lang == "en" else "论文科研 Skills"
+    subtitle = "Skills Ranking" if lang == "en" else "排行榜"
+    caption = "GitHub rankings · Growth trends · Editorial picks" if lang == "en" else "GitHub 排行 · 增长趋势 · 编辑精选"
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="55%" stop-color="#faf8ff"/>
-      <stop offset="100%" stop-color="#f0e9ff"/>
-    </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#691eff"/>
-      <stop offset="100%" stop-color="#ab7cff"/>
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect x="0" y="0" width="1200" height="8" fill="url(#accent)"/>
-  <text x="80" y="150" font-family="{font}" font-size="34" fill="#625d73" font-weight="600">Awesome Paper Research Skills</text>
-  <text x="78" y="260" font-family="{font}" font-size="84" fill="#1f1f26" font-weight="800">论文科研 Skills 排行榜</text>
-  <text x="80" y="330" font-family="{font}" font-size="30" fill="#691eff" font-weight="600">{total} repos · {total_stars:,} stars · updated {generated}</text>
-  <rect x="80" y="390" width="1040" height="160" rx="20" fill="#ffffff" stroke="#e7e3ef" stroke-width="1"/>
-  <text x="112" y="445" font-family="{font}" font-size="24" fill="#625d73" font-weight="600">#1 TOP</text>
-  <text x="112" y="498" font-family="{font}" font-size="38" fill="#1f1f26" font-weight="700">{xml_escape(top_name)}</text>
-  <text x="112" y="532" font-family="{font}" font-size="26" fill="#691eff" font-weight="800">{xml_escape(top_stars)}</text>
+  <rect width="1200" height="630" fill="#FEFDFC"/>
+  <rect x="64" y="56" width="64" height="48" rx="4" fill="#866178"/>
+  <text x="96" y="87" text-anchor="middle" font-family="{font}" font-size="18" font-weight="700" fill="#FFFFFF">APRS</text>
+  <text x="146" y="87" font-family="{font}" font-size="25" font-weight="600" fill="#292628">Awesome Paper Research Skills</text>
+  <line x1="64" y1="128" x2="1136" y2="128" stroke="#E9E4E2"/>
+  <text x="64" y="234" font-family="{font}" font-size="72" font-weight="700" fill="#292628">{title}</text>
+  <text x="64" y="324" font-family="{font}" font-size="72" font-weight="700" fill="#866178">{subtitle}</text>
+  <text x="68" y="384" font-family="{font}" font-size="25" fill="#777074">{caption}</text>
+  <line x1="64" y1="426" x2="1136" y2="426" stroke="#E9E4E2"/>
+  <text x="68" y="475" font-family="{font}" font-size="24" fill="#292628">{total} repos · {total_stars:,} Stars</text>
+  <text x="1136" y="475" text-anchor="end" font-family="{font}" font-size="20" fill="#777074">Updated {generated}</text>
+  <text x="68" y="542" font-family="{font}" font-size="19" fill="#777074">#1 {xml_escape(top_name)}</text>
+  <text x="1136" y="542" text-anchor="end" font-family="{font}" font-size="24" font-weight="600" fill="#B47C7D">{xml_escape(top_stars)}</text>
+  <rect x="0" y="618" width="1200" height="12" fill="#866178"/>
 </svg>
 """
 
@@ -1596,11 +1593,14 @@ def write_seo_assets(data: dict[str, Any], window_snapshot: dict[str, Any] | Non
     SITEMAP_PATH.write_text(render_sitemap(data), encoding="utf-8")
     FEED_PATH.write_text(render_feed(data, window_snapshot=window_snapshot), encoding="utf-8")
     OG_COVER_PATH.parent.mkdir(parents=True, exist_ok=True)
-    svg_text = render_og_cover(data)
-    OG_COVER_PATH.write_text(svg_text, encoding="utf-8")
-    png_bytes = render_og_cover_png(svg_text)
-    if png_bytes:
-        OG_COVER_PNG_PATH.write_bytes(png_bytes)
+    for lang, suffix in [("zh", ""), ("en", "-en")]:
+        svg_text = render_og_cover(data, lang=lang)
+        svg_path = OG_COVER_PATH.with_name(f"og-cover{suffix}.svg")
+        png_path = OG_COVER_PNG_PATH.with_name(f"og-cover{suffix}.png")
+        svg_path.write_text(svg_text, encoding="utf-8")
+        png_bytes = render_og_cover_png(svg_text)
+        if png_bytes:
+            png_path.write_bytes(png_bytes)
 
 
 def main() -> int:

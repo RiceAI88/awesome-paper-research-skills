@@ -63,7 +63,12 @@
       "title_en": "Search across paper sources",
       "reason_zh": "提供 MCP、CLI 和 Claude Code Skill 接入步骤，适合从一个明确的论文检索任务开始尝试。",
       "reason_en": "Offers documented MCP, CLI and Claude Code skill setups, making paper retrieval a concrete starting task.",
-      "source_url": "https://github.com/openags/paper-search-mcp/blob/main/README.md"
+      "source_url": "https://github.com/openags/paper-search-mcp/blob/main/README.md",
+      "audience_zh": "需要跨来源检索论文的研究者",
+      "audience_en": "Researchers searching across paper sources",
+      "outcome_zh": "把论文检索接入 MCP、CLI 或 Claude Code 工作流。",
+      "outcome_en": "Connect paper search to an MCP, CLI or Claude Code workflow.",
+      "reviewed_at": "2026-10-25"
     },
     {
       "repo": "zsyggg/paper-craft-skills",
@@ -71,7 +76,12 @@
       "title_en": "Turn reading into a presentation",
       "reason_zh": "将论文分析、方法图示与汇报材料连接起来，适合把阅读结果转成可分享的研究产物。",
       "reason_en": "Connects paper analysis with method figures and slide decks, helping turn reading into shareable research material.",
-      "source_url": "https://github.com/zsyggg/paper-craft-skills/blob/main/README.md"
+      "source_url": "https://github.com/zsyggg/paper-craft-skills/blob/main/README.md",
+      "audience_zh": "准备组会汇报和方法图的读者",
+      "audience_en": "Readers preparing research presentations and method figures",
+      "outcome_zh": "将论文内容整理为方法图、演示材料或深度解读。",
+      "outcome_en": "Turn paper content into method figures, presentation materials or in-depth articles.",
+      "reviewed_at": "2026-10-25"
     },
     {
       "repo": "Imbad0202/academic-research-skills",
@@ -79,7 +89,12 @@
       "title_en": "Work through a paper in stages",
       "reason_zh": "按研究、写作、审阅和修订组织技能，适合需要明确阶段与人工确认节点的写作流程。",
       "reason_en": "Organizes research, writing, review and revision into stages with human checkpoints.",
-      "source_url": "https://github.com/Imbad0202/academic-research-skills/blob/main/README.md"
+      "source_url": "https://github.com/Imbad0202/academic-research-skills/blob/main/README.md",
+      "audience_zh": "希望分阶段组织写作的论文作者",
+      "audience_en": "Paper authors who want a staged writing workflow",
+      "outcome_zh": "围绕研究、写作、审阅和修订推进任务，保留人工确认节点。",
+      "outcome_en": "Organize research, writing, review and revision with human checkpoints.",
+      "reviewed_at": "2026-10-25"
     },
     {
       "repo": "Yuan1z0825/nature-skills",
@@ -87,7 +102,12 @@
       "title_en": "Start with one figure-making skill",
       "reason_zh": "文档给出了为 Codex 单独安装 nature-figure 的方法，可以从具体绘图任务入手，再按需扩展。",
       "reason_en": "Documents installing nature-figure separately for Codex, allowing a focused trial before adding more skills.",
-      "source_url": "https://github.com/Yuan1z0825/nature-skills/blob/main/README.md"
+      "source_url": "https://github.com/Yuan1z0825/nature-skills/blob/main/README.md",
+      "audience_zh": "想先尝试一个绘图技能的研究者",
+      "audience_en": "Researchers trying a focused figure-making skill",
+      "outcome_zh": "从单独安装 nature-figure 开始，按任务制作科研图。",
+      "outcome_en": "Start with a separate nature-figure installation for a focused research figure task.",
+      "reviewed_at": "2026-10-25"
     }
   ]
 }

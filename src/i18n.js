@@ -41,6 +41,9 @@ export const translations = {
     editorialSubtitle:
       "按具体科研任务挑选，推荐理由来自项目文档；不参与自动排名。随当前筛选条件显示。",
     recommendationReason: "推荐理由：",
+    pickAudience: "适合：",
+    pickSource: "查看推荐依据原文",
+    pickDocsOnly: "依据项目文档整理，未经本站实测。",
     transparencyTitle: "榜单与数据说明",
     rankingBasis: "排名依据：",
     rankingBasisCopy:
@@ -218,6 +221,9 @@ export const translations = {
     editorialSubtitle:
       "Task-based picks with reasons drawn from project docs, separate from automatic rankings. Matches your current filters.",
     recommendationReason: "Why try it: ",
+    pickAudience: "For: ",
+    pickSource: "Read recommendation source",
+    pickDocsOnly: "Based on project documentation; not tested hands-on here.",
     transparencyTitle: "Ranking and data notes",
     rankingBasis: "Ranking:",
     rankingBasisCopy:

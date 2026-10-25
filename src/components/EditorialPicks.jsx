@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Typography } from "antd";
-import { EDITORIAL_CONTENT, editorialPicks } from "../practical";
+import { editorialPicks } from "../practical";
 import { PlatformTags, InstallationActions } from "./PracticalInfo";
 export function EditorialPicks({ items, state, t }) {
   const picks = editorialPicks(items);
@@ -16,9 +16,6 @@ export function EditorialPicks({ items, state, t }) {
           <h2 id="editorialHeading">{t("editorialTitle")}</h2>
           <p>{t("editorialSubtitle")}</p>
         </div>
-        <span>
-          {t("docsChecked")} {EDITORIAL_CONTENT.reviewed_at}
-        </span>
       </div>
       <div className="editorial-grid">
         {picks.map((pick, index) => (
@@ -40,12 +37,33 @@ export function EditorialPicks({ items, state, t }) {
             >
               {pick.repo}
             </Typography.Link>
+            <p className="editorial-audience" data-testid="pick-audience">
+              <strong>{t("pickAudience")}</strong>
+              {pick[`audience_${state.lang}`]}
+            </p>
+            <p className="editorial-outcome" data-testid="pick-outcome">
+              {pick[`outcome_${state.lang}`]}
+            </p>
             <details className="editorial-details">
               <summary>{t("editorialMore")} ↗</summary>
               <p className="editorial-reason">
                 <strong>{t("recommendationReason")}</strong>
                 {pick[`reason_${state.lang}`]}
               </p>
+              <div className="editorial-evidence">
+                <Typography.Link
+                  href={pick.source_url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {t("pickSource")}
+                </Typography.Link>
+                <span>
+                  {t("docsChecked")}{" "}
+                  <time dateTime={pick.reviewed_at}>{pick.reviewed_at}</time>
+                </span>
+                <span>{t("pickDocsOnly")}</span>
+              </div>
               <PlatformTags item={pick.item} t={t} />
               <InstallationActions item={pick.item} lang={state.lang} t={t} />
             </details>

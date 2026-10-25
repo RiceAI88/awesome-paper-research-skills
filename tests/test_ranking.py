@@ -19,6 +19,7 @@ from scripts.update_rankings import (
     render_month_report,
     render_readme,
     render_sitemap,
+    render_og_cover,
     verifies_citations,
 )
 
@@ -633,6 +634,26 @@ class RankingRulesTest(unittest.TestCase):
         self.assertIn("example/b", report)  # newcomer
         self.assertIn("example/a", report)  # riser +30
         self.assertIn("example/gone", report)  # dropped
+
+
+class SharingAssetsTest(unittest.TestCase):
+    def test_sitemap_directory_urls_match_canonicals(self):
+        sitemap = render_sitemap({"metadata": {"generated_at": "2026-10-25"}})
+        self.assertIn("/en/</loc>", sitemap)
+        self.assertIn("/reports/</loc>", sitemap)
+
+    def test_covers_are_localized_warm_and_escape_repository_names(self):
+        import xml.etree.ElementTree as ET
+        data = {"items": [{"repo": "sample/a&b<tool>", "stars": 1234}], "metadata": {"generated_at": "2026-10-25"}}
+        zh = render_og_cover(data)
+        self.assertIn("#866178", zh)
+        self.assertNotIn("#691eff", zh)
+        en = render_og_cover(data, lang="en")
+        self.assertIn("Paper Research", en)
+        self.assertNotIn("论文科研", en)
+        for svg in (zh, en, render_og_cover({"items": []})):
+            ET.fromstring(svg)
+        self.assertIn("a&amp;b&lt;tool&gt;", en)
 
 
 if __name__ == "__main__":
