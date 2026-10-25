@@ -31,7 +31,9 @@ test.describe("mobile charts and touch", () => {
     await page.getByTestId("insights-viewport").scrollIntoViewIfNeeded();
     await expect(page.getByTestId("insight-trend")).toBeVisible();
     await expect(page.getByTestId("insight-categories")).toBeHidden();
-    await expect(page.getByTestId("insights").locator("canvas")).toHaveCount(1);
+    await expect(
+      page.getByTestId("insights").locator(".plot-host svg"),
+    ).toHaveCount(1);
     const expand = page.getByRole("button", {
       name: "展开其他 3 张图",
       exact: true,
@@ -40,16 +42,22 @@ test.describe("mobile charts and touch", () => {
     await page.getByRole("combobox", { name: "历史窗口", exact: true }).click();
     await page.locator('.ant-select-item-option[title="30 天"]').click();
     await expand.click();
-    await expect(page.getByTestId("insights").locator("canvas")).toHaveCount(4);
+    await expect(
+      page.getByTestId("insights").locator(".plot-host svg"),
+    ).toHaveCount(4);
     await page.locator('[data-chart-category="paper-writing"]').click();
     await page
       .getByRole("button", { name: "收起其他图表", exact: true })
       .click();
-    await expect(page.getByTestId("insights").locator("canvas")).toHaveCount(1);
+    await expect(
+      page.getByTestId("insights").locator(".plot-host svg"),
+    ).toHaveCount(1);
     await expect(page.locator(".history-window")).toContainText("30 天");
     await expect(page).toHaveURL(/cat=paper-writing/);
     await page.setViewportSize({ width: 1440, height: 900 });
-    await expect(page.getByTestId("insights").locator("canvas")).toHaveCount(4);
+    await expect(
+      page.getByTestId("insights").locator(".plot-host svg"),
+    ).toHaveCount(4);
     await expect(page.locator(".mobile-chart-toggle")).toBeHidden();
   });
   test("touching stale tag opens explanation without opening card details", async ({

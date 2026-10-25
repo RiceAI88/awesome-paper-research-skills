@@ -11,28 +11,6 @@ const narrowCount = String(
   }).length,
 );
 
-async function firstBarPoint(canvas) {
-  return canvas.evaluate((element) => {
-    const { data } = element
-      .getContext("2d")
-      .getImageData(0, 0, element.width, element.height);
-    for (let y = 0; y < element.height; y++)
-      for (let x = 0; x < element.width; x++) {
-        const i = (y * element.width + x) * 4;
-        if (
-          data[i + 3] > 200 &&
-          Math.abs(data[i] - 134) < 5 &&
-          Math.abs(data[i + 1] - 97) < 5 &&
-          Math.abs(data[i + 2] - 120) < 5
-        )
-          return {
-            x: (x * element.clientWidth) / element.width + 5,
-            y: (y * element.clientHeight) / element.height + 2,
-          };
-      }
-    return null;
-  });
-}
 test("chart clicks use current results after expanding an initial narrow search", async ({
   page,
 }) => {
@@ -40,13 +18,27 @@ test("chart clicks use current results after expanding an initial narrow search"
   await page.goto("./#q=Imbad0202%2Facademic-research-skills");
   await expect(page.getByTestId("insight-count")).toHaveText(narrowCount);
   await expect(
-    page.getByTestId("insight-growth").locator("canvas"),
+    page.getByTestId("insight-growth").locator(".plot-host svg"),
   ).toHaveCount(1);
   await page.getByRole("searchbox").clear();
-  const canvas = page.getByTestId("insight-growth").locator("canvas");
-  await canvas.scrollIntoViewIfNeeded();
-  await expect.poll(() => firstBarPoint(canvas)).not.toBeNull();
-  await canvas.click({ position: await firstBarPoint(canvas) });
+  await expect(page.getByTestId("insight-count")).toHaveText(
+    String(items.length),
+  );
+  const marks = page
+    .getByTestId("insight-growth")
+    .locator(".plot-host svg .element");
+  await expect(marks).toHaveCount(5);
+  // G2 reuses SVG nodes; DOM order need not match the displayed bar order.
+  const topIndex = await marks.evaluateAll(
+    (elements) =>
+      elements
+        .map((element, index) => ({
+          index,
+          top: element.getBoundingClientRect().top,
+        }))
+        .sort((a, b) => a.top - b.top)[0].index,
+  );
+  await marks.nth(topIndex).click();
   await expect(page.getByRole("dialog")).toBeVisible();
   await expect(page.getByRole("dialog")).toContainText(
     "K-Dense-AI/scientific-agent-skills",
@@ -69,11 +61,15 @@ test("offscreen charts defer download, then load once with the latest selection"
   await page.getByRole("searchbox").fill("Imbad0202/academic-research-skills");
   await page.getByTestId("insights-viewport").scrollIntoViewIfNeeded();
   await expect(page.getByTestId("insight-count")).toHaveText(narrowCount);
-  await expect(page.getByTestId("insights").locator("canvas")).toHaveCount(1);
+  await expect(
+    page.getByTestId("insights").locator(".plot-host svg"),
+  ).toHaveCount(1);
   await page
     .getByRole("button", { name: "展开其他 3 张图", exact: true })
     .click();
-  await expect(page.getByTestId("insights").locator("canvas")).toHaveCount(4);
+  await expect(
+    page.getByTestId("insights").locator(".plot-host svg"),
+  ).toHaveCount(4);
   expect(requests).toHaveLength(1);
   await page.getByRole("combobox", { name: "历史窗口", exact: true }).click();
   await page.locator('.ant-select-item-option[title="30 天"]').click();
@@ -91,9 +87,13 @@ test("browsers without IntersectionObserver still show functional charts", async
     window.IntersectionObserver = undefined;
   });
   await page.goto("./");
-  await expect(page.getByTestId("insights").locator("canvas")).toHaveCount(1);
+  await expect(
+    page.getByTestId("insights").locator(".plot-host svg"),
+  ).toHaveCount(1);
   await page
     .getByRole("button", { name: "展开其他 3 张图", exact: true })
     .click();
-  await expect(page.getByTestId("insights").locator("canvas")).toHaveCount(4);
+  await expect(
+    page.getByTestId("insights").locator(".plot-host svg"),
+  ).toHaveCount(4);
 });

@@ -6,10 +6,21 @@ import React, {
   useState,
 } from "react";
 import { Bar, Line, Pie, Scatter } from "@ant-design/plots";
+import { Renderer as SVGRenderer } from "@antv/g-svg";
 import { Button, Empty, Select } from "antd";
 import { buildInsightData, createColorMaps } from "../insights";
 import { FONT_FAMILY } from "../domain";
 import { ChartBoundary } from "./ChartBoundary";
+
+function SvgPlot({ plot: Plot, onReady, ...props }) {
+  // Keep renderer internals out of the React wrapper's recursive config walk.
+  // The canvas owns its renderer and disposes it with this plot instance.
+  const ready = (instance) => {
+    instance.chart.getContext().canvas.setRenderer(new SVGRenderer());
+    onReady?.(instance);
+  };
+  return <Plot {...props} onReady={ready} />;
+}
 
 function ChartFrame({ title, note, id, children, t, hidden = false }) {
   return (
@@ -241,7 +252,8 @@ export default function Insights({
               role="img"
               aria-label={t("insightTrend")}
             >
-              <Line
+              <SvgPlot
+                plot={Line}
                 {...base}
                 animate={trendEntrance}
                 data={data.trends}
@@ -316,7 +328,8 @@ export default function Insights({
                   role="img"
                   aria-label={t("insightCategories")}
                 >
-                  <Pie
+                  <SvgPlot
+                    plot={Pie}
                     {...base}
                     animate={entrance("categories")}
                     height={210}
@@ -382,7 +395,8 @@ export default function Insights({
                 role="img"
                 aria-label={t("insightGrowth")}
               >
-                <Bar
+                <SvgPlot
+                  plot={Bar}
                   {...base}
                   animate={entrance("growth")}
                   height={250}
@@ -460,7 +474,8 @@ export default function Insights({
                 role="img"
                 aria-label={t("insightScatter")}
               >
-                <Scatter
+                <SvgPlot
+                  plot={Scatter}
                   {...base}
                   animate={entrance("scatter")}
                   height={300}
