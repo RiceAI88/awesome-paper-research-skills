@@ -84,6 +84,7 @@ function Actions({ item, state, update, toggleCompare, t }) {
 }
 export function RepositoryViews({
   items,
+  filterHeight,
   state,
   update,
   toggleCompare,
@@ -226,6 +227,7 @@ export function RepositoryViews({
         dataSource={items}
         pagination={false}
         scroll={{ x: 1305 }}
+        sticky={{ offsetHeader: filterHeight }}
         size="middle"
         onRow={(item) => ({
           "data-repo": item.repo,

@@ -163,6 +163,22 @@ function Dashboard({ state, update }) {
   useEffect(() => {
     if (compareOpen) setComparisonRequested(true);
   }, [compareOpen]);
+  const filterRef = useRef(null);
+  const [filterHeight, setFilterHeight] = useState(0);
+  useEffect(() => {
+    const element = filterRef.current;
+    const measure = () =>
+      setFilterHeight(Math.ceil(element.getBoundingClientRect().height));
+    measure();
+    const observer =
+      typeof ResizeObserver === "function" ? new ResizeObserver(measure) : null;
+    observer?.observe(element);
+    window.addEventListener("resize", measure);
+    return () => {
+      observer?.disconnect();
+      window.removeEventListener("resize", measure);
+    };
+  }, []);
   const search = useRef(null);
   const t = (key) => translations[state.lang][key] || key;
   const fmt = (value) =>
@@ -434,8 +450,17 @@ function Dashboard({ state, update }) {
           ))}
         </section>
       </header>
-      <main id="main" className="container" tabIndex={-1}>
-        <section className="filters" aria-label="Ranking controls">
+      <main
+        id="main"
+        className="container"
+        tabIndex={-1}
+        style={{ "--ranking-filter-height": `${filterHeight}px` }}
+      >
+        <section
+          ref={filterRef}
+          className="filters"
+          aria-label="Ranking controls"
+        >
           <label htmlFor="categoryFilter">
             <span>{t("categoryLabel")}</span>
             <Select
@@ -561,6 +586,7 @@ function Dashboard({ state, update }) {
           <RepositoryViews
             {...{
               items: visible,
+              filterHeight,
               state,
               update,
               toggleCompare,
@@ -585,7 +611,9 @@ function Dashboard({ state, update }) {
       </footer>
       {(selected || drawerRequested) && (
         <DeferredFeature t={t}>
-          <RepositoryDrawer {...{ item: selected, state, update, t, fmt }} />
+          <RepositoryDrawer
+            {...{ item: selected, items: visible, state, update, t, fmt }}
+          />
         </DeferredFeature>
       )}
       {state.compare.length > 0 && (

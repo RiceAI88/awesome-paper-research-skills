@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import installationDetails from "../../config/installation-details.json";
 import {
   Button,
@@ -20,7 +20,17 @@ import { QualityBadges } from "./RepositoryViews";
 import { useFeedback } from "./FeedbackProvider";
 import { copyText } from "../clipboard";
 import { SummaryText, InstallationActions } from "./PracticalInfo";
-export function RepositoryDrawer({ item, state, update, t, fmt }) {
+export function RepositoryDrawer({ item, items, state, update, t, fmt }) {
+  const contentRef = useRef(null);
+  const position = items.findIndex((entry) => entry.repo === item?.repo);
+  useEffect(() => {
+    const body = contentRef.current?.closest(".ant-drawer-body");
+    if (body) body.scrollTop = 0;
+  }, [item?.repo]);
+  const navigate = (offset) => {
+    const target = position >= 0 && items[position + offset];
+    if (target) update((previous) => ({ ...previous, repo: target.repo }));
+  };
   const message = useFeedback();
   const copy = async (text, label) => {
     try {
@@ -127,6 +137,33 @@ export function RepositoryDrawer({ item, state, update, t, fmt }) {
               {t("drEyebrow")} #{item.rank} · {category}
             </div>
             <span className="drawer-repo">{item.repo}</span>
+            <nav className="detail-navigation" aria-label={t("drBrowse")}>
+              <Button
+                size="small"
+                data-testid="detail-previous"
+                disabled={position <= 0}
+                onClick={() => navigate(-1)}
+              >
+                {t("drPrevious")}
+              </Button>
+              <span
+                className="detail-position"
+                data-testid="detail-position"
+                aria-live="polite"
+              >
+                {position >= 0
+                  ? `${position + 1} / ${items.length}`
+                  : t("drOutsideResults")}
+              </span>
+              <Button
+                size="small"
+                data-testid="detail-next"
+                disabled={position < 0 || position >= items.length - 1}
+                onClick={() => navigate(1)}
+              >
+                {t("drNext")}
+              </Button>
+            </nav>
           </div>
         ) : (
           ""
@@ -178,7 +215,7 @@ export function RepositoryDrawer({ item, state, update, t, fmt }) {
             detailsInfo={installationDetails[item.repo]}
           />
           <QualityBadges item={item} t={t} />
-          <div className="drawer-statistics">
+          <div className="drawer-statistics" ref={contentRef}>
             {[
               [t("stars"), item.stars],
               [t("drDelta7d"), item.star_delta_7d || 0],
