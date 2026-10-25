@@ -1,5 +1,10 @@
 export const translations = {
   zh: {
+    loadMore: "加载更多（30 条）",
+    showingResults: "已显示",
+    favoriteAction: "收藏",
+    backToTop: "回到顶部",
+    platformUnspecifiedHint: "仓库未注明适用平台，兼容性请查项目文档。",
     featureLoading: "正在加载…",
     featureUnavailable: "此功能加载失败，可继续浏览榜单或刷新重试。",
     reloadPage: "刷新重试",
@@ -140,7 +145,7 @@ export const translations = {
     // stat strip
     statTotalStars: "总 Stars",
     statAvgStars: "平均 Stars",
-    statNet7d: "近 7d 净增",
+    statNet7d: "近 7 日净增",
     statHotRepo: "最热仓库",
     // drawer
     drBrowse: "浏览当前结果",
@@ -203,6 +208,11 @@ export const translations = {
     compareHint: "曲线为相对各自窗口起点的 Stars 增长百分比。",
   },
   en: {
+    loadMore: "Load 30 more",
+    showingResults: "Showing",
+    favoriteAction: "Save",
+    backToTop: "Back to top",
+    platformUnspecifiedHint: "Platform unspecified. Check project docs for compatibility.",
     featureLoading: "Loading…",
     featureUnavailable:
       "This feature could not load. Continue browsing or reload to retry.",

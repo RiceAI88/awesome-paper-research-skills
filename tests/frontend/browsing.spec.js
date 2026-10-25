@@ -5,6 +5,8 @@ const data = JSON.parse(
   readFileSync(new URL("../../data/rankings.json", import.meta.url), "utf8"),
 );
 async function openRow(page, index) {
+  await page.locator(".ant-table-row").first().waitFor();
+  while (await page.locator(".ant-table-row").count() <= index) await page.getByTestId("load-more").click();
   const row = page.locator(".ant-table-row").nth(index);
   await row.scrollIntoViewIfNeeded();
   await row.locator("td").first().click();

@@ -15,21 +15,21 @@ test("Ant Design migration preserves task filtering, search and URL restoration"
 }) => {
   await page.goto("./");
   await expect(page.locator(".ant-input").first()).toBeVisible();
-  await expect(page.locator(".ant-table-row")).toHaveCount(expectedCount);
+  await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, expectedCount));
   await page.getByRole("button", { name: "科研绘图", exact: true }).click();
   const count = await page.locator(".ant-table-row").count();
   expect(count).toBeGreaterThan(0);
   expect(count).toBeLessThan(expectedCount);
   await expect(page).toHaveURL(/task=figures/);
   await page.reload();
-  await expect(page.locator(".ant-table-row")).toHaveCount(count);
+  await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, count));
   await page.getByRole("searchbox").fill(figureRepo);
   await expect(page.locator(".ant-table-row")).toHaveCount(1);
   await page.getByRole("searchbox").fill("missing-skill-123456");
   await expect(page.getByTestId("ranking-empty")).toBeVisible();
   await page.getByRole("searchbox").clear();
   await page.getByRole("button", { name: "全部 Skills", exact: true }).click();
-  await expect(page.locator(".ant-table-row")).toHaveCount(expectedCount);
+  await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, expectedCount));
 });
 test("favorites persist, drawer copies commands and links restore detail", async ({
   page,
@@ -126,7 +126,7 @@ test("corrupt storage and missing history do not break the app", async ({
     }),
   );
   await page.goto("./");
-  await expect(page.locator(".ant-table-row")).toHaveCount(expectedCount);
+  await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, expectedCount));
   await page.locator("[data-compare]").first().click();
   await page.getByTestId("open-compare").click();
   await expect(
@@ -184,6 +184,6 @@ test("skip link focuses the ranking without clearing shared filters", async ({
   await page.keyboard.press("Enter");
   await expect(page.getByRole("searchbox")).toHaveValue("zotero");
   await expect(page).toHaveURL(/task=read/);
-  await expect(page.locator(".ant-table-row")).toHaveCount(count);
+  await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, count));
   await expect(page.locator("#main")).toBeFocused();
 });

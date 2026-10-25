@@ -14,7 +14,7 @@ test("suggestions support keyboard selection, Escape and literal Enter without a
   await search.fill("润色");
   const list = page.getByRole("listbox", { name: "搜索建议" });
   await expect(list).toBeVisible();
-  await expect(page.locator(".ant-table-row")).toHaveCount(expected.length);
+  await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, expected.length));
   await expect(list.locator('[data-suggestion-kind="task"]')).toContainText(
     "写论文",
   );
@@ -143,7 +143,7 @@ test("suggestion code loads on focus and its failure leaves normal search workin
   );
   await page.getByRole("searchbox").fill("润色");
   await expect(page.getByTestId("feature-unavailable")).toBeVisible();
-  await expect(page.locator(".ant-table-row")).toHaveCount(expected.length);
+  await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, expected.length));
   await page.getByRole("searchbox").fill("missing-repo-123");
   await expect(page.getByTestId("ranking-empty")).toBeVisible();
 });

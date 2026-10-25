@@ -20,7 +20,6 @@ const chartLabels = {
     historyProvenance: "2026-10-24 前的快照来自原项目；只绘制已有数据。",
     noGrowth: "当前范围没有正增长记录。",
     viewChartData: "查看数据与仓库详情",
-    backToRanking: "返回榜单",
     insightBaseline: "起点",
     insightSingleSnapshot: "仅一次快照",
     insightBaselineNote: "起点为各仓库窗口内首个非零快照，日期可能不同；缺失日期不补值。",
@@ -32,7 +31,6 @@ const chartLabels = {
     historyProvenance: "Snapshots before 2026-10-24 come from the original project; only recorded data is plotted.",
     noGrowth: "No positive growth in this selection.",
     viewChartData: "View data and repository details",
-    backToRanking: "Back to ranking",
     insightBaseline: "Baseline",
     insightSingleSnapshot: "Single observation",
     insightBaselineNote: "Each baseline is its first non-zero snapshot in this window; dates may differ. No missing dates are filled.",
@@ -241,18 +239,6 @@ export default function Insights({
       <div className="insights-heading">
         <div>
           <h2 id="insights-heading">{t("insightsTitle")}</h2>
-          <a
-            className="back-to-ranking"
-            href="#rankings"
-            onClick={(event) => {
-              event.preventDefault();
-              const target = document.getElementById("rankings");
-              target?.scrollIntoView({ block: "start" });
-              target?.focus({ preventScroll: true });
-            }}
-          >
-            {t("backToRanking")} ↑
-          </a>
           <p>
             {t("insightsScope")}{" "}
             <b data-testid="insight-count">{items.length}</b> {t("repos")}

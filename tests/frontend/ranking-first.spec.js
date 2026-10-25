@@ -12,7 +12,7 @@ test("ranking precedes insights, beginner paths stay compact and normal status s
   page,
 }) => {
   await page.goto("./#view=table");
-  await expect(page.locator(".ant-table-row")).toHaveCount(data.items.length);
+  await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, data.items.length));
   expect(
     await page
       .locator(".ranking-section")
@@ -50,7 +50,7 @@ test("task pills show counts with All first; submission uses actual task matches
   await expect(all).toContainText(String(data.items.length));
   await expect(page.locator("#categoryFilter")).not.toBeVisible();
   await page.getByRole("button", { name: "投稿审稿", exact: true }).click();
-  await expect(page.locator(".ant-table-row")).toHaveCount(reviewCount);
+  await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, reviewCount));
   await expect(page.locator('[data-task="review"]')).toContainText(
     String(reviewCount),
   );
@@ -108,7 +108,7 @@ test("insights shortcut waits for a delayed table and preserves filter URL", asy
   });
   await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
   release();
-  await expect(page.locator(".ant-table-row")).toHaveCount(data.items.length);
+  await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, data.items.length));
   await expect(page.getByTestId("insights")).toBeVisible();
   await expect
     .poll(async () => {
@@ -117,13 +117,7 @@ test("insights shortcut waits for a delayed table and preserves filter URL", asy
     })
     .toBe(true);
   await expect(page).toHaveURL(/sort=updated/);
-  await page.getByRole("link", { name: "返回榜单 ↑", exact: true }).click();
-  await expect
-    .poll(async () => {
-      const box = await page.locator(".ranking-section").boundingBox();
-      return box.y >= 0 && box.y < 300;
-    })
-    .toBe(true);
+
 });
 
 test("growth lines have distinct strokes and dashes; category bars show counts and filter", async ({ page }) => {
@@ -155,7 +149,7 @@ test("growth lines have distinct strokes and dashes; category bars show counts a
     index, y: el.getBoundingClientRect().y,
   })).sort((a, b) => a.y - b.y)[0].index);
   await marks.nth(top).click();
-  await expect(page.locator(".ant-table-row")).toHaveCount(counts[0][1]);
+  await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, counts[0][1]));
   await expect(page).toHaveURL(new RegExp("cat=" + counts[0][0]));
 });
 
@@ -171,7 +165,7 @@ test("empty table recovery waits for first real table before insight jump", asyn
   await page.getByRole("searchbox").fill("");
   await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
   release();
-  await expect(page.locator(".ant-table-row")).toHaveCount(data.items.length);
+  await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, data.items.length));
   await expect.poll(async () => {
     const box = await page.getByTestId("insights-viewport").boundingBox();
     return box.y >= 0 && box.y < 300;

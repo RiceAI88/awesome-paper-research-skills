@@ -72,7 +72,7 @@ test("empty results recover by clearing restrictions while preserving saved favo
   const favorite = page
     .locator(".ant-table-row")
     .first()
-    .getByRole("button", { name: /^favorite / });
+    .getByRole("button", { name: /^收藏 / });
   await favorite.click();
   await page.getByRole("searchbox").fill("no-results-xyz");
   await page.getByTestId("favorites-only").click();
@@ -80,7 +80,7 @@ test("empty results recover by clearing restrictions while preserving saved favo
   const bar = page.getByTestId("active-filters");
   await expect(bar).toContainText("移除部分条件");
   await bar.getByRole("button", { name: "清空筛选", exact: true }).click();
-  await expect(page.locator(".ant-table-row")).toHaveCount(data.items.length);
+  await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, data.items.length));
   await expect(page.getByTestId("active-filters")).toHaveCount(0);
   await expect(favorite).toHaveAttribute("aria-pressed", "true");
   await expect(page.getByTestId("favorites-only")).toHaveAttribute(
@@ -103,7 +103,7 @@ test("English mobile filters wrap and clear keeps sort and card view", async ({
     ),
   ).toBe(true);
   await bar.getByRole("button", { name: "Clear filters", exact: true }).click();
-  await expect(page.getByTestId("repo-card")).toHaveCount(data.items.length);
+  await expect(page.getByTestId("repo-card")).toHaveCount(Math.min(30, data.items.length));
   await expect(page).toHaveURL(/sort=updated/);
   await expect(page).toHaveURL(/view=card/);
   expect(

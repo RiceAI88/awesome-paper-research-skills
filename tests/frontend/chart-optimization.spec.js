@@ -22,7 +22,7 @@ test("chart clicks use current results after expanding an initial narrow search"
     page.getByTestId("insight-growth").locator(".plot-host svg"),
   ).toHaveCount(1);
   await page.getByRole("searchbox").clear();
-  await expect(page.locator(".ant-table-row")).toHaveCount(items.length);
+  await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, items.length));
   await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
   await expect(page.getByTestId("insight-count")).toHaveText(
     String(items.length),

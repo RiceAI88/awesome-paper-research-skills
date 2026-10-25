@@ -1,3 +1,4 @@
+import { BackToTop } from "./components/BackToTop";
 import { SearchBox } from "./components/SearchBox";
 import { Panel } from "./components/Panel";
 import React, {
@@ -382,7 +383,7 @@ function Dashboard({ state, update }) {
         </nav>
         <section className="hero container">
           <div className="hero-copy">
-            <h1>
+            <h1 tabIndex={-1}>
               {state.lang === "zh" ? (
                 <>
                   论文科研 Skills <em>排行榜</em>
@@ -721,6 +722,7 @@ function Dashboard({ state, update }) {
           </Tooltip>
         </div>
       )}
+      <BackToTop label={t("backToTop")} comparisonOpen={state.compare.length > 0} />
       {(compareOpen || comparisonRequested) && (
         <DeferredFeature t={t}>
           <ComparisonDialog

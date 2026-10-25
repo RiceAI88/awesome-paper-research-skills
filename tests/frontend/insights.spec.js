@@ -20,7 +20,7 @@ test("real charts render, filter by category, change window and open repository 
   await page.locator('[data-chart-category="paper-writing"]').focus();
   await page.locator('[data-chart-category="paper-writing"]').press("Enter");
   const writing = items.filter((i) => i.category.id === "paper-writing").length;
-  await expect(page.locator(".ant-table-row")).toHaveCount(writing);
+  await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, writing));
   await expect(page.getByTestId("insight-count")).toHaveText(String(writing));
   await page.locator('[data-chart-category="paper-writing"]').focus();
   await page.locator('[data-chart-category="paper-writing"]').press("Enter");
@@ -76,7 +76,7 @@ test("chart bundle failure leaves ranking usable", async ({ page }) => {
   await page.goto("./");
   await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
   await expect(page.locator(".chart-unavailable")).toBeVisible();
-  await expect(page.locator(".ant-table-row")).toHaveCount(items.length);
+  await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, items.length));
   await page.getByRole("searchbox").fill(items[0].repo);
   await expect(page.locator(".ant-table-row")).toHaveCount(1);
 });

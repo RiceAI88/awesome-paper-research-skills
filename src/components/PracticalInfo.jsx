@@ -23,7 +23,15 @@ export function PlatformTags({ item, t }) {
   const agents = detectAgents(item);
   const verified = Boolean(EDITORIAL_CONTENT.platforms[item.repo]);
   return (
-    <Tooltip title={t(verified ? "platformDocumented" : "platformInferred")}>
+    <Tooltip
+      title={t(
+        !agents.length
+          ? "platformUnspecifiedHint"
+          : verified
+            ? "platformDocumented"
+            : "platformInferred",
+      )}
+    >
       <Space size={[4, 4]} wrap className="platform-tags">
         {agents.length ? (
           agents.map((id) => (
@@ -32,7 +40,7 @@ export function PlatformTags({ item, t }) {
             </Tag>
           ))
         ) : (
-          <Tag>{t("platformUnspecified")}</Tag>
+          <Tag>{t("agentGeneral")}</Tag>
         )}
       </Space>
     </Tooltip>
@@ -58,13 +66,16 @@ export function InstallationActions({
   }
   return (
     <div
-      className="installation-actions"
+      className={`installation-actions${details ? " installation-details" : " installation-compact"}`}
       onClick={(event) => {
         if (event.target.closest("button,a")) event.stopPropagation();
       }}
     >
       <div className="installation-status">
-        <Tag className="warm-tag" data-testid="installation-mode">
+        <Tag
+          className={`install-mode install-mode-${installation.mode}`}
+          data-testid="installation-mode"
+        >
           {t(
             {
               command: "installCommandMode",
@@ -84,7 +95,7 @@ export function InstallationActions({
         {installation.command && (
           <Tooltip title={installation.command}>
             <Button
-              type="primary"
+              type={details ? "primary" : "default"}
               size="small"
               icon={<CopyOutlined aria-hidden="true" />}
               data-install={item.repo}
