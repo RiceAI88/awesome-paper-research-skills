@@ -1,8 +1,9 @@
 import React from "react";
-import { App, Button, Space, Tag, Tooltip } from "antd";
+import { Button, Space, Tag, Tooltip } from "antd";
 import { CopyOutlined, ExportOutlined } from "@ant-design/icons";
-import { AGENT_PLATFORMS, detectAgents } from "../domain";
+import { AGENT_PLATFORMS, detectAgents, safeExternalUrl } from "../domain";
 import { EDITORIAL_CONTENT, installationFor } from "../practical";
+import { useFeedback } from "./FeedbackProvider";
 import { copyText } from "../clipboard";
 export function SummaryText({ item, t }) {
   return (
@@ -32,9 +33,15 @@ export function PlatformTags({ item, t }) {
     </Tooltip>
   );
 }
-export function InstallationActions({ item, lang, t, details = false }) {
+export function InstallationActions({
+  item,
+  lang,
+  t,
+  details = false,
+  detailsInfo = {},
+}) {
   const installation = installationFor(item);
-  const { message } = App.useApp();
+  const message = useFeedback();
   async function copy(event) {
     event.stopPropagation();
     try {
@@ -58,6 +65,7 @@ export function InstallationActions({ item, lang, t, details = false }) {
               command: "installCommandMode",
               manual: "installManualMode",
               docs: "installUnknownMode",
+              reference: "installReferenceMode",
             }[installation.mode],
           )}
         </Tag>
@@ -89,19 +97,61 @@ export function InstallationActions({ item, lang, t, details = false }) {
           target="_blank"
           rel="noreferrer"
         >
-          {t(installation.mode === "docs" ? "projectDocs" : "installDocs")}
+          {t(
+            ["docs", "reference"].includes(installation.mode)
+              ? "projectDocs"
+              : "installDocs",
+          )}
         </Button>
       </Space>
       {details && installation.mode === "docs" && (
         <p className="muted">{t("installUnreviewedHint")}</p>
       )}
+      {details && detailsInfo[`environment_${lang}`] && (
+        <dl className="install-requirements">
+          <div>
+            <dt>{t("installEnvironment")}</dt>
+            <dd data-testid="install-environment">
+              {detailsInfo[`environment_${lang}`]}
+            </dd>
+          </div>
+          <div>
+            <dt>{t("installDependencies")}</dt>
+            <dd data-testid="install-dependencies">
+              {detailsInfo[`dependencies_${lang}`]}
+            </dd>
+          </div>
+        </dl>
+      )}
       {details && installation.command && (
         <pre className="install-command">{installation.command}</pre>
       )}
       {details && installation.reviewed_at && (
-        <small className="muted">
-          {t("docsChecked")} {installation.reviewed_at}
-        </small>
+        <div className="installation-review">
+          <small className="muted">
+            {t("docsChecked")} {installation.reviewed_at}
+          </small>
+          {/^[a-f0-9]{40}$/.test(detailsInfo.source_commit || "") && (
+            <a
+              href={installation.source_url.replace(
+                /\/blob\/[^/]+\//,
+                `/blob/${detailsInfo.source_commit}/`,
+              )}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {t("installSnapshot")}
+            </a>
+          )}
+          {(detailsInfo.additional_sources || [])
+            .map(safeExternalUrl)
+            .filter(Boolean)
+            .map((url, index) => (
+              <a key={url} href={url} target="_blank" rel="noreferrer">
+                {t("installMoreDocs")} {index + 1}
+              </a>
+            ))}
+        </div>
       )}
     </div>
   );

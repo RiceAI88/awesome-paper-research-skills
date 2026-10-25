@@ -55,6 +55,22 @@ a {
 .ant-app {
   color: var(--prs-text);
 }
+
+.feedback-app,
+.panel {
+  font-size: 14px;
+  line-height: 1.5714285714;
+}
+.panel {
+  color: var(--prs-text);
+  background: var(--prs-panel);
+  border: 1px solid var(--prs-border);
+  border-radius: 4px;
+}
+.panel-body {
+  padding: 24px;
+}
+
 .container {
   width: min(1180px, calc(100% - 40px));
   margin: 0 auto;
@@ -230,19 +246,19 @@ h1 em {
   padding: 20px 0;
   border-top: 1px solid var(--prs-border);
 }
-.statistics .ant-card {
+.statistics .panel {
   border: 0;
   border-radius: 0;
   border-right: 1px solid var(--prs-border);
   background: transparent;
 }
-.statistics .ant-card:last-child {
+.statistics .panel:last-child {
   border-right: 0;
 }
-.statistics .ant-card-body {
+.statistics .panel-body {
   padding: 8px 24px;
 }
-.statistics .ant-card:first-child .ant-card-body {
+.statistics .panel:first-child .panel-body {
   padding-left: 0;
 }
 .growth-statistic .ant-statistic-content {
@@ -580,7 +596,7 @@ h1 em {
   .hot-statistic {
     display: none;
   }
-  .statistics .ant-card-body {
+  .statistics .panel-body {
     padding: 10px;
   }
   .statistics .ant-statistic-content {
@@ -1062,10 +1078,10 @@ h1 em {
 .editorial-card:first-child {
   border-left: 0;
 }
-.editorial-card .ant-card-body {
+.editorial-card .panel-body {
   padding: 8px 16px;
 }
-.editorial-card:first-child .ant-card-body {
+.editorial-card:first-child .panel-body {
   padding-left: 0;
 }
 .editorial-card h3 {
@@ -1141,14 +1157,14 @@ h1 em {
     flex: 0 0 33.333%;
     font-size: 13px;
   }
-  .statistics .ant-card-body,
-  .statistics .ant-card:first-child .ant-card-body {
+  .statistics .panel-body,
+  .statistics .panel:first-child .panel-body {
     padding: 12px;
   }
-  .statistics .ant-card:nth-child(2) {
+  .statistics .panel:nth-child(2) {
     border-right: 0;
   }
-  .statistics .ant-card:nth-child(n + 3) {
+  .statistics .panel:nth-child(n + 3) {
     border-top: 1px solid var(--prs-border);
   }
   .statistics .ant-statistic-content {
@@ -1174,8 +1190,8 @@ h1 em {
     border-left: 0;
     border-bottom: 1px solid var(--prs-border);
   }
-  .editorial-card .ant-card-body,
-  .editorial-card:first-child .ant-card-body {
+  .editorial-card .panel-body,
+  .editorial-card:first-child .panel-body {
     padding: 10px 0;
   }
   .ranking-header {
@@ -1286,5 +1302,26 @@ h1 em {
   gap: 4px;
   font-size: 12px;
   color: var(--prs-muted);
+  margin: 10px 0;
+}
+
+.install-requirements {
+  margin: 16px 0;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.install-requirements dt {
+  font-weight: 600;
+}
+.install-requirements dd {
+  margin: 4px 0 12px;
+  color: var(--prs-muted);
+  overflow-wrap: anywhere;
+}
+.installation-review {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  font-size: 12px;
   margin: 10px 0;
 }

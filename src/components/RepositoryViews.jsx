@@ -1,20 +1,14 @@
-import React from "react";
-import {
-  Button,
-  Card,
-  Empty,
-  Space,
-  Table,
-  Tag,
-  Tooltip,
-  Typography,
-} from "antd";
+import { Panel } from "./Panel";
+import React, { lazy } from "react";
+import { Button, Empty, Space, Tag, Tooltip, Typography } from "antd";
 import { StarFilled, StarOutlined, SwapOutlined } from "@ant-design/icons";
 import {
   SummaryText,
   PlatformTags,
   InstallationActions,
 } from "./PracticalInfo";
+import { DeferredFeature } from "./DeferredFeature";
+const RepositoryTable = lazy(() => import("./RepositoryTable"));
 import { Sparkline } from "./TrendCharts";
 import { safeExternalUrl } from "../domain";
 export function QualityBadges({ item, t }) {
@@ -182,7 +176,7 @@ export function RepositoryViews({
     return (
       <div className="repository-grid">
         {items.map((item) => (
-          <Card
+          <Panel
             key={item.repo}
             data-testid="repo-card"
             className="repository-card"
@@ -219,29 +213,31 @@ export function RepositoryViews({
               <span>{item.last_push_date}</span>
             </div>
             <QualityBadges item={item} t={t} />
-          </Card>
+          </Panel>
         ))}
       </div>
     );
   return (
-    <Table
-      className="ranking-table"
-      rowKey="repo"
-      columns={columns}
-      dataSource={items}
-      pagination={false}
-      scroll={{ x: 1305 }}
-      size="middle"
-      onRow={(item) => ({
-        "data-repo": item.repo,
-        tabIndex: 0,
-        onClick: (e) => {
-          if (!e.target.closest("button,a")) open(item);
-        },
-        onKeyDown: (e) => {
-          if (e.key === "Enter" && e.target === e.currentTarget) open(item);
-        },
-      })}
-    />
+    <DeferredFeature t={t}>
+      <RepositoryTable
+        className="ranking-table"
+        rowKey="repo"
+        columns={columns}
+        dataSource={items}
+        pagination={false}
+        scroll={{ x: 1305 }}
+        size="middle"
+        onRow={(item) => ({
+          "data-repo": item.repo,
+          tabIndex: 0,
+          onClick: (e) => {
+            if (!e.target.closest("button,a")) open(item);
+          },
+          onKeyDown: (e) => {
+            if (e.key === "Enter" && e.target === e.currentTarget) open(item);
+          },
+        })}
+      />
+    </DeferredFeature>
   );
 }

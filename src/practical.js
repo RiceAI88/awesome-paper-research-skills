@@ -14,7 +14,11 @@ export function installationFor(item, content = EDITORIAL_CONTENT) {
     ? {
         ...entry,
         command,
-        mode: command ? "command" : entry.mode === "manual" ? "manual" : "docs",
+        mode: command
+          ? "command"
+          : ["manual", "reference"].includes(entry.mode)
+            ? entry.mode
+            : "docs",
         source_url: source,
       }
     : {

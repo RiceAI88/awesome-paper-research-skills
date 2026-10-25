@@ -1,11 +1,9 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import { Panel } from "./components/Panel";
+import React, { lazy, useEffect, useMemo, useRef, useState } from "react";
 import {
-  App as AntApp,
   Button,
-  Card,
   ConfigProvider,
   Input,
-  Modal,
   Segmented,
   Select,
   Space,
@@ -47,10 +45,16 @@ import { UpdateStatus } from "./components/UpdateStatus";
 import { DataTransparency } from "./components/DataTransparency";
 import { ActiveFilters } from "./components/ActiveFilters";
 import { RepositoryViews } from "./components/RepositoryViews";
-import { RepositoryDrawer } from "./components/RepositoryDrawer";
+import { FeedbackProvider, useFeedback } from "./components/FeedbackProvider";
+import { DeferredFeature } from "./components/DeferredFeature";
+const RepositoryDrawer = lazy(() =>
+  import("./components/RepositoryDrawer").then((module) => ({
+    default: module.RepositoryDrawer,
+  })),
+);
+const ComparisonDialog = lazy(() => import("./components/ComparisonDialog"));
 import { AnimatedStatistic } from "./components/AnimatedStatistic";
 import { ViewportInsights } from "./components/ViewportInsights";
-import { ComparisonChart } from "./components/TrendCharts";
 
 const dataset = window.ACADEMIC_SKILLS_RANKINGS || {};
 const items = Array.isArray(dataset.items)
@@ -142,15 +146,23 @@ export default function App() {
         },
       }}
     >
-      <AntApp>
+      <FeedbackProvider>
         <Dashboard {...{ state, update }} />
-      </AntApp>
+      </FeedbackProvider>
     </ConfigProvider>
   );
 }
 function Dashboard({ state, update }) {
-  const { message } = AntApp.useApp();
+  const message = useFeedback();
   const [compareOpen, setCompareOpen] = useState(false);
+  const [drawerRequested, setDrawerRequested] = useState(Boolean(state.repo));
+  const [comparisonRequested, setComparisonRequested] = useState(false);
+  useEffect(() => {
+    if (state.repo) setDrawerRequested(true);
+  }, [state.repo]);
+  useEffect(() => {
+    if (compareOpen) setComparisonRequested(true);
+  }, [compareOpen]);
   const search = useRef(null);
   const t = (key) => translations[state.lang][key] || key;
   const fmt = (value) =>
@@ -411,18 +423,14 @@ function Dashboard({ state, update }) {
           aria-label="Aggregate statistics"
         >
           {statistics.map(([title, value], i) => (
-            <Card
-              key={i}
-              size="small"
-              className={i === 2 ? "growth-statistic" : ""}
-            >
+            <Panel key={i} className={i === 2 ? "growth-statistic" : ""}>
               <AnimatedStatistic
                 title={title}
                 value={value}
                 prefix={i === 2 && value > 0 ? "+" : undefined}
                 lang={state.lang}
               />
-            </Card>
+            </Panel>
           ))}
         </section>
       </header>
@@ -523,7 +531,7 @@ function Dashboard({ state, update }) {
           t={t}
         />
         <EditorialPicks items={visible} state={state} t={t} />
-        <Card className="ranking-section" styles={{ body: { padding: 0 } }}>
+        <Panel className="ranking-section" bodyStyle={{ padding: 0 }}>
           <div className="ranking-header">
             <div>
               <h2>
@@ -561,7 +569,7 @@ function Dashboard({ state, update }) {
               history: historyData,
             }}
           />
-        </Card>
+        </Panel>
         <DataTransparency t={t} base={base} />
       </main>
       <footer className="site-footer container">
@@ -575,7 +583,11 @@ function Dashboard({ state, update }) {
         </span>
         <span>{t("shortcuts")}</span>
       </footer>
-      <RepositoryDrawer {...{ item: selected, state, update, t, fmt }} />
+      {(selected || drawerRequested) && (
+        <DeferredFeature t={t}>
+          <RepositoryDrawer {...{ item: selected, state, update, t, fmt }} />
+        </DeferredFeature>
+      )}
       {state.compare.length > 0 && (
         <div className="compare-tray" data-testid="compare-tray">
           <strong>
@@ -604,16 +616,17 @@ function Dashboard({ state, update }) {
           </Tooltip>
         </div>
       )}
-      <Modal
-        title={t("compareTitle")}
-        open={compareOpen}
-        onCancel={() => setCompareOpen(false)}
-        footer={null}
-        width={720}
-      >
-        <p className="muted">{t("compareHint")}</p>
-        <ComparisonChart repos={state.compare} history={historyData} t={t} />
-      </Modal>
+      {(compareOpen || comparisonRequested) && (
+        <DeferredFeature t={t}>
+          <ComparisonDialog
+            open={compareOpen}
+            onClose={() => setCompareOpen(false)}
+            repos={state.compare}
+            history={historyData}
+            t={t}
+          />
+        </DeferredFeature>
+      )}
     </div>
   );
 }

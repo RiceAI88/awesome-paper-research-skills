@@ -1,0 +1,182 @@
+{
+  "K-Dense-AI/scientific-agent-skills": {
+    "environment_zh": "支持 Agent Skills 标准的宿主（Claude Code、Codex、Cursor、Gemini CLI、Antigravity 等）；README列出 macOS、Linux 或 Windows + WSL2。",
+    "environment_en": "An Agent Skills-compatible host (Claude Code, Codex, Cursor, Gemini CLI, Antigravity, etc.); README lists macOS, Linux, or Windows with WSL2.",
+    "dependencies_zh": "npx安装方式未注明Node.js版本；技能依赖使用uv，按各技能compatibility及setup安装包、系统工具和凭据。Python 3.13+仅是仓库开发/验证工具要求，不是全部技能的统一要求。",
+    "dependencies_en": "The npx route does not specify a Node.js version. Skill dependencies use uv; follow each skill’s compatibility and setup for packages, system tools and credentials. Python 3.13+ is for repository tooling, not a universal skill requirement.",
+    "source_commit": "593377bb048752abb0152deab9fbb1083a6087df"
+  },
+  "Imbad0202/academic-research-skills": {
+    "environment_zh": "最新Claude Code（插件需近期版本）；macOS、Linux已测试，Windows为尽力支持，未有Windows CI。",
+    "environment_en": "Latest Claude Code (recent versions required for plugins); macOS and Linux are tested, Windows is best-effort without Windows CI.",
+    "dependencies_zh": "按官方要求设置ANTHROPIC_API_KEY或首次启动Claude时配置。核心提示词技能无需Python；写入范围守卫及少数可选命令需要真实Python，Windows守卫另需Git Bash。直接DOCX可选Pandoc；PDF可选tectonic及相应字体。",
+    "dependencies_en": "Configure ANTHROPIC_API_KEY or first-run Claude authentication as documented. Core prompt skills need no Python; the optional write-scope guard and some commands need real Python, plus Git Bash for that guard on Windows. Pandoc is optional for direct DOCX; tectonic and suitable fonts are optional for PDF.",
+    "source_commit": "09a5d0b15c7b50a20d9fc68d5947bb9897f438b5",
+    "additional_sources": [
+      "https://github.com/Imbad0202/academic-research-skills/blob/main/docs/SETUP.md#python-optional",
+      "https://github.com/Imbad0202/academic-research-skills/blob/main/docs/SETUP.md#install-claude-code"
+    ]
+  },
+  "Yuan1z0825/nature-skills": {
+    "environment_zh": "本例宿主为Codex；另有Claude Code和其他宿主步骤。README未注明统一操作系统要求。",
+    "environment_en": "This example targets Codex; separate routes cover Claude Code and other hosts. README does not state a universal operating-system requirement.",
+    "dependencies_zh": "npx方式明确要求Node.js 18+。其他Python、R、浏览器或MCP依赖按所选技能配置；reader/paper2ppt/polishing/writing等技能另需nature-shared。本例figure未列统一额外依赖。",
+    "dependencies_en": "The npx route explicitly requires Node.js 18+. Configure Python, R, browser or MCP dependencies per skill; reader/paper2ppt/polishing/writing also need nature-shared. No universal additional dependency list is stated for this figure example.",
+    "source_commit": "8f28a61d42c2b251d224cdb0a59229df9879a68e"
+  },
+  "wanshuiyin/Auto-claude-code-research-in-sleep": {
+    "environment_zh": "推荐Claude Code执行、Codex审阅；setup指南目标为本地macOS+远程Linux GPU服务器，README另给Windows PowerShell安装方式。",
+    "environment_en": "Recommended route uses Claude Code as executor and Codex as reviewer; the setup guide targets local macOS plus a remote Linux GPU server, and README also provides a Windows PowerShell installer.",
+    "dependencies_zh": "Claude Code；审阅技能需Codex CLI及使用python3的ARIS MCP桥接。论文写作工作流需LaTeX、latexmk及pdfinfo；想法发现/自动审阅不需LaTeX；GPU仅自动实验按需。没有统一Python/Node.js版本要求。",
+    "dependencies_en": "Claude Code; review skills need Codex CLI and the ARIS MCP bridge using python3. Paper writing requires LaTeX, latexmk and pdfinfo; idea discovery/auto review do not require LaTeX. A GPU is conditional for automated experiments. No universal Python/Node.js version is specified.",
+    "source_commit": "18bceb3c71c638bef58096274e1c9a6d323dbc0a",
+    "additional_sources": [
+      "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/blob/main/SETUP_GUIDE.md",
+      "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/blob/main/README.md#prerequisites"
+    ]
+  },
+  "Orchestra-Research/AI-Research-SKILLs": {
+    "environment_zh": "安装器自动探测Claude Code、Hermes、OpenCode、Qoder、Cursor、Gemini CLI等；README提到Windows复制回退，未给完整操作系统支持矩阵。",
+    "environment_en": "The installer detects Claude Code, Hermes, OpenCode, Qoder, Cursor, Gemini CLI, etc. README mentions a Windows copy fallback but provides no complete OS support matrix.",
+    "dependencies_zh": "官方使用npx启动安装器，README未注明Node.js版本或统一运行依赖清单；训练、推理等实际依赖应按所选子技能文档配置。",
+    "dependencies_en": "The documented installer uses npx; README specifies neither a Node.js version nor a unified runtime dependency list. Configure training/inference dependencies according to the selected skill documentation.",
+    "source_commit": "773a52944ba4747a18bd4ae9ade53fff041adcbc"
+  },
+  "Imbad0202/academic-research-skills-codex": {
+    "environment_zh": "Codex CLI或Codex Desktop插件宿主；README说明插件以实体文件避免Windows缓存软链接问题，未注明统一操作系统版本或最低Codex版本。",
+    "environment_en": "Codex CLI or Codex Desktop plugin host; README explains materialized plugin files for Windows portability but does not state universal OS versions or a minimum Codex version.",
+    "dependencies_zh": "插件路线未列额外必需依赖；替代的直接技能安装方式需Python 3和Codex自带skill-installer。可选引用核查API密钥仅在选择相关功能时需要，不是正常路由的前置要求；具体子工具按文档配置。",
+    "dependencies_en": "The plugin route lists no additional mandatory dependencies; the alternative direct skill installer needs Python 3 and Codex’s bundled skill-installer. Optional bibliographic API settings are not required for normal routing; configure individual tools when used.",
+    "source_commit": "8d6a1f856ee3da9d3a5e2b7f292b3dfe72b592c5",
+    "additional_sources": [
+      "https://github.com/Imbad0202/academic-research-skills-codex/blob/main/skills/academic-research-suite/SKILL.md"
+    ]
+  },
+  "HKUSTDial/Supervisor-Skills": {
+    "environment_zh": "Claude Code、Cursor、Codex等AI助手；未注明统一操作系统要求。",
+    "environment_en": "AI assistants such as Claude Code, Cursor and Codex; no universal OS requirement is stated.",
+    "dependencies_zh": "未列统一必要依赖清单；具体工具和依赖按所选子技能文档。",
+    "dependencies_en": "No unified required-dependency list is provided; follow the selected skill documentation for tools and dependencies.",
+    "source_commit": "a20d76ef3979b804d7dbf599d577826957e0a8a9"
+  },
+  "hoochanlon/hamuleite": {
+    "environment_zh": "未注明宿主Agent或统一操作系统要求。",
+    "environment_en": "No agent host or universal OS requirement is specified.",
+    "dependencies_zh": "未提供统一运行依赖；链接到的工具或技能应遵循各自官方文档。",
+    "dependencies_en": "No unified runtime dependencies are specified; linked tools and skills have their own official requirements.",
+    "source_commit": "5b0b86b5b59477218db42d0a6e7b3282a7de2dc4"
+  },
+  "ChenLiu-1996/figures4papers": {
+    "environment_zh": "Cursor、Claude Code、Codex等AI编码助手；未注明统一操作系统要求。",
+    "environment_en": "AI coding agents such as Cursor, Claude Code and Codex; no universal OS requirement is specified.",
+    "dependencies_zh": "仅按路径读取技能不需插件或软链接；实际绘图使用Python/matplotlib，版本和额外库按具体figure脚本或子文档，README未列统一安装依赖清单。",
+    "dependencies_en": "Path-based skill use needs no plugin or symlink; actual plotting uses Python/matplotlib. Versions and additional libraries depend on the figure script or sub-documentation; README provides no unified dependency installation list.",
+    "source_commit": "b709de17da7e8f9a72e51a5de5bced924a01eeab",
+    "additional_sources": [
+      "https://github.com/ChenLiu-1996/figures4papers/blob/main/scientific-figure-making/SKILL.md"
+    ]
+  },
+  "Master-cai/Research-Paper-Writing-Skills": {
+    "environment_zh": "Codex、Claude Code或Gemini；未注明统一操作系统要求。",
+    "environment_en": "Codex, Claude Code or Gemini; no universal OS requirement is stated.",
+    "dependencies_zh": "保留research-paper-writing完整目录及references；README未列Python、Node.js或其他统一运行依赖。",
+    "dependencies_en": "Preserve the full research-paper-writing folder and references; README lists no universal Python, Node.js or other runtime dependency.",
+    "source_commit": "77e7c2c1ba06f7d71844873147665437a03aac1b"
+  },
+  "jihe520/MathModelAgent": {
+    "environment_zh": "Skills 安装未注明系统和宿主最低版本；doctor 文档覆盖 macOS、Linux、Windows。桌面版提供 macOS Apple/Intel 和 Windows 64 位。",
+    "environment_en": "The skills installation section gives no minimum OS or host version; doctor covers macOS, Linux and Windows. Desktop builds target macOS Apple/Intel and Windows 64-bit.",
+    "dependencies_zh": "安装命令使用 npx，README 未注明其版本。完整建模工作流按任务需要 Python 3、NumPy/SciPy/pandas/Matplotlib/scikit-learn/openpyxl；论文编译用 Typst 或 XeLaTeX（中文 LaTeX 模板必需）；流程图导出用 DrawIO；PDF 检查用 pdftoppm，mutool/ImageMagick 为备用。桌面版只需填写模型 API Key，无需自行安装 Python/Node.js/Redis；Web 自部署另需 Docker 或 Python/Node.js/Redis。",
+    "dependencies_en": "The installer uses npx; no version is documented. Workflow tools depend on the task: Python 3 plus NumPy/SciPy/pandas/Matplotlib/scikit-learn/openpyxl, Typst or XeLaTeX (required for Chinese LaTeX templates), DrawIO for diagram export, and pdftoppm with mutool/ImageMagick fallbacks. Desktop requires a model API key and no separate Python/Node.js/Redis setup. Web self-hosting separately requires Docker or Python/Node.js/Redis.",
+    "source_commit": "03f4eb388b3862b7bde55b508dceaf3d6b39d5ac",
+    "additional_sources": [
+      "https://github.com/jihe520/MathModelAgent/blob/main/skills/doctor/SKILL.md"
+    ]
+  },
+  "zLanqing/codex-claude-academic-skills": {
+    "environment_zh": "Claude Code 或 Codex；README 未注明操作系统、宿主最低版本。",
+    "environment_en": "Claude Code or Codex; the README specifies no OS or minimum host version.",
+    "dependencies_zh": "安装为目录复制；若克隆需要 Git。README 没有统一依赖清单，office 文档生成、写作辅助、MATLAB/Python 科学计算需按各子技能文档配置。",
+    "dependencies_en": "Installation copies directories; cloning requires Git. No unified dependency list is documented; configure document generation, writing and MATLAB/Python computation according to each subskill.",
+    "source_commit": "7ed6377f0efb6a38951b48ef03b19d996e454b1f"
+  },
+  "brycewang-stanford/Auto-Empirical-Research-Skills": {
+    "environment_zh": "插件方式要求 Claude Code v2.1+；未注明操作系统要求。Codex/CodeBuddy 也有整库导入路径。",
+    "environment_en": "The plugin path requires Claude Code v2.1+; no OS requirement is specified. Whole-repository import is also documented for Codex/CodeBuddy.",
+    "dependencies_zh": "安装插件需 Claude Code；具体研究/计算依赖按所选技能文档（Python、Stata 或 R/Quarto 等），没有整库统一运行依赖。克隆整库应递归拉取 skills/69-Paper-WorkFlow 子模块；Python 3.9+ 的评分器是另一个可选组件，不是插件前置要求。",
+    "dependencies_en": "Plugin installation requires Claude Code. Research/computation dependencies vary by chosen skill (Python, Stata or R/Quarto); there is no single runtime dependency list for the catalog. A full clone should recurse into the skills/69-Paper-WorkFlow submodule. The separate optional scorer requires Python 3.9+; it is not a plugin prerequisite.",
+    "source_commit": "7a2437b8fc972774fa23cf9c572df12ff5fd1334"
+  },
+  "Adkid-Zephyr/anti-defensive-writing-Skill": {
+    "environment_zh": "Codex 插件方式，或 Claude Code / Cursor / 其他 Agent 的 Skill 方式；提示词适用于任何 AI。未注明系统和最低宿主版本。",
+    "environment_en": "Codex plugin mode, or skill mode for Claude Code / Cursor / other agents; the plain prompt can be used with any AI. No OS or minimum host version is stated.",
+    "dependencies_zh": "原文明确零依赖，插件没有 MCP 服务或额外运行依赖。Python 3 仅用于开发者构建发布 ZIP，不是使用技能的要求。",
+    "dependencies_en": "The README explicitly describes zero dependencies and no MCP server or extra runtime dependency. Python 3 is only used to build a release ZIP, not to use the skill.",
+    "source_commit": "82d31402caa0db1790026824399044538483171b"
+  },
+  "Norman-bury/research-writing-skill": {
+    "environment_zh": "Codex CLI；文档同时提供 POSIX shell 和 Windows PowerShell 步骤，未注明最低版本。README 还适配 Claude Code、Cursor、OpenCode、Gemini CLI。",
+    "environment_en": "Codex CLI; the guide provides POSIX-shell and Windows PowerShell procedures but no minimum versions. The README also lists Claude Code, Cursor, OpenCode and Gemini CLI.",
+    "dependencies_zh": "Codex 安装文档唯一明确前置是 Git；绘图等运行需求按子技能文档，涉及 Python/Miniconda 和绘图依赖；Pandoc 是 Word 导出相关的可选工具。",
+    "dependencies_en": "The Codex install guide explicitly requires Git. Task-specific requirements come from subskill docs, including Python/Miniconda and plotting libraries; Pandoc is optional for Word export.",
+    "source_commit": "6f7959554b4614d879d79cb4ece9ed04a7c8a88c",
+    "additional_sources": [
+      "https://github.com/Norman-bury/research-writing-skill/blob/main/README.md#安装"
+    ]
+  },
+  "yilewang/llm-for-zotero": {
+    "environment_zh": "运行于 Zotero 桌面端；README 快速开始未注明 Zotero 最低版本或统一系统限制。Codex/Claude Code 设置分别讨论 macOS、Windows、Linux；Windows Codex 连接要求 Windows 本地安装而非 WSL。",
+    "environment_en": "Runs inside desktop Zotero. The README quick start gives no minimum Zotero version or general OS restriction. Backend sections discuss macOS, Windows and Linux; Windows Codex connections require a Windows-local install rather than WSL.",
+    "dependencies_zh": "基本安装需 Zotero 和可用模型后端；API 模式需供应商 Base URL、Key、模型。WebChat 需浏览器扩展及对应站点访问权限；Codex 模式需已登录的 Codex CLI/订阅资格；实验性 Claude Code 模式明确需 Node.js 18+ 和已安装登录的 Claude Code。MinerU 仅本地高级 PDF 解析路径需要。",
+    "dependencies_en": "Base installation requires Zotero and an available model backend. API mode needs provider base URL, key and model. WebChat requires its browser extension and provider-site access; Codex mode needs an authenticated Codex CLI/eligible subscription. Experimental Claude Code mode explicitly requires Node.js 18+ and installed/authenticated Claude Code. MinerU is only required for local advanced PDF parsing.",
+    "source_commit": "8737af2a0f6cad8df7aac00aa50c1fb093080e3d",
+    "additional_sources": [
+      "https://github.com/yilewang/llm-for-zotero/blob/main/README.md#codex-setup-chatgpt-plus-subscribers",
+      "https://github.com/yilewang/llm-for-zotero/blob/main/README.md#claude-code-setup-experimental",
+      "https://github.com/yilewang/llm-for-zotero/blob/main/README.md#webchat-setup-chatgpt-web-sync"
+    ]
+  },
+  "OpenNSWM-Lab/FAROS": {
+    "environment_zh": "Python 3.11+、Node.js 18+；README 命令明确针对 Linux / WSL 的 Bash。",
+    "environment_en": "Python 3.11+ and Node.js 18+; README commands explicitly target Bash on Linux / WSL.",
+    "dependencies_zh": "本地必需 Git、Python/venv、backend/requirements.txt、Node.js/npm 和已配置的模型服务。Docker Engine/CPU 沙箱为运行实验的计算节点必需；GPU 实验另需 NVIDIA 驱动/Container Toolkit；论文编译需 latexmk、XeLaTeX、ctex/CJK 字体。网关 Caddy/OpenSSH 仅相应部署角色需要。",
+    "dependencies_en": "Local setup requires Git, Python/venv, backend/requirements.txt, Node.js/npm and a configured model provider. Compute nodes executing experiments require Docker Engine/CPU sandbox images; GPU experiments additionally require NVIDIA drivers/Container Toolkit. Paper compilation needs latexmk, XeLaTeX, ctex/CJK fonts. Gateway Caddy/OpenSSH requirements apply only to those deployment roles.",
+    "source_commit": "60ce4bc235f169d71f2d11dbe37445b4e402b528",
+    "additional_sources": [
+      "https://github.com/OpenNSWM-Lab/FAROS/blob/main/deploy/README.md#2-依赖矩阵"
+    ]
+  },
+  "huangwb8/ChineseResearchLaTeX": {
+    "environment_zh": "Skills 兼容 Claude Code、OpenAI Codex、Cursor、GitHub Actions、VS Code；安装指南列出 macOS/Linux/WSL 和 Windows。模板测试平台 Windows/macOS/Overleaf。",
+    "environment_en": "Skills list Claude Code, OpenAI Codex, Cursor, GitHub Actions and VS Code compatibility; install instructions cover macOS/Linux/WSL and Windows. Templates are tested on Windows/macOS/Overleaf.",
+    "dependencies_zh": "Skills 引导安装仅依赖 Python 3 标准库；具体技能按子文档配置。编译模板另需 TeX Live（推荐）或 MacTeX、XeLaTeX（必需）及 BibTeX；本地构建 wrapper 用 Python。LaTeX 公共包按模板需要安装。",
+    "dependencies_en": "The skills bootstrap requires only the Python 3 standard library; individual skills have their own requirements. Template compilation separately needs TeX Live (recommended) or MacTeX, mandatory XeLaTeX, and BibTeX; local build wrappers use Python. Install the shared LaTeX packages needed by the selected template.",
+    "source_commit": "d288ea832e4b2ffca5a0cca97576d3413391a342",
+    "additional_sources": [
+      "https://github.com/huangwb8/ChineseResearchLaTeX/blob/main/README.md#-环境",
+      "https://github.com/huangwb8/ChineseResearchLaTeX/blob/main/README.md#-skills",
+      "https://github.com/huangwb8/ChineseResearchLaTeX/blob/main/skills/README.md"
+    ]
+  },
+  "openags/paper-search-mcp": {
+    "environment_zh": "Python 3.10+；Claude Code Skill 路线需要 Claude Code。安装段未注明统一操作系统限制，给出的下载命令采用 shell。",
+    "environment_en": "Python 3.10+; the Claude Code skill path requires Claude Code. The installation section states no general OS restriction; the download commands use a shell.",
+    "dependencies_zh": "此路线明确需 uv 与 Claude Code；Skill 下载命令用 curl。API keys 为可选，按检索来源配置到 ~/.config/paper-search-mcp/.env。只上传 Skill ZIP 不会安装 Python 依赖或 CLI；远程 HTTP/OAuth 部署需要另外的服务配置。",
+    "dependencies_en": "This route explicitly requires uv and Claude Code; the skill-download command uses curl. API keys are optional and source-specific, configurable in ~/.config/paper-search-mcp/.env. Uploading a skill ZIP alone does not install Python dependencies or the CLI; remote HTTP/OAuth deployment has separate setup.",
+    "source_commit": "cab1b5cc276a0cd004a0044003926a6440088049",
+    "additional_sources": [
+      "https://github.com/openags/paper-search-mcp/blob/main/README.md#credential--api-key-requirements"
+    ]
+  },
+  "LigphiDonk/academic-figure-generator": {
+    "environment_zh": "Skills 安装未注明系统/最低宿主版本，手动示例列出 Gemini CLI 和 Claude Code。完整应用后端激活示例针对 macOS/Linux。",
+    "environment_en": "The skills installation specifies no OS/minimum host version and gives manual examples for Gemini CLI and Claude Code. The full application’s backend activation example targets macOS/Linux.",
+    "dependencies_zh": "Skills 安装命令使用 npx，未注明版本，也未列独立技能的统一额外依赖。完整应用另外要求 Python 3.12+、Node.js 18+、已安装登录的 Claude Code CLI（Claude Agent SDK）、NanoBanana/Gemini 图片 API Key，并按 README 配置 .env、后端和前端依赖；不要把这些应用要求等同于提示词技能安装前置。",
+    "dependencies_en": "The skills installer uses npx with no documented version or unified additional dependency list for the standalone skill. The full app separately requires Python 3.12+, Node.js 18+, installed/authenticated Claude Code CLI (Claude Agent SDK), and a NanoBanana/Gemini image API key, plus .env/backend/frontend setup. These full-app requirements are not stated as standalone prompt-skill install prerequisites.",
+    "source_commit": "0a2bec6bb56d6b47143a81909f8d818716bdcbab",
+    "additional_sources": [
+      "https://github.com/LigphiDonk/academic-figure-generator/blob/main/README.md#快速开始",
+      "https://github.com/LigphiDonk/academic-figure-generator/blob/main/academic-figure-prompt/SKILL.md"
+    ]
+  }
+}

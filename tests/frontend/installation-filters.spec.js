@@ -1,5 +1,8 @@
 import { test, expect } from "@playwright/test";
 import { readFileSync } from "node:fs";
+const content = JSON.parse(
+  readFileSync(new URL("../../config/editorial.json", import.meta.url), "utf8"),
+);
 const data = JSON.parse(
   readFileSync(new URL("../../data/rankings.json", import.meta.url), "utf8"),
 );
@@ -22,20 +25,11 @@ test("installation expectations and original command source are visible in list 
     "href",
     /K-Dense-AI\/scientific-agent-skills\/blob\/main\/README.md/,
   );
-  await page.goto("./#q=openags%2Fpaper-search-mcp");
+  await page.goto("./#q=OpenNSWM-Lab%2FFAROS");
   await expect(
     page.locator(".ant-table-row").getByTestId("installation-mode"),
   ).toHaveText("需手动配置");
-  const unknown = data.items.find(
-    (i) =>
-      ![
-        "K-Dense-AI/scientific-agent-skills",
-        "Imbad0202/academic-research-skills",
-        "Yuan1z0825/nature-skills",
-        "zsyggg/paper-craft-skills",
-        "openags/paper-search-mcp",
-      ].includes(i.repo),
-  );
+  const unknown = data.items.find((i) => !content.installations[i.repo]);
   await page.goto("./#q=" + encodeURIComponent(unknown.repo) + "&view=card");
   const card = page.getByTestId("repo-card").filter({
     has: page.locator(".repo-name").getByText(unknown.repo, { exact: true }),

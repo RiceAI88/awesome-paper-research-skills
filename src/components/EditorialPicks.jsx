@@ -1,5 +1,6 @@
+import { Panel } from "./Panel";
 import React from "react";
-import { Card, Typography } from "antd";
+import { Typography } from "antd";
 import { editorialPicks } from "../practical";
 import { PlatformTags, InstallationActions } from "./PracticalInfo";
 export function EditorialPicks({ items, state, t }) {
@@ -19,9 +20,8 @@ export function EditorialPicks({ items, state, t }) {
       </div>
       <div className="editorial-grid">
         {picks.map((pick, index) => (
-          <Card
+          <Panel
             key={pick.repo}
-            size="small"
             className="editorial-card"
             data-featured={pick.repo}
           >
@@ -67,7 +67,7 @@ export function EditorialPicks({ items, state, t }) {
               <PlatformTags item={pick.item} t={t} />
               <InstallationActions item={pick.item} lang={state.lang} t={t} />
             </details>
-          </Card>
+          </Panel>
         ))}
       </div>
     </section>

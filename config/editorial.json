@@ -21,23 +21,26 @@
   },
   "installations": {
     "K-Dense-AI/scientific-agent-skills": {
+      "mode": "command",
       "command": "npx skills add K-Dense-AI/scientific-agent-skills",
-      "context_zh": "在终端执行，按提示选择技能与 Agent",
-      "context_en": "Run in a terminal and select skills and agent",
-      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/README.md",
+      "context_zh": "在终端执行，按安装器提示选择所需技能及宿主；安装技能文件不会安装科学计算依赖。",
+      "context_en": "Run in a terminal and choose the required skills and host; installing skill files does not install scientific dependencies.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/README.md#option-1-npx-supported-hosts",
       "reviewed_at": "2026-10-25"
     },
     "Imbad0202/academic-research-skills": {
+      "mode": "command",
       "command": "/plugin marketplace add Imbad0202/academic-research-skills\n/plugin install academic-research-skills",
-      "context_zh": "在 Claude Code 会话内执行这两条命令",
-      "context_en": "Run these two commands inside Claude Code",
+      "context_zh": "在Claude Code会话内依次执行；安装后用/ars-plan或/ars-lit-review验证。",
+      "context_en": "Run both commands in a Claude Code session; verify with /ars-plan or /ars-lit-review.",
       "source_url": "https://github.com/Imbad0202/academic-research-skills/blob/main/README.md#quick-install",
       "reviewed_at": "2026-10-25"
     },
     "Yuan1z0825/nature-skills": {
+      "mode": "command",
       "command": "npx skills add Yuan1z0825/nature-skills --agent codex --skill nature-figure --yes --copy",
-      "context_zh": "在终端为当前项目安装 nature-figure（Codex）",
-      "context_en": "Install nature-figure for Codex in the current project",
+      "context_zh": "在终端为当前项目的Codex仅安装nature-figure；此命令不安装完整技能集或Python/R/MCP依赖。",
+      "context_en": "Run in a terminal to install only nature-figure for Codex in the current project; this does not install the full collection or Python/R/MCP dependencies.",
       "source_url": "https://github.com/Yuan1z0825/nature-skills/blob/main/README.md#51-npx-skills-安装方式",
       "reviewed_at": "2026-10-25"
     },
@@ -49,10 +52,129 @@
       "reviewed_at": "2026-10-25"
     },
     "openags/paper-search-mcp": {
+      "mode": "command",
+      "command": "uv tool install paper-search-mcp\nmkdir -p ~/.claude/skills/paper-search\ncurl -fsSL https://raw.githubusercontent.com/openags/paper-search-mcp/main/claude-code/SKILL.md \\\n  -o ~/.claude/skills/paper-search/SKILL.md",
+      "context_zh": "在终端按官方 Claude Code Skill 路线先安装 CLI，再下载 Skill 到用户级 ~/.claude/skills/paper-search；下一次启动 Claude Code 生效。此路线不需要 MCP 配置；MCP 客户端另按官方其他安装方法。",
+      "context_en": "In a terminal, follow the Claude Code skill path: install the CLI, then download the skill into the user-level ~/.claude/skills/paper-search directory. It activates on the next Claude Code start. This route needs no MCP configuration; MCP clients use the other documented methods.",
+      "source_url": "https://github.com/openags/paper-search-mcp/blob/main/README.md#claude-code-skill--recommended-for-claude-code-users",
+      "reviewed_at": "2026-10-25"
+    },
+    "wanshuiyin/Auto-claude-code-research-in-sleep": {
       "mode": "manual",
-      "context_zh": "Claude Code Skill 需 uv；MCP 等接入方式见官方步骤",
-      "context_en": "Claude Code skill requires uv; see docs for MCP and other setups",
-      "source_url": "https://github.com/openags/paper-search-mcp/blob/main/README.md#installation",
+      "context_zh": "按官方步骤克隆到稳定路径，再为目标项目安装；Claude Code、Codex和Windows路线不同，审阅桥接需单独配置。",
+      "context_en": "Follow the official steps to clone to a stable location and install into the target project; Claude Code, Codex and Windows use different routes, and the reviewer bridge requires separate setup.",
+      "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/blob/main/README.md#install-skills",
+      "reviewed_at": "2026-10-25"
+    },
+    "Orchestra-Research/AI-Research-SKILLs": {
+      "mode": "command",
+      "command": "npx @orchestra-research/ai-research-skills",
+      "context_zh": "在终端启动交互安装器，选择全部、快速入门、类别或单个技能；技能放在~/.orchestra/skills并链接至宿主，Windows回退为复制。",
+      "context_en": "Run the interactive installer in a terminal; choose all, quickstart, categories or individual skills. Files go to ~/.orchestra/skills with host symlinks and a copy fallback on Windows.",
+      "source_url": "https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/main/README.md#-quick-install-recommended",
+      "reviewed_at": "2026-10-25"
+    },
+    "Imbad0202/academic-research-skills-codex": {
+      "mode": "command",
+      "command": "codex plugin marketplace add Imbad0202/academic-research-skills-codex --ref main\ncodex plugin add ars-codex@ars-codex",
+      "context_zh": "在终端使用Codex CLI添加市场并安装插件；安装后开启新的Codex会话，调用$academic-research-suite。",
+      "context_en": "Use Codex CLI in a terminal to add the marketplace and install the plugin; open a new Codex conversation and invoke $academic-research-suite.",
+      "source_url": "https://github.com/Imbad0202/academic-research-skills-codex/blob/main/README.md#install-ars-codex-plugin",
+      "reviewed_at": "2026-10-25"
+    },
+    "HKUSTDial/Supervisor-Skills": {
+      "mode": "manual",
+      "context_zh": "将官方Quick Start中的安装提示词发给Claude Code、Cursor或Codex等AI助手，再按所选技能文档操作；README未提供可直接复制的终端安装命令。",
+      "context_en": "Send the Quick Start installation prompt to an AI assistant such as Claude Code, Cursor or Codex, then follow the selected skill documentation; README provides no terminal installation command.",
+      "source_url": "https://github.com/HKUSTDial/Supervisor-Skills/blob/main/README.md#快速开始-quick-start",
+      "reviewed_at": "2026-10-25"
+    },
+    "hoochanlon/hamuleite": {
+      "mode": "reference",
+      "context_zh": "这是学术、教育与金融资源导航库；按目录浏览资料或所链接工具，未提供统一技能包安装步骤。",
+      "context_en": "This is a directory of academic, educational and financial resources; browse its folders and linked tools. No unified skill-package installation is documented.",
+      "source_url": "https://github.com/hoochanlon/hamuleite/blob/master/README.md#list",
+      "reviewed_at": "2026-10-25"
+    },
+    "ChenLiu-1996/figures4papers": {
+      "mode": "manual",
+      "context_zh": "无需安装：在AI编码助手打开仓库并在提示词中引用scientific-figure-making/SKILL.md及references。也可从仓库根目录按官方表格为Cursor/Claude Code/Codex建立软链接，之后刷新技能列表。",
+      "context_en": "No-install route: open the repository in an AI coding agent and reference scientific-figure-making/SKILL.md and references. Alternatively, follow the host-specific symlink table from the repository root and refresh the agent’s skill list.",
+      "source_url": "https://github.com/ChenLiu-1996/figures4papers/blob/main/README.md#using-this-skill-in-an-ai-coding-agent",
+      "reviewed_at": "2026-10-25"
+    },
+    "Master-cai/Research-Paper-Writing-Skills": {
+      "mode": "manual",
+      "context_zh": "先取得仓库并在仓库根目录操作；按Codex、Claude Code全局/项目或Gemini选择对应复制步骤。Codex路线依赖已正确配置的CODEX_HOME，故保留官方分步说明。",
+      "context_en": "Obtain the repository and work from its root, then choose the copy steps for Codex, Claude Code global/project or Gemini. The Codex route assumes CODEX_HOME is configured, so follow the official step-by-step instructions.",
+      "source_url": "https://github.com/Master-cai/Research-Paper-Writing-Skills/blob/main/README.md#installation",
+      "reviewed_at": "2026-10-25"
+    },
+    "jihe520/MathModelAgent": {
+      "mode": "command",
+      "command": "npx skills add jihe520/MathModelAgent --all",
+      "context_zh": "在终端执行官方 Skills 安装命令；供现有 Claude Code / Codex 使用。它安装技能，不部署 Web 应用。桌面版另从 Releases 安装，已内置 Claude Code 和技能。",
+      "context_en": "Run the official skills installer in a terminal for an existing Claude Code / Codex host. This installs skills; it does not deploy the web app. The separate desktop release bundles Claude Code and skills.",
+      "source_url": "https://github.com/jihe520/MathModelAgent/blob/main/README.md#install--usage",
+      "reviewed_at": "2026-10-25"
+    },
+    "zLanqing/codex-claude-academic-skills": {
+      "mode": "manual",
+      "context_zh": "按官方跨平台安装章节把三个技能目录复制到 Claude Code / Codex 全局目录，或当前项目的 .claude/skills / .codex/skills。原文克隆和插件示例仍含“你的用户名”及不同仓库名占位符，不提供可复制的一键命令。",
+      "context_en": "Follow the cross-platform section to copy the three skill folders into the Claude Code / Codex global skill directory or the project’s .claude/skills / .codex/skills. Clone and plugin examples contain a username placeholder and a different repository name, so no one-click command is supplied.",
+      "source_url": "https://github.com/zLanqing/codex-claude-academic-skills/blob/main/README.md#跨平台安装",
+      "reviewed_at": "2026-10-25"
+    },
+    "brycewang-stanford/Auto-Empirical-Research-Skills": {
+      "mode": "command",
+      "command": "claude plugin marketplace add brycewang-stanford/Auto-Empirical-Research-Skills\nclaude plugin install aer-skills@auto-empirical-research-skills",
+      "context_zh": "在终端安装官方 aer-skills 首方插件栈（9 个论文流程技能），随后在 Claude Code 中 /reload-plugins 或重启。该命令不安装整个资料库；其他 Python/Stata/R 栈和 Codex 整库路由导入见完整安装文档。",
+      "context_en": "Run in a shell to install the first-party aer-skills stack (nine manuscript skills), then /reload-plugins or restart Claude Code. These commands do not install the entire catalog; see INSTALL.md for other Python/Stata/R stacks and Codex catalog-router import.",
+      "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/blob/main/INSTALL.md#1-one-command-install--first-party-plugins-recommended",
+      "reviewed_at": "2026-10-25"
+    },
+    "Adkid-Zephyr/anti-defensive-writing-Skill": {
+      "mode": "command",
+      "command": "codex plugin marketplace add Adkid-Zephyr/anti-defensive-writing-Skill\ncodex plugin add anti-defensive-writing@adkid-zephyr-writing",
+      "context_zh": "在支持插件命令的 Codex 终端添加本仓库 marketplace 并安装插件；新对话选择 Anti-Defensive Writing。也可按 README 复制 Skill 目录或直接粘贴提示词。",
+      "context_en": "In a Codex terminal supporting plugin commands, add this repository’s marketplace and plugin, then select Anti-Defensive Writing in a new conversation. The README also supports copying a skill directory or pasting the prompt.",
+      "source_url": "https://github.com/Adkid-Zephyr/anti-defensive-writing-Skill/blob/main/README.md#codex-插件安装",
+      "reviewed_at": "2026-10-25"
+    },
+    "Norman-bury/research-writing-skill": {
+      "mode": "manual",
+      "context_zh": "按 Codex 安装文档克隆到 ~/.codex/research-writing-skill，再将 skills 连接到 ~/.agents/skills/research-writing，重启 Codex 并检查链接。Windows 有单独 PowerShell 目录连接步骤；其他平台见 README。",
+      "context_en": "Follow the Codex guide to clone into ~/.codex/research-writing-skill, link skills into ~/.agents/skills/research-writing, restart Codex, and verify the link. Windows has a separate PowerShell junction procedure; see README for other hosts.",
+      "source_url": "https://github.com/Norman-bury/research-writing-skill/blob/main/.codex/INSTALL.md#安装步骤",
+      "reviewed_at": "2026-10-25"
+    },
+    "yilewang/llm-for-zotero": {
+      "mode": "manual",
+      "context_zh": "从官方 Releases 下载 .xpi，在 Zotero 的 Tools → Add-ons → Install Add-on From File 中安装，重启并在首选项配置模型供应商及连接测试。按所选后端完成额外配置。",
+      "context_en": "Download the .xpi from official Releases, install through Zotero Tools → Add-ons → Install Add-on From File, restart, then configure and test a provider in preferences. Complete the additional setup for the chosen backend.",
+      "source_url": "https://github.com/yilewang/llm-for-zotero/blob/main/README.md#quick-start",
+      "reviewed_at": "2026-10-25"
+    },
+    "OpenNSWM-Lab/FAROS": {
+      "mode": "manual",
+      "context_zh": "按快速开始分别在 backend 和 frontend 安装并启动服务，再在设置页配置和测试模型。运行生成代码、计算节点部署、论文编译需继续完成部署指南相应依赖。",
+      "context_en": "Follow Quick Start to install/start backend and frontend separately, then configure and test a model in settings. Generated-code execution, compute-node deployment and paper compilation require the corresponding deployment-guide setup.",
+      "source_url": "https://github.com/OpenNSWM-Lab/FAROS/blob/main/README.md#快速开始",
+      "reviewed_at": "2026-10-25"
+    },
+    "huangwb8/ChineseResearchLaTeX": {
+      "mode": "manual",
+      "context_zh": "按官方 Skills 安装与更新指南选择自然语言安装或系统对应的 Python 引导安装；LaTeX 公共包安装和模板编译是另外的步骤，不把安装整个公共包当作 Skills 安装。",
+      "context_en": "Use the official skills installation/update guide to choose natural-language installation or the OS-specific Python bootstrap. Installing shared LaTeX packages and compiling templates are separate steps, not the same as skills installation.",
+      "source_url": "https://github.com/huangwb8/ChineseResearchLaTeX/blob/main/docs/manual-setup-guide.md#skills-安装与更新",
+      "reviewed_at": "2026-10-25"
+    },
+    "LigphiDonk/academic-figure-generator": {
+      "mode": "command",
+      "command": "npx skills add LigphiDonk/academic-figure-generator",
+      "context_zh": "在终端执行官方 npx skills 命令安装 academic-figure-prompt 技能，供 AI 编程助手生成论文配图提示词；完整 Web 平台部署另按快速开始配置，不由此命令完成。",
+      "context_en": "Run the documented npx skills command in a terminal to install academic-figure-prompt for an AI coding assistant. It generates paper-figure prompts; the full web platform requires the separate Quick Start deployment.",
+      "source_url": "https://github.com/LigphiDonk/academic-figure-generator/blob/main/README.md#安装方式",
       "reviewed_at": "2026-10-25"
     }
   },
@@ -109,5 +231,30 @@
       "outcome_en": "Start with a separate nature-figure installation for a focused research figure task.",
       "reviewed_at": "2026-10-25"
     }
-  ]
+  ],
+  "installation_audit": {
+    "reviewed_at": "2026-10-25",
+    "repos": [
+      "K-Dense-AI/scientific-agent-skills",
+      "Imbad0202/academic-research-skills",
+      "Yuan1z0825/nature-skills",
+      "wanshuiyin/Auto-claude-code-research-in-sleep",
+      "Orchestra-Research/AI-Research-SKILLs",
+      "Imbad0202/academic-research-skills-codex",
+      "HKUSTDial/Supervisor-Skills",
+      "hoochanlon/hamuleite",
+      "ChenLiu-1996/figures4papers",
+      "Master-cai/Research-Paper-Writing-Skills",
+      "jihe520/MathModelAgent",
+      "zLanqing/codex-claude-academic-skills",
+      "brycewang-stanford/Auto-Empirical-Research-Skills",
+      "Adkid-Zephyr/anti-defensive-writing-Skill",
+      "Norman-bury/research-writing-skill",
+      "yilewang/llm-for-zotero",
+      "OpenNSWM-Lab/FAROS",
+      "huangwb8/ChineseResearchLaTeX",
+      "openags/paper-search-mcp",
+      "LigphiDonk/academic-figure-generator"
+    ]
+  }
 }

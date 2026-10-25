@@ -1,6 +1,6 @@
 import React from "react";
+import installationDetails from "../../config/installation-details.json";
 import {
-  App,
   Button,
   Descriptions,
   Drawer,
@@ -17,10 +17,11 @@ import {
   safeExternalUrl,
 } from "../domain";
 import { QualityBadges } from "./RepositoryViews";
+import { useFeedback } from "./FeedbackProvider";
 import { copyText } from "../clipboard";
 import { SummaryText, InstallationActions } from "./PracticalInfo";
 export function RepositoryDrawer({ item, state, update, t, fmt }) {
-  const { message } = App.useApp();
+  const message = useFeedback();
   const copy = async (text, label) => {
     try {
       await copyText(text);
@@ -169,7 +170,13 @@ export function RepositoryDrawer({ item, state, update, t, fmt }) {
       {item && (
         <>
           <SummaryText item={item} lang={state.lang} t={t} />
-          <InstallationActions item={item} lang={state.lang} t={t} details />
+          <InstallationActions
+            item={item}
+            lang={state.lang}
+            t={t}
+            details
+            detailsInfo={installationDetails[item.repo]}
+          />
           <QualityBadges item={item} t={t} />
           <div className="drawer-statistics">
             {[

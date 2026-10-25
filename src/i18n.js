@@ -1,5 +1,8 @@
 export const translations = {
   zh: {
+    featureLoading: "正在加载…",
+    featureUnavailable: "此功能加载失败，可继续浏览榜单或刷新重试。",
+    reloadPage: "刷新重试",
     chartsLoading: "正在加载数据图表…",
     chartUnavailable: "图表暂不可用，可继续使用下方榜单。",
     insightsTitle: "数据洞察",
@@ -24,6 +27,11 @@ export const translations = {
     copyFailed: "复制失败，请稍后重试",
     installCommandMode: "命令安装",
     installManualMode: "需手动配置",
+    installReferenceMode: "资料导航",
+    installEnvironment: "运行环境",
+    installDependencies: "必要依赖与条件",
+    installSnapshot: "核验时的原文快照",
+    installMoreDocs: "补充安装文档",
     installUnknownMode: "安装方式待核对",
     projectDocs: "项目文档",
     installUnreviewedHint:
@@ -175,6 +183,10 @@ export const translations = {
     compareHint: "曲线为相对各自窗口起点的 Stars 增长百分比。",
   },
   en: {
+    featureLoading: "Loading…",
+    featureUnavailable:
+      "This feature could not load. Continue browsing or reload to retry.",
+    reloadPage: "Reload and retry",
     chartsLoading: "Loading data charts…",
     chartUnavailable: "Chart unavailable. The ranking below remains available.",
     insightsTitle: "Data insights",
@@ -203,6 +215,11 @@ export const translations = {
     copyFailed: "Unable to copy. Please try again.",
     installCommandMode: "Command installation",
     installManualMode: "Manual setup required",
+    installReferenceMode: "Resource directory",
+    installEnvironment: "Environment",
+    installDependencies: "Prerequisites and conditions",
+    installSnapshot: "Source snapshot at review",
+    installMoreDocs: "Additional setup docs",
     installUnknownMode: "Installation not yet reviewed",
     projectDocs: "Project docs",
     installUnreviewedHint:
