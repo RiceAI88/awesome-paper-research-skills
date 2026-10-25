@@ -1,4 +1,5 @@
 import React from "react";
+import { SearchHighlight } from "./SearchHighlight";
 import { EditorialReviewNotice } from "./EditorialReviewNotice";
 import { Button, Space, Tag, Tooltip } from "antd";
 import { CopyOutlined, ExportOutlined } from "@ant-design/icons";
@@ -6,11 +7,14 @@ import { AGENT_PLATFORMS, detectAgents, safeExternalUrl } from "../domain";
 import { EDITORIAL_CONTENT, installationFor } from "../practical";
 import { useFeedback } from "./FeedbackProvider";
 import { copyText } from "../clipboard";
-export function SummaryText({ item, t }) {
+export function SummaryText({ item, t, query = "" }) {
   return (
     <div className="practical-description">
       <p className="description-clamp" title={item.description}>
-        {item.description || t("noDescription")}
+        <SearchHighlight
+          text={item.description || t("noDescription")}
+          query={query}
+        />
       </p>
     </div>
   );

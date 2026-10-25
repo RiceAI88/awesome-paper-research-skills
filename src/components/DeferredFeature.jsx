@@ -1,7 +1,15 @@
 import React, { Suspense } from "react";
 import { Button } from "antd";
 import { ChartBoundary } from "./ChartBoundary";
-export function DeferredFeature({ children, t }) {
+export function DeferredFeature({
+  children,
+  t,
+  loadingFallback = (
+    <p role="status" className="muted">
+      {t("featureLoading")}
+    </p>
+  ),
+}) {
   return (
     <ChartBoundary
       fallback={
@@ -13,15 +21,7 @@ export function DeferredFeature({ children, t }) {
         </span>
       }
     >
-      <Suspense
-        fallback={
-          <p role="status" className="muted">
-            {t("featureLoading")}
-          </p>
-        }
-      >
-        {children}
-      </Suspense>
+      <Suspense fallback={loadingFallback}>{children}</Suspense>
     </ChartBoundary>
   );
 }

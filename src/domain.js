@@ -1,3 +1,4 @@
+import { createSearch } from "./search.js";
 export const RESEARCH_TASKS = [
   {
     id: "find",
@@ -164,7 +165,8 @@ export function matchesResearchTask(item, task) {
   );
 }
 export function filterItems(items, state) {
-  const q = state.query.trim().toLowerCase();
+  const q = state.query.trim();
+  const search = createSearch(q);
   const task = RESEARCH_TASKS.find((t) => t.id === state.task);
   const result = items.filter((item) => {
     if (task && !matchesResearchTask(item, task)) return false;
@@ -175,23 +177,22 @@ export function filterItems(items, state) {
     if (state.favOnly && !state.favorites.includes(item.repo)) return false;
     return (
       !q ||
-      [
-        item.repo,
-        item.description,
-        item.category?.zh,
-        item.category?.en,
-        item.trend?.zh,
-        item.trend?.en,
-        ...(item.topics || []),
-        item.language,
-        ...detectAgents(item).flatMap((id) => [
-          id,
-          AGENT_PLATFORMS.find((a) => a.id === id)?.label,
-        ]),
-      ]
-        .join(" ")
-        .toLowerCase()
-        .includes(q)
+      search.matches(
+        [
+          item.repo,
+          item.description,
+          item.category?.zh,
+          item.category?.en,
+          item.trend?.zh,
+          item.trend?.en,
+          ...(item.topics || []),
+          item.language,
+          ...detectAgents(item).flatMap((id) => [
+            id,
+            AGENT_PLATFORMS.find((a) => a.id === id)?.label,
+          ]),
+        ].join(" "),
+      )
     );
   });
   const ranks = (a, b) => a.rank - b.rank;

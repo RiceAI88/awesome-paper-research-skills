@@ -1,7 +1,6 @@
 import { EditorialReviewNotice } from "./EditorialReviewNotice";
 import { Panel } from "./Panel";
 import React from "react";
-import { Typography } from "antd";
 import { editorialPicks } from "../practical";
 import { PlatformTags, InstallationActions } from "./PracticalInfo";
 export function EditorialPicks({ items, state, t }) {
@@ -30,14 +29,14 @@ export function EditorialPicks({ items, state, t }) {
               {String(index + 1).padStart(2, "0")}
             </span>
             <h3>{pick[`title_${state.lang}`]}</h3>
-            <Typography.Link
+            <a
               className="editorial-repo"
               href={pick.source_url}
               target="_blank"
               rel="noreferrer"
             >
               {pick.repo}
-            </Typography.Link>
+            </a>
             <p className="editorial-audience" data-testid="pick-audience">
               <strong>{t("pickAudience")}</strong>
               {pick[`audience_${state.lang}`]}
@@ -54,13 +53,9 @@ export function EditorialPicks({ items, state, t }) {
                 {pick[`reason_${state.lang}`]}
               </p>
               <div className="editorial-evidence">
-                <Typography.Link
-                  href={pick.source_url}
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href={pick.source_url} target="_blank" rel="noreferrer">
                   {t("pickSource")}
-                </Typography.Link>
+                </a>
                 <span>
                   {t("docsChecked")}{" "}
                   <time dateTime={pick.reviewed_at}>{pick.reviewed_at}</time>

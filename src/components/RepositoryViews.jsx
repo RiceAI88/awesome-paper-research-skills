@@ -1,6 +1,7 @@
+import { SearchHighlight } from "./SearchHighlight";
 import { Panel } from "./Panel";
 import React, { lazy } from "react";
-import { Button, Empty, Space, Tag, Tooltip, Typography } from "antd";
+import { Button, Empty, Space, Tag, Tooltip } from "antd";
 import { StarFilled, StarOutlined, SwapOutlined } from "@ant-design/icons";
 import {
   SummaryText,
@@ -98,15 +99,15 @@ export function RepositoryViews({
   );
   const open = (item) => update((s) => ({ ...s, repo: item.repo }));
   const link = (item) => (
-    <Typography.Link
+    <a
       href={safeExternalUrl(item.url) || undefined}
       target="_blank"
       rel="noreferrer"
       onClick={(e) => e.stopPropagation()}
       className="repo-name"
     >
-      {item.repo}
-    </Typography.Link>
+      <SearchHighlight text={item.repo} query={state.query} />
+    </a>
   );
   const columns = [
     { title: "#", dataIndex: "rank", width: 50 },
@@ -117,7 +118,12 @@ export function RepositoryViews({
       render: (_, item) => (
         <div>
           {link(item)}
-          <SummaryText item={item} lang={state.lang} t={t} />
+          <SummaryText
+            item={item}
+            lang={state.lang}
+            t={t}
+            query={state.query}
+          />
           <QualityBadges item={item} t={t} />
         </div>
       ),
@@ -196,7 +202,12 @@ export function RepositoryViews({
               <Tag className="warm-tag">{cat(item)}</Tag>
               <span className="trend-value">{item.trend?.[state.lang]}</span>
             </div>
-            <SummaryText item={item} lang={state.lang} t={t} />
+            <SummaryText
+              item={item}
+              lang={state.lang}
+              t={t}
+              query={state.query}
+            />
             <PlatformTags item={item} t={t} />
             <InstallationActions item={item} lang={state.lang} t={t} />
             <div className="reference-metrics card-metrics">

@@ -1,15 +1,14 @@
+import { SearchBox } from "./components/SearchBox";
 import { Panel } from "./components/Panel";
 import React, { lazy, useEffect, useMemo, useRef, useState } from "react";
 import {
   Button,
   ConfigProvider,
-  Input,
   Segmented,
   Select,
   Space,
   Tag,
   Tooltip,
-  Typography,
   theme,
 } from "antd";
 import zhCN from "antd/locale/zh_CN";
@@ -22,7 +21,6 @@ import {
   CloseOutlined,
   DownloadOutlined,
   GithubOutlined,
-  SearchOutlined,
   StarFilled,
   StarOutlined,
   SwapOutlined,
@@ -374,22 +372,17 @@ function Dashboard({ state, update }) {
               />
             </div>
             <div className="discovery-controls">
-              <label className="hero-search" htmlFor="searchInput">
-                <span>{t("searchLabel")}</span>
-                <Input
-                  ref={search}
-                  id="searchInput"
-                  type="search"
-                  size="large"
-                  allowClear
-                  prefix={<SearchOutlined aria-hidden="true" />}
-                  placeholder={t("searchPlaceholder")}
-                  value={state.query}
-                  onChange={(e) =>
-                    update((s) => ({ ...s, query: e.target.value }))
-                  }
-                />
-              </label>
+              <SearchBox
+                inputRef={search}
+                state={state}
+                update={update}
+                items={visible}
+                taskOptions={RESEARCH_TASKS.map((task) => ({
+                  id: task.id,
+                  label: t(taskLabels[task.id]),
+                }))}
+                t={t}
+              />
               <section
                 className="task-navigation"
                 aria-labelledby="taskHeading"
