@@ -28,7 +28,7 @@
 
 ## 今日榜单
 
-- 更新时间：`2026-10-26T07:33:12Z`
+- 更新时间：`2026-10-26T07:59:16Z`
 - 收录门槛：GitHub Stars ≥ `100`，排除 fork、归档仓库和明显非学术项目。
 - 精准规则：必须同时命中 Skill/Agent/Workflow 信号 **和** Academic/Research/Paper 信号。
 - 趋势指标：基于近 7 天新增 Stars、最近 push 时间、新仓库加权和总体 Stars 规模综合计算。
@@ -36,29 +36,29 @@
 
 | # | 仓库 | Stars | 趋势 | 分类 | 适用 Agent | 简介 | 最近更新 |
 |---:|---|---:|---|---|---|---|---|
-| 1 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | 54,633 | 热门上升 (7d:+1895) | 学科专项 | Claude/Codex/Cursor | Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by… | 2026-10-19 |
-| 2 | [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) | 53,917 | 热门上升 (7d:+1052) | 论文写作 | Claude | Academic Research Skills for Claude Code: research → write → review → revise → finalize | 2026-10-26 |
-| 3 | [Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills) | 50,646 | 热门上升 (7d:+1430) | 深度研究 | Codex | 符合nature论文学术表达和科研绘图的Skill | 2026-10-25 |
-| 4 | [wanshuiyin/Auto-claude-code-research-in-sleep](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep) | 18,088 | 热门上升 (7d:+394) | 学科专项 | Claude/Codex/MCP | ARIS ⚔️ (Auto-Research-In-Sleep) — Lightweight Markdown-only skills for autonomous ML res… | 2026-10-24 |
-| 5 | [Orchestra-Research/AI-Research-SKILLs](https://github.com/Orchestra-Research/AI-Research-SKILLs) | 13,954 | 热门上升 (7d:+257) | 深度研究 | Claude/Codex/Gemini | Comprehensive open-source library of AI research and engineering skills for any AI model.… | 2026-10-11 |
-| 6 | [Imbad0202/academic-research-skills-codex](https://github.com/Imbad0202/academic-research-skills-codex) | 13,501 | 热门上升 (7d:+365) | 综合研究 | Codex | Codex-native Academic Research Skills suite for human-in-the-loop academic research workf… | 2026-10-26 |
-| 7 | [HKUSTDial/Supervisor-Skills](https://github.com/HKUSTDial/Supervisor-Skills) | 10,647 | 热门上升 (7d:+594) | 学科专项 | 通用 | 将博导十年科研经验炼化为可直接调用的 AI 技能。从 Idea 构思到论文投稿，你的 AI 科研副导师。 | 2026-10-16 |
+| 1 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | 54,642 | 热门上升 (7d:+1904) | 学科专项 | Claude/Codex/Cursor | Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by… | 2026-10-19 |
+| 2 | [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) | 53,926 | 热门上升 (7d:+1061) | 论文写作 | Claude | Academic Research Skills for Claude Code: research → write → review → revise → finalize | 2026-10-26 |
+| 3 | [Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills) | 50,659 | 热门上升 (7d:+1443) | 深度研究 | Codex | 符合nature论文学术表达和科研绘图的Skill | 2026-10-25 |
+| 4 | [wanshuiyin/Auto-claude-code-research-in-sleep](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep) | 18,089 | 热门上升 (7d:+395) | 学科专项 | Claude/Codex/MCP | ARIS ⚔️ (Auto-Research-In-Sleep) — Lightweight Markdown-only skills for autonomous ML res… | 2026-10-24 |
+| 5 | [Orchestra-Research/AI-Research-SKILLs](https://github.com/Orchestra-Research/AI-Research-SKILLs) | 13,956 | 热门上升 (7d:+259) | 深度研究 | Claude/Codex/Gemini | Comprehensive open-source library of AI research and engineering skills for any AI model.… | 2026-10-11 |
+| 6 | [Imbad0202/academic-research-skills-codex](https://github.com/Imbad0202/academic-research-skills-codex) | 13,508 | 热门上升 (7d:+372) | 综合研究 | Codex | Codex-native Academic Research Skills suite for human-in-the-loop academic research workf… | 2026-10-26 |
+| 7 | [HKUSTDial/Supervisor-Skills](https://github.com/HKUSTDial/Supervisor-Skills) | 10,649 | 热门上升 (7d:+596) | 学科专项 | 通用 | 将博导十年科研经验炼化为可直接调用的 AI 技能。从 Idea 构思到论文投稿，你的 AI 科研副导师。 | 2026-10-16 |
 | 8 | [hoochanlon/hamuleite](https://github.com/hoochanlon/hamuleite) | 9,937 | 热门上升 (7d:+27) | 学科专项 | 通用 | 🌊深度整合全球顶尖学术、金融与教育资源：学术板块汇聚 JSTOR、Taylor & Francis、剑桥大学出版社等权威平台的论文，并接入 Z-Library 影子图书馆的海量电… | 2026-10-25 |
-| 9 | [ChenLiu-1996/figures4papers](https://github.com/ChenLiu-1996/figures4papers) | 8,957 | 热门上升 (7d:+243) | 学科专项 | 通用 | My Python scripts to make high-quality figures for publications in top AI conferences and… | 2026-10-19 |
-| 10 | [Master-cai/Research-Paper-Writing-Skills](https://github.com/Master-cai/Research-Paper-Writing-Skills) | 7,798 | 热门上升 (7d:+209) | 学科专项 | Claude/Codex/Gemini | Skill package for ML/CV/NLP paper writing, curated and adapted from Prof. Peng Sida's ope… | 2026-06-23 |
+| 9 | [ChenLiu-1996/figures4papers](https://github.com/ChenLiu-1996/figures4papers) | 8,960 | 热门上升 (7d:+246) | 学科专项 | 通用 | My Python scripts to make high-quality figures for publications in top AI conferences and… | 2026-10-19 |
+| 10 | [Master-cai/Research-Paper-Writing-Skills](https://github.com/Master-cai/Research-Paper-Writing-Skills) | 7,800 | 热门上升 (7d:+211) | 学科专项 | Claude/Codex/Gemini | Skill package for ML/CV/NLP paper writing, curated and adapted from Prof. Peng Sida's ope… | 2026-06-23 |
 | 11 | [jihe520/MathModelAgent](https://github.com/jihe520/MathModelAgent) | 6,252 | 热门上升 (7d:+31) | 学科专项 | 通用 | 🤖📐专为数学建模设计的 Agent & skills ,自动完成数学建模，生成一份完整的可以直接提交的论文。 An Agent Designed for Mathematical… | 2026-10-03 |
-| 12 | [zLanqing/codex-claude-academic-skills](https://github.com/zLanqing/codex-claude-academic-skills) | 5,317 | 热门上升 (7d:+261) | 综合研究 | Claude/Codex | 本仓库包含三个面向学术科研人员的Skills，覆盖从文献阅读、论文写作到科学计算的完整研究工作流。office-academic-skill 负责论文阅读报告与学术 PPT/Wo… | 2026-05-14 |
-| 13 | [brycewang-stanford/Auto-Empirical-Research-Skills](https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills) | 4,780 | 热门上升 (7d:+103) | 学科专项 | 通用 | 🔬 A curated collection of 23,000+ agent skills for empirical research across 8 social sci… | 2026-10-20 |
-| 14 | [Adkid-Zephyr/anti-defensive-writing-Skill](https://github.com/Adkid-Zephyr/anti-defensive-writing-Skill) | 4,022 | 热门上升 (7d:+620) | 论文写作 | 通用 | 极致轻量｜阻止论文的防御性写作 \| Anti-defensive writing for academic papers — 学术写作原则 Skill + prompt pack… | 2026-10-07 |
+| 12 | [zLanqing/codex-claude-academic-skills](https://github.com/zLanqing/codex-claude-academic-skills) | 5,323 | 热门上升 (7d:+267) | 综合研究 | Claude/Codex | 本仓库包含三个面向学术科研人员的Skills，覆盖从文献阅读、论文写作到科学计算的完整研究工作流。office-academic-skill 负责论文阅读报告与学术 PPT/Wo… | 2026-05-14 |
+| 13 | [brycewang-stanford/Auto-Empirical-Research-Skills](https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills) | 4,781 | 热门上升 (7d:+104) | 学科专项 | 通用 | 🔬 A curated collection of 23,000+ agent skills for empirical research across 8 social sci… | 2026-10-20 |
+| 14 | [Adkid-Zephyr/anti-defensive-writing-Skill](https://github.com/Adkid-Zephyr/anti-defensive-writing-Skill) | 4,029 | 热门上升 (7d:+627) | 论文写作 | 通用 | 极致轻量｜阻止论文的防御性写作 \| Anti-defensive writing for academic papers — 学术写作原则 Skill + prompt pack… | 2026-10-07 |
 | 15 | [Norman-bury/research-writing-skill](https://github.com/Norman-bury/research-writing-skill) | 3,524 | 热门上升 (7d:+53) | 论文写作 | 通用 | 科研写作助手 (Research Writing Assistant) | 2026-06-10 |
 | 16 | [yilewang/llm-for-zotero](https://github.com/yilewang/llm-for-zotero) | 3,413 | 热门上升 (7d:+71) | 综合研究 | Codex/MCP | An open-source research agent system for your Zotero library. | 2026-10-22 |
 | 17 | [OpenNSWM-Lab/FAROS](https://github.com/OpenNSWM-Lab/FAROS) | 3,036 | 持续增长 (7d:0) | 综合研究 | 通用 | A blueprint-driven AutoResearch runtime for orchestrating AI research workflows from idea… | 2026-10-21 |
 | 18 | [huangwb8/ChineseResearchLaTeX](https://github.com/huangwb8/ChineseResearchLaTeX) | 2,976 | 热门上升 (7d:+22) | 论文写作 | Claude/Codex | 中国科研常用LaTeX模板集 | 2026-10-17 |
-| 19 | [openags/paper-search-mcp](https://github.com/openags/paper-search-mcp) | 2,918 | 热门上升 (7d:+55) | 综合研究 | MCP | MCP, CLI, Skills for searching and downloading academic papers from multiple sources like… | 2026-10-02 |
-| 20 | [LigphiDonk/academic-figure-generator](https://github.com/LigphiDonk/academic-figure-generator) | 2,734 | 热门上升 (7d:+70) | 综合研究 | 通用 | AI 驱动的学术论文配图生成平台。上传论文 → AI 分析内容生成 Prompt → 一键生成高质量科研配图，还有配套的skill可在主流agent中使用 | 2026-03-27 |
-| 21 | [AIScientists-Dev/academic-humanizer](https://github.com/AIScientists-Dev/academic-humanizer) | 2,659 | 热门上升 (7d:+415) | 综合研究 | Claude/Codex | Strip AI-writing tells from papers and grant proposals (NSF/NIH), while keeping scholarly… | 2026-07-03 |
-| 22 | [HughYau/AcademicForge](https://github.com/HughYau/AcademicForge) | 2,607 | 持续增长 (7d:+6) | 综合研究 | 通用 | One Forge, All Skills: A curated skill collection for academic writing and research. 点开即用… | 2026-08-30 |
-| 23 | [yb2460/harness-anything](https://github.com/yb2460/harness-anything) | 2,522 | 热门上升 (7d:+204) | 文献综述 | 通用 | Harness Anything - AI agent control hub: WPS, MS Office, Zotero, Photoshop, 47 CLI comman… | 2026-10-09 |
+| 19 | [openags/paper-search-mcp](https://github.com/openags/paper-search-mcp) | 2,919 | 热门上升 (7d:+56) | 综合研究 | MCP | MCP, CLI, Skills for searching and downloading academic papers from multiple sources like… | 2026-10-02 |
+| 20 | [LigphiDonk/academic-figure-generator](https://github.com/LigphiDonk/academic-figure-generator) | 2,735 | 热门上升 (7d:+71) | 综合研究 | 通用 | AI 驱动的学术论文配图生成平台。上传论文 → AI 分析内容生成 Prompt → 一键生成高质量科研配图，还有配套的skill可在主流agent中使用 | 2026-03-27 |
+| 21 | [AIScientists-Dev/academic-humanizer](https://github.com/AIScientists-Dev/academic-humanizer) | 2,661 | 热门上升 (7d:+417) | 综合研究 | Claude/Codex | Strip AI-writing tells from papers and grant proposals (NSF/NIH), while keeping scholarly… | 2026-07-03 |
+| 22 | [HughYau/AcademicForge](https://github.com/HughYau/AcademicForge) | 2,608 | 持续增长 (7d:+7) | 综合研究 | 通用 | One Forge, All Skills: A curated skill collection for academic writing and research. 点开即用… | 2026-08-30 |
+| 23 | [yb2460/harness-anything](https://github.com/yb2460/harness-anything) | 2,529 | 热门上升 (7d:+211) | 文献综述 | 通用 | Harness Anything - AI agent control hub: WPS, MS Office, Zotero, Photoshop, 47 CLI comman… | 2026-10-09 |
 | 24 | [Weizhena/Deep-Research-skills](https://github.com/Weizhena/Deep-Research-skills) | 2,421 | 热门上升 (7d:+40) | 深度研究 | Claude/Codex/OpenCode | Structured deep research skill for Claude Code/Open Code/Codex with human-in-the-loop con… | 2026-08-23 |
 | 25 | [llmsresearch/paperbanana](https://github.com/llmsresearch/paperbanana) | 2,419 | 持续增长 (7d:+13) | 综合研究 | Gemini/MCP | Open source implementation and extension of Google Research’s PaperBanana for automated a… | 2026-09-17 |
 | 26 | [bohyy/academic-ai-prompt](https://github.com/bohyy/academic-ai-prompt) | 2,212 | 热门上升 (7d:+67) | 综合研究 | 通用 | 一套为研究生和学术研究者设计的完整AI Prompt库 📖 包含内容： ✨ 40+ 精心设计的AI Prompt ✨ 论文选题系统方法（生成、评估、论证） ✨ 论文查找快速方案（… | 2026-09-02 |
@@ -72,7 +72,7 @@
 | 34 | [PaperDebugger/paperdebugger](https://github.com/PaperDebugger/paperdebugger) | 1,549 | 持续增长 (7d:+3) | 论文写作 | MCP | A Plugin-Based Multi-Agent System for In-Editor Academic Writing, Review, and Editing | 2026-07-03 |
 | 35 | [lishix520/academic-paper-skills](https://github.com/lishix520/academic-paper-skills) | 1,432 | 热门上升 (7d:+28) | 综合研究 | Claude | Systematic framework for planning and writing academic papers using Claude Code. Includes… | 2026-01-04 |
 | 36 | [zsyggg/paper-craft-skills](https://github.com/zsyggg/paper-craft-skills) | 1,398 | 热门上升 (7d:+30) | 综合研究 | Claude | Claude Code skills for academic papers: deep analysis, comics, summaries \| 论文工艺：深度解读、漫画生成… | 2026-05-29 |
-| 37 | [Kiterlin/anti-defensive-writing](https://github.com/Kiterlin/anti-defensive-writing) | 1,385 | 持续增长 (7d:+8) | 论文写作 | Codex | Codex skill for removing defensive writing and strengthening prose. | 2026-10-17 |
+| 37 | [Kiterlin/anti-defensive-writing](https://github.com/Kiterlin/anti-defensive-writing) | 1,386 | 持续增长 (7d:+1) | 论文写作 | Codex | Codex skill for removing defensive writing and strengthening prose. | 2026-10-17 |
 | 38 | [brycewang-stanford/Awesome-Journal-Skills](https://github.com/brycewang-stanford/Awesome-Journal-Skills) | 1,309 | 热门上升 (7d:+37) | 综合研究 | Claude/Codex/MCP | Journal-specific Claude Code/Codex skill packs covering mainstream journals — AER, QJE, N… | 2026-09-27 |
 | 39 | [Spark-To-Paper-Skills/paperjury](https://github.com/Spark-To-Paper-Skills/paperjury) | 1,212 | 稳定 (7d:0) | 论文写作 | Claude | Pre-submission AI review stress-test for research papers. A Claude Code skill: review, ve… | 2026-08-14 |
 | 40 | [199-biotechnologies/claude-deep-research-skill](https://github.com/199-biotechnologies/claude-deep-research-skill) | 1,198 | 持续增长 (7d:+8) | 深度研究 | Claude/Gemini | Enterprise-grade deep research skill for Claude Code with 8-phase pipeline, source credib… | 2026-04-11 |
@@ -91,7 +91,7 @@
 
 近 7 天新进入榜单的仓库：
 
-- **[Kiterlin/anti-defensive-writing](https://github.com/Kiterlin/anti-defensive-writing)** — Codex skill for removing defensive writing and strengthening prose. (1,385 ⭐, 论文写作)
+- **[Kiterlin/anti-defensive-writing](https://github.com/Kiterlin/anti-defensive-writing)** — Codex skill for removing defensive writing and strengthening prose. (1,386 ⭐, 论文写作)
 - **[Boom5426/Nature-Paper-Skills](https://github.com/Boom5426/Nature-Paper-Skills)** — An AI-powered Scientific Writing Workflow: Agent skills for drafting, revising,… (629 ⭐, 论文写作)
 - **[ZyhSechub/chinese-thesis-workbench-skill](https://github.com/ZyhSechub/chinese-thesis-workbench-skill)** — 本科毕业论文skill：会把你的项目的源码、数据库、截图和文献，按学校模板与样文风格，工程化地写成整合成可追溯、可续写、可审查的本科毕业论文 (586 ⭐, 深度研究)
 - **[MrLee2R/Intelligrapher](https://github.com/MrLee2R/Intelligrapher)** — 科研绘图智能助手/Intelligent Assistant for Scientific Research Illustration — Claude Co… (112 ⭐, 综合研究)

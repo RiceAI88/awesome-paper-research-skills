@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T07:28:45Z",
+  "generated_at": "2026-10-26T07:55:12Z",
   "status": "complete",
   "fatal": false,
   "pending": [],
@@ -2675,18 +2675,18 @@
       ]
     },
     {
-      "repo": "everyinc/compound-engineering-plugin",
+      "repo": "hypit-ai/hypit",
       "reasons": [
-        "claude code",
-        "codex",
+        "workflow",
         "plugin",
         "missing_academic_signal"
       ]
     },
     {
-      "repo": "hypit-ai/hypit",
+      "repo": "everyinc/compound-engineering-plugin",
       "reasons": [
-        "workflow",
+        "claude code",
+        "codex",
         "plugin",
         "missing_academic_signal"
       ]
@@ -3472,18 +3472,18 @@
       ]
     },
     {
-      "repo": "openbmb/chatdev",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "nutlope/hallmark",
       "reasons": [
         "skill",
         "claude code",
         "codex",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "openbmb/chatdev",
+      "reasons": [
+        "missing_skill_signal",
         "missing_academic_signal"
       ]
     },
@@ -3631,17 +3631,17 @@
       ]
     },
     {
-      "repo": "awesome-dsh-plugin/awesome-dsh-plugin",
-      "reasons": [
-        "plugin",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "wheresryan22/anatomy",
       "reasons": [
         "skill",
         "agent skill",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "awesome-dsh-plugin/awesome-dsh-plugin",
+      "reasons": [
+        "plugin",
         "missing_academic_signal"
       ]
     },
@@ -4278,19 +4278,19 @@
       ]
     },
     {
+      "repo": "nvidia/isaac-gr00t",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
       "repo": "woooodyy/llm-agent-paper-list",
       "reasons": [
         "paper",
         "survey",
         "missing_skill_signal",
         "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "nvidia/isaac-gr00t",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
       ]
     },
     {
@@ -4394,6 +4394,15 @@
       ]
     },
     {
+      "repo": "lemomo-ai/lemo-opuscar",
+      "reasons": [
+        "skill",
+        "skills",
+        "claude code",
+        "missing_academic_signal"
+      ]
+    },
+    {
       "repo": "deanpeters/product-manager-skills",
       "reasons": [
         "skill",
@@ -4406,15 +4415,6 @@
       "repo": "0xinfection/awesome-waf",
       "reasons": [
         "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "lemomo-ai/lemo-opuscar",
-      "reasons": [
-        "skill",
-        "skills",
-        "claude code",
         "missing_academic_signal"
       ]
     },
@@ -6081,20 +6081,20 @@
       ]
     },
     {
-      "repo": "lobehub/awesome-rsi",
-      "reasons": [
-        "research",
-        "missing_skill_signal",
-        "missing_strong_academic_signal"
-      ]
-    },
-    {
       "repo": "hashgraph-online/awesome-ai-plugins",
       "reasons": [
         "skill",
         "skills",
         "claude code",
         "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "lobehub/awesome-rsi",
+      "reasons": [
+        "research",
+        "missing_skill_signal",
+        "missing_strong_academic_signal"
       ]
     },
     {
@@ -7227,18 +7227,18 @@
       ]
     },
     {
-      "repo": "everyinc/compound-engineering-plugin",
+      "repo": "hypit-ai/hypit",
       "reasons": [
-        "claude code",
-        "codex",
+        "workflow",
         "plugin",
         "missing_academic_signal"
       ]
     },
     {
-      "repo": "hypit-ai/hypit",
+      "repo": "everyinc/compound-engineering-plugin",
       "reasons": [
-        "workflow",
+        "claude code",
+        "codex",
         "plugin",
         "missing_academic_signal"
       ]
@@ -9230,16 +9230,16 @@
       ]
     },
     {
-      "repo": "igorbarinov/awesome-data-engineering",
+      "repo": "yujunzhixue/dsh-purge",
       "reasons": [
-        "missing_skill_signal",
+        "plugin",
         "missing_academic_signal"
       ]
     },
     {
-      "repo": "yujunzhixue/dsh-purge",
+      "repo": "igorbarinov/awesome-data-engineering",
       "reasons": [
-        "plugin",
+        "missing_skill_signal",
         "missing_academic_signal"
       ]
     },
@@ -10024,6 +10024,14 @@
         "missing_academic_signal",
         "negative:cryptocurrency",
         "negative:crypto"
+      ]
+    },
+    {
+      "repo": "zapplyjobs/internships-2027",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "negative:interview"
       ]
     },
     {
@@ -10825,16 +10833,6 @@
       ]
     },
     {
-      "repo": "amap-ml/longhorizon-harness",
-      "reasons": [
-        "claude code",
-        "codex",
-        "workflow",
-        "missing_academic_signal",
-        "negative:desktop app"
-      ]
-    },
-    {
       "repo": "jwasham/coding-interview-university",
       "reasons": [
         "science",
@@ -11435,7 +11433,7 @@
       ]
     },
     {
-      "repo": "deanpeters/product-manager-skills",
+      "repo": "lemomo-ai/lemo-opuscar",
       "reasons": [
         "skill",
         "skills",
@@ -11444,7 +11442,7 @@
       ]
     },
     {
-      "repo": "lemomo-ai/lemo-opuscar",
+      "repo": "deanpeters/product-manager-skills",
       "reasons": [
         "skill",
         "skills",
@@ -11869,18 +11867,18 @@
       ]
     },
     {
-      "repo": "codyreichert/awesome-cl",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "kuafuai/andee",
       "reasons": [
         "roo",
         "missing_academic_signal",
         "missing_strong_skill_signal"
+      ]
+    },
+    {
+      "repo": "codyreichert/awesome-cl",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
       ]
     },
     {
@@ -16100,13 +16098,6 @@
       ]
     },
     {
-      "repo": "aikorea/awesome-rl",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "companion-inc/feynman",
       "reasons": [
         "research",
@@ -16115,6 +16106,13 @@
         "arxiv",
         "missing_skill_signal",
         "missing_high_confidence_academic_signal"
+      ]
+    },
+    {
+      "repo": "aikorea/awesome-rl",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
       ]
     },
     {
@@ -19405,18 +19403,18 @@
       ]
     },
     {
-      "repo": "everyinc/compound-engineering-plugin",
+      "repo": "hypit-ai/hypit",
       "reasons": [
-        "claude code",
-        "codex",
+        "workflow",
         "plugin",
         "missing_academic_signal"
       ]
     },
     {
-      "repo": "hypit-ai/hypit",
+      "repo": "everyinc/compound-engineering-plugin",
       "reasons": [
-        "workflow",
+        "claude code",
+        "codex",
         "plugin",
         "missing_academic_signal"
       ]
@@ -20830,7 +20828,7 @@
       ]
     },
     {
-      "repo": "deanpeters/product-manager-skills",
+      "repo": "lemomo-ai/lemo-opuscar",
       "reasons": [
         "skill",
         "skills",
@@ -20839,7 +20837,7 @@
       ]
     },
     {
-      "repo": "lemomo-ai/lemo-opuscar",
+      "repo": "deanpeters/product-manager-skills",
       "reasons": [
         "skill",
         "skills",
@@ -21475,7 +21473,7 @@
       ]
     },
     {
-      "repo": "anative-lab/evoagentx",
+      "repo": "aviaryan/awesome-no-login-web-apps",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
@@ -24593,6 +24591,15 @@
       ]
     },
     {
+      "repo": "microsoft/hve-core",
+      "reasons": [
+        "skill",
+        "skills",
+        "copilot",
+        "missing_academic_signal"
+      ]
+    },
+    {
       "repo": "chenryn/aiops-handbook",
       "reasons": [
         "paper",
@@ -24605,15 +24612,6 @@
       "repo": "soroushchehresa/awesome-coronavirus",
       "reasons": [
         "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "microsoft/hve-core",
-      "reasons": [
-        "skill",
-        "skills",
-        "copilot",
         "missing_academic_signal"
       ]
     },
@@ -27020,6 +27018,13 @@
       ]
     },
     {
+      "repo": "ningzimu/awesome-ai-ppt",
+      "reasons": [
+        "workflow",
+        "missing_academic_signal"
+      ]
+    },
+    {
       "repo": "tuyucheng777/awesome-java",
       "reasons": [
         "missing_skill_signal",
@@ -27030,13 +27035,6 @@
       "repo": "lancelot-xie/img2pptx",
       "reasons": [
         "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "ningzimu/awesome-ai-ppt",
-      "reasons": [
-        "workflow",
         "missing_academic_signal"
       ]
     },
@@ -28409,14 +28407,14 @@
       ]
     },
     {
-      "repo": "joeseesun/opus-video-prompts",
+      "repo": "zihenghe04/aibro",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
       ]
     },
     {
-      "repo": "zihenghe04/aibro",
+      "repo": "joeseesun/opus-video-prompts",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
@@ -28777,7 +28775,7 @@
   "searches": [
     {
       "query": "academic skill in:name,description,readme",
-      "total": 1289,
+      "total": 1290,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true
@@ -28791,7 +28789,7 @@
     },
     {
       "query": "paper skill in:name,description,readme",
-      "total": 3084,
+      "total": 3086,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true
@@ -28805,7 +28803,7 @@
     },
     {
       "query": "claude code research in:name,description,readme",
-      "total": 5462,
+      "total": 5463,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true
@@ -28819,21 +28817,21 @@
     },
     {
       "query": "scientific agent skills in:name,description,readme",
-      "total": 879,
+      "total": 880,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true
     },
     {
       "query": "paper writing claude in:name,description,readme",
-      "total": 945,
+      "total": 946,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true
     },
     {
       "query": "academic paper agent in:name,description,readme",
-      "total": 1083,
+      "total": 1084,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true
@@ -28861,7 +28859,7 @@
     },
     {
       "query": "research agent skill in:name,description,readme",
-      "total": 4832,
+      "total": 4833,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true
@@ -28875,7 +28873,7 @@
     },
     {
       "query": "experiment reproduction skill in:name,description,readme",
-      "total": 229,
+      "total": 230,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true
@@ -28889,7 +28887,7 @@
     },
     {
       "query": "academic writing agent in:name,description,readme",
-      "total": 751,
+      "total": 752,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true
@@ -28903,7 +28901,7 @@
     },
     {
       "query": "论文 skill in:name,description,readme",
-      "total": 580,
+      "total": 581,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true
@@ -28916,542 +28914,6 @@
       "limit_reached": false
     }
   ],
-  "changes": [
-    {
-      "repo": "0antique/auto-visio-helper",
-      "action": "restored"
-    },
-    {
-      "repo": "0xe1337/thesis-figure-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "1692775560/dsh-mimir-academic-research",
-      "action": "restored"
-    },
-    {
-      "repo": "199-biotechnologies/claude-deep-research-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "7tocr/paper2patent",
-      "action": "restored"
-    },
-    {
-      "repo": "adkid-zephyr/anti-defensive-writing-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "adkid-zephyr/oral-paper-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "aipoch/medical-research-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "aiscientists-dev/academic-humanizer",
-      "action": "restored"
-    },
-    {
-      "repo": "alephpi/texo",
-      "action": "restored"
-    },
-    {
-      "repo": "alfonso0512/research-writing-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "anon-research-tools/academic-literature-route",
-      "action": "restored"
-    },
-    {
-      "repo": "ar9av/paperorchestra",
-      "action": "restored"
-    },
-    {
-      "repo": "aspi6246/claude-code-skills-for-academics",
-      "action": "restored"
-    },
-    {
-      "repo": "bohyy/academic-ai-prompt",
-      "action": "restored"
-    },
-    {
-      "repo": "boom5426/nature-paper-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "brycewang-stanford/auto-empirical-research-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "brycewang-stanford/auto-research-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "brycewang-stanford/awesome-journal-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "cheneternity/zotero-analytical-workflow-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "chenliu-1996/figures4papers",
-      "action": "restored"
-    },
-    {
-      "repo": "chtc66/academic-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "citrus-bit/anaxa",
-      "action": "restored"
-    },
-    {
-      "repo": "claesbackman/ai-research-feedback",
-      "action": "restored"
-    },
-    {
-      "repo": "clin-c/paper-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "cloudwave818/ieee-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "congcongwang0122/zotero-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "cookjohn/cnki-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "cpt13-g/clarify-research-idea",
-      "action": "restored"
-    },
-    {
-      "repo": "csmar432/finai-research",
-      "action": "restored"
-    },
-    {
-      "repo": "delibae/claude-prism",
-      "action": "restored"
-    },
-    {
-      "repo": "doryoku1223/lunwen-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "dqxcj-a11y/thesis-skill-hub",
-      "action": "restored"
-    },
-    {
-      "repo": "drchronx/ai-agent-research-starter-kit",
-      "action": "restored"
-    },
-    {
-      "repo": "dushiqi1987/codex-remote-bridge",
-      "action": "renamed",
-      "to": "dushiqi1987/codex-remote-skill"
-    },
-    {
-      "repo": "dushiqi1987/codex-remote-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "edwardxlai/easyread",
-      "action": "restored"
-    },
-    {
-      "repo": "fakerqwq/social-science-paper-writing-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "fcakyon/phd-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "flonat/flonat-research",
-      "action": "restored"
-    },
-    {
-      "repo": "ganzhi-black/humanities-thesis-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "handsomezr-netizen/ko5.6sol",
-      "action": "restored"
-    },
-    {
-      "repo": "hanlulong/econ-writing-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "haojae/scipilot-writing-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "haonanalex/mgmt-paper-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "hkcanan/katmer-code",
-      "action": "restored"
-    },
-    {
-      "repo": "hkustdial/supervisor-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "hoochanlon/hamuleite",
-      "action": "restored"
-    },
-    {
-      "repo": "hrdzhu/modelviz-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "huangkiki/dailypaper-skills",
-      "action": "removed",
-      "reasons": [
-        "skill",
-        "skills",
-        "agent skill",
-        "research",
-        "paper",
-        "review",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "huangwb8/chineseresearchlatex",
-      "action": "restored"
-    },
-    {
-      "repo": "hughyau/academicforge",
-      "action": "restored"
-    },
-    {
-      "repo": "imbad0202/academic-research-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "imbad0202/academic-research-skills-codex",
-      "action": "restored"
-    },
-    {
-      "repo": "jesseovo/papercash",
-      "action": "restored"
-    },
-    {
-      "repo": "jihe520/mathmodelagent",
-      "action": "restored"
-    },
-    {
-      "repo": "jihe520/sci-box",
-      "action": "restored"
-    },
-    {
-      "repo": "jimmc414/kosmos",
-      "action": "restored"
-    },
-    {
-      "repo": "juliaerror/econ-topjournal-writing-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "juliye2025/evil-read-arxiv",
-      "action": "restored"
-    },
-    {
-      "repo": "k-dense-ai/scientific-agent-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "kiterlin/anti-defensive-writing",
-      "action": "restored"
-    },
-    {
-      "repo": "leonchaox/qinyan-academic-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "liangdabiao/stem-illustration-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "light0305/light-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "ligphidonk/academic-figure-generator",
-      "action": "restored"
-    },
-    {
-      "repo": "ligphidonk/oh-my--paper",
-      "action": "restored"
-    },
-    {
-      "repo": "limhyungtae/awesome-claudecode-paper-proofreading",
-      "action": "restored"
-    },
-    {
-      "repo": "lishix520/academic-paper-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "liuxiangjian-ai/reference-checker-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "llmsresearch/paperbanana",
-      "action": "restored"
-    },
-    {
-      "repo": "lmdhq-0420/researchpilot-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "lupynow/math-modeling-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "lzh-phd/topic-feasibility-screener",
-      "action": "restored"
-    },
-    {
-      "repo": "m1n-n9/paper-lifecycle",
-      "action": "restored"
-    },
-    {
-      "repo": "master-cai/research-paper-writing-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "maxwell2732/codex-stata-for-economists",
-      "action": "restored"
-    },
-    {
-      "repo": "maxwell2732/my-submission-formatting-agent",
-      "action": "restored"
-    },
-    {
-      "repo": "maxwell2732/paper-replicate-agent-demo",
-      "action": "restored"
-    },
-    {
-      "repo": "mims-harvard/tooluniverse",
-      "action": "restored"
-    },
-    {
-      "repo": "modelscope/awesome-vibe-research",
-      "action": "restored"
-    },
-    {
-      "repo": "mrlee2r/intelligrapher",
-      "action": "restored"
-    },
-    {
-      "repo": "norman-bury/research-writing-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "openags/paper-search-mcp",
-      "action": "restored"
-    },
-    {
-      "repo": "openlair/dr-claw",
-      "action": "restored"
-    },
-    {
-      "repo": "opennswm-lab/faros",
-      "action": "restored"
-    },
-    {
-      "repo": "orchestra-research/ai-research-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "paperdebugger/paperdebugger",
-      "action": "restored"
-    },
-    {
-      "repo": "pedrohcgs/claude-code-my-workflow",
-      "action": "restored"
-    },
-    {
-      "repo": "pengjunchi0/codex-visio-paper-figure-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "rimagination/instsci",
-      "action": "restored"
-    },
-    {
-      "repo": "shzhao27208/aut_sci_write",
-      "action": "restored"
-    },
-    {
-      "repo": "smbai1998/sci-ps-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "snl-ucsb/paper-writing-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "spark-to-paper-skills/paperjury",
-      "action": "restored"
-    },
-    {
-      "repo": "stephenlzc/ai-powered-literature-review-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "stryxtn/awesome-ai-research-writing",
-      "action": "restored"
-    },
-    {
-      "repo": "thisislittlesky/waterpaper",
-      "action": "removed",
-      "reasons": [
-        "below_min_stars",
-        "skill",
-        "academic",
-        "paper",
-        "literature",
-        "论文"
-      ]
-    },
-    {
-      "repo": "tingxiyu/academic-figure-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "trae1oung/paper-plot-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "voltagent/awesome-ai-agent-papers",
-      "action": "restored"
-    },
-    {
-      "repo": "wanshuiyin/auto-claude-code-research-in-sleep",
-      "action": "restored"
-    },
-    {
-      "repo": "weizhena/deep-research-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "wentorai/research-plugins",
-      "action": "restored"
-    },
-    {
-      "repo": "wenyuchiou/ai-research-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "wilbert-md-phd/medical-illustration",
-      "action": "restored"
-    },
-    {
-      "repo": "wp-a/nature-academic-search",
-      "action": "restored"
-    },
-    {
-      "repo": "wubing2023/paperspine",
-      "action": "removed",
-      "reasons": [
-        "research",
-        "paper",
-        "papers",
-        "review",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "wycmochi/cn-academic-spark",
-      "action": "restored"
-    },
-    {
-      "repo": "xiao24bei/xiaobei-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "xiaofenggan01/aigc-reduce",
-      "action": "restored"
-    },
-    {
-      "repo": "xiaomacoltai/math-modeling-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "xujingchen1996/research-app-toolkit",
-      "action": "restored"
-    },
-    {
-      "repo": "yanlin-cheng/skill-thesis-writer",
-      "action": "restored"
-    },
-    {
-      "repo": "yb2460/harness-anything",
-      "action": "restored"
-    },
-    {
-      "repo": "yilewang/llm-for-zotero",
-      "action": "restored"
-    },
-    {
-      "repo": "yipng05-max/-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "yjz211/vivid-figures-skill",
-      "action": "renamed",
-      "to": "yjz211/vivid-illustration-skill"
-    },
-    {
-      "repo": "yjz211/vivid-illustration-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "yrui-cmd/cell",
-      "action": "restored"
-    },
-    {
-      "repo": "yuan1z0825/nature-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "z-liu-xiugou/research-workbench-assistant",
-      "action": "restored"
-    },
-    {
-      "repo": "zheng95z/teach-yourself-research",
-      "action": "restored"
-    },
-    {
-      "repo": "zlanqing/codex-claude-academic-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "zouchenzhen/thesis-defense-pptx-skill",
-      "action": "restored"
-    },
-    {
-      "repo": "zsyggg/paper-craft-skills",
-      "action": "restored"
-    },
-    {
-      "repo": "zyhsechub/chinese-thesis-workbench-skill",
-      "action": "restored"
-    }
-  ],
+  "changes": [],
   "outside_rank_limit": []
 }
