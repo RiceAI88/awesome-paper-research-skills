@@ -1,8 +1,7 @@
 import React from "react";
 import logo from "../assets/zhi1ke-logo.png";
 
-const destination =
-  "https://zhi1ke.com/?utm_source=awesome-paper-research-skills&utm_medium=referral&utm_campaign=ranking_front";
+const destination = "https://zhi1ke.com?pic=6PEB";
 
 export function Zhi1keAd({ t }) {
   return (

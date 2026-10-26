@@ -16,10 +16,8 @@ for (const [width, view] of [
     const link = ad.getByRole("link", { name: /免费生成提纲/ });
     const url = new URL(await link.getAttribute("href"));
     expect(url.origin).toBe("https://zhi1ke.com");
-    expect(url.searchParams.get("utm_source")).toBe(
-      "awesome-paper-research-skills",
-    );
-    expect(url.searchParams.get("utm_medium")).toBe("referral");
+    expect(url.searchParams.get("pic")).toBe("6PEB");
+    await expect(link).toHaveAttribute("href", "https://zhi1ke.com?pic=6PEB");
     await expect(link).toHaveAttribute("target", "_blank");
     await expect(link).toHaveAttribute("rel", /sponsored/);
     await expect(link).toHaveAttribute("rel", /noopener/);
