@@ -11,7 +11,7 @@ for (const [width, view] of [
     await page.goto(`./#view=${view}`);
     const ad = page.getByTestId("zhi1ke-ad");
     await expect(ad).toHaveCount(1);
-    await expect(ad).toContainText("广告");
+    await expect(ad).not.toContainText("广告");
     await expect(ad).toContainText("从一个题目，到一篇论文初稿。");
     const link = ad.getByRole("link", { name: /免费生成提纲/ });
     const url = new URL(await link.getAttribute("href"));
@@ -64,7 +64,7 @@ test("mobile English dark advertisement stays readable and does not repeat when 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("./#view=card&lang=en&theme=dark");
   const ad = page.getByTestId("zhi1ke-ad");
-  await expect(ad).toContainText("Advertisement");
+  await expect(ad).not.toContainText("Advertisement");
   await expect(
     ad.getByRole("link", { name: /Generate a free outline/ }),
   ).toBeVisible();

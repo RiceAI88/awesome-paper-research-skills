@@ -7,11 +7,10 @@ export function Zhi1keAd({ t }) {
   return (
     <aside
       className="sponsor-banner"
-      aria-label={`${t("advertisement")} · 智一刻 AI`}
+      aria-label="智一刻 AI"
       data-testid="zhi1ke-ad"
     >
       <div className="sponsor-content">
-        <span className="sponsor-label">{t("advertisement")}</span>
         <span className="sponsor-brand">
           <img src={logo} alt="" width={24} height={18} decoding="async" />
           智一刻 AI
