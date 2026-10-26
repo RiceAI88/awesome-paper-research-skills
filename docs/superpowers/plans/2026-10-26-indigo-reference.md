@@ -29,7 +29,7 @@
 - [x] Rearrange App hero/toolbar/summary, move beginner paths below ranking with an anchor; keep other interactions. Compact accessible card metadata and ad markup.
 - [x] Implement indigo layout/theme across Ant Design tokens, cards, ad and chart colors. Inspect desktop/mobile screenshots against the reference.
 - [x] Adjust superseded layout assertions while preserving functional regression coverage; run production build, Node/Python/browser suites and one independent review.
-- [ ] Publish, verify live data/cards/mobile behavior, and record results.
+- [x] Publish, verify live data/cards/mobile behavior, and record results.
 
 ## Verification ledger
 - Initial reference checks RED (4/4) before implementation; palette, search position, owner/title/footer hierarchy and responsive ad placement subsequently GREEN.
@@ -42,3 +42,6 @@
 - Final: fixed volatile live-data assertions with a controlled fixture — fixture mismatch RED→GREEN.
 - Final: fixed empty beginner-path entry — empty-target navigation test RED→GREEN.
 - Final pre-publish verification: production build passed; Node 40/40, Python 72/72, browser 116/116; git diff --check clean. No deferred review findings remain.
+
+- Preserved the concurrent data update d007e95 during integration; rebuilt and reran Node 40/40 and browser 116/116 against those fresh 122 entries.
+- Published implementation d59e773; Pages deployment 40297621866 succeeded. Live desktop verified exact warm-white/indigo tokens, default 30-card batch and a single ad after row one. Live 390px Chinese and 320px English dark touch contexts passed no-overflow and visible comparison-action checks.
