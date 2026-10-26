@@ -149,6 +149,12 @@ The ranking requires **both** a skill/agent/workflow signal **and** an academic/
 - **SEO & subscription**: sitemap, Open Graph cover, JSON-LD `ItemList`, and an **RSS feed** of daily newcomers + trending repos.
 - Machine-readable **JSON** / **CSV** (incl. license, forks, open issues, 30-day delta).
 
+## 公开访问统计
+
+页脚显示入口页面的累计访问次数和访客数，使用 [开源不蒜子](https://github.com/soxft/busuanzi) 的公共统计服务。中英文入口使用相同的项目地址计数，不混入同域其他 GitHub Pages 项目。搜索、筛选、切换语言和视图不重复计数；刷新或重新打开入口会计为新访问。
+
+数据自接入后累计，访客数为第三方服务的去重估算，仅供参考。统计请求只发送固定项目地址，不携带搜索词或筛选条件，不引入第三方脚本。服务不可用时显示“访问统计暂不可用”，不影响榜单。本地预览和 WebDriver 自动化不提交访问记录。统计服务地址和项目标识位于 `src/visits.js`；公共服务不保证数据永久保存。
+
 ## 来源与致谢
 
 本项目基于 [kael-odin/awesome-academic-research-skills](https://github.com/kael-odin/awesome-academic-research-skills) 导入并进行后续改版，感谢原作者 [kael-odin](https://github.com/kael-odin) 的开源贡献。

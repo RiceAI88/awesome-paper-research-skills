@@ -1675,6 +1675,13 @@ h1 em {
 .ranking-table .ant-table-cell-fix-right { background: var(--prs-panel); }
 .repository-drawer .repository-actions .ant-btn { min-height: 32px; }
 .drawer-footer-actions { display: grid; gap: 8px; }
+.site-footer { flex-wrap: wrap; }
+.site-footer:has(.visit-counter) { padding-bottom: calc(90px + env(safe-area-inset-bottom, 0px)); }
+.feedback-app:has(.compare-tray) .site-footer:has(.visit-counter) { padding-bottom: calc(230px + env(safe-area-inset-bottom, 0px)); }
+.visit-counter { flex-basis: 100%; display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 13px; line-height: 1.6; }
+.visit-counter > span { white-space: nowrap; }
+.visit-counter strong { font-weight: 500; font-variant-numeric: tabular-nums; }
+.visit-counter a { margin-left: 6px; font-size: 12px; color: var(--prs-muted); }
 .drawer-primary-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
 .drawer-secondary-actions .ant-btn { font-size: 13px; padding-inline: 8px; }
 @media (max-width: 760px) {

@@ -1,4 +1,5 @@
 import { BackToTop } from "./components/BackToTop";
+import { VisitCounter } from "./components/VisitCounter";
 import { SearchBox } from "./components/SearchBox";
 import { Panel } from "./components/Panel";
 import React, {
@@ -778,6 +779,7 @@ function Dashboard({ state, update }) {
           </a>
         </span>
         <span className="keyboard-hint">{t("shortcuts")}</span>
+        <VisitCounter t={t} lang={state.lang} />
       </footer>
       {(selected || drawerRequested) && (
         <DeferredFeature t={t}>
