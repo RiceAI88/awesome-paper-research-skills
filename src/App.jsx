@@ -1,3 +1,4 @@
+import { RechargeAd } from "./components/RechargeAd";
 import { BackToTop } from "./components/BackToTop";
 import { VisitCounter } from "./components/VisitCounter";
 import { SearchBox } from "./components/SearchBox";
@@ -417,6 +418,7 @@ function Dashboard({ state, update }) {
               GitHub
             </Button>
           </Space>
+          <RechargeAd t={t} />
         </nav>
         <section className="hero container">
           <div className="hero-copy">

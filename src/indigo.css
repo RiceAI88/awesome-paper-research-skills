@@ -772,4 +772,13 @@ a:focus-visible,
   }
 }
 
-.ranking-section > .panel-body > .recharge-banner { margin-top: 20px; }
+
+/* A small self-operated support link in the top navigation. */
+.support-card { flex: 0 0 auto; width: 260px; max-width: 100%; }
+.support-card-link { display: grid; gap: 2px; padding: 8px 12px; border: 1px solid var(--prs-border); border-radius: 10px; background: var(--prs-tint); text-decoration: none; color: var(--prs-text); }
+.support-card-link:hover { border-color: var(--prs-primary); color: var(--prs-text); }
+.support-card-heading { display: flex; align-items: center; gap: 8px; line-height: 20px; }
+.support-card-heading strong { color: var(--prs-primary); font-size: 13px; font-weight: 500; }
+.support-ad-label { font-size: 10px; color: var(--prs-muted); }
+.support-card-arrow { margin-left: auto; color: var(--prs-primary); font-size: 14px; }
+.support-card-caption { font-size: 12px; line-height: 17px; color: var(--prs-muted); overflow-wrap: anywhere; }
