@@ -11,7 +11,7 @@
 - [x] Integrate file inventory types and freshness fields. Save only confirmed star observations; fill missing same-day historical observations without overwriting earlier observations.
 - [x] Add compact type/pending labels and partial-update status. Keep original descriptions, Stars ranking, advertising, and scheduling unchanged.
 - [x] Commit catalog/report through the update workflow and upload diagnostics on failure. Update methodology documentation.
-- [ ] Run Python, frontend and browser checks; independent review; publish and perform a live collection to restore eligible omitted repositories.
+- [x] Run Python, frontend and browser checks; independent review; publish and perform a live collection to restore eligible omitted repositories.
 
 User choice: retain research Skills and related tools with explicit type labels. A SKILL.md filename proves file presence, not installation success or content quality. Zero files is only a confirmed related-project type after a complete tree scan. API errors and truncated zero-file trees remain unverified.
 
@@ -27,3 +27,7 @@ User choice: retain research Skills and related tools with explicit type labels.
 - Final: fixed repeated removal events — test_confirmed_removal_is_not_repeated_from_historical_cache RED→GREEN. Full Python suite 71/71.
 
 - Final verification before publish: Python 72/72, Node 39/39, browser 111/111, production build and git diff --check passed. Auxiliary cached metadata regression RED→GREEN. Local network collection was cancelled before writing data; production Actions will perform the authoritative collection.
+
+- Production collection [40285989024](https://github.com/RiceAI88/awesome-paper-research-skills/actions/runs/40285989024) succeeded; generated data commit e0eb95d. 122 ranked projects (114 → 122), 8 restored, none removed, zero pending and zero search errors. File inventory: 107 with SKILL.md, 15 related projects.
+- Production Pages [40286612642](https://github.com/RiceAI88/awesome-paper-research-skills/actions/runs/40286612642) succeeded. Live JSON/report and browser UI confirmed flonat/flonat-research (147 Stars, 87 skills).
+- Rebuilt with the published dataset: Node 39/39, browser 111/111. Known project refresh remains independent of bounded discovery (19 search queries reached their configured result cap).
