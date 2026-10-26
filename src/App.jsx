@@ -214,21 +214,31 @@ function Dashboard({ state, update }) {
   const search = useRef(null);
   const stickySearch = useRef(null);
   const [stickySearchVisible, setStickySearchVisible] = useState(false);
-  useEffect(() => {
+  const syncStickySearch = useCallback(() => {
     const input = search.current?.input;
-    if (!input) return;
-    const measure = () => {
-      if (document.activeElement?.id === "stickySearchInput") return;
-      setStickySearchVisible(input.getBoundingClientRect().bottom < 0);
-    };
-    measure();
-    addEventListener("scroll", measure, { passive: true });
-    addEventListener("resize", measure);
-    return () => {
-      removeEventListener("scroll", measure);
-      removeEventListener("resize", measure);
-    };
+    const toolbar = filterRef.current;
+    if (
+      !input ||
+      !toolbar ||
+      document.activeElement?.id === "stickySearchInput"
+    )
+      return;
+    const top = input.getBoundingClientRect().top;
+    // Enter when the toolbar is pinned; return only after the original input is fully visible.
+    setStickySearchVisible((showing) =>
+      showing ? top < 8 : toolbar.getBoundingClientRect().top <= 0,
+    );
   }, []);
+  useEffect(() => {
+    syncStickySearch();
+    addEventListener("scroll", syncStickySearch, { passive: true });
+    addEventListener("resize", syncStickySearch);
+    return () => {
+      removeEventListener("scroll", syncStickySearch);
+      removeEventListener("resize", syncStickySearch);
+    };
+  }, [syncStickySearch]);
+
   const t = (key) => translations[state.lang][key] || key;
   const fmt = (value) =>
     new Intl.NumberFormat(state.lang === "zh" ? "zh-CN" : "en-US").format(
@@ -284,7 +294,7 @@ function Dashboard({ state, update }) {
         return;
       if (e.key === "/") {
         e.preventDefault();
-        (stickySearch.current || search.current)?.focus();
+        (stickySearchVisible ? stickySearch.current : search.current)?.focus();
       }
       if (e.key === "t")
         update((s) => ({
@@ -299,7 +309,7 @@ function Dashboard({ state, update }) {
     };
     document.addEventListener("keydown", handler);
     return () => document.removeEventListener("keydown", handler);
-  }, [compareOpen, state.repo, update]);
+  }, [compareOpen, state.repo, update, stickySearchVisible]);
   function exportFavorites() {
     const favorites = items
       .filter((i) => state.favorites.includes(i.repo))
@@ -456,7 +466,12 @@ function Dashboard({ state, update }) {
             <span className="sr-only" id="taskCountHint">
               {t("taskCountHint")}
             </span>
-            <div className="task-list" title={t("taskCountHint")}>
+            <div
+              className="task-list"
+              title={t("taskCountHint")}
+              inert={stickySearchVisible || undefined}
+              aria-hidden={stickySearchVisible || undefined}
+            >
               <Button
                 type="default"
                 data-task="all"
@@ -500,34 +515,26 @@ function Dashboard({ state, update }) {
                 </Button>
               ))}
             </div>
+            <div className="sticky-search-slot">
+              <SearchBox
+                inactive={!stickySearchVisible}
+                inputRef={stickySearch}
+                state={state}
+                update={update}
+                items={visible}
+                taskOptions={RESEARCH_TASKS.map((task) => ({
+                  id: task.id,
+                  label: t(taskLabels[task.id]),
+                }))}
+                t={t}
+                onBlur={syncStickySearch}
+                inputId="stickySearchInput"
+                compact
+              />
+            </div>
             <p className="task-count-note sr-only">{t("taskCountNote")}</p>
           </section>
           <div className="filter-fields">
-            {stickySearchVisible && (
-              <div className="sticky-search-slot">
-                <SearchBox
-                  inputRef={stickySearch}
-                  state={state}
-                  update={update}
-                  items={visible}
-                  taskOptions={RESEARCH_TASKS.map((task) => ({
-                    id: task.id,
-                    label: t(taskLabels[task.id]),
-                  }))}
-                  t={t}
-                  onBlur={() =>
-                    setStickySearchVisible(
-                      Boolean(
-                        search.current?.input &&
-                        search.current.input.getBoundingClientRect().bottom < 0,
-                      ),
-                    )
-                  }
-                  inputId="stickySearchInput"
-                  compact
-                />
-              </div>
-            )}
             <label htmlFor="categoryFilter">
               <span>{t("categoryLabel")}</span>
               <Select

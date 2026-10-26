@@ -159,7 +159,8 @@ test("sticky search returns to hero after losing focus at the top and mobile hid
   await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
   await page.locator("h1").click();
   await expect(page.locator("#searchInput")).toBeVisible();
-  await expect(page.locator("#stickySearchInput")).toHaveCount(0);
+  await expect(page.locator("#stickySearchInput")).toBeHidden();
+  await expect(page.getByRole("searchbox")).toHaveCount(1);
   await page.setViewportSize({ width: 390, height: 844 });
   await expect(page.locator("footer").getByText(/^快捷键：/)).not.toBeVisible();
 });

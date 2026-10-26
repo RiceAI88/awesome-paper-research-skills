@@ -79,6 +79,11 @@
   flex: 0 1 360px;
   width: 360px;
   margin: 0;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 140ms ease,
+    visibility 0s;
 }
 .hero-search label {
   position: absolute;
@@ -100,8 +105,30 @@
 .hero .search-suggestions {
   z-index: 50;
 }
+.hero-search .ant-input-prefix .anticon {
+  color: #9791ac;
+}
+[data-theme="dark"] .hero-search .ant-input-prefix .anticon {
+  color: #aaa4c4;
+}
 .sticky-search-active .hero > .hero-search {
+  opacity: 0;
   visibility: hidden;
+  transition:
+    opacity 140ms ease,
+    visibility 0s 140ms;
+}
+.task-list {
+  transition:
+    opacity 140ms ease,
+    visibility 0s;
+}
+.sticky-search-active .task-list {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 140ms ease,
+    visibility 0s 140ms;
 }
 .filters,
 .filters:has(.sticky-search-slot) {
@@ -116,6 +143,7 @@
   background: var(--prs-bg);
 }
 .task-navigation {
+  position: relative;
   flex: 1 1 auto;
   min-width: 0;
   margin: 0;
@@ -201,18 +229,32 @@
   background: transparent;
   padding-inline: 0;
 }
-.filters:has(.sticky-search-slot) {
-  padding-block: 8px;
-}
-.filters:has(.sticky-search-slot) .task-navigation {
-  display: none;
-}
-.filters:has(.sticky-search-slot) .filter-fields {
-  flex: 1;
-}
 .sticky-search-slot {
-  flex: 1;
-  min-width: 180px;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 140ms ease,
+    visibility 0s 140ms;
+}
+.sticky-search-active .sticky-search-slot {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition:
+    opacity 140ms ease,
+    visibility 0s;
+}
+.sticky-search-slot .hero-search {
+  width: 100%;
+  margin: 0;
+}
+.sticky-search-slot .hero-search .ant-input-affix-wrapper {
+  min-height: 40px;
 }
 .ranking-section {
   border: 0;
@@ -569,7 +611,8 @@ a:focus-visible,
   .filter-fields {
     width: 100%;
   }
-  .filters {
+  .filters,
+  .filters:has(.sticky-search-slot) {
     gap: 0;
   }
   .filter-fields > label {
@@ -645,12 +688,6 @@ a:focus-visible,
   .filter-fields .ant-select {
     font-size: 12px;
   }
-  .filters:has(.sticky-search-slot) .sticky-search-slot {
-    flex-basis: 100%;
-  }
-  .filters:has(.sticky-search-slot) .filter-fields {
-    padding-bottom: 0;
-  }
   .ranking-header {
     display: flex;
     flex-wrap: wrap;
@@ -721,5 +758,16 @@ a:focus-visible,
   }
   .repository-card:hover {
     transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero > .hero-search,
+  .sticky-search-slot,
+  .task-list,
+  .sticky-search-active .hero > .hero-search,
+  .sticky-search-active .sticky-search-slot,
+  .sticky-search-active .task-list {
+    transition: none;
   }
 }
