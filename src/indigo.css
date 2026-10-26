@@ -779,6 +779,5 @@ a:focus-visible,
 .support-card-link:hover { border-color: var(--prs-primary); color: var(--prs-text); }
 .support-card-heading { display: flex; align-items: center; gap: 8px; line-height: 20px; }
 .support-card-heading strong { color: var(--prs-primary); font-size: 13px; font-weight: 500; }
-.support-ad-label { font-size: 10px; color: var(--prs-muted); }
 .support-card-arrow { margin-left: auto; color: var(--prs-primary); font-size: 14px; }
 .support-card-caption { font-size: 12px; line-height: 17px; color: var(--prs-muted); overflow-wrap: anywhere; }

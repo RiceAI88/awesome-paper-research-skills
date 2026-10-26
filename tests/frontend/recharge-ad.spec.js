@@ -7,7 +7,7 @@ for (const width of [1280, 390])
     await page.goto("./#view=card");
     const ad = page.getByTestId("gpt-recharge-ad");
     await expect(ad).toHaveCount(1);
-    await expect(ad).toContainText("广告");
+    await expect(ad).not.toContainText("广告");
     await expect(ad).toContainText("自营 GPT / Codex 代充");
     await expect(ad).toContainText("有账单");
     const link = ad.getByRole("link", { name: /支持一下本站/ });
@@ -39,7 +39,7 @@ test("English dark table retains the ad separately from repository rows", async 
 }) => {
   await page.goto("./#view=table&lang=en&theme=dark");
   const ad = page.getByTestId("gpt-recharge-ad");
-  await expect(ad).toContainText("Advertisement");
+  await expect(ad).not.toContainText("Advertisement");
   await expect(ad).toContainText("Billing records");
   await expect(page.locator(".ant-table-row")).toHaveCount(30);
   expect(await ad.evaluate((e) => e.closest(".ant-table") === null)).toBe(true);

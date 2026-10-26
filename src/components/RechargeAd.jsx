@@ -4,7 +4,7 @@ export function RechargeAd({ t }) {
   return (
     <aside
       className="support-card"
-      aria-label={`${t("advertisement")} · ${t("rechargeTitle")}`}
+      aria-label={t("rechargeTitle")}
       data-testid="gpt-recharge-ad"
     >
       <a
@@ -15,7 +15,6 @@ export function RechargeAd({ t }) {
       >
         <span className="support-card-heading">
           <strong>{t("rechargeSupport")}</strong>
-          <span className="support-ad-label">{t("advertisement")}</span>
           <span className="support-card-arrow" aria-hidden="true">
             ↗
           </span>
