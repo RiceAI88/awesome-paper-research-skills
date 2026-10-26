@@ -12,6 +12,7 @@ for (const width of [1024, 1280, 1440]) {
     await page.goto("./#view=table");
     const row = page.locator(".ant-table-row").first();
     await expect(row).toBeVisible();
+    await row.scrollIntoViewIfNeeded();
     for (const scroll of [0, 500]) {
       await page.locator(".ant-table-body").evaluate((element, x) => {
         element.scrollLeft = x;

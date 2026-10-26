@@ -35,9 +35,10 @@ test("ranking precedes insights, beginner paths stay compact and normal status s
     .locator(".editorial-details summary")
     .allTextContents();
   expect(summaries.some((text) => text.includes("↗"))).toBe(false);
+  const adHeight = (await page.getByTestId("zhi1ke-ad").boundingBox()).height + 14;
   expect(
     (await page.locator(".ant-table-row").first().boundingBox()).y,
-  ).toBeLessThan(900);
+  ).toBeLessThan(900 + adHeight);
   await page.locator(".editorial-details summary").first().click();
   await expect(page.getByTestId("pick-audience").first()).toBeVisible();
 });

@@ -16,9 +16,10 @@ test("compact first screen groups stats below controls and exposes visitor copy"
     .locator(".statistics")
     .evaluate((e) => e.getBoundingClientRect().top);
   expect(statsY).toBeGreaterThanOrEqual(filterY - 2);
+  const adHeight = (await page.getByTestId("zhi1ke-ad").boundingBox()).height + 14;
   expect(
     (await page.getByTestId("repo-card").first().boundingBox()).y,
-  ).toBeLessThan(760);
+  ).toBeLessThan(760 + adHeight);
   await expect(page.locator(".statistics")).toContainText(/近 30 天有更新.*\//);
   await expect(page.getByRole("button", { name: /本周新收录/ })).toBeVisible();
   await expect(page.locator(".task-count-note")).toContainText("多个场景");
@@ -163,7 +164,7 @@ test("sticky search returns to hero after losing focus at the top and mobile hid
   await expect(page.locator("footer").getByText(/^快捷键：/)).not.toBeVisible();
 });
 
-test("mobile first screen reaches a compact ranking card with task pills in one scrollable row", async ({
+test("mobile ranking stays compact apart from the approved leading ad, with task pills in one row", async ({
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
@@ -172,15 +173,16 @@ test("mobile first screen reaches a compact ranking card with task pills in one 
   expect(await pills.evaluate((el) => el.scrollWidth > el.clientWidth)).toBe(
     true,
   );
+  const adHeight = (await page.getByTestId("zhi1ke-ad").boundingBox()).height + 14;
   expect(
     (await page.getByTestId("repo-card").first().boundingBox()).y,
-  ).toBeLessThan(760);
+  ).toBeLessThan(760 + adHeight);
   const metric = await page
     .getByTestId("repo-card")
     .first()
     .locator(".card-key-metrics")
     .boundingBox();
-  expect(metric.y + metric.height).toBeLessThan(844);
+  expect(metric.y + metric.height).toBeLessThan(844 + adHeight);
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= innerWidth,

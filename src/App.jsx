@@ -1,5 +1,6 @@
 import { BackToTop } from "./components/BackToTop";
 import { VisitCounter } from "./components/VisitCounter";
+import { Zhi1keAd } from "./components/Zhi1keAd";
 import { SearchBox } from "./components/SearchBox";
 import { Panel } from "./components/Panel";
 import React, {
@@ -739,6 +740,7 @@ function Dashboard({ state, update }) {
               </details>
             </Space>
           </div>
+          <Zhi1keAd t={t} />
           <ActiveFilters
             {...{ state, update, categories, t }}
             empty={!visible.length}

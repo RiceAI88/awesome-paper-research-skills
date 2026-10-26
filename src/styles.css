@@ -1682,6 +1682,30 @@ h1 em {
 .visit-counter > span { white-space: nowrap; }
 .visit-counter strong { font-weight: 500; font-variant-numeric: tabular-nums; }
 .visit-counter a { margin-left: 6px; font-size: 12px; color: var(--prs-muted); }
+
+/* A clearly labeled promotion, separate from repository data and ranking. */
+.sponsor-banner { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 24px; padding: 20px 24px; margin: 0 0 14px; border: 1px solid var(--prs-border); border-radius: 8px; background: var(--prs-panel); color: var(--prs-text); }
+.sponsor-brand-block { border-right: 1px solid var(--prs-border); padding-right: 24px; }
+.sponsor-brand { display: flex; align-items: center; gap: 10px; white-space: nowrap; font-size: 16px; font-weight: 600; }
+.sponsor-brand img { flex: 0 0 auto; object-fit: contain; }
+.sponsor-brand small { color: var(--prs-primary); font-size: 12px; font-weight: 500; }
+.sponsor-meta { display: flex; align-items: center; gap: 8px; margin-top: 8px; font-size: 12px; color: var(--prs-muted); }
+.sponsor-label { padding: 0 6px; border: 1px solid var(--prs-border); border-radius: 3px; line-height: 1.6; white-space: nowrap; }
+.sponsor-copy { min-width: 0; }
+.sponsor-copy h3 { margin: 0; font-size: 18px; line-height: 1.5; font-weight: 600; letter-spacing: -.015em; }
+.sponsor-copy p { margin: 6px 0 0; color: var(--prs-muted); font-size: 13px; line-height: 1.7; }
+.sponsor-cta { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 8px 12px; min-height: 40px; border: 1px solid var(--prs-border); border-radius: 5px; color: var(--prs-primary); font-size: 14px; line-height: 1.5; text-decoration: none; white-space: nowrap; }
+.sponsor-cta > span { font-size: 17px; line-height: 1; }
+.sponsor-cta:hover { border-color: var(--prs-primary); background: var(--prs-tint); }
+.sponsor-cta:focus-visible { outline: 2px solid var(--prs-primary); outline-offset: 3px; }
+@media (max-width: 760px) {
+  .sponsor-banner { grid-template-columns: minmax(0, 1fr); gap: 16px; padding: 20px; }
+  .sponsor-brand-block { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0; border: 0; }
+  .sponsor-meta { margin: 0; }
+  .sponsor-domain { display: none; }
+  .sponsor-copy h3 { font-size: 20px; }
+  .sponsor-cta { justify-self: start; min-height: 44px; }
+}
 .drawer-primary-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
 .drawer-secondary-actions .ant-btn { font-size: 13px; padding-inline: 8px; }
 @media (max-width: 760px) {
