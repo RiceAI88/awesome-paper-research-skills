@@ -1,6 +1,5 @@
 import { BackToTop } from "./components/BackToTop";
 import { VisitCounter } from "./components/VisitCounter";
-import { Zhi1keAd } from "./components/Zhi1keAd";
 import { SearchBox } from "./components/SearchBox";
 import { Panel } from "./components/Panel";
 import React, {
@@ -49,7 +48,7 @@ import {
   serializeState,
 } from "./domain";
 import { translations } from "./i18n";
-import { enrichItem } from "./practical";
+import { enrichItem, editorialPicks } from "./practical";
 import { EditorialPicks } from "./components/EditorialPicks";
 import { UpdateStatus } from "./components/UpdateStatus";
 import { DataTransparency } from "./components/DataTransparency";
@@ -82,7 +81,7 @@ try {
 const defaults = {
   lang: window.ARS_DEFAULT_LANG || "zh",
   theme: matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light",
-  view: matchMedia("(max-width: 760px)").matches ? "card" : "table",
+  view: "card",
 };
 const base = import.meta.env.BASE_URL;
 const taskLabels = {
@@ -144,17 +143,20 @@ export default function App() {
         algorithm:
           state.theme === "dark" ? theme.darkAlgorithm : theme.defaultAlgorithm,
         token: {
-          colorPrimary: state.theme === "dark" ? "#D4A4B9" : "#866178",
-          colorLink: state.theme === "dark" ? "#D4A4B9" : "#866178",
-          colorLinkHover: state.theme === "dark" ? "#E5C2D2" : "#6C4B60",
-          colorLinkActive: state.theme === "dark" ? "#D4A4B9" : "#6C4B60",
+          colorPrimary: state.theme === "dark" ? "#B3AAEA" : "#4A3FBF",
+          colorLink: state.theme === "dark" ? "#B3AAEA" : "#4A3FBF",
+          colorLinkHover: state.theme === "dark" ? "#D5D0F5" : "#372E9D",
+          colorLinkActive: state.theme === "dark" ? "#B3AAEA" : "#372E9D",
           fontFamily: FONT_FAMILY,
-          colorBgContainer: state.theme === "dark" ? "#201C1F" : "#FEFDFC",
-          borderRadius: 4,
-          colorBgLayout: state.theme === "dark" ? "#181517" : "#FEFDFC",
+          colorBgContainer: state.theme === "dark" ? "#211F32" : "#FFFFFF",
+          borderRadius: 10,
+          colorText: state.theme === "dark" ? "#EEECFA" : "#1E1B3A",
+          colorTextSecondary: state.theme === "dark" ? "#B8B3D0" : "#67638C",
+          colorBorder: state.theme === "dark" ? "#403B59" : "#E7E5F2",
+          colorBgLayout: state.theme === "dark" ? "#171523" : "#FBFAF8",
         },
         components: {
-          Table: { headerBg: state.theme === "dark" ? "#241F23" : "#FEFDFC" },
+          Table: { headerBg: state.theme === "dark" ? "#29263B" : "#FFFFFF" },
         },
       }}
     >
@@ -420,92 +422,19 @@ function Dashboard({ state, update }) {
               )}
             </h1>
             <p className="hero-subtitle">{t("heroSubtitle")}</p>
-            <div className="masthead">
-              <UpdateStatus
-                generatedAt={dataset.metadata?.generated_at}
-                collection={dataset.metadata?.collection}
-                lang={state.lang}
-                t={t}
-              />
-            </div>
-            <div className="discovery-controls">
-              <SearchBox
-                inactive={stickySearchVisible}
-                inputRef={search}
-                state={state}
-                update={update}
-                items={visible}
-                taskOptions={RESEARCH_TASKS.map((task) => ({
-                  id: task.id,
-                  label: t(taskLabels[task.id]),
-                }))}
-                t={t}
-              />
-              <section
-                className="task-navigation"
-                aria-labelledby="taskHeading"
-              >
-                <h2 id="taskHeading" className="sr-only">
-                  {t("taskHeading")}
-                </h2>
-                <span className="sr-only" id="taskCountHint">
-                  {t("taskCountHint")}
-                </span>
-                <div className="task-list" title={t("taskCountHint")}>
-                  <Button
-                    type="default"
-                    data-task="all"
-                    aria-label={t("taskAll")}
-                    aria-pressed={state.task === "all"}
-                    aria-description={`${taskCounts.all} ${t("repos")}`}
-                    onClick={() =>
-                      update((previous) => ({
-                        ...previous,
-                        task: "all",
-                        category: "all",
-                      }))
-                    }
-                  >
-                    {t("taskAll")}{" "}
-                    <span className="task-count" aria-hidden="true">
-                      {taskCounts.all}
-                    </span>
-                  </Button>
-                  {RESEARCH_TASKS.map((task) => (
-                    <Button
-                      key={task.id}
-                      type="default"
-                      data-task={task.id}
-                      aria-label={t(taskLabels[task.id])}
-                      aria-description={`${taskCounts[task.id]} ${t("repos")}`}
-                      disabled={
-                        taskCounts[task.id] === 0 && state.task !== task.id
-                      }
-                      aria-pressed={state.task === task.id}
-                      onClick={() =>
-                        update((s) => ({
-                          ...s,
-                          task: task.id,
-                          category: "all",
-                        }))
-                      }
-                    >
-                      {t(taskLabels[task.id])}{" "}
-                      <span className="task-count" aria-hidden="true">
-                        {taskCounts[task.id]}
-                      </span>
-                    </Button>
-                  ))}
-                </div>
-                <p className="task-count-note">{t("taskCountNote")}</p>
-              </section>
-            </div>
-            <p className="hero-hint">
-              {state.lang === "zh"
-                ? "按 / 搜索 · t 主题 · l 语言 · v 视图"
-                : "Press / to search · t theme · l language · v view"}
-            </p>
           </div>
+          <SearchBox
+            inactive={stickySearchVisible}
+            inputRef={search}
+            state={state}
+            update={update}
+            items={visible}
+            taskOptions={RESEARCH_TASKS.map((task) => ({
+              id: task.id,
+              label: t(taskLabels[task.id]),
+            }))}
+            t={t}
+          />
         </section>
       </header>
       <main
@@ -519,153 +448,181 @@ function Dashboard({ state, update }) {
           className="filters"
           aria-label="Ranking controls"
         >
-          {stickySearchVisible && (
-            <div className="sticky-search-slot">
-              <SearchBox
-                inputRef={stickySearch}
-                state={state}
-                update={update}
-                items={visible}
-                taskOptions={RESEARCH_TASKS.map((task) => ({
-                  id: task.id,
-                  label: t(taskLabels[task.id]),
-                }))}
-                t={t}
-                onBlur={() =>
-                  setStickySearchVisible(
-                    Boolean(
-                      search.current?.input &&
-                      search.current.input.getBoundingClientRect().bottom < 0,
-                    ),
+          {" "}
+          <section className="task-navigation" aria-labelledby="taskHeading">
+            <h2 id="taskHeading" className="sr-only">
+              {t("taskHeading")}
+            </h2>
+            <span className="sr-only" id="taskCountHint">
+              {t("taskCountHint")}
+            </span>
+            <div className="task-list" title={t("taskCountHint")}>
+              <Button
+                type="default"
+                data-task="all"
+                aria-label={t("taskAll")}
+                aria-pressed={state.task === "all"}
+                aria-description={`${taskCounts.all} ${t("repos")}`}
+                onClick={() =>
+                  update((previous) => ({
+                    ...previous,
+                    task: "all",
+                    category: "all",
+                  }))
+                }
+              >
+                {state.lang === "zh" ? "全部" : "All"}{" "}
+                <span className="task-count" aria-hidden="true">
+                  {taskCounts.all}
+                </span>
+              </Button>
+              {RESEARCH_TASKS.map((task) => (
+                <Button
+                  key={task.id}
+                  type="default"
+                  data-task={task.id}
+                  aria-label={t(taskLabels[task.id])}
+                  aria-description={`${taskCounts[task.id]} ${t("repos")}`}
+                  disabled={taskCounts[task.id] === 0 && state.task !== task.id}
+                  aria-pressed={state.task === task.id}
+                  onClick={() =>
+                    update((s) => ({
+                      ...s,
+                      task: task.id,
+                      category: "all",
+                    }))
+                  }
+                >
+                  {t(taskLabels[task.id])}{" "}
+                  <span className="task-count" aria-hidden="true">
+                    {taskCounts[task.id]}
+                  </span>
+                </Button>
+              ))}
+            </div>
+            <p className="task-count-note sr-only">{t("taskCountNote")}</p>
+          </section>
+          <div className="filter-fields">
+            {stickySearchVisible && (
+              <div className="sticky-search-slot">
+                <SearchBox
+                  inputRef={stickySearch}
+                  state={state}
+                  update={update}
+                  items={visible}
+                  taskOptions={RESEARCH_TASKS.map((task) => ({
+                    id: task.id,
+                    label: t(taskLabels[task.id]),
+                  }))}
+                  t={t}
+                  onBlur={() =>
+                    setStickySearchVisible(
+                      Boolean(
+                        search.current?.input &&
+                        search.current.input.getBoundingClientRect().bottom < 0,
+                      ),
+                    )
+                  }
+                  inputId="stickySearchInput"
+                  compact
+                />
+              </div>
+            )}
+            <label htmlFor="categoryFilter">
+              <span>{t("categoryLabel")}</span>
+              <Select
+                id="categoryFilter"
+                value={state.category}
+                onChange={(category) => update((s) => ({ ...s, category }))}
+                options={[
+                  { value: "all", label: t("allCategories") },
+                  ...categories.map((c) => ({
+                    value: c.id,
+                    label: c[state.lang],
+                  })),
+                ]}
+              />
+            </label>
+            <label htmlFor="agentFilter">
+              <span>{t("agentLabel")}</span>
+              <Select
+                id="agentFilter"
+                value={state.agent}
+                onChange={(agent) => update((s) => ({ ...s, agent }))}
+                options={[
+                  { value: "all", label: t("allAgents") },
+                  ...AGENT_PLATFORMS.filter((a) => platformIds.has(a.id)).map(
+                    (a) => ({ value: a.id, label: a.label }),
+                  ),
+                ]}
+              />
+            </label>
+            <label htmlFor="sortSelect">
+              <span>{t("sortLabel")}</span>
+              <Select
+                id="sortSelect"
+                value={state.sort}
+                onChange={(sort) => update((s) => ({ ...s, sort }))}
+                options={["rank", "trend", "stars", "updated", "delta30"].map(
+                  (value, i) => ({
+                    value,
+                    label:
+                      value === "rank"
+                        ? "Stars"
+                        : t(
+                            [
+                              "sortRank",
+                              "sortTrend",
+                              "sortStars",
+                              "sortUpdated",
+                              "sortDelta30",
+                            ][i],
+                          ),
+                  }),
+                )}
+              />
+            </label>
+            <div className="view-controls">
+              <Segmented
+                aria-label="View"
+                value={state.view}
+                onChange={(view) => update((s) => ({ ...s, view }))}
+                options={[
+                  {
+                    value: "table",
+                    icon: <BarsOutlined aria-hidden="true" />,
+                    label: <span className="sr-only">{t("viewTable")}</span>,
+                  },
+                  {
+                    value: "card",
+                    icon: <AppstoreOutlined aria-hidden="true" />,
+                    label: <span className="sr-only">{t("viewCard")}</span>,
+                  },
+                ]}
+              />
+              <Button
+                aria-label={t("favoritesOnly")}
+                data-testid="favorites-only"
+                icon={
+                  state.favOnly ? (
+                    <StarFilled aria-hidden="true" />
+                  ) : (
+                    <StarOutlined aria-hidden="true" />
                   )
                 }
-                inputId="stickySearchInput"
-                compact
-              />
+                type={state.favOnly ? "primary" : "default"}
+                aria-pressed={state.favOnly}
+                onClick={() => update((s) => ({ ...s, favOnly: !s.favOnly }))}
+              >
+                <span className="favorite-filter-label">
+                  {t("favoritesOnly")}
+                </span>{" "}
+                <Tag variant="borderless">{state.favorites.length}</Tag>
+              </Button>
             </div>
-          )}
-          <label htmlFor="categoryFilter">
-            <span>{t("categoryLabel")}</span>
-            <Select
-              id="categoryFilter"
-              value={state.category}
-              onChange={(category) => update((s) => ({ ...s, category }))}
-              options={[
-                { value: "all", label: t("allCategories") },
-                ...categories.map((c) => ({
-                  value: c.id,
-                  label: c[state.lang],
-                })),
-              ]}
-            />
-          </label>
-          <label htmlFor="agentFilter">
-            <span>{t("agentLabel")}</span>
-            <Select
-              id="agentFilter"
-              value={state.agent}
-              onChange={(agent) => update((s) => ({ ...s, agent }))}
-              options={[
-                { value: "all", label: t("allAgents") },
-                ...AGENT_PLATFORMS.filter((a) => platformIds.has(a.id)).map(
-                  (a) => ({ value: a.id, label: a.label }),
-                ),
-              ]}
-            />
-          </label>
-          <label htmlFor="sortSelect">
-            <span>{t("sortLabel")}</span>
-            <Select
-              id="sortSelect"
-              value={state.sort}
-              onChange={(sort) => update((s) => ({ ...s, sort }))}
-              options={["rank", "trend", "stars", "updated", "delta30"].map(
-                (value, i) => ({
-                  value,
-                  label: t(
-                    [
-                      "sortRank",
-                      "sortTrend",
-                      "sortStars",
-                      "sortUpdated",
-                      "sortDelta30",
-                    ][i],
-                  ),
-                }),
-              )}
-            />
-          </label>
-          <div className="view-controls">
-            <Segmented
-              aria-label="View"
-              value={state.view}
-              onChange={(view) => update((s) => ({ ...s, view }))}
-              options={[
-                {
-                  value: "table",
-                  icon: <BarsOutlined aria-hidden="true" />,
-                  label: <span className="sr-only">{t("viewTable")}</span>,
-                },
-                {
-                  value: "card",
-                  icon: <AppstoreOutlined aria-hidden="true" />,
-                  label: <span className="sr-only">{t("viewCard")}</span>,
-                },
-              ]}
-            />
-            <Button
-              aria-label={t("favoritesOnly")}
-              data-testid="favorites-only"
-              icon={
-                state.favOnly ? (
-                  <StarFilled aria-hidden="true" />
-                ) : (
-                  <StarOutlined aria-hidden="true" />
-                )
-              }
-              type={state.favOnly ? "primary" : "default"}
-              aria-pressed={state.favOnly}
-              onClick={() => update((s) => ({ ...s, favOnly: !s.favOnly }))}
-            >
-              <span className="favorite-filter-label">
-                {t("favoritesOnly")}
-              </span>{" "}
-              <Tag variant="borderless">{state.favorites.length}</Tag>
-            </Button>
           </div>
         </section>
-        <section
-          className="statistics compact-statistics"
-          aria-label="Aggregate statistics"
-        >
-          <span>
-            {t("repos")} <strong>{fmt(items.length)}</strong>
-          </span>
-          <Tooltip title={t("newWeekHelp")}>
-            <button
-              type="button"
-              data-testid="new-this-week"
-              aria-pressed={state.newOnly}
-              onClick={() => update((s) => ({ ...s, newOnly: !s.newOnly }))}
-            >
-              {t("statNewWeek")} <strong>{fmt(newcomers)}</strong>
-            </button>
-          </Tooltip>
-          <span>
-            {t("statNet7d")}{" "}
-            <strong>
-              {net7 > 0 ? "+" : ""}
-              {fmt(net7)}
-            </strong>
-          </span>
-          <span>
-            {t("statRecentPush")}{" "}
-            <strong>
-              {fmt(recentCount)} / {fmt(items.length)}
-            </strong>
-          </span>
-        </section>
-        <EditorialPicks items={visible} state={state} t={t} />
+
         <Panel
           id="rankings"
           tabIndex={-1}
@@ -675,7 +632,10 @@ function Dashboard({ state, update }) {
           <div className="ranking-header">
             <div>
               <h2>
-                {t("tableTitle")} <Tag>{fmt(visible.length)}</Tag>
+                {t("tableTitle")}{" "}
+                {visible.length !== items.length && (
+                  <Tag>{fmt(visible.length)}</Tag>
+                )}
               </h2>
               <p>
                 <span className="ranking-sort-prefix">
@@ -690,7 +650,11 @@ function Dashboard({ state, update }) {
                   )}{" "}
                   ·{" "}
                 </span>
-                {t(state.view === "card" ? "tableHintCard" : "tableHintTable")}{" "}
+                <span className="sr-only">
+                  {t(
+                    state.view === "card" ? "tableHintCard" : "tableHintTable",
+                  )}
+                </span>{" "}
                 <a
                   href={localFile("docs/methodology.md")}
                   target="_blank"
@@ -699,8 +663,52 @@ function Dashboard({ state, update }) {
                   {t("methodTitle")}
                 </a>
               </p>
+              <section
+                className="statistics compact-statistics"
+                aria-label="Aggregate statistics"
+              >
+                <span>
+                  {t("repos")} <strong>{fmt(items.length)}</strong>
+                </span>
+                <Tooltip title={t("newWeekHelp")}>
+                  <button
+                    type="button"
+                    data-testid="new-this-week"
+                    aria-pressed={state.newOnly}
+                    onClick={() =>
+                      update((s) => ({ ...s, newOnly: !s.newOnly }))
+                    }
+                  >
+                    {t("statNewWeek")} <strong>{fmt(newcomers)}</strong>
+                  </button>
+                </Tooltip>
+                <span>
+                  {t("statNet7d")}{" "}
+                  <strong>
+                    {net7 > 0 ? "+" : ""}
+                    {fmt(net7)}
+                  </strong>
+                </span>
+                <span>
+                  {t("statRecentPush")}{" "}
+                  <strong>
+                    {fmt(recentCount)} / {fmt(items.length)}
+                  </strong>
+                </span>
+                <UpdateStatus
+                  generatedAt={dataset.metadata?.generated_at}
+                  collection={dataset.metadata?.collection}
+                  lang={state.lang}
+                  t={t}
+                />
+              </section>
             </div>
             <Space wrap size={8}>
+              {editorialPicks(visible).length > 0 && (
+                <Button type="link" href="#beginner-paths">
+                  {t("editorialTitle")}
+                </Button>
+              )}
               <Button
                 type="link"
                 href="#data-insights"
@@ -741,7 +749,6 @@ function Dashboard({ state, update }) {
               </details>
             </Space>
           </div>
-          <Zhi1keAd t={t} />
           <ActiveFilters
             {...{ state, update, categories, t }}
             empty={!visible.length}
@@ -760,13 +767,15 @@ function Dashboard({ state, update }) {
             }}
           />
         </Panel>
+        <div id="beginner-paths">
+          <EditorialPicks items={visible} state={state} t={t} />
+        </div>
         <ViewportInsights
           enabled={readyView === rankingKey}
           items={visible}
           allItems={items}
           history={historyData}
           generatedAt={dataset.metadata?.generated_at}
-          collection={dataset.metadata?.collection}
           state={state}
           update={update}
           t={t}

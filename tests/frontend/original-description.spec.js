@@ -6,7 +6,7 @@ const { items } = JSON.parse(
 test("repository descriptions match GitHub originals in both languages, cards and drawer", async ({
   page,
 }) => {
-  await page.goto("./");
+  await page.goto("./#view=table");
   await expect(
     page.locator(".ant-table-row").first().locator(".practical-description p"),
   ).toHaveText(items[0].description);

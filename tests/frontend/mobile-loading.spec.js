@@ -34,7 +34,7 @@ test("mobile card entry does not download table, detail or comparison code until
 test("direct detail URL loads the drawer and a failed optional chunk leaves ranking usable", async ({
   page,
 }) => {
-  await page.goto("./#repo=K-Dense-AI%2Fscientific-agent-skills");
+  await page.goto("./#view=table&repo=K-Dense-AI%2Fscientific-agent-skills");
   await expect(page.getByRole("dialog")).toBeVisible();
   await page.keyboard.press("Escape");
   await page.route("**/assets/ComparisonDialog-*.js", (r) => r.abort());

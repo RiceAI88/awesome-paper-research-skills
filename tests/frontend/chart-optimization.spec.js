@@ -15,7 +15,7 @@ test("chart clicks use current results after expanding an initial narrow search"
   page,
 }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("./#q=Imbad0202%2Facademic-research-skills");
+  await page.goto("./#view=table&q=Imbad0202%2Facademic-research-skills");
   await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
   await expect(page.getByTestId("insight-count")).toHaveText(narrowCount);
   await expect(
@@ -57,7 +57,7 @@ test("offscreen charts defer download, then load once with the latest selection"
     if (/\/assets\/Insights-[^/]+\.js/.test(request.url()))
       requests.push(request.url());
   });
-  await page.goto("./");
+  await page.goto("./#view=table");
   await expect(page.getByRole("searchbox")).toBeVisible();
   await page.waitForTimeout(400);
   expect(requests).toHaveLength(0);
@@ -89,7 +89,7 @@ test("browsers without IntersectionObserver still show functional charts", async
   await page.addInitScript(() => {
     window.IntersectionObserver = undefined;
   });
-  await page.goto("./");
+  await page.goto("./#view=table");
   await expect(
     page.getByTestId("insights").locator(".plot-host svg"),
   ).toHaveCount(1);

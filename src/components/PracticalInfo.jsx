@@ -19,8 +19,21 @@ export function SummaryText({ item, t, query = "" }) {
     </div>
   );
 }
-export function PlatformTags({ item, t }) {
+export function PlatformTags({ item, t, compact = false }) {
   const agents = detectAgents(item);
+  if (compact) {
+    const labels = agents.map(
+      (id) => AGENT_PLATFORMS.find((agent) => agent.id === id)?.label || id,
+    );
+    return (
+      <Tooltip title={labels.join(" · ") || t("platformUnspecifiedHint")}>
+        <span className="card-platforms">
+          {labels.slice(0, 2).join(" · ") || t("agentGeneral")}
+          {labels.length > 2 && ` +${labels.length - 2}`}
+        </span>
+      </Tooltip>
+    );
+  }
   const verified = Boolean(EDITORIAL_CONTENT.platforms[item.repo]);
   return (
     <Tooltip

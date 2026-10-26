@@ -4,7 +4,7 @@ for (const [width, view] of [
   [1440, "table"],
   [390, "card"],
 ]) {
-  test(`a single labeled ad precedes results without entering the ranking at ${width}px`, async ({
+  test(`a single labeled ad stays separate from ranked entries at ${width}px`, async ({
     page,
   }) => {
     await page.setViewportSize({ width, height: 1000 });
@@ -43,7 +43,8 @@ for (const [width, view] of [
         .getBoundingClientRect().top,
     }));
     expect(positions.adTop).toBeGreaterThanOrEqual(positions.heading);
-    expect(positions.adBottom).toBeLessThanOrEqual(positions.first);
+    if (view === "table") expect(positions.adBottom).toBeLessThanOrEqual(positions.first);
+    else expect(positions.adTop).toBeGreaterThan(positions.first);
     await page
       .getByRole("searchbox")
       .fill("K-Dense-AI/scientific-agent-skills");

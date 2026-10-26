@@ -9,7 +9,7 @@ const data = JSON.parse(
 test("installation expectations and original command source are visible in list and details", async ({
   page,
 }) => {
-  await page.goto("./#q=K-Dense-AI%2Fscientific-agent-skills");
+  await page.goto("./#view=table&q=K-Dense-AI%2Fscientific-agent-skills");
   const row = page.locator(".ant-table-row");
   await expect(row.getByTestId("installation-mode")).toHaveText("命令安装");
   await row.locator("td").first().click();
@@ -25,14 +25,14 @@ test("installation expectations and original command source are visible in list 
     "href",
     /K-Dense-AI\/scientific-agent-skills\/blob\/main\/README.md/,
   );
-  await page.goto("./#q=OpenNSWM-Lab%2FFAROS");
+  await page.goto("./#view=table&q=OpenNSWM-Lab%2FFAROS");
   await expect(
     page.locator(".ant-table-row").getByTestId("installation-mode"),
   ).toHaveText("需手动配置");
   const unknown = data.items.find((i) => !content.installations[i.repo]);
   await page.goto("./#q=" + encodeURIComponent(unknown.repo) + "&view=card");
   const card = page.getByTestId("repo-card").filter({
-    has: page.locator(".repo-name").getByText(unknown.repo, { exact: true }),
+    has: page.getByRole("button", {name: unknown.repo, exact: true}),
   });
   await card.locator(".repo-title").click();
   const compactDetails = page.getByRole("dialog");
@@ -70,7 +70,7 @@ test("each active restriction can be removed independently without changing othe
 test("empty results recover by clearing restrictions while preserving saved favorites and display settings", async ({
   page,
 }) => {
-  await page.goto("./");
+  await page.goto("./#view=table");
   const favorite = page
     .locator(".ant-table-row")
     .first()

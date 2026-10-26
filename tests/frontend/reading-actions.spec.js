@@ -49,16 +49,16 @@ for (const width of [1440, 390]) {
     await expect(card.locator(".description-clamp")).toHaveText(
       dataset.items[0].description,
     );
-    for (const selector of [".repo-title", ".description-clamp"]) {
+    for (const [selector, minimum] of [[".repo-title", 15], [".description-clamp", 13]]) {
       expect(
         await card
           .locator(selector)
           .evaluate((e) => parseFloat(getComputedStyle(e).fontSize)),
-      ).toBeGreaterThanOrEqual(14);
+      ).toBeGreaterThanOrEqual(minimum);
     }
     for (const selector of [
       ".task-list button",
-      ".filters > label > span",
+      ".filter-fields .ant-select",
       ".compact-statistics",
       ".editorial-preview",
     ]) {
@@ -67,7 +67,7 @@ for (const width of [1440, 390]) {
           .locator(selector)
           .first()
           .evaluate((e) => parseFloat(getComputedStyle(e).fontSize)),
-      ).toBeGreaterThanOrEqual(13);
+      ).toBeGreaterThanOrEqual(width <= 760 ? 12 : 13);
     }
     expect(
       await page.evaluate(

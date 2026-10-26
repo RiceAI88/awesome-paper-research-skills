@@ -9,7 +9,7 @@ test("real charts render, filter by category, change window and open repository 
 }) => {
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
-  await page.goto("./");
+  await page.goto("./#view=table");
   await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
   await expect(
     page.getByTestId("insights").locator(".plot-host svg"),
@@ -48,7 +48,7 @@ test("missing historical data has an honest empty state and current charts still
       body: "window.ACADEMIC_SKILLS_HISTORY={series:{}};",
     }),
   );
-  await page.goto("./");
+  await page.goto("./#view=table");
   await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
   await expect(page.getByTestId("insight-trend")).toContainText("暂无历史数据");
   await expect(
@@ -59,7 +59,7 @@ test("suspected stale repositories have red tags in table, cards and drawer", as
   page,
 }) => {
   expect(stale).toBeTruthy();
-  await page.goto("./#q=" + encodeURIComponent(stale.repo));
+  await page.goto("./#view=table&q=" + encodeURIComponent(stale.repo));
   await expect(page.locator(".ant-table-row")).toHaveCount(1);
   await expect(page.getByTestId("stale-tag")).toHaveClass(/ant-tag-red/);
   await page.locator(".ant-table-row").first().locator("td").first().click();
@@ -74,7 +74,7 @@ test("suspected stale repositories have red tags in table, cards and drawer", as
 });
 test("chart bundle failure leaves ranking usable", async ({ page }) => {
   await page.route("**/assets/Insights-*.js", (route) => route.abort());
-  await page.goto("./");
+  await page.goto("./#view=table");
   await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
   await expect(page.locator(".chart-unavailable")).toBeVisible();
   await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, items.length));
@@ -86,7 +86,7 @@ test("scatter has visible data marks and clicking a point opens details", async 
   page,
 }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("./");
+  await page.goto("./#view=table");
   await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
   const marks = page
     .getByTestId("insight-scatter")

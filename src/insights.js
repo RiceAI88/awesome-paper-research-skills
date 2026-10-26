@@ -1,10 +1,10 @@
 export const WARM_PALETTE = [
-  "#866178",
-  "#B47C7D",
-  "#C88D85",
-  "#A99AAB",
-  "#AAA09C",
-  "#C7B8B2",
+  "#4A3FBF",
+  "#8176CE",
+  "#0E7C66",
+  "#9992B8",
+  "#67638C",
+  "#B8B3D0",
 ];
 export function createColorMaps(items) {
   const ordered = [...items].sort(

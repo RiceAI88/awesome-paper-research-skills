@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 for (const width of [1440, 390]) {
-  test(`task text/count and one/two-line card titles are vertically centered at ${width}px`, async ({
+  test(`task text/count are centered and owner/title rows have consistent baselines at ${width}px`, async ({
     page,
   }) => {
     await page.setViewportSize({ width, height: 1000 });
@@ -58,20 +58,14 @@ for (const width of [1440, 390]) {
       expect(action.labelHeight).toBe(20);
       expect(action.lineHeight).toBe("20px");
     }
-    const titles = await page
-      .locator(".card-title-row")
-      .evaluateAll((elements) =>
-        elements.slice(0, 4).map((element) => {
-          const parent = element.getBoundingClientRect();
-          return [...element.children].map((child) => {
-            const box = child.getBoundingClientRect();
-            return Math.abs(
-              box.y + box.height / 2 - parent.y - parent.height / 2,
-            );
-          });
-        }),
-      );
-    for (const offsets of titles)
-      for (const offset of offsets) expect(offset).toBeLessThan(0.75);
+    const titles = await page.locator(".card-title-row").evaluateAll(elements => elements.slice(0,4).map(element => {
+      const parent=element.getBoundingClientRect();
+      const owner=element.querySelector(".repository-owner").getBoundingClientRect();
+      const title=element.querySelector(".repo-title").getBoundingClientRect();
+      return {height:parent.height,ownerOffset:owner.top-parent.top,titleOffset:title.top-parent.top};
+    }));
+    expect(new Set(titles.map(r=>r.height)).size).toBe(1);
+    expect(new Set(titles.map(r=>r.ownerOffset)).size).toBe(1);
+    expect(new Set(titles.map(r=>r.titleOffset)).size).toBe(1);
   });
 }

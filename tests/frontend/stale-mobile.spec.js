@@ -6,7 +6,7 @@ const stale = JSON.parse(
 test("red stale tag explains its rule on hover/focus without opening the repository", async ({
   page,
 }) => {
-  await page.goto("./#q=" + encodeURIComponent(stale.repo));
+  await page.goto("./#view=table&q=" + encodeURIComponent(stale.repo));
   const tag = page.locator(".ant-table-row").getByTestId("stale-tag");
   await tag.hover();
   await expect(page.getByRole("tooltip")).toContainText("30 天");
@@ -27,7 +27,7 @@ test.describe("mobile charts and touch", () => {
   test("other charts are collapsed by default and preserve history/filter state when toggled", async ({
     page,
   }) => {
-    await page.goto("./");
+    await page.goto("./#view=table");
     await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
     await expect(page.getByTestId("insight-trend")).toBeVisible();
     await expect(page.getByTestId("insight-categories")).toBeHidden();
@@ -67,7 +67,7 @@ test.describe("mobile charts and touch", () => {
   test("touching stale tag opens explanation without opening card details", async ({
     page,
   }) => {
-    await page.goto("./#q=" + encodeURIComponent(stale.repo));
+    await page.goto("./#view=card&q=" + encodeURIComponent(stale.repo));
     const tag = page.getByTestId("repo-card").getByTestId("stale-tag");
     await tag.tap();
     await expect(page.getByRole("tooltip")).toContainText("30 天");

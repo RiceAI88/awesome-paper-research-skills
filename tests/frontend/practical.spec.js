@@ -11,7 +11,7 @@ test("practical information, editorial reasons and history provenance are visibl
   await page.route(api, (route) =>
     route.fulfill({ json: { workflow_runs: [] } }),
   );
-  await page.goto("./");
+  await page.goto("./#view=table");
   const row = page.locator(".ant-table-row").first();
   await expect(row).toContainText(ranking.items[0].description);
   await expect(row.getByText("Claude Code", { exact: true })).toBeVisible();
@@ -81,7 +81,7 @@ for (const [name, run, kind] of [
         },
       }),
     );
-    await page.goto("./");
+    await page.goto("./#view=table");
     await expect(page.locator(`[data-status="${kind}"]`)).toBeVisible();
     await page.locator(".update-status-summary").hover();
     await expect(page.getByRole("tooltip")).toContainText("状态查询于");
@@ -91,6 +91,6 @@ test("unavailable API does not report success", async ({ page }) => {
   await page.route(api, (route) =>
     route.fulfill({ status: 403, json: { message: "rate limited" } }),
   );
-  await page.goto("./");
+  await page.goto("./#view=table");
   await expect(page.locator('[data-status="unknown"]')).toBeVisible();
 });

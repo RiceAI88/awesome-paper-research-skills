@@ -3,7 +3,7 @@ test("all four charts stay vector when pixel density changes and resize correctl
   page,
 }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("./");
+  await page.goto("./#view=table");
   await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
   const charts = page.locator(".plot-host");
   await expect(charts.locator("svg")).toHaveCount(4);
@@ -30,7 +30,7 @@ test("all four charts stay vector when pixel density changes and resize correctl
 test("ranking mini trends use a filled vector area and an unclipped outline", async ({
   page,
 }) => {
-  await page.goto("./");
+  await page.goto("./#view=table");
   const trend = page
     .locator(".ant-table-row")
     .first()
@@ -68,7 +68,7 @@ test("mini areas preserve sparse dates, decreases, and observed start/end values
         ";",
     }),
   );
-  await page.goto("./#q=" + encodeURIComponent(repo));
+  await page.goto("./#view=table&q=" + encodeURIComponent(repo));
   const chart = page.locator(".ant-table-row svg.mini-area-chart");
   await expect(chart.locator("polyline")).toHaveAttribute(
     "points",
@@ -100,7 +100,7 @@ for (const [name, series] of [
           ";",
       }),
     );
-    await page.goto("./#q=" + encodeURIComponent(repo));
+    await page.goto("./#view=table&q=" + encodeURIComponent(repo));
     const chart = page.locator(".ant-table-row svg.mini-area-chart");
     await expect(chart).toBeVisible();
     expect(await chart.getAttribute("aria-label")).not.toMatch(/NaN|Infinity/);

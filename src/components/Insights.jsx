@@ -152,8 +152,8 @@ export default function Insights({
   );
   const colors = useMemo(() => createColorMaps(allItems), [allItems]);
   const dark = state.theme === "dark";
-  const muted = dark ? "#C5B8BB" : "#797378",
-    grid = dark ? "#44383D" : "#E9E4E2";
+  const muted = dark ? "#B8B3D0" : "#67638C",
+    grid = dark ? "#403B59" : "#E7E5F2";
   const fmt = (value) =>
     new Intl.NumberFormat(state.lang === "zh" ? "zh-CN" : "en-US").format(
       value,
@@ -236,8 +236,8 @@ export default function Insights({
   const latest = new Map(data.trends.map((p) => [p.repo, p]));
   const trendDomain = data.trendRepos.map((item) => item.repo);
   const trendRange = dark
-    ? ["#DBA8C0", "#C9C1BB", "#D77F88"]
-    : ["#6E344F", "#514B48", "#B76473"];
+    ? ["#B3AAEA", "#C1C3D3", "#73CBB6"]
+    : ["#4A3FBF", "#67638C", "#0E7C66"];
   const trendDashes = [[], [7, 4], [2, 4]];
   const trendStyles = Object.fromEntries(
     trendDomain.map((repo, index) => [
@@ -502,11 +502,11 @@ export default function Insights({
                     fill: (datum) =>
                       state.category === datum.id
                         ? dark
-                          ? "#E1A3B4"
-                          : "#6E344F"
+                          ? "#B3AAEA"
+                          : "#4A3FBF"
                         : dark
-                          ? "#A48C98"
-                          : "#B49BA7",
+                          ? "#80789E"
+                          : "#B3AEC9",
                   }}
                   tooltip={{
                     title: "label",
@@ -523,7 +523,7 @@ export default function Insights({
                     onClick={() => category(c.id)}
                     aria-pressed={state.category === c.id}
                   >
-                    <i style={{ background: dark ? "#A48C98" : "#B49BA7" }} />
+                    <i style={{ background: dark ? "#80789E" : "#B3AEC9" }} />
                     <span>{c.label}</span>
                     <b>{c.count}</b>
                   </button>

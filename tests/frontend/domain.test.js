@@ -188,3 +188,7 @@ test("platform detection uses structured data and supports legacy descriptions",
     "mcp",
   ]);
 });
+
+test("shared table view stays explicit when the website default is cards", () => {
+  assert.match(serializeState({ ...initial(), view: "table" }), /view=table/);
+});

@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 import "antd/dist/reset.css";
 import "./styles.css";
+import "./indigo.css";
 class ErrorBoundary extends React.Component {
   state = { failed: false };
   static getDerivedStateFromError() {

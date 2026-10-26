@@ -13,7 +13,7 @@ const firstRepo = rankingData.items[0].repo;
 test("Ant Design migration preserves task filtering, search and URL restoration", async ({
   page,
 }) => {
-  await page.goto("./");
+  await page.goto("./#view=table");
   await expect(page.locator(".ant-input").first()).toBeVisible();
   await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, expectedCount));
   await page.getByRole("button", { name: "科研绘图", exact: true }).click();
@@ -36,7 +36,7 @@ test("favorites persist, drawer copies commands and links restore detail", async
   context,
 }) => {
   await context.grantPermissions(["clipboard-read", "clipboard-write"]);
-  await page.goto("./");
+  await page.goto("./#view=table");
   await page.getByTestId(`favorite-${firstRepo}`).click();
   await page.reload();
   await expect(page.getByTestId(`favorite-${firstRepo}`)).toHaveAttribute(
@@ -68,7 +68,7 @@ test("favorites persist, drawer copies commands and links restore detail", async
 test("comparison has a three-repository limit and modal, empty selection has no tray", async ({
   page,
 }) => {
-  await page.goto("./");
+  await page.goto("./#view=table");
   await expect(page.getByTestId("compare-tray")).toHaveCount(0);
   const buttons = page.locator("[data-compare]");
   for (let i = 0; i < 3; i++) await buttons.nth(i).click();
@@ -126,7 +126,7 @@ test("corrupt storage and missing history do not break the app", async ({
       body: "window.ACADEMIC_SKILLS_HISTORY={series:{}};",
     }),
   );
-  await page.goto("./");
+  await page.goto("./#view=table");
   await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, expectedCount));
   await page.locator("[data-compare]").first().click();
   await page.getByTestId("open-compare").click();
@@ -141,7 +141,7 @@ test("empty data presents a stable empty ranking", async ({ page }) => {
       body: "window.ACADEMIC_SKILLS_RANKINGS={metadata:{},items:[]};",
     }),
   );
-  await page.goto("./");
+  await page.goto("./#view=table");
   await expect(page.getByTestId("ranking-empty")).toBeVisible();
   await expect(page.getByRole("searchbox")).toBeVisible();
 });
@@ -178,7 +178,7 @@ test("English entry and responsive layouts retain usable task shortcuts", async 
 test("skip link focuses the ranking without clearing shared filters", async ({
   page,
 }) => {
-  await page.goto("./#q=zotero&task=read&sort=stars");
+  await page.goto("./#view=table&q=zotero&task=read&sort=stars");
   await expect(page.getByRole("searchbox")).toHaveValue("zotero");
   const count = await page.locator(".ant-table-row").count();
   await page.locator(".skip-link").focus();

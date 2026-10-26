@@ -1,3 +1,4 @@
+import { Zhi1keAd } from "./Zhi1keAd";
 import { SearchHighlight } from "./SearchHighlight";
 import { Panel } from "./Panel";
 import React, { lazy, useEffect, useState } from "react";
@@ -8,20 +9,33 @@ import { useFeedback } from "./FeedbackProvider";
 import { DeferredFeature } from "./DeferredFeature";
 const RepositoryTable = lazy(() => import("./RepositoryTable"));
 import { safeExternalUrl } from "../domain";
-export function QualityBadges({ item, t }) {
+export function QualityBadges({
+  item,
+  t,
+  compact = false,
+  statusOnly = false,
+}) {
+  const typeLabel =
+    item.skills_count > 0
+      ? `${item.skills_count}${item.skills_count_complete === false ? "+" : ""} skills`
+      : t(
+          item.repository_kind === "related"
+            ? "projectRelated"
+            : "projectUnknown",
+        );
+  if (compact)
+    return (
+      <Tooltip title={t("projectTypeHelp")}>
+        <span className="card-project-type">{typeLabel}</span>
+      </Tooltip>
+    );
   return (
     <Space size={[4, 4]} wrap>
-      <Tooltip title={t("projectTypeHelp")}>
-        <Tag>
-          {item.skills_count > 0
-            ? `${item.skills_count}${item.skills_count_complete === false ? "+" : ""} skills`
-            : t(
-                item.repository_kind === "related"
-                  ? "projectRelated"
-                  : "projectUnknown",
-              )}
-        </Tag>
-      </Tooltip>
+      {!statusOnly && (
+        <Tooltip title={t("projectTypeHelp")}>
+          <Tag>{typeLabel}</Tag>
+        </Tooltip>
+      )}
       {item.refresh_status === "pending" && (
         <Tooltip title={t("metadataPendingHelp")}>
           <Tag color="warning">{t("metadataPending")}</Tag>
@@ -60,7 +74,7 @@ export function RepositoryActions({
     compared = state.compare.includes(item.repo);
   return (
     <Space size={0} className="repository-actions">
-      <Tooltip title={t("favoritesOnly")}>
+      <Tooltip title={t("favoriteAction")}>
         <Button
           type="text"
           size="small"
@@ -119,6 +133,24 @@ export function RepositoryViews({
   fmt,
   history,
 }) {
+  const rowSize = () =>
+    matchMedia("(min-width: 1100px)").matches
+      ? 4
+      : matchMedia("(min-width: 600px)").matches
+        ? 2
+        : 1;
+  const [adAfter, setAdAfter] = useState(rowSize);
+  useEffect(() => {
+    const wide = matchMedia("(min-width: 1100px)"),
+      medium = matchMedia("(min-width: 600px)");
+    const sync = () => setAdAfter(rowSize());
+    wide.addEventListener("change", sync);
+    medium.addEventListener("change", sync);
+    return () => {
+      wide.removeEventListener("change", sync);
+      medium.removeEventListener("change", sync);
+    };
+  }, []);
   useEffect(() => {
     if (state.view === "card" || !items.length) onReady?.(state.view);
   }, [state.view, items.length, onReady]);
@@ -161,11 +193,10 @@ export function RepositoryViews({
       </Button>
     </div>
   );
-  const cat = (item) => item.category?.[state.lang] || item.category?.en || "";
   const actions = (item) => (
     <RepositoryActions
       {...{ item, state, update, toggleCompare, t }}
-      labels={state.view === "card"}
+      labels={false}
     />
   );
   const open = (item) => update((s) => ({ ...s, repo: item.repo }));
@@ -182,73 +213,102 @@ export function RepositoryViews({
   );
   if (!items.length)
     return (
-      <div data-testid="ranking-empty" className="ranking-empty">
-        <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description={t("empty")} />
-      </div>
+      <>
+        <Zhi1keAd t={t} />
+        <div data-testid="ranking-empty" className="ranking-empty">
+          <Empty
+            image={Empty.PRESENTED_IMAGE_SIMPLE}
+            description={t("empty")}
+          />
+        </div>
+      </>
     );
   if (state.view === "card")
     return (
       <>
         <div className="repository-grid">
-          {entries.map((item) => (
-            <Panel
-              key={item.repo}
-              data-testid="repo-card"
-              className="repository-card"
-              tabIndex={0}
-              onClick={() => open(item)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && e.target === e.currentTarget)
-                  open(item);
-              }}
-            >
-              <div className="card-top">
-                <Tag>#{item.rank}</Tag>
-                {actions(item)}
-              </div>
-              <div className="card-title-row">
-                <button
-                  type="button"
-                  className="repo-name repo-title"
-                  onClick={(event) => {
-                    event.stopPropagation();
+          {entries.map((item, index) => (
+            <React.Fragment key={item.repo}>
+              <Panel
+                data-testid="repo-card"
+                className="repository-card"
+                tabIndex={0}
+                onClick={() => open(item)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && e.target === e.currentTarget)
                     open(item);
-                  }}
-                >
-                  <SearchHighlight text={item.repo} query={state.query} />
-                </button>
-                <a
-                  className="repository-external"
-                  href={safeExternalUrl(item.url) || undefined}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`${t("drOpenRepo")} ${item.repo}`}
-                  title="GitHub"
-                  onClick={(event) => event.stopPropagation()}
-                >
-                  ↗
-                </a>
-              </div>
-              <div className="card-key-metrics">
-                <div>
-                  <strong>{fmt(item.stars)}</strong>
-                  <span>Stars</span>
+                }}
+              >
+                <div className="card-top">
+                  <span
+                    className={`card-rank${item.rank <= 3 ? " leading-rank" : ""}`}
+                  >
+                    {String(item.rank).padStart(2, "0")}
+                  </span>
+                  <div
+                    className={`card-actions${state.favorites.includes(item.repo) || state.compare.includes(item.repo) ? " has-selection" : ""}`}
+                  >
+                    {actions(item)}
+                    <a
+                      className="repository-external"
+                      href={safeExternalUrl(item.url) || undefined}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${t("drOpenRepo")} ${item.repo}`}
+                      title="GitHub"
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      ↗
+                    </a>
+                  </div>
                 </div>
-                <div className="card-growth">
-                  <strong>
-                    {item.star_delta_7d > 0 ? "+" : ""}
-                    {fmt(item.star_delta_7d || 0)}
-                  </strong>
-                  <span>{t("statNet7d")}</span>
+                <div className="card-title-row">
+                  <span className="repository-owner">
+                    {item.repo.split("/")[0]}
+                  </span>
+                  <button
+                    type="button"
+                    className="repo-name repo-title"
+                    aria-label={item.repo}
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      open(item);
+                    }}
+                  >
+                    <SearchHighlight
+                      text={item.repo.split("/").slice(1).join("/")}
+                      query={state.query}
+                    />
+                  </button>
                 </div>
-              </div>
-              <SummaryText item={item} t={t} query={state.query} />
-              <div className="card-tags">
-                <Tag className="warm-tag">{cat(item)}</Tag>
-              </div>
-              <PlatformTags item={item} t={t} />
-              <QualityBadges item={item} t={t} />
-            </Panel>
+                <div className="card-key-metrics">
+                  <div>
+                    <strong>{fmt(item.stars)}</strong>
+                    <span>Stars</span>
+                  </div>
+                  <div className="card-growth">
+                    <strong>
+                      {item.star_delta_7d > 0 ? "+" : ""}
+                      {fmt(item.star_delta_7d || 0)}
+                    </strong>
+                    <span aria-label={t("statNet7d")}>
+                      {state.lang === "zh" ? "7 日" : "7d"}
+                    </span>
+                  </div>
+                </div>
+                <SummaryText item={item} t={t} query={state.query} />
+                <div className="card-status">
+                  <QualityBadges item={item} t={t} statusOnly />
+                </div>
+                <div className="card-info-footer">
+                  <PlatformTags item={item} t={t} compact />
+                  <QualityBadges item={item} t={t} compact />
+                </div>
+              </Panel>
+              {index === Math.min(adAfter, entries.length) - 1 && (
+                <Zhi1keAd t={t} />
+              )}
+            </React.Fragment>
           ))}
         </div>
         {more}
@@ -256,6 +316,7 @@ export function RepositoryViews({
     );
   return (
     <>
+      <Zhi1keAd t={t} />
       <DeferredFeature t={t}>
         <RepositoryTable
           onReady={onReady}

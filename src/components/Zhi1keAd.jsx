@@ -10,21 +10,15 @@ export function Zhi1keAd({ t }) {
       aria-label={`${t("advertisement")} · 智一刻 AI`}
       data-testid="zhi1ke-ad"
     >
-      <div className="sponsor-brand-block">
-        <div className="sponsor-brand">
-          <img src={logo} alt="" width={34} height={24} decoding="async" />
-          <span>
-            智一刻 <small>AI</small>
-          </span>
-        </div>
-        <div className="sponsor-meta">
-          <span className="sponsor-label">{t("advertisement")}</span>
-          <span className="sponsor-domain">zhi1ke.com</span>
-        </div>
-      </div>
-      <div className="sponsor-copy">
-        <h3>{t("sponsorHeadline")}</h3>
-        <p>{t("sponsorDescription")}</p>
+      <div className="sponsor-content">
+        <span className="sponsor-label">{t("advertisement")}</span>
+        <span className="sponsor-brand">
+          <img src={logo} alt="" width={24} height={18} decoding="async" />
+          智一刻 AI
+        </span>
+        <span className="sponsor-copy">
+          {t("sponsorHeadline")} {t("sponsorDescription")}
+        </span>
       </div>
       <a
         className="sponsor-cta"

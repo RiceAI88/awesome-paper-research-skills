@@ -16,7 +16,8 @@ for (const view of ["table", "card"])
     await expect(rows).toHaveCount(Math.min(60, data.items.length));
     await page.getByRole("searchbox").fill(data.items.at(-1).repo);
     await expect(rows).toHaveCount(1);
-    await expect(rows.first()).toContainText(data.items.at(-1).repo);
+    if (view === "card") await expect(rows.first().getByRole("button", {name: data.items.at(-1).repo, exact: true})).toBeVisible();
+    else await expect(rows.first()).toContainText(data.items.at(-1).repo);
     await page.getByRole("searchbox").clear();
     await expect(rows).toHaveCount(30);
   });
@@ -28,11 +29,9 @@ test("cards emphasize metrics, explain actions and align installation footers", 
   await expect(cards).toHaveCount(30);
   const card = cards.first();
   await expect(card.locator(".card-key-metrics")).toContainText("Stars");
-  await expect(card.locator(".card-key-metrics")).toContainText("近 7 日");
-  await expect(card.locator("[data-compare]")).toContainText("对比");
-  await expect(card.locator('[data-testid^="favorite-"]')).toContainText(
-    "收藏",
-  );
+  await expect(card.locator(".card-key-metrics").getByLabel("近 7 日净增", {exact:true})).toBeVisible();
+  await expect(card.locator("[data-compare]")).toHaveAccessibleName(/^对比 /);
+  await expect(card.locator('[data-testid^="favorite-"]')).toHaveAccessibleName(/^收藏 /);
   await expect(card.locator("svg.mini-area-chart")).toHaveCount(0);
   await expect(card.locator(".installation-actions")).toHaveCount(0);
   await expect(card.locator(".card-meta")).toHaveCount(0);

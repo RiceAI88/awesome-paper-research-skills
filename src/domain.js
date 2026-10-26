@@ -148,7 +148,7 @@ export function serializeState(state) {
     ["task", "task", "all"],
     ["agent", "agent", "all"],
     ["sort", "sort", "rank"],
-    ["view", "view", "table"],
+    ["view", "view", null],
     ["lang", "lang", "zh"],
     ["theme", "theme", "light"],
   ])

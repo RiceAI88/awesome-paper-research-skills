@@ -112,7 +112,7 @@ test("mobile English card details can browse and close without moving the backgr
   const card = page.getByTestId("repo-card").nth(2);
   await card.scrollIntoViewIfNeeded();
   await card.click();
-  const original = (await card.boundingBox()).y;
+  const original = await page.evaluate(() => scrollY);
   await page.getByTestId("detail-next").click();
   await expect(page.getByTestId("detail-position")).toHaveText(
     `4 / ${data.items.length}`,
@@ -129,6 +129,6 @@ test("mobile English card details can browse and close without moving the backgr
   await page.keyboard.press("Escape");
   await expect(page.getByRole("dialog")).not.toBeVisible();
   await expect
-    .poll(async () => (await card.boundingBox()).y)
+    .poll(async () => page.evaluate(() => scrollY))
     .toBeCloseTo(original, 0);
 });
