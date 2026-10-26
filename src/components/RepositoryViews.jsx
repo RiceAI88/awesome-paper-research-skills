@@ -1,3 +1,4 @@
+import { RechargeAd } from "./RechargeAd";
 import { Zhi1keAd } from "./Zhi1keAd";
 import { SearchHighlight } from "./SearchHighlight";
 import { Panel } from "./Panel";
@@ -308,6 +309,7 @@ export function RepositoryViews({
               {index === Math.min(adAfter, entries.length) - 1 && (
                 <Zhi1keAd t={t} />
               )}
+              {index === 11 && <RechargeAd t={t} />}
             </React.Fragment>
           ))}
         </div>
@@ -341,6 +343,7 @@ export function RepositoryViews({
           })}
         />
       </DeferredFeature>
+      <RechargeAd t={t} />
       {more}
     </>
   );

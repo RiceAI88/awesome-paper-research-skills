@@ -771,3 +771,5 @@ a:focus-visible,
     transition: none;
   }
 }
+
+.ranking-section > .panel-body > .recharge-banner { margin-top: 20px; }
