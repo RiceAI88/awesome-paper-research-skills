@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Tooltip } from "antd";
 import { classifyUpdateRun, UPDATE_RUNS_URL } from "../practical";
 import { exactTimestamp, relativeTimestamp } from "../time";
-export function UpdateStatus({ generatedAt, lang, t }) {
+export function UpdateStatus({ generatedAt, collection, lang, t }) {
   const [now, setNow] = useState(Date.now());
   useEffect(() => {
     const timer = setInterval(() => setNow(Date.now()), 60000);
@@ -48,6 +48,7 @@ export function UpdateStatus({ generatedAt, lang, t }) {
     publishing: "updatePublishing",
     unknown: "updateUnknown",
   };
+  const partial = collection?.status === "partial";
   const precision = exactTimestamp(generatedAt, lang);
   return (
     <span className="update-status" data-testid="update-status">
@@ -55,6 +56,7 @@ export function UpdateStatus({ generatedAt, lang, t }) {
         title={
           <span>
             {precision} · {t(labels[status.kind])}
+            {partial && ` · ${t("collectionPartialHelp")}`}
             {status.checkedAt &&
               ` · ${t("statusChecked")} ${exactTimestamp(status.checkedAt, lang)}`}
             {status.url && (
@@ -71,13 +73,14 @@ export function UpdateStatus({ generatedAt, lang, t }) {
       >
         <span className="update-status-summary" tabIndex={0}>
           <i
-            className={`status-dot status-${status.kind}`}
+            className={`status-dot status-${partial ? "unknown" : status.kind}`}
             data-status={status.kind}
             aria-hidden="true"
           />
           <time dateTime={generatedAt} title={precision}>
             {t("dataUpdated")} {relativeTimestamp(generatedAt, lang, now)}
           </time>
+          {partial && <span> · {t("collectionPartial")}</span>}
           <span className="sr-only">{t(labels[status.kind])}</span>
         </span>
       </Tooltip>

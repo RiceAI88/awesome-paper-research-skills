@@ -423,6 +423,7 @@ function Dashboard({ state, update }) {
             <div className="masthead">
               <UpdateStatus
                 generatedAt={dataset.metadata?.generated_at}
+                collection={dataset.metadata?.collection}
                 lang={state.lang}
                 t={t}
               />
@@ -765,6 +766,7 @@ function Dashboard({ state, update }) {
           allItems={items}
           history={historyData}
           generatedAt={dataset.metadata?.generated_at}
+          collection={dataset.metadata?.collection}
           state={state}
           update={update}
           t={t}

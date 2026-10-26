@@ -23,6 +23,11 @@ from email.utils import format_datetime
 from pathlib import Path
 from typing import Any
 
+try:
+    from . import collection
+except ImportError:  # Direct script entry point in Actions.
+    import collection
+
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "config" / "ranking.json"
@@ -33,6 +38,9 @@ CSV_PATH = ROOT / "data" / "rankings.csv"
 README_PATH = ROOT / "README.md"
 HISTORY_DIR = ROOT / "data" / "history"
 FIRST_SEEN_PATH = ROOT / "data" / "first-seen.json"
+CATALOG_PATH = ROOT / "data" / "repository-catalog.json"
+COLLECTION_REPORT_PATH = ROOT / "data" / "collection-report.json"
+COLLECTION_EVENTS_PATH = ROOT / "data" / "collection-events.json"
 REPORTS_DIR = ROOT / "reports"
 SITEMAP_PATH = ROOT / "sitemap.xml"
 FEED_PATH = ROOT / "feed.xml"
@@ -426,6 +434,8 @@ def is_academic_skill_repo(
         reasons.append("trusted_seed")
     if not skill_hits:
         reasons.append("missing_skill_signal")
+    if not academic_hits:
+        reasons.append("missing_academic_signal")
     if skill_hits and not strong_skill_hits and not trusted:
         reasons.append("missing_strong_skill_signal")
     if academic_hits and not strong_academic_hits and not trusted:
@@ -532,14 +542,14 @@ def rank_repositories(
 
     for repo in repos:
         name = repo["nameWithOwner"]
-        if name in excluded_repositories:
+        if name.lower() in {value.lower() for value in excluded_repositories}:
             continue
         accepted, reasons = is_academic_skill_repo(
             repo,
             min_stars=min_stars,
             trusted_repositories=trusted_repositories,
         )
-        if not accepted:
+        if not accepted and not repo.get("_retained_pending"):
             continue
 
         previous = previous_snapshot.get(name, {}) if isinstance(previous_snapshot, dict) else {}
@@ -577,6 +587,10 @@ def rank_repositories(
 
         ranked.append(
             {
+                "refresh_status": "pending" if repo.get("_retained_pending") else "fresh",
+                "metadata_checked_at": repo.get("_metadata_checked_at"),
+                "pending_reason": repo.get("_pending_reason"),
+                "previous_names": repo.get("_previous_names", []),
                 "rank": 0,
                 "repo": name,
                 "stars": stars,
@@ -670,6 +684,9 @@ def annotate_first_seen(
                 "first_seen_is_baseline": day == baseline,
             })
     for item in data["items"]:
+        for alias in item.get("previous_names", []):
+            if alias.casefold() in records:
+                records.setdefault(item["repo"].casefold(), dict(records[alias.casefold()]))
         record = records.setdefault(item["repo"].casefold(), {
             "first_seen_date": today,
             "first_seen_is_baseline": today == baseline,
@@ -745,9 +762,15 @@ def save_history_snapshot(data: dict[str, Any], today: datetime) -> None:
     """Persist today's ranking as a dated snapshot and prune old entries."""
     HISTORY_DIR.mkdir(parents=True, exist_ok=True)
     snapshot_path = _history_path(today)
-    # Only write once per day to keep history idempotent under re-runs.
-    if not snapshot_path.exists():
-        snapshot_path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    # Keep the first observation per day; fill newly recovered entries only.
+    snapshot = load_json(snapshot_path, {**data, "items": []})
+    seen = {item["repo"].lower() for item in snapshot["items"]}
+    for item in data["items"]:
+        if item.get("refresh_status") != "pending" and item["repo"].lower() not in seen:
+            snapshot["items"].append(item)
+            seen.add(item["repo"].lower())
+    snapshot["metadata"]["total"] = len(snapshot["items"])
+    snapshot_path.write_text(json.dumps(snapshot, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     cutoff = today - timedelta(days=HISTORY_RETENTION_DAYS)
     for entry in HISTORY_DIR.glob("*.json"):
@@ -848,65 +871,63 @@ def search_repositories(
     min_stars: int,
     token: str | None,
     max_pages: int = 2,
-) -> list[dict[str, Any]]:
+) -> collection.SearchResult:
     q = f"{query} stars:>={min_stars} fork:false archived:false"
     items: list[dict[str, Any]] = []
-    try:
-        for page in range(1, max_pages + 1):
-            data = github_request(
-                "/search/repositories",
-                token,
-                {
-                    "q": q,
-                    "sort": "stars",
-                    "order": "desc",
-                    "per_page": 100,
-                    "page": page,
-                },
-            )
-            page_items = data.get("items", [])
-            items.extend(page_items)
-            # Stop early when the last page is short or search hits the
-            # GitHub-wide 1000-result ceiling.
-            if len(page_items) < 100 or page * 100 >= data.get("total_count", 0):
-                break
-            time.sleep(1.5)
-    except urllib.error.HTTPError as error:
-        message = error.read().decode("utf-8", errors="replace")
-        print(f"warning: search failed for {query!r}: {error.code} {message}", file=sys.stderr)
-        return items
-    return [rest_to_repo(item) for item in items]
+    total, incomplete = 0, False
+    for page in range(1, max_pages + 1):
+        data = github_request("/search/repositories", token, {
+            "q": q, "sort": "stars", "order": "desc", "per_page": 100, "page": page,
+        })
+        page_items = data.get("items", [])
+        items.extend(page_items)
+        total = data.get("total_count", 0)
+        incomplete = incomplete or bool(data.get("incomplete_results"))
+        if len(page_items) < 100 or page * 100 >= total:
+            break
+        time.sleep(1.5)
+    return collection.SearchResult([rest_to_repo(item) for item in items], total, incomplete, total > len(items))
 
 
-def fetch_repository(full_name: str, token: str | None) -> dict[str, Any] | None:
-    try:
-        data = github_request(f"/repos/{full_name}", token)
-    except urllib.error.HTTPError as error:
-        if error.code != 404:
-            message = error.read().decode("utf-8", errors="replace")
-            print(f"warning: repository fetch failed for {full_name}: {error.code} {message}", file=sys.stderr)
-        return None
-    return rest_to_repo(data)
+def fetch_repository(full_name: str, token: str | None) -> dict[str, Any]:
+    return rest_to_repo(github_request(f"/repos/{full_name}", token))
 
 
-def collect_repositories(config: dict[str, Any], token: str | None) -> list[dict[str, Any]]:
-    min_stars = int(config.get("min_stars", DEFAULT_MIN_STARS))
-    repos: dict[str, dict[str, Any]] = {}
-
-    for full_name in config.get("seed_repositories", []):
-        repo = fetch_repository(full_name, token)
-        if repo:
-            repos[repo["nameWithOwner"]] = repo
+def collect_repositories(config: dict[str, Any], token: str | None) -> collection.CollectionResult:
+    # Bootstrap metadata from the latest observation, before rolling history prunes it.
+    previous = {}
+    for path in [*sorted(HISTORY_DIR.glob("*.json")), DATA_PATH]:
+        snapshot = load_json(path, {})
+        for item in snapshot.get("items", []):
+            if item.get("refresh_status") != "pending":
+                previous[item["repo"]] = {**item, "_observed_at": snapshot.get("metadata", {}).get("generated_at")}
+    registry = load_json(FIRST_SEEN_PATH, {}).get("repositories", {})
+    def fetch(name):
         time.sleep(0.15)
-
-    for query in config.get("search_queries", []):
-        for repo in search_repositories(query, min_stars, token):
-            repos[repo["nameWithOwner"]] = repo
-        # Search API allows 30 requests/minute; with up to 2 pages per query
-        # this keeps even the worst case (2 pages every query) under the cap.
+        return fetch_repository(name, token)
+    def search(query):
         time.sleep(2.5)
+        return search_repositories(query, int(config.get("min_stars", DEFAULT_MIN_STARS)), token)
+    trusted = set(config.get("seed_repositories", []))
+    return collection.collect(config, catalog=load_json(CATALOG_PATH, {}), previous_items=previous,
+        known_names=list(registry), fetch=fetch, search=search,
+        eligible=lambda repo: is_academic_skill_repo(repo, min_stars=int(config.get("min_stars", DEFAULT_MIN_STARS)), trusted_repositories=trusted),
+        now=utc_now().replace(microsecond=0).isoformat().replace("+00:00", "Z"))
 
-    return list(repos.values())
+
+def write_collection_state(result: collection.CollectionResult, data=None) -> None:
+    # Diagnostics are written even on failure; the workflow uploads them as an artifact.
+    report = result.report
+    if data is not None:
+        displayed = {item["repo"].lower() for item in data["items"]}
+        report["outside_rank_limit"] = [repo["nameWithOwner"] for repo in result.repositories if repo["nameWithOwner"].lower() not in displayed]
+    COLLECTION_REPORT_PATH.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    if report["fatal"]:
+        return
+    CATALOG_PATH.write_text(json.dumps(result.catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    events = load_json(COLLECTION_EVENTS_PATH, [])
+    events.extend({"at": report["generated_at"], **event} for event in report["changes"])
+    COLLECTION_EVENTS_PATH.write_text(json.dumps(events[-1000:], ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 def markdown_escape(value: str) -> str:
@@ -981,6 +1002,7 @@ def count_skill_files_in_tree(tree: list[Any]) -> int:
         1
         for node in tree
         if isinstance(node, dict)
+        and node.get("type", "blob") == "blob"
         and str(node.get("path", "")).rsplit("/", 1)[-1].lower() == "skill.md"
     )
 
@@ -1002,15 +1024,25 @@ def count_skill_files(full_name: str, branch: str, token: str | None) -> int | N
     except (urllib.error.HTTPError, urllib.error.URLError) as error:
         print(f"warning: skill tree fetch failed for {full_name}: {error}", file=sys.stderr)
         return None
-    return count_skill_files_in_tree(data.get("tree") or [])
+    count = count_skill_files_in_tree(data.get("tree") or [])
+    return count if count or not data.get("truncated") else None
 
 
 def enrich_skill_counts(items: list[dict[str, Any]], token: str | None) -> None:
-    """Attach `skills_count` to each ranked item (only-add enrichment)."""
+    """Identify project type from file evidence; zero in a truncated tree is unknown."""
     for item in items:
-        branch = item.get("default_branch") or ""
-        item["skills_count"] = count_skill_files(item["repo"], branch, token)
-        time.sleep(0.15)
+        count, complete = None, False
+        if item.get("refresh_status") != "pending":
+            try:
+                tree = github_request(f"/repos/{item['repo']}/git/trees/{item.get('default_branch') or 'HEAD'}", token, {"recursive": "1"})
+                count = count_skill_files_in_tree(tree.get("tree") or [])
+                complete = not tree.get("truncated", False)
+            except (urllib.error.URLError, TimeoutError, OSError):
+                pass
+            time.sleep(0.15)
+        item["skills_count"] = count
+        item["skills_count_complete"] = complete
+        item["repository_kind"] = "skill" if count else "related" if count == 0 and complete else "unknown"
 
 
 # Map a backend platform id to a short human label for README / display.
@@ -1106,6 +1138,8 @@ def render_readme(data: dict[str, Any], window_snapshot: dict[str, Any] | None =
 ## 项目特色
 
 - 🔄 **每日自动更新** — GitHub Actions 每天 02:20 UTC 运行，自动搜索、过滤、排名并提交。
+- 🧭 **稳定收录与核验状态** — 搜索发现新项目，历史项目独立复查；临时请求失败保留旧数据并标记，新增和移除原因可追溯。
+- 🏷️ **项目类型** — 根据默认分支 `SKILL.md` 文件检测区分 Skills、科研相关项目和待核验类型；不以文件数量代替质量或安装验证。
 - 🎯 **精准双重信号过滤** — 必须同时命中"Skill/Agent/Workflow"与"Academic/Research/Paper"信号，挡住泛 AI 项目。
 - 📈 **7 天 / 30 天趋势窗口** — 基于历史快照计算一周 Stars 增量，并展示 30 天 sparkline 趋势曲线，告别单日抖动假象。
 - 🆕 **本周新收录** — 自动识别近 7 天新进入榜单的仓库。
@@ -1692,8 +1726,22 @@ def main() -> int:
         data, window_snapshot = build_dataset(config, repos, enrich_skills=False)
     else:
         token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
-        repos = collect_repositories(config, token)
-        data, window_snapshot = build_dataset(config, repos, token=token)
+        print("Refreshing known repositories and searching for new candidates...", flush=True)
+        result = collect_repositories(config, token)
+        print(f"Collection: {len(result.repositories)} eligible, {len(result.report.get('pending', []))} pending; {result.report.get('status', 'failed')}", flush=True)
+        if result.report["fatal"]:
+            write_collection_state(result)
+            print("error: no repository metadata could be confirmed; published data preserved", file=sys.stderr)
+            return 1
+        print("Checking SKILL.md inventories and building rankings...", flush=True)
+        data, window_snapshot = build_dataset(config, result.repositories, token=token)
+        data["metadata"]["collection"] = {
+            "status": result.report["status"],
+            "pending_count": len(result.report["pending"]),
+            "search_errors": sum(bool(row.get("error") or row.get("incomplete")) for row in result.report["searches"]),
+        }
+        data["metadata"]["source"] = "GitHub REST API; persistent catalog with search discovery"
+        write_collection_state(result, data)
     write_outputs(data, window_snapshot=window_snapshot)
     print(f"updated {len(data['items'])} repositories at {data['metadata']['generated_at']}")
     return 0

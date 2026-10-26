@@ -11,7 +11,22 @@ import { safeExternalUrl } from "../domain";
 export function QualityBadges({ item, t }) {
   return (
     <Space size={[4, 4]} wrap>
-      {item.skills_count != null && <Tag>{item.skills_count} skills</Tag>}
+      <Tooltip title={t("projectTypeHelp")}>
+        <Tag>
+          {item.skills_count > 0
+            ? `${item.skills_count}${item.skills_count_complete === false ? "+" : ""} skills`
+            : t(
+                item.repository_kind === "related"
+                  ? "projectRelated"
+                  : "projectUnknown",
+              )}
+        </Tag>
+      </Tooltip>
+      {item.refresh_status === "pending" && (
+        <Tooltip title={t("metadataPendingHelp")}>
+          <Tag color="warning">{t("metadataPending")}</Tag>
+        </Tooltip>
+      )}
       {item.verifies_citations && (
         <Tag className="warm-tag">{t("citeCheck")} ✓</Tag>
       )}

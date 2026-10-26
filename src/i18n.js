@@ -1,5 +1,13 @@
 export const translations = {
   zh: {
+    projectRelated: "科研相关项目",
+    projectUnknown: "类型待核验",
+    projectTypeHelp: "按 SKILL.md 文件检测：数量不代表质量或安装兼容性；未发现该文件的项目保留为科研相关项目。",
+    metadataPending: "数据待核验",
+    metadataPendingHelp: "本次无法确认仓库状态，暂保留上次成功获取的数据；不表示仓库已删除。",
+    collectionPartial: "部分数据待核验",
+    collectionPartialHelp: "部分仓库或搜索请求未能完成；待核验条目保留旧数据，搜索覆盖可能不完整。",
+
     themeLabel: "主题",
     statNewWeek: "本周新收录",
     newWeekHelp: "按 UTC 自然周内首次进入历史快照计算；不含初始基线已有项目。",
@@ -229,6 +237,14 @@ export const translations = {
     compareHint: "曲线为相对各自窗口起点的 Stars 增长百分比。",
   },
   en: {
+    projectRelated: "Research-related project",
+    projectUnknown: "Type unverified",
+    projectTypeHelp: "Based on SKILL.md file detection, not quality or installation compatibility. Projects without these files remain research-related projects.",
+    metadataPending: "Data unverified",
+    metadataPendingHelp: "The latest request failed. Previously fetched data is retained; this does not mean the repository was deleted.",
+    collectionPartial: "Some data unverified",
+    collectionPartialHelp: "Some repository or search requests were incomplete. Unverified entries retain earlier data; discovery coverage may be incomplete.",
+
     themeLabel: "Theme",
     statNewWeek: "New this week",
     newWeekHelp: "First recorded in a snapshot this UTC calendar week; initial baseline entries excluded.",
