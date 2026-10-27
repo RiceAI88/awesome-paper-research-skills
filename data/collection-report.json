@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-27T05:04:03Z",
-  "status": "complete",
+  "generated_at": "2026-10-27T08:02:05Z",
+  "status": "partial",
   "fatal": false,
   "pending": [],
   "rejected": [
@@ -722,6 +722,15 @@
       ]
     },
     {
+      "repo": "ahmadhassan-bted/turnitout-humanizer",
+      "reasons": [
+        "assistant",
+        "academic",
+        "latex",
+        "missing_strong_skill_signal"
+      ]
+    },
+    {
       "repo": "codeman008/financial_freedom",
       "reasons": [
         "missing_skill_signal",
@@ -733,15 +742,6 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "ahmadhassan-bted/turnitout-humanizer",
-      "reasons": [
-        "assistant",
-        "academic",
-        "latex",
-        "missing_strong_skill_signal"
       ]
     },
     {
@@ -1356,6 +1356,13 @@
       ]
     },
     {
+      "repo": "joasasantos/rea-prompts",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
       "repo": "mininglamp-ai/mano-p",
       "reasons": [
         "grounding",
@@ -1385,13 +1392,6 @@
         "paper",
         "missing_skill_signal",
         "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "joasasantos/rea-prompts",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
       ]
     },
     {
@@ -1533,13 +1533,6 @@
       ]
     },
     {
-      "repo": "public-apis/public-apis",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "morluto/rea",
       "reasons": [
         "skill",
@@ -1547,20 +1540,6 @@
         "codex",
         "missing_academic_signal",
         "negative:developer-tools"
-      ]
-    },
-    {
-      "repo": "awesome-selfhosted/awesome-selfhosted",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "vinta/awesome-python",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
       ]
     },
     {
@@ -1583,14 +1562,6 @@
       ]
     },
     {
-      "repo": "nousresearch/hermes-agent",
-      "reasons": [
-        "codex",
-        "research",
-        "missing_strong_academic_signal"
-      ]
-    },
-    {
       "repo": "trimstray/the-book-of-secret-knowledge",
       "reasons": [
         "research",
@@ -1601,13 +1572,6 @@
     },
     {
       "repo": "firecrawl/firecrawl",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "avelino/awesome-go",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
@@ -1628,15 +1592,6 @@
       ]
     },
     {
-      "repo": "shubhamsaboo/awesome-llm-apps",
-      "reasons": [
-        "skill",
-        "skills",
-        "agent skill",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "github/spec-kit",
       "reasons": [
         "copilot",
@@ -1649,21 +1604,6 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "garrytan/gstack",
-      "reasons": [
-        "claude code",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "hack-with-github/awesome-hacking",
-      "reasons": [
-        "research",
-        "missing_skill_signal",
-        "missing_strong_academic_signal"
       ]
     },
     {
@@ -1682,13 +1622,6 @@
       ]
     },
     {
-      "repo": "juliusbrussee/caveman",
-      "reasons": [
-        "skill",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "paperclipai/paperclip",
       "reasons": [
         "skill",
@@ -1699,29 +1632,11 @@
       ]
     },
     {
-      "repo": "nexu-io/open-design",
-      "reasons": [
-        "skill",
-        "skills",
-        "codex",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "leonxlnx/taste-skill",
       "reasons": [
         "skill",
         "skills",
         "agent skill",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "ruvnet/ruview",
-      "reasons": [
-        "skill",
-        "skills",
-        "assistant",
         "missing_academic_signal"
       ]
     },
@@ -1741,26 +1656,10 @@
       ]
     },
     {
-      "repo": "punkpeye/awesome-mcp-servers",
-      "reasons": [
-        "mcp",
-        "missing_academic_signal",
-        "missing_strong_skill_signal"
-      ]
-    },
-    {
       "repo": "odysseus-dev/odysseus",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "microsoft/ml-for-beginners",
-      "reasons": [
-        "science",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
       ]
     },
     {
@@ -1769,23 +1668,6 @@
         "mcp",
         "missing_academic_signal",
         "missing_strong_skill_signal"
-      ]
-    },
-    {
-      "repo": "koala73/worldmonitor",
-      "reasons": [
-        "mcp",
-        "missing_academic_signal",
-        "missing_strong_skill_signal"
-      ]
-    },
-    {
-      "repo": "bytedance/deer-flow",
-      "reasons": [
-        "skill",
-        "workflow",
-        "research",
-        "missing_strong_academic_signal"
       ]
     },
     {
@@ -1799,13 +1681,6 @@
     },
     {
       "repo": "z4nzu/hackingtool",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "awesomedata/awesome-public-datasets",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
@@ -1831,33 +1706,7 @@
       ]
     },
     {
-      "repo": "career-ops-hq/career-ops",
-      "reasons": [
-        "skill",
-        "skills",
-        "claude code",
-        "latex",
-        "negative:interview",
-        "negative:resume"
-      ]
-    },
-    {
       "repo": "josephmisiti/awesome-machine-learning",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "rohitg00/ai-engineering-from-scratch",
-      "reasons": [
-        "mcp",
-        "missing_academic_signal",
-        "missing_strong_skill_signal"
-      ]
-    },
-    {
-      "repo": "fffaraz/awesome-cpp",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
@@ -1892,22 +1741,6 @@
         "skill",
         "agent skill",
         "pipeline",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "usestrix/strix",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "code-yeongyu/oh-my-openagent",
-      "reasons": [
-        "skill",
-        "skills",
-        "codex",
         "missing_academic_signal"
       ]
     },
@@ -1969,14 +1802,14 @@
       ]
     },
     {
-      "repo": "rust-unofficial/awesome-rust",
+      "repo": "crewaiinc/crewai",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
       ]
     },
     {
-      "repo": "crewaiinc/crewai",
+      "repo": "rust-unofficial/awesome-rust",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
@@ -1999,13 +1832,6 @@
     },
     {
       "repo": "jamiepine/voicebox",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "hkuds/cli-anything",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
@@ -2045,21 +1871,6 @@
       ]
     },
     {
-      "repo": "vsouza/awesome-ios",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "voltagent/awesome-openclaw-skills",
-      "reasons": [
-        "skill",
-        "skills",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "charlax/professional-programming",
       "reasons": [
         "science",
@@ -2075,28 +1886,11 @@
       ]
     },
     {
-      "repo": "lukasz-madon/awesome-remote-job",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "cloudflare/security-audit-skill",
       "reasons": [
         "skill",
         "agent skill",
         "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "sickn33/agentic-awesome-skills",
-      "reasons": [
-        "skill",
-        "skills",
-        "codex",
-        "missing_academic_signal",
-        "negative:developer-tools"
       ]
     },
     {
@@ -2108,28 +1902,11 @@
       ]
     },
     {
-      "repo": "zhayujie/cowagent",
-      "reasons": [
-        "skill",
-        "skills",
-        "agent skill",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "karanpratapsingh/system-design",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
         "negative:interview"
-      ]
-    },
-    {
-      "repo": "hkuds/deeptutor",
-      "reasons": [
-        "research",
-        "missing_skill_signal",
-        "missing_strong_academic_signal"
       ]
     },
     {
@@ -2167,35 +1944,10 @@
       ]
     },
     {
-      "repo": "patrickjs/awesome-cursorrules",
-      "reasons": [
-        "cursor",
-        "missing_academic_signal",
-        "missing_strong_skill_signal"
-      ]
-    },
-    {
-      "repo": "volcengine/openviking",
-      "reasons": [
-        "skill",
-        "skills",
-        "plugin",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "anthropics/financial-services",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "lfnovo/open-notebook",
-      "reasons": [
-        "assistant",
-        "missing_academic_signal",
-        "missing_strong_skill_signal"
       ]
     },
     {
@@ -2257,22 +2009,6 @@
       ]
     },
     {
-      "repo": "open-guides/og-aws",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "voltagent/awesome-agent-skills",
-      "reasons": [
-        "skill",
-        "skills",
-        "agent skill",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "alchaincyf/nuwa-skill",
       "reasons": [
         "skill",
@@ -2301,6 +2037,280 @@
         "research",
         "missing_skill_signal",
         "missing_strong_academic_signal"
+      ]
+    },
+    {
+      "repo": "freestylefly/awesome-gpt-image-2",
+      "reasons": [
+        "skill",
+        "skills",
+        "workflow",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "mukul975/anthropic-cybersecurity-skills",
+      "reasons": [
+        "skill",
+        "skills",
+        "claude code",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "google-research/timesfm",
+      "reasons": [
+        "research",
+        "missing_skill_signal",
+        "missing_strong_academic_signal"
+      ]
+    },
+    {
+      "repo": "openbmb/chatdev",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "nandhakishorm/laya",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "agentscope-ai/agentscope",
+      "reasons": [
+        "mcp",
+        "assistant",
+        "missing_academic_signal",
+        "missing_strong_skill_signal"
+      ]
+    },
+    {
+      "repo": "iofficeai/aionui",
+      "reasons": [
+        "skill",
+        "skills",
+        "claude code",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "yeachan-heo/oh-my-codex",
+      "reasons": [
+        "codex",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "anthropics/knowledge-work-plugins",
+      "reasons": [
+        "plugin",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "onyx-dot-app/onyx",
+      "reasons": [
+        "retrieval",
+        "missing_skill_signal",
+        "missing_strong_academic_signal"
+      ]
+    },
+    {
+      "repo": "davila7/claude-code-templates",
+      "reasons": [
+        "claude code",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "hsliuping/tradingagents-cn",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "negative:trading"
+      ]
+    },
+    {
+      "repo": "vxcontrol/pentagi",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "hesamsheikh/awesome-openclaw-usecases",
+      "reasons": [
+        "skill",
+        "skills",
+        "plugin",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "supermemoryai/supermemory",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "garrytan/gbrain",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "e2b-dev/awesome-ai-agents",
+      "reasons": [
+        "copilot",
+        "missing_academic_signal",
+        "missing_strong_skill_signal"
+      ]
+    },
+    {
+      "repo": "langchain-ai/deepagents",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "jivoi/awesome-osint",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "wilsonfreitas/awesome-quant",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "negative:trading"
+      ]
+    },
+    {
+      "repo": "assafelovic/gpt-researcher",
+      "reasons": [
+        "mcp",
+        "research",
+        "missing_strong_skill_signal",
+        "missing_strong_academic_signal"
+      ]
+    },
+    {
+      "repo": "academic/awesome-datascience",
+      "reasons": [
+        "academic",
+        "science",
+        "missing_skill_signal"
+      ]
+    },
+    {
+      "repo": "tencentcloud/tencentdb-agent-memory",
+      "reasons": [
+        "skill",
+        "plugin",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "harvard-edge/cs249r_book",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "systemdesign42/system-design-academy",
+      "reasons": [
+        "science",
+        "missing_skill_signal",
+        "missing_high_confidence_academic_signal",
+        "negative:interview"
+      ]
+    },
+    {
+      "repo": "zuzoovn/machine-learning-for-software-engineers",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "alirezarezvani/claude-skills",
+      "reasons": [
+        "skill",
+        "skills",
+        "agent skill",
+        "research",
+        "missing_strong_academic_signal",
+        "negative:developer-tools"
+      ]
+    },
+    {
+      "repo": "eyaltoledano/claude-task-master",
+      "reasons": [
+        "cursor",
+        "roo",
+        "missing_academic_signal",
+        "missing_strong_skill_signal"
+      ]
+    },
+    {
+      "repo": "fosowl/agenticseek",
+      "reasons": [
+        "assistant",
+        "missing_academic_signal",
+        "missing_strong_skill_signal"
+      ]
+    },
+    {
+      "repo": "phuryn/pm-skills",
+      "reasons": [
+        "skill",
+        "skills",
+        "plugin",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "dwmkerr/hacker-laws",
+      "reasons": [
+        "science",
+        "missing_skill_signal",
+        "missing_high_confidence_academic_signal"
+      ]
+    },
+    {
+      "repo": "jimliu/baoyu-skills",
+      "reasons": [
+        "skill",
+        "skills",
+        "codex",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "deepset-ai/haystack",
+      "reasons": [
+        "mcp",
+        "workflow",
+        "pipeline",
+        "retrieval",
+        "missing_strong_academic_signal"
+      ]
+    },
+    {
+      "repo": "apache/flink",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
       ]
     },
     {
@@ -2548,18 +2558,18 @@
       ]
     },
     {
-      "repo": "zuzoovn/machine-learning-for-software-engineers",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "srbhr/resume-matcher",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
         "negative:resume"
+      ]
+    },
+    {
+      "repo": "zuzoovn/machine-learning-for-software-engineers",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
       ]
     },
     {
@@ -2748,20 +2758,20 @@
       ]
     },
     {
-      "repo": "dipakkr/awesome-ai-engineering",
-      "reasons": [
-        "mcp",
-        "missing_academic_signal",
-        "missing_strong_skill_signal"
-      ]
-    },
-    {
       "repo": "nvidia/skillspector",
       "reasons": [
         "skill",
         "skills",
         "agent skill",
         "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "dipakkr/awesome-ai-engineering",
+      "reasons": [
+        "mcp",
+        "missing_academic_signal",
+        "missing_strong_skill_signal"
       ]
     },
     {
@@ -3878,13 +3888,6 @@
       ]
     },
     {
-      "repo": "steven2358/awesome-generative-ai",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "multimodal-art-projection/yue",
       "reasons": [
         "missing_skill_signal",
@@ -3906,31 +3909,7 @@
       ]
     },
     {
-      "repo": "open-jarvis/openjarvis",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "tw93/kami",
-      "reasons": [
-        "skill",
-        "skills",
-        "codex",
-        "paper",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
       "repo": "openbmb/minicpm",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "rerun-io/rerun",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
@@ -3961,13 +3940,6 @@
       ]
     },
     {
-      "repo": "offciercia/defi-developer-road-map",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "tigerless-labs/autoharness",
       "reasons": [
         "skill",
@@ -3981,15 +3953,6 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "nicobailon/visual-explainer",
-      "reasons": [
-        "skill",
-        "agent skill",
-        "review",
-        "missing_strong_academic_signal"
       ]
     },
     {
@@ -4017,14 +3980,6 @@
       ]
     },
     {
-      "repo": "behisecc/awesome-claude-skills",
-      "reasons": [
-        "skill",
-        "skills",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "ykdojo/claude-code-tips",
       "reasons": [
         "skill",
@@ -4032,13 +3987,6 @@
         "claude code",
         "missing_academic_signal",
         "negative:developer-tools"
-      ]
-    },
-    {
-      "repo": "veeral-patel/how-to-secure-anything",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
       ]
     },
     {
@@ -4091,27 +4039,6 @@
       ]
     },
     {
-      "repo": "yihong0618/bilingual_book_maker",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "roboflow/notebooks",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "nvidia/garak",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "nlpxucan/wizardlm",
       "reasons": [
         "missing_skill_signal",
@@ -4137,44 +4064,7 @@
       ]
     },
     {
-      "repo": "ai-boost/awesome-prompts",
-      "reasons": [
-        "paper",
-        "papers",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal",
-        "negative:curated list of chatgpt prompts"
-      ]
-    },
-    {
-      "repo": "harnessmd/munder-difflin",
-      "reasons": [
-        "claude code",
-        "codex",
-        "opencode",
-        "missing_academic_signal",
-        "negative:developer-tools"
-      ]
-    },
-    {
-      "repo": "wangrongsheng/awesome-llm-resources",
-      "reasons": [
-        "mcp",
-        "retrieval",
-        "审稿",
-        "missing_strong_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
       "repo": "datawhalechina/agent-learning-hub",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "cipher387/osint_stuff_tool_collection",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
@@ -4215,15 +4105,6 @@
       ]
     },
     {
-      "repo": "jesse-ai/jesse",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "negative:cryptocurrency",
-        "negative:crypto"
-      ]
-    },
-    {
       "repo": "evomap/evolver",
       "reasons": [
         "skill",
@@ -4255,16 +4136,18 @@
       ]
     },
     {
-      "repo": "charlax/engineering-management",
+      "repo": "ai4finance-foundation/finrobot",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
       ]
     },
     {
-      "repo": "ai4finance-foundation/finrobot",
+      "repo": "lemomo-ai/lemo-opuscar",
       "reasons": [
-        "missing_skill_signal",
+        "skill",
+        "skills",
+        "claude code",
         "missing_academic_signal"
       ]
     },
@@ -4278,51 +4161,10 @@
       ]
     },
     {
-      "repo": "nvidia/isaac-gr00t",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "woooodyy/llm-agent-paper-list",
-      "reasons": [
-        "paper",
-        "survey",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "lemomo-ai/lemo-opuscar",
-      "reasons": [
-        "skill",
-        "skills",
-        "claude code",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "cporter202/api-mega-list",
-      "reasons": [
-        "mcp",
-        "missing_academic_signal",
-        "missing_strong_skill_signal",
-        "negative:developer-tools"
-      ]
-    },
-    {
       "repo": "xixu-me/xget",
       "reasons": [
         "skill",
         "skills",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "guchangan1/all-defense-tool",
-      "reasons": [
-        "missing_skill_signal",
         "missing_academic_signal"
       ]
     },
@@ -4378,13 +4220,6 @@
       ]
     },
     {
-      "repo": "feross/simple-peer",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "op7418/guizang-social-card-skill",
       "reasons": [
         "skill",
@@ -4392,14 +4227,6 @@
         "codex",
         "missing_academic_signal",
         "negative:theme"
-      ]
-    },
-    {
-      "repo": "firecrawl/firecrawl-mcp-server",
-      "reasons": [
-        "mcp",
-        "gemini",
-        "missing_academic_signal"
       ]
     },
     {
@@ -4412,23 +4239,15 @@
       ]
     },
     {
+      "repo": "firecrawl/firecrawl-mcp-server",
+      "reasons": [
+        "mcp",
+        "gemini",
+        "missing_academic_signal"
+      ]
+    },
+    {
       "repo": "0xinfection/awesome-waf",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "parthjadhav/app-store-screenshots",
-      "reasons": [
-        "skill",
-        "skills",
-        "cursor",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "microsoft/tinytroupe",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
@@ -4508,16 +4327,6 @@
       ]
     },
     {
-      "repo": "traderalice/openalice",
-      "reasons": [
-        "research",
-        "missing_skill_signal",
-        "missing_strong_academic_signal",
-        "negative:crypto",
-        "negative:trading"
-      ]
-    },
-    {
       "repo": "hwayne/awesome-cold-showers",
       "reasons": [
         "missing_skill_signal",
@@ -4561,15 +4370,6 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "slowmist/blockchain-dark-forest-selfguard-handbook",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "negative:cryptocurrency",
-        "negative:crypto"
       ]
     },
     {
@@ -5122,14 +4922,6 @@
       ]
     },
     {
-      "repo": "ethen8181/machine-learning",
-      "reasons": [
-        "science",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
       "repo": "nanako0129/sepia",
       "reasons": [
         "skill",
@@ -5138,6 +4930,14 @@
         "arxiv",
         "missing_high_confidence_academic_signal",
         "negative:developer-tools"
+      ]
+    },
+    {
+      "repo": "ethen8181/machine-learning",
+      "reasons": [
+        "science",
+        "missing_skill_signal",
+        "missing_high_confidence_academic_signal"
       ]
     },
     {
@@ -5197,6 +4997,17 @@
       ]
     },
     {
+      "repo": "mikubaka88/ccfa-skills",
+      "reasons": [
+        "skill",
+        "skills",
+        "research",
+        "paper",
+        "papers",
+        "missing_high_confidence_academic_signal"
+      ]
+    },
+    {
       "repo": "cirosantilli/china-dictatorship",
       "reasons": [
         "plugin",
@@ -5206,17 +5017,6 @@
         "文献",
         "negative:leetcode",
         "negative:interview"
-      ]
-    },
-    {
-      "repo": "mikubaka88/ccfa-skills",
-      "reasons": [
-        "skill",
-        "skills",
-        "research",
-        "paper",
-        "papers",
-        "missing_high_confidence_academic_signal"
       ]
     },
     {
@@ -5467,17 +5267,6 @@
       ]
     },
     {
-      "repo": "ai-in-health/medllmspracticalguide",
-      "reasons": [
-        "paper",
-        "papers",
-        "survey",
-        "review",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
       "repo": "ai4s-research/open-science",
       "reasons": [
         "skill",
@@ -5490,10 +5279,12 @@
       ]
     },
     {
-      "repo": "tomohideshibata/bert-related-papers",
+      "repo": "ai-in-health/medllmspracticalguide",
       "reasons": [
         "paper",
         "papers",
+        "survey",
+        "review",
         "missing_skill_signal",
         "missing_high_confidence_academic_signal"
       ]
@@ -5504,6 +5295,15 @@
         "mcp",
         "missing_academic_signal",
         "missing_strong_skill_signal"
+      ]
+    },
+    {
+      "repo": "tomohideshibata/bert-related-papers",
+      "reasons": [
+        "paper",
+        "papers",
+        "missing_skill_signal",
+        "missing_high_confidence_academic_signal"
       ]
     },
     {
@@ -6056,14 +5856,6 @@
       ]
     },
     {
-      "repo": "taleliyahu/awesome-ai-security",
-      "reasons": [
-        "research",
-        "missing_skill_signal",
-        "missing_strong_academic_signal"
-      ]
-    },
-    {
       "repo": "hashgraph-online/awesome-ai-plugins",
       "reasons": [
         "skill",
@@ -6073,10 +5865,11 @@
       ]
     },
     {
-      "repo": "fainir/most-capable-agent-system-prompt",
+      "repo": "taleliyahu/awesome-ai-security",
       "reasons": [
+        "research",
         "missing_skill_signal",
-        "missing_academic_signal"
+        "missing_strong_academic_signal"
       ]
     },
     {
@@ -6085,6 +5878,13 @@
         "research",
         "missing_skill_signal",
         "missing_strong_academic_signal"
+      ]
+    },
+    {
+      "repo": "fainir/most-capable-agent-system-prompt",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
       ]
     },
     {
@@ -6150,14 +5950,6 @@
       ]
     },
     {
-      "repo": "d-krupke/cpsat-primer",
-      "reasons": [
-        "research",
-        "missing_skill_signal",
-        "missing_strong_academic_signal"
-      ]
-    },
-    {
       "repo": "opendatabox/awesome-data-llm",
       "reasons": [
         "paper",
@@ -6165,6 +5957,14 @@
         "thesis",
         "missing_skill_signal",
         "missing_high_confidence_academic_signal"
+      ]
+    },
+    {
+      "repo": "d-krupke/cpsat-primer",
+      "reasons": [
+        "research",
+        "missing_skill_signal",
+        "missing_strong_academic_signal"
       ]
     },
     {
@@ -6564,14 +6364,14 @@
       ]
     },
     {
-      "repo": "rust-unofficial/awesome-rust",
+      "repo": "crewaiinc/crewai",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
       ]
     },
     {
-      "repo": "crewaiinc/crewai",
+      "repo": "rust-unofficial/awesome-rust",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
@@ -7349,20 +7149,20 @@
       ]
     },
     {
-      "repo": "dipakkr/awesome-ai-engineering",
-      "reasons": [
-        "mcp",
-        "missing_academic_signal",
-        "missing_strong_skill_signal"
-      ]
-    },
-    {
       "repo": "nvidia/skillspector",
       "reasons": [
         "skill",
         "skills",
         "agent skill",
         "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "dipakkr/awesome-ai-engineering",
+      "reasons": [
+        "mcp",
+        "missing_academic_signal",
+        "missing_strong_skill_signal"
       ]
     },
     {
@@ -7389,18 +7189,18 @@
       ]
     },
     {
+      "repo": "walkinglabs/learn-harness-engineering",
+      "reasons": [
+        "plugin",
+        "missing_academic_signal"
+      ]
+    },
+    {
       "repo": "bee-san/ciphey",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
         "negative:crypto"
-      ]
-    },
-    {
-      "repo": "walkinglabs/learn-harness-engineering",
-      "reasons": [
-        "plugin",
-        "missing_academic_signal"
       ]
     },
     {
@@ -7448,16 +7248,16 @@
       ]
     },
     {
-      "repo": "rothgar/awesome-tuis",
+      "repo": "awesome-dsh-plugin/awesome-dsh-plugin",
       "reasons": [
-        "missing_skill_signal",
+        "plugin",
         "missing_academic_signal"
       ]
     },
     {
-      "repo": "awesome-dsh-plugin/awesome-dsh-plugin",
+      "repo": "rothgar/awesome-tuis",
       "reasons": [
-        "plugin",
+        "missing_skill_signal",
         "missing_academic_signal"
       ]
     },
@@ -7714,18 +7514,18 @@
       ]
     },
     {
-      "repo": "hkuds/openharness",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "chenhg5/cc-connect",
       "reasons": [
         "claude code",
         "codex",
         "assistant",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "hkuds/openharness",
+      "reasons": [
+        "missing_skill_signal",
         "missing_academic_signal"
       ]
     },
@@ -8055,14 +7855,14 @@
       ]
     },
     {
-      "repo": "rust-unofficial/awesome-rust",
+      "repo": "crewaiinc/crewai",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
       ]
     },
     {
-      "repo": "crewaiinc/crewai",
+      "repo": "rust-unofficial/awesome-rust",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
@@ -8896,19 +8696,19 @@
       ]
     },
     {
-      "repo": "visenger/awesome-mlops",
-      "reasons": [
-        "science",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
       "repo": "cursor/plugins",
       "reasons": [
         "plugin",
         "cursor",
         "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "visenger/awesome-mlops",
+      "reasons": [
+        "science",
+        "missing_skill_signal",
+        "missing_high_confidence_academic_signal"
       ]
     },
     {
@@ -9059,17 +8859,17 @@
       ]
     },
     {
-      "repo": "aden-hive/hive",
+      "repo": "langchain-ai/open-swe",
       "reasons": [
-        "skill",
-        "skills",
+        "missing_skill_signal",
         "missing_academic_signal"
       ]
     },
     {
-      "repo": "langchain-ai/open-swe",
+      "repo": "aden-hive/hive",
       "reasons": [
-        "missing_skill_signal",
+        "skill",
+        "skills",
         "missing_academic_signal"
       ]
     },
@@ -9114,6 +8914,13 @@
       ]
     },
     {
+      "repo": "yujunzhixue/dsh-purge",
+      "reasons": [
+        "plugin",
+        "missing_academic_signal"
+      ]
+    },
+    {
       "repo": "behisecc/awesome-claude-skills",
       "reasons": [
         "skill",
@@ -9129,13 +8936,6 @@
         "claude code",
         "missing_academic_signal",
         "negative:developer-tools"
-      ]
-    },
-    {
-      "repo": "yujunzhixue/dsh-purge",
-      "reasons": [
-        "plugin",
-        "missing_academic_signal"
       ]
     },
     {
@@ -10027,6 +9827,14 @@
       ]
     },
     {
+      "repo": "zapplyjobs/internships-2027",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "negative:interview"
+      ]
+    },
+    {
       "repo": "sindresorhus/awesome-scifi",
       "reasons": [
         "science",
@@ -10270,6 +10078,17 @@
       ]
     },
     {
+      "repo": "mikubaka88/ccfa-skills",
+      "reasons": [
+        "skill",
+        "skills",
+        "research",
+        "paper",
+        "papers",
+        "missing_high_confidence_academic_signal"
+      ]
+    },
+    {
       "repo": "cirosantilli/china-dictatorship",
       "reasons": [
         "plugin",
@@ -10279,17 +10098,6 @@
         "文献",
         "negative:leetcode",
         "negative:interview"
-      ]
-    },
-    {
-      "repo": "mikubaka88/ccfa-skills",
-      "reasons": [
-        "skill",
-        "skills",
-        "research",
-        "paper",
-        "papers",
-        "missing_high_confidence_academic_signal"
       ]
     },
     {
@@ -10312,6 +10120,15 @@
       ]
     },
     {
+      "repo": "kaomei/stickman-video-director",
+      "reasons": [
+        "skill",
+        "skills",
+        "codex",
+        "missing_academic_signal"
+      ]
+    },
+    {
       "repo": "zjunlp/llmagentpapers",
       "reasons": [
         "paper",
@@ -10320,15 +10137,6 @@
         "review",
         "missing_skill_signal",
         "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "kaomei/stickman-video-director",
-      "reasons": [
-        "skill",
-        "skills",
-        "codex",
-        "missing_academic_signal"
       ]
     },
     {
@@ -10649,17 +10457,6 @@
       ]
     },
     {
-      "repo": "ai-in-health/medllmspracticalguide",
-      "reasons": [
-        "paper",
-        "papers",
-        "survey",
-        "review",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
       "repo": "ai4s-research/open-science",
       "reasons": [
         "skill",
@@ -10668,6 +10465,17 @@
         "research",
         "scientific",
         "science",
+        "missing_high_confidence_academic_signal"
+      ]
+    },
+    {
+      "repo": "ai-in-health/medllmspracticalguide",
+      "reasons": [
+        "paper",
+        "papers",
+        "survey",
+        "review",
+        "missing_skill_signal",
         "missing_high_confidence_academic_signal"
       ]
     },
@@ -10686,6 +10494,14 @@
       ]
     },
     {
+      "repo": "punkpeye/awesome-remote-mcp-servers",
+      "reasons": [
+        "mcp",
+        "missing_academic_signal",
+        "missing_strong_skill_signal"
+      ]
+    },
+    {
       "repo": "tomohideshibata/bert-related-papers",
       "reasons": [
         "paper",
@@ -10699,14 +10515,6 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "punkpeye/awesome-remote-mcp-servers",
-      "reasons": [
-        "mcp",
-        "missing_academic_signal",
-        "missing_strong_skill_signal"
       ]
     },
     {
@@ -10825,13 +10633,6 @@
         "workflow",
         "missing_academic_signal",
         "negative:desktop app"
-      ]
-    },
-    {
-      "repo": "mikeroyal/windows-11-guide",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
       ]
     },
     {
@@ -11001,18 +10802,18 @@
       ]
     },
     {
-      "repo": "danielmiessler/fabric",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "hkuds/deeptutor",
       "reasons": [
         "research",
         "missing_skill_signal",
         "missing_strong_academic_signal"
+      ]
+    },
+    {
+      "repo": "danielmiessler/fabric",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
       ]
     },
     {
@@ -11899,7 +11700,7 @@
       ]
     },
     {
-      "repo": "rohitg00/awesome-claude-code-toolkit",
+      "repo": "vincentwei1021/anything2explainer",
       "reasons": [
         "skill",
         "skills",
@@ -11908,7 +11709,7 @@
       ]
     },
     {
-      "repo": "vincentwei1021/anything2explainer",
+      "repo": "rohitg00/awesome-claude-code-toolkit",
       "reasons": [
         "skill",
         "skills",
@@ -12053,14 +11854,14 @@
       ]
     },
     {
-      "repo": "bolajiayodeji/awesome-technical-writing",
+      "repo": "vincentwei1021/mg-styles-15",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
       ]
     },
     {
-      "repo": "vincentwei1021/mg-styles-15",
+      "repo": "bolajiayodeji/awesome-technical-writing",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
@@ -12162,18 +11963,18 @@
       ]
     },
     {
-      "repo": "vonzosten/awesome-langgraph",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "punkpeye/awesome-remote-mcp-servers",
       "reasons": [
         "mcp",
         "missing_academic_signal",
         "missing_strong_skill_signal"
+      ]
+    },
+    {
+      "repo": "vonzosten/awesome-langgraph",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
       ]
     },
     {
@@ -13029,159 +12830,6 @@
       ]
     },
     {
-      "repo": "m-3lab/awesome-industrial-anomaly-detection",
-      "reasons": [
-        "paper",
-        "论文",
-        "missing_skill_signal"
-      ]
-    },
-    {
-      "repo": "eosphoros-ai/awesome-text2sql",
-      "reasons": [
-        "survey",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "samuraigpt/llm-wiki-agent",
-      "reasons": [
-        "claude code",
-        "codex",
-        "opencode",
-        "research",
-        "missing_strong_academic_signal"
-      ]
-    },
-    {
-      "repo": "gmh5225/awesome-game-security",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "negative:game"
-      ]
-    },
-    {
-      "repo": "opendilab/di-engine",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "yjjnls/awesome-blockchain",
-      "reasons": [
-        "roo",
-        "paper",
-        "missing_strong_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "filipecalegario/awesome-generative-ai",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "tju-drl-lab/ai-optimizer",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "dsxiangli/decryptprompt",
-      "reasons": [
-        "paper",
-        "papers",
-        "论文",
-        "missing_skill_signal"
-      ]
-    },
-    {
-      "repo": "codefuse-ai/awesome-code-llm",
-      "reasons": [
-        "research",
-        "paper",
-        "papers",
-        "survey",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "anative-lab/evoagentx",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "ai-boost/awesome-gpts",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "researai/deepscientist",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "hyperai/awesome-ai4s",
-      "reasons": [
-        "science",
-        "论文",
-        "missing_skill_signal"
-      ]
-    },
-    {
-      "repo": "taishi-i/awesome-chatgpt-repositories",
-      "reasons": [
-        "skill",
-        "skills",
-        "claude code",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "meirtz/awesome-context-engineering",
-      "reasons": [
-        "paper",
-        "papers",
-        "survey",
-        "science",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "johnbean393/sidekick",
-      "reasons": [
-        "research",
-        "missing_skill_signal",
-        "missing_strong_academic_signal"
-      ]
-    },
-    {
-      "repo": "cirosantilli/china-dictatorship",
-      "reasons": [
-        "plugin",
-        "学者",
-        "论文",
-        "学术",
-        "文献",
-        "negative:leetcode",
-        "negative:interview"
-      ]
-    },
-    {
       "repo": "crytic/echidna",
       "reasons": [
         "missing_skill_signal",
@@ -13197,14 +12845,6 @@
       ]
     },
     {
-      "repo": "facebookresearch/pearl",
-      "reasons": [
-        "research",
-        "missing_skill_signal",
-        "missing_strong_academic_signal"
-      ]
-    },
-    {
       "repo": "yanjieze/awesome-humanoid-robot-learning",
       "reasons": [
         "paper",
@@ -13213,40 +12853,9 @@
       ]
     },
     {
-      "repo": "rustviz/rustviz",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "mininglamp-ai/mano-p",
-      "reasons": [
-        "grounding",
-        "missing_skill_signal",
-        "missing_strong_academic_signal"
-      ]
-    },
-    {
-      "repo": "chhsiching/github-chinese-top-charts",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "eddwebster/football_analytics",
       "reasons": [
         "science",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "opendcai/paper2any",
-      "reasons": [
-        "research",
-        "paper",
         "missing_skill_signal",
         "missing_high_confidence_academic_signal"
       ]
@@ -13265,22 +12874,6 @@
       "reasons": [
         "plugin",
         "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "wcventure/fuzzingpaper",
-      "reasons": [
-        "paper",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "protontypes/open-sustainable-technology",
-      "reasons": [
-        "science",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
       ]
     },
     {
@@ -13338,13 +12931,6 @@
         "copilot",
         "missing_academic_signal",
         "missing_strong_skill_signal"
-      ]
-    },
-    {
-      "repo": "yibie/awesome-jev",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
       ]
     },
     {
@@ -13416,23 +13002,6 @@
       ]
     },
     {
-      "repo": "zjukg/kg-llm-papers",
-      "reasons": [
-        "paper",
-        "papers",
-        "survey",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "divide-by-0/ideas-for-projects-people-would-use",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "vila-lab/dive-into-claude-code",
       "reasons": [
         "claude code",
@@ -13495,39 +13064,7 @@
       ]
     },
     {
-      "repo": "jd-opensource/joyai-echo",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "matrixorigin/matrixone",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "tencent-hunyuan/hunyuanocr",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "ai4s-research/awesome-ai-for-science",
-      "reasons": [
-        "research",
-        "paper",
-        "papers",
-        "scientific",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "ivan-bilan/the-nlp-pandect",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
@@ -13550,17 +13087,6 @@
       ]
     },
     {
-      "repo": "jimmc414/onefilellm",
-      "reasons": [
-        "paper",
-        "papers",
-        "arxiv",
-        "doi",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
       "repo": "youngfish42/awesome-fl",
       "reasons": [
         "academic",
@@ -13568,13 +13094,6 @@
         "papers",
         "retrieval",
         "missing_skill_signal"
-      ]
-    },
-    {
-      "repo": "jim-schwoebel/awesome_ai_agents",
-      "reasons": [
-        "workflow",
-        "missing_academic_signal"
       ]
     },
     {
@@ -13610,13 +13129,6 @@
       ]
     },
     {
-      "repo": "john-rocky/coreml-models",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "thinkwee/agentsmeetrl",
       "reasons": [
         "workflow",
@@ -13629,13 +13141,6 @@
         "research",
         "missing_skill_signal",
         "missing_strong_academic_signal"
-      ]
-    },
-    {
-      "repo": "peremartra/large-language-model-notebooks-course",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
       ]
     },
     {
@@ -13682,32 +13187,10 @@
       ]
     },
     {
-      "repo": "pku-dair/autosci",
-      "reasons": [
-        "claude code",
-        "research",
-        "missing_strong_academic_signal"
-      ]
-    },
-    {
-      "repo": "agentr1/agent-r1",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "semantalytics/awesome-semantic-web",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "egeerardyn/awesome-latex",
-      "reasons": [
-        "latex",
-        "missing_skill_signal"
       ]
     },
     {
@@ -13747,16 +13230,159 @@
       ]
     },
     {
-      "repo": "hkustdial/nl2sql_handbook",
+      "repo": "wecoai/aideml",
       "reasons": [
         "research",
-        "literature",
+        "science",
         "missing_skill_signal",
         "missing_high_confidence_academic_signal"
       ]
     },
     {
-      "repo": "bai-lab/memoryos",
+      "repo": "kedreamix/awesome-talking-head-synthesis",
+      "reasons": [
+        "paper",
+        "arxiv",
+        "thesis",
+        "missing_skill_signal",
+        "missing_high_confidence_academic_signal"
+      ]
+    },
+    {
+      "repo": "openmoss/awesome-wam",
+      "reasons": [
+        "paper",
+        "papers",
+        "survey",
+        "missing_skill_signal",
+        "missing_high_confidence_academic_signal"
+      ]
+    },
+    {
+      "repo": "daymade/claude-code-skills",
+      "reasons": [
+        "skill",
+        "skills",
+        "claude code",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "murtaza-nasir/maestro",
+      "reasons": [
+        "research",
+        "missing_skill_signal",
+        "missing_strong_academic_signal"
+      ]
+    },
+    {
+      "repo": "ethicalml/awesome-artificial-intelligence-regulation",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "oskardudycz/architectureweekly",
+      "reasons": [
+        "skill",
+        "skills",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "internscience/internagent",
+      "reasons": [
+        "paper",
+        "survey",
+        "scientific",
+        "science",
+        "missing_skill_signal",
+        "missing_high_confidence_academic_signal"
+      ]
+    },
+    {
+      "repo": "rail-berkeley/softlearning",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "no-magic-ai/no-magic",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "hashgraph-online/awesome-codex-plugins",
+      "reasons": [
+        "skill",
+        "skills",
+        "codex",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "myshell-ai/ailice",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "k-dense-ai/k-dense-byok",
+      "reasons": [
+        "mcp",
+        "assistant",
+        "research",
+        "scientific",
+        "science",
+        "missing_strong_skill_signal",
+        "missing_high_confidence_academic_signal"
+      ]
+    },
+    {
+      "repo": "taielab/awesome-hacking-lists",
+      "reasons": [
+        "mcp",
+        "missing_academic_signal",
+        "missing_strong_skill_signal"
+      ]
+    },
+    {
+      "repo": "rindig/interpretable-context-methodology",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "taranjeet/awesome-gpts",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "yuan-manx/ai-game-devtools",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "negative:game"
+      ]
+    },
+    {
+      "repo": "ryanalberts/best-of-agent-harnesses",
+      "reasons": [
+        "mcp",
+        "missing_academic_signal",
+        "missing_strong_skill_signal"
+      ]
+    },
+    {
+      "repo": "jxzhangjhu/awesome-llm-rag",
       "reasons": [
         "retrieval",
         "missing_skill_signal",
@@ -13764,12 +13390,125 @@
       ]
     },
     {
-      "repo": "wecoai/aideml",
+      "repo": "bismex/awesome-person-re-identification",
+      "reasons": [
+        "retrieval",
+        "missing_skill_signal",
+        "missing_strong_academic_signal"
+      ]
+    },
+    {
+      "repo": "arturonereu/ai-study-group",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "somarkai/oxr",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "0xricksanchez/paper_collection",
+      "reasons": [
+        "roo",
+        "academic",
+        "paper",
+        "papers",
+        "missing_strong_skill_signal"
+      ]
+    },
+    {
+      "repo": "first-fluke/oh-my-agent",
+      "reasons": [
+        "skill",
+        "skills",
+        "claude code",
+        "research",
+        "review",
+        "missing_strong_academic_signal",
+        "negative:developer-tools"
+      ]
+    },
+    {
+      "repo": "xunbu/docutranslate",
+      "reasons": [
+        "thesis",
+        "论文",
+        "missing_skill_signal"
+      ]
+    },
+    {
+      "repo": "charlesq9/self-evolving-agents",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "gokayfem/awesome-vlm-architectures",
       "reasons": [
         "research",
-        "science",
+        "paper",
+        "papers",
+        "arxiv",
         "missing_skill_signal",
+        "missing_high_confidence_academic_signal",
+        "negative:recipe"
+      ]
+    },
+    {
+      "repo": "sentient-agi/evoskill",
+      "reasons": [
+        "skill",
+        "skills",
+        "agent skill",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "codersjx/ai-resources-central",
+      "reasons": [
+        "gemini",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "917dhj/deeppapernote",
+      "reasons": [
+        "skill",
+        "skills",
+        "agent skill",
+        "research",
+        "paper",
         "missing_high_confidence_academic_signal"
+      ]
+    },
+    {
+      "repo": "inclusionai/aworld",
+      "reasons": [
+        "mcp",
+        "missing_academic_signal",
+        "missing_strong_skill_signal"
+      ]
+    },
+    {
+      "repo": "mostafatouny/awesome-theoretical-computer-science",
+      "reasons": [
+        "roo",
+        "science",
+        "missing_strong_skill_signal",
+        "missing_high_confidence_academic_signal"
+      ]
+    },
+    {
+      "repo": "dartsim/dart",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
       ]
     },
     {
@@ -14627,16 +14366,16 @@
       ]
     },
     {
-      "repo": "xargsuk/awesome-adhd",
+      "repo": "n-tongxue/norman-skill",
       "reasons": [
-        "missing_skill_signal",
+        "skill",
         "missing_academic_signal"
       ]
     },
     {
-      "repo": "n-tongxue/norman-skill",
+      "repo": "xargsuk/awesome-adhd",
       "reasons": [
-        "skill",
+        "missing_skill_signal",
         "missing_academic_signal"
       ]
     },
@@ -14995,6 +14734,14 @@
       ]
     },
     {
+      "repo": "getbindu/awesome-claude-code-and-skills",
+      "reasons": [
+        "skill",
+        "skills",
+        "missing_academic_signal"
+      ]
+    },
+    {
       "repo": "proofqed/qed",
       "reasons": [
         "roo",
@@ -15020,14 +14767,6 @@
         "文献",
         "negative:leetcode",
         "negative:interview"
-      ]
-    },
-    {
-      "repo": "getbindu/awesome-claude-code-and-skills",
-      "reasons": [
-        "skill",
-        "skills",
-        "missing_academic_signal"
       ]
     },
     {
@@ -15305,15 +15044,6 @@
       ]
     },
     {
-      "repo": "shubhamsaboo/awesome-llm-apps",
-      "reasons": [
-        "skill",
-        "skills",
-        "agent skill",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "tauricresearch/tradingagents",
       "reasons": [
         "research",
@@ -15338,29 +15068,7 @@
       ]
     },
     {
-      "repo": "paddlepaddle/paddleocr",
-      "reasons": [
-        "science",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
       "repo": "hiyouga/llamafactory",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "josephmisiti/awesome-machine-learning",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "docling-project/docling",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
@@ -15378,15 +15086,6 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "mvanhorn/last30days-skill",
-      "reasons": [
-        "skill",
-        "agent skill",
-        "research",
-        "missing_strong_academic_signal"
       ]
     },
     {
@@ -15430,32 +15129,6 @@
       ]
     },
     {
-      "repo": "sickn33/agentic-awesome-skills",
-      "reasons": [
-        "skill",
-        "skills",
-        "codex",
-        "missing_academic_signal",
-        "negative:developer-tools"
-      ]
-    },
-    {
-      "repo": "githubdaily/githubdaily",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "negative:developer-tools"
-      ]
-    },
-    {
-      "repo": "hkuds/deeptutor",
-      "reasons": [
-        "research",
-        "missing_skill_signal",
-        "missing_strong_academic_signal"
-      ]
-    },
-    {
       "repo": "volcengine/openviking",
       "reasons": [
         "skill",
@@ -15487,35 +15160,10 @@
       ]
     },
     {
-      "repo": "stanfordnlp/dspy",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "huggingface/pytorch-image-models",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "hkuds/vibe-trading",
-      "reasons": [
-        "mcp",
-        "missing_academic_signal",
-        "missing_strong_skill_signal",
-        "negative:trading"
-      ]
-    },
-    {
-      "repo": "can1357/oh-my-pi",
-      "reasons": [
-        "mcp",
-        "assistant",
-        "missing_academic_signal",
-        "missing_strong_skill_signal"
       ]
     },
     {
@@ -15530,21 +15178,6 @@
       "repo": "openbmb/chatdev",
       "reasons": [
         "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "fishaudio/fish-speech",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "topoteretes/cognee",
-      "reasons": [
-        "skill",
-        "skills",
         "missing_academic_signal"
       ]
     },
@@ -15566,55 +15199,7 @@
       ]
     },
     {
-      "repo": "wilsonfreitas/awesome-quant",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "negative:trading"
-      ]
-    },
-    {
-      "repo": "academic/awesome-datascience",
-      "reasons": [
-        "academic",
-        "science",
-        "missing_skill_signal"
-      ]
-    },
-    {
-      "repo": "christoschristofidis/awesome-deep-learning",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "qwenlm/qwen3",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "titanwings/distilly",
-      "reasons": [
-        "skill",
-        "skills",
-        "codex",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "microsoft/jarvis",
-      "reasons": [
-        "paper",
-        "arxiv",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "haotian-liu/llava",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
@@ -15643,26 +15228,10 @@
       ]
     },
     {
-      "repo": "lukasmasuch/best-of-ml-python",
-      "reasons": [
-        "science",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
       "repo": "aihubcn/awesome-chinese-llm",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "dipakkr/awesome-ai-engineering",
-      "reasons": [
-        "mcp",
-        "missing_academic_signal",
-        "missing_strong_skill_signal"
       ]
     },
     {
@@ -15674,13 +15243,6 @@
     },
     {
       "repo": "huggingface/datasets",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "qwenlm/qwen",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
@@ -15701,13 +15263,6 @@
       ]
     },
     {
-      "repo": "ethicalml/awesome-production-machine-learning",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "swe-agent/swe-agent",
       "reasons": [
         "missing_skill_signal",
@@ -15721,13 +15276,6 @@
         "research",
         "missing_skill_signal",
         "missing_strong_academic_signal"
-      ]
-    },
-    {
-      "repo": "camel-ai/owl",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
       ]
     },
     {
@@ -15768,49 +15316,9 @@
       ]
     },
     {
-      "repo": "bradyfu/awesome-multimodal-large-language-models",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "qwenlm/qwen3-coder",
       "reasons": [
         "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "ai4finance-foundation/finrl",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "negative:trading"
-      ]
-    },
-    {
-      "repo": "hkuds/deepcode",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "bharathgs/awesome-pytorch-list",
-      "reasons": [
-        "paper",
-        "papers",
-        "science",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "arindam200/awesome-ai-apps",
-      "reasons": [
-        "mcp",
-        "workflow",
         "missing_academic_signal"
       ]
     },
@@ -15831,45 +15339,10 @@
       ]
     },
     {
-      "repo": "flashml-org/freetoken",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "blinkdl/rwkv-lm",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "aiming-lab/autoresearchclaw",
-      "reasons": [
-        "research",
-        "paper",
-        "scientific",
-        "citation",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
       "repo": "xiaomimimo/mimo-code",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "startrail-org/leann",
-      "reasons": [
-        "paper",
-        "arxiv",
-        "retrieval",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
       ]
     },
     {
@@ -15880,28 +15353,7 @@
       ]
     },
     {
-      "repo": "steven2358/awesome-generative-ai",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "multimodal-art-projection/yue",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "langgptai/langgpt",
-      "reasons": [
-        "gemini",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "evanli/github-ranking",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
@@ -15931,17 +15383,11 @@
       ]
     },
     {
-      "repo": "open-jarvis/openjarvis",
+      "repo": "facebookresearch/sam3",
       "reasons": [
+        "research",
         "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "bytedance/trae-agent",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
+        "missing_strong_academic_signal"
       ]
     },
     {
@@ -15951,22 +15397,6 @@
         "skills",
         "mcp",
         "retrieval",
-        "missing_strong_academic_signal"
-      ]
-    },
-    {
-      "repo": "facebookresearch/sam3",
-      "reasons": [
-        "research",
-        "missing_skill_signal",
-        "missing_strong_academic_signal"
-      ]
-    },
-    {
-      "repo": "facebookresearch/seamless_communication",
-      "reasons": [
-        "research",
-        "missing_skill_signal",
         "missing_strong_academic_signal"
       ]
     },
@@ -15983,22 +15413,6 @@
         "research",
         "missing_skill_signal",
         "missing_strong_academic_signal"
-      ]
-    },
-    {
-      "repo": "adongwanai/agentguide",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "negative:interview"
-      ]
-    },
-    {
-      "repo": "huggingface/skills",
-      "reasons": [
-        "skill",
-        "skills",
-        "missing_academic_signal"
       ]
     },
     {
@@ -16030,6 +15444,355 @@
         "plugin",
         "missing_academic_signal",
         "negative:theme"
+      ]
+    },
+    {
+      "repo": "idea-research/groundingdino",
+      "reasons": [
+        "research",
+        "paper",
+        "grounding",
+        "missing_skill_signal",
+        "missing_high_confidence_academic_signal"
+      ]
+    },
+    {
+      "repo": "satellite-image-deep-learning/techniques",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "timzhang642/3d-machine-learning",
+      "reasons": [
+        "paper",
+        "papers",
+        "missing_skill_signal",
+        "missing_high_confidence_academic_signal"
+      ]
+    },
+    {
+      "repo": "mooler0410/llmspracticalguide",
+      "reasons": [
+        "paper",
+        "papers",
+        "survey",
+        "missing_skill_signal",
+        "missing_high_confidence_academic_signal"
+      ]
+    },
+    {
+      "repo": "opengvlab/internvl",
+      "reasons": [
+        "retrieval",
+        "missing_skill_signal",
+        "missing_strong_academic_signal"
+      ]
+    },
+    {
+      "repo": "microsoft/ufo",
+      "reasons": [
+        "copilot",
+        "missing_academic_signal",
+        "missing_strong_skill_signal"
+      ]
+    },
+    {
+      "repo": "companion-inc/feynman",
+      "reasons": [
+        "research",
+        "literature",
+        "review",
+        "arxiv",
+        "missing_skill_signal",
+        "missing_high_confidence_academic_signal"
+      ]
+    },
+    {
+      "repo": "aikorea/awesome-rl",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "espnet/espnet",
+      "reasons": [
+        "thesis",
+        "missing_skill_signal",
+        "missing_high_confidence_academic_signal"
+      ]
+    },
+    {
+      "repo": "jamwithai/production-agentic-rag-course",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "hkuds/autoagent",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "marcelscruz/public-apis",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "future-house/paper-qa",
+      "reasons": [
+        "paper",
+        "scientific",
+        "science",
+        "citation",
+        "missing_skill_signal",
+        "missing_high_confidence_academic_signal"
+      ]
+    },
+    {
+      "repo": "learningcircuit/local-deep-research",
+      "reasons": [
+        "research",
+        "arxiv",
+        "retrieval",
+        "missing_skill_signal",
+        "missing_high_confidence_academic_signal"
+      ]
+    },
+    {
+      "repo": "x-plug/mobileagent",
+      "reasons": [
+        "copilot",
+        "missing_academic_signal",
+        "missing_strong_skill_signal"
+      ]
+    },
+    {
+      "repo": "liaokongvfx/langchain-chinese-getting-started-guide",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "ai-boost/awesome-prompts",
+      "reasons": [
+        "paper",
+        "papers",
+        "missing_skill_signal",
+        "missing_high_confidence_academic_signal",
+        "negative:curated list of chatgpt prompts"
+      ]
+    },
+    {
+      "repo": "wangrongsheng/awesome-llm-resources",
+      "reasons": [
+        "mcp",
+        "retrieval",
+        "审稿",
+        "missing_strong_skill_signal",
+        "missing_high_confidence_academic_signal"
+      ]
+    },
+    {
+      "repo": "cipher387/osint_stuff_tool_collection",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "elder-plinius/obliteratus",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "swe-agent/mini-swe-agent",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "miromindai/mirothinker",
+      "reasons": [
+        "research",
+        "missing_skill_signal",
+        "missing_strong_academic_signal"
+      ]
+    },
+    {
+      "repo": "ai4finance-foundation/finrobot",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "opendcai/dataflow",
+      "reasons": [
+        "pipeline",
+        "science",
+        "thesis",
+        "missing_high_confidence_academic_signal"
+      ]
+    },
+    {
+      "repo": "human-agent-society/reef",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "firecrawl/firecrawl-mcp-server",
+      "reasons": [
+        "mcp",
+        "gemini",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "pku-yuangroup/chatlaw",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "microsoft/tinytroupe",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "zai-org/glm-ocr",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "dwzhu-pku/paperbanana",
+      "reasons": [
+        "academic",
+        "paper",
+        "missing_skill_signal"
+      ]
+    },
+    {
+      "repo": "zai-org/glm-5",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "minedojo/voyager",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "negative:minecraft"
+      ]
+    },
+    {
+      "repo": "gepa-ai/gepa",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "tokenrhythm/opensquilla",
+      "reasons": [
+        "skill",
+        "skills",
+        "mcp",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "amitness/learning",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "pliang279/awesome-multimodal-ml",
+      "reasons": [
+        "research",
+        "missing_skill_signal",
+        "missing_strong_academic_signal"
+      ]
+    },
+    {
+      "repo": "internlm/mindsearch",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "georgezouq/awesome-ai-in-finance",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "negative:cryptocurrency",
+        "negative:crypto"
+      ]
+    },
+    {
+      "repo": "alchaincyf/darwin-skill",
+      "reasons": [
+        "skill",
+        "claude code",
+        "research",
+        "missing_strong_academic_signal"
+      ]
+    },
+    {
+      "repo": "hongleizhang/rspapers",
+      "reasons": [
+        "paper",
+        "papers",
+        "survey",
+        "missing_skill_signal",
+        "missing_high_confidence_academic_signal"
+      ]
+    },
+    {
+      "repo": "promptslab/awesome-prompt-engineering",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "ikaijua/awesome-aitools",
+      "reasons": [
+        "skill",
+        "skills",
+        "gemini",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "epiral/bb-browser",
+      "reasons": [
+        "mcp",
+        "missing_academic_signal",
+        "missing_strong_skill_signal"
       ]
     },
     {
@@ -16501,6 +16264,15 @@
       ]
     },
     {
+      "repo": "ikaijua/awesome-aitools",
+      "reasons": [
+        "skill",
+        "skills",
+        "gemini",
+        "missing_academic_signal"
+      ]
+    },
+    {
       "repo": "epiral/bb-browser",
       "reasons": [
         "mcp",
@@ -16512,15 +16284,6 @@
       "repo": "swyxio/ai-notes",
       "reasons": [
         "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "ikaijua/awesome-aitools",
-      "reasons": [
-        "skill",
-        "skills",
-        "gemini",
         "missing_academic_signal"
       ]
     },
@@ -16584,20 +16347,20 @@
       ]
     },
     {
-      "repo": "mindcraft-bots/mindcraft",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "negative:minecraft"
-      ]
-    },
-    {
       "repo": "opensensenova/sensenova-skills",
       "reasons": [
         "skill",
         "skills",
         "workflow",
         "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "mindcraft-bots/mindcraft",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "negative:minecraft"
       ]
     },
     {
@@ -17578,16 +17341,6 @@
       ]
     },
     {
-      "repo": "startrail-org/leann",
-      "reasons": [
-        "paper",
-        "arxiv",
-        "retrieval",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
       "repo": "modelscope/diffsynth-studio",
       "reasons": [
         "missing_skill_signal",
@@ -17709,13 +17462,6 @@
       ]
     },
     {
-      "repo": "offciercia/defi-developer-road-map",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "hslatman/awesome-threat-intelligence",
       "reasons": [
         "missing_skill_signal",
@@ -17727,13 +17473,6 @@
       "reasons": [
         "skill",
         "skills",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "satellite-image-deep-learning/techniques",
-      "reasons": [
-        "missing_skill_signal",
         "missing_academic_signal"
       ]
     },
@@ -17865,26 +17604,6 @@
         "assistant",
         "missing_academic_signal",
         "missing_strong_skill_signal"
-      ]
-    },
-    {
-      "repo": "ai-boost/awesome-prompts",
-      "reasons": [
-        "paper",
-        "papers",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal",
-        "negative:curated list of chatgpt prompts"
-      ]
-    },
-    {
-      "repo": "wangrongsheng/awesome-llm-resources",
-      "reasons": [
-        "mcp",
-        "retrieval",
-        "审稿",
-        "missing_strong_skill_signal",
-        "missing_high_confidence_academic_signal"
       ]
     },
     {
@@ -18078,19 +17797,19 @@
       ]
     },
     {
-      "repo": "firecrawl/firecrawl-mcp-server",
-      "reasons": [
-        "mcp",
-        "gemini",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "deanpeters/product-manager-skills",
       "reasons": [
         "skill",
         "skills",
         "claude code",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "firecrawl/firecrawl-mcp-server",
+      "reasons": [
+        "mcp",
+        "gemini",
         "missing_academic_signal"
       ]
     },
@@ -18350,6 +18069,59 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "aiwaves-cn/agents",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "tensorchord/awesome-llmops",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "samuelschmidgall/agentlaboratory",
+      "reasons": [
+        "workflow",
+        "research",
+        "missing_strong_academic_signal"
+      ]
+    },
+    {
+      "repo": "galaxy-dawn/claude-scholar",
+      "reasons": [
+        "claude code",
+        "codex",
+        "opencode",
+        "academic",
+        "research",
+        "paper",
+        "experiment",
+        "negative:developer-tools"
+      ]
+    },
+    {
+      "repo": "wuyoscar/gpt-image2-skill",
+      "reasons": [
+        "skill",
+        "skills",
+        "codex",
+        "research",
+        "missing_strong_academic_signal"
+      ]
+    },
+    {
+      "repo": "areal-project/areal",
+      "reasons": [
+        "reasoning",
+        "missing_skill_signal",
+        "missing_strong_academic_signal"
       ]
     },
     {
@@ -18767,14 +18539,14 @@
       ]
     },
     {
-      "repo": "rust-unofficial/awesome-rust",
+      "repo": "crewaiinc/crewai",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
       ]
     },
     {
-      "repo": "crewaiinc/crewai",
+      "repo": "rust-unofficial/awesome-rust",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
@@ -19470,20 +19242,20 @@
       ]
     },
     {
-      "repo": "dipakkr/awesome-ai-engineering",
-      "reasons": [
-        "mcp",
-        "missing_academic_signal",
-        "missing_strong_skill_signal"
-      ]
-    },
-    {
       "repo": "nvidia/skillspector",
       "reasons": [
         "skill",
         "skills",
         "agent skill",
         "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "dipakkr/awesome-ai-engineering",
+      "reasons": [
+        "mcp",
+        "missing_academic_signal",
+        "missing_strong_skill_signal"
       ]
     },
     {
@@ -20668,6 +20440,13 @@
       ]
     },
     {
+      "repo": "datawhalechina/agent-learning-hub",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
       "repo": "wangrongsheng/awesome-llm-resources",
       "reasons": [
         "mcp",
@@ -20675,13 +20454,6 @@
         "审稿",
         "missing_strong_skill_signal",
         "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "datawhalechina/agent-learning-hub",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
       ]
     },
     {
@@ -20742,21 +20514,21 @@
       ]
     },
     {
-      "repo": "woooodyy/llm-agent-paper-list",
-      "reasons": [
-        "paper",
-        "survey",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
       "repo": "lemomo-ai/lemo-opuscar",
       "reasons": [
         "skill",
         "skills",
         "claude code",
         "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "woooodyy/llm-agent-paper-list",
+      "reasons": [
+        "paper",
+        "survey",
+        "missing_skill_signal",
+        "missing_high_confidence_academic_signal"
       ]
     },
     {
@@ -20830,19 +20602,19 @@
       ]
     },
     {
-      "repo": "firecrawl/firecrawl-mcp-server",
-      "reasons": [
-        "mcp",
-        "gemini",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "deanpeters/product-manager-skills",
       "reasons": [
         "skill",
         "skills",
         "claude code",
+        "missing_academic_signal"
+      ]
+    },
+    {
+      "repo": "firecrawl/firecrawl-mcp-server",
+      "reasons": [
+        "mcp",
+        "gemini",
         "missing_academic_signal"
       ]
     },
@@ -22809,7 +22581,7 @@
       ]
     },
     {
-      "repo": "createmomo/open-source-language-model-pocket",
+      "repo": "diaoorg/awesome-supermimic",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
@@ -22824,6 +22596,13 @@
         "review",
         "missing_skill_signal",
         "missing_high_confidence_academic_signal"
+      ]
+    },
+    {
+      "repo": "createmomo/open-source-language-model-pocket",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
       ]
     },
     {
@@ -22860,13 +22639,6 @@
         "literature",
         "scientific",
         "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "diaoorg/awesome-supermimic",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
       ]
     },
     {
@@ -23764,14 +23536,14 @@
       ]
     },
     {
-      "repo": "north/north",
+      "repo": "walkinglabs/hands-on-modern-rl",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
       ]
     },
     {
-      "repo": "walkinglabs/hands-on-modern-rl",
+      "repo": "north/north",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
@@ -24435,21 +24207,19 @@
       ]
     },
     {
+      "repo": "picrew/awesome-agent-harness",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
       "repo": "huangowen/awesome-llm-compression",
       "reasons": [
         "research",
         "paper",
         "papers",
         "missing_skill_signal"
-      ]
-    },
-    {
-      "repo": "questflowai/investorskills",
-      "reasons": [
-        "skill",
-        "skills",
-        "missing_academic_signal",
-        "negative:investment"
       ]
     },
     {
@@ -24463,10 +24233,12 @@
       ]
     },
     {
-      "repo": "picrew/awesome-agent-harness",
+      "repo": "questflowai/investorskills",
       "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
+        "skill",
+        "skills",
+        "missing_academic_signal",
+        "negative:investment"
       ]
     },
     {
@@ -24557,6 +24329,13 @@
       ]
     },
     {
+      "repo": "lvy010/x-plore",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
       "repo": "qingsongedu/awesome-ai-for-time-series-papers",
       "reasons": [
         "paper",
@@ -24564,13 +24343,6 @@
         "survey",
         "journal",
         "missing_skill_signal"
-      ]
-    },
-    {
-      "repo": "lvy010/x-plore",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
       ]
     },
     {
@@ -25486,6 +25258,13 @@
       ]
     },
     {
+      "repo": "joasasantos/rea-prompts",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
       "repo": "chhsiching/github-chinese-top-charts",
       "reasons": [
         "missing_skill_signal",
@@ -25498,13 +25277,6 @@
         "science",
         "missing_skill_signal",
         "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "joasasantos/rea-prompts",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
       ]
     },
     {
@@ -25896,17 +25668,17 @@
       ]
     },
     {
-      "repo": "quemsah/awesome-claude-plugins",
+      "repo": "lmmlzn/awesome-llms-datasets",
       "reasons": [
-        "claude code",
-        "plugin",
+        "missing_skill_signal",
         "missing_academic_signal"
       ]
     },
     {
-      "repo": "lmmlzn/awesome-llms-datasets",
+      "repo": "quemsah/awesome-claude-plugins",
       "reasons": [
-        "missing_skill_signal",
+        "claude code",
+        "plugin",
         "missing_academic_signal"
       ]
     },
@@ -26720,530 +26492,6 @@
       ]
     },
     {
-      "repo": "yeti-791/awesome-offensive-ai-agentic-landscape",
-      "reasons": [
-        "academic",
-        "research",
-        "paper",
-        "papers",
-        "missing_skill_signal"
-      ]
-    },
-    {
-      "repo": "yrui-cmd/cell-lct",
-      "reasons": [
-        "科研",
-        "missing_skill_signal"
-      ]
-    },
-    {
-      "repo": "mlnlp-world/paper-rebuttal-tips",
-      "reasons": [
-        "paper",
-        "论文",
-        "missing_skill_signal"
-      ]
-    },
-    {
-      "repo": "lylll9436/paper-polish-workflow-skill",
-      "reasons": [
-        "skill",
-        "workflow",
-        "paper",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "csarron/itblogs",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "sunchaokun/ppt-design-skill",
-      "reasons": [
-        "skill",
-        "skills",
-        "claude code",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "catcatuncle/openworkbuddy",
-      "reasons": [
-        "claude code",
-        "codex",
-        "mcp",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "lamda-nesy/lab-roadmap",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "hkustdial/datamagic",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "yu-yang-li/starwhisper",
-      "reasons": [
-        "skill",
-        "skills",
-        "research",
-        "missing_strong_academic_signal"
-      ]
-    },
-    {
-      "repo": "fattly/god-skill",
-      "reasons": [
-        "skill",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "imsai-sh/awesome-deepseek-harness-plugins",
-      "reasons": [
-        "skill",
-        "plugin",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "skyming/awesome-ai-agent",
-      "reasons": [
-        "论文",
-        "missing_skill_signal"
-      ]
-    },
-    {
-      "repo": "yuanchen-home/cumcm-step-review",
-      "reasons": [
-        "review",
-        "missing_skill_signal",
-        "missing_strong_academic_signal"
-      ]
-    },
-    {
-      "repo": "seu-coin/llmpapers",
-      "reasons": [
-        "codex",
-        "paper",
-        "papers",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "rimagination/good-question",
-      "reasons": [
-        "skill",
-        "agent skill",
-        "research",
-        "scientific",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "npclei/kungfuathletebot",
-      "reasons": [
-        "pipeline",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "dongyubin/awesome-ai-images-prompts",
-      "reasons": [
-        "gemini",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "n-allpass/modex-mh-agent",
-      "reasons": [
-        "科研",
-        "论文",
-        "missing_skill_signal"
-      ]
-    },
-    {
-      "repo": "skjack/kelip-paper-reading",
-      "reasons": [
-        "paper",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "scubsrgroup/automatic-exploit-generation",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "haimbeau1o/thesis-optimizer",
-      "reasons": [
-        "academic",
-        "thesis",
-        "论文",
-        "学术",
-        "missing_skill_signal"
-      ]
-    },
-    {
-      "repo": "aleafy/ai_learning_materials",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "ecnu/eduwork",
-      "reasons": [
-        "plugin",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "deepshare-official/ccf-figure",
-      "reasons": [
-        "科研",
-        "论文",
-        "missing_skill_signal"
-      ]
-    },
-    {
-      "repo": "andrew/ultimate-awesome",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "ozrwayne/rw-research-skill",
-      "reasons": [
-        "skill",
-        "skills",
-        "workflow",
-        "research",
-        "literature",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "desred7eam/desredteam",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "leenkcool/blue-whale-harness",
-      "reasons": [
-        "skill",
-        "skills",
-        "mcp",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "jing1312/nature-figure-skill",
-      "reasons": [
-        "skill",
-        "审稿",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "maxwell2732/pai-econ-claude",
-      "reasons": [
-        "skill",
-        "claude code",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "mdhewei/bioinforbricklayer",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "mlt-oss/firstdata",
-      "reasons": [
-        "mcp",
-        "research",
-        "missing_strong_skill_signal",
-        "missing_strong_academic_signal"
-      ]
-    },
-    {
-      "repo": "beancookie/awesome-dsh-plugin",
-      "reasons": [
-        "plugin",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "baikemark/happy-figure-skill",
-      "reasons": [
-        "skill",
-        "agent skill",
-        "research",
-        "scientific",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "internscience/drclaw",
-      "reasons": [
-        "science",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "cnmetlab/cnmaps",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "ningzimu/awesome-ai-ppt",
-      "reasons": [
-        "workflow",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "tuyucheng777/awesome-java",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "lancelot-xie/img2pptx",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "kaixindelele/rher",
-      "reasons": [
-        "paper",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "skjack/research-workflow",
-      "reasons": [
-        "workflow",
-        "research",
-        "missing_strong_academic_signal"
-      ]
-    },
-    {
-      "repo": "li-baichuan-james/cv-skill",
-      "reasons": [
-        "skill",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "yzlin286-wq/deepscient",
-      "reasons": [
-        "skill",
-        "skills",
-        "mcp",
-        "research",
-        "literature",
-        "review",
-        "scientific",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "haaareally/before-you-ask-codex-to-code",
-      "reasons": [
-        "codex",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "yihaoye/data-structure-and-algorithm-study-notes",
-      "reasons": [
-        "science",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "rimagination/good-story",
-      "reasons": [
-        "skill",
-        "agent skill",
-        "scientific",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "uhub/awesome-r",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "nixgnot/wotr-contents-mods-cn",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "boycott-fuck-xuexiqiangguo/boycott-fuck-xuexiqiangguo",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "iawnfoanaowt/onefind",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "zhiweiwei-nami/ppt-visual-replica",
-      "reasons": [
-        "workflow",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "eurekazang/cloudfolder",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "leocui26/postgraduate-interview-question-assistant",
-      "reasons": [
-        "assistant",
-        "missing_academic_signal",
-        "missing_strong_skill_signal",
-        "negative:interview"
-      ]
-    },
-    {
-      "repo": "cuic19053-hue/awesome-student-ai-skills",
-      "reasons": [
-        "skill",
-        "skills",
-        "agent skill",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "langgptai/awesome-deep-research-prompts",
-      "reasons": [
-        "gemini",
-        "research",
-        "missing_strong_academic_signal"
-      ]
-    },
-    {
-      "repo": "minhaoxiong/awesome-automated-research",
-      "reasons": [
-        "research",
-        "missing_skill_signal",
-        "missing_strong_academic_signal"
-      ]
-    },
-    {
-      "repo": "shibing624/ai-paper-analysis",
-      "reasons": [
-        "research",
-        "paper",
-        "papers",
-        "论文",
-        "missing_skill_signal"
-      ]
-    },
-    {
-      "repo": "neflibata-feng/myarxiv-agent",
-      "reasons": [
-        "paper",
-        "arxiv",
-        "论文",
-        "missing_skill_signal"
-      ]
-    },
-    {
-      "repo": "jiankang1991/nsfc-benzi-audit",
-      "reasons": [
-        "skill",
-        "skills",
-        "agent skill",
-        "基金",
-        "missing_strong_academic_signal"
-      ]
-    },
-    {
-      "repo": "aab0/awesome-jobs",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
-      "repo": "zhaoguangyuan123/make-your-research-life-easier",
-      "reasons": [
-        "research",
-        "missing_skill_signal",
-        "missing_strong_academic_signal"
-      ]
-    },
-    {
-      "repo": "jwwthu/how-to-research",
-      "reasons": [
-        "research",
-        "missing_skill_signal",
-        "missing_strong_academic_signal"
-      ]
-    },
-    {
-      "repo": "larbare12/paperfactory-from-idea-to-manuscript",
-      "reasons": [
-        "paper",
-        "manuscript",
-        "论文",
-        "missing_skill_signal"
-      ]
-    },
-    {
-      "repo": "snipp-zha/paper-to-patent-skill",
-      "reasons": [
-        "skill",
-        "paper",
-        "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
       "repo": "eternity4719/howtolivebetter",
       "reasons": [
         "论文",
@@ -27367,6 +26615,13 @@
       ]
     },
     {
+      "repo": "datawhalechina/agent-learning-hub",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
+      ]
+    },
+    {
       "repo": "wangrongsheng/awesome-llm-resources",
       "reasons": [
         "mcp",
@@ -27374,13 +26629,6 @@
         "审稿",
         "missing_strong_skill_signal",
         "missing_high_confidence_academic_signal"
-      ]
-    },
-    {
-      "repo": "datawhalechina/agent-learning-hub",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
       ]
     },
     {
@@ -27659,6 +26907,17 @@
       ]
     },
     {
+      "repo": "mikubaka88/ccfa-skills",
+      "reasons": [
+        "skill",
+        "skills",
+        "research",
+        "paper",
+        "papers",
+        "missing_high_confidence_academic_signal"
+      ]
+    },
+    {
       "repo": "cirosantilli/china-dictatorship",
       "reasons": [
         "plugin",
@@ -27668,17 +26927,6 @@
         "文献",
         "negative:leetcode",
         "negative:interview"
-      ]
-    },
-    {
-      "repo": "mikubaka88/ccfa-skills",
-      "reasons": [
-        "skill",
-        "skills",
-        "research",
-        "paper",
-        "papers",
-        "missing_high_confidence_academic_signal"
       ]
     },
     {
@@ -28198,6 +27446,15 @@
       ]
     },
     {
+      "repo": "underleveledbuilder/awesome-short-drama-skills",
+      "reasons": [
+        "skill",
+        "skills",
+        "agent skill",
+        "missing_academic_signal"
+      ]
+    },
+    {
       "repo": "wscats/cv",
       "reasons": [
         "missing_skill_signal",
@@ -28211,15 +27468,6 @@
         "research",
         "科研",
         "missing_skill_signal"
-      ]
-    },
-    {
-      "repo": "underleveledbuilder/awesome-short-drama-skills",
-      "reasons": [
-        "skill",
-        "skills",
-        "agent skill",
-        "missing_academic_signal"
       ]
     },
     {
@@ -28418,6 +27666,14 @@
       ]
     },
     {
+      "repo": "pkm-er/awesome-obsidian-zh",
+      "reasons": [
+        "plugin",
+        "missing_academic_signal",
+        "negative:theme"
+      ]
+    },
+    {
       "repo": "abnerla/ai_paper",
       "reasons": [
         "paper",
@@ -28483,6 +27739,13 @@
       ]
     },
     {
+      "repo": "heqiangdiao-wq/ai-cross-border-ecommerce-agent-toolkit",
+      "reasons": [
+        "workflow",
+        "missing_academic_signal"
+      ]
+    },
+    {
       "repo": "luweiagi/machine-learning-notes",
       "reasons": [
         "missing_skill_signal",
@@ -28495,13 +27758,6 @@
         "missing_skill_signal",
         "missing_academic_signal",
         "negative:resume"
-      ]
-    },
-    {
-      "repo": "heqiangdiao-wq/ai-cross-border-ecommerce-agent-toolkit",
-      "reasons": [
-        "workflow",
-        "missing_academic_signal"
       ]
     },
     {
@@ -28577,16 +27833,6 @@
         "missing_strong_skill_signal",
         "missing_strong_academic_signal",
         "negative:investment"
-      ]
-    },
-    {
-      "repo": "qjhwc/paperforge",
-      "reasons": [
-        "academic",
-        "paper",
-        "literature",
-        "latex",
-        "missing_skill_signal"
       ]
     },
     {
@@ -28781,65 +28027,65 @@
   "searches": [
     {
       "query": "academic skill in:name,description,readme",
-      "total": 1292,
+      "total": 1293,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true
     },
     {
       "query": "research skill in:name,description,readme",
-      "total": 6365,
+      "total": 6371,
       "returned": 200,
-      "incomplete": false,
+      "incomplete": true,
       "limit_reached": true
     },
     {
       "query": "paper skill in:name,description,readme",
-      "total": 3101,
-      "returned": 200,
-      "incomplete": false,
+      "total": 3104,
+      "returned": 171,
+      "incomplete": true,
       "limit_reached": true
     },
     {
       "query": "literature review skill in:name,description,readme",
-      "total": 661,
+      "total": 662,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true
     },
     {
       "query": "claude code research in:name,description,readme",
-      "total": 5482,
+      "total": 5483,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true
     },
     {
       "query": "deep research skill in:name,description,readme",
-      "total": 2940,
+      "total": 2943,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true
     },
     {
       "query": "scientific agent skills in:name,description,readme",
-      "total": 886,
+      "total": 887,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true
     },
     {
       "query": "paper writing claude in:name,description,readme",
-      "total": 946,
+      "total": 947,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true
     },
     {
       "query": "academic paper agent in:name,description,readme",
-      "total": 1084,
-      "returned": 200,
-      "incomplete": false,
+      "total": 857,
+      "returned": 189,
+      "incomplete": true,
       "limit_reached": true
     },
     {
@@ -28853,61 +28099,61 @@
       "query": "arxiv agent research in:name,description,readme",
       "total": 2940,
       "returned": 200,
-      "incomplete": false,
+      "incomplete": true,
       "limit_reached": true
     },
     {
       "query": "research paper workflow in:name,description,readme",
-      "total": 3033,
+      "total": 2947,
       "returned": 200,
-      "incomplete": false,
+      "incomplete": true,
       "limit_reached": true
     },
     {
       "query": "research agent skill in:name,description,readme",
-      "total": 4848,
+      "total": 4856,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true
     },
     {
       "query": "paper review skill in:name,description,readme",
-      "total": 1681,
+      "total": 1682,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true
     },
     {
       "query": "experiment reproduction skill in:name,description,readme",
-      "total": 228,
+      "total": 229,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true
     },
     {
       "query": "systematic review agent in:name,description,readme",
-      "total": 1101,
+      "total": 1102,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true
     },
     {
       "query": "academic writing agent in:name,description,readme",
-      "total": 751,
+      "total": 752,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true
     },
     {
       "query": "科研 skill in:name,description,readme",
-      "total": 215,
-      "returned": 200,
-      "incomplete": false,
-      "limit_reached": true
+      "total": 88,
+      "returned": 100,
+      "incomplete": true,
+      "limit_reached": false
     },
     {
       "query": "论文 skill in:name,description,readme",
-      "total": 583,
+      "total": 584,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true
@@ -28920,11 +28166,6 @@
       "limit_reached": false
     }
   ],
-  "changes": [
-    {
-      "repo": "lamda-nesy/research-starter-kit",
-      "action": "added"
-    }
-  ],
+  "changes": [],
   "outside_rank_limit": []
 }
