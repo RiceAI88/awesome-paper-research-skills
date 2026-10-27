@@ -1395,7 +1395,8 @@ def build_dataset(
         now=now,
     )
     max_results = int(config.get("max_results", 100))
-    items = items[:max_results]
+    if max_results > 0:
+        items = items[:max_results]
     for index, item in enumerate(items, start=1):
         item["rank"] = index
 

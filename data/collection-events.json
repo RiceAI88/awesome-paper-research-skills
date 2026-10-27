@@ -1185,5 +1185,320 @@
     "at": "2026-10-27T15:57:47Z",
     "repo": "openjiuwen-ai/sciencediscovery",
     "action": "added"
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "opendcai/dataflow",
+    "action": "removed",
+    "reasons": [
+      "pipeline",
+      "science",
+      "thesis",
+      "missing_high_confidence_academic_signal",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "chanchichoi/awesome-face_recognition",
+    "action": "removed",
+    "reasons": [
+      "paper",
+      "papers",
+      "thesis",
+      "retrieval",
+      "missing_skill_signal",
+      "missing_high_confidence_academic_signal",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "gnekt/my-brain-is-full-crew",
+    "action": "removed",
+    "reasons": [
+      "phd",
+      "missing_skill_signal",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "kedreamix/awesome-talking-head-synthesis",
+    "action": "removed",
+    "reasons": [
+      "paper",
+      "arxiv",
+      "thesis",
+      "missing_skill_signal",
+      "missing_high_confidence_academic_signal",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "opendatabox/awesome-data-llm",
+    "action": "removed",
+    "reasons": [
+      "paper",
+      "survey",
+      "thesis",
+      "missing_skill_signal",
+      "missing_high_confidence_academic_signal",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "nvk/llm-wiki",
+    "action": "removed",
+    "reasons": [
+      "skill",
+      "skills",
+      "codex",
+      "research",
+      "thesis",
+      "missing_high_confidence_academic_signal",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "awesome-thesis/awesome-thesis",
+    "action": "removed",
+    "reasons": [
+      "academic",
+      "paper",
+      "science",
+      "phd",
+      "missing_skill_signal",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "helenahartmann/awesome-phd",
+    "action": "removed",
+    "reasons": [
+      "science",
+      "phd",
+      "missing_skill_signal",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "gwisk/gradguide",
+    "action": "removed",
+    "reasons": [
+      "phd",
+      "missing_skill_signal",
+      "nonresearch_primary_purpose"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "dieselmarble/phd-application",
+    "action": "removed",
+    "reasons": [
+      "phd",
+      "missing_skill_signal",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "aaronluo00/phd-survival-guide",
+    "action": "removed",
+    "reasons": [
+      "research",
+      "phd",
+      "missing_skill_signal",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "espnet/espnet",
+    "action": "removed",
+    "reasons": [
+      "thesis",
+      "missing_skill_signal",
+      "missing_high_confidence_academic_signal",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "eternity4719/howtolivebetter",
+    "action": "removed",
+    "reasons": [
+      "论文",
+      "missing_skill_signal",
+      "nonresearch_primary_purpose"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "beckyglobal/paidtostudyabroad",
+    "action": "removed",
+    "reasons": [
+      "phd",
+      "scholar",
+      "missing_skill_signal",
+      "nonresearch_primary_purpose"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "bighuang624/ai-research-tools",
+    "action": "removed",
+    "reasons": [
+      "research",
+      "科研",
+      "missing_skill_signal",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "crys-chen/ic-guide",
+    "action": "removed",
+    "reasons": [
+      "科研",
+      "课题",
+      "missing_skill_signal",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "damionrashford/rivalsearchmcp",
+    "action": "removed",
+    "reasons": [
+      "skill",
+      "skills",
+      "mcp",
+      "academic",
+      "research",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "dl3dv-10k/dataset",
+    "action": "removed",
+    "reasons": [
+      "thesis",
+      "missing_skill_signal",
+      "missing_high_confidence_academic_signal",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "du-nlp-lab/llm4sr",
+    "action": "removed",
+    "reasons": [
+      "research",
+      "survey",
+      "scientific",
+      "missing_skill_signal",
+      "missing_high_confidence_academic_signal",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "elpsykongloo/paperbanana-pro",
+    "action": "removed",
+    "reasons": [
+      "academic",
+      "paper",
+      "missing_skill_signal",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "fighting41love/funnlp",
+    "action": "removed",
+    "reasons": [
+      "pipeline",
+      "paper",
+      "papers",
+      "科研",
+      "论文",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "jorgepb96/nodus",
+    "action": "removed",
+    "reasons": [
+      "plugin",
+      "academic",
+      "research",
+      "paper",
+      "papers",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "jun-jie-huang/awesome-llm-aiops",
+    "action": "removed",
+    "reasons": [
+      "academic",
+      "research",
+      "missing_skill_signal",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "justlovemaki/cloudflare-ai-insight-daily",
+    "action": "removed",
+    "reasons": [
+      "gemini",
+      "论文",
+      "学术",
+      "nonresearch_primary_purpose"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "lmeszinc/azurlaneautoscript",
+    "action": "removed",
+    "reasons": [
+      "科研",
+      "missing_skill_signal",
+      "nonresearch_primary_purpose"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "ltjed/freephdlabor",
+    "action": "removed",
+    "reasons": [
+      "research",
+      "scientific",
+      "science",
+      "phd",
+      "missing_skill_signal",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-10-27T16:17:18Z",
+    "repo": "mlnlp-world/myarxiv",
+    "action": "removed",
+    "reasons": [
+      "arxiv",
+      "学术",
+      "missing_skill_signal",
+      "missing_readme_academic_scope"
+    ]
   }
 ]

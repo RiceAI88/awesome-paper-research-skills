@@ -27,7 +27,7 @@ test("cards emphasize metrics, explain actions and align installation footers", 
   await page.goto("./#view=card");
   const cards = page.getByTestId("repo-card");
   await expect(cards).toHaveCount(30);
-  const card = cards.first();
+  const card = cards.filter({ has: page.locator('a[href="https://github.com/K-Dense-AI/scientific-agent-skills"]') });
   await expect(card.locator(".card-key-metrics")).toContainText("Stars");
   await expect(card.locator(".card-key-metrics").getByLabel("近 7 日净增", {exact:true})).toBeVisible();
   await expect(card.locator("[data-compare]")).toHaveAccessibleName(/^对比 /);

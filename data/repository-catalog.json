@@ -17607,8 +17607,8 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
@@ -17616,10 +17616,7 @@
         "science",
         "thesis",
         "missing_high_confidence_academic_signal",
-        "admission:skill_candidate",
-        "readme_scope",
-        "academic",
-        "thesis"
+        "missing_readme_academic_scope"
       ]
     },
     "cporter202/api-mega-list": {
@@ -21382,8 +21379,8 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
@@ -21393,9 +21390,7 @@
         "retrieval",
         "missing_skill_signal",
         "missing_high_confidence_academic_signal",
-        "admission:related",
-        "readme_scope",
-        "thesis"
+        "missing_readme_academic_scope"
       ]
     },
     "serenakeyitan/awesome-notebooklm-prompts": {
@@ -22780,17 +22775,14 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
         "phd",
         "missing_skill_signal",
-        "admission:skill_candidate",
-        "readme_scope",
-        "academic",
-        "phd"
+        "missing_readme_academic_scope"
       ]
     },
     "hamed233/cybersecurity-mastery-roadmap": {
@@ -56407,8 +56399,8 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
@@ -56417,11 +56409,7 @@
         "thesis",
         "missing_skill_signal",
         "missing_high_confidence_academic_signal",
-        "admission:related",
-        "readme_scope",
-        "academic",
-        "research paper",
-        "research papers"
+        "missing_readme_academic_scope"
       ]
     },
     "npc-worldwide/npcpy": {
@@ -62252,8 +62240,8 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
@@ -62262,9 +62250,7 @@
         "thesis",
         "missing_skill_signal",
         "missing_high_confidence_academic_signal",
-        "admission:skill_candidate",
-        "readme_scope",
-        "thesis"
+        "missing_readme_academic_scope"
       ]
     },
     "ollama/ollama": {
@@ -89131,8 +89117,8 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
@@ -89142,9 +89128,7 @@
         "research",
         "thesis",
         "missing_high_confidence_academic_signal",
-        "admission:skill_candidate",
-        "readme_scope",
-        "thesis"
+        "missing_readme_academic_scope"
       ]
     },
     "philsturgeon/awesome-earth": {
@@ -91679,8 +91663,8 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
@@ -91689,11 +91673,7 @@
         "science",
         "phd",
         "missing_skill_signal",
-        "admission:skill_candidate",
-        "readme_scope",
-        "academic",
-        "research paper",
-        "scientific writing"
+        "missing_readme_academic_scope"
       ]
     },
     "reasoning-survey/awesome-reasoning-foundation-models": {
@@ -92844,19 +92824,15 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
         "science",
         "phd",
         "missing_skill_signal",
-        "admission:skill_candidate",
-        "readme_scope",
-        "academic",
-        "literature review",
-        "research workflow"
+        "missing_readme_academic_scope"
       ]
     },
     "federicodeponte/opendraft": {
@@ -93062,16 +93038,14 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
         "phd",
         "missing_skill_signal",
-        "admission:related",
-        "readme_scope",
-        "phd"
+        "nonresearch_primary_purpose"
       ]
     },
     "jobright-ai/2026-software-engineer-new-grad": {
@@ -94924,17 +94898,14 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
         "phd",
         "missing_skill_signal",
-        "admission:skill_candidate",
-        "readme_scope",
-        "academic",
-        "phd"
+        "missing_readme_academic_scope"
       ]
     },
     "workopia/us-new-grad-internship-jobs": {
@@ -95858,19 +95829,15 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
         "research",
         "phd",
         "missing_skill_signal",
-        "admission:skill_candidate",
-        "readme_scope",
-        "academic",
-        "paper writing",
-        "phd"
+        "missing_readme_academic_scope"
       ]
     },
     "packtpublishing/mastering-ros-2-for-robotics-programming": {
@@ -102822,17 +102789,15 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
         "thesis",
         "missing_skill_signal",
         "missing_high_confidence_academic_signal",
-        "admission:skill_candidate",
-        "readme_scope",
-        "thesis"
+        "missing_readme_academic_scope"
       ]
     },
     "hkuds/autoagent": {
@@ -142135,16 +142100,14 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
         "论文",
         "missing_skill_signal",
-        "admission:skill_candidate",
-        "readme_scope",
-        "论文"
+        "nonresearch_primary_purpose"
       ]
     },
     "plexpt/awesome-chatgpt-prompts-zh": {
@@ -152773,18 +152736,15 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
         "phd",
         "scholar",
         "missing_skill_signal",
-        "admission:related",
-        "readme_scope",
-        "phd",
-        "科研"
+        "nonresearch_primary_purpose"
       ]
     },
     "bighuang624/ai-research-tools": {
@@ -152840,19 +152800,15 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
         "research",
         "科研",
         "missing_skill_signal",
-        "admission:related",
-        "readme_scope",
-        "academic",
-        "科研",
-        "学术"
+        "missing_readme_academic_scope"
       ]
     },
     "binary-husky/gpt_academic": {
@@ -153432,18 +153388,15 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
         "科研",
         "课题",
         "missing_skill_signal",
-        "admission:related",
-        "readme_scope",
-        "thesis",
-        "科研"
+        "missing_readme_academic_scope"
       ]
     },
     "currytang/amadeus": {
@@ -153649,8 +153602,8 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
@@ -153659,11 +153612,7 @@
         "mcp",
         "academic",
         "research",
-        "admission:skill_candidate",
-        "readme_scope",
-        "academic",
-        "research workflow",
-        "thesis"
+        "missing_readme_academic_scope"
       ]
     },
     "decrypto-org/blockchain-papers": {
@@ -153804,17 +153753,15 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
         "thesis",
         "missing_skill_signal",
         "missing_high_confidence_academic_signal",
-        "admission:related",
-        "readme_scope",
-        "thesis"
+        "missing_readme_academic_scope"
       ]
     },
     "dream-rec/dreampaper": {
@@ -153916,8 +153863,8 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
@@ -153926,11 +153873,7 @@
         "scientific",
         "missing_skill_signal",
         "missing_high_confidence_academic_signal",
-        "admission:skill_candidate",
-        "readme_scope",
-        "paper writing",
-        "peer review",
-        "scientific research"
+        "missing_readme_academic_scope"
       ]
     },
     "elpsykongloo/paperbanana-pro": {
@@ -153975,19 +153918,15 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
         "academic",
         "paper",
         "missing_skill_signal",
-        "admission:skill_candidate",
-        "readme_scope",
-        "academic",
-        "科研",
-        "学术"
+        "missing_readme_academic_scope"
       ]
     },
     "epsilon617/codex-academic-skills": {
@@ -154282,6 +154221,7 @@
         "missing_strong_skill_signal",
         "admission:related",
         "readme_scope",
+        "paper reading",
         "论文"
       ]
     },
@@ -154448,8 +154388,8 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
@@ -154458,9 +154398,7 @@
         "papers",
         "科研",
         "论文",
-        "admission:related",
-        "readme_scope",
-        "论文"
+        "missing_readme_academic_scope"
       ]
     },
     "foshmily/ai-paper-system": {
@@ -156377,8 +156315,8 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
@@ -156387,10 +156325,7 @@
         "research",
         "paper",
         "papers",
-        "admission:related",
-        "readme_scope",
-        "academic",
-        "manuscript"
+        "missing_readme_academic_scope"
       ]
     },
     "joshzyj/open-scholar-skill": {
@@ -156495,18 +156430,15 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
         "academic",
         "research",
         "missing_skill_signal",
-        "admission:skill_candidate",
-        "readme_scope",
-        "academic",
-        "literature review"
+        "missing_readme_academic_scope"
       ]
     },
     "justlovemaki/cloudflare-ai-insight-daily": {
@@ -156557,18 +156489,15 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
         "gemini",
         "论文",
         "学术",
-        "admission:related",
-        "readme_scope",
-        "学术",
-        "论文"
+        "nonresearch_primary_purpose"
       ]
     },
     "kaixindelele/chatpaper": {
@@ -157261,16 +157190,14 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
         "科研",
         "missing_skill_signal",
-        "admission:related",
-        "readme_scope",
-        "科研"
+        "nonresearch_primary_purpose"
       ]
     },
     "locowiki/locowiki": {
@@ -157396,8 +157323,8 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
@@ -157406,11 +157333,7 @@
         "science",
         "phd",
         "missing_skill_signal",
-        "admission:skill_candidate",
-        "readme_scope",
-        "academic",
-        "scientific research",
-        "research workflow"
+        "missing_readme_academic_scope"
       ]
     },
     "massimoaria/bibliometrix": {
@@ -157569,7 +157492,8 @@
         "admission:skill_candidate",
         "readme_scope",
         "research paper",
-        "thesis"
+        "thesis",
+        "bibliometric"
       ]
     },
     "max-api-next/max-api": {
@@ -157830,19 +157754,15 @@
         },
         "_metadata_checked_at": "2026-10-27T15:57:47Z"
       },
-      "eligible": true,
-      "status": "active",
+      "eligible": false,
+      "status": "excluded",
       "last_success_at": "2026-10-27T15:57:47Z",
       "last_attempt_at": "2026-10-27T15:57:47Z",
       "reasons": [
         "arxiv",
         "学术",
         "missing_skill_signal",
-        "admission:skill_candidate",
-        "readme_scope",
-        "科研",
-        "学术",
-        "论文"
+        "missing_readme_academic_scope"
       ]
     },
     "moonlarry/codex-paper-skills": {

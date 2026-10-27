@@ -9,7 +9,7 @@ const figureRepo = filterItems(rankingData.items, {
   ...restoreState(null, "", {}, rankingData.items),
   task: "figures",
 })[0].repo;
-const firstRepo = rankingData.items[0].repo;
+const firstRepo = "K-Dense-AI/scientific-agent-skills";
 test("Ant Design migration preserves task filtering, search and URL restoration", async ({
   page,
 }) => {
@@ -43,7 +43,7 @@ test("favorites persist, drawer copies commands and links restore detail", async
     "aria-pressed",
     "true",
   );
-  await page.locator(".ant-table-row").first().locator("td").first().click();
+  await page.locator(".ant-table-row").filter({ hasText: firstRepo }).locator("td").first().click();
   await expect(page.getByRole("dialog")).toBeVisible();
   await page
     .getByRole("dialog")

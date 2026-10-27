@@ -149,3 +149,26 @@ class ReviewRegressionTest(unittest.TestCase):
         for tail in ['### Available tools\n- [Academic paper writing helper](https://example.org)', '- [Academic paper writing helper](https://example.org)']:
             item=repo(_readme_evidence={'status':'verified','text':'# Universal skills\nA collection of coding skills.\n'+tail})
             self.assertFalse(is_academic_skill_repo(item)[0])
+
+class RealWorldScopeRegressionTest(unittest.TestCase):
+    def test_game_research_admissions_and_generic_thesis_investigation_are_not_academic_tools(self):
+        examples=[('Azur Lane bot 碧蓝航线脚本 无缝委托科研','# AzurLane\nA GUI tool for mobile game automation. 科研系统自动化。'),('PhD admissions scholarships guide','# 海外留学指南\nPhD scholarships, visas, tuition and government funding resources. 学术科研相关奖学金。'),('Knowledge bases, thesis-driven investigation for any AI agent','# Knowledge base skills\nA tool for research, source ingestion and thesis-driven investigation.'),('Speech processing toolkit','# Speech toolkit\nAn academic speech research toolkit with datasets, benchmarks and pretrained models.')]
+        for desc,text in examples:
+            self.assertFalse(is_academic_skill_repo(repo(description=desc,_readme_evidence={'status':'verified','text':text}))[0],desc)
+
+    def test_focused_research_skills_reference_managers_figures_and_guides_are_allowed(self):
+        for text in ['# Skills\nAgent skills for scientific research.', '# Zotero\nAn academic paper management tool.', '# Figures\nA scientific plotting tool for publication figures.', '# 科研入门指南\n帮助学生从0开始做科研和写论文。']:
+            self.assertTrue(is_academic_skill_repo(repo(_readme_evidence={'status':'verified','text':text}))[0],text)
+
+class DisplayAndPrimaryPurposeTest(unittest.TestCase):
+    def test_general_ai_news_and_lifestyle_guides_cannot_borrow_paper_mentions(self):
+        for text in ['# AI资讯日报\n聚合行业新闻、热门开源项目、前沿学术论文和社交媒体言论的工具。', '# 高性价比人生指南\n生活指南，包含省钱、留学、读论文和生活建议。']:
+            self.assertFalse(is_academic_skill_repo(repo(_readme_evidence={'status':'verified','text':text}))[0])
+
+    def test_zero_display_limit_keeps_all_qualified_entries(self):
+        from unittest.mock import patch
+        from scripts import update_rankings as u
+        items=[{'repo':str(i),'stars':100,'refresh_status':'fresh'} for i in range(151)]
+        with patch.object(u,'rank_repositories',return_value=items),patch.object(u,'persist_first_seen'),patch.object(u,'save_history_snapshot'):
+            result,_=u.build_dataset({'max_results':0},[],enrich_skills=False)
+        self.assertEqual(len(result['items']),151)

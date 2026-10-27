@@ -1,6 +1,6 @@
 {
   "min_stars": 100,
-  "max_results": 150,
+  "max_results": 0,
   "exclude_repositories": [
     "RiceAI88/awesome-paper-research-skills",
     "kael-odin/awesome-academic-research-skills"

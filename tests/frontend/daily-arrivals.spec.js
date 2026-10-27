@@ -46,3 +46,11 @@ test('an open page drops yesterday arrivals at Beijing midnight',async({page})=>
  await expect(page.getByTestId('daily-skill-count')).toHaveText('0');
  await expect(page.locator('.repository-card .daily-new-badge')).toHaveCount(0);
 });
+test('an empty shared today filter can return directly to the full ranking',async({page})=>{
+ await fixture(page);await page.clock.setFixedTime(new Date('2026-10-27T16:01:00Z'));
+ await page.goto('./#today=skill');
+ await expect(page.getByTestId('repo-card')).toHaveCount(0);
+ await expect(page.getByTestId('today-skills-filter')).toBeEnabled();
+ await page.getByTestId('today-skills-filter').click();
+ await expect(page.getByTestId('repo-card')).toHaveCount(4);
+});

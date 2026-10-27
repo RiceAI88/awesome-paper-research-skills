@@ -12,8 +12,8 @@ test("practical information, editorial reasons and history provenance are visibl
     route.fulfill({ json: { workflow_runs: [] } }),
   );
   await page.goto("./#view=table");
-  const row = page.locator(".ant-table-row").first();
-  await expect(row).toContainText(ranking.items[0].description);
+  const row = page.locator(".ant-table-row").filter({ hasText: "K-Dense-AI/scientific-agent-skills" });
+  await expect(row).toContainText(ranking.items.find(item => item.repo === "K-Dense-AI/scientific-agent-skills").description);
   await expect(row.getByText("Claude Code", { exact: true })).toBeVisible();
   await expect(
     row.getByRole("button", { name: "复制安装命令", exact: true }),

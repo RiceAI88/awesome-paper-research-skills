@@ -33,7 +33,7 @@ test("ranking mini trends use a filled vector area and an unclipped outline", as
   await page.goto("./#view=table");
   const trend = page
     .locator(".ant-table-row")
-    .first()
+    .filter({ hasText: "K-Dense-AI/scientific-agent-skills" })
     .locator("svg.mini-area-chart");
   await expect(trend).toBeVisible();
   await expect(trend.locator("[data-area-fill]")).toHaveAttribute(

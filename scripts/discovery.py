@@ -12,8 +12,17 @@ ACADEMIC = [
     'literature review', 'literature search', 'literature discovery', 'peer review',
     'scientific research', 'scientific writing', 'research workflow', 'research guide',
     'research starter', 'phd', 'thesis', 'manuscript', 'reference manager',
+    'scientific plotting', 'publication figures', 'bibliometric', 'scientometric', 'science mapping', 'academic poster', 'paper reading', 'paper management', 'citation management',
     '科研', '学术', '论文', '文献检索', '文献阅读', '文献综述', '实验复现',
 ]
+TASK_PURPOSE = re.compile(
+    r'(?:paper|academic|thesis|scientific) (?:writing|reading|review|management|search|draft|translation|plotting|poster|figure|workflow|template)'
+    r'|literature (?:review|search|discovery|management|retrieval)|reference manager|citation (?:management|check|verif)|manuscript|dissertation|latex'
+    r'|research workflow|scientific agent|ai scientist|autonomous research|scientific experiment|laboratory workflow|experiment automation|bibliometric|scientometric|science mapping|academic conference poster|publication figures|学术翻译|科研组图|科研插图|学术插图|科研可视化|(?:agent skills?|skill[.]md).{0,100}(?:academic|scientific|科研|学术)'
+    r'|(?:academic|scientific).{0,50}skills?'
+    r'|(?:write|read|review|search|manage|draft|translat)[a-z]*.{0,25}(?:research papers?|academic papers?|literature)'
+    r'|做科研|写论文|读论文|论文写作|学术写作|论文阅读|论文润色|论文翻译|论文管理|论文检索|论文配图|科研绘图|科学绘图|科研入门|科研工作流|文献|实验复现|毕业论文|学位论文', re.I)
+
 CAPABILITY = ['skill', 'agent skill', 'skill.md', 'claude code', 'codex', 'opencode', 'mcp', 'workflow', 'skills', '技能']
 RELATED = ['tool', 'guide', 'handbook', 'starter', 'workflow', 'assistant', 'agent',
            'reference manager', 'resource', '指南', '教程', '工具', '工作流', '助手', '资料']
@@ -59,8 +68,11 @@ def readme_admission(repo):
     intro = re.sub(r'<a\b[^>]*>.*?</a>', '', intro, flags=re.S)
     intro = re.sub(r'^\s*(?:[-*+] |\d+[.)] ).*https?://.*$', '', intro, flags=re.M)
     topics = repo.get('repositoryTopics', {}).get('nodes', [])
-    declared = ' '.join([repo.get('description') or '', *(n.get('topic', {}).get('name', '') for n in topics)]).lower()
-    focused = any(word in intro or word in declared for word in ACADEMIC)
+    declared = ' '.join([(repo.get('description') or '')[:500], *(n.get('topic', {}).get('name', '') for n in topics)]).lower()
+    purpose = (intro + ' ' + (repo.get('description') or '')[:500]).replace('-', ' ')
+    if re.search(r'gameplay|mobile game|手游|碧蓝航线|AI资讯|资讯日报|高性价比人生|海外留学|phd admission|scholarships?', purpose, re.I):
+        return False, ['nonresearch_primary_purpose']
+    focused = bool(TASK_PURPOSE.search(purpose) or re.search(r'academic papers?|research papers?|学术论文|论文|文献', purpose))
     if not academic or not focused:
         return False, ['missing_readme_academic_scope']
     if any(word in text for word in CAPABILITY):

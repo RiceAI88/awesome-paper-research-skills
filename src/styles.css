@@ -1742,3 +1742,13 @@ h1 em {
   .daily-arrivals-actions { gap: 4px 8px; }
   .daily-arrivals-actions .ant-btn { font-size: 13px; }
 }
+
+@media (max-width: 760px) {
+  .daily-arrivals-actions { min-width: 0; max-width: 100%; }
+  .daily-arrivals-actions .ant-btn { max-width: 100%; height: auto; min-height: 32px; white-space: normal; }
+  .daily-arrivals-actions .ant-btn > span { white-space: normal; overflow-wrap: anywhere; }
+  .daily-arrivals-list { display: flex; max-width: 100%; overflow-x: auto; scroll-snap-type: x proximity; padding-bottom: 4px; }
+  .daily-arrival-entry { flex: 0 0 85%; scroll-snap-align: start; }
+}
+.compact-statistics > .update-status { min-width: 0; max-width: 100%; white-space: normal; }
+.update-status-summary { max-width: 100%; flex-wrap: wrap; }

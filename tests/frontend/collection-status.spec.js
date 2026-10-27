@@ -20,3 +20,11 @@ test("complete zero-file inventory is labelled as a related project", async ({ p
   await expect(page.getByTestId("repo-card")).toContainText("科研相关项目");
   await expect(page.getByTestId("repo-card")).not.toContainText("0 skills");
 });
+test('English partial collection status wraps within a 320px viewport', async ({page}) => {
+  await page.setViewportSize({width:320,height:844});
+  await page.clock.setFixedTime(new Date('2026-10-28T00:08:00Z'));
+  await page.route('**/data/rankings.js*', route => route.fulfill({contentType:'application/javascript',body:`window.ACADEMIC_SKILLS_RANKINGS=${JSON.stringify({metadata:{...dataset.metadata,generated_at:'2026-10-28T00:00:00Z',collection:{status:'partial'}},items:dataset.items.slice(0,1)})};`}));
+  await page.goto('./#lang=en&theme=dark');
+  await expect(page.getByTestId('update-status')).toContainText('Some data unverified');
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});

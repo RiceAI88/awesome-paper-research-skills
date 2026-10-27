@@ -35,7 +35,7 @@ test("compact cards open details via title and preserve an explicit external lin
   page,
 }) => {
   await page.goto("./#view=card");
-  const card = page.getByTestId("repo-card").first();
+  const card = page.getByTestId("repo-card").filter({ has: page.locator('a[href="https://github.com/K-Dense-AI/scientific-agent-skills"]') });
   await expect(card.locator(".installation-actions")).toHaveCount(0);
   await expect(card.locator(".practical-description")).toHaveCount(1);
   await expect(card.locator(".card-meta")).toHaveCount(0);

@@ -20,3 +20,12 @@ Preserve original descriptions, hard exclusions, stable first-seen identities an
 - [x] Preserve first_seen_at for new observations; add isNewToday in domain.js, compact DailyArrivals component, state filter, card/table badges and translations/CSS.
 - [x] Run Python, Node, relevant browser checks; review mobile visual layout.
 - [x] Update docs; commit frontend, test, review combined change then merge and deploy. Run collection and verify actual published records and deployment.
+
+## Completion evidence
+
+- Fresh independent review found rename identity loss, perpetual README bypass, linked-directory false positives and failed-candidate starvation. Each reproduced RED, fixed, then GREEN.
+- Live collection exposed ambiguous “科研” in a game and broad nonresearch primary purposes. Added real-world regressions and concrete academic-purpose checks; rechecked the collected catalog without repeating searches.
+- Live collection hit the 150 display cap. Changed max_results=0 to retain all qualified entries, preserving 30-per-batch rendering. Positive configured limits remain supported.
+- Reused 129 recently confirmed file inventories and checked 71 additional trees; final published dataset prepared with 200 entries (137 skill / 63 related), Beijing-day arrivals 29 skill / 47 related. All previously displayed 123 projects retained.
+- Verification on the rebuilt real dataset: Python 92, Node 43, Playwright 129 passed. Both 320px English and 390px Chinese layouts checked; no horizontal page overflow.
+- Historical date-only first-seen values are retained rather than assigned invented timestamps. Exact first_seen_at supports all new entries and stable renamed identities.
