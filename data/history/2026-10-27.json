@@ -2,7 +2,7 @@
   "metadata": {
     "generated_at": "2026-10-27T04:57:07Z",
     "min_stars": 100,
-    "total": 122,
+    "total": 123,
     "source": "GitHub REST Search API",
     "ranking": "stars_desc_then_trend_score",
     "trend_window_days": 7,
@@ -8168,6 +8168,75 @@
       "skills_count_complete": true,
       "repository_kind": "skill",
       "first_seen_date": "2026-10-02",
+      "first_seen_is_baseline": false
+    },
+    {
+      "refresh_status": "fresh",
+      "metadata_checked_at": "2026-10-27T05:04:03Z",
+      "pending_reason": null,
+      "previous_names": [],
+      "rank": 10,
+      "repo": "LAMDA-NeSy/Research-Starter-Kit",
+      "stars": 8986,
+      "star_delta_1d": 0,
+      "star_delta_7d": 0,
+      "star_delta_30d": 0,
+      "trend_score": 47.34,
+      "trend": {
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
+      },
+      "category": {
+        "id": "discipline-specific",
+        "zh": "学科专项",
+        "en": "Discipline Specific"
+      },
+      "description": "从0开始，掌握做科研、写论文的基本流程。",
+      "language": "",
+      "topics": [
+        "ai-research",
+        "awesome",
+        "awesome-list",
+        "phd",
+        "phd-research",
+        "research-assistant",
+        "research-skills"
+      ],
+      "created_date": "2026-08-29",
+      "last_push_date": "2026-09-01",
+      "url": "https://github.com/LAMDA-NeSy/Research-Starter-Kit",
+      "homepage": "",
+      "agents": [],
+      "precision_signals": [
+        "assistant",
+        "phd",
+        "research",
+        "skill",
+        "skills",
+        "trusted_seed",
+        "科研",
+        "论文"
+      ],
+      "stale": true,
+      "verifies_citations": false,
+      "forks": 327,
+      "open_issues": 3,
+      "watchers": 8986,
+      "size_kb": 202,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "",
+        "name": "",
+        "spdx_id": ""
+      },
+      "skills_count": 0,
+      "skills_count_complete": true,
+      "repository_kind": "related",
+      "first_seen_date": "2026-10-27",
       "first_seen_is_baseline": false
     }
   ]

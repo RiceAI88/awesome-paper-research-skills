@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T04:52:46Z",
+  "generated_at": "2026-10-27T05:04:03Z",
   "status": "complete",
   "fatal": false,
   "pending": [],
@@ -11968,18 +11968,18 @@
       ]
     },
     {
-      "repo": "davidgasquez/awesome-duckdb",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal"
-      ]
-    },
-    {
       "repo": "submitgame/awesome-decomp-games",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
         "negative:game"
+      ]
+    },
+    {
+      "repo": "davidgasquez/awesome-duckdb",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal"
       ]
     },
     {
@@ -22027,14 +22027,14 @@
       ]
     },
     {
-      "repo": "thinkwee/awesomeopd",
+      "repo": "fainir/most-capable-agent-system-prompt",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
       ]
     },
     {
-      "repo": "fainir/most-capable-agent-system-prompt",
+      "repo": "thinkwee/awesomeopd",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal"
@@ -28809,7 +28809,7 @@
     },
     {
       "query": "claude code research in:name,description,readme",
-      "total": 5483,
+      "total": 5482,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true
@@ -28920,6 +28920,11 @@
       "limit_reached": false
     }
   ],
-  "changes": [],
+  "changes": [
+    {
+      "repo": "lamda-nesy/research-starter-kit",
+      "action": "added"
+    }
+  ],
   "outside_rank_limit": []
 }
