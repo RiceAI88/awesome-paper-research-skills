@@ -1,6 +1,17 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile, access } from "node:fs/promises";
+import { createHash } from "node:crypto";
+test("both language pages version data scripts by their deployed content", async () => {
+  for (const script of ["rankings", "history"]) {
+    const content = await readFile(`dist/data/${script}.js`);
+    const version = createHash("sha256").update(content).digest("hex").slice(0, 12);
+    for (const page of ["index.html", "en/index.html"]) {
+      const html = await readFile(`dist/${page}`, "utf8");
+      assert.ok(html.includes(`data/${script}.js?v=${version}"`), `${page}: ${script} must bypass previous data cache`);
+    }
+  }
+});
 test("production site preserves both language entries and public data resources", async () => {
   for (const name of [
     "index.html",

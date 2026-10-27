@@ -1,4 +1,5 @@
 import { cp, mkdir, copyFile, readdir } from "node:fs/promises";
+import { createHash } from "node:crypto";
 const dirs = ["data", "reports"];
 for (const dir of dirs) await cp(dir, `dist/${dir}`, { recursive: true });
 await mkdir("dist/docs", { recursive: true });
@@ -28,6 +29,15 @@ console.log("Public data, reports, SEO and supporting assets copied to dist.");
 const { readFile, writeFile } = await import("node:fs/promises");
 const { safeExternalUrl } = await import("../src/domain.js");
 const ranking = JSON.parse(await readFile("data/rankings.json", "utf8"));
+// Pages caches fixed data URLs for ten minutes. Version each script by content
+// so a newly deployed page cannot reuse data from the previous deployment.
+const dataVersions = {};
+for (const script of ["rankings", "history"]) {
+  dataVersions[script] = createHash("sha256")
+    .update(await readFile(`dist/data/${script}.js`))
+    .digest("hex")
+    .slice(0, 12);
+}
 const escapeHtml = (value = "") =>
   String(value).replace(
     /[&<>"']/g,
@@ -43,6 +53,9 @@ for (const [file, lang] of [
 ]) {
   const path = `dist/${file}`;
   let html = await readFile(path, "utf8");
+  for (const [script, version] of Object.entries(dataVersions)) {
+    html = html.replace(`data/${script}.js"`, `data/${script}.js?v=${version}"`);
+  }
   const url = html.match(/<link\s+rel="canonical"\s+href="([^"]+)"/)[1];
   const schema = {
     "@context": "https://schema.org",

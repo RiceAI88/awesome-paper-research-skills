@@ -13,7 +13,7 @@ async function fixtureCard(page) {
     skills_count_complete: true,
     agents: ["claude-code", "codex", "cursor", "gemini"],
   };
-  await page.route("**/data/rankings.js", (route) =>
+  await page.route("**/data/rankings.js*", (route) =>
     route.fulfill({
       contentType: "application/javascript",
       body: `window.ACADEMIC_SKILLS_RANKINGS=${JSON.stringify({ metadata: data.metadata, items: [fixture] })};`,

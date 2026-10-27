@@ -51,7 +51,7 @@ test("mini areas preserve sparse dates, decreases, and observed start/end values
   page,
 }) => {
   const repo = "K-Dense-AI/scientific-agent-skills";
-  await page.route("**/data/history.js", (route) =>
+  await page.route("**/data/history.js*", (route) =>
     route.fulfill({
       contentType: "application/javascript",
       body:
@@ -91,7 +91,7 @@ for (const [name, series] of [
     page,
   }) => {
     const repo = "K-Dense-AI/scientific-agent-skills";
-    await page.route("**/data/history.js", (route) =>
+    await page.route("**/data/history.js*", (route) =>
       route.fulfill({
         contentType: "application/javascript",
         body:

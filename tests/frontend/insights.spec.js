@@ -42,7 +42,7 @@ test("real charts render, filter by category, change window and open repository 
 test("missing historical data has an honest empty state and current charts still work", async ({
   page,
 }) => {
-  await page.route("**/data/history.js", (route) =>
+  await page.route("**/data/history.js*", (route) =>
     route.fulfill({
       contentType: "application/javascript",
       body: "window.ACADEMIC_SKILLS_HISTORY={series:{}};",

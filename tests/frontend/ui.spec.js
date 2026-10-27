@@ -120,7 +120,7 @@ test("corrupt storage and missing history do not break the app", async ({
     localStorage.setItem("ars-favorites", "bad-json");
     localStorage.setItem("ars-compare", "{}");
   });
-  await page.route("**/data/history.js", (route) =>
+  await page.route("**/data/history.js*", (route) =>
     route.fulfill({
       contentType: "application/javascript",
       body: "window.ACADEMIC_SKILLS_HISTORY={series:{}};",
@@ -135,7 +135,7 @@ test("corrupt storage and missing history do not break the app", async ({
   ).toBeVisible();
 });
 test("empty data presents a stable empty ranking", async ({ page }) => {
-  await page.route("**/data/rankings.js", (route) =>
+  await page.route("**/data/rankings.js*", (route) =>
     route.fulfill({
       contentType: "application/javascript",
       body: "window.ACADEMIC_SKILLS_RANKINGS={metadata:{},items:[]};",
