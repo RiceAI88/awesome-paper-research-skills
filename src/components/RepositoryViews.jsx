@@ -31,6 +31,7 @@ export function QualityBadges({
     );
   return (
     <Space size={[4, 4]} wrap>
+      {item.new_today && <Tag className="daily-new-badge">{t("dailyBadge")}</Tag>}
       {!statusOnly && (
         <Tooltip title={t("projectTypeHelp")}>
           <Tag>{typeLabel}</Tag>
@@ -162,6 +163,7 @@ export function RepositoryViews({
     state.sort,
     state.favOnly,
     state.newOnly,
+    state.todayOnly,
     items.map((item) => item.repo),
   ]);
   const [batch, setBatch] = useState({ key: resultKey, limit: 30 });
@@ -240,11 +242,14 @@ export function RepositoryViews({
                 }}
               >
                 <div className="card-top">
+                  <div className="card-rank-group">
                   <span
                     className={`card-rank${item.rank <= 3 ? " leading-rank" : ""}`}
                   >
                     {String(item.rank).padStart(2, "0")}
                   </span>
+                  {item.new_today && <span className="daily-new-badge">{t("dailyBadge")}</span>}
+                  </div>
                   <div
                     className={`card-actions${state.favorites.includes(item.repo) || state.compare.includes(item.repo) ? " has-selection" : ""}`}
                   >

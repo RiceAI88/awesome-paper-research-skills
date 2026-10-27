@@ -38,7 +38,9 @@ test("reference palette, right-hand search and default cards give a compact firs
   expect(search.x).toBeGreaterThan(title.x + title.width);
   expect(Math.abs(search.y - title.y)).toBeLessThan(80);
   const first = await page.getByTestId("repo-card").first().boundingBox();
-  expect(first.y).toBeLessThan(430);
+  // Daily discoveries may add up to three compact entries above the ranking.
+  expect(first.y).toBeLessThan(560);
+  expect(first.y + first.height).toBeLessThan(900);
   await expect(page.locator(".task-list [aria-pressed=true]")).toHaveCSS(
     "border-bottom-color",
     "rgb(74, 63, 191)",

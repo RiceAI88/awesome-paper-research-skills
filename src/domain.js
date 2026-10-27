@@ -137,6 +137,7 @@ export function restoreState(storage, hash = "", defaults = {}, items = []) {
       .slice(0, 3),
     favOnly: p.get("fav") === "1",
     newOnly: p.get("new") === "1",
+    todayOnly: valid(p.get("today"), ["skill", "related"], ""),
     repo: repositories.has(p.get("repo")) ? p.get("repo") : null,
   };
 }
@@ -155,6 +156,7 @@ export function serializeState(state) {
     if (state[key] !== fallback) p.set(param, state[key]);
   if (state.favOnly) p.set("fav", "1");
   if (state.newOnly) p.set("new", "1");
+  if (state.todayOnly) p.set("today", state.todayOnly);
   if (state.repo) p.set("repo", state.repo);
   return p.size ? "#" + p.toString() : "";
 }
@@ -172,6 +174,7 @@ export function filterItems(items, state) {
   const task = RESEARCH_TASKS.find((t) => t.id === state.task);
   const result = items.filter((item) => {
     if (state.newOnly && !item.new_this_week) return false;
+    if (state.todayOnly && (!item.new_today || item.repository_kind !== state.todayOnly)) return false;
     if (task && !matchesResearchTask(item, task)) return false;
     if (state.category !== "all" && item.category?.id !== state.category)
       return false;
@@ -297,4 +300,22 @@ export function isNewThisWeek(item, generatedAt) {
     return false;
   const monday = now - ((new Date(now).getUTCDay() + 6) % 7) * 86400000;
   return stamp >= monday && stamp <= now;
+}
+
+export function beijingDay(instant = Date.now()) {
+  const time = new Date(instant).getTime();
+  return Number.isFinite(time) ? new Date(time + 8 * 3600000).toISOString().slice(0, 10) : "";
+}
+export function isNewToday(item, now = Date.now()) {
+  if (item.first_seen_is_baseline) return false;
+  const today = beijingDay(now);
+  if (!today) return false;
+  if (item.first_seen_at != null) {
+    if (typeof item.first_seen_at !== "string" || !/(?:Z|[+-]\d{2}:\d{2})$/.test(item.first_seen_at)) return false;
+    return beijingDay(item.first_seen_at) === today;
+  }
+  const date = item.first_seen_date;
+  const stamp = Date.parse(date + "T00:00:00Z");
+  return typeof date === "string" && /^\d{4}-\d{2}-\d{2}$/.test(date) && Number.isFinite(stamp)
+    && new Date(stamp).toISOString().slice(0, 10) === date && date === today;
 }

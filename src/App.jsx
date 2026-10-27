@@ -1,3 +1,4 @@
+import { DailyArrivals } from "./components/DailyArrivals";
 import { RechargeAd } from "./components/RechargeAd";
 import { BackToTop } from "./components/BackToTop";
 import { VisitCounter } from "./components/VisitCounter";
@@ -41,6 +42,8 @@ import {
   taskCountsFor,
   recentlyUpdatedCount,
   isNewThisWeek,
+  isNewToday,
+  beijingDay,
   FONT_FAMILY,
   persistState,
   REPOSITORY_URL,
@@ -66,7 +69,7 @@ const ComparisonDialog = lazy(() => import("./components/ComparisonDialog"));
 import { ViewportInsights } from "./components/ViewportInsights";
 
 const dataset = window.ACADEMIC_SKILLS_RANKINGS || {};
-const items = Array.isArray(dataset.items)
+const sourceItems = Array.isArray(dataset.items)
   ? dataset.items.map((item) => ({
       ...enrichItem(item),
       new_this_week: isNewThisWeek(item, dataset.metadata?.generated_at),
@@ -95,6 +98,7 @@ const taskLabels = {
 };
 const localFile = (name) => base + name;
 export default function App() {
+  const items = sourceItems;
   const [state, update] = useState(() =>
     restoreState(storage, location.hash, defaults, items),
   );
@@ -168,6 +172,14 @@ export default function App() {
   );
 }
 function Dashboard({ state, update }) {
+  const [today, setToday] = useState(() => beijingDay());
+  useEffect(() => {
+    const sync = () => setToday(beijingDay());
+    const timer = setInterval(sync, 60000);
+    addEventListener("focus", sync);
+    return () => { clearInterval(timer); removeEventListener("focus", sync); };
+  }, []);
+  const items = useMemo(() => sourceItems.map(item => ({ ...item, new_today: isNewToday(item, today) })), [today]);
   const message = useFeedback();
   const [compareOpen, setCompareOpen] = useState(false);
   const [drawerRequested, setDrawerRequested] = useState(Boolean(state.repo));
@@ -194,7 +206,7 @@ function Dashboard({ state, update }) {
       window.removeEventListener("resize", measure);
     };
   }, []);
-  const visible = useMemo(() => filterItems(items, state), [state]);
+  const visible = useMemo(() => filterItems(items, state), [items, state]);
   const rankingKey = `${state.view}:${visible.length ? "items" : "empty"}`;
   const [readyView, setReadyView] = useState(null);
   const [insightsJump, setInsightsJump] = useState(false);
@@ -247,7 +259,7 @@ function Dashboard({ state, update }) {
     );
   const taskCounts = useMemo(
     () => taskCountsFor(items, state),
-    [state.query, state.agent, state.favOnly, state.favorites, state.newOnly],
+    [state.query, state.agent, state.favOnly, state.favorites, state.newOnly, state.todayOnly, today],
   );
   const selected = items.find((item) => item.repo === state.repo);
   const categories = useMemo(
@@ -758,6 +770,7 @@ function Dashboard({ state, update }) {
               </details>
             </Space>
           </div>
+          <DailyArrivals {...{ items, state, update, t }} />
           <ActiveFilters
             {...{ state, update, categories, t }}
             empty={!visible.length}

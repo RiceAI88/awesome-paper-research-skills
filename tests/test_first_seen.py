@@ -102,3 +102,17 @@ class FirstSeenTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+class PreciseFirstSeenTest(unittest.TestCase):
+    def test_new_observation_preserves_exact_instant_across_beijing_midnight_and_rename(self):
+        first={'metadata':{'generated_at':'2026-10-27T16:10:00Z'},'items':[{'repo':'a/new'}]}
+        registry=rankings.annotate_first_seen(first,{'2026-10-25':{}})
+        self.assertEqual(first['items'][0]['first_seen_at'],'2026-10-27T16:10:00Z')
+        second={'metadata':{'generated_at':'2026-10-29T01:00:00Z'},'items':[{'repo':'b/renamed','previous_names':['a/new']}]}
+        rankings.annotate_first_seen(second,{},registry)
+        self.assertEqual(second['items'][0]['first_seen_at'],'2026-10-27T16:10:00Z')
+
+    def test_historical_date_is_not_replaced_with_new_run_timestamp(self):
+        data={'metadata':{'generated_at':'2026-10-27T16:10:00Z'},'items':[{'repo':'a/old'}]}
+        rankings.annotate_first_seen(data,{'2026-10-25':{'a/old':{}}})
+        self.assertNotIn('first_seen_at',data['items'][0])

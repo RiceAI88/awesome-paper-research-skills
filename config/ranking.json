@@ -46,5 +46,16 @@
     "科研 skill in:name,description,readme",
     "论文 skill in:name,description,readme",
     "文献综述 skill in:name,description,readme"
-  ]
+  ],
+  "discovery": {
+    "queries": [
+      "\"academic\" \"skill\"",
+      "\"paper writing\"",
+      "\"literature review\"",
+      "\"research workflow\"",
+      "\"科研\"",
+      "\"论文\""
+    ],
+    "readme_budget": 120
+  }
 }

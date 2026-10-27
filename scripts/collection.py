@@ -33,7 +33,7 @@ def cached_metadata(item):
             "repositoryTopics": {"nodes": [{"topic": {"name": t}} for t in item.get("topics", [])]}}
 
 
-def collect(config, *, catalog, previous_items, known_names, fetch, search, eligible, now):
+def collect(config, *, catalog, previous_items, known_names, fetch, search, eligible, now, prioritize=None):
     entries = {k.lower(): dict(v) for k, v in catalog.get("repositories", {}).items()}
     previous = {k.lower(): v for k, v in previous_items.items()}
     names = {n.lower(): n for n in [*known_names, *previous_items, *config.get("seed_repositories", []), *(key for key, entry in entries.items() if entry.get("eligible"))]}
@@ -46,12 +46,19 @@ def collect(config, *, catalog, previous_items, known_names, fetch, search, elig
         confirmed += 1
         key = raw["nameWithOwner"].lower()
         old = entries.get(key, {})
+        aliases = set(raw.get("_previous_names", [])) | set(old.get("metadata", {}).get("_previous_names", []))
+        aliases.update(alias for alias, entry in entries.items() if entry.get("alias_of") == key)
+        if old_name and old_name != key:
+            aliases.add(old_name)
+            aliases.update(entries.get(old_name, {}).get("metadata", {}).get("_previous_names", []))
+        if aliases:
+            raw["_previous_names"] = sorted(aliases)
+        # Identity must be available before README admission, including failures.
         good, reasons = eligible(raw)
         if key in excluded:
             good, reasons = False, ["explicit_exclusion"]
         if old_name and old_name != key:
             entries[old_name] = {"alias_of": key, "last_attempt_at": now}
-            raw["_previous_names"] = [old_name]
             report["changes"].append({"repo": old_name, "action": "renamed", "to": key})
         entries[key] = {"metadata": raw, "eligible": good, "status": "active" if good else "excluded", "last_success_at": now, "last_attempt_at": now, "reasons": reasons}
         if old.get("status") == "pending":
@@ -96,6 +103,7 @@ def collect(config, *, catalog, previous_items, known_names, fetch, search, elig
             if old.get("status") != "pending":
                 report["changes"].append({"repo": key, "action": "pending", "reason": reason})
             report["pending"].append({"repo": key, "reason": reason, "retained": bool(retain and raw)})
+    candidates = {}
     for query in config.get("search_queries", []):
         try:
             result = search(query)
@@ -103,9 +111,11 @@ def collect(config, *, catalog, previous_items, known_names, fetch, search, elig
             for raw in result.repositories:
                 key = raw["nameWithOwner"].lower()
                 if key not in attempted and key not in output:
-                    accept(raw)
+                    candidates.setdefault(key, raw)
         except (HTTPError, URLError, TimeoutError, OSError):
             report["searches"].append({"query": query, "error": "request_failed"})
+    for raw in sorted(candidates.values(), key=prioritize or (lambda repo: repo["nameWithOwner"].lower())):
+        accept(raw)
     report["fatal"] = confirmed == 0
     if report["pending"] or any(r.get("error") or r.get("incomplete") for r in report["searches"]) or report["fatal"]:
         report["status"] = "partial"

@@ -8,6 +8,7 @@ Actions can run it without dependency installation.
 from __future__ import annotations
 
 import argparse
+import base64
 import csv
 import html
 import json
@@ -24,9 +25,10 @@ from pathlib import Path
 from typing import Any
 
 try:
-    from . import collection
+    from . import collection, discovery
 except ImportError:  # Direct script entry point in Actions.
     import collection
+    import discovery
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -456,6 +458,10 @@ def is_academic_skill_repo(
         and (bool(high_confidence_academic_hits) or trusted)
         and not negative_hits
     )
+    if repo.get("_readme_evidence") is not None:
+        hard_failure = stars < min_stars or repo.get("isArchived") or repo.get("isFork") or bool(negative_hits)
+        admitted, evidence_reasons = discovery.readme_admission(repo)
+        return bool(admitted and not hard_failure), reasons + evidence_reasons
     return accepted, reasons
 
 
@@ -689,6 +695,7 @@ def annotate_first_seen(
                 records.setdefault(item["repo"].casefold(), dict(records[alias.casefold()]))
         record = records.setdefault(item["repo"].casefold(), {
             "first_seen_date": today,
+            "first_seen_at": generated.astimezone(timezone.utc).isoformat().replace("+00:00", "Z"),
             "first_seen_is_baseline": today == baseline,
         })
         item.update(record)
@@ -871,13 +878,16 @@ def search_repositories(
     min_stars: int,
     token: str | None,
     max_pages: int = 2,
+    sort: str = "stars",
 ) -> collection.SearchResult:
-    q = f"{query} stars:>={min_stars} fork:false archived:false"
+    q = f"{query} fork:false archived:false"
+    if "stars:" not in query:
+        q += f" stars:>={min_stars}"
     items: list[dict[str, Any]] = []
     total, incomplete = 0, False
     for page in range(1, max_pages + 1):
         data = github_request("/search/repositories", token, {
-            "q": q, "sort": "stars", "order": "desc", "per_page": 100, "page": page,
+            "q": q, "sort": sort, "order": "desc", "per_page": 100, "page": page,
         })
         page_items = data.get("items", [])
         items.extend(page_items)
@@ -902,17 +912,65 @@ def collect_repositories(config: dict[str, Any], token: str | None) -> collectio
             if item.get("refresh_status") != "pending":
                 previous[item["repo"]] = {**item, "_observed_at": snapshot.get("metadata", {}).get("generated_at")}
     registry = load_json(FIRST_SEEN_PATH, {}).get("repositories", {})
+    now = utc_now()
+    catalog = load_json(CATALOG_PATH, {})
+    entries = catalog.get("repositories", {})
+    cache = {k: v.get("metadata", {}).get("_readme_evidence", {}) for k, v in entries.items()}
+    def readme(name):
+        response = github_request(f"/repos/{name}/readme", token)
+        if response.get("encoding") != "base64":
+            raise ValueError("Unsupported README encoding")
+        return {"text": base64.b64decode(response.get("content", "")).decode("utf-8", errors="replace")[:16000],
+                "sha": response.get("sha"), "path": response.get("path")}
+    verifier = discovery.ReadmeVerifier(cache, readme, now=now,
+        budget=int(config.get("discovery", {}).get("readme_budget", 120)))
+    plan = discovery.search_plan(config, now)
+    specs = {p["query"]: p for p in plan}
     def fetch(name):
         time.sleep(0.15)
         return fetch_repository(name, token)
     def search(query):
         time.sleep(2.5)
-        return search_repositories(query, int(config.get("min_stars", DEFAULT_MIN_STARS)), token)
+        spec = specs[query]
+        return search_repositories(query, int(config.get("min_stars", DEFAULT_MIN_STARS)), token,
+                                   max_pages=spec["max_pages"], sort=spec["sort"])
     trusted = set(config.get("seed_repositories", []))
-    return collection.collect(config, catalog=load_json(CATALOG_PATH, {}), previous_items=previous,
-        known_names=list(registry), fetch=fetch, search=search,
-        eligible=lambda repo: is_academic_skill_repo(repo, min_stars=int(config.get("min_stars", DEFAULT_MIN_STARS)), trusted_repositories=trusted),
-        now=utc_now().replace(microsecond=0).isoformat().replace("+00:00", "Z"))
+    def eligible(repo):
+        legacy, reasons = is_academic_skill_repo(repo, min_stars=int(config.get("min_stars", DEFAULT_MIN_STARS)), trusted_repositories=trusted)
+        key = repo["nameWithOwner"].lower()
+        old = entries.get(key, {})
+        for alias in repo.get("_previous_names", []):
+            previous_entry = entries.get(alias.lower(), {})
+            if previous_entry.get("eligible") and not old.get("eligible"):
+                old = previous_entry
+        old_evidence = old.get("metadata", {}).get("_readme_evidence")
+        if old_evidence and key not in verifier.cache:
+            verifier.cache[key] = old_evidence
+        # Only historical metadata-only entries receive migration grandfathering.
+        if old.get("eligible") and legacy and old_evidence is None:
+            return legacy, reasons
+        hard_failure = any(reason in reasons for reason in ("below_min_stars", "archived", "fork")) or any(r.startswith("negative:") for r in reasons)
+        if hard_failure:
+            return False, reasons
+        evidence = verifier.review(repo)
+        if old.get("eligible"):
+            evidence["previous_eligible"] = True
+        repo["_readme_evidence"] = evidence
+        return is_academic_skill_repo(repo, min_stars=int(config.get("min_stars", DEFAULT_MIN_STARS)), trusted_repositories=trusted)
+    def priority(repo):
+        old = entries.get(repo["nameWithOwner"].lower(), {}).get("metadata", {}).get("_readme_evidence", {})
+        corpus = text_corpus(repo)
+        # Relevant unreviewed candidates first; cached decisions cost no API requests.
+        return (bool(old.get("checked_at")), not any(term in corpus for term in discovery.ACADEMIC), old.get("checked_at", ""), repo["nameWithOwner"].lower())
+    result = collection.collect({**config, "search_queries": list(specs)}, catalog=catalog, previous_items=previous,
+        known_names=list(registry), fetch=fetch, search=search, eligible=eligible, prioritize=priority,
+        now=now.replace(microsecond=0).isoformat().replace("+00:00", "Z"))
+    result.report["readme_reviews"] = verifier.records
+    result.report["readme_budget"] = {"limit": verifier.budget, "used": verifier.used,
+        "deferred": sum(row["status"]=="deferred" for row in verifier.records)}
+    for row in result.report["searches"]:
+        row.update({key: specs[row["query"]][key] for key in ("sort", "strategy")})
+    return result
 
 
 def write_collection_state(result: collection.CollectionResult, data=None) -> None:
@@ -1209,7 +1267,7 @@ python -m unittest discover -s tests -v
 
 **Awesome Paper Research Skills** is a daily-updated ranking of GitHub repositories that provide academic, paper-writing, literature-review, deep-research, peer-review, and experiment-reproducibility skills for AI coding agents (Claude Code, Codex, OpenCode, Cursor, Gemini, …).
 
-The ranking requires **both** a skill/agent/workflow signal **and** an academic/research/paper signal. Low-star, archived, forked, and clearly unrelated repositories are excluded. The trend column shows 7-day star growth, with a 30-day sparkline in the dashboard.
+New candidates are checked against their README: academic Skills/agent workflows and research-related tools/guides have separate admission paths. Discovery combines popular, recently updated and star-banded searches, with a bounded README review budget. Low-star, archived, forked, and clearly unrelated repositories are excluded. The trend column shows 7-day star growth, with a 30-day sparkline in the dashboard.
 
 ### Dashboard features
 

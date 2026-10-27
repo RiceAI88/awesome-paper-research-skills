@@ -1716,3 +1716,29 @@ h1 em {
   .repository-card .card-top { margin-bottom: 4px; }
   .card-key-metrics { margin-top: 6px; }
 }
+
+/* A compact daily discovery entry, separate from the Stars ranking. */
+.daily-arrivals { border: 1px solid var(--prs-border); border-left: 3px solid var(--prs-primary); border-radius: 10px; background: var(--prs-panel); padding: 10px 14px; margin: 4px 0 12px; }
+.daily-arrivals-heading, .daily-arrivals-title, .daily-arrivals-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; }
+.daily-arrivals-heading { justify-content: space-between; }
+.daily-arrivals-title h2 { font-size: 16px; line-height: 1.5; margin: 0; }
+.daily-arrivals-title h2 strong { color: var(--prs-primary); margin-left: 6px; font-variant-numeric: tabular-nums; }
+.daily-arrivals-title > span, .daily-arrivals-empty { color: var(--prs-muted); font-size: 13px; }
+.daily-arrivals-actions .ant-btn[aria-pressed="true"] { color: var(--prs-primary); border-color: var(--prs-primary); }
+.daily-arrivals-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+.daily-arrival-entry { display: flex; flex-direction: column; gap: 4px; min-width: 0; text-align: left; color: var(--prs-text); background: transparent; border: 0; border-left: 1px solid var(--prs-border); padding: 2px 12px; cursor: pointer; font: inherit; }
+.daily-arrival-entry strong { font-size: 14px; font-weight: 500; overflow-wrap: anywhere; }
+.daily-arrival-entry span { font-size: 13px; color: var(--prs-muted); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-width: 100%; }
+.daily-arrival-entry:hover strong { color: var(--prs-primary); }
+.daily-arrival-entry:focus-visible { outline: 2px solid var(--prs-primary); outline-offset: 3px; border-radius: 3px; }
+.daily-arrivals-empty { margin: 6px 0 0; }
+.card-rank-group { display: flex; align-items: center; gap: 8px; min-height: 24px; }
+.daily-new-badge { display: inline-flex; align-items: center; padding: 1px 6px; border-radius: 4px; font-size: 12px; line-height: 20px; font-weight: 500; color: var(--prs-primary); background: var(--prs-tint, #f0eefb); white-space: nowrap; }
+[data-theme="dark"] .daily-new-badge { background: #302b4a; }
+@media (max-width: 760px) {
+  .daily-arrivals { padding: 12px; }
+  .daily-arrivals-list { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .daily-arrivals-title { gap: 4px 10px; }
+  .daily-arrivals-actions { gap: 4px 8px; }
+  .daily-arrivals-actions .ant-btn { font-size: 13px; }
+}

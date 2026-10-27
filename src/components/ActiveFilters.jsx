@@ -17,6 +17,7 @@ const resets = {
   agent: "all",
   favOnly: false,
   newOnly: false,
+  todayOnly: "",
 };
 export function ActiveFilters({ state, update, categories, t, empty }) {
   const conditions = [];
@@ -35,6 +36,7 @@ export function ActiveFilters({ state, update, categories, t, empty }) {
       "agent",
       AGENT_PLATFORMS.find((a) => a.id === state.agent)?.label || state.agent,
     ]);
+  if (state.todayOnly) conditions.push(["todayOnly", t(state.todayOnly === "skill" ? "dailySkills" : "dailyRelated")]);
   if (state.newOnly) conditions.push(["newOnly", t("statNewWeek")]);
   if (state.favOnly) conditions.push(["favOnly", t("favoritesOnly")]);
   if (!conditions.length) return null;
