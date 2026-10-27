@@ -5,87 +5,71 @@
     <link>https://riceai88.github.io/awesome-paper-research-skills/</link>
     <description>每日自动更新的学术论文与科研 Agent Skill 排行榜 · Daily ranking of academic research agent skills on GitHub</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 27 Oct 2026 08:06:38 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 27 Oct 2026 16:05:57 +0000</lastBuildDate>
     <atom:link href="https://riceai88.github.io/awesome-paper-research-skills/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>LAMDA-NeSy/Research-Starter-Kit (9,006★, +20/7d)</title>
-      <link>https://github.com/LAMDA-NeSy/Research-Starter-Kit</link>
-      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#LAMDA-NeSy/Research-Starter-Kit</guid>
-      <description>从0开始，掌握做科研、写论文的基本流程。</description>
+      <title>fighting41love/funNLP (84,198★, +0/7d)</title>
+      <link>https://github.com/fighting41love/funNLP</link>
+      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#fighting41love/funNLP</guid>
+      <description>中英文敏感词、语言检测、中外手机/电话归属地/运营商查询、名字推断性别、手机号抽取、身份证抽取、邮箱抽取、中日文人名库、中文缩写库、拆字词典、词汇情感值、停用词、反动词表、暴恐词表、繁简体转换、英文模拟中文发音、汪峰歌词生成器、职业名称词库、同义词库、反义词库、否定词库、汽车品牌词库、汽车零件词库、连续英文切割、各种中文词向量、公司名字大全、古诗词库、IT词库、财经词库、成语词库、地名词库、历史…</description>
       <category>Discipline Specific</category>
-      <pubDate>Tue, 27 Oct 2026 08:06:38 +0000</pubDate>
+      <pubDate>Tue, 27 Oct 2026 16:05:57 +0000</pubDate>
     </item>
     <item>
-      <title>mims-harvard/ToolUniverse (1,759★, +0/7d)</title>
-      <link>https://github.com/mims-harvard/ToolUniverse</link>
-      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#mims-harvard/ToolUniverse</guid>
-      <description>Democratizing AI scientists with ToolUniverse</description>
-      <category>General Research</category>
-      <pubDate>Tue, 27 Oct 2026 08:06:38 +0000</pubDate>
-    </item>
-    <item>
-      <title>Boom5426/Nature-Paper-Skills (634★, +1/7d)</title>
-      <link>https://github.com/Boom5426/Nature-Paper-Skills</link>
-      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#Boom5426/Nature-Paper-Skills</guid>
-      <description>An AI-powered Scientific Writing Workflow: Agent skills for drafting, revising, auditing, and resubmitting Nature-style journal manuscripts.</description>
+      <title>binary-husky/gpt_academic (71,562★, +0/7d)</title>
+      <link>https://github.com/binary-husky/gpt_academic</link>
+      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#binary-husky/gpt_academic</guid>
+      <description>为GPT/GLM等LLM大语言模型提供实用化交互接口，特别优化论文阅读/润色/写作体验，模块化设计，支持自定义快捷按钮&amp;函数插件，支持Python和C++等项目剖析&amp;自译解功能，PDF/LaTex论文翻译&amp;总结功能，支持并行问询多种LLM模型，支持chatglm3等本地模型。接入通义千问, deepseekcoder, 讯飞星火, 文心一言, llama2, rwkv, claude2, mos…</description>
       <category>Paper Writing</category>
-      <pubDate>Tue, 27 Oct 2026 08:06:38 +0000</pubDate>
+      <pubDate>Tue, 27 Oct 2026 16:05:57 +0000</pubDate>
     </item>
     <item>
-      <title>ZyhSechub/chinese-thesis-workbench-skill (588★, +1/7d)</title>
-      <link>https://github.com/ZyhSechub/chinese-thesis-workbench-skill</link>
-      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#ZyhSechub/chinese-thesis-workbench-skill</guid>
-      <description>本科毕业论文skill：会把你的项目的源码、数据库、截图和文献，按学校模板与样文风格，工程化地写成整合成可追溯、可续写、可审查的本科毕业论文</description>
+      <title>eternity4719/HowToLiveBetter (69,923★, +0/7d)</title>
+      <link>https://github.com/eternity4719/HowToLiveBetter</link>
+      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#eternity4719/HowToLiveBetter</guid>
+      <description>高性价比人生指南: 长寿防病、急救、省钱理财、法律红线、失业与工伤、医保社保、恋爱婚育、怀孕育儿、创业与做平台合规、出国与技能。每条写明成本、收益、证据等级和原始出处，只引期刊论文与官方文件。</description>
       <category>Deep Research</category>
-      <pubDate>Tue, 27 Oct 2026 08:06:38 +0000</pubDate>
+      <pubDate>Tue, 27 Oct 2026 16:05:57 +0000</pubDate>
     </item>
     <item>
-      <title>MrLee2R/Intelligrapher (112★, +0/7d)</title>
-      <link>https://github.com/MrLee2R/Intelligrapher</link>
-      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#MrLee2R/Intelligrapher</guid>
-      <description>科研绘图智能助手/Intelligent Assistant for Scientific Research Illustration — Claude Code Skill</description>
-      <category>General Research</category>
-      <pubDate>Tue, 27 Oct 2026 08:06:38 +0000</pubDate>
-    </item>
-    <item>
-      <title>maxwell2732/my-submission-formatting-agent (112★, +0/7d)</title>
-      <link>https://github.com/maxwell2732/my-submission-formatting-agent</link>
-      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#maxwell2732/my-submission-formatting-agent</guid>
-      <description>A structured Claude Code workflow to reformat research manuscripts for any journal&apos;s submission requirements without altering scientific content, created by Chen Zhu 朱晨 | 遗传社科研究.</description>
-      <category>General Research</category>
-      <pubDate>Tue, 27 Oct 2026 08:06:38 +0000</pubDate>
-    </item>
-    <item>
-      <title>handsomeZR-netizen/ko5.6sol (105★, +0/7d)</title>
-      <link>https://github.com/handsomeZR-netizen/ko5.6sol</link>
-      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#handsomeZR-netizen/ko5.6sol</guid>
-      <description>Master Anti-AI Academic Paper Refactoring &amp; Style Guide Skill to KO GPT-5.6 SOL mechanical phrasing &amp; defensive disclaimers</description>
-      <category>General Research</category>
-      <pubDate>Tue, 27 Oct 2026 08:06:38 +0000</pubDate>
-    </item>
-    <item>
-      <title>K-Dense-AI/scientific-agent-skills (54,842★, +1776/7d)</title>
-      <link>https://github.com/K-Dense-AI/scientific-agent-skills</link>
-      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#K-Dense-AI/scientific-agent-skills</guid>
-      <description>Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 250,000+ scientists worldwide. 177 ready-to-use validated skills plus 100+ scientific databases covering biolo…</description>
+      <title>mli/paper-reading (34,030★, +0/7d)</title>
+      <link>https://github.com/mli/paper-reading</link>
+      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#mli/paper-reading</guid>
+      <description>深度学习经典、新论文逐段精读</description>
       <category>Discipline Specific</category>
-      <pubDate>Tue, 27 Oct 2026 08:06:38 +0000</pubDate>
+      <pubDate>Tue, 27 Oct 2026 16:05:57 +0000</pubDate>
     </item>
     <item>
-      <title>Yuan1z0825/nature-skills (50,874★, +1381/7d)</title>
-      <link>https://github.com/Yuan1z0825/nature-skills</link>
-      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#Yuan1z0825/nature-skills</guid>
-      <description>符合nature论文学术表达和科研绘图的Skill</description>
+      <title>amusi/CVPR2026-Papers-with-Code (22,927★, +0/7d)</title>
+      <link>https://github.com/amusi/CVPR2026-Papers-with-Code</link>
+      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#amusi/CVPR2026-Papers-with-Code</guid>
+      <description>CVPR 2026 论文和开源项目合集</description>
+      <category>Discipline Specific</category>
+      <pubDate>Tue, 27 Oct 2026 16:05:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>kaixindelele/ChatPaper (19,973★, +0/7d)</title>
+      <link>https://github.com/kaixindelele/ChatPaper</link>
+      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#kaixindelele/ChatPaper</guid>
+      <description>Use ChatGPT to summarize the arXiv papers. 全流程加速科研，利用chatgpt进行论文全文总结+专业翻译+润色+审稿+审稿回复</description>
+      <category>Peer Review</category>
+      <pubDate>Tue, 27 Oct 2026 16:05:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>extreme-assistant/CVPR2024-Paper-Code-Interpretation (12,454★, +0/7d)</title>
+      <link>https://github.com/extreme-assistant/CVPR2024-Paper-Code-Interpretation</link>
+      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#extreme-assistant/CVPR2024-Paper-Code-Interpretation</guid>
+      <description>cvpr2024/cvpr2023/cvpr2022/cvpr2021/cvpr2020/cvpr2019/cvpr2018/cvpr2017 论文/代码/解读/直播合集，极市团队整理</description>
+      <category>Discipline Specific</category>
+      <pubDate>Tue, 27 Oct 2026 16:05:57 +0000</pubDate>
+    </item>
+    <item>
+      <title>espnet/espnet (9,996★, +0/7d)</title>
+      <link>https://github.com/espnet/espnet</link>
+      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#espnet/espnet</guid>
+      <description>End-to-End Speech Processing Toolkit</description>
       <category>Deep Research</category>
-      <pubDate>Tue, 27 Oct 2026 08:06:38 +0000</pubDate>
-    </item>
-    <item>
-      <title>Imbad0202/academic-research-skills (54,092★, +1033/7d)</title>
-      <link>https://github.com/Imbad0202/academic-research-skills</link>
-      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#Imbad0202/academic-research-skills</guid>
-      <description>Academic Research Skills for Claude Code: research → write → review → revise → finalize</description>
-      <category>Paper Writing</category>
-      <pubDate>Tue, 27 Oct 2026 08:06:38 +0000</pubDate>
+      <pubDate>Tue, 27 Oct 2026 16:05:57 +0000</pubDate>
     </item>
   </channel>
 </rss>
