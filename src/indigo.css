@@ -781,3 +781,412 @@ a:focus-visible,
 .support-card-heading strong { color: var(--prs-primary); font-size: 13px; font-weight: 500; }
 .support-card-arrow { margin-left: auto; color: var(--prs-primary); font-size: 14px; }
 .support-card-caption { font-size: 12px; line-height: 17px; color: var(--prs-muted); overflow-wrap: anywhere; }
+
+/* Ranking and insights are peer views, sharing one persistent scene toolbar. */
+[hidden] {
+  display: none !important;
+}
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 440px);
+  align-items: end;
+  gap: 24px;
+}
+.hero-copy {
+  grid-column: 1 / -1;
+}
+.hero > .hero-search {
+  grid-column: 2;
+  grid-row: 2;
+  width: 100%;
+}
+.page-tabs {
+  display: inline-flex;
+  justify-self: start;
+  padding: 3px;
+  border-radius: 12px;
+  background: var(--prs-tint);
+}
+.page-tabs .ant-btn {
+  border: 0;
+  color: var(--prs-muted);
+  box-shadow: none;
+  background: transparent;
+  min-height: 36px;
+  padding-inline: 20px;
+}
+.page-tabs .ant-btn[aria-selected="true"] {
+  color: var(--prs-text);
+  background: var(--prs-panel);
+  box-shadow: 0 1px 3px #1e1b3a1a;
+  font-weight: 500;
+}
+.filters,
+.filters:has(.sticky-search-slot) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0 20px;
+  padding-block: 4px;
+}
+.filters .task-navigation {
+  grid-column: 1;
+  min-width: 0;
+}
+.filters .filter-fields {
+  grid-column: 2;
+  width: auto;
+}
+.sticky-search-active .task-list {
+  opacity: 1;
+  visibility: visible;
+  transition: none;
+}
+.filters .sticky-search-slot {
+  position: absolute;
+  inset: auto 0 100%;
+  height: 48px;
+  display: none;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  padding: 4px 0;
+  background: var(--prs-bg);
+}
+.sticky-search-active .filters {
+  top: 48px;
+}
+.sticky-search-active .filters .sticky-search-slot {
+  display: flex;
+}
+.filters .sticky-search-slot .hero-search {
+  max-width: 600px;
+}
+.ranking-header {
+  align-items: center;
+}
+.ranking-header > .ant-space {
+  margin-top: 0;
+}
+.ranking-status-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  font-size: 13px;
+  line-height: 22px;
+  color: var(--prs-muted);
+}
+.ranking-status-line .ant-btn {
+  height: auto;
+  padding: 0 4px;
+  font-size: 13px;
+}
+.ranking-status-line .update-status-summary {
+  font-size: inherit;
+}
+.ranking-status-line .status-dot {
+  display: none;
+}
+.compact-statistics {
+  display: flex;
+  margin: 8px 0 0;
+  padding: 8px 0;
+  gap: 8px 16px;
+}
+.related-scope-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 22px;
+  color: var(--prs-muted);
+}
+.related-scope-control span {
+  white-space: nowrap;
+}
+.insights-scope-control {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+.medal-rank {
+  padding: 2px 8px;
+  border-radius: 5px;
+  letter-spacing: 0;
+  line-height: 20px;
+}
+.medal-1 {
+  color: #81520a;
+  background: #fff0c4;
+}
+.medal-2 {
+  color: #465168;
+  background: #e6e9f0;
+}
+.medal-3 {
+  color: #924a24;
+  background: #f9e1d2;
+}
+[data-theme="dark"] .medal-1 {
+  color: #f1d583;
+  background: #4d401f;
+}
+[data-theme="dark"] .medal-2 {
+  color: #cfd6e6;
+  background: #3b4150;
+}
+[data-theme="dark"] .medal-3 {
+  color: #efb68f;
+  background: #513828;
+}
+.arrival-dot {
+  width: 6px;
+  height: 6px;
+  display: inline-block;
+  flex: 0 0 6px;
+  background: var(--prs-primary);
+  border-radius: 50%;
+}
+.card-key-metrics .card-growth {
+  white-space: nowrap;
+}
+.card-key-metrics .card-growth.no-growth strong {
+  color: var(--prs-muted);
+}
+.card-maintenance {
+  margin-top: -6px;
+  text-align: right;
+  font-size: 11px;
+  line-height: 16px;
+  color: var(--prs-muted);
+}
+.stale-tag.ant-tag {
+  background: var(--prs-tint);
+  color: var(--prs-muted);
+  border: 0;
+}
+#data-insights {
+  margin-top: 0;
+  border: 0;
+  padding-top: 0;
+}
+.insights {
+  margin-top: 0;
+}
+.insights-heading {
+  border: 0;
+  padding: 0 0 18px;
+}
+.insights-heading h2 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+  overflow: hidden;
+}
+.insights-heading p {
+  margin: 0;
+  font-size: 13px;
+}
+.insights-top,
+.insights-bottom {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  border: 0;
+  margin-bottom: 18px;
+  align-items: start;
+}
+.insight-panel,
+.insight-panel:nth-child(2) {
+  border: 1px solid var(--prs-border);
+  border-radius: 14px;
+  background: var(--prs-panel);
+  padding: 20px;
+}
+.insight-panel-heading h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+.insight-panel-heading p {
+  font-size: 12px;
+  margin: 6px 0 12px;
+}
+.trend-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin-bottom: 12px;
+}
+.trend-legend button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--prs-muted);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+.trend-legend i {
+  display: inline-block;
+  width: 16px;
+  border-top-width: 2px;
+}
+.daily-arrivals {
+  padding: 10px 16px;
+  background: var(--prs-tint);
+  border: 0;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+}
+.daily-arrivals-heading {
+  display: contents;
+}
+.daily-arrivals-title {
+  flex: 0 1 auto;
+}
+.daily-arrivals-title h2 {
+  font-size: 13px;
+}
+.daily-arrivals-actions {
+  margin-left: auto;
+  order: 3;
+}
+.daily-arrivals-list {
+  flex: 1 1 400px;
+  display: flex;
+  gap: 16px;
+  min-width: 0;
+}
+.daily-arrival-entry {
+  padding: 0;
+  border: 0;
+  flex: 1;
+  min-width: 0;
+}
+.daily-arrival-entry strong {
+  font-size: 12px;
+  font-weight: 400;
+}
+.daily-arrival-entry > span {
+  display: none;
+}
+.daily-arrivals-actions [data-testid="today-related-filter"] {
+  display: none;
+}
+@media (max-width: 1099px) {
+  .filters,
+  .filters:has(.sticky-search-slot) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+  .filters .filter-fields {
+    grid-column: 1;
+    justify-content: flex-end;
+  }
+  .filter-fields > label {
+    flex: 0 1 140px;
+  }
+  .insights-heading {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 760px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+  .hero-copy,
+  .page-tabs,
+  .hero > .hero-search {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .hero > .hero-search {
+    width: 100%;
+  }
+  .filters .filter-fields {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .filter-fields > label {
+    flex: 1 1 90px;
+  }
+  .view-controls {
+    margin-left: auto;
+  }
+  .insights-top,
+  .insights-bottom {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .insight-panel,
+  .insight-panel:nth-child(2) {
+    padding: 16px 10px;
+  }
+  .ranking-header > .ant-space {
+    width: 100%;
+    flex-wrap: wrap !important;
+    gap: 8px 16px !important;
+  }
+  .related-scope-control {
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
+  .daily-arrivals-list {
+    flex-basis: 100%;
+    order: 2;
+  }
+  .daily-arrivals-actions {
+    order: 1;
+  }
+  .daily-arrival-entry {
+    flex: 0 0 75%;
+  }
+  .insights-actions {
+    flex-wrap: wrap;
+  }
+}
+
+.scope-switch {
+  display: inline-flex;
+  align-items: center;
+  width: 32px;
+  min-width: 32px;
+  height: 18px;
+  border: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: #bcb8ce;
+  cursor: pointer;
+}
+.scope-switch > span {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 1px 2px #1e1b3a20;
+  transition: transform 150ms ease;
+}
+.scope-switch[aria-checked="true"] {
+  background: var(--prs-primary);
+}
+.scope-switch[aria-checked="true"] > span {
+  transform: translateX(14px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .scope-switch > span {
+    transition: none;
+  }
+}
+
+/* Reserve the same footer space so maintenance notes never shift peer cards. */
+.repository-card .panel-body { position: relative; padding-bottom: 32px; }
+.card-maintenance { position: absolute; right: 20px; bottom: 8px; margin: 0; }

@@ -17,6 +17,6 @@ test('today skills filter distinguishes related and unknown types and survives s
  assert.equal(state.todayOnly,'skill');
  assert.deepEqual(filterItems(items,state).map(x=>x.repo),['a/new']);
  assert.equal(restoreState(null,serializeState(state),{},items).todayOnly,'skill');
- assert.deepEqual(filterItems(items,{...state,todayOnly:'related'}).map(x=>x.repo),['b/guide']);
+ assert.deepEqual(filterItems(items,{...state,includeRelated:true,todayOnly:'related'}).map(x=>x.repo),['b/guide']);
  assert.equal(restoreState(null,'#today=invalid',{},items).todayOnly,'');
 });

@@ -13,6 +13,7 @@ const item = (
   extra = {},
 ) => ({
   repo,
+  repository_kind: "skill",
   description,
   category: { id: category, zh: "综合研究", en: "Research" },
   topics: [],

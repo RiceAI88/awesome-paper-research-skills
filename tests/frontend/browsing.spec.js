@@ -17,19 +17,19 @@ for (const width of [1440, 390])
     page,
   }) => {
     await page.setViewportSize({ width, height: 900 });
-    await page.goto("./#view=table");
+    await page.goto("./#related=1&view=table");
     const row = page.locator(".ant-table-row").nth(8);
     await row.scrollIntoViewIfNeeded();
     await expect
       .poll(async () =>
         Math.round((await page.locator(".filters").boundingBox()).y),
       )
-      .toBe(0);
+      .toBe(await page.locator("#stickySearchInput").isVisible() ? 48 : 0);
 
     const header = page.locator(".ant-table-sticky-holder");
     await expect(header).toBeVisible();
     await expect
-      .poll(async () => Math.round((await header.boundingBox()).y) - Math.ceil((await page.locator(".filters").boundingBox()).height))
+      .poll(async () => Math.round((await header.boundingBox()).y) - Math.ceil((await page.locator(".filters").boundingBox()).height) - Math.round((await page.locator(".filters").boundingBox()).y))
       .toBe(0);
     await expect(page.locator("#sortSelect")).toBeInViewport();
     expect(
@@ -70,7 +70,7 @@ test("drawer follows filtered sort, resets its content scroll and returns to the
   await expect
     .poll(() => page.locator(".ant-drawer-body").evaluate((el) => el.scrollTop))
     .toBe(0);
-  await expect(page).toHaveURL(/cat=paper-writing/);
+  await expect(page).toHaveURL(/task=write/);
   await page.getByTestId("detail-previous").click();
   await expect(drawer.locator(".drawer-repo")).toHaveText(ordered[2].repo);
   await page.keyboard.press("Escape");
@@ -83,7 +83,7 @@ test("drawer follows filtered sort, resets its content scroll and returns to the
 test("drawer navigation respects first, last, single and out-of-results shared entries", async ({
   page,
 }) => {
-  await page.goto("./#view=table");
+  await page.goto("./#related=1&view=table");
   await openRow(page, 0);
   await expect(page.getByTestId("detail-previous")).toBeDisabled();
   await expect(page.getByTestId("detail-next")).toBeEnabled();
@@ -93,12 +93,12 @@ test("drawer navigation respects first, last, single and out-of-results shared e
   await page.keyboard.press("Escape");
   const repo = data.items[0].repo;
   await page.goto(
-    `./#q=${encodeURIComponent(repo)}&repo=${encodeURIComponent(repo)}`,
+    `./#related=1&q=${encodeURIComponent(repo)}&repo=${encodeURIComponent(repo)}`,
   );
   await expect(page.getByTestId("detail-position")).toHaveText("1 / 1");
   await expect(page.getByTestId("detail-next")).toBeDisabled();
   await expect(page.getByTestId("detail-previous")).toBeDisabled();
-  await page.goto(`./#q=missing-repo-xyz&repo=${encodeURIComponent(repo)}`);
+  await page.goto(`./#related=1&q=missing-repo-xyz&repo=${encodeURIComponent(repo)}`);
   await expect(page.getByTestId("detail-position")).toHaveText(
     "当前项目不在筛选结果中",
   );
@@ -108,7 +108,7 @@ test("mobile English card details can browse and close without moving the backgr
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("./#lang=en&view=card");
+  await page.goto("./#related=1&lang=en&view=card");
   const card = page.getByTestId("repo-card").nth(2);
   await card.scrollIntoViewIfNeeded();
   await card.click();

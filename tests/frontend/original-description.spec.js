@@ -6,7 +6,7 @@ const { items } = JSON.parse(
 test("repository descriptions match GitHub originals in both languages, cards and drawer", async ({
   page,
 }) => {
-  await page.goto("./#view=table");
+  await page.goto("./#related=1&view=table");
   await expect(
     page.locator(".ant-table-row").first().locator(".practical-description p"),
   ).toHaveText(items[0].description);
@@ -16,10 +16,10 @@ test("repository descriptions match GitHub originals in both languages, cards an
   ).toHaveText(items[0].description);
   await expect(page.getByRole("dialog").locator("details")).toHaveCount(0);
   await page.keyboard.press("Escape");
-  await page.goto("./#view=card");
+  await page.goto("./#related=1&view=card");
   await page.getByTestId("repo-card").first().locator(".repo-title").click();
   await expect(page.getByRole("dialog").locator(".practical-description p")).toHaveText(items[0].description);
-  await page.goto("./en/#view=table");
+  await page.goto("./en/#related=1&view=table");
   await expect(
     page.locator(".ant-table-row").first().locator(".practical-description p"),
   ).toHaveText(items[0].description);

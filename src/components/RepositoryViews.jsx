@@ -31,7 +31,13 @@ export function QualityBadges({
     );
   return (
     <Space size={[4, 4]} wrap>
-      {item.new_today && !statusOnly && <Tag className="daily-new-badge">{t("dailyBadge")}</Tag>}
+      {item.new_today && !statusOnly && (
+        <Tooltip title={t("dailyBadge")} trigger={["hover", "focus"]}>
+          <Tag className="daily-new-badge" tabIndex={0}>
+            {t("newShort")}
+          </Tag>
+        </Tooltip>
+      )}
       {!statusOnly && (
         <Tooltip title={t("projectTypeHelp")}>
           <Tag>{typeLabel}</Tag>
@@ -48,7 +54,6 @@ export function QualityBadges({
       {item.stale && (
         <Tooltip title={t("staleReason")} trigger={["hover", "focus", "click"]}>
           <Tag
-            color="red"
             className="stale-tag"
             data-testid="stale-tag"
             tabIndex={0}
@@ -245,12 +250,23 @@ export function RepositoryViews({
               >
                 <div className="card-top">
                   <div className="card-rank-group">
-                  <span
-                    className={`card-rank${item.rank <= 3 ? " leading-rank" : ""}`}
-                  >
-                    {String(item.rank).padStart(2, "0")}
-                  </span>
-                  {item.new_today && <span className="daily-new-badge">{t("dailyBadge")}</span>}
+                    <span
+                      className={`card-rank${item.rank <= 3 ? ` medal-rank medal-${item.rank}` : ""}`}
+                    >
+                      {String(item.rank).padStart(2, "0")}
+                    </span>
+                    {item.new_today && (
+                      <Tooltip
+                        title={t("dailyBadge")}
+                        trigger={["hover", "focus"]}
+                      >
+                        <span
+                          className="arrival-dot"
+                          tabIndex={0}
+                          aria-label={t("dailyBadge")}
+                        />
+                      </Tooltip>
+                    )}
                   </div>
                   <div
                     className={`card-actions${state.favorites.includes(item.repo) || state.compare.includes(item.repo) ? " has-selection" : ""}`}
@@ -293,24 +309,31 @@ export function RepositoryViews({
                     <strong>{fmt(item.stars)}</strong>
                     <span>Stars</span>
                   </div>
-                  <div className="card-growth">
+                  <div
+                    className={`card-growth${item.star_delta_7d ? "" : " no-growth"}`}
+                    aria-label={t("statNet7d")}
+                  >
+                    <span>{state.lang === "zh" ? "近 7 日" : "7 days"}</span>
                     <strong>
-                      {item.star_delta_7d > 0 ? "+" : ""}
-                      {fmt(item.star_delta_7d || 0)}
+                      {item.star_delta_7d
+                        ? `${item.star_delta_7d > 0 ? "+" : ""}${fmt(item.star_delta_7d)}`
+                        : "—"}
                     </strong>
-                    <span aria-label={t("statNet7d")}>
-                      {state.lang === "zh" ? "7 日" : "7d"}
-                    </span>
                   </div>
                 </div>
                 <SummaryText item={item} t={t} query={state.query} />
-                <div className="card-status">
-                  <QualityBadges item={item} t={t} statusOnly />
-                </div>
                 <div className="card-info-footer">
                   <PlatformTags item={item} t={t} compact />
                   <QualityBadges item={item} t={t} compact />
                 </div>
+                {item.inactive90 && (
+                  <span
+                    className="card-maintenance"
+                    title={item.last_push_date}
+                  >
+                    {t("inactive90")}
+                  </span>
+                )}
               </Panel>
               {index === Math.min(adAfter, entries.length) - 1 && (
                 <Zhi1keAd t={t} />

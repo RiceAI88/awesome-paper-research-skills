@@ -9,18 +9,24 @@ import { Bar, Line, Scatter } from "@ant-design/plots";
 import { Renderer as SVGRenderer } from "@antv/g-svg";
 import { Button, Empty, Select, Tooltip } from "antd";
 import { buildInsightData, createColorMaps } from "../insights";
-import { FONT_FAMILY } from "../domain";
+import {
+  FONT_FAMILY,
+  RESEARCH_TASKS,
+  matchesResearchTask,
+  sceneLabelsFor,
+} from "../domain";
 import { ChartBoundary } from "./ChartBoundary";
 
 const chartLabels = {
   zh: {
     insightTrendNote: "窗口内增长最快的 3 个项目",
     insightGrowthNote: "近 7 日新增 Stars 最高的 5 个仓库 · 不随历史窗口切换",
-    insightScatterNote: "横轴 Stars（对数） · 纵轴近 7 日新增 · 点击查看仓库",
+    insightScatterNote:
+      "Stars × 近 7 日变化 · 对数刻度（零值保留） · 点击查看仓库",
     comparisonNote: "已选比较仓库 · 相对窗口内各自起点",
     dataSince: "数据自",
     historyDetails: "数据与排名说明",
-    categoryTooltip: "分类",
+    categoryTooltip: "场景",
     historyProvenance: "2026-10-24 前的快照来自原项目；只绘制已有数据。",
     noGrowth: "当前范围没有正增长记录。",
     viewChartData: "查看数据与仓库详情",
@@ -39,7 +45,7 @@ const chartLabels = {
       "Selected comparisons · relative to each baseline in this window",
     dataSince: "Data since",
     historyDetails: "Data and ranking details",
-    categoryTooltip: "Category",
+    categoryTooltip: "Research tasks",
     historyProvenance:
       "Snapshots before 2026-10-24 come from the original project; only recorded data is plotted.",
     noGrowth: "No positive growth in this selection.",
@@ -166,15 +172,19 @@ export default function Insights({
     }).format(value) +
     "%";
   const short = (value) =>
-    String(value).length > 24
-      ? String(value).slice(0, 23) + "…"
+    String(value).length > (isMobile ? 16 : 24)
+      ? String(value).slice(0, isMobile ? 15 : 23) + "…"
       : String(value);
   const open = (repo) => {
     if (repo && allItems.some((i) => i.repo === repo))
       update((s) => ({ ...s, repo }));
   };
   const category = (id) =>
-    update((s) => ({ ...s, category: s.category === id ? "all" : id }));
+    update((s) => ({
+      ...s,
+      task: s.task === id ? "all" : id,
+      category: "all",
+    }));
   const handlers = useRef({ open, category });
   useLayoutEffect(() => {
     handlers.current = { open, category };
@@ -217,7 +227,7 @@ export default function Insights({
     labelFill: muted,
     labelOpacity: 1,
     labelFontFamily: FONT_FAMILY,
-    labelFontSize: 11,
+    labelFontSize: 12,
     grid: true,
     gridStroke: grid,
     gridLineDash: [2, 3],
@@ -275,10 +285,37 @@ export default function Insights({
         (_, index) => 10 ** (minExponent + index),
       )
     : [1, 10];
-  const categories = data.categories.map((c) => ({
-    ...c,
-    label: c[state.lang],
+  const taskKeys = {
+    find: "taskFind",
+    read: "taskRead",
+    write: "taskWrite",
+    figures: "taskFigures",
+    reproduce: "taskReproduce",
+    review: "taskReview",
+  };
+  const categories = RESEARCH_TASKS.map((task) => ({
+    id: task.id,
+    label: t(taskKeys[task.id]),
+    count: items.filter((item) => matchesResearchTask(item, task)).length,
+  })).sort((a, b) => b.count - a.count);
+  const signedLog = (value) =>
+    Math.sign(value) * Math.log10(1 + Math.abs(value));
+  const scatterData = data.scatter.map((point) => ({
+    ...point,
+    growthLog: signedLog(point.growth),
+    sceneLabel:
+      sceneLabelsFor(
+        items.find((item) => item.repo === point.repo),
+        t,
+      ).join(" · ") || "—",
   }));
+  const growthMin = Math.min(0, ...data.scatter.map((point) => point.growth));
+  const growthMax = Math.max(10, ...data.scatter.map((point) => point.growth));
+  const growthTicks = [
+    -100000, -10000, -1000, -100, -10, 0, 10, 100, 1000, 10000, 100000,
+  ]
+    .filter((value) => value >= growthMin && value <= growthMax * 1.2)
+    .map(signedLog);
   const categoryMax = Math.max(0, ...categories.map((c) => c.count));
   return (
     <section
@@ -295,12 +332,24 @@ export default function Insights({
           </p>
         </div>
         <div className="insights-actions">
+          <label className="history-window">
+            <span>{state.lang === "zh" ? "增长曲线窗口" : "Trend window"}</span>
+            <Select
+              aria-label={t("historyWindow")}
+              value={days}
+              onChange={setDays}
+              options={[30, 60, 90].map((value) => ({
+                value,
+                label: `${value} ${t("days")}`,
+              }))}
+            />
+          </label>
           <Button
             className="mobile-chart-toggle"
             type="text"
             size="small"
             aria-expanded={showAdditional}
-            aria-controls="insight-panel-categories insight-panel-growth insight-panel-scatter"
+            aria-controls="insight-panel-trend insight-panel-scatter"
             onClick={() => setExpanded((value) => !value)}
           >
             {t(expanded ? "hideMoreCharts" : "showMoreCharts")}
@@ -309,27 +358,231 @@ export default function Insights({
       </div>
       <div className="insights-top">
         <ChartFrame
+          id="growth"
+          title={t("insightGrowth")}
+          note={t("insightGrowthNote")}
+          t={t}
+        >
+          {data.growth.length ? (
+            <>
+              <div
+                className="plot-host"
+                role="img"
+                aria-label={t("insightGrowth")}
+              >
+                <SvgPlot
+                  plot={Bar}
+                  {...base}
+                  animate={entrance("growth")}
+                  height={220}
+                  paddingRight={65}
+                  data={data.growth}
+                  xField="repo"
+                  yField="growth"
+                  colorField="repo"
+                  scale={{
+                    color: { domain: repoDomain, range: repoRange },
+                    y: { zero: true, nice: true },
+                  }}
+                  axis={{
+                    x: {
+                      title: false,
+                      tick: false,
+                      line: false,
+                      labelFill: muted,
+                      labelOpacity: 1,
+                      labelFontFamily: FONT_FAMILY,
+                      labelFontSize: 12,
+                      labelFormatter: (value) =>
+                        short(String(value).split("/").pop()),
+                    },
+                    y: false,
+                  }}
+                  paddingLeft={isMobile ? 112 : 180}
+                  label={{
+                    text: (datum) => signed(datum.growth),
+                    position: "right",
+                    style: {
+                      dx: 6,
+                      fill: muted,
+                      fontSize: 11,
+                      textAlign: "left",
+                    },
+                  }}
+                  style={{
+                    maxWidth: 16,
+                    fill: (datum) =>
+                      datum.repo === data.growth[0]?.repo
+                        ? dark
+                          ? "#B3AAEA"
+                          : "#6856CD"
+                        : dark
+                          ? "#9589D7"
+                          : "#9487DE",
+                  }}
+                  tooltip={{
+                    title: "repo",
+                    items: [
+                      {
+                        field: "growth",
+                        name: t("insightGrowth"),
+                        valueFormatter: signed,
+                      },
+                    ],
+                  }}
+                  onReady={bind("growth")}
+                />
+              </div>
+              <div className="chart-keyboard-controls">
+                {data.growth.map((item) => (
+                  <button
+                    key={item.repo}
+                    data-growth-repo={item.repo}
+                    onClick={() => open(item.repo)}
+                  >
+                    <span
+                      title={`${item.repo}${latest.has(item.repo) ? " · " + latest.get(item.repo).date : ""}`}
+                    >
+                      {item.repo}
+                    </span>
+                    <b style={{ color: colors.repos[item.repo] }}>
+                      {signed(item.growth)}
+                    </b>
+                  </button>
+                ))}
+              </div>
+            </>
+          ) : (
+            <NoData text={t("noGrowth")} />
+          )}
+        </ChartFrame>
+        <ChartFrame
+          id="categories"
+          title={t("sceneDistribution")}
+          note={t("sceneDistributionHelp")}
+          t={t}
+        >
+          {categories.length ? (
+            <>
+              <div
+                className="plot-host"
+                role="img"
+                aria-label={t("sceneDistribution")}
+              >
+                <SvgPlot
+                  plot={Bar}
+                  {...base}
+                  animate={entrance("categories")}
+                  height={Math.max(150, categories.length * 27 + 30)}
+                  paddingLeft={
+                    isMobile
+                      ? state.lang === "zh"
+                        ? 76
+                        : 110
+                      : state.lang === "zh"
+                        ? 110
+                        : 160
+                  }
+                  paddingRight={40}
+                  data={categories}
+                  xField="label"
+                  yField="count"
+                  scale={{
+                    y: {
+                      zero: true,
+                      nice: true,
+                      domain: [
+                        0,
+                        categoryMax + Math.max(4, Math.ceil(categoryMax * 0.2)),
+                      ],
+                    },
+                  }}
+                  axis={{
+                    x: {
+                      title: false,
+                      tick: false,
+                      line: false,
+                      labelFill: muted,
+                      labelOpacity: 1,
+                      labelFontFamily: FONT_FAMILY,
+                      labelFontSize: 12,
+                      labelAutoEllipsis: false,
+                    },
+                    y: false,
+                  }}
+                  label={{
+                    text: "count",
+                    position: "right",
+                    style: {
+                      fill: muted,
+                      fontFamily: FONT_FAMILY,
+                      fontSize: 12,
+                      textAlign: "start",
+                      dx: 6,
+                    },
+                  }}
+                  style={{
+                    maxWidth: 14,
+                    fill: (datum) =>
+                      state.task === datum.id
+                        ? dark
+                          ? "#B3AAEA"
+                          : "#4A3FBF"
+                        : dark
+                          ? "#80789E"
+                          : "#B3AEC9",
+                  }}
+                  tooltip={{
+                    title: "label",
+                    items: [{ field: "count", name: t("repos") }],
+                  }}
+                  onReady={bind("categories")}
+                />
+              </div>
+              <div className="chart-keyboard-controls category-filter-controls">
+                {categories.map((c) => (
+                  <button
+                    key={c.id}
+                    data-chart-category={c.id}
+                    onClick={() => category(c.id)}
+                    aria-pressed={state.task === c.id}
+                  >
+                    <i style={{ background: dark ? "#80789E" : "#B3AEC9" }} />
+                    <span>{c.label}</span>
+                    <b>{c.count}</b>
+                  </button>
+                ))}
+              </div>
+            </>
+          ) : (
+            <NoData text={t("empty")} />
+          )}
+        </ChartFrame>
+      </div>
+      <div className="insights-bottom" hidden={!showAdditional}>
+        <ChartFrame
           id="trend"
+          hidden={!showAdditional}
           title={t("insightTrend")}
           note={t(
             selectedTrends.length ? "comparisonNote" : "insightTrendNote",
           )}
-          action={
-            <label className="history-window">
-              <span>{t("historyWindow")}</span>
-              <Select
-                aria-label={t("historyWindow")}
-                value={days}
-                onChange={setDays}
-                options={[30, 60].map((value) => ({
-                  value,
-                  label: `${value} ${t("days")}`,
-                }))}
-              />
-            </label>
-          }
           t={t}
         >
+          <div className="trend-legend">
+            {data.trendRepos.map((item, index) => (
+              <button key={item.repo} onClick={() => open(item.repo)}>
+                <i
+                  style={{
+                    borderColor: trendRange[index],
+                    borderStyle:
+                      index === 1 ? "dashed" : index === 2 ? "dotted" : "solid",
+                  }}
+                />
+                {short(item.repo.split("/").pop())}
+              </button>
+            ))}
+          </div>
           <div className="chart-keyboard-controls">
             {data.trendRepos.map((item) => (
               <button key={item.repo} onClick={() => open(item.repo)}>
@@ -366,7 +619,7 @@ export default function Insights({
                     labelFill: muted,
                     labelOpacity: 1,
                     labelFontFamily: FONT_FAMILY,
-                    labelFontSize: 11,
+                    labelFontSize: 12,
                     tick: false,
                     labelFormatter: (value) =>
                       new Date(value).toISOString().slice(5, 10),
@@ -441,192 +694,6 @@ export default function Insights({
           </p>
         </ChartFrame>
         <ChartFrame
-          id="categories"
-          hidden={!showAdditional}
-          title={t("categoryLabel")}
-          t={t}
-        >
-          {categories.length ? (
-            <>
-              <div
-                className="plot-host"
-                role="img"
-                aria-label={t("categoryLabel")}
-              >
-                <SvgPlot
-                  plot={Bar}
-                  {...base}
-                  animate={entrance("categories")}
-                  height={Math.max(150, categories.length * 27 + 30)}
-                  paddingLeft={state.lang === "zh" ? 125 : 175}
-                  paddingRight={40}
-                  data={categories}
-                  xField="label"
-                  yField="count"
-                  scale={{
-                    y: {
-                      zero: true,
-                      nice: true,
-                      domain: [
-                        0,
-                        categoryMax + Math.max(4, Math.ceil(categoryMax * 0.2)),
-                      ],
-                    },
-                  }}
-                  axis={{
-                    x: {
-                      title: false,
-                      tick: false,
-                      line: false,
-                      labelFill: muted,
-                      labelOpacity: 1,
-                      labelFontFamily: FONT_FAMILY,
-                      labelFontSize: 11,
-                      labelAutoEllipsis: false,
-                    },
-                    y: false,
-                  }}
-                  label={{
-                    text: "count",
-                    position: "right",
-                    style: {
-                      fill: muted,
-                      fontFamily: FONT_FAMILY,
-                      fontSize: 12,
-                      textAlign: "start",
-                      dx: 6,
-                    },
-                  }}
-                  style={{
-                    maxWidth: 14,
-                    fill: (datum) =>
-                      state.category === datum.id
-                        ? dark
-                          ? "#B3AAEA"
-                          : "#4A3FBF"
-                        : dark
-                          ? "#80789E"
-                          : "#B3AEC9",
-                  }}
-                  tooltip={{
-                    title: "label",
-                    items: [{ field: "count", name: t("repos") }],
-                  }}
-                  onReady={bind("categories")}
-                />
-              </div>
-              <div className="chart-keyboard-controls category-filter-controls">
-                {categories.map((c) => (
-                  <button
-                    key={c.id}
-                    data-chart-category={c.id}
-                    onClick={() => category(c.id)}
-                    aria-pressed={state.category === c.id}
-                  >
-                    <i style={{ background: dark ? "#80789E" : "#B3AEC9" }} />
-                    <span>{c.label}</span>
-                    <b>{c.count}</b>
-                  </button>
-                ))}
-              </div>
-            </>
-          ) : (
-            <NoData text={t("empty")} />
-          )}
-        </ChartFrame>
-      </div>
-      <div className="insights-bottom" hidden={!showAdditional}>
-        <ChartFrame
-          id="growth"
-          hidden={!showAdditional}
-          title={t("insightGrowth")}
-          note={t("insightGrowthNote")}
-          t={t}
-        >
-          {data.growth.length ? (
-            <>
-              <div
-                className="plot-host"
-                role="img"
-                aria-label={t("insightGrowth")}
-              >
-                <SvgPlot
-                  plot={Bar}
-                  {...base}
-                  animate={entrance("growth")}
-                  height={220}
-                  paddingRight={65}
-                  data={data.growth}
-                  xField="repo"
-                  yField="growth"
-                  colorField="repo"
-                  scale={{
-                    color: { domain: repoDomain, range: repoRange },
-                    y: { zero: true, nice: true },
-                  }}
-                  axis={{
-                    x: {
-                      title: false,
-                      tick: false,
-                      line: false,
-                      labelFill: muted,
-                      labelOpacity: 1,
-                      labelFontFamily: FONT_FAMILY,
-                      labelFontSize: 11,
-                      labelFormatter: (value) =>
-                        short(String(value).split("/").pop()),
-                    },
-                    y: numericAxis,
-                  }}
-                  paddingLeft={165}
-                  label={{
-                    text: (datum) => signed(datum.growth),
-                    position: "right",
-                    style: {
-                      dx: 6,
-                      fill: muted,
-                      fontSize: 11,
-                      textAlign: "left",
-                    },
-                  }}
-                  style={{ maxWidth: 12 }}
-                  tooltip={{
-                    title: "repo",
-                    items: [
-                      {
-                        field: "growth",
-                        name: t("insightGrowth"),
-                        valueFormatter: signed,
-                      },
-                    ],
-                  }}
-                  onReady={bind("growth")}
-                />
-              </div>
-              <div className="chart-keyboard-controls">
-                {data.growth.map((item) => (
-                  <button
-                    key={item.repo}
-                    data-growth-repo={item.repo}
-                    onClick={() => open(item.repo)}
-                  >
-                    <span
-                      title={`${item.repo}${latest.has(item.repo) ? " · " + latest.get(item.repo).date : ""}`}
-                    >
-                      {item.repo}
-                    </span>
-                    <b style={{ color: colors.repos[item.repo] }}>
-                      {signed(item.growth)}
-                    </b>
-                  </button>
-                ))}
-              </div>
-            </>
-          ) : (
-            <NoData text={t("noGrowth")} />
-          )}
-        </ChartFrame>
-        <ChartFrame
           id="scatter"
           hidden={!showAdditional}
           title={t("insightScatter")}
@@ -645,9 +712,9 @@ export default function Insights({
                   {...base}
                   animate={entrance("scatter")}
                   height={300}
-                  data={data.scatter}
+                  data={scatterData}
                   xField="stars"
-                  yField="growth"
+                  yField="growthLog"
                   colorField="category"
                   scale={{
                     x: {
@@ -656,12 +723,26 @@ export default function Insights({
                       domain: scatterDomain,
                       tickMethod: () => scatterTicks,
                     },
-                    y: { zero: true, nice: true },
+                    y: {
+                      zero: true,
+                      nice: true,
+                      tickMethod: () => growthTicks,
+                    },
                     color: { domain: catDomain, range: catRange },
                   }}
                   axis={{
                     x: { ...numericAxis, title: "Stars (log)", grid: false },
-                    y: numericAxis,
+                    y: {
+                      ...numericAxis,
+                      labelFormatter: (value) =>
+                        new Intl.NumberFormat("en", {
+                          notation: "compact",
+                          maximumFractionDigits: 0,
+                        }).format(
+                          Math.sign(value) *
+                            Math.round(10 ** Math.abs(value) - 1),
+                        ),
+                    },
                   }}
                   label={{
                     text: (datum) =>
@@ -671,9 +752,9 @@ export default function Insights({
                   }}
                   shapeField={() => "point"}
                   style={{
-                    fill: (datum) => colors.categories[datum.category],
+                    fill: () => (dark ? "#B3AAEA" : "#6856CD"),
                     fillOpacity: (datum) => (datum.highlight ? 0.95 : 0.25),
-                    stroke: (datum) => colors.categories[datum.category],
+                    stroke: () => (dark ? "#B3AAEA" : "#6856CD"),
                     r: (datum) => (datum.highlight ? 4 : 2.5),
                     lineWidth: 0.5,
                   }}
@@ -682,10 +763,7 @@ export default function Insights({
                     items: [
                       (datum) => ({
                         name: t("categoryTooltip"),
-                        value:
-                          state.lang === "zh"
-                            ? datum.categoryZh
-                            : datum.categoryEn,
+                        value: datum.sceneLabel,
                       }),
                       { field: "stars", name: "Stars" },
                       {
@@ -698,13 +776,13 @@ export default function Insights({
                   onReady={bind("scatter")}
                 />
               </div>
-              <div className="scatter-legend" aria-label={t("categoryLabel")}>
-                {categories.map((item) => (
-                  <span key={item.id}>
-                    <i style={{ background: colors.categories[item.id] }} />
-                    {item.label}
-                  </span>
-                ))}
+              <div className="scatter-legend">
+                <span>
+                  <i style={{ background: dark ? "#B3AAEA" : "#6856CD" }} />
+                  {state.lang === "zh"
+                    ? "深色：近 7 日增长前 3 · 浅色：其他项目"
+                    : "Dark: top 3 by 7-day growth · Faint: other projects"}
+                </span>
               </div>
               <details className="chart-data">
                 <summary>{t("viewChartData")}</summary>

@@ -7,8 +7,9 @@ const dataset = JSON.parse(
 test("compact first screen groups stats below controls and exposes visitor copy", async ({
   page,
 }) => {
-  await page.goto("./#view=card");
+  await page.goto("./#related=1&view=card");
   await expect(page.getByRole("heading", { name: /今日榜单/ })).toBeVisible();
+  await page.getByRole("button", {name:/数据概览/}).click();
   const filterY = await page
     .locator(".filters")
     .evaluate((e) => e.getBoundingClientRect().bottom);
@@ -34,7 +35,7 @@ test("compact first screen groups stats below controls and exposes visitor copy"
 test("compact cards open details via title and preserve an explicit external link", async ({
   page,
 }) => {
-  await page.goto("./#view=card");
+  await page.goto("./#related=1&view=card");
   const card = page.getByTestId("repo-card").filter({ has: page.locator('a[href="https://github.com/K-Dense-AI/scientific-agent-skills"]') });
   await expect(card.locator(".installation-actions")).toHaveCount(0);
   await expect(card.locator(".practical-description")).toHaveCount(1);
@@ -56,7 +57,7 @@ test("compact cards open details via title and preserve an explicit external lin
 test("sticky search is unique when visible and supports changing a query from deep in ranking", async ({
   page,
 }) => {
-  await page.goto("./#view=card");
+  await page.goto("./#related=1&view=card");
   await page.getByTestId("repo-card").nth(10).scrollIntoViewIfNeeded();
   const input = page.locator("#stickySearchInput");
   await expect(input).toBeVisible();
@@ -66,7 +67,8 @@ test("sticky search is unique when visible and supports changing a query from de
   await expect(page.getByRole("searchbox")).toHaveCount(1);
   await expect(page).toHaveURL(/q=zotero/);
   expect(await page.locator("#searchInput").count()).toBe(1);
-  await expect(page.locator("#categoryFilter")).toBeVisible();
+  await expect(page.locator("#categoryFilter")).toHaveCount(0);
+  await expect(page.locator(".task-list")).toBeVisible();
 });
 
 test("weekly newcomer shortcut filters true first entries and can be cleared", async ({
@@ -75,10 +77,11 @@ test("weekly newcomer shortcut filters true first entries and can be cleared", a
   const expected = dataset.items.filter((item) =>
     isNewThisWeek(item, dataset.metadata.generated_at),
   );
-  await page.goto("./#view=card");
+  await page.goto("./#related=1&view=card");
   await expect(page.getByTestId("new-this-week")).toContainText(
     String(expected.length),
   );
+  await page.getByRole("button", {name:/数据概览/}).click();
   await page.getByTestId("new-this-week").click();
   await expect(page).toHaveURL(/new=1/);
   await expect(page.getByTestId("new-this-week")).toHaveAttribute(
@@ -100,7 +103,7 @@ test("relative status keeps a single dot and the correct Shanghai precision", as
   await page.clock.setFixedTime(
     new Date(Date.parse(dataset.metadata.generated_at) + 3600000),
   );
-  await page.goto("./");
+  await page.goto("./#related=1");
   const status = page.getByTestId("update-status");
   await expect(status.locator(".status-dot")).toHaveCount(1);
   await expect(status.locator("time")).toContainText("1小时前");
@@ -120,7 +123,7 @@ test("trend follows selected comparisons even after a narrower search", async ({
   page,
 }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("./#view=card");
+  await page.goto("./#related=1&view=card");
   const repo = dataset.items[0].repo;
   await page.getByTestId("repo-card").first().locator("[data-compare]").click();
   await page.getByRole("searchbox").fill(dataset.items[1].repo);
@@ -134,7 +137,7 @@ test("trend follows selected comparisons even after a narrower search", async ({
     ),
   );
   await expect(page.getByTestId("repo-card")).toHaveCount(narrowed.length);
-  await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
+  await page.getByRole("tab", { name: "数据洞察", exact: true }).click();
   const trend = page.getByTestId("insight-trend");
   await expect(trend.locator(".plot-host svg path.element")).toHaveCount(1);
   const source = trend.locator(".chart-keyboard-controls button");
@@ -153,7 +156,7 @@ test("trend follows selected comparisons even after a narrower search", async ({
 test("sticky search returns to hero after losing focus at the top and mobile hides all shortcut hints", async ({
   page,
 }) => {
-  await page.goto("./#view=card");
+  await page.goto("./#related=1&view=card");
   await page.getByTestId("repo-card").nth(10).scrollIntoViewIfNeeded();
   await page.locator("#stickySearchInput").focus();
   await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
@@ -169,7 +172,7 @@ test("mobile ranking stays compact apart from the approved leading ad, with task
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("./#view=card");
+  await page.goto("./#related=1&view=card");
   const pills = page.locator(".task-list");
   expect(await pills.evaluate((el) => el.scrollWidth > el.clientWidth)).toBe(
     true,

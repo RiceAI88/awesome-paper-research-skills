@@ -9,6 +9,7 @@ async function fixtureCard(page) {
     repo: "example/paper-skill",
     url: "https://github.com/example/paper-skill",
     description: "Original research skill description.",
+    repository_kind: "skill",
     skills_count: 17,
     skills_count_complete: true,
     agents: ["claude-code", "codex", "cursor", "gemini"],
@@ -25,7 +26,7 @@ test("reference palette, right-hand search and default cards give a compact firs
   page,
 }) => {
   await page.setViewportSize({ width: 1280, height: 1160 });
-  await page.goto("./");
+  await page.goto("./#related=1");
   await expect(page.getByTestId("repo-card")).toHaveCount(
     Math.min(30, data.items.length),
   );
@@ -36,7 +37,8 @@ test("reference palette, right-hand search and default cards give a compact firs
   const title = await page.locator("h1").boundingBox();
   const search = await page.locator("#searchInput").boundingBox();
   expect(search.x).toBeGreaterThan(title.x + title.width);
-  expect(Math.abs(search.y - title.y)).toBeLessThan(80);
+  expect(search.y).toBeGreaterThan(title.y);
+  expect(Math.abs(search.y - (await page.locator(".page-tabs").boundingBox()).y)).toBeLessThan(10);
   const first = await page.getByTestId("repo-card").first().boundingBox();
   // Daily discoveries may add up to three compact entries above the ranking.
   expect(first.y).toBeLessThan(560);
@@ -55,7 +57,7 @@ test("cards separate owner and project and put compact metadata on one aligned f
   page,
 }) => {
   await fixtureCard(page);
-  await page.goto("./#view=card");
+  await page.goto("./#related=1&view=card");
   const card = page.getByTestId("repo-card").first();
   await expect(card.locator(".repository-owner")).toHaveText("example");
   await expect(card.locator(".repo-title")).toHaveText("paper-skill");
@@ -77,7 +79,7 @@ for (const width of [1280, 390])
     page,
   }) => {
     await page.setViewportSize({ width, height: 1160 });
-    await page.goto("./#view=card");
+    await page.goto("./#related=1&view=card");
     const ad = page.getByTestId("zhi1ke-ad");
     const boxes = await page.getByTestId("repo-card").evaluateAll((es) =>
       es.slice(0, 5).map((e) => {
@@ -107,7 +109,7 @@ test("filtered results without editorial picks do not offer an empty beginner pa
   page,
 }) => {
   await fixtureCard(page);
-  await page.goto("./#view=card");
+  await page.goto("./#related=1&view=card");
   await expect(page.getByTestId("repo-card")).toHaveCount(1);
   await expect(page.getByTestId("editorial-picks")).toHaveCount(0);
   await expect(

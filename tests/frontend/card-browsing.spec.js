@@ -7,7 +7,7 @@ for (const view of ["table", "card"])
   test(`${view} starts with 30 and loads batches without limiting search`, async ({
     page,
   }) => {
-    await page.goto(`./#view=${view}`);
+    await page.goto(`./#related=1&view=${view}`);
     const rows = page.locator(
       view === "table" ? ".ant-table-row" : '[data-testid="repo-card"]',
     );
@@ -24,7 +24,7 @@ for (const view of ["table", "card"])
 test("cards emphasize metrics, explain actions and align installation footers", async ({
   page,
 }) => {
-  await page.goto("./#view=card");
+  await page.goto("./#related=1&view=card");
   const cards = page.getByTestId("repo-card");
   await expect(cards).toHaveCount(30);
   const card = cards.filter({ has: page.locator('a[href="https://github.com/K-Dense-AI/scientific-agent-skills"]') });
@@ -47,7 +47,8 @@ test("back to top appears only after one viewport and keeps filters", async ({
   page,
 }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("./#view=table&sort=updated");
+  await page.goto("./#related=1&view=table&sort=updated");
+  await expect(page.locator(".ant-table-row")).toHaveCount(30);
   await expect(page.getByTestId("back-to-top")).not.toBeVisible();
   await page.evaluate(() =>
     scrollTo({ top: innerHeight + 200, behavior: "instant" }),
@@ -64,7 +65,7 @@ test("back to top appears only after one viewport and keeps filters", async ({
 test("sorting resets batches, while saving and switching view preserve loaded results", async ({
   page,
 }) => {
-  await page.goto("./#view=card");
+  await page.goto("./#related=1&view=card");
   await page.getByTestId("load-more").click();
   await expect(page.getByTestId("repo-card")).toHaveCount(60);
   await page
@@ -91,7 +92,7 @@ test("drawer navigation reveals the next batch and keeps it after closing", asyn
   page,
 }) => {
   const boundary = data.items.find((item) => item.rank === 30);
-  await page.goto("./#view=table&repo=" + encodeURIComponent(boundary.repo));
+  await page.goto("./#related=1&view=table&repo=" + encodeURIComponent(boundary.repo));
   await expect(page.getByTestId("detail-position")).toHaveText(
     "30 / " + data.items.length,
   );
@@ -111,7 +112,7 @@ test("mobile back to top stays clear of comparison controls and English copy exi
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("./#view=card&lang=en");
+  await page.goto("./#related=1&view=card&lang=en");
   const card = page.getByTestId("repo-card").first();
   await card.locator("[data-compare]").click();
   await page.evaluate(() =>
@@ -136,7 +137,7 @@ test("mobile back to top stays clear of comparison controls and English copy exi
 test("card actions expose their visible names and selected comparison state", async ({
   page,
 }) => {
-  await page.goto("./#view=card");
+  await page.goto("./#related=1&view=card");
   const card = page.getByTestId("repo-card").first();
   const repo = data.items.find((item) => item.rank === 1).repo;
   await expect(

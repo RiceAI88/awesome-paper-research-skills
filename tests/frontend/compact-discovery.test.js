@@ -22,8 +22,8 @@ test("weekly newcomers use first recorded date, exclude initial baseline, invali
   assert.equal(isNewThisWeek({ first_seen_date: "2026-02-30" }, now), false);
   assert.equal(isNewThisWeek({}, now), false);
   const items = [
-    { repo: "x/new", rank: 1, new_this_week: true },
-    { repo: "x/old", rank: 2 },
+    { repository_kind: "skill", repo: "x/new", rank: 1, new_this_week: true },
+    { repository_kind: "skill", repo: "x/old", rank: 2 },
   ];
   const state = restoreState(null, "#new=1", {}, items);
   assert.equal(state.newOnly, true);

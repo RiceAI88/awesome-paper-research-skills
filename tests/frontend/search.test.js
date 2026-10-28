@@ -5,30 +5,35 @@ import { createSearch, suggestedTaskIds } from "../../src/search.js";
 import { filterItems, restoreState } from "../../src/domain.js";
 const items = [
   {
+    repository_kind: "skill",
     repo: "a/proof",
     description: "Academic proofreading and POLISHING.",
     category: { id: "paper-writing" },
     rank: 1,
   },
   {
+    repository_kind: "skill",
     repo: "b/chart",
     description: "Scientific figures and plots.",
     category: { id: "general-research" },
     rank: 2,
   },
   {
+    repository_kind: "skill",
     repo: "c/setup",
     description: "Configure a project.",
     category: { id: "general-research" },
     rank: 3,
   },
   {
+    repository_kind: "skill",
     repo: "d/zotero",
     description: "Zotero reference manager",
     category: { id: "literature-review" },
     rank: 4,
   },
   {
+    repository_kind: "skill",
     repo: "e/other",
     description: "Mendeley integration",
     category: { id: "literature-review" },
@@ -50,7 +55,7 @@ test("Chinese intents find original English descriptions while other filters sti
     ["d/zotero", "e/other"],
   );
   assert.deepEqual(
-    filterItems(items, { ...state, query: "绘图", category: "paper-writing" }),
+    filterItems(items, { ...state, query: "绘图", task: "write" }),
     [],
   );
   assert.equal(items[0].description, "Academic proofreading and POLISHING.");

@@ -20,7 +20,8 @@ for (const motion of ["reduce", "no-preference"])
     page,
   }) => {
     await page.emulateMedia({ reducedMotion: motion });
-    await page.goto("./");
+    await page.goto("./#related=1");
+    await page.getByRole("button", {name:/数据概览/}).click();
     await expect(page.locator(".statistics strong")).toHaveText(expected);
     await page.getByRole("button", { name: "读论文", exact: true }).click();
     await expect(page.locator(".statistics strong")).toHaveText(expected);

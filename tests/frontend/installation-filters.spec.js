@@ -9,7 +9,7 @@ const data = JSON.parse(
 test("installation expectations and original command source are visible in list and details", async ({
   page,
 }) => {
-  await page.goto("./#view=table&q=K-Dense-AI%2Fscientific-agent-skills");
+  await page.goto("./#related=1&view=table&q=K-Dense-AI%2Fscientific-agent-skills");
   const row = page.locator(".ant-table-row");
   await expect(row.getByTestId("installation-mode")).toHaveText("命令安装");
   await row.locator("td").first().click();
@@ -25,12 +25,12 @@ test("installation expectations and original command source are visible in list 
     "href",
     /K-Dense-AI\/scientific-agent-skills\/blob\/main\/README.md/,
   );
-  await page.goto("./#view=table&q=OpenNSWM-Lab%2FFAROS");
+  await page.goto("./#related=1&view=table&q=OpenNSWM-Lab%2FFAROS");
   await expect(
     page.locator(".ant-table-row").getByTestId("installation-mode"),
   ).toHaveText("需手动配置");
   const unknown = data.items.find((i) => !content.installations[i.repo]);
-  await page.goto("./#q=" + encodeURIComponent(unknown.repo) + "&view=card");
+  await page.goto("./#related=1&q=" + encodeURIComponent(unknown.repo) + "&view=card");
   const card = page.getByTestId("repo-card").filter({
     has: page.getByRole("button", {name: unknown.repo, exact: true}),
   });
@@ -48,13 +48,13 @@ test("each active restriction can be removed independently without changing othe
   page,
 }) => {
   await page.goto(
-    "./#q=impossible-query&task=read&cat=paper-writing&agent=codex&fav=1&sort=updated&view=card",
+    "./#related=1&q=impossible-query&task=read&cat=paper-writing&agent=codex&fav=1&sort=updated&view=card",
   );
   const bar = page.getByTestId("active-filters");
-  await expect(bar.locator("[data-filter-key]")).toHaveCount(5);
+  await expect(bar.locator("[data-filter-key]")).toHaveCount(4);
   await bar.getByRole("button", { name: "移除：读论文", exact: true }).click();
   await expect(page).not.toHaveURL(/task=read/);
-  await expect(page).toHaveURL(/cat=paper-writing/);
+  await expect(page).not.toHaveURL(/cat=/);
   await expect(page).toHaveURL(/q=impossible-query/);
   await expect(page).toHaveURL(/fav=1/);
   await bar.getByRole("button", { name: "移除：Codex", exact: true }).click();
@@ -63,14 +63,14 @@ test("each active restriction can be removed independently without changing othe
     .getByRole("button", { name: "移除：仅看收藏", exact: true })
     .click();
   await expect(page).not.toHaveURL(/fav=1/);
-  await expect(bar.locator("[data-filter-key]")).toHaveCount(2);
+  await expect(bar.locator("[data-filter-key]")).toHaveCount(1);
   await expect(page).toHaveURL(/sort=updated/);
   await expect(page).toHaveURL(/view=card/);
 });
 test("empty results recover by clearing restrictions while preserving saved favorites and display settings", async ({
   page,
 }) => {
-  await page.goto("./#view=table");
+  await page.goto("./#related=1&view=table");
   const favorite = page
     .locator(".ant-table-row")
     .first()
@@ -95,7 +95,7 @@ test("English mobile filters wrap and clear keeps sort and card view", async ({
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(
-    "./en/#q=long-search-query-without-results&agent=codex&task=read&sort=updated&view=card",
+    "./en/#related=1&q=long-search-query-without-results&agent=codex&task=read&sort=updated&view=card",
   );
   const bar = page.getByTestId("active-filters");
   await expect(bar).toContainText("Current filters");

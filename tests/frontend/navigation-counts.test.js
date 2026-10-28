@@ -8,6 +8,7 @@ import {
 } from "../../src/domain.js";
 const items = [
   {
+    repository_kind: "skill",
     repo: "a/a",
     description: "Scientific figures and paper writing",
     category: { id: "paper-writing" },
@@ -16,6 +17,7 @@ const items = [
     last_push_date: "2026-10-25",
   },
   {
+    repository_kind: "skill",
     repo: "b/b",
     description: "paper reviewer and figures",
     category: { id: "general-research" },

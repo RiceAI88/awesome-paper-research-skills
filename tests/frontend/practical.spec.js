@@ -11,7 +11,7 @@ test("practical information, editorial reasons and history provenance are visibl
   await page.route(api, (route) =>
     route.fulfill({ json: { workflow_runs: [] } }),
   );
-  await page.goto("./#view=table");
+  await page.goto("./#related=1&view=table");
   const row = page.locator(".ant-table-row").filter({ hasText: "K-Dense-AI/scientific-agent-skills" });
   await expect(row).toContainText(ranking.items.find(item => item.repo === "K-Dense-AI/scientific-agent-skills").description);
   await expect(row.getByText("Claude Code", { exact: true })).toBeVisible();
@@ -81,8 +81,8 @@ for (const [name, run, kind] of [
         },
       }),
     );
-    await page.goto("./#view=table");
-    await expect(page.locator(`[data-status="${kind}"]`)).toBeVisible();
+    await page.goto("./#related=1&view=table");
+    await expect(page.locator(`[data-status="${kind}"]`)).toHaveCount(1);
     await page.locator(".update-status-summary").hover();
     await expect(page.getByRole("tooltip")).toContainText("状态查询于");
     await expect(page.getByTestId("update-status").locator("time")).toHaveAttribute("title", /UTC\+8/);
@@ -91,6 +91,6 @@ test("unavailable API does not report success", async ({ page }) => {
   await page.route(api, (route) =>
     route.fulfill({ status: 403, json: { message: "rate limited" } }),
   );
-  await page.goto("./#view=table");
-  await expect(page.locator('[data-status="unknown"]')).toBeVisible();
+  await page.goto("./#related=1&view=table");
+  await expect(page.locator('[data-status="unknown"]')).toHaveCount(1);
 });

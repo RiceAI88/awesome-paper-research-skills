@@ -22,8 +22,8 @@ test('today entry highlights real new skills, opens details and filters independ
  await expect(page).toHaveURL(/today=skill/);
  await page.reload();await expect(page.getByTestId('repo-card')).toHaveCount(1);
  await page.getByRole('button',{name:'清空筛选',exact:true}).click();
- await expect(page.getByTestId('repo-card')).toHaveCount(4);
- await section.getByTestId('today-related-filter').click();
+ await expect(page.getByTestId('repo-card')).toHaveCount(2);
+ await page.goto('./#today=related');
  await expect(page.getByTestId('repo-card')).toHaveCount(1);
  await expect(page.getByTestId('repo-card')).toContainText('research-guide');
 });
@@ -52,5 +52,5 @@ test('an empty shared today filter can return directly to the full ranking',asyn
  await expect(page.getByTestId('repo-card')).toHaveCount(0);
  await expect(page.getByTestId('today-skills-filter')).toBeEnabled();
  await page.getByTestId('today-skills-filter').click();
- await expect(page.getByTestId('repo-card')).toHaveCount(4);
+ await expect(page.getByTestId('repo-card')).toHaveCount(2);
 });

@@ -4,7 +4,7 @@ test("all four charts stay vector when pixel density changes and resize correctl
 }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("./#view=table");
-  await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
+  await page.getByRole("tab", { name: "数据洞察", exact: true }).click();
   const charts = page.locator(".plot-host");
   await expect(charts.locator("svg")).toHaveCount(4);
   await expect(charts.locator("canvas")).toHaveCount(0);

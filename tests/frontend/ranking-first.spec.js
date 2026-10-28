@@ -1,29 +1,20 @@
 import { test, expect } from "@playwright/test";
 import { readFileSync } from "node:fs";
-import { filterItems, restoreState } from "../../src/domain.js";
+import { filterItems, restoreState, RESEARCH_TASKS, matchesResearchTask } from "../../src/domain.js";
 const data = JSON.parse(
   readFileSync(new URL("../../data/rankings.json", import.meta.url), "utf8"),
 );
 const reviewCount = filterItems(data.items, {
-  ...restoreState(null, "", {}, data.items),
+  ...restoreState(null, "#related=1", {}, data.items),
   task: "review",
 }).length;
 test("ranking precedes insights, beginner paths stay compact and normal status stays in details", async ({
   page,
 }) => {
-  await page.goto("./#view=table");
+  await page.goto("./#related=1&view=table");
   await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, data.items.length));
-  expect(
-    await page
-      .locator(".ranking-section")
-      .evaluate((el) =>
-        Boolean(
-          el.compareDocumentPosition(
-            document.querySelector('[data-testid="insights-viewport"]'),
-          ) & Node.DOCUMENT_POSITION_FOLLOWING,
-        ),
-      ),
-  ).toBe(true);
+  await expect(page.getByRole("tab",{name:"今日榜单",exact:true})).toHaveAttribute("aria-selected","true");
+  await expect(page.getByTestId("insights-viewport")).toHaveCount(0);
   await expect(
     page.getByRole("heading", { name: "新手路径", exact: true }),
   ).toBeVisible();
@@ -45,11 +36,11 @@ test("ranking precedes insights, beginner paths stay compact and normal status s
 test("task pills show counts with All first; submission uses actual task matches and classification is secondary", async ({
   page,
 }) => {
-  await page.goto("./#view=table");
+  await page.goto("./#related=1&view=table");
   const all = page.locator(".task-list button").first();
   await expect(all).toHaveAttribute("data-task", "all");
   await expect(all).toContainText(String(data.items.length));
-  await expect(page.locator("#categoryFilter")).toBeVisible();
+  await expect(page.locator("#categoryFilter")).toHaveCount(0);
   await page.getByRole("button", { name: "投稿审稿", exact: true }).click();
   await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, reviewCount));
   await expect(page.locator('[data-task="review"]')).toContainText(
@@ -59,15 +50,15 @@ test("task pills show counts with All first; submission uses actual task matches
     "aria-pressed",
     "true",
   );
-  await expect(page.locator("#categoryFilter")).toBeVisible();
-  await expect(page.locator("label[for=categoryFilter]")).toContainText("科研分类");
+  await expect(page.locator("#categoryFilter")).toHaveCount(0);
+
 });
 for (const lang of ["zh", "en"])
   test(`mobile path is one scrollable row and ${lang} page has no overflow`, async ({
     page,
   }) => {
     await page.setViewportSize({ width: 390, height: 844 });
-    await page.goto(`./#lang=${lang}&view=card`);
+    await page.goto(`./#related=1&lang=${lang}&view=card`);
     const grid = page.locator(".editorial-grid");
     expect(await grid.evaluate((el) => el.scrollWidth > el.clientWidth)).toBe(
       true,
@@ -103,27 +94,21 @@ test("insights shortcut waits for a delayed table and preserves filter URL", asy
     await gate;
     await route.continue();
   });
-  await page.goto("./#view=table&sort=updated", {
+  await page.goto("./#related=1&view=table&sort=updated", {
     waitUntil: "domcontentloaded",
   });
-  await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
+  await page.getByRole("tab", { name: "数据洞察", exact: true }).click();
   release();
   await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, data.items.length));
   await expect(page.getByTestId("insights")).toBeVisible();
-  await expect
-    .poll(async () => {
-      const box = await page.getByTestId("insights-viewport").boundingBox();
-      return box.y >= 0 && box.y < 300;
-    })
-    .toBe(true);
   await expect(page).toHaveURL(/sort=updated/);
 
 });
 
 test("growth lines have distinct strokes and dashes; category bars show counts and filter", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("./#view=table");
-  await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
+  await page.goto("./#related=1&view=table");
+  await page.getByRole("tab", { name: "数据洞察", exact: true }).click();
   const trend = page.getByTestId("insight-trend");
   await expect(trend.locator("svg path.element")).toHaveCount(3);
   const styles = await trend.locator("svg path.element").evaluateAll((els) =>
@@ -134,10 +119,7 @@ test("growth lines have distinct strokes and dashes; category bars show counts a
   expect(await trend.locator("svg text").allTextContents()).toEqual(
     expect.arrayContaining([expect.stringContaining("%")]),
   );
-  const counts = Object.entries(data.items.reduce((map, item) => {
-    map[item.category.id] = (map[item.category.id] || 0) + 1;
-    return map;
-  }, {})).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+  const counts = RESEARCH_TASKS.map(task => [task.id,data.items.filter(item=>matchesResearchTask(item,task)).length]).sort((a,b)=>b[1]-a[1]);
   const categories = page.getByTestId("insight-categories");
   await expect(categories.locator(".donut-center")).toHaveCount(0);
   await expect.poll(() => categories.locator("svg text").allTextContents()).toEqual(
@@ -150,7 +132,7 @@ test("growth lines have distinct strokes and dashes; category bars show counts a
   })).sort((a, b) => a.y - b.y)[0].index);
   await marks.nth(top).click();
   await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, counts[0][1]));
-  await expect(page).toHaveURL(new RegExp("cat=" + counts[0][0]));
+  await expect(page).toHaveURL(new RegExp("task=" + counts[0][0]));
 });
 
 test("empty table recovery waits for first real table before insight jump", async ({ page }) => {
@@ -160,14 +142,11 @@ test("empty table recovery waits for first real table before insight jump", asyn
     await gate;
     await route.continue();
   });
-  await page.goto("./#view=table&q=zzzznoresults");
+  await page.goto("./#related=1&view=table&q=zzzznoresults");
   await expect(page.locator(".ant-empty")).toBeVisible();
   await page.getByRole("searchbox").fill("");
-  await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
+  await page.getByRole("tab", { name: "数据洞察", exact: true }).click();
   release();
   await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, data.items.length));
-  await expect.poll(async () => {
-    const box = await page.getByTestId("insights-viewport").boundingBox();
-    return box.y >= 0 && box.y < 300;
-  }).toBe(true);
+  await expect(page.getByTestId("insights")).toBeVisible();
 });

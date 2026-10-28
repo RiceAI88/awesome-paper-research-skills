@@ -3,15 +3,15 @@ import { readFileSync } from 'node:fs';
 const dataset=JSON.parse(readFileSync(new URL('../../data/rankings.json',import.meta.url),'utf8'));
 async function fixture(page){
  const now=new Date().toISOString();
- const item={...dataset.items[0],repo:'test/research-skill',url:'https://github.com/test/research-skill',repository_kind:'skill',skills_count:1,first_seen_at:now,first_seen_date:now.slice(0,10),first_seen_is_baseline:false,stale:true};
+ const item={...dataset.items[0],repo:'test/research-skill',url:'https://github.com/test/research-skill',repository_kind:'skill',skills_count:1,first_seen_at:now,first_seen_date:now.slice(0,10),first_seen_is_baseline:false,stale:true,last_push_date:'2026-01-01'};
  await page.route('**/data/rankings.js*',route=>route.fulfill({contentType:'application/javascript',body:`window.ACADEMIC_SKILLS_RANKINGS=${JSON.stringify({metadata:{...dataset.metadata,generated_at:now},items:[item]})};`}));
 }
-test('cards keep the top new badge once, retain maintenance status and table shows it once',async({page})=>{
+test('cards show one arrival dot and factual maintenance text; table uses a short new label',async({page})=>{
  await fixture(page);await page.goto('./#view=card');
  const card=page.getByTestId('repo-card').first();
- await expect(card.locator('.card-top .daily-new-badge')).toHaveCount(1);
- await expect(card.locator('.daily-new-badge')).toHaveCount(1);
- await expect(card.getByTestId('stale-tag')).toHaveCount(1);
+ await expect(card.locator('.card-top .arrival-dot')).toHaveCount(1);
+ await expect(card.locator('.daily-new-badge')).toHaveCount(0);
+ await expect(card.locator('.card-maintenance')).toHaveCount(1);
  await page.goto('./#view=table');
  await expect(page.locator('.ant-table-row .daily-new-badge')).toHaveCount(1);
 });

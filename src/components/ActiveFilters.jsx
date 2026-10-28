@@ -24,19 +24,16 @@ export function ActiveFilters({ state, update, categories, t, empty }) {
   if (state.query.trim())
     conditions.push(["query", t("filterSearch") + state.query.trim()]);
   if (state.task !== "all") conditions.push(["task", t(taskKeys[state.task])]);
-  if (state.category !== "all") {
-    const category = categories.find((c) => c.id === state.category);
-    conditions.push([
-      "category",
-      category?.[state.lang] || category?.en || state.category,
-    ]);
-  }
   if (state.agent !== "all")
     conditions.push([
       "agent",
       AGENT_PLATFORMS.find((a) => a.id === state.agent)?.label || state.agent,
     ]);
-  if (state.todayOnly) conditions.push(["todayOnly", t(state.todayOnly === "skill" ? "dailySkills" : "dailyRelated")]);
+  if (state.todayOnly)
+    conditions.push([
+      "todayOnly",
+      t(state.todayOnly === "skill" ? "dailySkills" : "dailyRelated"),
+    ]);
   if (state.newOnly) conditions.push(["newOnly", t("statNewWeek")]);
   if (state.favOnly) conditions.push(["favOnly", t("favoritesOnly")]);
   if (!conditions.length) return null;

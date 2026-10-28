@@ -2,7 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Tooltip } from "antd";
 import { classifyUpdateRun, UPDATE_RUNS_URL } from "../practical";
 import { exactTimestamp, relativeTimestamp } from "../time";
-export function UpdateStatus({ generatedAt, collection, lang, t }) {
+export function UpdateStatus({
+  generatedAt,
+  collection,
+  lang,
+  t,
+  compact = false,
+}) {
   const [now, setNow] = useState(Date.now());
   useEffect(() => {
     const timer = setInterval(() => setNow(Date.now()), 60000);
@@ -80,7 +86,7 @@ export function UpdateStatus({ generatedAt, collection, lang, t }) {
           <time dateTime={generatedAt} title={precision}>
             {t("dataUpdated")} {relativeTimestamp(generatedAt, lang, now)}
           </time>
-          {partial && <span> · {t("collectionPartial")}</span>}
+          {partial && !compact && <span> · {t("collectionPartial")}</span>}
           <span className="sr-only">{t(labels[status.kind])}</span>
         </span>
       </Tooltip>

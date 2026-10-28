@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect, useRef, useState } from "react";
+import React, { lazy, Suspense } from "react";
 import { Reveal } from "./SiteMotion";
 import { ChartBoundary } from "./ChartBoundary";
 const Insights = lazy(() => import("./Insights"));
@@ -20,8 +20,8 @@ function Placeholder({ t, count, loading = false }) {
         {loading && <p role="status">{t("chartsLoading")}</p>}
       </div>
       {[
-        ["insightTrend", "categoryLabel"],
-        ["insightGrowth", "insightScatter"],
+        ["insightGrowth", "sceneDistribution"],
+        ["insightTrend", "insightScatter"],
       ].map((row, index) => (
         <div key={index} className={index ? "insights-bottom" : "insights-top"}>
           {row.map((title) => (
@@ -38,46 +38,17 @@ function Placeholder({ t, count, loading = false }) {
   );
 }
 export function ViewportInsights(props) {
-  const container = useRef(null);
-  const [active, setActive] = useState(false);
-  useEffect(() => {
-    if (active || props.enabled === false) return;
-    if (typeof IntersectionObserver === "undefined") {
-      setActive(true);
-      return;
-    }
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) {
-          setActive(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "0px", threshold: 0 },
-    );
-    observer.observe(container.current);
-    return () => observer.disconnect();
-  }, [active, props.enabled]);
   return (
-    <Reveal
-      ref={container}
-      id="data-insights"
-      tabIndex={-1}
-      data-testid="insights-viewport"
-    >
-      {active ? (
-        <ChartBoundary fallback={props.t("chartUnavailable")}>
-          <Suspense
-            fallback={
-              <Placeholder t={props.t} count={props.items.length} loading />
-            }
-          >
-            <Insights {...props} />
-          </Suspense>
-        </ChartBoundary>
-      ) : (
-        <Placeholder t={props.t} count={props.items.length} />
-      )}
+    <Reveal id="data-insights" tabIndex={-1} data-testid="insights-viewport">
+      <ChartBoundary fallback={props.t("chartUnavailable")}>
+        <Suspense
+          fallback={
+            <Placeholder t={props.t} count={props.items.length} loading />
+          }
+        >
+          <Insights {...props} />
+        </Suspense>
+      </ChartBoundary>
     </Reveal>
   );
 }

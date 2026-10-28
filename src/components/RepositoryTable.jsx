@@ -5,6 +5,7 @@ import {
   SummaryText,
   InstallationActions,
 } from "./PracticalInfo";
+import { sceneLabelsFor } from "../domain";
 import { Sparkline } from "./TrendCharts";
 export default function RepositoryTable({
   onReady,
@@ -20,9 +21,22 @@ export default function RepositoryTable({
   useEffect(() => {
     onReady?.("table");
   }, [onReady]);
-  const cat = (item) => item.category?.[state.lang] || item.category?.en || "";
+  const cat = (item) => sceneLabelsFor(item, t).join(" · ") || "—";
   const columns = [
-    { title: "#", dataIndex: "rank", width: 50 },
+    {
+      title: "#",
+      dataIndex: "rank",
+      width: 65,
+      render: (rank, item) => (
+        <span className="card-rank-group">
+          <span
+            className={`card-rank${rank <= 3 ? ` medal-rank medal-${rank}` : ""}`}
+          >
+            {String(rank).padStart(2, "0")}
+          </span>
+        </span>
+      ),
+    },
     {
       title: t("repo"),
       key: "repo",
@@ -55,7 +69,7 @@ export default function RepositoryTable({
       ),
     },
     {
-      title: t("category"),
+      title: t("taskHeading"),
       key: "category",
       width: 120,
       render: (_, item) => <Tag className="warm-tag">{cat(item)}</Tag>,
@@ -68,7 +82,10 @@ export default function RepositoryTable({
         <div className="reference-metrics">
           <span>{fmt(item.stars)} Stars</span>
           <span className="table-growth">
-            +{fmt(item.star_delta_7d || 0)} / 7d
+            {state.lang === "zh" ? "近 7 日" : "7 days"}{" "}
+            {item.star_delta_7d
+              ? `${item.star_delta_7d > 0 ? "+" : ""}${fmt(item.star_delta_7d)}`
+              : "—"}
           </span>
           <span>{item.trend?.[state.lang] || "—"}</span>
           <Sparkline

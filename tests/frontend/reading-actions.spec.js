@@ -9,7 +9,7 @@ for (const width of [1024, 1280, 1440]) {
     page,
   }) => {
     await page.setViewportSize({ width, height: 1000 });
-    await page.goto("./#view=table");
+    await page.goto("./#related=1&view=table");
     const row = page.locator(".ant-table-row").first();
     await expect(row).toBeVisible();
     await row.scrollIntoViewIfNeeded();
@@ -44,7 +44,7 @@ for (const width of [1440, 390]) {
     page,
   }) => {
     await page.setViewportSize({ width, height: 1000 });
-    await page.goto("./#view=card");
+    await page.goto("./#related=1&view=card");
     const card = page.getByTestId("repo-card").first();
     await expect(card.locator(".description-clamp")).toHaveText(
       dataset.items[0].description,
@@ -81,7 +81,7 @@ for (const width of [1440, 390]) {
     page,
   }) => {
     await page.setViewportSize({ width, height: 1000 });
-    await page.goto("./#view=card");
+    await page.goto("./#related=1&view=card");
     const card = page.getByTestId("repo-card").first();
     await card.locator(".repo-title").click();
     const drawer = page.getByRole("dialog");
@@ -121,7 +121,7 @@ for (const width of [1440, 390]) {
 test("drawer uses the existing three-item comparison limit", async ({
   page,
 }) => {
-  await page.goto("./#view=card");
+  await page.goto("./#related=1&view=card");
   await page.getByTestId("repo-card").first().locator(".repo-title").click();
   const drawer = page.getByRole("dialog");
   for (let index = 0; index < 4; index++) {

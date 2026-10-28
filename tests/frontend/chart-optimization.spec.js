@@ -6,7 +6,7 @@ const items = JSON.parse(
 ).items;
 const narrowCount = String(
   filterItems(items, {
-    ...restoreState(null, "", {}, items),
+    ...restoreState(null, "#related=1", {}, items),
     query: "Imbad0202/academic-research-skills",
   }).length,
 );
@@ -15,15 +15,15 @@ test("chart clicks use current results after expanding an initial narrow search"
   page,
 }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("./#view=table&q=Imbad0202%2Facademic-research-skills");
-  await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
+  await page.goto("./#related=1&view=table&q=Imbad0202%2Facademic-research-skills");
+  await page.getByRole("tab", { name: "数据洞察", exact: true }).click();
   await expect(page.getByTestId("insight-count")).toHaveText(narrowCount);
   await expect(
     page.getByTestId("insight-growth").locator(".plot-host svg"),
   ).toHaveCount(1);
   await page.getByRole("searchbox").clear();
   await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, items.length));
-  await page.getByRole("link", { name: "数据洞察 ↓", exact: true }).click();
+  await page.getByRole("tab", { name: "数据洞察", exact: true }).click();
   await expect(page.getByTestId("insight-count")).toHaveText(
     String(items.length),
   );
@@ -57,18 +57,18 @@ test("offscreen charts defer download, then load once with the latest selection"
     if (/\/assets\/Insights-[^/]+\.js/.test(request.url()))
       requests.push(request.url());
   });
-  await page.goto("./#view=table");
+  await page.goto("./#related=1&view=table");
   await expect(page.getByRole("searchbox")).toBeVisible();
   await page.waitForTimeout(400);
   expect(requests).toHaveLength(0);
   await page.getByRole("searchbox").fill("Imbad0202/academic-research-skills");
-  await page.getByTestId("insights-viewport").scrollIntoViewIfNeeded();
+  await page.getByRole("tab", {name:"数据洞察",exact:true}).click();
   await expect(page.getByTestId("insight-count")).toHaveText(narrowCount);
   await expect(
     page.getByTestId("insights").locator(".plot-host svg"),
-  ).toHaveCount(1);
+  ).toHaveCount(2);
   await page
-    .getByRole("button", { name: "展开其他 3 张图", exact: true })
+    .getByRole("button", { name: "展开其他 2 张图", exact: true })
     .click();
   await expect(
     page.getByTestId("insights").locator(".plot-host svg"),
@@ -89,12 +89,12 @@ test("browsers without IntersectionObserver still show functional charts", async
   await page.addInitScript(() => {
     window.IntersectionObserver = undefined;
   });
-  await page.goto("./#view=table");
+  await page.goto("./#related=1&view=table&section=insights");
   await expect(
     page.getByTestId("insights").locator(".plot-host svg"),
-  ).toHaveCount(1);
+  ).toHaveCount(2);
   await page
-    .getByRole("button", { name: "展开其他 3 张图", exact: true })
+    .getByRole("button", { name: "展开其他 2 张图", exact: true })
     .click();
   await expect(
     page.getByTestId("insights").locator(".plot-host svg"),

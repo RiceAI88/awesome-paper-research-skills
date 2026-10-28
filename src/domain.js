@@ -38,6 +38,20 @@ export const RESEARCH_TASKS = [
   },
 ];
 
+export const TASK_LABEL_KEYS = {
+  find: "taskFind",
+  read: "taskRead",
+  write: "taskWrite",
+  figures: "taskFigures",
+  reproduce: "taskReproduce",
+  review: "taskReview",
+};
+export function sceneLabelsFor(item, t) {
+  return RESEARCH_TASKS.filter((task) => matchesResearchTask(item, task)).map(
+    (task) => t(TASK_LABEL_KEYS[task.id]),
+  );
+}
+
 /* Agent platform catalog — the order here is the display/sort order. */
 export const AGENT_PLATFORMS = [
   { id: "antigravity", label: "Antigravity", match: ["antigravity"] },
@@ -96,13 +110,17 @@ export function restoreState(storage, hash = "", defaults = {}, items = []) {
   const repositories = new Set(items.map((i) => i.repo));
   return {
     query: p.get("q") || "",
-    category: valid(
-      p.get("cat"),
-      ["all", ...items.map((i) => i.category?.id)],
-      "all",
-    ),
+    includeRelated: p.get("related") === "1" || p.get("today") === "related",
+    section: valid(p.get("section"), ["ranking", "insights"], "ranking"),
+    category: "all",
     task: valid(
-      p.get("task"),
+      p.get("task") ||
+        {
+          "paper-writing": "write",
+          "literature-review": "find",
+          "peer-review": "review",
+          "experiment-reproducibility": "reproduce",
+        }[p.get("cat")],
       RESEARCH_TASKS.map((t) => t.id),
       "all",
     ),
@@ -145,7 +163,7 @@ export function serializeState(state) {
   const p = new URLSearchParams();
   if (state.query) p.set("q", state.query);
   for (const [key, param, fallback] of [
-    ["category", "cat", "all"],
+    ["section", "section", "ranking"],
     ["task", "task", "all"],
     ["agent", "agent", "all"],
     ["sort", "sort", "rank"],
@@ -154,6 +172,7 @@ export function serializeState(state) {
     ["theme", "theme", "light"],
   ])
     if (state[key] !== fallback) p.set(param, state[key]);
+  if (state.includeRelated) p.set("related", "1");
   if (state.favOnly) p.set("fav", "1");
   if (state.newOnly) p.set("new", "1");
   if (state.todayOnly) p.set("today", state.todayOnly);
@@ -173,11 +192,19 @@ export function filterItems(items, state) {
   const search = createSearch(q);
   const task = RESEARCH_TASKS.find((t) => t.id === state.task);
   const result = items.filter((item) => {
-    if (state.newOnly && !item.new_this_week) return false;
-    if (state.todayOnly && (!item.new_today || item.repository_kind !== state.todayOnly)) return false;
-    if (task && !matchesResearchTask(item, task)) return false;
-    if (state.category !== "all" && item.category?.id !== state.category)
+    if (
+      state.includeRelated !== undefined &&
+      item.repository_kind !== "skill" &&
+      !(state.includeRelated && item.repository_kind === "related")
+    )
       return false;
+    if (state.newOnly && !item.new_this_week) return false;
+    if (
+      state.todayOnly &&
+      (!item.new_today || item.repository_kind !== state.todayOnly)
+    )
+      return false;
+    if (task && !matchesResearchTask(item, task)) return false;
     if (state.agent !== "all" && !detectAgents(item).includes(state.agent))
       return false;
     if (state.favOnly && !state.favorites.includes(item.repo)) return false;
@@ -212,7 +239,9 @@ export function filterItems(items, state) {
       (b.star_delta_30d ?? b.star_delta_7d ?? 0) -
         (a.star_delta_30d ?? a.star_delta_7d ?? 0) || b.stars - a.stars,
   };
-  return result.sort(sorts[state.sort] || ranks);
+  return result
+    .sort(sorts[state.sort] || ranks)
+    .map((item, index) => ({ ...item, rank: index + 1 }));
 }
 export function persistState(storage, state) {
   for (const [key, value] of Object.entries({
@@ -304,18 +333,29 @@ export function isNewThisWeek(item, generatedAt) {
 
 export function beijingDay(instant = Date.now()) {
   const time = new Date(instant).getTime();
-  return Number.isFinite(time) ? new Date(time + 8 * 3600000).toISOString().slice(0, 10) : "";
+  return Number.isFinite(time)
+    ? new Date(time + 8 * 3600000).toISOString().slice(0, 10)
+    : "";
 }
 export function isNewToday(item, now = Date.now()) {
   if (item.first_seen_is_baseline) return false;
   const today = beijingDay(now);
   if (!today) return false;
   if (item.first_seen_at != null) {
-    if (typeof item.first_seen_at !== "string" || !/(?:Z|[+-]\d{2}:\d{2})$/.test(item.first_seen_at)) return false;
+    if (
+      typeof item.first_seen_at !== "string" ||
+      !/(?:Z|[+-]\d{2}:\d{2})$/.test(item.first_seen_at)
+    )
+      return false;
     return beijingDay(item.first_seen_at) === today;
   }
   const date = item.first_seen_date;
   const stamp = Date.parse(date + "T00:00:00Z");
-  return typeof date === "string" && /^\d{4}-\d{2}-\d{2}$/.test(date) && Number.isFinite(stamp)
-    && new Date(stamp).toISOString().slice(0, 10) === date && date === today;
+  return (
+    typeof date === "string" &&
+    /^\d{4}-\d{2}-\d{2}$/.test(date) &&
+    Number.isFinite(stamp) &&
+    new Date(stamp).toISOString().slice(0, 10) === date &&
+    date === today
+  );
 }

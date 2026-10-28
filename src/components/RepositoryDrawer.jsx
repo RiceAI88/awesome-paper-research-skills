@@ -12,6 +12,7 @@ import {
 import { ExportOutlined } from "@ant-design/icons";
 import {
   AGENT_PLATFORMS,
+  sceneLabelsFor,
   detectAgents,
   REPOSITORY_URL,
   safeExternalUrl,
@@ -52,7 +53,7 @@ export function RepositoryDrawer({
       );
     }
   };
-  const category = item?.category?.[state.lang] || item?.category?.en || "";
+  const category = item ? sceneLabelsFor(item, t).join(" · ") : "";
   const agentNames = item
     ? detectAgents(item).map(
         (id) => AGENT_PLATFORMS.find((a) => a.id === id)?.label || id,

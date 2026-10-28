@@ -2,11 +2,14 @@ export const translations = {
   zh: {
     projectRelated: "科研相关项目",
     projectUnknown: "类型待核验",
-    projectTypeHelp: "按 SKILL.md 文件检测：数量不代表质量或安装兼容性；未发现该文件的项目保留为科研相关项目。",
+    projectTypeHelp:
+      "按 SKILL.md 文件检测：数量不代表质量或安装兼容性；未发现该文件的项目保留为科研相关项目。",
     metadataPending: "数据待核验",
-    metadataPendingHelp: "本次无法确认仓库状态，暂保留上次成功获取的数据；不表示仓库已删除。",
+    metadataPendingHelp:
+      "本次无法确认仓库状态，暂保留上次成功获取的数据；不表示仓库已删除。",
     collectionPartial: "部分数据待核验",
-    collectionPartialHelp: "部分仓库或搜索请求未能完成；待核验条目保留旧数据，搜索覆盖可能不完整。",
+    collectionPartialHelp:
+      "部分仓库或搜索请求未能完成；待核验条目保留旧数据，搜索覆盖可能不完整。",
 
     themeLabel: "主题",
     dailySkills: "今日新增 Skills",
@@ -16,6 +19,14 @@ export const translations = {
     dailyShowAll: "返回完整榜单",
     dailyEmpty: "今日暂无新增 Skills，仍可浏览完整榜单和本周新收录。",
     dailyBadge: "今日新收录",
+    newShort: "新",
+    includeRelated: "含科研相关项目",
+    dataOverview: "数据概览",
+    pageViews: "浏览视图",
+    rankByStars: "按 Stars 排序",
+    sceneDistribution: "按场景分布",
+    sceneDistributionHelp:
+      "与上方场景标签同一套分类；一个 Skill 可属于多个场景",
     statNewWeek: "本周新收录",
     newWeekHelp: "按 UTC 自然周内首次进入历史快照计算；不含初始基线已有项目。",
     taskCountNote: "一个 Skill 可属于多个场景；科研分类表示仓库的主要方向。",
@@ -35,7 +46,8 @@ export const translations = {
     chartsLoading: "正在加载数据图表…",
     chartUnavailable: "图表暂不可用，仍可浏览榜单。",
     optionalFilter: "可选",
-    taskCountHint: "任务可重叠，计数随搜索、平台和收藏变化；科研分类为仓库主分类。",
+    taskCountHint:
+      "任务可重叠，计数随搜索、平台和收藏变化；科研分类为仓库主分类。",
     statRecentPush: "近 30 天有更新",
     insightsTitle: "数据洞察",
     insightsScope: "当前筛选范围：",
@@ -106,8 +118,7 @@ export const translations = {
     skipToContent: "跳到主内容",
     mastheadVol: "Vol.1",
     heroTitle: "论文科研 Skills <em>排行榜</em>",
-    heroSubtitle:
-      "发现论文写作、文献阅读与科研实践所需的 Skills。",
+    heroSubtitle: "发现论文写作、文献阅读与科研实践所需的 Skills。",
     taskHeading: "按科研任务找 Skills",
     taskAll: "全部 Skills",
     taskFind: "找文献",
@@ -219,15 +230,17 @@ export const translations = {
     toastCopiedInstall: "已复制安装命令",
     skillsCount: "Skills 数",
     citeCheck: "引用核验",
+    inactive90: "90 天未更新",
     staleTag: "疑似停更",
     staleReason:
       "自动判断依据：至少 30 天未推送仓库更新，且近 7 天 Stars 增量不大于 0。这是提示，不代表作者已确认停止维护。",
-    showMoreCharts: "展开其他 3 张图",
+    showMoreCharts: "展开其他 2 张图",
     hideMoreCharts: "收起其他图表",
     compareFull: "对比列表已满（最多 3 个）",
     compareTray: "对比",
     compareTasks: "适用任务",
-    compareTasksHint: "任务标签沿用分类、简介与主题关键词匹配规则，仅作筛选参考；具体能力请查看项目文档。",
+    compareTasksHint:
+      "任务标签沿用分类、简介与主题关键词匹配规则，仅作筛选参考；具体能力请查看项目文档。",
     compareUnknown: "尚未核对，请查看项目文档",
     compareMaintenance: "维护状态",
     compareNotFlagged: "未触发停更提示",
@@ -249,11 +262,14 @@ export const translations = {
   en: {
     projectRelated: "Research-related project",
     projectUnknown: "Type unverified",
-    projectTypeHelp: "Based on SKILL.md file detection, not quality or installation compatibility. Projects without these files remain research-related projects.",
+    projectTypeHelp:
+      "Based on SKILL.md file detection, not quality or installation compatibility. Projects without these files remain research-related projects.",
     metadataPending: "Data unverified",
-    metadataPendingHelp: "The latest request failed. Previously fetched data is retained; this does not mean the repository was deleted.",
+    metadataPendingHelp:
+      "The latest request failed. Previously fetched data is retained; this does not mean the repository was deleted.",
     collectionPartial: "Some data unverified",
-    collectionPartialHelp: "Some repository or search requests were incomplete. Unverified entries retain earlier data; discovery coverage may be incomplete.",
+    collectionPartialHelp:
+      "Some repository or search requests were incomplete. Unverified entries retain earlier data; discovery coverage may be incomplete.",
 
     themeLabel: "Theme",
     dailySkills: "New Skills today",
@@ -261,11 +277,22 @@ export const translations = {
     dailyRelated: "New research-related projects today",
     dailyView: "View today's Skills",
     dailyShowAll: "Show full ranking",
-    dailyEmpty: "No new Skills today. Explore the full ranking or this week's additions.",
+    dailyEmpty:
+      "No new Skills today. Explore the full ranking or this week's additions.",
     dailyBadge: "New today",
+    newShort: "New",
+    includeRelated: "Include research projects",
+    dataOverview: "Data overview",
+    pageViews: "Page views",
+    rankByStars: "Sorted by Stars",
+    sceneDistribution: "By research task",
+    sceneDistributionHelp:
+      "Same tasks as the filters above; a Skill can serve multiple tasks",
     statNewWeek: "New this week",
-    newWeekHelp: "First recorded in a snapshot this UTC calendar week; initial baseline entries excluded.",
-    taskCountNote: "A Skill may match several tasks; research category identifies its main field.",
+    newWeekHelp:
+      "First recorded in a snapshot this UTC calendar week; initial baseline entries excluded.",
+    taskCountNote:
+      "A Skill may match several tasks; research category identifies its main field.",
     exportMenu: "Export",
     tableHintCard: "Updated daily. Select a card for details.",
     tableHintTable: "Updated daily. Select an entry for details.",
@@ -275,7 +302,8 @@ export const translations = {
     showingResults: "Showing",
     favoriteAction: "Save",
     backToTop: "Back to top",
-    platformUnspecifiedHint: "Platform unspecified. Check project docs for compatibility.",
+    platformUnspecifiedHint:
+      "Platform unspecified. Check project docs for compatibility.",
     featureLoading: "Loading…",
     featureUnavailable:
       "This feature could not load. Continue browsing or reload to retry.",
@@ -283,7 +311,8 @@ export const translations = {
     chartsLoading: "Loading data charts…",
     chartUnavailable: "Chart unavailable. The ranking remains available.",
     optionalFilter: "Optional",
-    taskCountHint: "Tasks overlap. Counts follow search, platform and favorites; categories identify each repo’s main field.",
+    taskCountHint:
+      "Tasks overlap. Counts follow search, platform and favorites; categories identify each repo’s main field.",
     statRecentPush: "Updated in last 30 days",
     insightsTitle: "Data insights",
     insightsScope: "Current selection:",
@@ -376,7 +405,8 @@ export const translations = {
     searchRepository: "Repository",
     searchTask: "Task",
     searchSuggestionHint: "↑↓ select · Enter confirm · Esc dismiss",
-    searchSuggestionCount: "{count} search suggestions. Use the up and down arrows to select.",
+    searchSuggestionCount:
+      "{count} search suggestions. Use the up and down arrows to select.",
     searchLabel: "Search repositories, descriptions, categories",
     categoryLabel: "Research category",
     allCategories: "All categories",
@@ -450,7 +480,8 @@ export const translations = {
     rechargeSummary: "Self-operated GPT / Codex top-ups · Billing records",
     rechargeSupport: "Support this site",
     sponsorHeadline: "From a topic to a first draft.",
-    sponsorDescription: "Research proposals, literature reviews and long-form drafts in one place.",
+    sponsorDescription:
+      "Research proposals, literature reviews and long-form drafts in one place.",
     sponsorAction: "Generate a free outline",
     visitViews: "Visits",
     visitVisitors: "Visitors",
@@ -468,15 +499,17 @@ export const translations = {
     toastCopiedInstall: "Install command copied",
     skillsCount: "Skills",
     citeCheck: "Citations verified",
+    inactive90: "No updates in 90 days",
     staleTag: "Possibly stale",
     staleReason:
       "Automatic signal: no repository push for at least 30 days and no positive Stars growth in the last 7 days. This does not confirm that maintenance has stopped.",
-    showMoreCharts: "Show 3 more charts",
+    showMoreCharts: "Show 2 more charts",
     hideMoreCharts: "Hide other charts",
     compareFull: "Compare list is full (max 3)",
     compareTray: "Compare",
     compareTasks: "Applicable tasks",
-    compareTasksHint: "Task labels use the same category, description and topic matching as filters. They are a guide; consult project documentation for capabilities.",
+    compareTasksHint:
+      "Task labels use the same category, description and topic matching as filters. They are a guide; consult project documentation for capabilities.",
     compareUnknown: "Not reviewed; consult project documentation",
     compareMaintenance: "Maintenance status",
     compareNotFlagged: "No inactivity flag triggered",
@@ -487,10 +520,12 @@ export const translations = {
     reviewUnknown: "Document check pending",
     reviewError: "Document check failed",
     reviewExpired: "Document check expired",
-    reviewHint: "Recommendations and installation details may need updating. Consult current project documentation.",
+    reviewHint:
+      "Recommendations and installation details may need updating. Consult current project documentation.",
     reviewCheckTime: "Documents last checked",
     reviewDiff: "View changes",
-    reviewFailureHint: "The latest check failed; the review reminder is retained.",
+    reviewFailureHint:
+      "The latest check failed; the review reminder is retained.",
     compareTitle: "Tool comparison",
     compareClear: "Clear",
     compareHint:

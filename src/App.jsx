@@ -74,6 +74,11 @@ const sourceItems = Array.isArray(dataset.items)
   ? dataset.items.map((item) => ({
       ...enrichItem(item),
       new_this_week: isNewThisWeek(item, dataset.metadata?.generated_at),
+      inactive90:
+        Number.isFinite(Date.parse(item.last_push_date)) &&
+        Date.parse(dataset.metadata?.generated_at) -
+          Date.parse(item.last_push_date + "T00:00:00Z") >=
+          90 * 86400000,
     }))
   : [];
 const historyData = window.ACADEMIC_SKILLS_HISTORY || { series: {} };
@@ -98,6 +103,20 @@ const taskLabels = {
   review: "taskReview",
 };
 const localFile = (name) => base + name;
+function ScopeSwitch({ checked, onChange, size, ...props }) {
+  return (
+    <button
+      {...props}
+      type="button"
+      role="switch"
+      aria-checked={checked}
+      className="scope-switch"
+      onClick={() => onChange(!checked)}
+    >
+      <span />
+    </button>
+  );
+}
 export default function App() {
   const items = sourceItems;
   const [state, update] = useState(() =>
@@ -178,9 +197,19 @@ function Dashboard({ state, update }) {
     const sync = () => setToday(beijingDay());
     const timer = setInterval(sync, 60000);
     addEventListener("focus", sync);
-    return () => { clearInterval(timer); removeEventListener("focus", sync); };
+    return () => {
+      clearInterval(timer);
+      removeEventListener("focus", sync);
+    };
   }, []);
-  const items = useMemo(() => sourceItems.map(item => ({ ...item, new_today: isNewToday(item, today) })), [today]);
+  const items = useMemo(
+    () =>
+      sourceItems.map((item) => ({
+        ...item,
+        new_today: isNewToday(item, today),
+      })),
+    [today],
+  );
   const message = useFeedback();
   const [compareOpen, setCompareOpen] = useState(false);
   const [drawerRequested, setDrawerRequested] = useState(Boolean(state.repo));
@@ -208,23 +237,19 @@ function Dashboard({ state, update }) {
     };
   }, []);
   const visible = useMemo(() => filterItems(items, state), [items, state]);
-  const rankingKey = `${state.view}:${visible.length ? "items" : "empty"}`;
-  const [readyView, setReadyView] = useState(null);
-  const [insightsJump, setInsightsJump] = useState(false);
-  const onRankingReady = useCallback(
-    () => setReadyView(rankingKey),
-    [rankingKey],
+  const [overviewOpen, setOverviewOpen] = useState(false);
+  const scopeItems = useMemo(
+    () =>
+      items.filter(
+        (item) =>
+          item.repository_kind === "skill" ||
+          (state.includeRelated && item.repository_kind === "related"),
+      ),
+    [items, state.includeRelated],
   );
-  useEffect(() => {
-    if (!insightsJump || readyView !== rankingKey) return;
-    const frame = requestAnimationFrame(() => {
-      const target = document.getElementById("data-insights");
-      target?.scrollIntoView({ block: "start", behavior: "instant" });
-      target?.focus({ preventScroll: true });
-      setInsightsJump(false);
-    });
-    return () => cancelAnimationFrame(frame);
-  }, [insightsJump, readyView, rankingKey]);
+  const relatedCount = items.filter(
+    (item) => item.repository_kind === "related",
+  ).length;
   const search = useRef(null);
   const stickySearch = useRef(null);
   const [stickySearchVisible, setStickySearchVisible] = useState(false);
@@ -260,9 +285,20 @@ function Dashboard({ state, update }) {
     );
   const taskCounts = useMemo(
     () => taskCountsFor(items, state),
-    [state.query, state.agent, state.favOnly, state.favorites, state.newOnly, state.todayOnly, today],
+    [
+      items,
+      state.query,
+      state.agent,
+      state.favOnly,
+      state.favorites,
+      state.newOnly,
+      state.todayOnly,
+      state.includeRelated,
+    ],
   );
-  const selected = items.find((item) => item.repo === state.repo);
+  const selected =
+    visible.find((item) => item.repo === state.repo) ||
+    items.find((item) => item.repo === state.repo);
   const categories = useMemo(
     () =>
       [
@@ -273,7 +309,7 @@ function Dashboard({ state, update }) {
     [],
   );
   const platformIds = new Set(items.flatMap(detectAgents));
-  const net7 = items.reduce((sum, i) => sum + (i.star_delta_7d || 0), 0);
+  const net7 = scopeItems.reduce((sum, i) => sum + (i.star_delta_7d || 0), 0);
   const toggleCompare = (repo) => {
     if (!state.compare.includes(repo) && state.compare.length >= 3) {
       message.info(t("compareFull"));
@@ -354,10 +390,10 @@ function Dashboard({ state, update }) {
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
   const recentCount = recentlyUpdatedCount(
-    items,
+    scopeItems,
     dataset.metadata?.generated_at,
   );
-  const newcomers = items.filter((item) => item.new_this_week).length;
+  const newcomers = scopeItems.filter((item) => item.new_this_week).length;
   return (
     <div
       className={`prs-page${stickySearchVisible ? " sticky-search-active" : ""}`}
@@ -375,7 +411,12 @@ function Dashboard({ state, update }) {
         {t("skipToContent")}
       </a>
       <header className="site-header">
-        <Reveal as="nav" kind="quiet" className="site-nav container" aria-label="Primary">
+        <Reveal
+          as="nav"
+          kind="quiet"
+          className="site-nav container"
+          aria-label="Primary"
+        >
           <a className="brand" href={base}>
             <span className="brand-mark">APRS</span>
             <span>Awesome Paper Research Skills</span>
@@ -446,7 +487,43 @@ function Dashboard({ state, update }) {
                 </>
               )}
             </Reveal>
-            <Reveal as="p" kind="hero" order={1} className="hero-subtitle">{t("heroSubtitle")}</Reveal>
+            <Reveal as="p" kind="hero" order={1} className="hero-subtitle">
+              {t("heroSubtitle")}
+            </Reveal>
+          </div>
+          <div className="page-tabs" role="tablist" aria-label={t("pageViews")}>
+            {["ranking", "insights"].map((section) => (
+              <Button
+                key={section}
+                role="tab"
+                id={`tab-${section}`}
+                aria-selected={state.section === section}
+                aria-controls={`panel-${section}`}
+                tabIndex={state.section === section ? 0 : -1}
+                onKeyDown={(event) => {
+                  if (
+                    ["ArrowLeft", "ArrowRight", "Home", "End"].includes(
+                      event.key,
+                    )
+                  ) {
+                    event.preventDefault();
+                    const next =
+                      event.key === "Home"
+                        ? "ranking"
+                        : event.key === "End"
+                          ? "insights"
+                          : section === "ranking"
+                            ? "insights"
+                            : "ranking";
+                    update((s) => ({ ...s, section: next }));
+                    document.getElementById(`tab-${next}`)?.focus();
+                  }
+                }}
+                onClick={() => update((s) => ({ ...s, section }))}
+              >
+                {t(section === "ranking" ? "tableTitle" : "insightsTitle")}
+              </Button>
+            ))}
           </div>
           <SearchBox
             inactive={stickySearchVisible}
@@ -466,14 +543,32 @@ function Dashboard({ state, update }) {
         id="main"
         className="container"
         tabIndex={-1}
-        style={{ "--ranking-filter-height": `${filterHeight}px` }}
+        style={{
+          "--ranking-filter-height": `${filterHeight + (stickySearchVisible ? 48 : 0)}px`,
+        }}
       >
         <section
           ref={filterRef}
           className="filters"
           aria-label="Ranking controls"
         >
-          {" "}
+          <div className="sticky-search-slot">
+            <SearchBox
+              inactive={!stickySearchVisible}
+              inputRef={stickySearch}
+              state={state}
+              update={update}
+              items={visible}
+              taskOptions={RESEARCH_TASKS.map((task) => ({
+                id: task.id,
+                label: t(taskLabels[task.id]),
+              }))}
+              t={t}
+              onBlur={syncStickySearch}
+              inputId="stickySearchInput"
+              compact
+            />
+          </div>{" "}
           <section className="task-navigation" aria-labelledby="taskHeading">
             <h2 id="taskHeading" className="sr-only">
               {t("taskHeading")}
@@ -481,12 +576,7 @@ function Dashboard({ state, update }) {
             <span className="sr-only" id="taskCountHint">
               {t("taskCountHint")}
             </span>
-            <div
-              className="task-list"
-              title={t("taskCountHint")}
-              inert={stickySearchVisible || undefined}
-              aria-hidden={stickySearchVisible || undefined}
-            >
+            <div className="task-list" title={t("taskCountHint")}>
               <Button
                 type="default"
                 data-task="all"
@@ -530,41 +620,9 @@ function Dashboard({ state, update }) {
                 </Button>
               ))}
             </div>
-            <div className="sticky-search-slot">
-              <SearchBox
-                inactive={!stickySearchVisible}
-                inputRef={stickySearch}
-                state={state}
-                update={update}
-                items={visible}
-                taskOptions={RESEARCH_TASKS.map((task) => ({
-                  id: task.id,
-                  label: t(taskLabels[task.id]),
-                }))}
-                t={t}
-                onBlur={syncStickySearch}
-                inputId="stickySearchInput"
-                compact
-              />
-            </div>
             <p className="task-count-note sr-only">{t("taskCountNote")}</p>
           </section>
           <div className="filter-fields">
-            <label htmlFor="categoryFilter">
-              <span>{t("categoryLabel")}</span>
-              <Select
-                id="categoryFilter"
-                value={state.category}
-                onChange={(category) => update((s) => ({ ...s, category }))}
-                options={[
-                  { value: "all", label: t("allCategories") },
-                  ...categories.map((c) => ({
-                    value: c.id,
-                    label: c[state.lang],
-                  })),
-                ]}
-              />
-            </label>
             <label htmlFor="agentFilter">
               <span>{t("agentLabel")}</span>
               <Select
@@ -645,164 +703,215 @@ function Dashboard({ state, update }) {
           </div>
         </section>
 
-        <Panel
-          id="rankings"
-          tabIndex={-1}
-          className="ranking-section"
-          bodyStyle={{ padding: 0 }}
-        >
-          <div className="ranking-header">
-            <div>
-              <h2>
-                {t("tableTitle")}{" "}
-                {visible.length !== items.length && (
-                  <Tag>{fmt(visible.length)}</Tag>
-                )}
-              </h2>
-              <p>
-                <span className="ranking-sort-prefix">
-                  {t(
-                    {
-                      rank: "sortRank",
-                      stars: "sortStars",
-                      trend: "sortTrend",
-                      updated: "sortUpdated",
-                      delta30: "sortDelta30",
-                    }[state.sort],
-                  )}{" "}
-                  ·{" "}
-                </span>
-                <span className="sr-only">
-                  {t(
-                    state.view === "card" ? "tableHintCard" : "tableHintTable",
-                  )}
-                </span>{" "}
-                <a
-                  href={localFile("docs/methodology.md")}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {t("methodTitle")}
-                </a>
-              </p>
-              <section
-                className="statistics compact-statistics"
-                aria-label="Aggregate statistics"
-              >
-                <span>
-                  {t("repos")} <strong>{fmt(items.length)}</strong>
-                </span>
-                <Tooltip title={t("newWeekHelp")}>
-                  <button
-                    type="button"
-                    data-testid="new-this-week"
-                    aria-pressed={state.newOnly}
-                    onClick={() =>
-                      update((s) => ({ ...s, newOnly: !s.newOnly }))
-                    }
-                  >
-                    {t("statNewWeek")} <strong>{fmt(newcomers)}</strong>
-                  </button>
-                </Tooltip>
-                <span>
-                  {t("statNet7d")}{" "}
-                  <strong>
-                    {net7 > 0 ? "+" : ""}
-                    {fmt(net7)}
-                  </strong>
-                </span>
-                <span>
-                  {t("statRecentPush")}{" "}
-                  <strong>
-                    {fmt(recentCount)} / {fmt(items.length)}
-                  </strong>
-                </span>
-                <UpdateStatus
-                  generatedAt={dataset.metadata?.generated_at}
-                  collection={dataset.metadata?.collection}
-                  lang={state.lang}
-                  t={t}
-                />
-              </section>
-            </div>
-            <Space wrap size={8}>
-              {editorialPicks(visible).length > 0 && (
-                <Button type="link" href="#beginner-paths">
-                  {t("editorialTitle")}
-                </Button>
-              )}
-              <Button
-                type="link"
-                href="#data-insights"
-                onClick={(event) => {
-                  event.preventDefault();
-                  setInsightsJump(true);
-                }}
-              >
-                {t("insightsTitle")} ↓
-              </Button>
-              <details className="export-menu">
-                <summary>{t("exportMenu")} ⌄</summary>
-                <div
-                  className="export-options"
-                  role="group"
-                  aria-label={t("exportMenu")}
-                >
-                  <button
-                    type="button"
-                    disabled={!state.favorites.length}
-                    onClick={exportFavorites}
-                  >
-                    {t("exportFav")}
-                  </button>
-                  <a
-                    download="rankings.json"
-                    href={localFile("data/rankings.json")}
-                  >
-                    {t("downloadJson")}
-                  </a>
-                  <a
-                    download="rankings.csv"
-                    href={localFile("data/rankings.csv")}
-                  >
-                    {t("downloadCsv")}
-                  </a>
-                </div>
-              </details>
-            </Space>
-          </div>
-          <DailyArrivals {...{ items, state, update, t }} />
-          <ActiveFilters
-            {...{ state, update, categories, t }}
-            empty={!visible.length}
-          />
-          <RepositoryViews
-            {...{
-              items: visible,
-              filterHeight,
-              onReady: onRankingReady,
-              state,
-              update,
-              toggleCompare,
-              t,
-              fmt,
-              history: historyData,
-            }}
-          />
-        </Panel>
-        <div id="beginner-paths">
-          <EditorialPicks items={visible} state={state} t={t} />
-        </div>
-        <ViewportInsights
-          enabled={readyView === rankingKey}
-          items={visible}
-          allItems={items}
-          history={historyData}
-          generatedAt={dataset.metadata?.generated_at}
-          state={state}
-          update={update}
-          t={t}
+        <ActiveFilters
+          {...{ state, update, categories, t }}
+          empty={!visible.length}
         />
+        <div
+          id="panel-ranking"
+          role="tabpanel"
+          aria-labelledby="tab-ranking"
+          hidden={state.section !== "ranking"}
+        >
+          <Panel
+            id="rankings"
+            tabIndex={-1}
+            className="ranking-section"
+            bodyStyle={{ padding: 0 }}
+          >
+            <div className="ranking-header">
+              <div>
+                <h2>
+                  {t("tableTitle")}{" "}
+                  {visible.length !== scopeItems.length && (
+                    <Tag>{fmt(visible.length)}</Tag>
+                  )}
+                </h2>
+                <div className="ranking-status-line">
+                  <span>
+                    {t(
+                      {
+                        rank: "rankByStars",
+                        stars: "rankByStars",
+                        trend: "sortTrend",
+                        updated: "sortUpdated",
+                        delta30: "sortDelta30",
+                      }[state.sort],
+                    )}
+                  </span>
+                  <span aria-hidden="true">·</span>
+                  <UpdateStatus
+                    generatedAt={dataset.metadata?.generated_at}
+                    collection={dataset.metadata?.collection}
+                    lang={state.lang}
+                    t={t}
+                    compact
+                  />
+                  <Button
+                    type="link"
+                    onClick={() => setOverviewOpen((value) => !value)}
+                    aria-expanded={overviewOpen}
+                    aria-controls="data-overview"
+                  >
+                    {t("dataOverview")} {overviewOpen ? "⌃" : "⌄"}
+                  </Button>
+                </div>
+                <section
+                  id="data-overview"
+                  hidden={!overviewOpen}
+                  className="statistics compact-statistics"
+                  aria-label="Aggregate statistics"
+                >
+                  <span>
+                    {t("repos")} <strong>{fmt(scopeItems.length)}</strong>
+                  </span>
+                  <Tooltip title={t("newWeekHelp")}>
+                    <button
+                      type="button"
+                      data-testid="new-this-week"
+                      aria-pressed={state.newOnly}
+                      onClick={() =>
+                        update((s) => ({ ...s, newOnly: !s.newOnly }))
+                      }
+                    >
+                      {t("statNewWeek")} <strong>{fmt(newcomers)}</strong>
+                    </button>
+                  </Tooltip>
+                  <span>
+                    {t("statNet7d")}{" "}
+                    <strong>
+                      {net7 > 0 ? "+" : ""}
+                      {fmt(net7)}
+                    </strong>
+                  </span>
+                  <span>
+                    {t("statRecentPush")}{" "}
+                    <strong>
+                      {fmt(recentCount)} / {fmt(scopeItems.length)}
+                    </strong>
+                  </span>
+                  <a
+                    href={localFile("docs/methodology.md")}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {t("methodTitle")}
+                  </a>
+                </section>
+              </div>
+              <Space wrap size={8}>
+                <label className="related-scope-control">
+                  <ScopeSwitch
+                    size="small"
+                    data-testid="include-related"
+                    checked={state.includeRelated}
+                    aria-label={t("includeRelated")}
+                    onChange={(includeRelated) =>
+                      update((s) => ({
+                        ...s,
+                        includeRelated,
+                        todayOnly:
+                          !includeRelated && s.todayOnly === "related"
+                            ? ""
+                            : s.todayOnly,
+                      }))
+                    }
+                  />
+                  <span>
+                    {t("includeRelated")} {relatedCount}
+                  </span>
+                </label>
+                {editorialPicks(visible).length > 0 && (
+                  <Button type="link" href="#beginner-paths">
+                    {t("editorialTitle")}
+                  </Button>
+                )}
+                <details className="export-menu">
+                  <summary>{t("exportMenu")} ⌄</summary>
+                  <div
+                    className="export-options"
+                    role="group"
+                    aria-label={t("exportMenu")}
+                  >
+                    <button
+                      type="button"
+                      disabled={!state.favorites.length}
+                      onClick={exportFavorites}
+                    >
+                      {t("exportFav")}
+                    </button>
+                    <a
+                      download="rankings.json"
+                      href={localFile("data/rankings.json")}
+                    >
+                      {t("downloadJson")}
+                    </a>
+                    <a
+                      download="rankings.csv"
+                      href={localFile("data/rankings.csv")}
+                    >
+                      {t("downloadCsv")}
+                    </a>
+                  </div>
+                </details>
+              </Space>
+            </div>
+            <DailyArrivals {...{ items, state, update, t }} />
+            <RepositoryViews
+              {...{
+                items: visible,
+                filterHeight: filterHeight + (stickySearchVisible ? 48 : 0),
+                state,
+                update,
+                toggleCompare,
+                t,
+                fmt,
+                history: historyData,
+              }}
+            />
+          </Panel>
+          <div id="beginner-paths">
+            <EditorialPicks items={visible} state={state} t={t} />
+          </div>
+        </div>
+        <div
+          id="panel-insights"
+          role="tabpanel"
+          aria-labelledby="tab-insights"
+          hidden={state.section !== "insights"}
+        >
+          {state.section === "insights" && (
+            <>
+              <label className="related-scope-control insights-scope-control">
+                <ScopeSwitch
+                  size="small"
+                  checked={state.includeRelated}
+                  aria-label={t("includeRelated")}
+                  onChange={(includeRelated) =>
+                    update((s) => ({
+                      ...s,
+                      includeRelated,
+                      todayOnly:
+                        !includeRelated && s.todayOnly === "related"
+                          ? ""
+                          : s.todayOnly,
+                    }))
+                  }
+                />
+                {t("includeRelated")} {relatedCount}
+              </label>
+              <ViewportInsights
+                  items={visible}
+                allItems={scopeItems}
+                history={historyData}
+                generatedAt={dataset.metadata?.generated_at}
+                state={state}
+                update={update}
+                t={t}
+              />
+            </>
+          )}
+        </div>
         <DataTransparency t={t} base={base} />
       </main>
       <Reveal as="footer" className="site-footer container">
