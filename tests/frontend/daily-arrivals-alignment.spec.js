@@ -21,8 +21,10 @@ for(const lang of ['zh','en'])test(`daily title, projects and lightweight action
 for(const width of [320,390])test(`daily projects and action remain usable at ${width}px`,async({page})=>{
  await fixture(page);await page.setViewportSize({width,height:844});await page.goto('./');
  const section=page.getByTestId('daily-arrivals');await expect(section.getByTestId('today-skills-filter')).toBeVisible();
- const title=await section.locator('.daily-arrivals-title').boundingBox(),action=await section.getByTestId('today-skills-filter').boundingBox();
- expect(Math.abs(title.y+title.height/2-action.y-action.height/2)).toBeLessThan(1);
+ await expect.poll(()=>section.evaluate(el=>{
+  const title=el.querySelector('.daily-arrivals-title').getBoundingClientRect(),action=el.querySelector('[data-testid="today-skills-filter"]').getBoundingClientRect();
+  return Math.abs(title.y+title.height/2-action.y-action.height/2);
+ })).toBeLessThan(1);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBe(width);
  await section.getByRole('button',{name:'example/first-research-skill',exact:true}).click();await expect(page.getByRole('dialog')).toBeVisible();
 });
