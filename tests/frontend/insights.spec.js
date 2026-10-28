@@ -3,7 +3,7 @@ import { matchesResearchTask, RESEARCH_TASKS } from "../../src/domain.js";
 import { readFileSync } from "node:fs";
 const items = JSON.parse(
   readFileSync(new URL("../../data/rankings.json", import.meta.url), "utf8"),
-).items;
+).items.filter((item) => ["skill", "related"].includes(item.repository_kind));
 const stale = items.find((item) => item.stale);
 test("real charts render, filter by category, change window and open repository details", async ({
   page,

@@ -4,6 +4,8 @@ import { filterItems, restoreState, RESEARCH_TASKS, matchesResearchTask } from "
 const data = JSON.parse(
   readFileSync(new URL("../../data/rankings.json", import.meta.url), "utf8"),
 );
+// Pending types are excluded from the visible scope, including related mode.
+data.items = data.items.filter((item) => ["skill", "related"].includes(item.repository_kind));
 const reviewCount = filterItems(data.items, {
   ...restoreState(null, "#related=1", {}, data.items),
   task: "review",

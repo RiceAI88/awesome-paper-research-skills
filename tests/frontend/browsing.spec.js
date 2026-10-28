@@ -4,6 +4,8 @@ import { filterItems, restoreState } from "../../src/domain.js";
 const data = JSON.parse(
   readFileSync(new URL("../../data/rankings.json", import.meta.url), "utf8"),
 );
+// Pending types are excluded from the visible scope, including related mode.
+data.items = data.items.filter((item) => ["skill", "related"].includes(item.repository_kind));
 async function openRow(page, index) {
   await page.locator(".ant-table-row").first().waitFor();
   while (await page.locator(".ant-table-row").count() <= index) await page.getByTestId("load-more").click();

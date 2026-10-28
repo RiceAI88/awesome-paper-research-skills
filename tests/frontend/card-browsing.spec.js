@@ -3,6 +3,8 @@ import { readFileSync } from "node:fs";
 const data = JSON.parse(
   readFileSync(new URL("../../data/rankings.json", import.meta.url), "utf8"),
 );
+// Pending types are excluded from the visible scope, including related mode.
+data.items = data.items.filter((item) => ["skill", "related"].includes(item.repository_kind));
 for (const view of ["table", "card"])
   test(`${view} starts with 30 and loads batches without limiting search`, async ({
     page,

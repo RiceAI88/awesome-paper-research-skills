@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { filterItems, restoreState } from "../../src/domain.js";
 const items = JSON.parse(
   readFileSync(new URL("../../data/rankings.json", import.meta.url), "utf8"),
-).items;
+).items.filter((item) => ["skill", "related"].includes(item.repository_kind));
 const narrowCount = String(
   filterItems(items, {
     ...restoreState(null, "#related=1", {}, items),

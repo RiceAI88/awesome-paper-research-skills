@@ -6,7 +6,9 @@ test("partial collection and cached repository data are visible without changing
   const item = { ...dataset.items[0], refresh_status: "pending", skills_count: null, repository_kind: "unknown" };
   await page.route("**/data/rankings.js*", route => route.fulfill({ contentType: "application/javascript", body: `window.ACADEMIC_SKILLS_RANKINGS=${JSON.stringify({ metadata: { ...dataset.metadata, collection: { status: "partial" } }, items: [item] })};` }));
   await page.goto("./#view=table&repo="+encodeURIComponent(item.repo));
+  await expect(page.getByRole("dialog")).toBeVisible();
   await page.keyboard.press("Escape");
+  await expect(page.getByRole("dialog")).not.toBeVisible();
   await page.getByTestId("update-status").hover();
   await expect(page.getByRole("tooltip")).toContainText("部分");
   await page.goto("./#repo="+encodeURIComponent(item.repo));

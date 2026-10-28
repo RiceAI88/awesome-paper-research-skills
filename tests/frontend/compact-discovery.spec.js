@@ -4,6 +4,8 @@ import { isNewThisWeek, filterItems, restoreState } from "../../src/domain.js";
 const dataset = JSON.parse(
   readFileSync(new URL("../../data/rankings.json", import.meta.url), "utf8"),
 );
+// Pending types are excluded from the visible scope, including related mode.
+dataset.items = dataset.items.filter((item) => ["skill", "related"].includes(item.repository_kind));
 test("compact first screen groups stats below controls and exposes visitor copy", async ({
   page,
 }) => {
