@@ -7,6 +7,10 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: { main: resolve("index.html"), en: resolve("en/index.html") },
+      // Combine the existing startup graph; dynamic features remain separate.
+      output: {
+        codeSplitting: { groups: [{ name: "initial", tags: ["$initial"] }] },
+      },
     },
   },
 });

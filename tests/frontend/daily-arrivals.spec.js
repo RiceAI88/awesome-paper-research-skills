@@ -54,3 +54,12 @@ test('an empty shared today filter can return directly to the full ranking',asyn
  await page.getByTestId('today-skills-filter').click();
  await expect(page.getByTestId('repo-card')).toHaveCount(2);
 });
+
+test('pointer focus cannot shift an arrival entry away before its click completes',async({page})=>{
+ await fixture(page);await page.goto('./');
+ const section=page.getByTestId('daily-arrivals');
+ await expect(section).toHaveCSS('transform','none');
+ await section.evaluate(el=>el.style.transform='translateY(14px)');
+ await section.getByRole('button',{name:'new/research-skill',exact:true}).click();
+ await expect(page.getByRole('dialog')).toBeVisible();
+});

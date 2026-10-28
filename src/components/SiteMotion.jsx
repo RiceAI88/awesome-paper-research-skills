@@ -96,9 +96,12 @@ export function Reveal({ as: Element = "div", kind = "section", order = 0, child
 
   return <Element {...props} ref={attach} data-motion={kind}
     onFocusCapture={(event) => {
-      // Keyboard focus never lands on hidden or moving content.
-      entered.current = true;
-      finish();
+      // Pointer focus must not move the target between pointerdown and click.
+      // Keyboard focus still settles content before the user interacts with it.
+      if (event.target.matches(":focus-visible")) {
+        entered.current = true;
+        finish();
+      }
       onFocusCapture?.(event);
     }}
     onPointerEnter={(event) => {
