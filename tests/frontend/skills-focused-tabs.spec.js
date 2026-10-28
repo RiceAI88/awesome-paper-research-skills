@@ -109,7 +109,7 @@ test("overview is collapsed and scenes remain clickable alongside sticky search"
   await page.locator("#stickySearchInput").fill("no-such-repo-123456");
   await expect(page.getByTestId("ranking-empty")).toBeVisible();
 });
-test("arrivals are a purple dot with tooltip, zero growth is a dash and 90-day status is factual", async ({
+test("arrivals use one short purple new badge with tooltip, zero growth is a dash and 90-day status is factual", async ({
   page,
 }) => {
   const now = "2026-10-28T03:00:00Z";
@@ -132,9 +132,9 @@ test("arrivals are a purple dot with tooltip, zero growth is a dash and 90-day s
   );
   await page.goto("./");
   const card = page.getByTestId("repo-card").first();
-  await expect(card.locator(".daily-new-badge")).toHaveCount(0);
-  await expect(card.locator(".arrival-dot")).toHaveCount(1);
-  await card.locator(".arrival-dot").focus();
+  await expect(card.locator(".daily-new-badge")).toHaveCount(1);
+  await expect(card.locator(".card-top .daily-new-badge")).toHaveText("新");
+  await card.locator(".daily-new-badge").focus();
   await expect(page.getByRole("tooltip")).toContainText("今日新收录");
   await expect(card.locator(".card-growth strong")).toHaveText("—");
   await expect(card.locator(".card-maintenance")).toHaveText("90 天未更新");

@@ -969,14 +969,7 @@ a:focus-visible,
   color: #efb68f;
   background: #513828;
 }
-.arrival-dot {
-  width: 6px;
-  height: 6px;
-  display: inline-block;
-  flex: 0 0 6px;
-  background: var(--prs-primary);
-  border-radius: 50%;
-}
+
 .card-key-metrics .card-growth {
   white-space: nowrap;
 }

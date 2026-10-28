@@ -261,10 +261,12 @@ export function RepositoryViews({
                         trigger={["hover", "focus"]}
                       >
                         <span
-                          className="arrival-dot"
+                          className="daily-new-badge"
                           tabIndex={0}
                           aria-label={t("dailyBadge")}
-                        />
+                        >
+                          {t("newShort")}
+                        </span>
                       </Tooltip>
                     )}
                   </div>
