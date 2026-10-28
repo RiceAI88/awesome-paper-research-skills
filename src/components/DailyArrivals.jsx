@@ -17,8 +17,10 @@ export function DailyArrivals({ items, state, update, t }) {
         {related.length > 0 && <Button type="text" data-testid="today-related-filter" aria-pressed={state.todayOnly === 'related'} onClick={() => choose('related')}>
           {t('dailyRelated')} {related.length}
         </Button>}
-        <Button size="small" data-testid="today-skills-filter" disabled={!skills.length && state.todayOnly !== 'skill'} aria-pressed={state.todayOnly === 'skill'} onClick={() => choose('skill')}>
-          {t(state.todayOnly === 'skill' ? 'dailyShowAll' : 'dailyView')}
+        <Button type="text" size="small" className="daily-arrivals-link" data-testid="today-skills-filter" disabled={!skills.length && state.todayOnly !== 'skill'} aria-pressed={state.todayOnly === 'skill'} onClick={() => choose('skill')}>
+          {state.todayOnly === 'skill' && <span aria-hidden="true">←</span>}
+          <span>{t(state.todayOnly === 'skill' ? 'dailyShowAll' : 'dailyView')}</span>
+          {state.todayOnly !== 'skill' && <span aria-hidden="true">→</span>}
         </Button>
       </div>
     </div>

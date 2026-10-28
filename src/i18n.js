@@ -15,7 +15,7 @@ export const translations = {
     dailySkills: "今日新增 Skills",
     dailyScope: "本站首次收录 · 北京时间",
     dailyRelated: "今日新增科研相关项目",
-    dailyView: "查看今日 Skills",
+    dailyView: "查看全部",
     dailyShowAll: "返回完整榜单",
     dailyEmpty: "今日暂无新增 Skills，仍可浏览完整榜单和本周新收录。",
     dailyBadge: "今日新收录",
@@ -275,7 +275,7 @@ export const translations = {
     dailySkills: "New Skills today",
     dailyScope: "First listed here · Beijing time",
     dailyRelated: "New research-related projects today",
-    dailyView: "View today's Skills",
+    dailyView: "View all",
     dailyShowAll: "Show full ranking",
     dailyEmpty:
       "No new Skills today. Explore the full ranking or this week's additions.",
