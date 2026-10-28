@@ -101,6 +101,7 @@ function NoData({ text }) {
 export default function Insights({
   items,
   allItems,
+  scopeControl,
   history,
   generatedAt,
   state,
@@ -332,6 +333,7 @@ export default function Insights({
           </p>
         </div>
         <div className="insights-actions">
+          {scopeControl}
           <label className="history-window">
             <span>{state.lang === "zh" ? "增长曲线窗口" : "Trend window"}</span>
             <Select

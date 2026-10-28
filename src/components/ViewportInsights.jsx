@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from "react";
 import { Reveal } from "./SiteMotion";
 import { ChartBoundary } from "./ChartBoundary";
 const Insights = lazy(() => import("./Insights"));
-function Placeholder({ t, count, loading = false }) {
+function Placeholder({ t, count, scopeControl, loading = false }) {
   return (
     <section
       className="insights insights-placeholder"
@@ -17,7 +17,10 @@ function Placeholder({ t, count, loading = false }) {
             {t("insightsScope")} <b>{count}</b> {t("repos")}
           </p>
         </div>
-        {loading && <p role="status">{t("chartsLoading")}</p>}
+        <div className="insights-actions">
+          {scopeControl}
+          {loading && <p role="status">{t("chartsLoading")}</p>}
+        </div>
       </div>
       {[
         ["insightGrowth", "sceneDistribution"],
@@ -43,7 +46,7 @@ export function ViewportInsights(props) {
       <ChartBoundary fallback={props.t("chartUnavailable")}>
         <Suspense
           fallback={
-            <Placeholder t={props.t} count={props.items.length} loading />
+            <Placeholder t={props.t} count={props.items.length} scopeControl={props.scopeControl} loading />
           }
         >
           <Insights {...props} />

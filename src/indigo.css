@@ -892,10 +892,25 @@ a:focus-visible,
   max-width: 600px;
 }
 .ranking-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
+  gap: 6px 24px;
+}
+.ranking-header > div:first-child {
+  display: contents;
+}
+.ranking-header h2 {
+  grid-area: 1 / 1;
+  margin: 0;
 }
 .ranking-header > .ant-space {
+  grid-area: 1 / 2;
   margin-top: 0;
+}
+.ranking-status-line,
+.ranking-header .compact-statistics {
+  grid-column: 1 / -1;
 }
 .ranking-status-line {
   display: flex;
@@ -935,9 +950,8 @@ a:focus-visible,
   white-space: nowrap;
 }
 .insights-scope-control {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 12px;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 .medal-rank {
   padding: 2px 8px;
@@ -998,7 +1012,12 @@ a:focus-visible,
 }
 .insights-heading {
   border: 0;
-  padding: 0 0 18px;
+  gap: 12px 24px;
+  padding: 0 0 16px;
+}
+.insights-actions {
+  flex-wrap: wrap;
+  gap: 8px 20px;
 }
 .insights-heading h2 {
   position: absolute;
@@ -1155,9 +1174,19 @@ a:focus-visible,
     padding: 16px 10px;
   }
   .ranking-header > .ant-space {
-    width: 100%;
+    width: auto;
     flex-wrap: wrap !important;
-    gap: 8px 16px !important;
+    justify-content: flex-end;
+    gap: 8px 12px !important;
+  }
+  .ranking-header {
+    gap: 8px 12px;
+  }
+  .ranking-status-line {
+    grid-row: 2;
+  }
+  .ranking-header .compact-statistics {
+    grid-row: 3;
   }
   .related-scope-control {
     max-width: 100%;
@@ -1173,8 +1202,17 @@ a:focus-visible,
   .daily-arrival-entry {
     flex: 0 0 75%;
   }
+  .insights-heading {
+    gap: 10px;
+    padding-bottom: 12px;
+  }
   .insights-actions {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
+    gap: 8px 12px;
   }
 }
 

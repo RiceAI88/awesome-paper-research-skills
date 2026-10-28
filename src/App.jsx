@@ -868,35 +868,35 @@ function Dashboard({ state, update }) {
           hidden={state.section !== "insights"}
         >
           {state.section === "insights" && (
-            <>
-              <label className="related-scope-control insights-scope-control">
-                <ScopeSwitch
-                  size="small"
-                  checked={state.includeRelated}
-                  aria-label={t("includeRelated")}
-                  onChange={(includeRelated) =>
-                    update((s) => ({
-                      ...s,
-                      includeRelated,
-                      todayOnly:
-                        !includeRelated && s.todayOnly === "related"
-                          ? ""
-                          : s.todayOnly,
-                    }))
-                  }
-                />
-                {t("includeRelated")} {relatedCount}
-              </label>
-              <ViewportInsights
-                  items={visible}
-                allItems={scopeItems}
-                history={historyData}
-                generatedAt={dataset.metadata?.generated_at}
-                state={state}
-                update={update}
-                t={t}
-              />
-            </>
+            <ViewportInsights
+              scopeControl={
+                <label className="related-scope-control insights-scope-control">
+                  <ScopeSwitch
+                    size="small"
+                    checked={state.includeRelated}
+                    aria-label={t("includeRelated")}
+                    onChange={(includeRelated) =>
+                      update((s) => ({
+                        ...s,
+                        includeRelated,
+                        todayOnly:
+                          !includeRelated && s.todayOnly === "related"
+                            ? ""
+                            : s.todayOnly,
+                      }))
+                    }
+                  />
+                  {t("includeRelated")} {relatedCount}
+                </label>
+              }
+              items={visible}
+              allItems={scopeItems}
+              history={historyData}
+              generatedAt={dataset.metadata?.generated_at}
+              state={state}
+              update={update}
+              t={t}
+            />
           )}
         </div>
         <DataTransparency t={t} base={base} />
