@@ -31,6 +31,11 @@
       "first_seen_date": "2026-09-27",
       "first_seen_is_baseline": false
     },
+    "917dhj/deeppapernote": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T08:55:06Z",
+      "first_seen_is_baseline": false
+    },
     "aarongig/pdf2zh-desktop": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:05:57Z",
@@ -41,6 +46,11 @@
       "first_seen_at": "2026-10-28T05:55:35Z",
       "first_seen_is_baseline": false
     },
+    "accumulatemore/cv": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T08:55:06Z",
+      "first_seen_is_baseline": false
+    },
     "ace-trump-tech/paper-harness": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:17:18Z",
@@ -49,6 +59,11 @@
     "achuan-2/illustrator_sci_toolbox": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:05:57Z",
+      "first_seen_is_baseline": false
+    },
+    "achuan-2/slidesci": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T08:55:06Z",
       "first_seen_is_baseline": false
     },
     "adkid-zephyr/anti-defensive-writing-skill": {
@@ -62,6 +77,16 @@
     "afishinlake/wordformat": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:17:18Z",
+      "first_seen_is_baseline": false
+    },
+    "afrozsaqlain/papr": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T08:55:06Z",
+      "first_seen_is_baseline": false
+    },
+    "agentichealthai/awesome-ai-agents-for-healthcare": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T08:55:06Z",
       "first_seen_is_baseline": false
     },
     "ahmadhassan-bted/turnitout-humanizer": {
@@ -79,9 +104,24 @@
       "first_seen_at": "2026-10-27T16:17:18Z",
       "first_seen_is_baseline": false
     },
+    "ai45lab/awesome-trustworthy-embodied-ai": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T08:55:06Z",
+      "first_seen_is_baseline": false
+    },
     "ai4s-research/ai4s-skills": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:17:18Z",
+      "first_seen_is_baseline": false
+    },
+    "ai4scientist/awesome-autoresearch": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T08:55:06Z",
+      "first_seen_is_baseline": false
+    },
+    "ai4scientist/nano-scientist": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T08:55:06Z",
       "first_seen_is_baseline": false
     },
     "aipoch/medical-research-skills": {
@@ -92,6 +132,11 @@
       "first_seen_date": "2026-09-27",
       "first_seen_is_baseline": false
     },
+    "alchaincyf/darwin-skill": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T08:55:06Z",
+      "first_seen_is_baseline": false
+    },
     "alephpi/texo": {
       "first_seen_date": "2026-09-27",
       "first_seen_is_baseline": false
@@ -99,6 +144,16 @@
     "alfonso0512/research-writing-skill": {
       "first_seen_date": "2026-08-27",
       "first_seen_is_baseline": true
+    },
+    "algorineko/agenticarxiv-rl": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T08:55:06Z",
+      "first_seen_is_baseline": false
+    },
+    "amberljc/llmsys-paperlist": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T08:55:06Z",
+      "first_seen_is_baseline": false
     },
     "amusi/cvpr2026-papers-with-code": {
       "first_seen_date": "2026-10-27",
@@ -819,6 +874,11 @@
     "octoday-hub/embodied-ai": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:05:57Z",
+      "first_seen_is_baseline": false
+    },
+    "oleafly/oleafly": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T08:55:06Z",
       "first_seen_is_baseline": false
     },
     "openags/paper-search-mcp": {

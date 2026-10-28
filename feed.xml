@@ -5,39 +5,47 @@
     <link>https://riceai88.github.io/awesome-paper-research-skills/</link>
     <description>每日自动更新的学术论文与科研 Agent Skill 排行榜 · Daily ranking of academic research agent skills on GitHub</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 28 Oct 2026 05:55:35 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 28 Oct 2026 08:55:06 +0000</lastBuildDate>
     <atom:link href="https://riceai88.github.io/awesome-paper-research-skills/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>binary-husky/gpt_academic (71,566★, +4/7d)</title>
+      <title>binary-husky/gpt_academic (71,566★, +0/7d)</title>
       <link>https://github.com/binary-husky/gpt_academic</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#binary-husky/gpt_academic</guid>
       <description>为GPT/GLM等LLM大语言模型提供实用化交互接口，特别优化论文阅读/润色/写作体验，模块化设计，支持自定义快捷按钮&amp;函数插件，支持Python和C++等项目剖析&amp;自译解功能，PDF/LaTex论文翻译&amp;总结功能，支持并行问询多种LLM模型，支持chatglm3等本地模型。接入通义千问, deepseekcoder, 讯飞星火, 文心一言, llama2, rwkv, claude2, mos…</description>
       <category>Paper Writing</category>
-      <pubDate>Wed, 28 Oct 2026 05:55:35 +0000</pubDate>
+      <pubDate>Wed, 28 Oct 2026 08:55:06 +0000</pubDate>
     </item>
     <item>
-      <title>mli/paper-reading (34,032★, +2/7d)</title>
+      <title>mli/paper-reading (34,032★, +0/7d)</title>
       <link>https://github.com/mli/paper-reading</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#mli/paper-reading</guid>
       <description>深度学习经典、新论文逐段精读</description>
       <category>Discipline Specific</category>
-      <pubDate>Wed, 28 Oct 2026 05:55:35 +0000</pubDate>
+      <pubDate>Wed, 28 Oct 2026 08:55:06 +0000</pubDate>
     </item>
     <item>
-      <title>amusi/CVPR2026-Papers-with-Code (22,928★, +1/7d)</title>
+      <title>AccumulateMore/CV (24,148★, +0/7d)</title>
+      <link>https://github.com/AccumulateMore/CV</link>
+      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#AccumulateMore/CV</guid>
+      <description>✅（已完结）超级全面的 深度学习 笔记【土堆 Pytorch】【李沐 动手学深度学习】【吴恩达 深度学习】【大飞 大模型Agent】</description>
+      <category>Discipline Specific</category>
+      <pubDate>Wed, 28 Oct 2026 08:55:06 +0000</pubDate>
+    </item>
+    <item>
+      <title>amusi/CVPR2026-Papers-with-Code (22,929★, +1/7d)</title>
       <link>https://github.com/amusi/CVPR2026-Papers-with-Code</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#amusi/CVPR2026-Papers-with-Code</guid>
       <description>CVPR 2026 论文和开源项目合集</description>
       <category>Discipline Specific</category>
-      <pubDate>Wed, 28 Oct 2026 05:55:35 +0000</pubDate>
+      <pubDate>Wed, 28 Oct 2026 08:55:06 +0000</pubDate>
     </item>
     <item>
-      <title>kaixindelele/ChatPaper (19,972★, +0/7d)</title>
+      <title>kaixindelele/ChatPaper (19,974★, +2/7d)</title>
       <link>https://github.com/kaixindelele/ChatPaper</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#kaixindelele/ChatPaper</guid>
       <description>Use ChatGPT to summarize the arXiv papers. 全流程加速科研，利用chatgpt进行论文全文总结+专业翻译+润色+审稿+审稿回复</description>
       <category>Peer Review</category>
-      <pubDate>Wed, 28 Oct 2026 05:55:35 +0000</pubDate>
+      <pubDate>Wed, 28 Oct 2026 08:55:06 +0000</pubDate>
     </item>
     <item>
       <title>extreme-assistant/CVPR2024-Paper-Code-Interpretation (12,454★, +0/7d)</title>
@@ -45,31 +53,23 @@
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#extreme-assistant/CVPR2024-Paper-Code-Interpretation</guid>
       <description>cvpr2024/cvpr2023/cvpr2022/cvpr2021/cvpr2020/cvpr2019/cvpr2018/cvpr2017 论文/代码/解读/直播合集，极市团队整理</description>
       <category>Discipline Specific</category>
-      <pubDate>Wed, 28 Oct 2026 05:55:35 +0000</pubDate>
+      <pubDate>Wed, 28 Oct 2026 08:55:06 +0000</pubDate>
     </item>
     <item>
-      <title>LAMDA-NeSy/Research-Starter-Kit (9,080★, +25/7d)</title>
+      <title>LAMDA-NeSy/Research-Starter-Kit (9,092★, +12/7d)</title>
       <link>https://github.com/LAMDA-NeSy/Research-Starter-Kit</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#LAMDA-NeSy/Research-Starter-Kit</guid>
       <description>从0开始，掌握做科研、写论文的基本流程。</description>
       <category>Discipline Specific</category>
-      <pubDate>Wed, 28 Oct 2026 05:55:35 +0000</pubDate>
+      <pubDate>Wed, 28 Oct 2026 08:55:06 +0000</pubDate>
     </item>
     <item>
-      <title>AhmadHassan-BTed/Turnitout-Humanizer (8,519★, +352/7d)</title>
+      <title>AhmadHassan-BTed/Turnitout-Humanizer (8,604★, +85/7d)</title>
       <link>https://github.com/AhmadHassan-BTed/Turnitout-Humanizer</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#AhmadHassan-BTed/Turnitout-Humanizer</guid>
       <description>FREE FOREVER, NO LIMITS 100% Programmatic, Zero-AI Plagiarism Remover &amp; Similarity Evader. Bypass Turnitin, iThenticate, GPTZero, CopyLeaks, Quillbot &amp; ZeroGPT for LaTeX, DOCX, &amp; Multi-Language Sourc…</description>
       <category>Paper Writing</category>
-      <pubDate>Wed, 28 Oct 2026 05:55:35 +0000</pubDate>
-    </item>
-    <item>
-      <title>dwzhu-pku/PaperBanana (7,467★, +8/7d)</title>
-      <link>https://github.com/dwzhu-pku/PaperBanana</link>
-      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#dwzhu-pku/PaperBanana</guid>
-      <description>PaperBanana: Automating Academic Illustration For AI Scientists</description>
-      <category>General Research</category>
-      <pubDate>Wed, 28 Oct 2026 05:55:35 +0000</pubDate>
+      <pubDate>Wed, 28 Oct 2026 08:55:06 +0000</pubDate>
     </item>
   </channel>
 </rss>
