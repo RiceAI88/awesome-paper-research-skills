@@ -1129,163 +1129,167 @@ def is_newcomer(item: dict[str, Any], window_snapshot: dict[str, Any] | None) ->
 
 
 def render_readme(data: dict[str, Any], window_snapshot: dict[str, Any] | None = None) -> str:
+    """Render the visitor guide and type-separated previews from published data.
+
+    window_snapshot is retained for callers shared with the RSS generator;
+    README arrivals use persistent first-seen records instead of snapshot absence.
+    """
     items = data["items"]
     metadata = data["metadata"]
-    top_rows = items[:50]
-    category_counts: dict[str, int] = {cat["id"]: 0 for cat in CATEGORIES}
-    category_labels = {cat["id"]: cat["zh"] for cat in CATEGORIES}
-    for item in items:
-        category_counts[item["category"]["id"]] = category_counts.get(item["category"]["id"], 0) + 1
+    skills = [item for item in items if item.get("repository_kind") == "skill"]
+    related = [item for item in items if item.get("repository_kind") == "related"]
+    pending_count = len(items) - len(skills) - len(related)
+    beijing = timezone(timedelta(hours=8))
+    generated = parse_datetime(metadata["generated_at"])
+    generated_day = generated.astimezone(beijing).date() if generated else None
+    updated = generated.astimezone(beijing).strftime("%Y-%m-%d %H:%M UTC+8") if generated else "更新时间待确认"
 
-    rows = []
-    for item in top_rows:
-        repo_link = f"[{markdown_escape(item['repo'])}]({item['url']})"
-        delta_7d = item.get("star_delta_7d", 0)
-        delta_str = f"+{delta_7d}" if delta_7d else "0"
-        trend = f"{item['trend']['zh']} (7d:{delta_str})"
-        agent = agents_to_label(item.get("agents", []))
-        rows.append(
-            "| {rank} | {repo} | {stars:,} | {trend} | {category} | {agent} | {desc} | {date} |".format(
-                rank=item["rank"],
-                repo=repo_link,
-                stars=item["stars"],
-                trend=markdown_escape(trend),
-                category=markdown_escape(item["category"]["zh"]),
-                agent=markdown_escape(agent),
-                desc=markdown_escape(truncate(item["description"], 90)),
-                date=item["last_push_date"],
+    def added_today(item: dict[str, Any]) -> bool:
+        if not generated_day or item.get("first_seen_is_baseline"):
+            return False
+        if item.get("first_seen_at") is not None:
+            try:
+                instant = datetime.fromisoformat(item["first_seen_at"].replace("Z", "+00:00"))
+                return instant.tzinfo is not None and instant.astimezone(beijing).date() == generated_day
+            except (AttributeError, TypeError, ValueError):
+                return False
+        try:
+            raw = item.get("first_seen_date", "")
+            first = date.fromisoformat(raw)
+            return first.isoformat() == raw and first == generated_day
+        except (TypeError, ValueError):
+            return False
+
+    today_skills = [item for item in skills if added_today(item)]
+
+    def preview_rows(entries: list[dict[str, Any]], limit: int) -> str:
+        rows = []
+        for position, item in enumerate(entries[:limit], 1):
+            delta = item.get("star_delta_7d") or 0
+            growth = f"{delta:+,}" if delta else "—"
+            rows.append(
+                f"| {position} | [{markdown_escape(item['repo'])}]({item['url']}) "
+                f"| {item['stars']:,} | {growth} | {markdown_escape(agents_to_label(item.get('agents', [])))} "
+                f"| {markdown_escape(truncate(item.get('description', ''), 90)) or '仓库未提供简介'} |"
             )
-        )
+        return "\n".join(rows)
 
-    # Category summary in the fixed order defined by CATEGORIES, including
-    # zero-count categories so the overview always adds up to the total.
-    category_summary = " · ".join(
-        f"{category_labels[cat_id]} {category_counts.get(cat_id, 0)}"
-        for cat_id in category_counts
-    )
-
-    # Newcomers: repos that appeared since the 7-day-ago snapshot.
-    newcomers = [item for item in items if is_newcomer(item, window_snapshot)]
-    newcomers_block = ""
-    if newcomers:
-        newcomer_lines = []
-        for item in newcomers[:10]:
-            newcomer_lines.append(
-                f"- **[{markdown_escape(item['repo'])}]({item['url']})** — {markdown_escape(truncate(item['description'], 80))} ({item['stars']:,} ⭐, {item['category']['zh']})"
-            )
-        newcomers_block = (
-            "\n## 本周新收录\n\n"
-            "近 7 天新进入榜单的仓库：\n\n"
-            + "\n".join(newcomer_lines)
-            + "\n"
-        )
+    table_header = "| # | 仓库 | Stars | 近 7 日 | 适用平台 | 作者原文简介 |\n|---:|---|---:|---:|---|---|"
+    skill_table = table_header + "\n" + preview_rows(skills, 20) if skills else "暂无已确认类型的 Skills。"
+    related_table = table_header + "\n" + preview_rows(related, 10) if related else "暂无科研相关项目。"
+    today_lines = [
+        f"- **[{markdown_escape(item['repo'])}]({item['url']})** — {markdown_escape(truncate(item.get('description', ''), 90)) or '仓库未提供简介'}"
+        for item in today_skills[:5]
+    ]
+    daily_block = "\n".join(today_lines) if today_lines else "本次更新日暂无新收录的 Skills，已有项目的 Stars 和维护数据仍会刷新。"
+    date_badge = metadata["generated_at"][:10].replace("-", "--")
 
     return f"""# Awesome Paper Research Skills
 
-> 面向中文用户的学术论文与科研 Agent Skill 每日排行榜。自动搜索、过滤并排名 GitHub 上与论文写作、文献综述、深度研究、评审反馈、实验复现相关的 Skill / Agent / Workflow 仓库。
+**发现适合你的论文科研 Skills。**
 
-[![Last update](https://img.shields.io/badge/updated-{metadata['generated_at'][:10].replace('-', '--')}-0f766e)](#今日榜单)
-[![Repositories](https://img.shields.io/badge/repositories-{metadata['total']}-2563eb)](#今日榜单)
-[![Min stars](https://img.shields.io/badge/min%20stars-{metadata['min_stars']}-334155)](#收录标准)
-[![Online dashboard](https://img.shields.io/badge/online-dashboard-b3552a)](https://riceai88.github.io/awesome-paper-research-skills/)
-[![License: MIT](https://img.shields.io/badge/license-MIT-22c55e)](LICENSE)
-[![Auto update](https://img.shields.io/badge/auto%20update-daily-6366f1)](.github/workflows/update-rankings.yml)
+汇集 GitHub 上用于文献检索、论文阅读、学术写作、科研绘图和实验复现的 Agent Skills，支持按使用场景与适用平台筛选，持续追踪新收录项目和 Stars 增长。科研相关工具、工作流与资料单独标注。
 
-[English](#english) · [可视化页面](https://riceai88.github.io/awesome-paper-research-skills/) · [English Dashboard](https://riceai88.github.io/awesome-paper-research-skills/en/) · [月报](reports/) · [JSON](data/rankings.json) · [CSV](data/rankings.csv) · [RSS](feed.xml) · [Sitemap](sitemap.xml) · [排名方法](docs/methodology.md) · [更新日志](docs/changelog.md) · [贡献指南](CONTRIBUTING.md)
+### [打开论文科研 Skills 排行榜 →]({SITE_URL}/)
 
-## 项目特色
+[![Skills](https://img.shields.io/badge/Skills-{len(skills)}-4f3bd8)](#skills-榜单)
+[![Updated](https://img.shields.io/badge/updated-{date_badge}-706b91)](#收录与更新)
+[![CI](https://github.com/RiceAI88/awesome-paper-research-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/RiceAI88/awesome-paper-research-skills/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-706b91)](LICENSE)
 
-- 🔄 **每日自动更新** — GitHub Actions 每天 02:20 UTC 运行，自动搜索、过滤、排名并提交。
-- 🧭 **稳定收录与核验状态** — 搜索发现新项目，历史项目独立复查；临时请求失败保留旧数据并标记，新增和移除原因可追溯。
-- 🏷️ **项目类型** — 根据默认分支 `SKILL.md` 文件检测区分 Skills、科研相关项目和待核验类型；不以文件数量代替质量或安装验证。
-- 🎯 **精准双重信号过滤** — 必须同时命中"Skill/Agent/Workflow"与"Academic/Research/Paper"信号，挡住泛 AI 项目。
-- 📈 **7 天 / 30 天趋势窗口** — 基于历史快照计算一周 Stars 增量，并展示 30 天 sparkline 趋势曲线，告别单日抖动假象。
-- 🆕 **本周新收录** — 自动识别近 7 天新进入榜单的仓库。
-- 🏷️ **适用 Agent 标签** — 推断每个仓库面向 Claude Code / Codex / OpenCode / Cursor / Gemini / MCP。
-- 🌐 **双语可视化** — 中文优先，支持英文切换、搜索、分类筛选与多维度排序。
-- 🎨 **深色模式 & 卡片视图** — 一键切换明暗主题，表格 / 卡片双视图，仓库详情抽屉，收藏夹与 URL 状态分享。
-- ⌨️ **键盘快捷键** — `/` 搜索 · `t` 主题 · `l` 语言 · `v` 视图 · `f` 收藏 · `Esc` 关闭。
-- 🔍 **SEO & 订阅** — 提供 sitemap、Open Graph、JSON-LD 结构化数据与 RSS 订阅源，方便被搜索引擎和 RSS 阅读器发现。
-- 📦 **机器可读** — 提供 JSON / CSV 数据文件（含 license、forks、open issues 等字段），方便二次开发与订阅。
+[今日新增](#今日新增-skills) · [Skills 榜单](#skills-榜单) · [科研相关项目](#科研相关项目) · [收录与更新](#收录与更新) · [推荐项目](CONTRIBUTING.md) · [English](#english)
 
-## 今日榜单
+[![论文科研 Skills 排行榜：场景筛选、项目卡片和今日新增](assets/readme-dashboard.png)]({SITE_URL}/)
 
-- 更新时间：`{metadata['generated_at']}`
-- 收录门槛：GitHub Stars ≥ `{metadata['min_stars']}`，排除 fork、归档仓库和明显非学术项目。
-- 精准规则：必须同时命中 Skill/Agent/Workflow 信号 **和** Academic/Research/Paper 信号。
-- 趋势指标：基于近 7 天新增 Stars、最近 push 时间、新仓库加权和总体 Stars 规模综合计算。
-- 分类概览：{category_summary or "暂无数据"}
+*界面预览；图片中的数量仅代表截图时的数据，最新结果以网站为准。*
 
-| # | 仓库 | Stars | 趋势 | 分类 | 适用 Agent | 简介 | 最近更新 |
-|---:|---|---:|---|---|---|---|---|
-{chr(10).join(rows) if rows else "| - | - | - | - | - | - | 暂无符合条件的仓库 | - |"}
-{newcomers_block}
-## 分类标准
+## 按科研任务找 Skills
 
-| 分类 | 说明 |
+| 你想做什么 | 从这里开始 |
 |---|---|
-| 深度研究 | 多阶段 research agent、source validation、autonomous discovery、deep research workflow |
-| 论文写作 | 论文构思、写作、润色、LaTeX、proofreading、revision |
-| 文献综述 | literature survey、citation、bibliography、source collection |
-| 评审反馈 | peer review、reviewer feedback、critique、referee report |
-| 实验复现 | experiment design、benchmark、evaluation、reproducibility |
-| 学科专项 | 面向经济学、生物、医学、ML/CV/NLP 等具体领域 |
-| 综合研究 | 覆盖多个科研流程的通用 research skill |
+| 查找论文、检索参考文献 | [找文献]({SITE_URL}/#task=find) |
+| 阅读、总结或翻译论文 | [读论文]({SITE_URL}/#task=read) |
+| 整理写作思路、修改表达、处理 LaTeX | [写论文]({SITE_URL}/#task=write) |
+| 制作论文配图、图表和科研示意图 | [科研绘图]({SITE_URL}/#task=figures) |
+| 复现实验、运行评估与基准测试 | [实验复现]({SITE_URL}/#task=reproduce) |
+| 准备投稿、审稿与返修回复 | [投稿审稿]({SITE_URL}/#task=review) |
 
-## 使用方式
+一个项目可以用于多个场景。网站默认只展示有 `SKILL.md` 文件证据的 Skills；需要科研工具或资料时，可打开“含科研相关项目”。
 
-1. 浏览上方榜单，优先查看 Stars、趋势（7 天增量）和分类。
-2. 打开 [可视化页面](https://riceai88.github.io/awesome-paper-research-skills/) 使用搜索、分类筛选、排序和中英文切换。
-3. 机器读取请使用 [data/rankings.json](data/rankings.json) 或 [data/rankings.csv](data/rankings.csv)。
-4. 如需推荐新仓库，提交 Issue（附仓库链接和一句推荐理由）或直接 PR 修改 `config/ranking.json`。
+## 网站怎么用
 
-## 收录标准
+- **发现新项目**：查看“今日新增”，也可按近 7 日增长、趋势或最近更新排序。
+- **找到适合的平台**：搜索关键词，按 Claude Code、Codex、Cursor、MCP 等适用平台筛选；平台信息来自项目声明与规则识别，安装前以项目文档为准。
+- **查看使用条件**：点击卡片打开详情，查看安装入口、适用任务、必要依赖与维护信息；已记录安装核对的项目提供核对记录。
+- **收藏与对比**：收藏感兴趣的项目，加入对比后比较任务、安装方式、依赖和维护状态；收藏保存在当前浏览器。
+- **观察趋势**：切换到“数据洞察”，查看增长、场景分布与规模比较；筛选条件与榜单联动。
+- **分享与订阅**：复制当前筛选链接，或使用 [RSS](feed.xml)、[月报](reports/)、[JSON](data/rankings.json) 和 [CSV](data/rankings.csv)。
 
-- 仓库必须明确服务学术、科研、论文、文献、评审或实验复现场景。
-- 仓库必须具备 Skill、Agent、Workflow、Claude Code、Codex、OpenCode 或类似可复用工作流信号。
-- 默认最低门槛为 100 Stars（可在 `config/ranking.json` 调整）。
-- fork、归档仓库、明显非学术用途仓库不会收录。
+## 今日新增 Skills
 
-## 自动更新
+新增 Skills **{len(today_skills)}** · 按本次更新时间所在的北京时间自然日统计 · “新增”指本站首次收录，不是仓库刚创建。
 
-GitHub Actions 每天运行一次 [.github/workflows/update-rankings.yml](.github/workflows/update-rankings.yml)：
+{daily_block}
 
-- 使用 GitHub Search API 搜索候选仓库 + 拉取种子仓库元数据。
-- 应用精准过滤、分类和趋势计算（基于 `data/history/` 下的每日历史快照）。
-- 更新 `README.md`、`data/rankings.json`、`data/rankings.csv`、`data/rankings.js`。
-- 保存当日快照到 `data/history/YYYY-MM-DD.json`（保留近 60 天）。
-- 如数据发生变化，自动提交到 `main`。
+[查看网站今日新增]({SITE_URL}/#today=skill) · 本节最多展示 5 个，完整列表见网站。初始导入的基线项目不计为今日新增。
 
-手动本地更新：
+## Skills 榜单
 
-```bash
-python scripts/update_rankings.py
-python -m unittest discover -s tests -v
-```
+Skills **{len(skills)}** · 科研相关项目 **{len(related)}** · 类型待核验 **{pending_count}**
+
+更新时间：**{updated}**。以下为 Skills 前 20 名，按 Stars 降序排列；同 Stars 时依次按趋势分和仓库名排序，筛选项目类型后重新编号。Stars 与增长反映关注度，不代表科研质量、安装兼容性或推荐保证。
+
+{skill_table}
+
+[浏览完整 Skills 榜单]({SITE_URL}/) · 简介保留仓库作者原文，仅截短展示；“—”表示近 7 日增量为 0，缺少历史记录时的计算方式见[排名方法](docs/methodology.md)。
+
+## 科研相关项目
+
+以下为科研工具、工作流和资料等相关项目的前 10 名，独立按 Stars 顺序展示，不混入上方 Skills 排名。
+
+{related_table}
+
+[浏览科研相关项目]({SITE_URL}/#related=1)（打开后与 Skills 合并展示）。类型待核验项目不计入两张表，待文件证据确认后再归类；有 `SKILL.md` 也不等同于已通过安装测试。
+
+## 收录与更新
+
+**数据从哪里来？** 使用 GitHub API 获取仓库公开信息，通过热门搜索、最近更新搜索、Stars 区间搜索和维护者推荐发现候选；新候选读取 README 核验其自身科研用途，已有项目独立复查。搜索与核验有预算和覆盖限制，不保证收齐 GitHub 上所有科研 Skills。
+
+**哪些项目会收录？** 当前 Stars 门槛为 **{metadata['min_stars']}**，排除 fork、归档和明确无关项目。Skills／科研工作流与科研相关工具／指南采用分轨准入；检测默认分支的 `SKILL.md` 文件后标注类型。暂时请求失败时保留此前合格项目的缓存并标记待核验，不因跌出搜索结果就直接移除。
+
+**怎样排名？** 主榜按 Stars 排序，增长来自历史快照；趋势分仅作辅助，也可在网站切换排序。完整规则、字段含义和历史数据说明见[排名方法](docs/methodology.md)，采集过程见[采集报告](data/collection-report.json)与[变更记录](data/collection-events.json)。
+
+**什么时候更新？** [Update rankings](https://github.com/RiceAI88/awesome-paper-research-skills/actions/workflows/update-rankings.yml) 计划每日 **北京时间 10:20（02:20 UTC）**运行。GitHub Actions 定时任务可能排队或延迟，计划时间不等于数据发布时间，也不保证每天都有新增。运行结果见 Actions；有仓库维护权限时，可在该工作流选择 **Run workflow** 手动触发。
+
+README 会由采集脚本自动生成，静态介绍需修改 [`render_readme`](scripts/update_rankings.py)，再用已有数据重新生成；不要只改 README 后等待下一次采集覆盖。采集会同步维护榜单、首次收录记录、近 {HISTORY_RETENTION_DAYS} 天历史快照和订阅资产。
+
+## 推荐项目与参与维护
+
+发现遗漏或分类错误，可[提交推荐 Issue](https://github.com/RiceAI88/awesome-paper-research-skills/issues/new?template=recommend-repo.yml)，附仓库链接、具体科研用途和 Skill／安装文档入口。也欢迎修正文档、核对安装信息、改进搜索和页面体验，详见[贡献指南](CONTRIBUTING.md)。
+
+开发者从[前端开发文档](docs/frontend-development.md)开始；安装记录与精选维护分别见[安装核验](docs/installation-audit.md)和[精选维护说明](docs/editorial-maintenance.md)。
 
 ## English
 
-**Awesome Paper Research Skills** is a daily-updated ranking of GitHub repositories that provide academic, paper-writing, literature-review, deep-research, peer-review, and experiment-reproducibility skills for AI coding agents (Claude Code, Codex, OpenCode, Cursor, Gemini, …).
+**Awesome Paper Research Skills** helps you discover GitHub Agent Skills for literature search, paper reading, academic writing, scientific figures, experiment reproduction and peer review.
 
-New candidates are checked against their README: academic Skills/agent workflows and research-related tools/guides have separate admission paths. Discovery combines popular, recently updated and star-banded searches, with a bounded README review budget. Low-star, archived, forked, and clearly unrelated repositories are excluded. The trend column shows 7-day star growth, with a 30-day sparkline in the dashboard.
+[Open the dashboard]({SITE_URL}/en/) to search by task and platform, inspect installation information, save favorites, compare repositories and explore growth charts. Descriptions stay in the repository author's original language.
 
-### Dashboard features
+The default ranking contains repositories with detected `SKILL.md` files. Research-related tools, workflows and guides are separately labelled and can be included with a toggle; unverified types are excluded from both previews. File detection does not certify quality or successful installation.
 
-- Bilingual (Chinese-first, English switch), **dark mode**, and a responsive **table / card** dual view.
-- Per-repo **trend sparkline**, **detail drawer**, **favorites** (with JSON export), and **shareable URL state** (filters/sort/view/lang/theme persisted in `#hash`).
-- **Keyboard shortcuts**: `/` search · `t` theme · `l` language · `v` view · `f` favorites · `Esc` close.
-- **SEO & subscription**: sitemap, Open Graph cover, JSON-LD `ItemList`, and an **RSS feed** of daily newcomers + trending repos.
-- Machine-readable **JSON** / **CSV** (incl. license, forks, open issues, 30-day delta).
+Candidates are discovered through popular, recently updated and star-banded searches, then reviewed against README evidence. The main ranking uses Stars; daily arrivals mean first inclusion on this site, measured by the Beijing calendar day. The scheduled daily refresh may be delayed and does not guarantee new entries every day. Search coverage is bounded.
+
+[Methodology](docs/methodology.md) · [Contributing](CONTRIBUTING.md) · [JSON](data/rankings.json) · [CSV](data/rankings.csv) · [RSS](feed.xml)
 
 ## 来源与致谢
 
 本项目基于 [kael-odin/awesome-academic-research-skills](https://github.com/kael-odin/awesome-academic-research-skills) 导入并进行后续改版，感谢原作者 [kael-odin](https://github.com/kael-odin) 的开源贡献。
 
-本仓库独立维护，保留原项目的 MIT 许可证和版权声明；不代表原作者或与原作者存在隶属关系。
+本仓库由 RiceAI88 独立维护，后续将首页迁移至 React，并增加场景入口、项目类型区分、今日新增、项目对比、数据洞察与采集核验机制。保留原项目的 MIT 许可证和版权声明；不代表原作者或与原作者存在隶属关系。早期导入的历史快照不代表本站当时已运行。
 
 ## License
 
-MIT
+[MIT](LICENSE)
 """
 
 

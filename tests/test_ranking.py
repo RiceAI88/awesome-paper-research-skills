@@ -17,7 +17,6 @@ from scripts.update_rankings import (
     render_feed,
     render_history_series,
     render_month_report,
-    render_readme,
     render_sitemap,
     render_og_cover,
     verifies_citations,
@@ -263,66 +262,6 @@ class RankingRulesTest(unittest.TestCase):
 
         self.assertIsNotNone(snapshot)
         self.assertIn("example/skill", snapshot)
-
-    def test_render_readme_shows_all_categories_in_fixed_order(self):
-        """The category overview must list every category, even zero-count ones,
-        in the fixed CATEGORIES order — not a sorted/partial list."""
-        repos = [
-            {
-                "nameWithOwner": "example/deep-research-skill",
-                "description": "Deep research skill for source validation",
-                "repositoryTopics": {"nodes": []},
-                "stargazerCount": 200,
-                "pushedAt": "2026-06-29T00:00:00Z",
-                "createdAt": "2026-01-01T00:00:00Z",
-                "url": "https://github.com/example/deep-research-skill",
-            },
-        ]
-        ranked = rank_repositories(repos, min_stars=100, previous_snapshot={})
-        data = {
-            "metadata": {"generated_at": "2026-06-30T00:00:00Z", "min_stars": 100, "total": 1},
-            "items": ranked,
-        }
-
-        readme = render_readme(data)
-
-        # Every category label must appear, so counts always add up.
-        for label in ["深度研究", "论文写作", "文献综述", "评审反馈", "实验复现", "学科专项", "综合研究"]:
-            self.assertIn(label, readme)
-        # The overview line itself must be in fixed order: extract just that line
-        # and check the labels appear there in the CATEGORIES sequence.
-        overview_line = next(line for line in readme.splitlines() if "分类概览" in line)
-        positions = [overview_line.index(label) for label in ["深度研究", "论文写作", "文献综述", "评审反馈", "实验复现", "学科专项", "综合研究"]]
-        self.assertEqual(positions, sorted(positions))
-
-    def test_render_readme_newcomers_only_when_history_exists(self):
-        """Newcomers block should appear only when a 7-day-ago snapshot exists
-        and the repo was not in it. No history → no block (avoid a first-run flood)."""
-        repos = [
-            {
-                "nameWithOwner": "example/new-skill",
-                "description": "Academic research skill",
-                "repositoryTopics": {"nodes": []},
-                "stargazerCount": 150,
-                "pushedAt": "2026-06-29T00:00:00Z",
-                "createdAt": "2026-01-01T00:00:00Z",
-                "url": "https://github.com/example/new-skill",
-            },
-        ]
-        ranked = rank_repositories(repos, min_stars=100, previous_snapshot={})
-        data = {
-            "metadata": {"generated_at": "2026-06-30T00:00:00Z", "min_stars": 100, "total": 1},
-            "items": ranked,
-        }
-
-        # No history at all → no newcomers section.
-        self.assertNotIn("## 本周新收录", render_readme(data, window_snapshot=None))
-
-        # A non-empty 7-day-ago snapshot that lacks this repo → newcomer.
-        window_snapshot = {"example/other-skill": {"stars": 100}}
-        readme = render_readme(data, window_snapshot=window_snapshot)
-        self.assertIn("## 本周新收录", readme)
-        self.assertIn("example/new-skill", readme)
 
     def test_extracts_enrichment_fields(self):
         """rank_repositories must surface the enrichment fields (license,
