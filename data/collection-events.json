@@ -1500,5 +1500,310 @@
       "missing_skill_signal",
       "missing_readme_academic_scope"
     ]
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "abnerla/ai_paper",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "ozrwayne/rw-research-skill",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "p1kaj1uu/chattyplay-agent",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "paddlepaddle/awesome-deeplearning",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "paperseek/paperseek",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "poco-ai/agentero",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "poemswe/co-researcher",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "pouriarouzrokh/lattereview",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "qjhwc/paperforge",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "quenithai/video-generation-paper-list",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "rayxbuilds/deep-learning-papers-reading-roadmap",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "realxiaoze/humanoid-motion-intelligence",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "rss3208/visiomaster",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "samuelschmidgall/agentlaboratory",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "scrapecreators/social-media-research-skills",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "secdr/research-method",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "shengyp/doing_the_phd",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "shibing624/ai-paper-analysis",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "siriusfzh/novaforge",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "skyming/awesome-ai-agent",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "snl-ucsb/literature-survey-skill",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "spthole/coexistai",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "src-d/awesome-machine-learning-on-source-code",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "steven-jianhao-li/zotero-ai-butler",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "syntaxsmith/nature-writing-skill",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "synthetic-sciences/openscience",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "sysu-scc/sysu-thesis",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "sysuselab/academic-writing-guide",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "takamatsu-hikaru/ai-research-guide",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "thesis-agent/thesis-agent-demo",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "tmgthb/autonomous-agents",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "toddmaustin/research-prompts",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "tririver/arc",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "tsingyuai/scientify",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "tswoen/paper-agent",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "ustc-ai4science/academic-search",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "ustctug/ustcthesis",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "vanthree31/paperlens",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "visterainer/aidea-zotero",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "vitorfs/parsifal",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "voidful/academic-skills",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "wantongc/journal-adapt-writing-skill",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "wdcpclover/ai4paper",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "wenyuchiou/academic-writing-skills",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "weslynn/alphatree-graphic-deep-neural-network",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "wxyhgk/retain-pdf",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "xianshang33/llm-paper-daily",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "xiejhhhhhh/draftpaper_loop",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "xunbu/docutranslate",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "yeti-791/awesome-offensive-ai-agentic-landscape",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "yila-ai/awesome-research-skills",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "ymx10086/researchclaw",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "yunshenwuchuxun/latex-paper-skills",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "yushui2022/mathmodel-skill",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "yzy1996/english-writing",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "zhaoyang97/paper-notes",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "zhoucz97/mylearning",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "zjunlp/sciatlas",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "zouzhekang/yjypaper",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "zwang4/awesome-machine-learning-in-compilers",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T05:46:43Z",
+    "repo": "52cv/cvpr-2021-papers",
+    "action": "added"
   }
 ]

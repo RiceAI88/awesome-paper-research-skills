@@ -22,6 +22,11 @@
       "first_seen_date": "2026-08-27",
       "first_seen_is_baseline": true
     },
+    "52cv/cvpr-2021-papers": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
     "7tocr/paper2patent": {
       "first_seen_date": "2026-09-27",
       "first_seen_is_baseline": false
@@ -29,6 +34,11 @@
     "aarongig/pdf2zh-desktop": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:05:57Z",
+      "first_seen_is_baseline": false
+    },
+    "abnerla/ai_paper": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
       "first_seen_is_baseline": false
     },
     "ace-trump-tech/paper-harness": {
@@ -842,8 +852,28 @@
       "first_seen_date": "2026-08-27",
       "first_seen_is_baseline": true
     },
+    "ozrwayne/rw-research-skill": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "p1kaj1uu/chattyplay-agent": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "paddlepaddle/awesome-deeplearning": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
     "paperdebugger/paperdebugger": {
       "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
+    },
+    "paperseek/paperseek": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
       "first_seen_is_baseline": false
     },
     "pedrohcgs/claude-code-my-workflow": {
@@ -854,16 +884,96 @@
       "first_seen_date": "2026-09-27",
       "first_seen_is_baseline": false
     },
+    "poco-ai/agentero": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "poemswe/co-researcher": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "pouriarouzrokh/lattereview": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "qjhwc/paperforge": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "quenithai/video-generation-paper-list": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "rayxbuilds/deep-learning-papers-reading-roadmap": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "realxiaoze/humanoid-motion-intelligence": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
     "rimagination/instsci": {
       "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
+    },
+    "rss3208/visiomaster": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "samuelschmidgall/agentlaboratory": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "scrapecreators/social-media-research-skills": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "secdr/research-method": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "shengyp/doing_the_phd": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "shibing624/ai-paper-analysis": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
       "first_seen_is_baseline": false
     },
     "shzhao27208/aut_sci_write": {
       "first_seen_date": "2026-08-27",
       "first_seen_is_baseline": true
     },
+    "siriusfzh/novaforge": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "skyming/awesome-ai-agent": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
     "smbai1998/sci-ps-skill": {
       "first_seen_date": "2026-09-28",
+      "first_seen_is_baseline": false
+    },
+    "snl-ucsb/literature-survey-skill": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
       "first_seen_is_baseline": false
     },
     "snl-ucsb/paper-writing-skill": {
@@ -874,12 +984,57 @@
       "first_seen_date": "2026-09-27",
       "first_seen_is_baseline": false
     },
+    "spthole/coexistai": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "src-d/awesome-machine-learning-on-source-code": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
     "stephenlzc/ai-powered-literature-review-skills": {
       "first_seen_date": "2026-08-27",
       "first_seen_is_baseline": true
     },
+    "steven-jianhao-li/zotero-ai-butler": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
     "stryxtn/awesome-ai-research-writing": {
       "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
+    },
+    "syntaxsmith/nature-writing-skill": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "synthetic-sciences/openscience": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "sysu-scc/sysu-thesis": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "sysuselab/academic-writing-guide": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "takamatsu-hikaru/ai-research-guide": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "thesis-agent/thesis-agent-demo": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
       "first_seen_is_baseline": false
     },
     "thisislittlesky/waterpaper": {
@@ -890,8 +1045,63 @@
       "first_seen_date": "2026-09-27",
       "first_seen_is_baseline": false
     },
+    "tmgthb/autonomous-agents": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "toddmaustin/research-prompts": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
     "trae1oung/paper-plot-skills": {
       "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
+    },
+    "tririver/arc": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "tsingyuai/scientify": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "tswoen/paper-agent": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "ustc-ai4science/academic-search": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "ustctug/ustcthesis": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "vanthree31/paperlens": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "visterainer/aidea-zotero": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "vitorfs/parsifal": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "voidful/academic-skills": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
       "first_seen_is_baseline": false
     },
     "voltagent/awesome-ai-agent-papers": {
@@ -902,6 +1112,16 @@
       "first_seen_date": "2026-08-27",
       "first_seen_is_baseline": true
     },
+    "wantongc/journal-adapt-writing-skill": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "wdcpclover/ai4paper": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
     "weizhena/deep-research-skills": {
       "first_seen_date": "2026-08-27",
       "first_seen_is_baseline": true
@@ -910,8 +1130,18 @@
       "first_seen_date": "2026-09-27",
       "first_seen_is_baseline": false
     },
+    "wenyuchiou/academic-writing-skills": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
     "wenyuchiou/ai-research-skills": {
       "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
+    },
+    "weslynn/alphatree-graphic-deep-neural-network": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
       "first_seen_is_baseline": false
     },
     "wilbert-md-phd/medical-illustration": {
@@ -926,8 +1156,18 @@
       "first_seen_date": "2026-08-27",
       "first_seen_is_baseline": true
     },
+    "wxyhgk/retain-pdf": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
     "wycmochi/cn-academic-spark": {
       "first_seen_date": "2026-09-21",
+      "first_seen_is_baseline": false
+    },
+    "xianshang33/llm-paper-daily": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
       "first_seen_is_baseline": false
     },
     "xiao24bei/xiaobei-skill": {
@@ -942,8 +1182,18 @@
       "first_seen_date": "2026-09-05",
       "first_seen_is_baseline": false
     },
+    "xiejhhhhhh/draftpaper_loop": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
     "xujingchen1996/research-app-toolkit": {
       "first_seen_date": "2026-10-14",
+      "first_seen_is_baseline": false
+    },
+    "xunbu/docutranslate": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
       "first_seen_is_baseline": false
     },
     "yanlin-cheng/skill-thesis-writer": {
@@ -952,6 +1202,16 @@
     },
     "yb2460/harness-anything": {
       "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
+    },
+    "yeti-791/awesome-offensive-ai-agentic-landscape": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "yila-ai/awesome-research-skills": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
       "first_seen_is_baseline": false
     },
     "yilewang/llm-for-zotero": {
@@ -970,6 +1230,11 @@
       "first_seen_date": "2026-10-18",
       "first_seen_is_baseline": false
     },
+    "ymx10086/researchclaw": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
     "yrui-cmd/cell": {
       "first_seen_date": "2026-10-08",
       "first_seen_is_baseline": false
@@ -978,12 +1243,42 @@
       "first_seen_date": "2026-08-27",
       "first_seen_is_baseline": true
     },
+    "yunshenwuchuxun/latex-paper-skills": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "yushui2022/mathmodel-skill": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "yzy1996/english-writing": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
     "z-liu-xiugou/research-workbench-assistant": {
       "first_seen_date": "2026-09-28",
       "first_seen_is_baseline": false
     },
+    "zhaoyang97/paper-notes": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
     "zheng95z/teach-yourself-research": {
       "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
+    },
+    "zhoucz97/mylearning": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "zjunlp/sciatlas": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
       "first_seen_is_baseline": false
     },
     "zlanqing/codex-claude-academic-skills": {
@@ -994,8 +1289,18 @@
       "first_seen_date": "2026-09-27",
       "first_seen_is_baseline": false
     },
+    "zouzhekang/yjypaper": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
     "zsyggg/paper-craft-skills": {
       "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
+    },
+    "zwang4/awesome-machine-learning-in-compilers": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T05:55:35Z",
       "first_seen_is_baseline": false
     },
     "zyhsechub/chinese-thesis-workbench-skill": {
