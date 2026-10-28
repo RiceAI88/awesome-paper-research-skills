@@ -48,7 +48,7 @@ export default function ComparisonDialog({
       (item) => (
         <>
           <InstallationActions item={item} lang={lang} t={t} />
-          <EditorialReviewNotice repo={item.repo} t={t} />
+          <EditorialReviewNotice repo={item.repo} t={t} lang={lang} />
         </>
       ),
     ],

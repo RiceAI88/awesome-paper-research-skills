@@ -23,6 +23,7 @@ for (const lang of ["zh", "en"])
       );
       const dialog = page.getByRole("dialog");
       await expect(dialog).toBeVisible();
+      await dialog.locator(".drawer-more > summary").click();
       await expect(dialog.getByTestId("install-environment")).toBeVisible();
       await expect(dialog.getByTestId("install-dependencies")).toBeVisible();
       await expect(

@@ -1248,9 +1248,6 @@ a:focus-visible,
   }
 }
 
-/* Reserve the same footer space so maintenance notes never shift peer cards. */
-.repository-card .panel-body { position: relative; padding-bottom: 32px; }
-.card-maintenance { position: absolute; right: 20px; bottom: 8px; margin: 0; }
 
 /* One measured underline follows variable-width scene labels and their counts. */
 .task-list { position: relative; }
@@ -1300,3 +1297,138 @@ a:focus-visible,
   .daily-arrivals-title { flex: 1 1 0; min-width: 0; }
   .daily-arrivals-actions { flex: 0 0 auto; }
 }
+
+/* Compact comparison rows: one title and one description line, bounded cells. */
+.ranking-table .ant-table-cell { vertical-align: middle; }
+.ranking-table .ant-table-tbody > tr.ant-table-row > td {
+  height: 60px;
+  padding: 6px 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.ranking-table .ant-table-thead > tr > th { padding: 10px; white-space: nowrap; }
+.table-repository { min-width: 0; }
+.table-repository .repo-name {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  line-height: 20px;
+}
+.ranking-table .practical-description { margin: 0; }
+.ranking-table .description-clamp {
+  display: block;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 13px;
+  line-height: 18px;
+}
+.ranking-table .card-platforms { display: block; font-size: 12px; }
+.scene-tags { display: flex; align-items: center; gap: 4px; min-width: 0; overflow: hidden; }
+.scene-tags .ant-tag { max-width: 82px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; margin: 0; font-size: 12px; }
+.scene-overflow { flex: 0 0 auto; color: var(--prs-muted); font-size: 12px; padding: 1px 3px; }
+.scene-overflow:focus-visible { outline: 2px solid var(--prs-primary); outline-offset: -2px; }
+.installation-actions.installation-inline { display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; }
+.installation-inline .installation-status { flex: 0 1 auto; min-width: 0; }
+.installation-inline .ant-tag { font-size: 12px; white-space: nowrap; margin: 0; }
+.installation-inline .ant-space { flex: 0 0 auto; flex-wrap: nowrap !important; gap: 0 !important; }
+.installation-inline .ant-btn { width: 24px; min-height: 28px; padding: 0; }
+.table-sort { border: 0; background: transparent; padding: 0; color: inherit; font: inherit; cursor: pointer; white-space: nowrap; }
+.table-sort[aria-pressed="true"] { color: var(--prs-primary); }
+.table-sort span { font-size: 12px; }
+.table-growth { white-space: nowrap; }
+.table-growth.no-growth { color: var(--prs-muted); }
+.reference-metrics.table-metrics { display: flex; gap: 0; font-size: 13px; line-height: 18px; }
+.table-metrics .mini-area-chart { display: block; width: 80px; height: 16px; }
+.table-sponsor-row > td { padding: 12px 0; background: var(--prs-bg); }
+.table-sponsor-row .sponsor-banner { margin: 0; }
+
+/* Shared card actions, with maintenance in the existing footer row. */
+.card-top { gap: 4px; }
+.card-rank-group { display: inline-flex; align-items: center; gap: 5px; min-width: 0; }
+.card-rank-group .install-mode { max-width: 82px; padding-inline: 4px; margin: 0; font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.card-actions { opacity: 1; gap: 0; margin-right: -2px; }
+.card-actions .ant-btn, .card-actions .repository-external { width: 24px; min-height: 28px; font-size: 14px; }
+.repository-card .panel-body { padding-bottom: 18px; }
+.card-info-footer { flex-wrap: nowrap; gap: 8px; min-height: 30px; }
+.card-info-footer .card-maintenance { position: static; margin: 0; font-size: 12px; line-height: 18px; max-width: 65%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 0; }
+.card-info-footer .card-platforms { flex: 1 1 0; }
+
+/* The tab already names the ranking; keep its section heading for navigation. */
+.ranking-status-line { grid-area: 1 / 1; }
+.ranking-header .compact-statistics { grid-row: 2; }
+.ranking-sort-shortcuts { display: inline-flex; align-items: center; gap: 4px; }
+.ranking-sort-shortcuts .ant-btn { min-height: 28px; padding-inline: 6px; font-size: 13px; }
+.ranking-sort-shortcuts .ant-btn[aria-pressed="true"] { color: var(--prs-primary); background: var(--prs-tint); }
+.filter-fields label[for="sortSelect"] .ant-select { width: 148px; }
+
+/* Installation-first drawer: copy belongs to the command, metadata is optional. */
+.repository-drawer .ant-drawer-body { color: var(--prs-text); font-size: 14px; line-height: 1.75; }
+.repository-drawer .description-clamp { font-size: 14px; line-height: 1.75; color: var(--prs-text); }
+.drawer-platforms { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin: 12px 0 16px; }
+.drawer-platforms > span { font-size: 13px; }
+.repository-drawer .installation-details { margin: 0; }
+.install-command-block { margin: 10px 0 6px; border: 1px solid var(--prs-border); border-radius: 10px; overflow: hidden; background: var(--prs-tint); }
+.install-command-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--prs-border); font-size: 13px; }
+.install-command-block .install-command { margin: 0; padding: 14px; border: 0; border-radius: 0; background: transparent; color: var(--prs-text); font-size: 13px; line-height: 1.6; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; }
+.drawer-health { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; padding: 16px 0; margin: 12px 0 16px; border-block: 1px solid var(--prs-border); }
+.drawer-health div { min-width: 0; }
+.drawer-health dt { font-size: 12px; color: var(--prs-muted); margin-bottom: 4px; }
+.drawer-health dd { margin: 0; font-size: 14px; line-height: 1.5; overflow-wrap: anywhere; }
+.drawer-more > summary { cursor: pointer; font-size: 14px; font-weight: 500; padding: 8px 0; }
+.drawer-more > .installation-evidence { padding: 8px 0 16px; }
+.repository-drawer .installation-context,
+.repository-drawer .install-requirements dd,
+.repository-drawer .installation-evidence p { color: var(--prs-text); font-size: 14px; line-height: 1.8; }
+.repository-drawer .installation-review,
+.repository-drawer .editorial-review-notice { font-size: 13px; line-height: 1.6; }
+.repository-drawer .editorial-review-notice small { color: var(--prs-muted); font-size: 12px; }
+.drawer-more .ant-descriptions { margin-top: 16px; }
+.drawer-more-actions { position: relative; margin-left: auto; }
+.drawer-more-actions > summary { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 1px solid var(--prs-border); border-radius: 6px; font-size: 20px; cursor: pointer; list-style: none; }
+.drawer-more-actions > summary::-webkit-details-marker { display: none; }
+.drawer-action-menu { position: absolute; bottom: calc(100% + 8px); right: 0; display: grid; min-width: 160px; padding: 6px; background: var(--prs-panel); border: 1px solid var(--prs-border); border-radius: 8px; box-shadow: var(--prs-shadow); z-index: 2; }
+.drawer-action-menu > a, .drawer-action-menu > button { display: block; border: 0; padding: 8px 10px; background: transparent; color: var(--prs-text); font: inherit; font-size: 13px; text-align: left; text-decoration: none; cursor: pointer; white-space: nowrap; }
+.drawer-action-menu > a:hover, .drawer-action-menu > button:hover { background: var(--prs-tint); }
+
+/* Support is an advertising card, visually separate from navigation and inline ads. */
+.support-card { padding: 7px 12px; display: grid; gap: 2px; background: #f2efea; border: 1px solid #e5e0d9; border-radius: 6px; }
+.support-ad-label { font-size: 11px; line-height: 14px; color: #69645f; }
+.support-card-link { padding: 0; border: 0; background: transparent; border-radius: 0; }
+.support-card-link:hover strong { text-decoration: underline; }
+.support-card-heading strong { color: var(--prs-text); }
+[data-theme="dark"] .support-card { background: #292622; border-color: #454039; }
+[data-theme="dark"] .support-ad-label { color: #c4bdb4; }
+.sponsor-banner { border-style: dashed; background: var(--prs-panel); }
+.sponsor-global { font-size: 11px; color: var(--prs-muted); white-space: nowrap; }
+@media (max-width: 760px) {
+  .ranking-status-line { grid-column: 1 / -1; grid-row: 1; }
+  .ranking-header > .ant-space { grid-column: 1 / -1; grid-row: 2; width: 100%; justify-content: space-between; }
+  .ranking-header .compact-statistics { grid-row: 3; }
+  .filter-fields label[for="sortSelect"] .ant-select { width: 100%; min-width: 0; }
+  .drawer-health { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .drawer-primary-actions { gap: 6px; }
+  .drawer-primary-actions > .ant-btn { font-size: 13px; padding-inline: 8px; }
+  .card-rank-group .install-mode { max-width: 70px; }
+}
+.ranking-table.ant-table-wrapper .ant-table-tbody > tr.ant-table-row > td.ant-table-cell { height: 60px; padding: 6px 10px; }
+.installation-actions.installation-inline { margin: 0; }
+.installation-inline .installation-status { margin-bottom: 0; }
+.support-card { box-sizing: border-box; }
+.installation-inline .install-mode { max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+.card-rank-group .install-mode { font-size: 12px; }
+.table-description-line { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.table-description-line .practical-description { flex: 1 1 0; min-width: 0; }
+.table-maintenance { flex: 0 0 auto; color: var(--prs-muted); font-size: 12px; white-space: nowrap; }
+.ranking-table .card-rank-group { gap: 3px; }
+.repository-drawer .drawer-content > .practical-description .description-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.drawer-full-description h3 { margin: 12px 0 6px; font-size: 14px; }
+.drawer-full-description p { margin: 0 0 16px; color: var(--prs-text); font-size: 14px; line-height: 1.8; }

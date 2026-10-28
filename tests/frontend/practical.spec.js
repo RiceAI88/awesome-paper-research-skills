@@ -14,7 +14,7 @@ test("practical information, editorial reasons and history provenance are visibl
   await page.goto("./#related=1&view=table");
   const row = page.locator(".ant-table-row").filter({ hasText: "K-Dense-AI/scientific-agent-skills" });
   await expect(row).toContainText(ranking.items.find(item => item.repo === "K-Dense-AI/scientific-agent-skills").description);
-  await expect(row.getByText("Claude Code", { exact: true })).toBeVisible();
+  await expect(row.locator(".card-platforms")).toContainText("Claude Code");
   await expect(
     row.getByRole("button", { name: "复制安装命令", exact: true }),
   ).toBeVisible();

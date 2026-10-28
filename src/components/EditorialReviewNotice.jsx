@@ -1,10 +1,12 @@
 import React from "react";
 import { Tag } from "antd";
+import { exactTimestamp, relativeTimestamp } from "../time";
 import { editorialReviewFor } from "../editorialReview";
 import { safeExternalUrl } from "../domain";
 export function EditorialReviewNotice({
   repo,
   t,
+  lang = "zh",
   details = false,
   evidenceOnly = false,
   compact = false,
@@ -33,9 +35,13 @@ export function EditorialReviewNotice({
         <>
           {review.checkedAt && (
             <small>
-              {t("reviewCheckTime")}{" "}
-              <time dateTime={review.checkedAt}>
-                {review.checkedAt.replace("T", " ").replace(/\.\d+Z$/, " UTC")}
+              <time
+                dateTime={review.checkedAt}
+                title={exactTimestamp(review.checkedAt, lang)}
+              >
+                {lang === "zh"
+                  ? `${relativeTimestamp(review.checkedAt, lang)}核对`
+                  : `Reviewed ${relativeTimestamp(review.checkedAt, lang)}`}
               </time>
             </small>
           )}

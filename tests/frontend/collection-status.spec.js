@@ -23,7 +23,9 @@ test("complete zero-file inventory is labelled as a related project", async ({ p
   const item = { ...dataset.items[0], skills_count: 0, skills_count_complete: true, repository_kind: "related" };
   await page.route("**/data/rankings.js*", route => route.fulfill({ contentType: "application/javascript", body: `window.ACADEMIC_SKILLS_RANKINGS=${JSON.stringify({ metadata: dataset.metadata, items: [item] })};` }));
   await page.goto("./#view=card&related=1");
-  await expect(page.getByTestId("repo-card")).toContainText("科研相关项目");
+  await page.getByTestId("repo-card").locator(".repo-title").click();
+  await page.getByRole("dialog").locator(".drawer-more > summary").click();
+  await expect(page.getByRole("dialog")).toContainText("科研相关项目");
   await expect(page.getByTestId("repo-card")).not.toContainText("0 skills");
 });
 test('English partial collection status wraps within a 320px viewport', async ({page}) => {

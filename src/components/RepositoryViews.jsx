@@ -4,7 +4,12 @@ import { Panel } from "./Panel";
 import React, { lazy, useEffect, useState } from "react";
 import { Button, Empty, Space, Tag, Tooltip } from "antd";
 import { StarFilled, StarOutlined, SwapOutlined } from "@ant-design/icons";
-import { PlatformTags, SummaryText } from "./PracticalInfo";
+import {
+  PlatformTags,
+  SummaryText,
+  InstallationMode,
+  CopyInstallButton,
+} from "./PracticalInfo";
 import { useFeedback } from "./FeedbackProvider";
 import { DeferredFeature } from "./DeferredFeature";
 const RepositoryTable = lazy(() => import("./RepositoryTable"));
@@ -17,7 +22,7 @@ export function QualityBadges({
 }) {
   const typeLabel =
     item.skills_count > 0
-      ? `${item.skills_count}${item.skills_count_complete === false ? "+" : ""} skills`
+      ? `${item.skills_count}${item.skills_count_complete === false ? "+" : ""} ${item.skills_count === 1 && item.skills_count_complete !== false ? "skill" : "skills"}`
       : t(
           item.repository_kind === "related"
             ? "projectRelated"
@@ -145,11 +150,11 @@ export function RepositoryViews({
       : matchMedia("(min-width: 600px)").matches
         ? 2
         : 1;
-  const [adAfter, setAdAfter] = useState(rowSize);
+  const [adAfter, setAdAfter] = useState(() => rowSize() * 2);
   useEffect(() => {
     const wide = matchMedia("(min-width: 1100px)"),
       medium = matchMedia("(min-width: 600px)");
-    const sync = () => setAdAfter(rowSize());
+    const sync = () => setAdAfter(rowSize() * 2);
     wide.addEventListener("change", sync);
     medium.addEventListener("change", sync);
     return () => {
@@ -214,6 +219,7 @@ export function RepositoryViews({
       rel="noreferrer"
       onClick={(e) => e.stopPropagation()}
       className="repo-name"
+      title={item.repo}
     >
       <SearchHighlight text={item.repo} query={state.query} />
     </a>
@@ -269,11 +275,13 @@ export function RepositoryViews({
                         </span>
                       </Tooltip>
                     )}
+                    <InstallationMode item={item} t={t} short />
                   </div>
                   <div
                     className={`card-actions${state.favorites.includes(item.repo) || state.compare.includes(item.repo) ? " has-selection" : ""}`}
                   >
                     {actions(item)}
+                    <CopyInstallButton item={item} t={t} iconOnly />
                     <a
                       className="repository-external"
                       href={safeExternalUrl(item.url) || undefined}
@@ -326,16 +334,17 @@ export function RepositoryViews({
                 <SummaryText item={item} t={t} query={state.query} />
                 <div className="card-info-footer">
                   <PlatformTags item={item} t={t} compact />
-                  <QualityBadges item={item} t={t} compact />
+                  {item.inactive90 ? (
+                    <span
+                      className="card-maintenance"
+                      title={item.last_push_date}
+                    >
+                      {t("inactive90")}
+                    </span>
+                  ) : (
+                    <QualityBadges item={item} t={t} compact />
+                  )}
                 </div>
-                {item.inactive90 && (
-                  <span
-                    className="card-maintenance"
-                    title={item.last_push_date}
-                  >
-                    {t("inactive90")}
-                  </span>
-                )}
               </Panel>
               {index === Math.min(adAfter, entries.length) - 1 && (
                 <Zhi1keAd t={t} />
@@ -348,17 +357,17 @@ export function RepositoryViews({
     );
   return (
     <>
-      <Zhi1keAd t={t} />
       <DeferredFeature t={t}>
         <RepositoryTable
           onReady={onReady}
           className="ranking-table"
           rowKey="repo"
-          {...{ state, t, fmt, history, link, actions }}
+          {...{ state, update, t, fmt, history, link, actions }}
           badges={(item) => <QualityBadges item={item} t={t} />}
           dataSource={entries}
           pagination={false}
           scroll={{ x: 1180 }}
+          tableLayout="fixed"
           sticky={{ offsetHeader: filterHeight }}
           size="middle"
           onRow={(item) => ({

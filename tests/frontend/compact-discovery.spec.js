@@ -48,6 +48,7 @@ test("compact cards open details via title and preserve an explicit external lin
     "_blank",
   );
   await card.locator(".repo-title").click();
+  await page.getByRole("dialog").locator(".drawer-more > summary").click();
   await expect(page.getByRole("dialog")).toBeVisible();
   await expect(
     page.getByRole("dialog").locator(".installation-context"),
@@ -93,7 +94,7 @@ test("weekly newcomer shortcut filters true first entries and can be cleared", a
   await expect(page.getByTestId("repo-card")).toHaveCount(
     Math.min(30, expected.length),
   );
-  await page.locator('[data-filter-key="newOnly"]').click();
+  await page.getByTestId("new-this-week").click();
   await expect(page.getByTestId("repo-card")).toHaveCount(
     Math.min(30, dataset.items.length),
   );

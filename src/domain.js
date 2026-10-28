@@ -131,7 +131,7 @@ export function restoreState(storage, hash = "", defaults = {}, items = []) {
     ),
     sort: valid(
       p.get("sort"),
-      ["rank", "trend", "stars", "updated", "delta30"],
+      ["rank", "trend", "stars", "updated", "delta30", "delta7", "newest"],
       "rank",
     ),
     lang: valid(
@@ -235,6 +235,11 @@ export function filterItems(items, state) {
     trend: (a, b) => b.trend_score - a.trend_score || b.stars - a.stars,
     updated: (a, b) =>
       (b.last_push_date || "").localeCompare(a.last_push_date || ""),
+    delta7: (a, b) =>
+      (b.star_delta_7d || 0) - (a.star_delta_7d || 0) || ranks(a, b),
+    newest: (a, b) =>
+      (Date.parse(b.first_seen_at || b.first_seen_date) || 0) -
+        (Date.parse(a.first_seen_at || a.first_seen_date) || 0) || ranks(a, b),
     delta30: (a, b) =>
       (b.star_delta_30d ?? b.star_delta_7d ?? 0) -
         (a.star_delta_30d ?? a.star_delta_7d ?? 0) || b.stars - a.stars,

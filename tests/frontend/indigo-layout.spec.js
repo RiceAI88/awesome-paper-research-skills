@@ -61,7 +61,7 @@ test("cards separate owner and project and put compact metadata on one aligned f
   const card = page.getByTestId("repo-card").first();
   await expect(card.locator(".repository-owner")).toHaveText("example");
   await expect(card.locator(".repo-title")).toHaveText("paper-skill");
-  await expect(card.locator(".card-info-footer")).toContainText("17 skills");
+  await expect(card.locator(".card-info-footer")).toContainText("90 天未更新");
   await expect(card.locator(".card-platforms")).toContainText("+");
   await expect(card.locator(".card-platforms .ant-tag")).toHaveCount(0);
   await card.hover();
@@ -75,14 +75,14 @@ test("cards separate owner and project and put compact metadata on one aligned f
 });
 
 for (const width of [1280, 390])
-  test(`one full-width advertisement follows the first row at ${width}px`, async ({
+  test(`one full-width advertisement follows the second row at ${width}px`, async ({
     page,
   }) => {
     await page.setViewportSize({ width, height: 1160 });
     await page.goto("./#related=1&view=card");
     const ad = page.getByTestId("zhi1ke-ad");
     const boxes = await page.getByTestId("repo-card").evaluateAll((es) =>
-      es.slice(0, 5).map((e) => {
+      es.slice(0, 9).map((e) => {
         const r = e.getBoundingClientRect();
         return { top: r.top, bottom: r.bottom };
       }),
@@ -90,10 +90,10 @@ for (const width of [1280, 390])
     const firstRow = boxes.filter((r) => Math.abs(r.top - boxes[0].top) < 2);
     const box = await ad.boundingBox();
     expect(box.y).toBeGreaterThanOrEqual(
-      Math.max(...firstRow.map((r) => r.bottom)),
+      Math.max(...boxes.slice(0, firstRow.length * 2).map((r) => r.bottom)),
     );
-    expect(box.y + box.height).toBeLessThanOrEqual(boxes[firstRow.length].top);
-    await expect(ad).toHaveCSS("background-color", "rgb(240, 238, 251)");
+    expect(box.y + box.height).toBeLessThanOrEqual(boxes[firstRow.length * 2].top);
+    await expect(ad).toHaveCSS("border-style", "dashed");
     await expect(ad.getByRole("link")).toHaveAttribute(
       "href",
       "https://zhi1ke.com?pic=6PEB",

@@ -12,6 +12,7 @@ export function Zhi1keAd({ t }) {
       data-testid="zhi1ke-ad"
     >
       <div className="sponsor-content">
+        <span className="sponsor-global">{t("globalPromotion")}</span>
         <span className="sponsor-brand">
           <img src={logo} alt="" width={24} height={18} decoding="async" />
           智一刻 AI

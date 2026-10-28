@@ -21,7 +21,7 @@ test('today entry highlights real new skills, opens details and filters independ
  await expect(page.getByTestId('repo-card')).toContainText('research-skill');
  await expect(page).toHaveURL(/today=skill/);
  await page.reload();await expect(page.getByTestId('repo-card')).toHaveCount(1);
- await page.getByRole('button',{name:'清空筛选',exact:true}).click();
+ await page.getByTestId('today-skills-filter').click();
  await expect(page.getByTestId('repo-card')).toHaveCount(2);
  await page.goto('./#today=related');
  await expect(page.getByTestId('repo-card')).toHaveCount(1);

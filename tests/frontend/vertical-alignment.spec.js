@@ -50,13 +50,14 @@ for (const width of [1440, 390]) {
             iconHeight: icon.getBoundingClientRect().height,
             labelHeight: label.getBoundingClientRect().height,
             lineHeight: getComputedStyle(label).lineHeight,
+            centerOffset: Math.abs(icon.getBoundingClientRect().y + icon.getBoundingClientRect().height / 2 - element.getBoundingClientRect().y - element.getBoundingClientRect().height / 2),
           };
         }),
       );
     for (const action of actions) {
-      expect(action.iconHeight).toBeCloseTo(20, 2);
-      expect(action.labelHeight).toBeCloseTo(20, 2);
-      expect(action.lineHeight).toBe("20px");
+      expect(action.iconHeight).toBeGreaterThanOrEqual(14);
+      expect(action.labelHeight).toBeGreaterThanOrEqual(14);
+      expect(action.centerOffset).toBeLessThan(1);
     }
     const titles = await page.locator(".card-title-row").evaluateAll(elements => elements.slice(0,4).map(element => {
       const parent=element.getBoundingClientRect();

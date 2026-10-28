@@ -42,6 +42,7 @@ test("cards emphasize metrics, explain actions and align installation footers", 
     return Math.max(...boxes.map((x) => x.bottom)) - Math.min(...boxes.map((x) => x.bottom));
   }).toBeLessThan(2);
   await card.locator(".repo-title").click();
+  await page.getByRole("dialog").locator(".drawer-more > summary").click();
   await expect(page.getByRole("dialog").locator(".installation-context")).toBeVisible();
   await expect(page.getByRole("dialog").locator(".installation-context")).not.toHaveCSS("white-space", "nowrap");
 });
@@ -82,7 +83,7 @@ test("sorting resets batches, while saving and switching view preserve loaded re
     .click();
   await expect(page.locator(".ant-table-row")).toHaveCount(60);
   await page.locator("#sortSelect").click();
-  await page.locator('.ant-select-item-option[title="最近更新"]').click();
+  await page.locator('.ant-select-item-option[title="排序：最近更新"]').click();
   await expect(page.locator(".ant-table-row")).toHaveCount(30);
   while (await page.getByTestId("load-more").count())
     await page.getByTestId("load-more").click();

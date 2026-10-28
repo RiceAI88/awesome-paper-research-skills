@@ -280,7 +280,10 @@ function Dashboard({ state, update }) {
   }, [syncStickySearch]);
 
   const t = (key) => translations[state.lang][key] || key;
-  const taskOptions = RESEARCH_TASKS.map(task => ({ id: task.id, label: t(taskLabels[task.id]) }));
+  const taskOptions = RESEARCH_TASKS.map((task) => ({
+    id: task.id,
+    label: t(taskLabels[task.id]),
+  }));
   const fmt = (value) =>
     new Intl.NumberFormat(state.lang === "zh" ? "zh-CN" : "en-US").format(
       value || 0,
@@ -484,7 +487,12 @@ function Dashboard({ state, update }) {
               {t("heroSubtitle")}
             </Reveal>
           </div>
-          <div className="page-tabs" data-section={state.section} role="tablist" aria-label={t("pageViews")}>
+          <div
+            className="page-tabs"
+            data-section={state.section}
+            role="tablist"
+            aria-label={t("pageViews")}
+          >
             {["ranking", "insights"].map((section) => (
               <Button
                 key={section}
@@ -628,25 +636,19 @@ function Dashboard({ state, update }) {
               <span>{t("sortLabel")}</span>
               <Select
                 id="sortSelect"
-                value={state.sort}
+                value={state.sort === "stars" ? "rank" : state.sort}
                 onChange={(sort) => update((s) => ({ ...s, sort }))}
-                options={["rank", "trend", "stars", "updated", "delta30"].map(
-                  (value, i) => ({
-                    value,
-                    label:
-                      value === "rank"
-                        ? "Stars"
-                        : t(
-                            [
-                              "sortRank",
-                              "sortTrend",
-                              "sortStars",
-                              "sortUpdated",
-                              "sortDelta30",
-                            ][i],
-                          ),
-                  }),
-                )}
+                options={[
+                  ["rank", "Stars"],
+                  ["delta7", t("sortDelta7")],
+                  ["newest", t("sortNewest")],
+                  ["updated", t("sortUpdated")],
+                  ["trend", t("sortTrend")],
+                  ["delta30", t("sortDelta30")],
+                ].map(([value, label]) => ({
+                  value,
+                  label: `${t("sortLabel")}：${label}`,
+                }))}
               />
             </label>
             <div className="view-controls">
@@ -690,10 +692,7 @@ function Dashboard({ state, update }) {
           </div>
         </section>
 
-        <ActiveFilters
-          {...{ state, update, t }}
-          empty={!visible.length}
-        />
+        <ActiveFilters {...{ state, update, t }} empty={!visible.length} />
         <div
           id="panel-ranking"
           role="tabpanel"
@@ -708,7 +707,7 @@ function Dashboard({ state, update }) {
           >
             <div className="ranking-header">
               <div>
-                <h2>
+                <h2 className="sr-only">
                   {t("tableTitle")}{" "}
                   {visible.length !== scopeItems.length && (
                     <Tag>{fmt(visible.length)}</Tag>
@@ -723,6 +722,8 @@ function Dashboard({ state, update }) {
                         trend: "sortTrend",
                         updated: "sortUpdated",
                         delta30: "sortDelta30",
+                        delta7: "sortDelta7",
+                        newest: "sortNewest",
                       }[state.sort],
                     )}
                   </span>
@@ -742,6 +743,22 @@ function Dashboard({ state, update }) {
                   >
                     {t("dataOverview")} {overviewOpen ? "⌃" : "⌄"}
                   </Button>
+                  <span className="ranking-sort-shortcuts">
+                    {[
+                      ["delta7", "sortDelta7"],
+                      ["newest", "sortNewest"],
+                    ].map(([sort, label]) => (
+                      <Button
+                        key={sort}
+                        type="text"
+                        size="small"
+                        aria-pressed={state.sort === sort}
+                        onClick={() => update((s) => ({ ...s, sort }))}
+                      >
+                        {t(label)}
+                      </Button>
+                    ))}
+                  </span>
                 </div>
                 <section
                   id="data-overview"

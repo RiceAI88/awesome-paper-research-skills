@@ -6,7 +6,7 @@ test("desktop section headings and actions share a compact aligned row", async (
   const header = page.locator(".ranking-header");
   await expect(header.locator("h2")).toBeVisible();
   const offset = await header.evaluate((el) => {
-    const title = el.querySelector("h2").getBoundingClientRect();
+    const title = el.querySelector(".ranking-status-line").getBoundingClientRect();
     const actions = el.querySelector(":scope > .ant-space").getBoundingClientRect();
     return Math.abs(title.y + title.height / 2 - actions.y - actions.height / 2);
   });

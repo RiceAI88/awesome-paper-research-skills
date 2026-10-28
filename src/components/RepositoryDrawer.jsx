@@ -1,14 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import installationDetails from "../../config/installation-details.json";
-import {
-  Button,
-  Descriptions,
-  Drawer,
-  Space,
-  Statistic,
-  Tag,
-  Typography,
-} from "antd";
+import { Button, Descriptions, Drawer, Space, Tag } from "antd";
 import { ExportOutlined } from "@ant-design/icons";
 import {
   AGENT_PLATFORMS,
@@ -20,7 +12,12 @@ import {
 import { QualityBadges, RepositoryActions } from "./RepositoryViews";
 import { useFeedback } from "./FeedbackProvider";
 import { copyText } from "../clipboard";
-import { SummaryText, InstallationActions } from "./PracticalInfo";
+import {
+  SummaryText,
+  PlatformTags,
+  InstallationActions,
+  InstallationRequirements,
+} from "./PracticalInfo";
 export function RepositoryDrawer({
   item,
   items,
@@ -35,22 +32,21 @@ export function RepositoryDrawer({
   useEffect(() => {
     const body = contentRef.current?.closest(".ant-drawer-body");
     if (body) body.scrollTop = 0;
+    contentRef.current?.querySelectorAll("details[open]").forEach((details) => {
+      details.open = false;
+    });
   }, [item?.repo]);
   const navigate = (offset) => {
     const target = position >= 0 && items[position + offset];
     if (target) update((previous) => ({ ...previous, repo: target.repo }));
   };
   const message = useFeedback();
-  const copy = async (text, label) => {
+  const copy = async (text) => {
     try {
       await copyText(text);
-      message.success(label);
+      message.success(t("toastCopied"));
     } catch {
-      message.error(
-        state.lang === "zh"
-          ? "复制失败，请稍后重试"
-          : "Unable to copy. Please try again.",
-      );
+      message.error(t("copyFailed"));
     }
   };
   const category = item ? sceneLabelsFor(item, t).join(" · ") : "";
@@ -59,27 +55,15 @@ export function RepositoryDrawer({
         (id) => AGENT_PLATFORMS.find((a) => a.id === id)?.label || id,
       )
     : [];
+  const delta = item?.star_delta_7d || 0;
   const markdown = item
-    ? `| ${item.rank} | [${item.repo}](${item.url}) | ${item.stars.toLocaleString()}${item.star_delta_7d ? ` (+${item.star_delta_7d})` : ""} | ${category} | ${agentNames.join(" · ") || t("agentGeneral")} | ${item.last_push_date || ""} |`
+    ? `| ${item.rank} | [${item.repo}](${item.url}) | ${item.stars.toLocaleString()}${delta ? ` (${delta > 0 ? "+" : ""}${delta})` : ""} | ${category} | ${agentNames.join(" · ") || t("agentGeneral")} | ${item.last_push_date || ""} |`
     : "";
   const feedback = item
     ? `${REPOSITORY_URL}/issues/new?title=${encodeURIComponent("Information issue: " + item.repo)}&body=${encodeURIComponent(`Repository: **${item.repo}** (${item.url})\n\nIncorrect or outdated information:\n\nSuggested correction and source:\n`)}`
     : "";
   const details = item
     ? [
-        {
-          key: "agents",
-          label: t("drAgent"),
-          children: (
-            <Space wrap>
-              {(agentNames.length ? agentNames : [t("agentGeneral")]).map(
-                (a) => (
-                  <Tag key={a}>{a}</Tag>
-                ),
-              )}
-            </Space>
-          ),
-        },
         {
           key: "topics",
           label: t("drTopics"),
@@ -111,11 +95,6 @@ export function RepositoryDrawer({
           children: fmt(item.open_issues),
         },
         {
-          key: "license",
-          label: t("drLicense"),
-          children: item.license?.name || item.license?.spdx_id || "—",
-        },
-        {
           key: "language",
           label: t("drLanguage"),
           children: item.language || "—",
@@ -126,14 +105,9 @@ export function RepositoryDrawer({
           children: item.created_date || "—",
         },
         {
-          key: "updated",
-          label: t("drPushed"),
-          children: item.last_push_date || "—",
-        },
-        {
-          key: "trend",
-          label: t("drTrend"),
-          children: `${fmt(item.trend_score)} · +${fmt(item.star_delta_1d)}/day`,
+          key: "delta30",
+          label: t("drDelta30d"),
+          children: fmt(item.star_delta_30d ?? item.star_delta_7d ?? 0),
         },
       ]
     : [];
@@ -143,7 +117,8 @@ export function RepositoryDrawer({
         item ? (
           <div>
             <div className="drawer-eyebrow">
-              {t("drEyebrow")} #{item.rank} · {category}
+              {t("drEyebrow")} #{item.rank}
+              {category && ` · ${category}`}
             </div>
             <span className="drawer-repo">{item.repo}</span>
             <nav className="detail-navigation" aria-label={t("drBrowse")}>
@@ -192,7 +167,6 @@ export function RepositoryDrawer({
                 context="detail"
               />
               <Button
-                type="primary"
                 icon={<ExportOutlined aria-hidden="true" />}
                 href={safeExternalUrl(item.url) || undefined}
                 target="_blank"
@@ -200,51 +174,89 @@ export function RepositoryDrawer({
               >
                 {t("drOpenRepo")}
               </Button>
+              <details className="drawer-more-actions">
+                <summary aria-label={t("moreActions")}>···</summary>
+                <div className="drawer-action-menu">
+                  {safeExternalUrl(item.homepage) && (
+                    <a
+                      href={safeExternalUrl(item.homepage)}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {t("drHomepage")}
+                    </a>
+                  )}
+                  <button type="button" onClick={() => copy(markdown)}>
+                    {t("drCopyMd")}
+                  </button>
+                  <a href={feedback} target="_blank" rel="noreferrer">
+                    {t("drFeedback")}
+                  </a>
+                </div>
+              </details>
             </div>
-            <Space wrap className="drawer-secondary-actions">
-              {safeExternalUrl(item.homepage) && (
-                <Button
-                  href={safeExternalUrl(item.homepage)}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {t("drHomepage")}
-                </Button>
-              )}
-              <Button onClick={() => copy(markdown, t("toastCopied"))}>
-                {t("drCopyMd")}
-              </Button>
-              <Button href={feedback} target="_blank" rel="noreferrer">
-                {t("drFeedback")}
-              </Button>
-            </Space>
           </div>
         ) : null
       }
     >
       {item && (
-        <>
-          <SummaryText item={item} lang={state.lang} t={t} />
+        <div ref={contentRef} className="drawer-content" key={item.repo}>
+          <SummaryText item={item} t={t} />
+          <div className="drawer-platforms">
+            <span>{t("drAgent")}</span>
+            <PlatformTags item={item} t={t} />
+          </div>
           <InstallationActions
             item={item}
             lang={state.lang}
             t={t}
             details
-            detailsInfo={installationDetails[item.repo]}
+            hideExtras
           />
-          <QualityBadges item={item} t={t} />
-          <div className="drawer-statistics" ref={contentRef}>
-            {[
-              [t("stars"), item.stars],
-              [t("drDelta7d"), item.star_delta_7d || 0],
-              [t("drDelta30d"), item.star_delta_30d ?? item.star_delta_7d ?? 0],
-              [t("skillsCount"), item.skills_count ?? "—"],
-            ].map(([title, value]) => (
-              <Statistic key={title} title={title} value={value} />
-            ))}
-          </div>
-          <Descriptions column={1} bordered size="small" items={details} />
-        </>
+          <dl className="drawer-health">
+            <div>
+              <dt>Stars</dt>
+              <dd>{fmt(item.stars)}</dd>
+            </div>
+            <div>
+              <dt>{t("shortDelta7")}</dt>
+              <dd>{delta ? `${delta > 0 ? "+" : ""}${fmt(delta)}` : "—"}</dd>
+            </div>
+            <div>
+              <dt>{t("drPushed")}</dt>
+              <dd>
+                <time dateTime={item.last_push_date}>
+                  {item.last_push_date || "—"}
+                </time>
+              </dd>
+            </div>
+            <div>
+              <dt>{t("drLicense")}</dt>
+              <dd title={item.license?.name}>
+                {item.license?.spdx_id && item.license.spdx_id !== "NOASSERTION"
+                  ? item.license.spdx_id
+                  : item.license?.name || "—"}
+              </dd>
+            </div>
+          </dl>
+          <details className="drawer-more">
+            <summary>{t("moreRepositoryDetails")}</summary>
+            {item.description && (
+              <section className="drawer-full-description">
+                <h3>{t("drDescription")}</h3>
+                <p>{item.description}</p>
+              </section>
+            )}
+            <InstallationRequirements
+              item={item}
+              lang={state.lang}
+              t={t}
+              detailsInfo={installationDetails[item.repo]}
+            />
+            <QualityBadges item={item} t={t} />
+            <Descriptions column={1} bordered size="small" items={details} />
+          </details>
+        </div>
       )}
     </Drawer>
   );

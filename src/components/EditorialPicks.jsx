@@ -58,7 +58,7 @@ export function EditorialPicks({ items, state, t }) {
                 <p className="editorial-outcome" data-testid="pick-outcome">
                   {pick[`outcome_${state.lang}`]}
                 </p>
-                <EditorialReviewNotice repo={pick.repo} t={t} details />
+                <EditorialReviewNotice repo={pick.repo} t={t} lang={state.lang} details />
                 <p className="editorial-reason">
                   <strong>{t("recommendationReason")}</strong>
                   {pick[`reason_${state.lang}`]}

@@ -36,7 +36,11 @@ export function ActiveFilters({ state, update, t, empty }) {
     ]);
   if (state.newOnly) conditions.push(["newOnly", t("statNewWeek")]);
   if (state.favOnly) conditions.push(["favOnly", t("favoritesOnly")]);
-  if (!conditions.length) return null;
+  // Keep a reset for week filters and insight-only day filters whose source control is hidden.
+  const needsReset =
+    state.newOnly || (state.section === "insights" && state.todayOnly);
+  if (!conditions.length || (conditions.length === 1 && !empty && !needsReset))
+    return null;
   return (
     <section
       className="active-filters"

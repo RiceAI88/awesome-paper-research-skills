@@ -7,6 +7,7 @@ export function RechargeAd({ t }) {
       aria-label={t("rechargeTitle")}
       data-testid="gpt-recharge-ad"
     >
+      <span className="support-ad-label">{t("advertisement")}</span>
       <a
         className="support-card-link"
         href="https://catfk.com/shop/1991"

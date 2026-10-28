@@ -43,8 +43,7 @@ for (const [width, view] of [
         .getBoundingClientRect().top,
     }));
     expect(positions.adTop).toBeGreaterThanOrEqual(positions.heading);
-    if (view === "table") expect(positions.adBottom).toBeLessThanOrEqual(positions.first);
-    else expect(positions.adTop).toBeGreaterThan(positions.first);
+    expect(positions.adTop).toBeGreaterThan(positions.first);
     await page
       .getByRole("searchbox")
       .fill("K-Dense-AI/scientific-agent-skills");

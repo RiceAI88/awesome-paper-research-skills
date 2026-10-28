@@ -193,3 +193,19 @@ test("platform detection uses structured data and supports legacy descriptions",
 test("shared table view stays explicit when the website default is cards", () => {
   assert.match(serializeState({ ...initial(), view: "table" }), /view=table/);
 });
+
+test("growth and first-listed sorts are shareable and preserve rank ties", () => {
+  const list = [
+    item("a/old", "paper", undefined, { rank: 1, star_delta_7d: 10, first_seen_date: "2026-09-01" }),
+    item("b/new", "paper", undefined, { rank: 2, star_delta_7d: 50, first_seen_at: "2026-10-28T03:00:00Z" }),
+    item("c/tie", "paper", undefined, { rank: 3, star_delta_7d: 50, first_seen_at: "2026-10-28T03:00:00Z" }),
+    item("d/unknown", "paper", undefined, { rank: 4, first_seen_at: "invalid" }),
+  ];
+  for (const sort of ["delta7", "newest"]) {
+    const state = { ...initial(), sort };
+    const restored = restoreState(store(), serializeState(state), {}, list);
+    assert.equal(restored.sort, sort);
+    assert.deepEqual(filterItems(list, restored).map(i => i.repo), ["b/new", "c/tie", "a/old", "d/unknown"]);
+    assert.deepEqual(filterItems(list, restored).map(i => i.rank), [1,2,3,4]);
+  }
+});

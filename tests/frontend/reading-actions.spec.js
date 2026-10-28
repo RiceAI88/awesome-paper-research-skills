@@ -93,6 +93,7 @@ for (const width of [1440, 390]) {
     await expect(
       drawer.getByRole("button", { name: /^对比 / }),
     ).toHaveAttribute("aria-pressed", "true");
+    await drawer.locator(".drawer-more-actions > summary").click();
     const feedback = drawer.getByRole("link", { name: "反馈信息问题" });
     await expect(feedback).toHaveAttribute("href", /issues\/new\?/);
     const href = await feedback.getAttribute("href");
