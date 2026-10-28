@@ -565,7 +565,7 @@ function Dashboard({ state, update }) {
             </span>
             <SlidingTaskList value={state.task} title={t("taskCountHint")}>
               <Button
-                type="default"
+                type="text"
                 data-task="all"
                 aria-label={t("taskAll")}
                 aria-pressed={state.task === "all"}
@@ -586,7 +586,7 @@ function Dashboard({ state, update }) {
               {RESEARCH_TASKS.map((task) => (
                 <Button
                   key={task.id}
-                  type="default"
+                  type="text"
                   data-task={task.id}
                   aria-label={t(taskLabels[task.id])}
                   aria-description={`${taskCounts[task.id]} ${t("repos")}`}
