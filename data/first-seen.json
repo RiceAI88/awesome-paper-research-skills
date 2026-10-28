@@ -27,6 +27,11 @@
       "first_seen_at": "2026-10-28T05:55:35Z",
       "first_seen_is_baseline": false
     },
+    "5zjk5/prompt-engineering": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T17:00:50Z",
+      "first_seen_is_baseline": false
+    },
     "7tocr/paper2patent": {
       "first_seen_date": "2026-09-27",
       "first_seen_is_baseline": false
@@ -195,6 +200,11 @@
     "bahayonghang/academic-writing-skills": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:05:57Z",
+      "first_seen_is_baseline": false
+    },
+    "baikemark/happy-figure-skill": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T17:00:50Z",
       "first_seen_is_baseline": false
     },
     "beckyglobal/paidtostudyabroad": {
@@ -1065,6 +1075,11 @@
     },
     "stryxtn/awesome-ai-research-writing": {
       "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
+    },
+    "summarizepaper/summarizepaper": {
+      "first_seen_date": "2026-10-28",
+      "first_seen_at": "2026-10-28T17:00:50Z",
       "first_seen_is_baseline": false
     },
     "syntaxsmith/nature-writing-skill": {

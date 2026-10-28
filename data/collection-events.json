@@ -1865,5 +1865,25 @@
     "at": "2026-10-28T08:44:51Z",
     "repo": "amberljc/llmsys-paperlist",
     "action": "added"
+  },
+  {
+    "at": "2026-10-28T16:51:17Z",
+    "repo": "huangkiki/dailypaper-skills",
+    "action": "restored"
+  },
+  {
+    "at": "2026-10-28T16:51:17Z",
+    "repo": "summarizepaper/summarizepaper",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T16:51:17Z",
+    "repo": "5zjk5/prompt-engineering",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-28T16:51:17Z",
+    "repo": "baikemark/happy-figure-skill",
+    "action": "added"
   }
 ]
