@@ -491,7 +491,7 @@ function Dashboard({ state, update }) {
               {t("heroSubtitle")}
             </Reveal>
           </div>
-          <div className="page-tabs" role="tablist" aria-label={t("pageViews")}>
+          <div className="page-tabs" data-section={state.section} role="tablist" aria-label={t("pageViews")}>
             {["ranking", "insights"].map((section) => (
               <Button
                 key={section}
