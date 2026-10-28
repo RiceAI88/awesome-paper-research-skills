@@ -279,6 +279,7 @@ function Dashboard({ state, update }) {
   }, [syncStickySearch]);
 
   const t = (key) => translations[state.lang][key] || key;
+  const taskOptions = RESEARCH_TASKS.map(task => ({ id: task.id, label: t(taskLabels[task.id]) }));
   const fmt = (value) =>
     new Intl.NumberFormat(state.lang === "zh" ? "zh-CN" : "en-US").format(
       value || 0,
@@ -299,15 +300,6 @@ function Dashboard({ state, update }) {
   const selected =
     visible.find((item) => item.repo === state.repo) ||
     items.find((item) => item.repo === state.repo);
-  const categories = useMemo(
-    () =>
-      [
-        ...new Map(
-          items.map((item) => [item.category.id, item.category]),
-        ).values(),
-      ].sort((a, b) => a.en.localeCompare(b.en)),
-    [],
-  );
   const platformIds = new Set(items.flatMap(detectAgents));
   const net7 = scopeItems.reduce((sum, i) => sum + (i.star_delta_7d || 0), 0);
   const toggleCompare = (repo) => {
@@ -531,10 +523,7 @@ function Dashboard({ state, update }) {
             state={state}
             update={update}
             items={visible}
-            taskOptions={RESEARCH_TASKS.map((task) => ({
-              id: task.id,
-              label: t(taskLabels[task.id]),
-            }))}
+            taskOptions={taskOptions}
             t={t}
           />
         </section>
@@ -559,10 +548,7 @@ function Dashboard({ state, update }) {
               state={state}
               update={update}
               items={visible}
-              taskOptions={RESEARCH_TASKS.map((task) => ({
-                id: task.id,
-                label: t(taskLabels[task.id]),
-              }))}
+              taskOptions={taskOptions}
               t={t}
               onBlur={syncStickySearch}
               inputId="stickySearchInput"
@@ -704,7 +690,7 @@ function Dashboard({ state, update }) {
         </section>
 
         <ActiveFilters
-          {...{ state, update, categories, t }}
+          {...{ state, update, t }}
           empty={!visible.length}
         />
         <div

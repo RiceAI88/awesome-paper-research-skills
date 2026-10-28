@@ -20,11 +20,8 @@ for (const width of [1440, 390])
     await page.goto("./#related=1&view=table");
     const row = page.locator(".ant-table-row").nth(8);
     await row.scrollIntoViewIfNeeded();
-    await expect
-      .poll(async () =>
-        Math.round((await page.locator(".filters").boundingBox()).y),
-      )
-      .toBe(await page.locator("#stickySearchInput").isVisible() ? 48 : 0);
+    await expect(page.locator("#stickySearchInput")).toBeVisible();
+    await expect.poll(async () => Math.round((await page.locator(".filters").boundingBox()).y)).toBe(48);
 
     const header = page.locator(".ant-table-sticky-holder");
     await expect(header).toBeVisible();

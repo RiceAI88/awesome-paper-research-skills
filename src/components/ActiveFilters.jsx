@@ -19,7 +19,7 @@ const resets = {
   newOnly: false,
   todayOnly: "",
 };
-export function ActiveFilters({ state, update, categories, t, empty }) {
+export function ActiveFilters({ state, update, t, empty }) {
   const conditions = [];
   if (state.query.trim())
     conditions.push(["query", t("filterSearch") + state.query.trim()]);
