@@ -1752,3 +1752,6 @@ h1 em {
 }
 .compact-statistics > .update-status { min-width: 0; max-width: 100%; white-space: normal; }
 .update-status-summary { max-width: 100%; flex-wrap: wrap; }
+
+/* Motion owns movement; CSS retains theme and focus feedback. */
+.repository-card[data-motion="card"] { transition-property: border-color, background-color, box-shadow; }

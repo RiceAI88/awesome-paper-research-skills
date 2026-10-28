@@ -1,3 +1,4 @@
+import { Reveal } from "./SiteMotion";
 import React from 'react';
 import { Button } from 'antd';
 
@@ -6,7 +7,7 @@ export function DailyArrivals({ items, state, update, t }) {
   const related = items.filter(item => item.new_today && item.repository_kind === 'related');
   const choose = kind => update(s => ({ ...s, query: '', task: 'all', category: 'all', agent: 'all',
     favOnly: false, newOnly: false, todayOnly: s.todayOnly === kind ? '' : kind }));
-  return <section className="daily-arrivals" data-testid="daily-arrivals" aria-labelledby="daily-arrivals-title">
+  return <Reveal as="section" className="daily-arrivals" data-testid="daily-arrivals" aria-labelledby="daily-arrivals-title">
     <div className="daily-arrivals-heading">
       <div className="daily-arrivals-title">
         <h2 id="daily-arrivals-title">{t('dailySkills')} <strong data-testid="daily-skill-count">{skills.length}</strong></h2>
@@ -27,5 +28,5 @@ export function DailyArrivals({ items, state, update, t }) {
         <strong>{item.repo}</strong><span>{item.description || t('noDescription')}</span>
       </button>)}
     </div> : null}
-  </section>;
+  </Reveal>;
 }

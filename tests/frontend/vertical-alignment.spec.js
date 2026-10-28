@@ -54,8 +54,8 @@ for (const width of [1440, 390]) {
         }),
       );
     for (const action of actions) {
-      expect(action.iconHeight).toBe(20);
-      expect(action.labelHeight).toBe(20);
+      expect(action.iconHeight).toBeCloseTo(20, 2);
+      expect(action.labelHeight).toBeCloseTo(20, 2);
       expect(action.lineHeight).toBe("20px");
     }
     const titles = await page.locator(".card-title-row").evaluateAll(elements => elements.slice(0,4).map(element => {

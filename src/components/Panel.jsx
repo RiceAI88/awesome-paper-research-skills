@@ -1,11 +1,13 @@
 import React from "react";
+import { Reveal } from "./SiteMotion";
 // These site panels need only a body, without Card's tabs/loading machinery.
-export function Panel({ children, className = "", bodyStyle, ...props }) {
+export function Panel({ children, className = "", bodyStyle, animated = false, motionOrder = 0, ...props }) {
+  const Element = animated ? Reveal : "div";
   return (
-    <div {...props} className={`panel ${className}`}>
+    <Element {...props} {...(animated ? { kind: "card", order: motionOrder } : {})} className={`panel ${className}`}>
       <div className="panel-body" style={bodyStyle}>
         {children}
       </div>
-    </div>
+    </Element>
   );
 }

@@ -1,3 +1,4 @@
+import { Reveal } from "./components/SiteMotion";
 import { DailyArrivals } from "./components/DailyArrivals";
 import { RechargeAd } from "./components/RechargeAd";
 import { BackToTop } from "./components/BackToTop";
@@ -374,7 +375,7 @@ function Dashboard({ state, update }) {
         {t("skipToContent")}
       </a>
       <header className="site-header">
-        <nav className="site-nav container" aria-label="Primary">
+        <Reveal as="nav" kind="quiet" className="site-nav container" aria-label="Primary">
           <a className="brand" href={base}>
             <span className="brand-mark">APRS</span>
             <span>Awesome Paper Research Skills</span>
@@ -431,10 +432,10 @@ function Dashboard({ state, update }) {
             </Button>
           </Space>
           <RechargeAd t={t} />
-        </nav>
+        </Reveal>
         <section className="hero container">
           <div className="hero-copy">
-            <h1 tabIndex={-1}>
+            <Reveal as="h1" kind="hero" tabIndex={-1}>
               {state.lang === "zh" ? (
                 <>
                   论文科研 Skills <em>排行榜</em>
@@ -444,8 +445,8 @@ function Dashboard({ state, update }) {
                   Paper Research <em>Skills</em>
                 </>
               )}
-            </h1>
-            <p className="hero-subtitle">{t("heroSubtitle")}</p>
+            </Reveal>
+            <Reveal as="p" kind="hero" order={1} className="hero-subtitle">{t("heroSubtitle")}</Reveal>
           </div>
           <SearchBox
             inactive={stickySearchVisible}
@@ -804,7 +805,7 @@ function Dashboard({ state, update }) {
         />
         <DataTransparency t={t} base={base} />
       </main>
-      <footer className="site-footer container">
+      <Reveal as="footer" className="site-footer container">
         <span>
           MIT ·{" "}
           <a href={REPOSITORY_URL}>RiceAI88/awesome-paper-research-skills</a> ·{" "}
@@ -815,7 +816,7 @@ function Dashboard({ state, update }) {
         </span>
         <span className="keyboard-hint">{t("shortcuts")}</span>
         <VisitCounter t={t} lang={state.lang} />
-      </footer>
+      </Reveal>
       {(selected || drawerRequested) && (
         <DeferredFeature t={t}>
           <RepositoryDrawer

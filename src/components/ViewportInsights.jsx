@@ -1,4 +1,5 @@
 import React, { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { Reveal } from "./SiteMotion";
 import { ChartBoundary } from "./ChartBoundary";
 const Insights = lazy(() => import("./Insights"));
 function Placeholder({ t, count, loading = false }) {
@@ -58,7 +59,7 @@ export function ViewportInsights(props) {
     return () => observer.disconnect();
   }, [active, props.enabled]);
   return (
-    <div
+    <Reveal
       ref={container}
       id="data-insights"
       tabIndex={-1}
@@ -77,6 +78,6 @@ export function ViewportInsights(props) {
       ) : (
         <Placeholder t={props.t} count={props.items.length} />
       )}
-    </div>
+    </Reveal>
   );
 }

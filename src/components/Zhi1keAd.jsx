@@ -1,11 +1,12 @@
 import React from "react";
+import { Reveal } from "./SiteMotion";
 import logo from "../assets/zhi1ke-logo.png";
 
 const destination = "https://zhi1ke.com?pic=6PEB";
 
 export function Zhi1keAd({ t }) {
   return (
-    <aside
+    <Reveal as="aside"
       className="sponsor-banner"
       aria-label="智一刻 AI"
       data-testid="zhi1ke-ad"
@@ -27,6 +28,6 @@ export function Zhi1keAd({ t }) {
       >
         {t("sponsorAction")} <span aria-hidden="true">↗</span>
       </a>
-    </aside>
+    </Reveal>
   );
 }

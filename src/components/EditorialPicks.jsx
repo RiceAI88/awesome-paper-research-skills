@@ -1,3 +1,4 @@
+import { Reveal } from "./SiteMotion";
 import { EditorialReviewNotice } from "./EditorialReviewNotice";
 import { Panel } from "./Panel";
 import React from "react";
@@ -7,7 +8,7 @@ export function EditorialPicks({ items, state, t }) {
   const picks = editorialPicks(items);
   if (!picks.length) return null;
   return (
-    <section
+    <Reveal as="section"
       className="editorial-section"
       data-testid="editorial-picks"
       aria-labelledby="editorialHeading"
@@ -80,6 +81,6 @@ export function EditorialPicks({ items, state, t }) {
           </Panel>
         ))}
       </div>
-    </section>
+    </Reveal>
   );
 }

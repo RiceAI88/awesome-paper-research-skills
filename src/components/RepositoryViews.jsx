@@ -31,7 +31,7 @@ export function QualityBadges({
     );
   return (
     <Space size={[4, 4]} wrap>
-      {item.new_today && <Tag className="daily-new-badge">{t("dailyBadge")}</Tag>}
+      {item.new_today && !statusOnly && <Tag className="daily-new-badge">{t("dailyBadge")}</Tag>}
       {!statusOnly && (
         <Tooltip title={t("projectTypeHelp")}>
           <Tag>{typeLabel}</Tag>
@@ -233,6 +233,8 @@ export function RepositoryViews({
             <React.Fragment key={item.repo}>
               <Panel
                 data-testid="repo-card"
+                animated
+                motionOrder={index % 4}
                 className="repository-card"
                 tabIndex={0}
                 onClick={() => open(item)}

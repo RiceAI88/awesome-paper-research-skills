@@ -1,4 +1,5 @@
 import React, { lazy, useEffect, useRef, useState } from "react";
+import { Reveal } from "./SiteMotion";
 import { Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import { suggestedTaskIds } from "../search";
@@ -28,8 +29,10 @@ export function SearchBox({
     setExpanded(true);
     update((previous) => ({ ...previous, query: value }));
   }
+  const Element = compact ? "div" : Reveal;
   return (
-    <div
+    <Element
+      {...(!compact ? { kind: "quiet", order: 2 } : {})}
       className={`hero-search${compact ? " compact-search" : ""}`}
       inert={inactive || undefined}
       aria-hidden={inactive || undefined}
@@ -96,6 +99,6 @@ export function SearchBox({
           />
         </DeferredFeature>
       )}
-    </div>
+    </Element>
   );
 }

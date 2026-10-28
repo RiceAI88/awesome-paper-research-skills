@@ -1,6 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
+import { SiteMotion } from "./components/SiteMotion";
 import "antd/dist/reset.css";
 import "./styles.css";
 import "./indigo.css";
@@ -25,6 +26,6 @@ class ErrorBoundary extends React.Component {
 }
 createRoot(document.getElementById("root")).render(
   <ErrorBoundary>
-    <App />
+    <SiteMotion><App /></SiteMotion>
   </ErrorBoundary>,
 );
