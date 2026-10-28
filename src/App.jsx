@@ -1,3 +1,4 @@
+import { SlidingTaskList } from "./components/SlidingTaskList";
 import { Reveal } from "./components/SiteMotion";
 import { DailyArrivals } from "./components/DailyArrivals";
 import { RechargeAd } from "./components/RechargeAd";
@@ -562,7 +563,7 @@ function Dashboard({ state, update }) {
             <span className="sr-only" id="taskCountHint">
               {t("taskCountHint")}
             </span>
-            <div className="task-list" title={t("taskCountHint")}>
+            <SlidingTaskList value={state.task} title={t("taskCountHint")}>
               <Button
                 type="default"
                 data-task="all"
@@ -605,7 +606,7 @@ function Dashboard({ state, update }) {
                   </span>
                 </Button>
               ))}
-            </div>
+            </SlidingTaskList>
             <p className="task-count-note sr-only">{t("taskCountNote")}</p>
           </section>
           <div className="filter-fields">

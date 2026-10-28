@@ -43,8 +43,8 @@ test("reference palette, right-hand search and default cards give a compact firs
   // Daily discoveries may add up to three compact entries above the ranking.
   expect(first.y).toBeLessThan(560);
   expect(first.y + first.height).toBeLessThan(900);
-  await expect(page.locator(".task-list [aria-pressed=true]")).toHaveCSS(
-    "border-bottom-color",
+  await expect(page.locator(".task-selection-indicator")).toHaveCSS(
+    "background-color",
     "rgb(74, 63, 191)",
   );
   await expect(page.locator(".task-list [aria-pressed=true]")).toHaveCSS(

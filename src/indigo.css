@@ -1220,3 +1220,25 @@ a:focus-visible,
 /* Reserve the same footer space so maintenance notes never shift peer cards. */
 .repository-card .panel-body { position: relative; padding-bottom: 32px; }
 .card-maintenance { position: absolute; right: 20px; bottom: 8px; margin: 0; }
+
+/* One measured underline follows variable-width scene labels and their counts. */
+.task-list { position: relative; }
+.task-selection-indicator {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: var(--task-line-width, 0px);
+  height: 2px;
+  background: var(--prs-primary);
+  transform: translateX(var(--task-line-x, 0px));
+  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1), width 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+.task-list .ant-btn[aria-pressed="true"],
+.task-list .ant-btn[aria-pressed="true"]:not(:disabled):hover,
+.task-list .ant-btn[aria-pressed="true"]:not(:disabled):active {
+  border-bottom-color: transparent;
+}
+@media (prefers-reduced-motion: reduce) {
+  .task-selection-indicator { transition: none; }
+}
