@@ -15,6 +15,7 @@ import {
   matchesResearchTask,
   sceneLabelsFor,
 } from "../domain";
+import { ChartSkeleton } from "./ChartSkeleton";
 import { ChartBoundary } from "./ChartBoundary";
 
 const chartLabels = {
@@ -57,14 +58,37 @@ const chartLabels = {
   },
 };
 
-function SvgPlot({ plot: Plot, onReady, ...props }) {
-  // Keep renderer internals out of the React wrapper's recursive config walk.
-  // The canvas owns its renderer and disposes it with this plot instance.
+function SvgPlot({ plot: Plot, onReady, loadingLabel, ...props }) {
+  const [loading, setLoading] = useState(true);
+  const listener = useRef(null);
+  useEffect(() => () => {
+    if (listener.current) {
+      const { chart, complete } = listener.current;
+      chart.off("afterrender", complete);
+    }
+  }, []);
   const ready = (instance) => {
+    const complete = () => setLoading(false);
+    listener.current = { chart: instance.chart, complete };
+    // onReady means the instance exists; wait for its actual first render.
+    instance.chart.once("afterrender", complete);
     instance.chart.getContext().canvas.setRenderer(new SVGRenderer());
     onReady?.(instance);
   };
-  return <Plot {...props} onReady={ready} />;
+  return (
+    <div
+      className="chart-loading-host"
+      aria-busy={loading}
+      style={{ minHeight: props.height || 280 }}
+    >
+      <Plot {...props} onReady={ready} />
+      {loading && (
+        <div className="chart-loading-overlay">
+          <ChartSkeleton height={props.height || 280} label={loadingLabel} />
+        </div>
+      )}
+    </div>
+  );
 }
 
 function ChartFrame({ title, note, action, id, children, t, hidden = false }) {
@@ -373,6 +397,7 @@ export default function Insights({
                 aria-label={t("insightGrowth")}
               >
                 <SvgPlot
+                  loadingLabel={t("chartsLoading")}
                   plot={Bar}
                   {...base}
                   animate={entrance("growth")}
@@ -472,6 +497,7 @@ export default function Insights({
                 aria-label={t("sceneDistribution")}
               >
                 <SvgPlot
+                  loadingLabel={t("chartsLoading")}
                   plot={Bar}
                   {...base}
                   animate={entrance("categories")}
@@ -602,6 +628,7 @@ export default function Insights({
               aria-label={t("insightTrend")}
             >
               <SvgPlot
+                  loadingLabel={t("chartsLoading")}
                 plot={Line}
                 {...base}
                 paddingRight={135}
@@ -710,6 +737,7 @@ export default function Insights({
                 aria-label={t("insightScatter")}
               >
                 <SvgPlot
+                  loadingLabel={t("chartsLoading")}
                   plot={Scatter}
                   {...base}
                   animate={entrance("scatter")}

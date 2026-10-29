@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { Reveal } from "./SiteMotion";
+import { ChartSkeleton } from "./ChartSkeleton";
 import { ChartBoundary } from "./ChartBoundary";
 const Insights = lazy(() => import("./Insights"));
 function Placeholder({ t, count, scopeControl, loading = false }) {
@@ -32,7 +33,7 @@ function Placeholder({ t, count, scopeControl, loading = false }) {
               <div className="insight-panel-heading">
                 <h3>{t(title)}</h3>
               </div>
-              <div className="chart-placeholder" aria-hidden="true" />
+              <ChartSkeleton label={t("chartsLoading")} height={index ? title === "insightTrend" ? 280 : 300 : title === "insightGrowth" ? 220 : 192} />
             </article>
           ))}
         </div>
