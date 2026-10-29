@@ -222,9 +222,19 @@
       "first_seen_at": "2026-10-27T16:05:57Z",
       "first_seen_is_baseline": false
     },
+    "bishwaghimire/ai-learning-roadmaps": {
+      "first_seen_date": "2026-10-29",
+      "first_seen_at": "2026-10-29T03:21:50Z",
+      "first_seen_is_baseline": false
+    },
     "bitnp/bithesis": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:05:57Z",
+      "first_seen_is_baseline": false
+    },
+    "blazickjp/arxiv-mcp-server": {
+      "first_seen_date": "2026-10-29",
+      "first_seen_at": "2026-10-29T03:21:50Z",
       "first_seen_is_baseline": false
     },
     "bohyy/academic-ai-prompt": {
@@ -246,6 +256,16 @@
     "brycewang-stanford/awesome-journal-skills": {
       "first_seen_date": "2026-08-27",
       "first_seen_is_baseline": true
+    },
+    "bytedance/pasa": {
+      "first_seen_date": "2026-10-29",
+      "first_seen_at": "2026-10-29T03:21:50Z",
+      "first_seen_is_baseline": false
+    },
+    "c-narcissus/paper-framework-figure-studio-pro": {
+      "first_seen_date": "2026-10-29",
+      "first_seen_at": "2026-10-29T03:21:50Z",
+      "first_seen_is_baseline": false
     },
     "chanchichoi/awesome-face_recognition": {
       "first_seen_date": "2026-10-27",
