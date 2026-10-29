@@ -1905,5 +1905,35 @@
     "at": "2026-10-29T03:11:38Z",
     "repo": "c-narcissus/paper-framework-figure-studio-pro",
     "action": "added"
+  },
+  {
+    "at": "2026-10-29T08:39:14Z",
+    "repo": "allenai/asta-bench",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-29T08:39:14Z",
+    "repo": "chenking2020/findthechatgpter",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-29T08:39:14Z",
+    "repo": "chenryn/aiops-handbook",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-29T08:39:14Z",
+    "repo": "chicagohai/neurico",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-29T08:39:14Z",
+    "repo": "chicagohai/openaireview",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-29T08:39:14Z",
+    "repo": "cluebenchmark/cluedatasetsearch",
+    "action": "added"
   }
 ]

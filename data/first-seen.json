@@ -155,6 +155,11 @@
       "first_seen_at": "2026-10-28T08:55:06Z",
       "first_seen_is_baseline": false
     },
+    "allenai/asta-bench": {
+      "first_seen_date": "2026-10-29",
+      "first_seen_at": "2026-10-29T08:49:02Z",
+      "first_seen_is_baseline": false
+    },
     "amberljc/llmsys-paperlist": {
       "first_seen_date": "2026-10-28",
       "first_seen_at": "2026-10-28T08:55:06Z",
@@ -281,6 +286,11 @@
       "first_seen_date": "2026-09-27",
       "first_seen_is_baseline": false
     },
+    "chenking2020/findthechatgpter": {
+      "first_seen_date": "2026-10-29",
+      "first_seen_at": "2026-10-29T08:49:02Z",
+      "first_seen_is_baseline": false
+    },
     "chenliu-1996/figures4papers": {
       "first_seen_date": "2026-09-27",
       "first_seen_is_baseline": false
@@ -290,9 +300,24 @@
       "first_seen_at": "2026-10-27T16:05:57Z",
       "first_seen_is_baseline": false
     },
+    "chenryn/aiops-handbook": {
+      "first_seen_date": "2026-10-29",
+      "first_seen_at": "2026-10-29T08:49:02Z",
+      "first_seen_is_baseline": false
+    },
     "chi111i/bypassaigc": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:05:57Z",
+      "first_seen_is_baseline": false
+    },
+    "chicagohai/neurico": {
+      "first_seen_date": "2026-10-29",
+      "first_seen_at": "2026-10-29T08:49:02Z",
+      "first_seen_is_baseline": false
+    },
+    "chicagohai/openaireview": {
+      "first_seen_date": "2026-10-29",
+      "first_seen_at": "2026-10-29T08:49:02Z",
       "first_seen_is_baseline": false
     },
     "chtc66/academic-skills": {
@@ -313,6 +338,11 @@
     },
     "cloudwave818/ieee-skills": {
       "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
+    },
+    "cluebenchmark/cluedatasetsearch": {
+      "first_seen_date": "2026-10-29",
+      "first_seen_at": "2026-10-29T08:49:02Z",
       "first_seen_is_baseline": false
     },
     "congcongwang0122/zotero-skill": {
