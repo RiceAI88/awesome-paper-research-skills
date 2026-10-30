@@ -320,6 +320,11 @@
       "first_seen_at": "2026-10-29T08:49:02Z",
       "first_seen_is_baseline": false
     },
+    "chrisblattman/claudeblattman": {
+      "first_seen_date": "2026-10-30",
+      "first_seen_at": "2026-10-30T02:03:55Z",
+      "first_seen_is_baseline": false
+    },
     "chtc66/academic-skills": {
       "first_seen_date": "2026-09-27",
       "first_seen_is_baseline": false
@@ -362,6 +367,11 @@
       "first_seen_date": "2026-09-27",
       "first_seen_is_baseline": false
     },
+    "crui5in/paper-ppt-agent": {
+      "first_seen_date": "2026-10-30",
+      "first_seen_at": "2026-10-30T02:03:55Z",
+      "first_seen_is_baseline": false
+    },
     "crys-chen/ic-guide": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:05:57Z",
@@ -376,9 +386,29 @@
       "first_seen_at": "2026-10-27T16:17:18Z",
       "first_seen_is_baseline": false
     },
+    "cynicalight/neoread": {
+      "first_seen_date": "2026-10-30",
+      "first_seen_at": "2026-10-30T02:03:55Z",
+      "first_seen_is_baseline": false
+    },
+    "d6t/d6tflow": {
+      "first_seen_date": "2026-10-30",
+      "first_seen_at": "2026-10-30T02:03:55Z",
+      "first_seen_is_baseline": false
+    },
     "damonwan1/autoscholarloop": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:05:57Z",
+      "first_seen_is_baseline": false
+    },
+    "daosword/time-series-forecasting-and-deep-learning": {
+      "first_seen_date": "2026-10-30",
+      "first_seen_at": "2026-10-30T02:03:55Z",
+      "first_seen_is_baseline": false
+    },
+    "datawhalechina/agent-learning-hub": {
+      "first_seen_date": "2026-10-30",
+      "first_seen_at": "2026-10-30T02:03:55Z",
       "first_seen_is_baseline": false
     },
     "datawhalechina/happy-figure": {

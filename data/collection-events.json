@@ -1935,5 +1935,48 @@
     "at": "2026-10-29T08:39:14Z",
     "repo": "cluebenchmark/cluedatasetsearch",
     "action": "added"
+  },
+  {
+    "at": "2026-10-30T01:55:05Z",
+    "repo": "openjiuwen-ai/sciencediscovery",
+    "action": "removed",
+    "reasons": [
+      "research",
+      "scientific",
+      "science",
+      "missing_skill_signal",
+      "missing_high_confidence_academic_signal",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-10-30T01:55:05Z",
+    "repo": "chrisblattman/claudeblattman",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-30T01:55:05Z",
+    "repo": "crui5in/paper-ppt-agent",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-30T01:55:05Z",
+    "repo": "cynicalight/neoread",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-30T01:55:05Z",
+    "repo": "d6t/d6tflow",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-30T01:55:05Z",
+    "repo": "daosword/time-series-forecasting-and-deep-learning",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-30T01:55:05Z",
+    "repo": "datawhalechina/agent-learning-hub",
+    "action": "added"
   }
 ]
