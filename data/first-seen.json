@@ -411,9 +411,19 @@
       "first_seen_at": "2026-10-30T02:03:55Z",
       "first_seen_is_baseline": false
     },
+    "datawhalechina/dive-into-embodied-ai": {
+      "first_seen_date": "2026-10-30",
+      "first_seen_at": "2026-10-30T08:55:18Z",
+      "first_seen_is_baseline": false
+    },
     "datawhalechina/happy-figure": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:05:57Z",
+      "first_seen_is_baseline": false
+    },
+    "deep-jlu/awesome-graph-engineering": {
+      "first_seen_date": "2026-10-30",
+      "first_seen_at": "2026-10-30T08:55:18Z",
       "first_seen_is_baseline": false
     },
     "deepshare-official/ccf-figure": {

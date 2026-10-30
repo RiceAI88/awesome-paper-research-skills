@@ -1978,5 +1978,15 @@
     "at": "2026-10-30T01:55:05Z",
     "repo": "datawhalechina/agent-learning-hub",
     "action": "added"
+  },
+  {
+    "at": "2026-10-30T08:46:02Z",
+    "repo": "datawhalechina/dive-into-embodied-ai",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-30T08:46:02Z",
+    "repo": "deep-jlu/awesome-graph-engineering",
+    "action": "added"
   }
 ]
