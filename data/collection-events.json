@@ -1988,5 +1988,46 @@
     "at": "2026-10-30T08:46:02Z",
     "repo": "deep-jlu/awesome-graph-engineering",
     "action": "added"
+  },
+  {
+    "at": "2026-10-31T02:53:27Z",
+    "repo": "fcakyon/phd-skills",
+    "action": "renamed",
+    "to": "fcakyon/labrat"
+  },
+  {
+    "at": "2026-10-31T02:53:27Z",
+    "repo": "fcakyon/labrat",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-31T02:53:27Z",
+    "repo": "shahidazam2020-oss/a-systematic-literature-review-of-retrieval-augmented-generation-rag-models",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-31T02:53:27Z",
+    "repo": "tj-csccg/tongjithesis",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-31T02:53:27Z",
+    "repo": "dictation354/paper-fetch-skill",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-31T02:53:27Z",
+    "repo": "donghuixin/ai-vibe-writing-skills",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-31T02:53:27Z",
+    "repo": "dw-dengwei/daily-arxiv-ai-enhanced",
+    "action": "added"
+  },
+  {
+    "at": "2026-10-31T02:53:27Z",
+    "repo": "eastforce/worker-ai-spark",
+    "action": "added"
   }
 ]

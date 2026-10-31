@@ -440,9 +440,19 @@
       "first_seen_at": "2026-10-27T16:05:57Z",
       "first_seen_is_baseline": false
     },
+    "dictation354/paper-fetch-skill": {
+      "first_seen_date": "2026-10-31",
+      "first_seen_at": "2026-10-31T03:03:15Z",
+      "first_seen_is_baseline": false
+    },
     "dl3dv-10k/dataset": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:05:57Z",
+      "first_seen_is_baseline": false
+    },
+    "donghuixin/ai-vibe-writing-skills": {
+      "first_seen_date": "2026-10-31",
+      "first_seen_at": "2026-10-31T03:03:15Z",
       "first_seen_is_baseline": false
     },
     "doryoku1223/lunwen-skill": {
@@ -475,9 +485,19 @@
       "first_seen_date": "2026-10-15",
       "first_seen_is_baseline": false
     },
+    "dw-dengwei/daily-arxiv-ai-enhanced": {
+      "first_seen_date": "2026-10-31",
+      "first_seen_at": "2026-10-31T03:03:15Z",
+      "first_seen_is_baseline": false
+    },
     "dwzhu-pku/paperbanana": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:05:57Z",
+      "first_seen_is_baseline": false
+    },
+    "eastforce/worker-ai-spark": {
+      "first_seen_date": "2026-10-31",
+      "first_seen_at": "2026-10-31T03:03:15Z",
       "first_seen_is_baseline": false
     },
     "edwardxlai/easyread": {
@@ -517,6 +537,10 @@
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:17:18Z",
       "first_seen_is_baseline": false
+    },
+    "fcakyon/labrat": {
+      "first_seen_date": "2026-08-27",
+      "first_seen_is_baseline": true
     },
     "fcakyon/phd-skills": {
       "first_seen_date": "2026-08-27",
@@ -1103,6 +1127,11 @@
       "first_seen_at": "2026-10-28T05:55:35Z",
       "first_seen_is_baseline": false
     },
+    "shahidazam2020-oss/a-systematic-literature-review-of-retrieval-augmented-generation-rag-models": {
+      "first_seen_date": "2026-10-31",
+      "first_seen_at": "2026-10-31T03:03:15Z",
+      "first_seen_is_baseline": false
+    },
     "shengyp/doing_the_phd": {
       "first_seen_date": "2026-10-28",
       "first_seen_at": "2026-10-28T05:55:35Z",
@@ -1208,6 +1237,11 @@
     },
     "tingxiyu/academic-figure-skill": {
       "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
+    },
+    "tj-csccg/tongjithesis": {
+      "first_seen_date": "2026-10-31",
+      "first_seen_at": "2026-10-31T03:03:15Z",
       "first_seen_is_baseline": false
     },
     "tmgthb/autonomous-agents": {
