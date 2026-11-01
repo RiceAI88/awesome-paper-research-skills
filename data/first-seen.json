@@ -524,6 +524,11 @@
       "first_seen_at": "2026-10-27T16:05:57Z",
       "first_seen_is_baseline": false
     },
+    "evomap/autoresearch": {
+      "first_seen_date": "2026-11-01",
+      "first_seen_at": "2026-11-01T09:32:53Z",
+      "first_seen_is_baseline": false
+    },
     "extreme-assistant/cvpr2024-paper-code-interpretation": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:05:57Z",
@@ -546,9 +551,19 @@
       "first_seen_date": "2026-08-27",
       "first_seen_is_baseline": true
     },
+    "fchaubard/autoresearcherui": {
+      "first_seen_date": "2026-11-01",
+      "first_seen_at": "2026-11-01T09:32:53Z",
+      "first_seen_is_baseline": false
+    },
     "federicodeponte/opendraft": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:05:57Z",
+      "first_seen_is_baseline": false
+    },
+    "feijianghan/paperforge": {
+      "first_seen_date": "2026-11-01",
+      "first_seen_at": "2026-11-01T09:32:53Z",
       "first_seen_is_baseline": false
     },
     "fighting41love/funnlp": {
@@ -563,6 +578,11 @@
     "foshmily/ai-paper-system": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:05:57Z",
+      "first_seen_is_baseline": false
+    },
+    "francescopace/espectre": {
+      "first_seen_date": "2026-11-01",
+      "first_seen_at": "2026-11-01T09:32:53Z",
       "first_seen_is_baseline": false
     },
     "franklee16/academic-research-skills": {
@@ -604,6 +624,11 @@
       "first_seen_at": "2026-10-27T16:05:57Z",
       "first_seen_is_baseline": false
     },
+    "gulucaptain/best-paper-writing-skill": {
+      "first_seen_date": "2026-11-01",
+      "first_seen_at": "2026-11-01T09:32:53Z",
+      "first_seen_is_baseline": false
+    },
     "gwisk/gradguide": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:05:57Z",
@@ -612,6 +637,11 @@
     "haimbeau1o/thesis-optimizer": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:17:18Z",
+      "first_seen_is_baseline": false
+    },
+    "haipenglai/treasure-questions": {
+      "first_seen_date": "2026-11-01",
+      "first_seen_at": "2026-11-01T09:32:53Z",
       "first_seen_is_baseline": false
     },
     "handsome-rich/awesome-auto-research-tools": {
@@ -643,6 +673,11 @@
     "helenahartmann/awesome-phd": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:05:57Z",
+      "first_seen_is_baseline": false
+    },
+    "helloo1568/slidemuse": {
+      "first_seen_date": "2026-11-01",
+      "first_seen_at": "2026-11-01T09:32:53Z",
       "first_seen_is_baseline": false
     },
     "hilab-git/ssl4mis": {
@@ -1171,6 +1206,11 @@
     },
     "spark-to-paper-skills/paperjury": {
       "first_seen_date": "2026-09-27",
+      "first_seen_is_baseline": false
+    },
+    "spectrum527/academic-automation-skill": {
+      "first_seen_date": "2026-11-01",
+      "first_seen_at": "2026-11-01T09:32:53Z",
       "first_seen_is_baseline": false
     },
     "spthole/coexistai": {
