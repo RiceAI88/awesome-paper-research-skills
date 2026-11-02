@@ -1456,7 +1456,16 @@ a:focus-visible,
 .community-dialog::backdrop { background: #17152c88; }
 .community-dialog-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .community-dialog-heading h2 { margin: 0; font-size: 18px; }
-.community-dialog-heading button { width: 36px; height: 36px; border: 0; border-radius: 6px; background: var(--prs-tint); color: var(--prs-text); font-size: 26px; cursor: pointer; }
+.community-dialog-heading button {
+  display: inline-flex; align-items: center; justify-content: center;
+  flex: 0 0 36px; width: 36px; height: 36px; padding: 0;
+  border: 0; border-radius: 8px; background: transparent;
+  color: var(--prs-muted); font: inherit; font-size: 16px; line-height: 1;
+  cursor: pointer; transition: background-color 160ms ease, color 160ms ease;
+}
+.community-dialog-heading button .anticon { display: inline-flex; line-height: 1; }
+.community-dialog-heading button:hover { background: var(--prs-tint); color: var(--prs-text); }
+.community-dialog-heading button:focus-visible { outline: 2px solid var(--prs-primary); outline-offset: 2px; }
 .community-dialog > img { display: block; width: auto; height: auto; max-width: 100%; max-height: calc(100dvh - 165px); margin: 8px auto; object-fit: contain; }
 .community-dialog p { margin: 8px 0 0; text-align: center; font-size: 13px; color: var(--prs-muted); }
 @media (max-width: 760px) {

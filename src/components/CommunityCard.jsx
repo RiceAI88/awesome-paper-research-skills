@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { CloseOutlined } from "@ant-design/icons";
 import qrImage from "../../assets/research-community-2026-11-02.png";
 
 export function CommunityCard({ lang }) {
@@ -37,7 +38,7 @@ export function CommunityCard({ lang }) {
       >
         <div className="community-dialog-heading">
           <h2 id="community-dialog-title">{title}</h2>
-          <button type="button" aria-label={zh ? "关闭二维码" : "Close QR code"} onClick={() => dialog.current.close()}>×</button>
+          <button type="button" aria-label={zh ? "关闭二维码" : "Close QR code"} onClick={() => dialog.current.close()}><CloseOutlined aria-hidden="true" /></button>
         </div>
         <img src={qrImage} alt={zh ? "AI科研交流群1 微信入群二维码，11月9日前有效" : "WeChat group QR code, valid before November 9"} width="450" height="680" />
         <p>{zh ? "微信扫码加入，手机端可长按保存图片。" : "Scan with WeChat, or save the image on your phone."}</p>
