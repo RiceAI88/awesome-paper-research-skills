@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T03:11:11Z",
+  "generated_at": "2026-11-02T09:39:58Z",
   "status": "complete",
   "fatal": false,
   "pending": [],
@@ -238,15 +238,6 @@
       ]
     },
     {
-      "repo": "academic/awesome-datascience",
-      "reasons": [
-        "academic",
-        "science",
-        "missing_skill_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
       "repo": "aipoch/open-science",
       "reasons": [
         "skill",
@@ -257,16 +248,6 @@
         "science",
         "missing_high_confidence_academic_signal",
         "negative:desktop app"
-      ]
-    },
-    {
-      "repo": "akfamily/akshare",
-      "reasons": [
-        "mcp",
-        "academic",
-        "science",
-        "missing_strong_skill_signal",
-        "missing_readme_academic_scope"
       ]
     },
     {
@@ -320,27 +301,6 @@
       ]
     },
     {
-      "repo": "cirosantilli/cirosantilli",
-      "reasons": [
-        "学术",
-        "文献",
-        "基金",
-        "missing_skill_signal",
-        "readme_pending"
-      ]
-    },
-    {
-      "repo": "damionrashford/rivalsearchmcp",
-      "reasons": [
-        "skill",
-        "skills",
-        "mcp",
-        "academic",
-        "research",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
       "repo": "decrypto-org/blockchain-papers",
       "reasons": [
         "academic",
@@ -385,19 +345,6 @@
       ]
     },
     {
-      "repo": "jaccen/awesome-gaussian-skills",
-      "reasons": [
-        "skill",
-        "skills",
-        "agent skill",
-        "research",
-        "arxiv",
-        "thesis",
-        "missing_high_confidence_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
       "repo": "limhyungtae/awesome-phd-cv",
       "reasons": [
         "academic",
@@ -406,15 +353,6 @@
         "phd",
         "missing_skill_signal",
         "negative:resume"
-      ]
-    },
-    {
-      "repo": "luohongk/embodied-ai-daily",
-      "reasons": [
-        "arxiv",
-        "论文",
-        "missing_skill_signal",
-        "readme_pending"
       ]
     },
     {
@@ -452,6 +390,15 @@
       ]
     },
     {
+      "repo": "osnsyc/wechat-scholar",
+      "reasons": [
+        "scholar",
+        "学术",
+        "missing_skill_signal",
+        "missing_readme_project_purpose"
+      ]
+    },
+    {
       "repo": "panbinibn/openpacketfix_",
       "reasons": [
         "plugin",
@@ -461,14 +408,6 @@
         "文献",
         "negative:leetcode",
         "negative:interview"
-      ]
-    },
-    {
-      "repo": "phil-fan/awesome-zju-tools",
-      "reasons": [
-        "科研",
-        "missing_skill_signal",
-        "missing_readme_academic_scope"
       ]
     },
     {
@@ -503,31 +442,12 @@
       ]
     },
     {
-      "repo": "taxueseek/argo",
-      "reasons": [
-        "mcp",
-        "plugin",
-        "academic",
-        "research",
-        "学术",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
       "repo": "wanshuiyin/aris-in-ai-offer",
       "reasons": [
         "academic",
         "missing_skill_signal",
         "negative:interview",
         "negative:cheatsheet"
-      ]
-    },
-    {
-      "repo": "wess09/azurpilot",
-      "reasons": [
-        "科研",
-        "missing_skill_signal",
-        "nonresearch_primary_purpose"
       ]
     },
     {
@@ -562,11 +482,18 @@
       ]
     },
     {
-      "repo": "1panel-dev/maxkb",
+      "repo": "14790897/handwriting-web",
       "reasons": [
-        "mcp",
+        "missing_skill_signal",
         "missing_academic_signal",
-        "missing_strong_skill_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "1c7/chinese-independent-developer",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
         "missing_readme_academic_scope"
       ]
     },
@@ -576,32 +503,6 @@
         "missing_skill_signal",
         "missing_academic_signal",
         "negative:cheatsheet"
-      ]
-    },
-    {
-      "repo": "a0926499300/nh-doujinshi-reader",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "a2aproject/a2a",
-      "reasons": [
-        "mcp",
-        "missing_academic_signal",
-        "missing_strong_skill_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "aaif-goose/goose",
-      "reasons": [
-        "mcp",
-        "missing_academic_signal",
-        "missing_strong_skill_signal",
-        "missing_readme_academic_scope"
       ]
     },
     {
@@ -633,15 +534,12 @@
       ]
     },
     {
-      "repo": "addsumtech/slides_maker",
+      "repo": "abhi24384/anthropic-mythos-desktop-studio",
       "reasons": [
         "skill",
-        "claude code",
-        "codex",
-        "paper",
-        "papers",
-        "review",
-        "missing_high_confidence_academic_signal",
+        "skills",
+        "plugin",
+        "missing_academic_signal",
         "missing_readme_academic_scope"
       ]
     },
@@ -665,27 +563,9 @@
       ]
     },
     {
-      "repo": "agent-sh/agnix",
-      "reasons": [
-        "skill",
-        "skills",
-        "codex",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "agent-threat-rule/agent-threat-rules",
+      "repo": "agentscope-ai/agentscope",
       "reasons": [
         "mcp",
-        "missing_academic_signal",
-        "missing_strong_skill_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "agent0ai/agent-zero",
-      "reasons": [
         "assistant",
         "missing_academic_signal",
         "missing_strong_skill_signal",
@@ -693,11 +573,10 @@
       ]
     },
     {
-      "repo": "agents365-ai/drawio-skill",
+      "repo": "agentscope-ai/openjudge",
       "reasons": [
         "skill",
         "skills",
-        "agent skill",
         "missing_academic_signal",
         "missing_readme_academic_scope"
       ]
@@ -747,18 +626,15 @@
       ]
     },
     {
-      "repo": "ainativelab/top-500-best-gpts",
+      "repo": "ai4s-research/open-science",
       "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "airhunter/onlytranslate",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
+        "skill",
+        "skills",
+        "agent skill",
+        "research",
+        "scientific",
+        "science",
+        "missing_high_confidence_academic_signal",
         "missing_readme_academic_scope"
       ]
     },
@@ -772,10 +648,21 @@
       ]
     },
     {
-      "repo": "aliammari1/awesome-ai-tools",
+      "repo": "akshcha/claude-pro-collab-guide",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "alibaba/open-code-review",
+      "reasons": [
+        "skill",
+        "skills",
+        "pipeline",
+        "review",
+        "missing_strong_academic_signal",
         "missing_readme_academic_scope"
       ]
     },
@@ -788,14 +675,6 @@
         "research",
         "missing_strong_academic_signal",
         "negative:developer-tools"
-      ]
-    },
-    {
-      "repo": "allenai/vla-evaluation-harness",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
       ]
     },
     {
@@ -815,15 +694,6 @@
       ]
     },
     {
-      "repo": "alvinunreal/oh-my-opencode-slim",
-      "reasons": [
-        "opencode",
-        "plugin",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
       "repo": "amap-ml/longhorizon-harness",
       "reasons": [
         "claude code",
@@ -834,12 +704,36 @@
       ]
     },
     {
+      "repo": "amazon-braket/amazon-braket-examples",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "amitness/learning",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
       "repo": "amitshekhariitbhu/ai-engineering-interview-questions",
       "reasons": [
         "mcp",
         "missing_academic_signal",
         "missing_strong_skill_signal",
         "negative:interview"
+      ]
+    },
+    {
+      "repo": "analysis-tools-dev/static-analysis",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -853,15 +747,7 @@
       ]
     },
     {
-      "repo": "andrew/ultimate-awesome",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_pending"
-      ]
-    },
-    {
-      "repo": "andybroswell/cs-first-aid",
+      "repo": "aneasystone/github-trending",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
@@ -869,7 +755,7 @@
       ]
     },
     {
-      "repo": "anionex/banana-slides",
+      "repo": "antigenomics/vdjtools",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
@@ -877,7 +763,7 @@
       ]
     },
     {
-      "repo": "apexin-ai/asi-bench",
+      "repo": "anvie/evonic",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
@@ -885,7 +771,7 @@
       ]
     },
     {
-      "repo": "apijson/apijson",
+      "repo": "apache/flink",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
@@ -893,46 +779,9 @@
       ]
     },
     {
-      "repo": "arc53/docsgpt",
-      "reasons": [
-        "assistant",
-        "research",
-        "retrieval",
-        "missing_strong_skill_signal",
-        "missing_strong_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "arcee-ai/mergekit",
+      "repo": "apodexai/frontieragent",
       "reasons": [
         "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "archivebox/abx-dl",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "areal-project/areal",
-      "reasons": [
-        "reasoning",
-        "missing_skill_signal",
-        "missing_strong_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "argoproj/argo-events",
-      "reasons": [
-        "workflow",
-        "pipeline",
         "missing_academic_signal",
         "missing_readme_academic_scope"
       ]
@@ -946,45 +795,13 @@
       ]
     },
     {
-      "repo": "arize-ai/phoenix",
+      "repo": "ascend-ai-coding/awesome-ascend-skills",
       "reasons": [
-        "missing_skill_signal",
+        "skill",
+        "skills",
+        "agent skill",
         "missing_academic_signal",
         "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "aroum/fm1-custom-fw",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "asgeirtj/system_prompts_leaks",
-      "reasons": [
-        "claude code",
-        "codex",
-        "cursor",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "autogluon/tabarena",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "awesome-dsh-plugin/awesome-dsh-plugin",
-      "reasons": [
-        "plugin",
-        "missing_academic_signal",
-        "readme_pending"
       ]
     },
     {
@@ -997,41 +814,6 @@
       ]
     },
     {
-      "repo": "awesome-selfhosted/awesome-selfhosted",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "aws-samples/sample-strands-agent-with-agentcore",
-      "reasons": [
-        "skill",
-        "skills",
-        "agent skill",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "awslabs/aidlc-workflows",
-      "reasons": [
-        "workflow",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "awslabs/mcp",
-      "reasons": [
-        "mcp",
-        "missing_academic_signal",
-        "missing_strong_skill_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
       "repo": "aytuncyildizli/reprompter",
       "reasons": [
         "missing_skill_signal",
@@ -1040,10 +822,9 @@
       ]
     },
     {
-      "repo": "azenyes/leaderai-media-toolkit",
+      "repo": "azec4/telegramgroup",
       "reasons": [
-        "skill",
-        "skills",
+        "missing_skill_signal",
         "missing_academic_signal",
         "missing_readme_academic_scope"
       ]
@@ -1059,6 +840,14 @@
       ]
     },
     {
+      "repo": "beancookie/awesome-dsh-plugin",
+      "reasons": [
+        "plugin",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
       "repo": "bee-san/ciphey",
       "reasons": [
         "missing_skill_signal",
@@ -1067,62 +856,45 @@
       ]
     },
     {
-      "repo": "bendlang/bend",
+      "repo": "behisecc/awesome-claude-skills",
       "reasons": [
-        "roo",
+        "skill",
+        "skills",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "beiciliang/intro2musictech",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "bigbodycobain/shadowbroker",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "brightdata/brightdata-mcp",
+      "reasons": [
+        "mcp",
         "missing_academic_signal",
         "missing_strong_skill_signal",
         "missing_readme_academic_scope"
       ]
     },
     {
-      "repo": "best-of-ai/best-of-ai",
-      "reasons": [
-        "skill",
-        "skills",
-        "assistant",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "bethington/ghidra-mcp",
+      "repo": "browser-use/browser-use",
       "reasons": [
         "mcp",
-        "plugin",
         "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "birobirobiro/awesome-shadcn-ui",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "blinkdl/rwkv-lm",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "bollu/bollu.github.io",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_pending"
-      ]
-    },
-    {
-      "repo": "bruc3van/awesome-dsh-plugin",
-      "reasons": [
-        "plugin",
-        "missing_academic_signal",
+        "missing_strong_skill_signal",
         "missing_readme_academic_scope"
       ]
     },
@@ -1137,12 +909,43 @@
       ]
     },
     {
+      "repo": "brycewang-stanford/statspai",
+      "reasons": [
+        "skill",
+        "skills",
+        "mcp",
+        "science",
+        "missing_high_confidence_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "bytedance/deer-flow",
+      "reasons": [
+        "skill",
+        "workflow",
+        "research",
+        "missing_strong_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
       "repo": "camusgit/evoquant",
       "reasons": [
         "research",
         "missing_skill_signal",
         "missing_strong_academic_signal",
         "negative:investment"
+      ]
+    },
+    {
+      "repo": "can1357/oh-my-pi",
+      "reasons": [
+        "mcp",
+        "assistant",
+        "missing_academic_signal",
+        "missing_strong_skill_signal",
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -1167,21 +970,11 @@
       ]
     },
     {
-      "repo": "castorini/anserini",
-      "reasons": [
-        "research",
-        "retrieval",
-        "missing_skill_signal",
-        "missing_strong_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "cathrynlavery/diagram-design",
+      "repo": "catcatuncle/openworkbuddy",
       "reasons": [
         "skill",
         "skills",
-        "claude code",
+        "codex",
         "missing_academic_signal",
         "missing_readme_academic_scope"
       ]
@@ -1196,72 +989,11 @@
       ]
     },
     {
-      "repo": "ccbogel/qualcoder",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "cellium-project/cellium-agent",
-      "reasons": [
-        "skill",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "charlespikachu/freeproxy",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "charlespikachu/videodl",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
       "repo": "charliedream1/ai_quant_trade",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
         "negative:trading"
-      ]
-    },
-    {
-      "repo": "chat2anyllm/awesome-claude-plugins",
-      "reasons": [
-        "skill",
-        "skills",
-        "plugin",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "chat2anyllm/awesome-claude-skills",
-      "reasons": [
-        "skill",
-        "skills",
-        "missing_academic_signal",
-        "readme_pending"
-      ]
-    },
-    {
-      "repo": "cheaper-inference/omniroute",
-      "reasons": [
-        "claude code",
-        "codex",
-        "opencode",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
       ]
     },
     {
@@ -1274,7 +1006,7 @@
       ]
     },
     {
-      "repo": "chinesehuazhou/python-weekly",
+      "repo": "chen010325/paddleocr-local",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
@@ -1282,37 +1014,9 @@
       ]
     },
     {
-      "repo": "chrxh/alien",
+      "repo": "chuanjianghe1024-cmd/fluentcontrol",
       "reasons": [
         "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "cipher387/osint_stuff_tool_collection",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "clawbio/clawbio",
-      "reasons": [
-        "skill",
-        "agent skill",
-        "reproducibility",
-        "missing_high_confidence_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "code-yeongyu/oh-my-openagent",
-      "reasons": [
-        "skill",
-        "skills",
-        "codex",
         "missing_academic_signal",
         "missing_readme_academic_scope"
       ]
@@ -1328,14 +1032,6 @@
       ]
     },
     {
-      "repo": "codebuffai/freebuff",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
       "repo": "coinpride/cryptolist",
       "reasons": [
         "missing_skill_signal",
@@ -1345,34 +1041,12 @@
       ]
     },
     {
-      "repo": "colbymchenry/codegraph",
-      "reasons": [
-        "claude code",
-        "codex",
-        "opencode",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
       "repo": "coleam00/archon",
       "reasons": [
         "workflow",
         "assistant",
         "missing_academic_signal",
         "negative:developer-tools"
-      ]
-    },
-    {
-      "repo": "companion-inc/feynman",
-      "reasons": [
-        "research",
-        "literature",
-        "review",
-        "arxiv",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal",
-        "missing_readme_academic_scope"
       ]
     },
     {
@@ -1386,7 +1060,7 @@
       ]
     },
     {
-      "repo": "correia-jpv/fucking-awesome-selfhosted",
+      "repo": "confident-ai/deepeval",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
@@ -1412,38 +1086,6 @@
       ]
     },
     {
-      "repo": "cporter202/scraping-apis-for-devs",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_pending"
-      ]
-    },
-    {
-      "repo": "cporter202/social-media-scraping-apis",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_pending"
-      ]
-    },
-    {
-      "repo": "crewaiinc/crewai",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "cscb/vibe-mouse",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
       "repo": "csinva/csinva.github.io",
       "reasons": [
         "research",
@@ -1455,30 +1097,39 @@
       ]
     },
     {
-      "repo": "cursor/plugins",
+      "repo": "curieuxjy/awesome_quadrupedal_robots",
       "reasons": [
-        "plugin",
-        "cursor",
+        "missing_skill_signal",
         "missing_academic_signal",
         "missing_readme_academic_scope"
       ]
     },
     {
-      "repo": "cz600/autodocxproofread",
+      "repo": "daaf-contribution-community/daaf",
       "reasons": [
-        "roo",
-        "proofreading",
-        "missing_strong_skill_signal",
+        "claude code",
+        "research",
+        "missing_strong_academic_signal",
         "missing_readme_academic_scope"
       ]
     },
     {
-      "repo": "d4vinci/scrapling",
+      "repo": "danielmiessler/fabric",
       "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "dat999zx/knowl",
+      "reasons": [
+        "codex",
         "mcp",
-        "missing_academic_signal",
-        "missing_strong_skill_signal",
-        "missing_readme_academic_scope"
+        "plugin",
+        "research",
+        "missing_strong_academic_signal",
+        "negative:developer-tools"
       ]
     },
     {
@@ -1492,61 +1143,10 @@
       ]
     },
     {
-      "repo": "dathere/qsv",
+      "repo": "datawhalechina/diy-llm",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "davidgasquez/awesome-duckdb",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "davila7/claude-code-templates",
-      "reasons": [
-        "claude code",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "daymade/claude-code-skills",
-      "reasons": [
-        "skill",
-        "skills",
-        "claude code",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "deanchensj/jiangshan-map",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "deepl/deepl-python",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "deepmodeling/deepmd-kit",
-      "reasons": [
-        "science",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal",
         "missing_readme_academic_scope"
       ]
     },
@@ -1571,28 +1171,11 @@
       ]
     },
     {
-      "repo": "deusyu/harness-engineering",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
       "repo": "devanshutak25/3d-resources",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
         "negative:game"
-      ]
-    },
-    {
-      "repo": "developer-y/cs-video-courses",
-      "reasons": [
-        "science",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal",
-        "missing_readme_academic_scope"
       ]
     },
     {
@@ -1605,19 +1188,21 @@
       ]
     },
     {
-      "repo": "dicklesworthstone/asupersync",
+      "repo": "dicklesworthstone/model_guided_research",
       "reasons": [
+        "research",
         "missing_skill_signal",
-        "missing_academic_signal",
+        "missing_strong_academic_signal",
         "missing_readme_academic_scope"
       ]
     },
     {
-      "repo": "digoal/blog",
+      "repo": "dicklesworthstone/ultimate_mcp_server",
       "reasons": [
-        "missing_skill_signal",
+        "mcp",
         "missing_academic_signal",
-        "readme_pending"
+        "missing_strong_skill_signal",
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -1629,14 +1214,19 @@
       ]
     },
     {
-      "repo": "dominic789654/awesome-deepseek-harness",
+      "repo": "dmitryvinn/awesome-dev-advocacy",
       "reasons": [
-        "skill",
-        "skills",
-        "mcp",
-        "research",
-        "missing_strong_academic_signal",
-        "readme_pending"
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "docling-project/docling",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -1650,23 +1240,7 @@
       ]
     },
     {
-      "repo": "doragd/algorithm-practice-in-industry",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "dr-jam/gameplayprogramming",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "negative:game"
-      ]
-    },
-    {
-      "repo": "dragonflydb/dragonfly",
+      "repo": "drduh/macos-security-and-privacy-guide",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
@@ -1685,7 +1259,7 @@
       ]
     },
     {
-      "repo": "dropsofzut/awesome-security-weixin-official-accounts",
+      "repo": "eeeugene/stepnumberchangesnc",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
@@ -1693,35 +1267,9 @@
       ]
     },
     {
-      "repo": "ebertti/awesome-telegram",
+      "repo": "ekkolearnai/ekko-studio",
       "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "ecnu/eduwork",
-      "reasons": [
-        "plugin",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "egoalpha/prompt-in-context-learning",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "eigent-ai/eigent",
-      "reasons": [
-        "skill",
-        "skills",
-        "codex",
+        "workflow",
         "missing_academic_signal",
         "missing_readme_academic_scope"
       ]
@@ -1743,7 +1291,7 @@
       ]
     },
     {
-      "repo": "emredurukn/awesome-job-boards",
+      "repo": "embraceagi/awesome-chatgpt-zh",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
@@ -1767,7 +1315,7 @@
       ]
     },
     {
-      "repo": "equinor/neqsim",
+      "repo": "ethereum/eips",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
@@ -1775,18 +1323,22 @@
       ]
     },
     {
-      "repo": "ethicalml/awesome-artificial-intelligence-regulation",
+      "repo": "eugeniughelbur/obsidian-second-brain",
       "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
+        "skill",
+        "skills",
+        "claude code",
+        "research",
+        "missing_strong_academic_signal",
         "missing_readme_academic_scope"
       ]
     },
     {
-      "repo": "ethicalml/awesome-production-machine-learning",
+      "repo": "euniai/awesome-code-agents",
       "reasons": [
+        "research",
         "missing_skill_signal",
-        "missing_academic_signal",
+        "missing_strong_academic_signal",
         "missing_readme_academic_scope"
       ]
     },
@@ -1797,6 +1349,25 @@
         "missing_skill_signal",
         "missing_strong_academic_signal",
         "negative:game"
+      ]
+    },
+    {
+      "repo": "evermind-ai/raven",
+      "reasons": [
+        "claude code",
+        "codex",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "everyinc/compound-engineering-plugin",
+      "reasons": [
+        "claude code",
+        "codex",
+        "plugin",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -1813,7 +1384,27 @@
       "reasons": [
         "gemini",
         "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "fabricioctelles/skills",
+      "reasons": [
+        "skill",
+        "skills",
+        "claude code",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "fcakyon/claude-codex-settings",
+      "reasons": [
+        "skill",
+        "skills",
+        "claude code",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -1824,6 +1415,23 @@
         "missing_strong_academic_signal",
         "negative:trading",
         "negative:investment"
+      ]
+    },
+    {
+      "repo": "firecrawl/firecrawl",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "firecrawl/firecrawl-mcp-server",
+      "reasons": [
+        "mcp",
+        "gemini",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -1854,6 +1462,22 @@
       ]
     },
     {
+      "repo": "flashinfer-ai/flashinfer",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "flashml-org/freetoken",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
       "repo": "florianbruniaux/claude-code-ultimate-guide",
       "reasons": [
         "skill",
@@ -1861,6 +1485,24 @@
         "claude code",
         "missing_academic_signal",
         "negative:developer-tools"
+      ]
+    },
+    {
+      "repo": "fonatech/clouds-coder",
+      "reasons": [
+        "skill",
+        "skills",
+        "scientific",
+        "missing_high_confidence_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "forceinjection/ai-fundamentals",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -1874,11 +1516,50 @@
       ]
     },
     {
+      "repo": "francis1998/scholar-rag-agent",
+      "reasons": [
+        "workflow",
+        "gemini",
+        "research",
+        "paper",
+        "literature",
+        "scientific",
+        "missing_high_confidence_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
       "repo": "frank-quant/ai-trading-videos",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
         "negative:trading"
+      ]
+    },
+    {
+      "repo": "frank890417/taiwan-md",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "franksong2702/dsh-codex-connect",
+      "reasons": [
+        "codex",
+        "plugin",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "freecodecamp/freecodecamp",
+      "reasons": [
+        "science",
+        "missing_skill_signal",
+        "missing_high_confidence_academic_signal",
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -1888,7 +1569,7 @@
         "skills",
         "workflow",
         "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -1897,15 +1578,7 @@
         "assistant",
         "missing_academic_signal",
         "missing_strong_skill_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "frianasoa/ze-notes",
-      "reasons": [
-        "plugin",
-        "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -1914,7 +1587,7 @@
         "copilot",
         "missing_academic_signal",
         "missing_strong_skill_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -1923,7 +1596,7 @@
         "codex",
         "opencode",
         "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -1933,7 +1606,7 @@
         "papers",
         "missing_skill_signal",
         "missing_high_confidence_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -1941,7 +1614,7 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -1949,7 +1622,7 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -1957,7 +1630,7 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -1969,7 +1642,7 @@
         "citation",
         "missing_skill_signal",
         "missing_high_confidence_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -1978,7 +1651,7 @@
         "scientific",
         "missing_skill_signal",
         "missing_high_confidence_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -1986,7 +1659,7 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -1994,7 +1667,7 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -2005,15 +1678,7 @@
         "claude code",
         "research",
         "missing_strong_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "gai4se/llm4se",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -2021,7 +1686,7 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -2030,7 +1695,7 @@
         "cursor",
         "missing_academic_signal",
         "missing_strong_skill_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -2042,7 +1707,7 @@
         "science",
         "retrieval",
         "missing_high_confidence_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -2050,7 +1715,7 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -2058,7 +1723,7 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -2066,7 +1731,7 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -2074,7 +1739,7 @@
       "reasons": [
         "claude code",
         "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -2082,7 +1747,7 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -2091,7 +1756,7 @@
         "science",
         "missing_skill_signal",
         "missing_high_confidence_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -2099,7 +1764,7 @@
       "reasons": [
         "plugin",
         "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -2116,7 +1781,7 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -2126,7 +1791,7 @@
         "skills",
         "gemini",
         "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -2135,7 +1800,7 @@
         "workflow",
         "science",
         "missing_high_confidence_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -2144,7 +1809,7 @@
         "skill",
         "skills",
         "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -2153,7 +1818,7 @@
         "mcp",
         "missing_academic_signal",
         "missing_strong_skill_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -2163,7 +1828,7 @@
         "skills",
         "agent skill",
         "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -2176,19 +1841,11 @@
       ]
     },
     {
-      "repo": "georgian-io/multimodal-toolkit",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
       "repo": "geostatsguy/resources",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -2196,7 +1853,7 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -2204,7 +1861,7 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -2213,7 +1870,7 @@
         "skill",
         "skills",
         "missing_academic_signal",
-        "readme_deferred"
+        "missing_readme_academic_scope"
       ]
     },
     {
@@ -2257,6 +1914,14 @@
         "science",
         "missing_skill_signal",
         "missing_high_confidence_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "github-education-resources/teacher-toolbox",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
         "readme_deferred"
       ]
     },
@@ -2512,14 +2177,6 @@
         "science",
         "missing_skill_signal",
         "missing_high_confidence_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "grisuno/estorides",
-      "reasons": [
-        "workflow",
-        "missing_academic_signal",
         "readme_deferred"
       ]
     },
@@ -2864,14 +2521,6 @@
         "skill",
         "skills",
         "codex",
-        "missing_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "hbctraining/intro-to-bulk-rnaseq",
-      "reasons": [
-        "missing_skill_signal",
         "missing_academic_signal",
         "readme_deferred"
       ]
@@ -4867,6 +4516,15 @@
         "research",
         "missing_skill_signal",
         "missing_strong_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "jxwfdpt42t-ship-it/reskillsql",
+      "reasons": [
+        "skill",
+        "skills",
+        "missing_academic_signal",
         "readme_deferred"
       ]
     },
@@ -7551,6 +7209,16 @@
       ]
     },
     {
+      "repo": "mohamedabdallah-14/unslop",
+      "reasons": [
+        "claude code",
+        "codex",
+        "plugin",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
       "repo": "mohamedelashri/awesome-zotero",
       "reasons": [
         "plugin",
@@ -9674,6 +9342,14 @@
       ]
     },
     {
+      "repo": "pkuhpc/openscow",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
       "repo": "plexpt/awesome-chatgpt-prompts-zh",
       "reasons": [
         "missing_skill_signal",
@@ -10061,15 +9737,6 @@
         "research",
         "missing_strong_academic_signal",
         "negative:trading"
-      ]
-    },
-    {
-      "repo": "quantumbfs/sci-brain",
-      "reasons": [
-        "research",
-        "missing_skill_signal",
-        "missing_strong_academic_signal",
-        "readme_deferred"
       ]
     },
     {
@@ -10596,6 +10263,15 @@
         "missing_skill_signal",
         "missing_academic_signal",
         "readme_deferred"
+      ]
+    },
+    {
+      "repo": "rimzzlabs/lanjut",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "negative:resume",
+        "negative:desktop app"
       ]
     },
     {
@@ -11285,6 +10961,14 @@
       ]
     },
     {
+      "repo": "secfathy/xss-specialist",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
       "repo": "selahattinunlu/harika-github-repolari",
       "reasons": [
         "missing_skill_signal",
@@ -11304,6 +10988,16 @@
       "repo": "semgrep/semgrep",
       "reasons": [
         "missing_skill_signal",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "sentient-agi/evoskill",
+      "reasons": [
+        "skill",
+        "skills",
+        "agent skill",
         "missing_academic_signal",
         "readme_deferred"
       ]
@@ -12010,15 +11704,6 @@
         "gemini",
         "research",
         "missing_strong_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "sshh12/llm_osint",
-      "reasons": [
-        "roo",
-        "missing_academic_signal",
-        "missing_strong_skill_signal",
         "readme_deferred"
       ]
     },
@@ -12810,6 +12495,14 @@
         "papers",
         "review",
         "missing_high_confidence_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "thuservices/thuservices",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
         "readme_deferred"
       ]
     },
@@ -15715,15 +15408,6 @@
       ]
     },
     {
-      "repo": "zhaoguangyuan123/make-your-research-life-easier",
-      "reasons": [
-        "research",
-        "missing_skill_signal",
-        "missing_strong_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
       "repo": "zhaoolee/chromeappheroes",
       "reasons": [
         "plugin",
@@ -16017,6 +15701,14 @@
     },
     {
       "repo": "zudochkin/awesome-newsletters",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "zupcode-com/awesome-free-services-for-your-next-startup-or-saas",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
@@ -16511,15 +16203,6 @@
       ]
     },
     {
-      "repo": "osnsyc/wechat-scholar",
-      "reasons": [
-        "scholar",
-        "学术",
-        "missing_skill_signal",
-        "readme_deferred"
-      ]
-    },
-    {
       "repo": "tavish9/awesome-daily-ai-arxiv",
       "reasons": [
         "academic",
@@ -16527,7 +16210,96 @@
         "paper",
         "papers",
         "missing_skill_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "academic/awesome-datascience",
+      "reasons": [
+        "academic",
+        "science",
+        "missing_skill_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "akfamily/akshare",
+      "reasons": [
+        "mcp",
+        "academic",
+        "science",
+        "missing_strong_skill_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "cirosantilli/cirosantilli",
+      "reasons": [
+        "学术",
+        "文献",
+        "基金",
+        "missing_skill_signal",
         "readme_pending"
+      ]
+    },
+    {
+      "repo": "damionrashford/rivalsearchmcp",
+      "reasons": [
+        "skill",
+        "skills",
+        "mcp",
+        "academic",
+        "research",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "jaccen/awesome-gaussian-skills",
+      "reasons": [
+        "skill",
+        "skills",
+        "agent skill",
+        "research",
+        "arxiv",
+        "thesis",
+        "missing_high_confidence_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "luohongk/embodied-ai-daily",
+      "reasons": [
+        "arxiv",
+        "论文",
+        "missing_skill_signal",
+        "readme_pending"
+      ]
+    },
+    {
+      "repo": "phil-fan/awesome-zju-tools",
+      "reasons": [
+        "科研",
+        "missing_skill_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "taxueseek/argo",
+      "reasons": [
+        "mcp",
+        "plugin",
+        "academic",
+        "research",
+        "学术",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "wess09/azurpilot",
+      "reasons": [
+        "科研",
+        "missing_skill_signal",
+        "nonresearch_primary_purpose"
       ]
     },
     {
@@ -16560,7 +16332,7 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
-        "missing_readme_academic_scope"
+        "readme_deferred"
       ]
     },
     {
@@ -16601,14 +16373,6 @@
         "papers",
         "missing_high_confidence_academic_signal",
         "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "14790897/handwriting-web",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
       ]
     },
     {
@@ -16680,14 +16444,6 @@
     },
     {
       "repo": "a16z-infra/companion-app",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "aab0/awesome-jobs",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
@@ -16999,7 +16755,7 @@
         "skills",
         "agent skill",
         "missing_academic_signal",
-        "missing_readme_academic_scope"
+        "readme_deferred"
       ]
     },
     {
@@ -17160,14 +16916,6 @@
         "missing_skill_signal",
         "missing_academic_signal",
         "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "amitness/learning",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
       ]
     },
     {
@@ -17444,14 +17192,6 @@
       ]
     },
     {
-      "repo": "azec4/telegramgroup",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
       "repo": "baidu/familia",
       "reasons": [
         "missing_skill_signal",
@@ -17519,15 +17259,6 @@
         "mcp",
         "missing_academic_signal",
         "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "behisecc/awesome-claude-skills",
-      "reasons": [
-        "skill",
-        "skills",
-        "missing_academic_signal",
-        "readme_deferred"
       ]
     },
     {
@@ -17961,7 +17692,7 @@
         "research",
         "missing_skill_signal",
         "missing_strong_academic_signal",
-        "missing_readme_academic_scope"
+        "readme_deferred"
       ]
     },
     {
@@ -17998,7 +17729,7 @@
         "reasoning",
         "missing_skill_signal",
         "missing_strong_academic_signal",
-        "missing_readme_academic_scope"
+        "readme_deferred"
       ]
     },
     {
@@ -18098,14 +17829,6 @@
         "missing_skill_signal",
         "missing_academic_signal",
         "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "chen010325/paddleocr-local",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
       ]
     },
     {
@@ -18361,7 +18084,7 @@
         "scientific",
         "missing_skill_signal",
         "missing_high_confidence_academic_signal",
-        "missing_readme_academic_scope"
+        "readme_deferred"
       ]
     },
     {
@@ -18383,14 +18106,6 @@
     },
     {
       "repo": "alfonsograziano/ai-native-engineering",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "angristan/awesome-stars",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
@@ -18425,7 +18140,7 @@
         "reasoning",
         "missing_skill_signal",
         "missing_strong_academic_signal",
-        "missing_readme_academic_scope"
+        "readme_deferred"
       ]
     },
     {
@@ -18437,25 +18152,6 @@
       ]
     },
     {
-      "repo": "brightdata/brightdata-mcp",
-      "reasons": [
-        "mcp",
-        "missing_academic_signal",
-        "missing_strong_skill_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "chaozhao-1/hustbearing-dataset",
-      "reasons": [
-        "research",
-        "实验",
-        "missing_skill_signal",
-        "missing_high_confidence_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
       "repo": "conardli/garden-skills",
       "reasons": [
         "skill",
@@ -18463,14 +18159,6 @@
         "retrieval",
         "missing_strong_academic_signal",
         "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "confident-ai/deepeval",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
       ]
     },
     {
@@ -18566,14 +18254,6 @@
       ]
     },
     {
-      "repo": "curieuxjy/awesome_quadrupedal_robots",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
       "repo": "cyanheads/pubmed-mcp-server",
       "reasons": [
         "mcp",
@@ -18618,15 +18298,6 @@
       ]
     },
     {
-      "repo": "daaf-contribution-community/daaf",
-      "reasons": [
-        "claude code",
-        "research",
-        "missing_strong_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
       "repo": "dair-ai/ml-papers-explained",
       "reasons": [
         "paper",
@@ -18662,14 +18333,6 @@
         "claude code",
         "missing_academic_signal",
         "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "danielmiessler/fabric",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
       ]
     },
     {
@@ -18811,7 +18474,7 @@
         "mcp",
         "missing_academic_signal",
         "missing_strong_skill_signal",
-        "missing_readme_academic_scope"
+        "readme_deferred"
       ]
     },
     {
@@ -18821,22 +18484,6 @@
         "missing_academic_signal",
         "missing_strong_skill_signal",
         "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "amazon-braket/amazon-braket-examples",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "analysis-tools-dev/static-analysis",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
       ]
     },
     {
@@ -18872,14 +18519,6 @@
         "missing_skill_signal",
         "missing_high_confidence_academic_signal",
         "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "datawhalechina/diy-llm",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
       ]
     },
     {
@@ -19065,39 +18704,11 @@
       ]
     },
     {
-      "repo": "dicklesworthstone/model_guided_research",
-      "reasons": [
-        "research",
-        "missing_skill_signal",
-        "missing_strong_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
       "repo": "0ex/more-awesome",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
         "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "agentscope-ai/agentscope",
-      "reasons": [
-        "mcp",
-        "assistant",
-        "missing_academic_signal",
-        "missing_strong_skill_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "agentscope-ai/openjudge",
-      "reasons": [
-        "skill",
-        "skills",
-        "missing_academic_signal",
-        "readme_deferred"
       ]
     },
     {
@@ -19118,55 +18729,6 @@
         "papers",
         "missing_skill_signal",
         "missing_high_confidence_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "alibaba/open-code-review",
-      "reasons": [
-        "skill",
-        "skills",
-        "pipeline",
-        "review",
-        "missing_strong_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "bigbodycobain/shadowbroker",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "browser-use/browser-use",
-      "reasons": [
-        "mcp",
-        "missing_academic_signal",
-        "missing_strong_skill_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "brycewang-stanford/statspai",
-      "reasons": [
-        "skill",
-        "skills",
-        "mcp",
-        "science",
-        "missing_high_confidence_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "catcatuncle/openworkbuddy",
-      "reasons": [
-        "skill",
-        "skills",
-        "codex",
-        "missing_academic_signal",
         "readme_deferred"
       ]
     },
@@ -19184,7 +18746,7 @@
         "copilot",
         "missing_academic_signal",
         "missing_strong_skill_signal",
-        "missing_readme_academic_scope"
+        "readme_deferred"
       ]
     },
     {
@@ -19192,15 +18754,6 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "dicklesworthstone/ultimate_mcp_server",
-      "reasons": [
-        "mcp",
-        "missing_academic_signal",
-        "missing_strong_skill_signal",
         "readme_deferred"
       ]
     },
@@ -19256,30 +18809,12 @@
       ]
     },
     {
-      "repo": "dltsum/research-guard",
-      "reasons": [
-        "codex",
-        "plugin",
-        "research",
-        "missing_strong_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
       "repo": "dmccreary/ibook-skills",
       "reasons": [
         "skill",
         "skills",
         "missing_academic_signal",
         "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "dmitryvinn/awesome-dev-advocacy",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
       ]
     },
     {
@@ -19304,14 +18839,6 @@
         "gemini",
         "missing_academic_signal",
         "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "drduh/macos-security-and-privacy-guide",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
       ]
     },
     {
@@ -19523,7 +19050,7 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
-        "missing_readme_academic_scope"
+        "readme_deferred"
       ]
     },
     {
@@ -19540,7 +19067,7 @@
         "mcp",
         "missing_academic_signal",
         "missing_strong_skill_signal",
-        "missing_readme_academic_scope"
+        "readme_deferred"
       ]
     },
     {
@@ -19594,7 +19121,7 @@
         "gemini",
         "citation",
         "missing_high_confidence_academic_signal",
-        "missing_readme_academic_scope"
+        "readme_deferred"
       ]
     },
     {
@@ -19602,7 +19129,7 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
-        "missing_readme_academic_scope"
+        "readme_deferred"
       ]
     },
     {
@@ -19611,14 +19138,6 @@
         "missing_skill_signal",
         "missing_academic_signal",
         "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "beiciliang/intro2musictech",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
       ]
     },
     {
@@ -19659,14 +19178,6 @@
         "gemini",
         "missing_academic_signal",
         "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "chuanjianghe1024-cmd/fluentcontrol",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
       ]
     },
     {
@@ -19750,14 +19261,6 @@
       ]
     },
     {
-      "repo": "embraceagi/awesome-chatgpt-zh",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
       "repo": "emilwallner/how-to-learn-deep-learning",
       "reasons": [
         "missing_skill_signal",
@@ -19837,7 +19340,7 @@
         "assistant",
         "missing_academic_signal",
         "missing_strong_skill_signal",
-        "missing_readme_academic_scope"
+        "readme_deferred"
       ]
     },
     {
@@ -19886,14 +19389,6 @@
       ]
     },
     {
-      "repo": "ethereum/eips",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
       "repo": "eugeneyan/applied-ml",
       "reasons": [
         "paper",
@@ -19916,62 +19411,12 @@
       ]
     },
     {
-      "repo": "eugeniughelbur/obsidian-second-brain",
-      "reasons": [
-        "skill",
-        "skills",
-        "claude code",
-        "research",
-        "missing_strong_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "1c7/chinese-independent-developer",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "abhi24384/anthropic-mythos-desktop-studio",
-      "reasons": [
-        "skill",
-        "skills",
-        "plugin",
-        "missing_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "ai4s-research/open-science",
-      "reasons": [
-        "skill",
-        "skills",
-        "agent skill",
-        "research",
-        "scientific",
-        "science",
-        "missing_high_confidence_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
       "repo": "aipmandy/awesome-openclaw-skills-cn",
       "reasons": [
         "skill",
         "skills",
         "missing_academic_signal",
         "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "akshcha/claude-pro-collab-guide",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
       ]
     },
     {
@@ -19988,14 +19433,6 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "aneasystone/github-trending",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
         "readme_deferred"
       ]
     },
@@ -20003,48 +19440,6 @@
       "repo": "anthropics/knowledge-work-plugins",
       "reasons": [
         "plugin",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "antigenomics/vdjtools",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "anvie/evonic",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "apache/flink",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "apodexai/frontieragent",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "ascend-ai-coding/awesome-ascend-skills",
-      "reasons": [
-        "skill",
-        "skills",
-        "agent skill",
         "missing_academic_signal",
         "readme_deferred"
       ]
@@ -20062,47 +19457,11 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "beancookie/awesome-dsh-plugin",
-      "reasons": [
-        "plugin",
-        "missing_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "bytedance/deer-flow",
-      "reasons": [
-        "skill",
-        "workflow",
-        "research",
-        "missing_strong_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "can1357/oh-my-pi",
-      "reasons": [
-        "mcp",
-        "assistant",
-        "missing_academic_signal",
-        "missing_strong_skill_signal",
         "readme_deferred"
       ]
     },
     {
       "repo": "caojiaolong/spaces-index",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "docling-project/docling",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
@@ -20128,33 +19487,6 @@
       ]
     },
     {
-      "repo": "dongsheng123132/u-claw",
-      "reasons": [
-        "claude code",
-        "codex",
-        "assistant",
-        "missing_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "ekkolearnai/ekko-studio",
-      "reasons": [
-        "workflow",
-        "missing_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "euniai/awesome-code-agents",
-      "reasons": [
-        "research",
-        "missing_skill_signal",
-        "missing_strong_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
       "repo": "eurekazang/cloudfolder",
       "reasons": [
         "missing_skill_signal",
@@ -20166,15 +19498,6 @@
       "repo": "evanli/github-ranking",
       "reasons": [
         "missing_skill_signal",
-        "missing_academic_signal",
-        "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "evermind-ai/raven",
-      "reasons": [
-        "claude code",
-        "codex",
         "missing_academic_signal",
         "readme_deferred"
       ]
@@ -20191,21 +19514,11 @@
       ]
     },
     {
-      "repo": "everyinc/compound-engineering-plugin",
-      "reasons": [
-        "claude code",
-        "codex",
-        "plugin",
-        "missing_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
       "repo": "evolink-ai/awesome-gpt-image-2-api-prompts",
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
-        "readme_pending"
+        "readme_deferred"
       ]
     },
     {
@@ -20255,16 +19568,6 @@
         "missing_academic_signal",
         "missing_strong_skill_signal",
         "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "fabricioctelles/skills",
-      "reasons": [
-        "skill",
-        "skills",
-        "claude code",
-        "missing_academic_signal",
-        "readme_deferred"
       ]
     },
     {
@@ -20337,7 +19640,7 @@
         "skill",
         "skills",
         "missing_academic_signal",
-        "missing_readme_academic_scope"
+        "readme_deferred"
       ]
     },
     {
@@ -20355,16 +19658,6 @@
         "review",
         "missing_strong_academic_signal",
         "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "fcakyon/claude-codex-settings",
-      "reasons": [
-        "skill",
-        "skills",
-        "claude code",
-        "missing_academic_signal",
-        "readme_deferred"
       ]
     },
     {
@@ -20430,23 +19723,6 @@
       ]
     },
     {
-      "repo": "firecrawl/firecrawl",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "firecrawl/firecrawl-mcp-server",
-      "reasons": [
-        "mcp",
-        "gemini",
-        "missing_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
       "repo": "firecrawl/skills",
       "reasons": [
         "skill",
@@ -20474,22 +19750,6 @@
       ]
     },
     {
-      "repo": "flashinfer-ai/flashinfer",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "flashml-org/freetoken",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
       "repo": "flutter/flutter-intellij",
       "reasons": [
         "plugin",
@@ -20503,24 +19763,6 @@
         "missing_skill_signal",
         "missing_academic_signal",
         "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "fonatech/clouds-coder",
-      "reasons": [
-        "skill",
-        "skills",
-        "scientific",
-        "missing_high_confidence_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "forceinjection/ai-fundamentals",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
       ]
     },
     {
@@ -20545,7 +19787,7 @@
       "reasons": [
         "missing_skill_signal",
         "missing_academic_signal",
-        "missing_readme_academic_scope"
+        "readme_deferred"
       ]
     },
     {
@@ -20565,42 +19807,12 @@
       ]
     },
     {
-      "repo": "francis1998/scholar-rag-agent",
-      "reasons": [
-        "workflow",
-        "gemini",
-        "research",
-        "paper",
-        "literature",
-        "scientific",
-        "missing_high_confidence_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
       "repo": "frangelbarrera/osint-bible",
       "reasons": [
         "workflow",
         "research",
         "missing_strong_academic_signal",
         "missing_readme_academic_scope"
-      ]
-    },
-    {
-      "repo": "frank890417/taiwan-md",
-      "reasons": [
-        "missing_skill_signal",
-        "missing_academic_signal",
-        "readme_deferred"
-      ]
-    },
-    {
-      "repo": "franksong2702/dsh-codex-connect",
-      "reasons": [
-        "codex",
-        "plugin",
-        "missing_academic_signal",
-        "readme_deferred"
       ]
     },
     {
@@ -20612,7 +19824,646 @@
       ]
     },
     {
-      "repo": "freecodecamp/freecodecamp",
+      "repo": "freedomintelligence/openclaw-medical-skills",
+      "reasons": [
+        "skill",
+        "skills",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "1panel-dev/maxkb",
+      "reasons": [
+        "mcp",
+        "missing_academic_signal",
+        "missing_strong_skill_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "a0926499300/nh-doujinshi-reader",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "a2aproject/a2a",
+      "reasons": [
+        "mcp",
+        "missing_academic_signal",
+        "missing_strong_skill_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "aaif-goose/goose",
+      "reasons": [
+        "mcp",
+        "missing_academic_signal",
+        "missing_strong_skill_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "addsumtech/slides_maker",
+      "reasons": [
+        "skill",
+        "claude code",
+        "codex",
+        "paper",
+        "papers",
+        "review",
+        "missing_high_confidence_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "agent-sh/agnix",
+      "reasons": [
+        "skill",
+        "skills",
+        "codex",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "agent-threat-rule/agent-threat-rules",
+      "reasons": [
+        "mcp",
+        "missing_academic_signal",
+        "missing_strong_skill_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "agent0ai/agent-zero",
+      "reasons": [
+        "assistant",
+        "missing_academic_signal",
+        "missing_strong_skill_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "agents365-ai/drawio-skill",
+      "reasons": [
+        "skill",
+        "skills",
+        "agent skill",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "ainativelab/top-500-best-gpts",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "airhunter/onlytranslate",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "aliammari1/awesome-ai-tools",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "allenai/vla-evaluation-harness",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "alvinunreal/oh-my-opencode-slim",
+      "reasons": [
+        "opencode",
+        "plugin",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "andrew/ultimate-awesome",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "readme_pending"
+      ]
+    },
+    {
+      "repo": "andybroswell/cs-first-aid",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "anionex/banana-slides",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "apexin-ai/asi-bench",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "apijson/apijson",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "arc53/docsgpt",
+      "reasons": [
+        "assistant",
+        "research",
+        "retrieval",
+        "missing_strong_skill_signal",
+        "missing_strong_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "arcee-ai/mergekit",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "archivebox/abx-dl",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "areal-project/areal",
+      "reasons": [
+        "reasoning",
+        "missing_skill_signal",
+        "missing_strong_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "argoproj/argo-events",
+      "reasons": [
+        "workflow",
+        "pipeline",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "arize-ai/phoenix",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "aroum/fm1-custom-fw",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "asgeirtj/system_prompts_leaks",
+      "reasons": [
+        "claude code",
+        "codex",
+        "cursor",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "autogluon/tabarena",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "awesome-dsh-plugin/awesome-dsh-plugin",
+      "reasons": [
+        "plugin",
+        "missing_academic_signal",
+        "readme_pending"
+      ]
+    },
+    {
+      "repo": "awesome-selfhosted/awesome-selfhosted",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "aws-samples/sample-strands-agent-with-agentcore",
+      "reasons": [
+        "skill",
+        "skills",
+        "agent skill",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "awslabs/aidlc-workflows",
+      "reasons": [
+        "workflow",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "awslabs/mcp",
+      "reasons": [
+        "mcp",
+        "missing_academic_signal",
+        "missing_strong_skill_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "azenyes/leaderai-media-toolkit",
+      "reasons": [
+        "skill",
+        "skills",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "bendlang/bend",
+      "reasons": [
+        "roo",
+        "missing_academic_signal",
+        "missing_strong_skill_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "best-of-ai/best-of-ai",
+      "reasons": [
+        "skill",
+        "skills",
+        "assistant",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "bethington/ghidra-mcp",
+      "reasons": [
+        "mcp",
+        "plugin",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "birobirobiro/awesome-shadcn-ui",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "blinkdl/rwkv-lm",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "bollu/bollu.github.io",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "readme_pending"
+      ]
+    },
+    {
+      "repo": "bruc3van/awesome-dsh-plugin",
+      "reasons": [
+        "plugin",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "castorini/anserini",
+      "reasons": [
+        "research",
+        "retrieval",
+        "missing_skill_signal",
+        "missing_strong_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "cathrynlavery/diagram-design",
+      "reasons": [
+        "skill",
+        "skills",
+        "claude code",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "ccbogel/qualcoder",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "cellium-project/cellium-agent",
+      "reasons": [
+        "skill",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "charlespikachu/freeproxy",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "charlespikachu/videodl",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "chat2anyllm/awesome-claude-plugins",
+      "reasons": [
+        "skill",
+        "skills",
+        "plugin",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "chat2anyllm/awesome-claude-skills",
+      "reasons": [
+        "skill",
+        "skills",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "cheaper-inference/omniroute",
+      "reasons": [
+        "claude code",
+        "codex",
+        "opencode",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "chinesehuazhou/python-weekly",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "chrxh/alien",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "cipher387/osint_stuff_tool_collection",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "clawbio/clawbio",
+      "reasons": [
+        "skill",
+        "agent skill",
+        "reproducibility",
+        "missing_high_confidence_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "code-yeongyu/oh-my-openagent",
+      "reasons": [
+        "skill",
+        "skills",
+        "codex",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "codebuffai/freebuff",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "colbymchenry/codegraph",
+      "reasons": [
+        "claude code",
+        "codex",
+        "opencode",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "companion-inc/feynman",
+      "reasons": [
+        "research",
+        "literature",
+        "review",
+        "arxiv",
+        "missing_skill_signal",
+        "missing_high_confidence_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "correia-jpv/fucking-awesome-selfhosted",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "cporter202/scraping-apis-for-devs",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "readme_pending"
+      ]
+    },
+    {
+      "repo": "cporter202/social-media-scraping-apis",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "readme_pending"
+      ]
+    },
+    {
+      "repo": "crewaiinc/crewai",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "cscb/vibe-mouse",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "cursor/plugins",
+      "reasons": [
+        "plugin",
+        "cursor",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "cz600/autodocxproofread",
+      "reasons": [
+        "roo",
+        "proofreading",
+        "missing_strong_skill_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "d4vinci/scrapling",
+      "reasons": [
+        "mcp",
+        "missing_academic_signal",
+        "missing_strong_skill_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "dathere/qsv",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "davidgasquez/awesome-duckdb",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "davila7/claude-code-templates",
+      "reasons": [
+        "claude code",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "daymade/claude-code-skills",
+      "reasons": [
+        "skill",
+        "skills",
+        "claude code",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "deanchensj/jiangshan-map",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "deepl/deepl-python",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "deepmodeling/deepmd-kit",
       "reasons": [
         "science",
         "missing_skill_signal",
@@ -20621,10 +20472,135 @@
       ]
     },
     {
-      "repo": "freedomintelligence/openclaw-medical-skills",
+      "repo": "deusyu/harness-engineering",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "developer-y/cs-video-courses",
+      "reasons": [
+        "science",
+        "missing_skill_signal",
+        "missing_high_confidence_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "dicklesworthstone/asupersync",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "digoal/blog",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "readme_pending"
+      ]
+    },
+    {
+      "repo": "dominic789654/awesome-deepseek-harness",
       "reasons": [
         "skill",
         "skills",
+        "mcp",
+        "research",
+        "missing_strong_academic_signal",
+        "readme_pending"
+      ]
+    },
+    {
+      "repo": "doragd/algorithm-practice-in-industry",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "dragonflydb/dragonfly",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "dropsofzut/awesome-security-weixin-official-accounts",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "ebertti/awesome-telegram",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "ecnu/eduwork",
+      "reasons": [
+        "plugin",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "egoalpha/prompt-in-context-learning",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "eigent-ai/eigent",
+      "reasons": [
+        "skill",
+        "skills",
+        "codex",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "emredurukn/awesome-job-boards",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "equinor/neqsim",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "readme_deferred"
+      ]
+    },
+    {
+      "repo": "ethicalml/awesome-artificial-intelligence-regulation",
+      "reasons": [
+        "missing_skill_signal",
+        "missing_academic_signal",
+        "missing_readme_academic_scope"
+      ]
+    },
+    {
+      "repo": "ethicalml/awesome-production-machine-learning",
+      "reasons": [
+        "missing_skill_signal",
         "missing_academic_signal",
         "missing_readme_academic_scope"
       ]
@@ -20633,7 +20609,7 @@
   "searches": [
     {
       "query": "academic skill in:name,description,readme stars:>=100",
-      "total": 1312,
+      "total": 1313,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true,
@@ -20642,7 +20618,7 @@
     },
     {
       "query": "research skill in:name,description,readme stars:>=100",
-      "total": 6476,
+      "total": 6487,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true,
@@ -20651,7 +20627,7 @@
     },
     {
       "query": "paper skill in:name,description,readme stars:>=100",
-      "total": 3166,
+      "total": 3168,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true,
@@ -20669,7 +20645,7 @@
     },
     {
       "query": "claude code research in:name,description,readme stars:>=100",
-      "total": 5606,
+      "total": 5614,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true,
@@ -20678,7 +20654,7 @@
     },
     {
       "query": "deep research skill in:name,description,readme stars:>=100",
-      "total": 2974,
+      "total": 2975,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true,
@@ -20696,7 +20672,7 @@
     },
     {
       "query": "paper writing claude in:name,description,readme stars:>=100",
-      "total": 967,
+      "total": 969,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true,
@@ -20705,7 +20681,7 @@
     },
     {
       "query": "academic paper agent in:name,description,readme stars:>=100",
-      "total": 1093,
+      "total": 1095,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true,
@@ -20732,7 +20708,7 @@
     },
     {
       "query": "research paper workflow in:name,description,readme stars:>=100",
-      "total": 3062,
+      "total": 3064,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true,
@@ -20741,7 +20717,7 @@
     },
     {
       "query": "research agent skill in:name,description,readme stars:>=100",
-      "total": 4955,
+      "total": 4968,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true,
@@ -20750,7 +20726,7 @@
     },
     {
       "query": "paper review skill in:name,description,readme stars:>=100",
-      "total": 1713,
+      "total": 1714,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true,
@@ -20768,7 +20744,7 @@
     },
     {
       "query": "systematic review agent in:name,description,readme stars:>=100",
-      "total": 1110,
+      "total": 1112,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true,
@@ -20777,7 +20753,7 @@
     },
     {
       "query": "academic writing agent in:name,description,readme stars:>=100",
-      "total": 755,
+      "total": 756,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true,
@@ -20786,7 +20762,7 @@
     },
     {
       "query": "科研 skill in:name,description,readme stars:>=100",
-      "total": 221,
+      "total": 222,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true,
@@ -20795,7 +20771,7 @@
     },
     {
       "query": "论文 skill in:name,description,readme stars:>=100",
-      "total": 595,
+      "total": 596,
       "returned": 200,
       "incomplete": false,
       "limit_reached": true,
@@ -20813,7 +20789,7 @@
     },
     {
       "query": "\"academic\" \"skill\" in:name,description,readme stars:>=100 pushed:>=2026-10-03",
-      "total": 528,
+      "total": 531,
       "returned": 100,
       "incomplete": false,
       "limit_reached": true,
@@ -20822,7 +20798,7 @@
     },
     {
       "query": "\"academic\" \"skill\" in:name,description,readme stars:100..499",
-      "total": 737,
+      "total": 739,
       "returned": 100,
       "incomplete": false,
       "limit_reached": true,
@@ -20831,7 +20807,7 @@
     },
     {
       "query": "\"academic\" \"skill\" in:name,description,readme stars:500..1999",
-      "total": 329,
+      "total": 328,
       "returned": 100,
       "incomplete": false,
       "limit_reached": true,
@@ -20948,7 +20924,7 @@
     },
     {
       "query": "\"research workflow\" in:name,description,readme stars:>=100 pushed:>=2026-10-03",
-      "total": 195,
+      "total": 194,
       "returned": 100,
       "incomplete": false,
       "limit_reached": true,
@@ -20957,7 +20933,7 @@
     },
     {
       "query": "\"research workflow\" in:name,description,readme stars:100..499",
-      "total": 229,
+      "total": 228,
       "returned": 100,
       "incomplete": false,
       "limit_reached": true,
@@ -21084,15 +21060,15 @@
   ],
   "changes": [
     {
-      "repo": "guozheng-de-baba/nursing-research-skills",
+      "repo": "frianasoa/ze-notes",
       "action": "added"
     },
     {
-      "repo": "tuna/thuthesis",
+      "repo": "gai4se/llm4se",
       "action": "added"
     },
     {
-      "repo": "9929y/genai-mesh-gradient",
+      "repo": "georgian-io/multimodal-toolkit",
       "action": "added"
     }
   ],
@@ -21121,9 +21097,16 @@
     {
       "repo": "917Dhj/DeepPaperNote",
       "status": "verified",
-      "cached": false,
+      "cached": true,
       "path": "README.md",
       "sha": "ca83d90a659e3dd3dae6c06dce36f9d7b867d2bb"
+    },
+    {
+      "repo": "9929y/genai-mesh-gradient",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "fcd6079259613ac9d3f0e8010a645ca2d870a6cb"
     },
     {
       "repo": "AaronGIG/pdf2zh-desktop",
@@ -21198,16 +21181,16 @@
     {
       "repo": "AI-in-Transportation-Lab/awesome-mechanistic-interpretability",
       "status": "verified",
-      "cached": true,
+      "cached": false,
       "path": "readme.md",
-      "sha": "2ed2ce375ef9f43eead7e02fd16aa81a9cfb6577"
+      "sha": "32f3f9a9eb8b0c8d2835576e7bedad63ea9fcca5"
     },
     {
       "repo": "AI-in-Transportation-Lab/awesome-tinyml",
       "status": "verified",
-      "cached": true,
+      "cached": false,
       "path": "readme.md",
-      "sha": "42533b6564eb44110359a4917f9823814bdd4038"
+      "sha": "c4d66fa1bb02226291524b68dbe939e15754608b"
     },
     {
       "repo": "AI45Lab/Awesome-Trustworthy-Embodied-AI",
@@ -21289,7 +21272,7 @@
     {
       "repo": "Aryan-Pardeshi/CiteProof-AI-MCP",
       "status": "verified",
-      "cached": false,
+      "cached": true,
       "path": "README.md",
       "sha": "52b5e38121df87d59729736180d8f1455fea00e6"
     },
@@ -21305,7 +21288,7 @@
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "f164d11f315fd2f9d3714318fa20073e81798ec4"
+      "sha": "d2b29608cfac5fe230b4b162649606ca284f460b"
     },
     {
       "repo": "BAIKEMARK/happy-figure-skill",
@@ -21422,14 +21405,14 @@
     {
       "repo": "ChicagoHAI/OpenAIReview",
       "status": "verified",
-      "cached": true,
+      "cached": false,
       "path": "README.md",
       "sha": "4c6f61f73ab0dd6107d5476a9212db72c371638b"
     },
     {
       "repo": "chrisblattman/claudeblattman",
       "status": "verified",
-      "cached": false,
+      "cached": true,
       "path": "README.md",
       "sha": "8b0fa99f466a3be23c1e590f114aa5b74d61b194"
     },
@@ -21450,9 +21433,9 @@
     {
       "repo": "CRui5in/paper-ppt-agent",
       "status": "verified",
-      "cached": true,
+      "cached": false,
       "path": "README.md",
-      "sha": "944ec24dec355974040045ff30b77ce51ac9d94e"
+      "sha": "9235a2fee1a32f45f4806001ce1e696ce8c51c78"
     },
     {
       "repo": "Crys-Chen/ic-guide",
@@ -21471,7 +21454,7 @@
     {
       "repo": "cynicalight/NeoRead",
       "status": "verified",
-      "cached": true,
+      "cached": false,
       "path": "README.md",
       "sha": "b91db4257e305fd7a443628ce43cf89139b3a170"
     },
@@ -21506,7 +21489,7 @@
     {
       "repo": "datawhalechina/dive-into-embodied-ai",
       "status": "verified",
-      "cached": true,
+      "cached": false,
       "path": "README.md",
       "sha": "b3b59e1a924c19aba557c62232b999f95dd252b1"
     },
@@ -21569,7 +21552,7 @@
     {
       "repo": "DSXiangLi/DecryptPrompt",
       "status": "verified",
-      "cached": false,
+      "cached": true,
       "path": "README.md",
       "sha": "73463eff63d5b22bed7a9179b2b977472d6f2ded"
     },
@@ -21611,7 +21594,7 @@
     {
       "repo": "espnet/espnet",
       "status": "verified",
-      "cached": false,
+      "cached": true,
       "path": "README.md",
       "sha": "2e461c9d074d6c0ac76dcb4b59b4329e0dc80945"
     },
@@ -21681,7 +21664,7 @@
     {
       "repo": "francescopace/espectre",
       "status": "verified",
-      "cached": false,
+      "cached": true,
       "path": "README.md",
       "sha": "abb9a2a41fcbe28c579a4c0b30389b6b5ea19c8e"
     },
@@ -21702,7 +21685,7 @@
     {
       "repo": "Gaoyuan-0423/biomedical-paper-reader",
       "status": "verified",
-      "cached": true,
+      "cached": false,
       "path": "README.md",
       "sha": "591357608dc53b8429f4b66b797ad67216e2dab7"
     },
@@ -21742,6 +21725,13 @@
       "sha": "f00761aee7fdc8d9f7373fa8034705d48051c13e"
     },
     {
+      "repo": "GuoZheng-de-BaBa/nursing-research-skills",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "4fda45ccec26c66b33ef6ba1715ffd4d6757cc64"
+    },
+    {
       "repo": "gwisk/gradguide",
       "status": "verified",
       "cached": true,
@@ -21774,7 +21764,7 @@
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "d3add73182bd0e30610aa591d6d470952dda1652"
+      "sha": "df53b98e5e0181d20612dea24f75d3ebad0f98aa"
     },
     {
       "repo": "helenahartmann/awesome-PhD",
@@ -21807,9 +21797,9 @@
     {
       "repo": "huangkiki/dailypaper-skills",
       "status": "verified",
-      "cached": true,
+      "cached": false,
       "path": "README.md",
-      "sha": "56df975300f329fc580950ad812c2db300ab3e2b"
+      "sha": "0ec2342571c963937ebb53513a6f2c19f17a8637"
     },
     {
       "repo": "HuangOwen/Awesome-LLM-Compression",
@@ -21891,7 +21881,7 @@
     {
       "repo": "justlovemaki/CloudFlare-AI-Insight-Daily",
       "status": "verified",
-      "cached": true,
+      "cached": false,
       "path": "README.md",
       "sha": "744f20b9afaac89833fcc7514b0cc4ad132c39f9"
     },
@@ -21905,7 +21895,7 @@
     {
       "repo": "Kedreamix/Awesome-Talking-Head-Synthesis",
       "status": "verified",
-      "cached": true,
+      "cached": false,
       "path": "README.md",
       "sha": "da329cdc68467ccb072400455c9f30140e7f9fb3"
     },
@@ -22010,7 +22000,7 @@
     {
       "repo": "MLNLP-World/MyArxiv",
       "status": "verified",
-      "cached": false,
+      "cached": true,
       "path": "README.md",
       "sha": "3dac35db9f4de44a6877f470c75383c62457aa9e"
     },
@@ -22087,7 +22077,7 @@
     {
       "repo": "OpenDCAI/DataFlow",
       "status": "verified",
-      "cached": false,
+      "cached": true,
       "path": "README.md",
       "sha": "87e47fc925bfad64e2be02c8ec898964f51fbd9b"
     },
@@ -22108,7 +22098,7 @@
     {
       "repo": "P1kaj1uu/ChattyPlay-Agent",
       "status": "verified",
-      "cached": false,
+      "cached": true,
       "path": "README.md",
       "sha": "1bb286dfc4cb23903ce27d2792fed5f7a6035756"
     },
@@ -22164,9 +22154,9 @@
     {
       "repo": "RayXBuilds/Deep-Learning-Papers-Reading-Roadmap",
       "status": "verified",
-      "cached": true,
+      "cached": false,
       "path": "README.md",
-      "sha": "fea488d6bd3c233ae1107f5c06c7addc1d4a9052"
+      "sha": "7e1d154ee93b16b1fa4bd43349a6ac22a32fdcca"
     },
     {
       "repo": "RealXiaoze/humanoid-motion-intelligence",
@@ -22365,6 +22355,13 @@
       "sha": "ca98854fd47d7df45be6faf5aec98b46fb1cbc28"
     },
     {
+      "repo": "tuna/thuthesis",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "6497c530a7a634880a63e1a8690e75a2f380a0e7"
+    },
+    {
       "repo": "ustc-ai4science/academic-search",
       "status": "verified",
       "cached": true,
@@ -22416,7 +22413,7 @@
     {
       "repo": "wdcpclover/ai4paper",
       "status": "verified",
-      "cached": true,
+      "cached": false,
       "path": "README.md",
       "sha": "a81b9b545882c2cfec83b9f677931023019dc315"
     },
@@ -22451,9 +22448,9 @@
     {
       "repo": "xianshang33/llm-paper-daily",
       "status": "verified",
-      "cached": true,
+      "cached": false,
       "path": "README.md",
-      "sha": "5984b5f88e6f8df4aab56f5c73c59df8cef6a4f9"
+      "sha": "c08442911c44764d1dc377594366366d745e415a"
     },
     {
       "repo": "xiejhhhhhh/Draftpaper_loop",
@@ -22465,7 +22462,7 @@
     {
       "repo": "xunbu/docutranslate",
       "status": "verified",
-      "cached": false,
+      "cached": true,
       "path": "README.md",
       "sha": "6df9489ff51d6df2848b3fcebb5267be69865e94"
     },
@@ -22547,970 +22544,690 @@
       "sha": "ba0d4a69cdc17207bf7bf30d91ac764830cc324d"
     },
     {
-      "repo": "academic/awesome-datascience",
+      "repo": "osnsyc/Wechat-Scholar",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "ef02982b26e2c0f1957604d5bd22ee83605091b5"
+      "sha": "ba66f8b5ff718277ef02279e2c2912b5e7c226c8"
     },
     {
-      "repo": "akfamily/akshare",
+      "repo": "14790897/handwriting-web",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "2797cb5e988e0bb61806cd3b3ce765955430d77c"
+      "sha": "d48d8ef10100b1e4569ff89166a788ced746b1d2"
     },
     {
-      "repo": "cirosantilli/cirosantilli",
-      "status": "pending",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "damionrashford/RivalSearchMCP",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "cbe144be2ec696e2ce63e760a05f88679aa042a2"
-    },
-    {
-      "repo": "GuoZheng-de-BaBa/nursing-research-skills",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "4fda45ccec26c66b33ef6ba1715ffd4d6757cc64"
-    },
-    {
-      "repo": "jaccen/Awesome-Gaussian-Skills",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "3f38f1e2a18e11152bffa48d455d963b32d6c458"
-    },
-    {
-      "repo": "luohongk/Embodied-AI-Daily",
-      "status": "pending",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "Phil-Fan/awesome-zju-tools",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "9903bd6d14eb1091a88884431ecf5c10fed9d073"
-    },
-    {
-      "repo": "taxueseek/argo",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "9b94fcf4689e5d44562507bd60ef331606be0c50"
-    },
-    {
-      "repo": "tuna/thuthesis",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "6497c530a7a634880a63e1a8690e75a2f380a0e7"
-    },
-    {
-      "repo": "wess09/AzurPilot",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "e61cf3464c23d4b8a911db85e7ed866768383feb"
-    },
-    {
-      "repo": "1Panel-dev/MaxKB",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "d5177bf8e37f1ddaa805ee7b075d683c6e731afc"
-    },
-    {
-      "repo": "9929y/genai-mesh-gradient",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "fcd6079259613ac9d3f0e8010a645ca2d870a6cb"
-    },
-    {
-      "repo": "a0926499300/nh-doujinshi-reader",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "509fadb96dc25a766d931ae7cfd91f8842738dfa"
-    },
-    {
-      "repo": "a2aproject/A2A",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "5249418fa9a659019ebc046b41f71e00cf4a8077"
-    },
-    {
-      "repo": "aaif-goose/goose",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "44c960f0193de1ccd3a13721cfe2daf5e7707ac5"
-    },
-    {
-      "repo": "addsumtech/slides_maker",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "3c5f7ef9c97ad3cc0a7407d43255bb5a89860df8"
-    },
-    {
-      "repo": "agent-sh/agnix",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "597990ce70b590e8c7158d02946b2abb07f32c74"
-    },
-    {
-      "repo": "Agent-Threat-Rule/agent-threat-rules",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "6474f71a723db7bd00234c49f37d7cd0b8ec36a4"
-    },
-    {
-      "repo": "agent0ai/agent-zero",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "00dbb86de1b2d2f9a196ee5a1833f1d7c6c35764"
-    },
-    {
-      "repo": "Agents365-ai/drawio-skill",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "eac225995ea61842f27ea8100c380e2720652cbb"
-    },
-    {
-      "repo": "AINativeLab/top-500-best-gpts",
-      "status": "verified",
-      "cached": false,
-      "path": "README.MD",
-      "sha": "6c34448e8e7d90aa57f432922765c25db2c90aff"
-    },
-    {
-      "repo": "airhunter/OnlyTranslate",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "d4b91fda77d10362710a4424e01581a62927f329"
-    },
-    {
-      "repo": "aliammari1/awesome-ai-tools",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "04b10719715135d29fc8161f852ff24ad5772dfd"
-    },
-    {
-      "repo": "allenai/vla-evaluation-harness",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "81d68f8c000f94e790850f584b5a4653d5d3e241"
-    },
-    {
-      "repo": "alvinunreal/oh-my-opencode-slim",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "6c51817d8957944564fb9c422314eea690587efe"
-    },
-    {
-      "repo": "andrew/ultimate-awesome",
-      "status": "pending",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "AndyBRoswell/cs-first-aid",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "1355aa95c4a6c44cf358eb851544d5f5d2a2e4ae"
-    },
-    {
-      "repo": "Anionex/banana-slides",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "1186a120db89938c76e6e73cc868eaae2959c4e0"
-    },
-    {
-      "repo": "apexin-ai/ASI-Bench",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "615ec614c39a82bccd8d524aefa4e1e258cafdfb"
-    },
-    {
-      "repo": "APIJSON/APIJSON",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "f5648039a14b805d198dfe7de422bbcd2a8736e7"
-    },
-    {
-      "repo": "arc53/DocsGPT",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "90e72fbd41e007eac5a8fef9f224e68a5c30e0c3"
-    },
-    {
-      "repo": "arcee-ai/mergekit",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "f2dc014942b00db134b1771f365e9cf3c289fa8b"
-    },
-    {
-      "repo": "ArchiveBox/abx-dl",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "7f5e94bbd402dccbddb8dad4e15653cd2b5e88e9"
-    },
-    {
-      "repo": "areal-project/AReaL",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "a5f9dde4203a7084783ed27e3e3c5b4611a882bd"
-    },
-    {
-      "repo": "argoproj/argo-events",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "1ff82594e1c2ab09ab8b732567ea1f2645ab5642"
-    },
-    {
-      "repo": "Arize-ai/phoenix",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "f8df638921665ce5d779ffc6626b9c010a65722b"
-    },
-    {
-      "repo": "aroum/fm1-custom-fw",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "10f77a7a4bb3c3db6f4f50307deef7afb6ea52de"
-    },
-    {
-      "repo": "asgeirtj/system_prompts_leaks",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "13abe781382a1eb6700a7838279b1064791e62ff"
-    },
-    {
-      "repo": "autogluon/tabarena",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "96262b6649feacb8c0564657350902bda75ba072"
-    },
-    {
-      "repo": "awesome-dsh-plugin/awesome-dsh-plugin",
-      "status": "pending",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "awesome-selfhosted/awesome-selfhosted",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "b85305956df63419c7198227dfecfd225f87567d"
-    },
-    {
-      "repo": "aws-samples/sample-strands-agent-with-agentcore",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "a5ae46ad9b3164a54984a87978d7da434140ccc9"
-    },
-    {
-      "repo": "awslabs/aidlc-workflows",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "63ea47d52e079ed6db7e77fc09efbc7c1c93f7c0"
-    },
-    {
-      "repo": "awslabs/mcp",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "2123adc1871e236f9dc4d1e480fb389b5c33472a"
-    },
-    {
-      "repo": "AzenYes/leaderai-media-toolkit",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "9dcfa6b5a64b1d092778b1a8daad36aece73b8a4"
-    },
-    {
-      "repo": "bendlang/bend",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "e5421d92d2caa561f2e71c439fa28910a7222799"
-    },
-    {
-      "repo": "best-of-ai/best-of-ai",
+      "repo": "1c7/chinese-independent-developer",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "41a26551c32a905e14681807f286a97a12fa480a"
+      "sha": "0122b5eecc0c5a6f109fc631f7086c5062ab0835"
     },
     {
-      "repo": "bethington/ghidra-mcp",
+      "repo": "Abhi24384/Anthropic-Mythos-Desktop-Studio",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "2cee48adce224fb1a104600b83c2249e7c453880"
+      "sha": "ba889692728db3944096b29bd548dffeda8c62ce"
     },
     {
-      "repo": "birobirobiro/awesome-shadcn-ui",
+      "repo": "agentscope-ai/agentscope",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "965e945f634a691757731e329a3e9bf30ce36ff6"
-    },
-    {
-      "repo": "BlinkDL/RWKV-LM",
-      "status": "verified",
-      "cached": false,
-      "path": "README.md",
-      "sha": "c326034d9897d6eb56818a407bd7bb8be662eb52"
-    },
-    {
-      "repo": "bollu/bollu.github.io",
-      "status": "pending",
-      "cached": false,
-      "path": null,
-      "sha": null
+      "sha": "1da8a786542b2753c89edd39dbea6ca770ea8192"
     },
     {
-      "repo": "bruc3van/awesome-dsh-plugin",
+      "repo": "agentscope-ai/OpenJudge",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "f49d866f412dd8c8d5355ee0fa56c8634dddb385"
+      "sha": "029da8dfc4641c12935783f2684099a5d6ddcbf9"
     },
     {
-      "repo": "castorini/anserini",
+      "repo": "ai4s-research/open-science",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "6c07a3b6f0f897a1519ff23b857ccbf117ceb2b3"
+      "sha": "151d0fda959c72dd1d625441bab1619c772a89a0"
     },
     {
-      "repo": "cathrynlavery/diagram-design",
+      "repo": "akshcha/claude-pro-collab-guide",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "2660309a3d05c5ddae1b298bc043b08c3798315a"
+      "sha": "f52afcb38a0c692bf16ee6c6a7ef0f6ecc514f4d"
     },
     {
-      "repo": "ccbogel/QualCoder",
+      "repo": "alibaba/open-code-review",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "956c1b086ec0e1521ba911f1f50d6c66ca161884"
+      "sha": "96b4e231298af0882d800d213b5f5881f601fdd9"
     },
     {
-      "repo": "Cellium-Project/Cellium-Agent",
+      "repo": "amazon-braket/amazon-braket-examples",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "34fafbc25fcb30f6eccf5fb5c2ae2dacfe05512b"
+      "sha": "b1f35c04a3e54cd2319081b60e148513c63a7f63"
     },
     {
-      "repo": "CharlesPikachu/freeproxy",
+      "repo": "amitness/learning",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "91684aa2c35e181c342be8d45adc730e4fa206f0"
+      "sha": "6e9ee8d58dc085ed40998e0e8c061466b3482a5d"
     },
     {
-      "repo": "CharlesPikachu/videodl",
+      "repo": "analysis-tools-dev/static-analysis",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "c8fc6f076236d5e3245c61baf42daedee739f307"
+      "sha": "fe16109ad2a70ac7885c076739b294657a508ea2"
     },
     {
-      "repo": "Chat2AnyLLM/awesome-claude-plugins",
+      "repo": "aneasystone/github-trending",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "0bb7feed70340417a4a4bcc9b896699943b6e137"
+      "sha": "86c547a4600923628b22c12469219bdce7844b31"
     },
     {
-      "repo": "Chat2AnyLLM/awesome-claude-skills",
-      "status": "pending",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "cheaper-inference/OmniRoute",
+      "repo": "antigenomics/vdjtools",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "c9200edb053833dde34a22881660eef97ea0cacb"
+      "sha": "9d14d5df1b520cb971a6a2175d61653ca21380e7"
     },
     {
-      "repo": "chinesehuazhou/python-weekly",
+      "repo": "anvie/evonic",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "6c0ccd1d63ae730180b57bfdb8ef125e0a838ce8"
+      "sha": "954b7574e0d546998feb423bc99009e9e384caa7"
     },
     {
-      "repo": "chrxh/alien",
+      "repo": "apache/flink",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "d8d92e4a453fbe3608b76f5004488af266af196f"
+      "sha": "37f21d78ebd915994d14afd7c41cd89ce3e1f4ae"
     },
     {
-      "repo": "cipher387/osint_stuff_tool_collection",
+      "repo": "ApodexAI/FrontierAgent",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "881a50e7e10418948905cfd1c9e4532de1432ad0"
+      "sha": "2097d4022db5e7b541ad1df821ad4a876b588f61"
     },
     {
-      "repo": "ClawBio/ClawBio",
+      "repo": "ascend-ai-coding/awesome-ascend-skills",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "75efffd5678f4b24f3793bbf53ce27b2f818372a"
+      "sha": "f67cc89027a59f81157564afb3077842ebf6d1af"
     },
     {
-      "repo": "code-yeongyu/oh-my-openagent",
+      "repo": "AZeC4/TelegramGroup",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "290d5ac71787a0f362b253a4426f43da1d04b238"
+      "sha": "e07211eb375f4843a0aa9991a45808a276e42ec0"
     },
     {
-      "repo": "CodebuffAI/freebuff",
+      "repo": "beancookie/awesome-dsh-plugin",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "8822d561239fe8a067c06f0c0c874c5e5b49ea25"
+      "sha": "d2b47a6ffbb557061dfbd481714958293618acaf"
     },
     {
-      "repo": "colbymchenry/codegraph",
+      "repo": "BehiSecc/awesome-claude-skills",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "43b1208fe1e932a3aac1d2fa92dbc3252b2b2dc8"
+      "sha": "551e5ed27b35c53aacd51f04382e82f29c674a62"
     },
     {
-      "repo": "Companion-Inc/feynman",
+      "repo": "beiciliang/intro2musictech",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "1152af0e65004bd77abfe55fe7919fca6f3ae275"
+      "sha": "bfd0a26654199cddd1432b63a8add77535777dae"
     },
     {
-      "repo": "Correia-jpv/fucking-awesome-selfhosted",
+      "repo": "BigBodyCobain/Shadowbroker",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "4cf8878777595cd314f9578d0f399cb69b00b8ed"
-    },
-    {
-      "repo": "cporter202/scraping-apis-for-devs",
-      "status": "pending",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "cporter202/social-media-scraping-apis",
-      "status": "pending",
-      "cached": false,
-      "path": null,
-      "sha": null
+      "sha": "eaa4a6f3cbde57d384ae8a4bda43e783ec7ad978"
     },
     {
-      "repo": "crewAIInc/crewAI",
+      "repo": "brightdata/brightdata-mcp",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "4a5360ad587a35625684747157881558c6acae1d"
+      "sha": "6d662fbe57a2d54d48f7b31338143db3bbe064dc"
     },
     {
-      "repo": "CSCB/vibe-mouse",
+      "repo": "browser-use/browser-use",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "73251f3ea29cabb6324c68d70539a5008733c46f"
+      "sha": "fe0d153c091192af376573013bf27974de9169ff"
     },
     {
-      "repo": "cursor/plugins",
+      "repo": "brycewang-stanford/StatsPAI",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "d2ac28d9d1b4fb8216e1530237211e201a79f60b"
+      "sha": "3a4cbc52b6f9a32b3938158dfd615a1fa9d26d33"
     },
     {
-      "repo": "CZ600/AutoDocxProofread",
+      "repo": "bytedance/deer-flow",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "08ccf8e8b13358a229e39b9530ffbfe69e324072"
+      "sha": "78e9b64c7e7ff987be3be751d9adec42e0762c74"
     },
     {
-      "repo": "D4Vinci/Scrapling",
+      "repo": "can1357/oh-my-pi",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "26cc7aa2c13dfb31b77a1a650c7dc565bbcc4d21"
+      "sha": "429e2790f23a03490dc8fc7b146f8b3ffb0fa6a5"
     },
     {
-      "repo": "dathere/qsv",
+      "repo": "CatCatUncle/openworkbuddy",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "01e2645b47e5d392f0f9308f1b2b3c921722f9d5"
+      "sha": "3e92d77d0b5475a208c8d1a0be1a40c57e44d96d"
     },
     {
-      "repo": "davidgasquez/awesome-duckdb",
+      "repo": "CHEN010325/paddleocr-local",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "945432379e051086617e8dfb55373d6a0502af22"
+      "sha": "6c3df9021fe406988dabdd4511b950c12591fc07"
     },
     {
-      "repo": "davila7/claude-code-templates",
+      "repo": "chuanjianghe1024-cmd/FluentControl",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "5b19b2ebb6d3f1716fd9b421609331f0eef61a3a"
+      "sha": "715894611516cd41e8f48ec26a54275f5a46ee6b"
     },
     {
-      "repo": "daymade/claude-code-skills",
+      "repo": "confident-ai/deepeval",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "38f6398808f623e9f560a1f25f9b6e060a87759b"
+      "sha": "3a0898fcf91d70f1b2643c1fc8851ffaee054700"
     },
     {
-      "repo": "DeanChensj/jiangshan-map",
+      "repo": "curieuxjy/Awesome_Quadrupedal_Robots",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "1dcb953e0eefba669187f9d866bff07ea0fe080e"
+      "sha": "0b1994b7b24bc88cf2a000bc3940b883e3d96339"
     },
     {
-      "repo": "DeepL/deepl-python",
+      "repo": "DAAF-Contribution-Community/daaf",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "528285aa554499fd74bada4ce6a667492863723b"
+      "sha": "3759e0c4bd3f7338c94b51d9f42dcf6b2315f19a"
     },
     {
-      "repo": "deepmodeling/deepmd-kit",
+      "repo": "danielmiessler/Fabric",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "1d7b0ae40449f143fa24532d23390c207c2eed09"
+      "sha": "1f2161b3ca63fccd081caee36a1eab8b7fa31f22"
     },
     {
-      "repo": "deusyu/harness-engineering",
+      "repo": "datawhalechina/diy-llm",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "a58a287cc96f3156453653b6121418792a66229e"
+      "sha": "b8dfe1aa81068174ed15f091ca46a7cda6216a24"
     },
     {
-      "repo": "Developer-Y/cs-video-courses",
+      "repo": "Dicklesworthstone/model_guided_research",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "7b7568331fad29b318cd884adb28a4da835ed94c"
+      "sha": "3e02872c847e8893a47d0496edc2e9a5afdb3915"
     },
     {
-      "repo": "Dicklesworthstone/asupersync",
+      "repo": "Dicklesworthstone/ultimate_mcp_server",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "fa088cb10d1d88cb889e7a844fd3339412fd1c36"
-    },
-    {
-      "repo": "digoal/blog",
-      "status": "pending",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "Dominic789654/awesome-deepseek-harness",
-      "status": "pending",
-      "cached": false,
-      "path": null,
-      "sha": null
+      "sha": "1018ddb8f25cd211d8f9ce08849f31018d3f0c18"
     },
     {
-      "repo": "Doragd/Algorithm-Practice-in-Industry",
+      "repo": "dmitryvinn/awesome-dev-advocacy",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "94029b1c5580037f8892cdb3400591a6980857ba"
+      "sha": "9ac2f4222b0b0515f58286cb3c17d5b92ae5e7d8"
     },
     {
-      "repo": "dragonflydb/dragonfly",
+      "repo": "docling-project/docling",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "bb6b1963ee34f5b69703e4802ae988eab00e351a"
+      "sha": "3297b7881575dc853facc5add4cc4c8dccc12f14"
     },
     {
-      "repo": "DropsOfZut/awesome-security-weixin-official-accounts",
+      "repo": "drduh/macOS-Security-and-Privacy-Guide",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "456e4cee97b9bd720185c337d2a117c76b9d951f"
+      "sha": "77418b3fe2af82f4478f3937cc3bb9445ec7ce12"
     },
     {
-      "repo": "ebertti/awesome-telegram",
+      "repo": "EEEugene/StepNumberChangeSNC",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "a3cd4888f193ad6c6defb7991f7599ec144a4d7f"
+      "sha": "59838db8c363aaec086e2eac8bc71dd7042d8532"
     },
     {
-      "repo": "ECNU/EduWork",
+      "repo": "EKKOLearnAI/ekko-studio",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "c37662ba9ee241a4ef363521702d039dd4e33a67"
+      "sha": "dc1eaa59302ec99f0ecbf3c9660639aad6fdab86"
     },
     {
-      "repo": "EgoAlpha/prompt-in-context-learning",
+      "repo": "EmbraceAGI/awesome-chatgpt-zh",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "af1c9807d29a9c8c2c6ba333f20224e960a4c202"
+      "sha": "ad983b389c8e87dd4265822184a3bb4a48c36383"
     },
     {
-      "repo": "eigent-ai/eigent",
+      "repo": "ethereum/EIPs",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "b7946166e44cf1665717b4987f3154242b428d0f"
+      "sha": "7463a87d011277723de77417b3f8b74e4b4dac94"
     },
     {
-      "repo": "emredurukn/awesome-job-boards",
+      "repo": "eugeniughelbur/obsidian-second-brain",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "95b3428079d1ef89091e47a42972989efa5fe08d"
+      "sha": "ada3be40c3268aac89c1b82cdd71d2e0204d25bb"
     },
     {
-      "repo": "equinor/neqsim",
+      "repo": "EuniAI/awesome-code-agents",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "9cbdfc042b890f2f5b1417e78e7438f086e445ae"
+      "sha": "2fc86a40d22aa21b6223280a811304554420f768"
     },
     {
-      "repo": "EthicalML/awesome-artificial-intelligence-regulation",
+      "repo": "EverMind-AI/Raven",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "0152335b14f71c81e74b7a6442674679528941b3"
+      "sha": "568e51e8fac34e158dca41a08868cfc1a5bd7057"
     },
     {
-      "repo": "EthicalML/awesome-production-machine-learning",
+      "repo": "EveryInc/compound-engineering-plugin",
       "status": "verified",
       "cached": false,
       "path": "README.md",
-      "sha": "b48d9896b93ea226b18a0d2445897a5f5a83aea4"
+      "sha": "10d65dbe50fe6750e425b43d2499966b1d4df9a8"
     },
     {
       "repo": "f/prompts.chat",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "ea9962a2bdd6b38e6d85adbbc8f11dd9ee12bfaf"
+    },
+    {
+      "repo": "fabricioctelles/skills",
+      "status": "verified",
+      "cached": false,
+      "path": "README.md",
+      "sha": "88115c5e6f45067d8cef4b858d98d6219e028abd"
+    },
+    {
+      "repo": "fcakyon/claude-codex-settings",
+      "status": "verified",
+      "cached": false,
+      "path": "README.md",
+      "sha": "8816f58c317e17f28169a9ee28cf23a514d762ec"
+    },
+    {
+      "repo": "firecrawl/firecrawl",
+      "status": "verified",
+      "cached": false,
+      "path": "README.md",
+      "sha": "ff95e1113ec174abfe56cfdaebd4991183cf634c"
+    },
+    {
+      "repo": "firecrawl/firecrawl-mcp-server",
+      "status": "verified",
+      "cached": false,
+      "path": "README.md",
+      "sha": "7898bdb647c55b389d22846b093edc5a1f05eeee"
+    },
+    {
+      "repo": "flashinfer-ai/flashinfer",
+      "status": "verified",
+      "cached": false,
+      "path": "README.md",
+      "sha": "c3584e233b4d04f02fb48ae01b7df0fdf5e98e97"
+    },
+    {
+      "repo": "FlashML-org/FreeToken",
+      "status": "verified",
+      "cached": false,
+      "path": "README.md",
+      "sha": "e72a5cd0d62ecb564e1b7f8ac9b194c8fd9d8a84"
+    },
+    {
+      "repo": "FonaTech/Clouds-Coder",
+      "status": "verified",
+      "cached": false,
+      "path": "README.md",
+      "sha": "5b20a7d0ff365dfbb1f2d58c877cd179793c79b7"
+    },
+    {
+      "repo": "ForceInjection/AI-fundamentals",
+      "status": "verified",
+      "cached": false,
+      "path": "README.md",
+      "sha": "0ec0e4f403edf5d07716ad82642557bd3eff071f"
+    },
+    {
+      "repo": "Francis1998/scholar-rag-agent",
+      "status": "verified",
+      "cached": false,
+      "path": "README.md",
+      "sha": "1886cfae77b66fa63827a3d235e85b50a428dc03"
+    },
+    {
+      "repo": "frank890417/taiwan-md",
+      "status": "verified",
+      "cached": false,
+      "path": "README.md",
+      "sha": "ca009bdfedeffddcf229130575b9e0869199a15b"
+    },
+    {
+      "repo": "franksong2702/dsh-codex-connect",
+      "status": "verified",
+      "cached": false,
+      "path": "README.md",
+      "sha": "031950a412e44eefd22114748451c87f5a856852"
+    },
+    {
+      "repo": "freeCodeCamp/freeCodeCamp",
+      "status": "verified",
+      "cached": false,
+      "path": "README.md",
+      "sha": "19f0d9e28b93f2b2b254e2a33f73f324c3486406"
     },
     {
       "repo": "freestylefly/awesome-gpt-image-2",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "d1034693a2823762fdd321c14421ed4b4d1a2e39"
     },
     {
       "repo": "frenck/awesome-home-assistant",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "b7036cb80ee3f364ffd305a33abcde889da8780e"
     },
     {
       "repo": "frianasoa/Ze-Notes",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "317e66169f5ca4fae190a29d4fcf9270c9dfaf1e"
     },
     {
       "repo": "friuns2/Leaked-GPTs",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "953f1a3c75e8e4848de77d62142e2f6f55eb18e9"
     },
     {
       "repo": "frontier-harness-eval/eval",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "5638ecccf536550b46bddb5519da64f339ebb766"
     },
     {
       "repo": "Furyton/awesome-language-model-analysis",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "e0340d8b57396250257de04e01a59ed6635fad61"
     },
     {
       "repo": "fushengqian/fuint",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "00d310e1194eb993b22e21806e214594eed1d9ea"
     },
     {
       "repo": "fushengqian/fuintCar",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "746967a0f8a3c6d62de190ed2412becd618e7fea"
     },
     {
       "repo": "fushengqian/fuintCatering",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "f6d06ba6baf1602b56e04981f417edd6c9eeea7b"
     },
     {
       "repo": "Future-House/paper-qa",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "af05b404aacd6aa3bc6792fcfb650902fc666c1f"
     },
     {
       "repo": "Future-House/robin",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "6da24fafc160a5538971a528b506d1d8050d4f73"
     },
     {
       "repo": "fxsjy/jieba",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "ee2ed8aac14264134918eb5abebdd811a6bd63ca"
     },
     {
       "repo": "fzi-forschungszentrum-informatik/cartesian_controllers",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "8ed3dcf849e7b753f2b5702db012ae3f62a6a2e8"
     },
     {
       "repo": "gadievron/raptor",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "c4b91fcf3e1113dd12360b47cb242ce3c6342c9c"
     },
     {
       "repo": "GAI4SE/LLM4SE",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "cede988faa0782ac40b0f6686c6bf8001a6d086a"
     },
     {
       "repo": "GAIK-project/gaik-toolkit",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "9af1b2c62c318a5392466810fd733c5bc1668cda"
     },
     {
       "repo": "GammaLabTechnologies/harmonist",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "b05b2a23a34de6033ebda80e0a5ad6cf2a6bdbd0"
     },
     {
       "repo": "GarethManning/education-agent-skills",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "68db5c5dbc513cbcfa262514e845afa2fb3413c1"
     },
     {
       "repo": "garmeeh/next-seo",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "501d23a3f8c611bde13b13b742174acdcf7c248f"
     },
     {
       "repo": "garrytan/gbrain",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "a8bcad41a4380147136bee81455a81f725e70e24"
     },
     {
       "repo": "garrytan/gbrain-evals",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "ac87a230d7b03bc54de4b06076345681bdcf2f38"
     },
     {
       "repo": "garrytan/gstack",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "47fb9c848bc9385c990726645e5287fd692dc55f"
     },
     {
       "repo": "gavischneider/awesome-llm-wiki",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "d6095238f06a7e11f2941aa04279bfe2c39cd3fd"
     },
     {
       "repo": "gboeing/ppde642",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "c31e941e52dd60018c8a86760234f887f4d43bf5"
     },
     {
       "repo": "GD4AI/obsidian-llm-wiki",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "ca0d28bcda1f89f96d8e8bd46170f2a3452fcfac"
     },
     {
       "repo": "geekan/HowToLiveLonger",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "331165062b159929d558d97c73dffdea9dc29823"
     },
     {
       "repo": "GeminiLight/SocialCoach",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "fad38dd684955f419b5ccc8542e01bb1ef8634e1"
     },
     {
       "repo": "Gen-Verse/DiscoveryRSI",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "9e24719c93daddbf75f5b79df73aa5637b00f80a"
     },
     {
       "repo": "Gen-Verse/OpenClaw-RL",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "40a2dfdff992df46c6bed2215e9b865946b95813"
     },
     {
       "repo": "genomoncology/biomcp",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "8fc2720278398909d6e86f3acfc1cc1961376892"
     },
     {
       "repo": "genspark-ai/genoffice",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "fe60c4b4c1f65cae0d8eefd6cb81685625e14ef1"
     },
     {
       "repo": "georgian-io/Multimodal-Toolkit",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "8ec21b1afe4efc1f626d9517aa9262e680e3311b"
     },
     {
       "repo": "GeostatsGuy/Resources",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "c39432647ffc0856e9c278db9214b41b56d225bf"
     },
     {
       "repo": "gepa-ai/gepa",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "README.md",
+      "sha": "365edf3d878f6996259cfc95c401547825fdc65b"
     },
     {
       "repo": "get-alex/alex",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "readme.md",
+      "sha": "18a63a3317b2c6c47344a89b60027c7ce912a8d9"
     },
     {
       "repo": "GetBindu/awesome-claude-code-and-skills",
-      "status": "deferred",
+      "status": "verified",
       "cached": false,
-      "path": null,
-      "sha": null
+      "path": "readme.md",
+      "sha": "2b8c5a868cf5f5cd1cf8da9d568bf6d8a7f92529"
     },
     {
       "repo": "GetBindu/Bindu",
@@ -23535,6 +23252,13 @@
     },
     {
       "repo": "GISWLH/DataScience-master",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "github-education-resources/teacher-toolbox",
       "status": "deferred",
       "cached": false,
       "path": null,
@@ -23682,13 +23406,6 @@
     },
     {
       "repo": "GrindGold/pdf",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "grisuno/estorides",
       "status": "deferred",
       "cached": false,
       "path": null,
@@ -23920,13 +23637,6 @@
     },
     {
       "repo": "hashgraph-online/awesome-codex-plugins",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "hbctraining/Intro-to-bulk-RNAseq",
       "status": "deferred",
       "cached": false,
       "path": null,
@@ -25390,6 +25100,13 @@
     },
     {
       "repo": "jwwthu/how-to-research",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "jxwfdpt42t-ship-it/ReskillSQL",
       "status": "deferred",
       "cached": false,
       "path": null,
@@ -27300,6 +27017,13 @@
       "sha": null
     },
     {
+      "repo": "MohamedAbdallah-14/unslop",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
       "repo": "MohamedElashri/awesome-zotero",
       "status": "deferred",
       "cached": false,
@@ -28826,6 +28550,13 @@
       "sha": null
     },
     {
+      "repo": "PKUHPC/OpenSCOW",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
       "repo": "PlexPt/awesome-chatgpt-prompts-zh",
       "status": "deferred",
       "cached": false,
@@ -29093,13 +28824,6 @@
     },
     {
       "repo": "QInzhengk/Math-Model-and-Machine-Learning",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "QuantumBFS/sci-brain",
       "status": "deferred",
       "cached": false,
       "path": null,
@@ -30002,6 +29726,13 @@
       "sha": null
     },
     {
+      "repo": "SecFathy/xss-specialist",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
       "repo": "selahattinunlu/harika-github-repolari",
       "status": "deferred",
       "cached": false,
@@ -30017,6 +29748,13 @@
     },
     {
       "repo": "semgrep/semgrep",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "sentient-agi/EvoSkill",
       "status": "deferred",
       "cached": false,
       "path": null,
@@ -30514,13 +30252,6 @@
     },
     {
       "repo": "Sri-Krishna-V/awesome-adk-agents",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "sshh12/llm_osint",
       "status": "deferred",
       "cached": false,
       "path": null,
@@ -31081,6 +30812,13 @@
     },
     {
       "repo": "THUROI0787/absent-author",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "thuservices/thuservices",
       "status": "deferred",
       "cached": false,
       "path": null,
@@ -33194,13 +32932,6 @@
       "sha": null
     },
     {
-      "repo": "zhaoguangyuan123/Make-your-research-life-easier",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
       "repo": "zhaoolee/ChromeAppHeroes",
       "status": "deferred",
       "cached": false,
@@ -33419,6 +33150,13 @@
     },
     {
       "repo": "zudochkin/awesome-newsletters",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "zupcode-com/awesome-free-services-for-your-next-startup-or-saas",
       "status": "deferred",
       "cached": false,
       "path": null,
@@ -33782,18 +33520,74 @@
       "sha": "1df14672fab51cb647cf43e89e3de0e9b03cb464"
     },
     {
-      "repo": "osnsyc/Wechat-Scholar",
+      "repo": "Tavish9/awesome-daily-AI-arxiv",
       "status": "deferred",
       "cached": false,
       "path": null,
       "sha": null
     },
     {
-      "repo": "Tavish9/awesome-daily-AI-arxiv",
+      "repo": "academic/awesome-datascience",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "ef02982b26e2c0f1957604d5bd22ee83605091b5"
+    },
+    {
+      "repo": "akfamily/akshare",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "cirosantilli/cirosantilli",
       "status": "pending",
       "cached": true,
       "path": null,
       "sha": null
+    },
+    {
+      "repo": "damionrashford/RivalSearchMCP",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "cbe144be2ec696e2ce63e760a05f88679aa042a2"
+    },
+    {
+      "repo": "jaccen/Awesome-Gaussian-Skills",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "3f38f1e2a18e11152bffa48d455d963b32d6c458"
+    },
+    {
+      "repo": "luohongk/Embodied-AI-Daily",
+      "status": "pending",
+      "cached": true,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "Phil-Fan/awesome-zju-tools",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "taxueseek/argo",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "9b94fcf4689e5d44562507bd60ef331606be0c50"
+    },
+    {
+      "repo": "wess09/AzurPilot",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "e61cf3464c23d4b8a911db85e7ed866768383feb"
     },
     {
       "repo": "001TMF/blatant-why",
@@ -33818,10 +33612,10 @@
     },
     {
       "repo": "0xInfection/Awesome-WAF",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "4a7efc0321864158d61514395a2ad53080bbddf4"
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
     },
     {
       "repo": "0xNyk/awesome-hermes-agent",
@@ -33850,13 +33644,6 @@
       "cached": true,
       "path": "README.md",
       "sha": "38ef3108f24b10ba3281e04406964fc61aea8ca9"
-    },
-    {
-      "repo": "14790897/handwriting-web",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
     },
     {
       "repo": "233stone/vocotype-cli",
@@ -33913,13 +33700,6 @@
       "cached": true,
       "path": "README.md",
       "sha": "47dca440f258deec909f6f4038166f2a425aa637"
-    },
-    {
-      "repo": "aab0/awesome-jobs",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "1a9163ac221b602b78c107efae76aa687d9ee4f9"
     },
     {
       "repo": "AAswordman/Operit",
@@ -34161,10 +33941,10 @@
     },
     {
       "repo": "alchaincyf/huashu-skills",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "5cc5a7868c2bcae6c9a22aa138100606b6d825f2"
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
     },
     {
       "repo": "alchaincyf/nuwa-skill",
@@ -34298,13 +34078,6 @@
       "cached": true,
       "path": "README.md",
       "sha": "957c694eaaea5327443d20d604aba4bfd0c324a6"
-    },
-    {
-      "repo": "amitness/learning",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
     },
     {
       "repo": "AmourWaltz/Awesome-Reliable-LLM",
@@ -34531,13 +34304,6 @@
       "sha": "2ae1978c69a68c10e9d25f7cc6f1b80de611b8fb"
     },
     {
-      "repo": "AZeC4/TelegramGroup",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
       "repo": "baidu/Familia",
       "status": "verified",
       "cached": true,
@@ -34592,13 +34358,6 @@
       "cached": true,
       "path": "README.md",
       "sha": "af0c710588e94bf1df562e65904a017e5c9cddc0"
-    },
-    {
-      "repo": "BehiSecc/awesome-claude-skills",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
     },
     {
       "repo": "benchflow-ai/awesome-evals",
@@ -34945,10 +34704,10 @@
     },
     {
       "repo": "Astrosp/Awesome-OSINT-List",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "6e821a14455715a91a4a369c53a790a19944045b"
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
     },
     {
       "repo": "backnotprop/pstack",
@@ -34973,10 +34732,10 @@
     },
     {
       "repo": "Blackwellboy/model-serving-minefield",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "f64af193f033a0246354d25e28e07c7770d6e38c"
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
     },
     {
       "repo": "blue-yonder/tsfresh",
@@ -35061,13 +34820,6 @@
       "cached": true,
       "path": "README.md",
       "sha": "586926e8898e06bbf4366707481df611e61dd406"
-    },
-    {
-      "repo": "CHEN010325/paddleocr-local",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
     },
     {
       "repo": "ChessMax/awesome-programming-languages",
@@ -35260,10 +35012,10 @@
     },
     {
       "repo": "ai4s-research/awesome-ai-for-science",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "aee028ebeec589004fcc25ec914db91224a843b4"
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
     },
     {
       "repo": "aibuildai-inc/AI-Build-AI",
@@ -35287,13 +35039,6 @@
       "sha": "55ec0a7400d0a022b8424359a3168bea7867b8cf"
     },
     {
-      "repo": "angristan/awesome-stars",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "f98e64029ca2ad71834ce93369fba1f4ea1e90ab"
-    },
-    {
       "repo": "ASSERT-KTH/awesome-open-science-software",
       "status": "verified",
       "cached": true,
@@ -35309,10 +35054,10 @@
     },
     {
       "repo": "bigai-nlco/belief-context-graph",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "3c11743deff22b9abb7eb3a0b5e13742b0a0ce9e"
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
     },
     {
       "repo": "BradyFU/Awesome-Multimodal-Large-Language-Models",
@@ -35322,32 +35067,11 @@
       "sha": "477659efa42d0670138adc92f668f77a67f97711"
     },
     {
-      "repo": "brightdata/brightdata-mcp",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "CHAOZHAO-1/HUSTbearing-dataset",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "0208ff1010daa919c76acf3e8431f524e69a3d18"
-    },
-    {
       "repo": "ConardLi/garden-skills",
       "status": "verified",
       "cached": true,
       "path": "README.md",
       "sha": "532c7ac8c427de8aa2e0c1bcfe5220e0ff252477"
-    },
-    {
-      "repo": "confident-ai/deepeval",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
     },
     {
       "repo": "CourtneyThurston/microsoft-internships",
@@ -35427,13 +35151,6 @@
       "sha": "e12262963de479d8a8749e5498cc560acf149c7b"
     },
     {
-      "repo": "curieuxjy/Awesome_Quadrupedal_Robots",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
       "repo": "cyanheads/pubmed-mcp-server",
       "status": "verified",
       "cached": true,
@@ -35469,13 +35186,6 @@
       "sha": "91592d745d40be9d0c41d3943e9124101d187d76"
     },
     {
-      "repo": "DAAF-Contribution-Community/daaf",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
       "repo": "dair-ai/ML-Papers-Explained",
       "status": "verified",
       "cached": true,
@@ -35502,13 +35212,6 @@
       "cached": true,
       "path": "README.md",
       "sha": "c6b93b1bc98d650ad275e2be94e7ea955800ca69"
-    },
-    {
-      "repo": "danielmiessler/Fabric",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
     },
     {
       "repo": "danielmiessler/LifeOS",
@@ -35624,10 +35327,10 @@
     },
     {
       "repo": "ai-boost/awesome-a2a",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "9c2a7f204e9f22124437033e7f81e87d696ececd"
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
     },
     {
       "repo": "ai-collection/ai-collection",
@@ -35635,20 +35338,6 @@
       "cached": true,
       "path": "README.md",
       "sha": "ec1e17186da58799d3682284447b2da148c804cb"
-    },
-    {
-      "repo": "amazon-braket/amazon-braket-examples",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "analysis-tools-dev/static-analysis",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
     },
     {
       "repo": "anthropics/claude-for-legal",
@@ -35677,13 +35366,6 @@
       "cached": true,
       "path": "README.md",
       "sha": "9b6f016330e3a33c7eb5a7366080bed545db625b"
-    },
-    {
-      "repo": "datawhalechina/diy-llm",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
     },
     {
       "repo": "datawhalechina/easy-rl",
@@ -35833,32 +35515,11 @@
       "sha": "33a7001031e80f337949dc20142ba1fe75b75ea4"
     },
     {
-      "repo": "Dicklesworthstone/model_guided_research",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
       "repo": "0ex/more-awesome",
       "status": "verified",
       "cached": true,
       "path": "README.md",
       "sha": "7f3fb412cf98db8eb0a2f4e6efe855c383c329a5"
-    },
-    {
-      "repo": "agentscope-ai/agentscope",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "agentscope-ai/OpenJudge",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
     },
     {
       "repo": "AgriciDaniel/claude-blog",
@@ -35869,41 +35530,6 @@
     },
     {
       "repo": "ai-boost/awesome-prompts",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "55599f7aa699a1d539118287969fb61c250d490c"
-    },
-    {
-      "repo": "alibaba/open-code-review",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "BigBodyCobain/Shadowbroker",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "browser-use/browser-use",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "brycewang-stanford/StatsPAI",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "CatCatUncle/openworkbuddy",
       "status": "deferred",
       "cached": false,
       "path": null,
@@ -35918,20 +35544,13 @@
     },
     {
       "repo": "cssmagic/Awesome-AI",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "726f855a0f8694d48fdff08b55861d5eda9ee96b"
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
     },
     {
       "repo": "datawhalechina/agentic-rl-lab",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "a7aad0ef9b1834059b598860d2e8979609254d2a"
-    },
-    {
-      "repo": "Dicklesworthstone/ultimate_mcp_server",
       "status": "deferred",
       "cached": false,
       "path": null,
@@ -35980,25 +35599,11 @@
       "sha": "17b0cceaf866bf321aeee1157762ea6fecc750e5"
     },
     {
-      "repo": "dltsum/research-guard",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "46cfe98933814dd8fdbc33dbe04328bff9547ae1"
-    },
-    {
       "repo": "dmccreary/ibook-skills",
       "status": "verified",
       "cached": true,
       "path": "README.md",
       "sha": "b1cc8d7c3b272f48d2f8185ead7bb354d5fe6744"
-    },
-    {
-      "repo": "dmitryvinn/awesome-dev-advocacy",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
     },
     {
       "repo": "Dod-o/Statistical-Learning-Method_Code",
@@ -36020,13 +35625,6 @@
       "cached": true,
       "path": "README.md",
       "sha": "5ba1ef31d5ec5f2093c94eec44db006572bc7539"
-    },
-    {
-      "repo": "drduh/macOS-Security-and-Privacy-Guide",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
     },
     {
       "repo": "dreikanter/ruby-bookmarks",
@@ -36198,10 +35796,10 @@
     },
     {
       "repo": "aallan/vera",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "e9efe1ec9812330245387d61a678a9a4d5bd4071"
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
     },
     {
       "repo": "Achuan-2/siyuan-plugin-task-note-management",
@@ -36212,10 +35810,10 @@
     },
     {
       "repo": "ai-boost/awesome-harness-engineering",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "15ec00f070d5a9f6c0efc6a420bceb275a009710"
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
     },
     {
       "repo": "ANative-Lab/EvoAgentX",
@@ -36254,17 +35852,17 @@
     },
     {
       "repo": "Auriti-Labs/geo-optimizer-skill",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "174d3e2d1c71a2b4a1fa14a562e7932dc4ac8f1f"
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
     },
     {
       "repo": "avelino/awesome-go",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "977ff3db63741b5771e090e5c707140a150057eb"
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
     },
     {
       "repo": "beehive-lab/TornadoVM",
@@ -36272,13 +35870,6 @@
       "cached": true,
       "path": "README.md",
       "sha": "113d35a6c478f09c4213556cf1b25a4cda07e2ee"
-    },
-    {
-      "repo": "beiciliang/intro2musictech",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
     },
     {
       "repo": "beita6969/ScienceClaw",
@@ -36307,13 +35898,6 @@
       "cached": true,
       "path": "README.md",
       "sha": "c1ced74be947f054c3b7de7d6cfd99a41880440b"
-    },
-    {
-      "repo": "chuanjianghe1024-cmd/FluentControl",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
     },
     {
       "repo": "cli/cli",
@@ -36377,13 +35961,6 @@
       "cached": true,
       "path": "README.md",
       "sha": "afa079b2a7e90e815fdaf9b09edcd7ad010e3e91"
-    },
-    {
-      "repo": "EmbraceAGI/awesome-chatgpt-zh",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
     },
     {
       "repo": "emilwallner/How-to-learn-Deep-Learning",
@@ -36450,10 +36027,10 @@
     },
     {
       "repo": "eosphoros-ai/DB-GPT",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "a4a293981b29fda78a035d638230327d1176c713"
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
     },
     {
       "repo": "epiral/bb-browser",
@@ -36491,13 +36068,6 @@
       "sha": "4eed2d96380635d508fcf5a91ad4dc41a53e621f"
     },
     {
-      "repo": "ethereum/EIPs",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
       "repo": "eugeneyan/applied-ml",
       "status": "verified",
       "cached": true,
@@ -36512,46 +36082,11 @@
       "sha": "debe7581770b673e6074dc36d838366da61cbeb9"
     },
     {
-      "repo": "eugeniughelbur/obsidian-second-brain",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "1c7/chinese-independent-developer",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "Abhi24384/Anthropic-Mythos-Desktop-Studio",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "ai4s-research/open-science",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
       "repo": "AIPMAndy/awesome-openclaw-skills-CN",
       "status": "verified",
       "cached": true,
       "path": "README.md",
       "sha": "6e307ea1d3ddc2e33f2663a002ad5c26ac9076b5"
-    },
-    {
-      "repo": "akshcha/claude-pro-collab-guide",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
     },
     {
       "repo": "alexisfox7/PRO-LONG",
@@ -36562,13 +36097,6 @@
     },
     {
       "repo": "alvinreal/awesome-opensource-ai",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "274aed225c3dbf7c1bcd7174ba4530dbedd1bdfe"
-    },
-    {
-      "repo": "aneasystone/github-trending",
       "status": "deferred",
       "cached": false,
       "path": null,
@@ -36576,41 +36104,6 @@
     },
     {
       "repo": "anthropics/knowledge-work-plugins",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "261e2f47e2b1701258e4bd3ec18620dc5d7c28ad"
-    },
-    {
-      "repo": "antigenomics/vdjtools",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "anvie/evonic",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "apache/flink",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "ApodexAI/FrontierAgent",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "ascend-ai-coding/awesome-ascend-skills",
       "status": "deferred",
       "cached": false,
       "path": null,
@@ -36625,27 +36118,6 @@
     },
     {
       "repo": "awesome-gptX/awesome-gpt",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "9062b114adb26f0491e8773e0e57ac3fec676325"
-    },
-    {
-      "repo": "beancookie/awesome-dsh-plugin",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "bytedance/deer-flow",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "can1357/oh-my-pi",
       "status": "deferred",
       "cached": false,
       "path": null,
@@ -36653,13 +36125,6 @@
     },
     {
       "repo": "caojiaolong/spaces-index",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "c42fc62f8ce376558c621d5e15c32fcdf8fbc07a"
-    },
-    {
-      "repo": "docling-project/docling",
       "status": "deferred",
       "cached": false,
       "path": null,
@@ -36680,27 +36145,6 @@
       "sha": "dcace31496623a276660797b852a74b5f538c53f"
     },
     {
-      "repo": "dongsheng123132/u-claw",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "EKKOLearnAI/ekko-studio",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "EuniAI/awesome-code-agents",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
       "repo": "EurekaZang/CloudFolder",
       "status": "verified",
       "cached": true,
@@ -36709,13 +36153,6 @@
     },
     {
       "repo": "EvanLi/Github-Ranking",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "eb438a1b9ff22b8ea6b0354f405e70e84eeda942"
-    },
-    {
-      "repo": "EverMind-AI/Raven",
       "status": "deferred",
       "cached": false,
       "path": null,
@@ -36729,16 +36166,9 @@
       "sha": "117bffad24893f7ccf437148bbac825c5ade04a9"
     },
     {
-      "repo": "EveryInc/compound-engineering-plugin",
+      "repo": "Evolink-AI/awesome-gpt-image-2-API-Prompts",
       "status": "deferred",
       "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "Evolink-AI/awesome-gpt-image-2-API-Prompts",
-      "status": "pending",
-      "cached": true,
       "path": null,
       "sha": null
     },
@@ -36776,13 +36206,6 @@
       "cached": true,
       "path": "README.md",
       "sha": "1bf67c568b7943b01b17263f7ac6226b4c63123f"
-    },
-    {
-      "repo": "fabricioctelles/skills",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
     },
     {
       "repo": "facebookresearch/Pearl",
@@ -36835,10 +36258,10 @@
     },
     {
       "repo": "Fangx-AI/geo-doctor",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "d99b1cbe59c564afbb24d99468871d7ac5c8543d"
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
     },
     {
       "repo": "fattly/god-skill",
@@ -36853,13 +36276,6 @@
       "cached": true,
       "path": "README.md",
       "sha": "5eef36f0534c4edf72904068f35c792e684dd435"
-    },
-    {
-      "repo": "fcakyon/claude-codex-settings",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
     },
     {
       "repo": "feder-cr/invisible_dots",
@@ -36911,20 +36327,6 @@
       "sha": "7b2dcfb02f9ad952b5ae81557128cdf3ad98eefb"
     },
     {
-      "repo": "firecrawl/firecrawl",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "firecrawl/firecrawl-mcp-server",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
       "repo": "firecrawl/skills",
       "status": "verified",
       "cached": true,
@@ -36946,20 +36348,6 @@
       "sha": "28280ae1c80d2a2297117d53a52f3aae836b48d9"
     },
     {
-      "repo": "flashinfer-ai/flashinfer",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "FlashML-org/FreeToken",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
       "repo": "flutter/flutter-intellij",
       "status": "verified",
       "cached": true,
@@ -36972,20 +36360,6 @@
       "cached": true,
       "path": "README.md",
       "sha": "6ee1443cf1d64eef20cf54fad2306ea3da21ecb1"
-    },
-    {
-      "repo": "FonaTech/Clouds-Coder",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "ForceInjection/AI-fundamentals",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
     },
     {
       "repo": "Fosowl/agenticSeek",
@@ -37003,10 +36377,10 @@
     },
     {
       "repo": "FoundationAgents/OpenManus",
-      "status": "verified",
-      "cached": true,
-      "path": "README.md",
-      "sha": "a2b64c9cc810732131e9144202af7c66526f549e"
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
     },
     {
       "repo": "foxsen/archbase",
@@ -37023,32 +36397,11 @@
       "sha": "ba57fc01da340e4b77fee87dafdb01d61aa3acd3"
     },
     {
-      "repo": "Francis1998/scholar-rag-agent",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
       "repo": "frangelbarrera/OSINT-BIBLE",
       "status": "verified",
       "cached": true,
       "path": "README.md",
       "sha": "e1b6f82dc466e8d0e1468b8ce797e7671691ffc8"
-    },
-    {
-      "repo": "frank890417/taiwan-md",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
-    },
-    {
-      "repo": "franksong2702/dsh-codex-connect",
-      "status": "deferred",
-      "cached": false,
-      "path": null,
-      "sha": null
     },
     {
       "repo": "freeCodeCamp/awesome-quincy-larson-emails",
@@ -37058,24 +36411,640 @@
       "sha": "7b27bc9595c66321d5822c8741129596aa4add33"
     },
     {
-      "repo": "freeCodeCamp/freeCodeCamp",
+      "repo": "FreedomIntelligence/OpenClaw-Medical-Skills",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "5eb30e293cf0384e937de750e23732b367937deb"
+    },
+    {
+      "repo": "1Panel-dev/MaxKB",
       "status": "deferred",
       "cached": false,
       "path": null,
       "sha": null
     },
     {
-      "repo": "FreedomIntelligence/OpenClaw-Medical-Skills",
+      "repo": "a0926499300/nh-doujinshi-reader",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "a2aproject/A2A",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "aaif-goose/goose",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "addsumtech/slides_maker",
       "status": "verified",
       "cached": true,
       "path": "README.md",
-      "sha": "5eb30e293cf0384e937de750e23732b367937deb"
+      "sha": "3c5f7ef9c97ad3cc0a7407d43255bb5a89860df8"
+    },
+    {
+      "repo": "agent-sh/agnix",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "Agent-Threat-Rule/agent-threat-rules",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "6474f71a723db7bd00234c49f37d7cd0b8ec36a4"
+    },
+    {
+      "repo": "agent0ai/agent-zero",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "00dbb86de1b2d2f9a196ee5a1833f1d7c6c35764"
+    },
+    {
+      "repo": "Agents365-ai/drawio-skill",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "eac225995ea61842f27ea8100c380e2720652cbb"
+    },
+    {
+      "repo": "AINativeLab/top-500-best-gpts",
+      "status": "verified",
+      "cached": true,
+      "path": "README.MD",
+      "sha": "6c34448e8e7d90aa57f432922765c25db2c90aff"
+    },
+    {
+      "repo": "airhunter/OnlyTranslate",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "d4b91fda77d10362710a4424e01581a62927f329"
+    },
+    {
+      "repo": "aliammari1/awesome-ai-tools",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "04b10719715135d29fc8161f852ff24ad5772dfd"
+    },
+    {
+      "repo": "allenai/vla-evaluation-harness",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "alvinunreal/oh-my-opencode-slim",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "6c51817d8957944564fb9c422314eea690587efe"
+    },
+    {
+      "repo": "andrew/ultimate-awesome",
+      "status": "pending",
+      "cached": true,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "AndyBRoswell/cs-first-aid",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "1355aa95c4a6c44cf358eb851544d5f5d2a2e4ae"
+    },
+    {
+      "repo": "Anionex/banana-slides",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "1186a120db89938c76e6e73cc868eaae2959c4e0"
+    },
+    {
+      "repo": "apexin-ai/ASI-Bench",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "615ec614c39a82bccd8d524aefa4e1e258cafdfb"
+    },
+    {
+      "repo": "APIJSON/APIJSON",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "f5648039a14b805d198dfe7de422bbcd2a8736e7"
+    },
+    {
+      "repo": "arc53/DocsGPT",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "90e72fbd41e007eac5a8fef9f224e68a5c30e0c3"
+    },
+    {
+      "repo": "arcee-ai/mergekit",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "f2dc014942b00db134b1771f365e9cf3c289fa8b"
+    },
+    {
+      "repo": "ArchiveBox/abx-dl",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "7f5e94bbd402dccbddb8dad4e15653cd2b5e88e9"
+    },
+    {
+      "repo": "areal-project/AReaL",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "argoproj/argo-events",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "1ff82594e1c2ab09ab8b732567ea1f2645ab5642"
+    },
+    {
+      "repo": "Arize-ai/phoenix",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "f8df638921665ce5d779ffc6626b9c010a65722b"
+    },
+    {
+      "repo": "aroum/fm1-custom-fw",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "asgeirtj/system_prompts_leaks",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "autogluon/tabarena",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "96262b6649feacb8c0564657350902bda75ba072"
+    },
+    {
+      "repo": "awesome-dsh-plugin/awesome-dsh-plugin",
+      "status": "pending",
+      "cached": true,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "awesome-selfhosted/awesome-selfhosted",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "b85305956df63419c7198227dfecfd225f87567d"
+    },
+    {
+      "repo": "aws-samples/sample-strands-agent-with-agentcore",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "a5ae46ad9b3164a54984a87978d7da434140ccc9"
+    },
+    {
+      "repo": "awslabs/aidlc-workflows",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "awslabs/mcp",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "2123adc1871e236f9dc4d1e480fb389b5c33472a"
+    },
+    {
+      "repo": "AzenYes/leaderai-media-toolkit",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "9dcfa6b5a64b1d092778b1a8daad36aece73b8a4"
+    },
+    {
+      "repo": "bendlang/bend",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "best-of-ai/best-of-ai",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "41a26551c32a905e14681807f286a97a12fa480a"
+    },
+    {
+      "repo": "bethington/ghidra-mcp",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "birobirobiro/awesome-shadcn-ui",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "BlinkDL/RWKV-LM",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "c326034d9897d6eb56818a407bd7bb8be662eb52"
+    },
+    {
+      "repo": "bollu/bollu.github.io",
+      "status": "pending",
+      "cached": true,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "bruc3van/awesome-dsh-plugin",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "castorini/anserini",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "6c07a3b6f0f897a1519ff23b857ccbf117ceb2b3"
+    },
+    {
+      "repo": "cathrynlavery/diagram-design",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "2660309a3d05c5ddae1b298bc043b08c3798315a"
+    },
+    {
+      "repo": "ccbogel/QualCoder",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "Cellium-Project/Cellium-Agent",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "CharlesPikachu/freeproxy",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "91684aa2c35e181c342be8d45adc730e4fa206f0"
+    },
+    {
+      "repo": "CharlesPikachu/videodl",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "c8fc6f076236d5e3245c61baf42daedee739f307"
+    },
+    {
+      "repo": "Chat2AnyLLM/awesome-claude-plugins",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "0bb7feed70340417a4a4bcc9b896699943b6e137"
+    },
+    {
+      "repo": "Chat2AnyLLM/awesome-claude-skills",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "cheaper-inference/OmniRoute",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "chinesehuazhou/python-weekly",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "6c0ccd1d63ae730180b57bfdb8ef125e0a838ce8"
+    },
+    {
+      "repo": "chrxh/alien",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "d8d92e4a453fbe3608b76f5004488af266af196f"
+    },
+    {
+      "repo": "cipher387/osint_stuff_tool_collection",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "881a50e7e10418948905cfd1c9e4532de1432ad0"
+    },
+    {
+      "repo": "ClawBio/ClawBio",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "code-yeongyu/oh-my-openagent",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "CodebuffAI/freebuff",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "colbymchenry/codegraph",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "43b1208fe1e932a3aac1d2fa92dbc3252b2b2dc8"
+    },
+    {
+      "repo": "Companion-Inc/feynman",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "1152af0e65004bd77abfe55fe7919fca6f3ae275"
+    },
+    {
+      "repo": "Correia-jpv/fucking-awesome-selfhosted",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "4cf8878777595cd314f9578d0f399cb69b00b8ed"
+    },
+    {
+      "repo": "cporter202/scraping-apis-for-devs",
+      "status": "pending",
+      "cached": true,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "cporter202/social-media-scraping-apis",
+      "status": "pending",
+      "cached": true,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "crewAIInc/crewAI",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "CSCB/vibe-mouse",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "73251f3ea29cabb6324c68d70539a5008733c46f"
+    },
+    {
+      "repo": "cursor/plugins",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "d2ac28d9d1b4fb8216e1530237211e201a79f60b"
+    },
+    {
+      "repo": "CZ600/AutoDocxProofread",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "08ccf8e8b13358a229e39b9530ffbfe69e324072"
+    },
+    {
+      "repo": "D4Vinci/Scrapling",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "26cc7aa2c13dfb31b77a1a650c7dc565bbcc4d21"
+    },
+    {
+      "repo": "dathere/qsv",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "davidgasquez/awesome-duckdb",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "945432379e051086617e8dfb55373d6a0502af22"
+    },
+    {
+      "repo": "davila7/claude-code-templates",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "daymade/claude-code-skills",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "38f6398808f623e9f560a1f25f9b6e060a87759b"
+    },
+    {
+      "repo": "DeanChensj/jiangshan-map",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "DeepL/deepl-python",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "528285aa554499fd74bada4ce6a667492863723b"
+    },
+    {
+      "repo": "deepmodeling/deepmd-kit",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "deusyu/harness-engineering",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "a58a287cc96f3156453653b6121418792a66229e"
+    },
+    {
+      "repo": "Developer-Y/cs-video-courses",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "7b7568331fad29b318cd884adb28a4da835ed94c"
+    },
+    {
+      "repo": "Dicklesworthstone/asupersync",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "fa088cb10d1d88cb889e7a844fd3339412fd1c36"
+    },
+    {
+      "repo": "digoal/blog",
+      "status": "pending",
+      "cached": true,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "Dominic789654/awesome-deepseek-harness",
+      "status": "pending",
+      "cached": true,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "Doragd/Algorithm-Practice-in-Industry",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "94029b1c5580037f8892cdb3400591a6980857ba"
+    },
+    {
+      "repo": "dragonflydb/dragonfly",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "DropsOfZut/awesome-security-weixin-official-accounts",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "456e4cee97b9bd720185c337d2a117c76b9d951f"
+    },
+    {
+      "repo": "ebertti/awesome-telegram",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "a3cd4888f193ad6c6defb7991f7599ec144a4d7f"
+    },
+    {
+      "repo": "ECNU/EduWork",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "EgoAlpha/prompt-in-context-learning",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "af1c9807d29a9c8c2c6ba333f20224e960a4c202"
+    },
+    {
+      "repo": "eigent-ai/eigent",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "b7946166e44cf1665717b4987f3154242b428d0f"
+    },
+    {
+      "repo": "emredurukn/awesome-job-boards",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "95b3428079d1ef89091e47a42972989efa5fe08d"
+    },
+    {
+      "repo": "equinor/neqsim",
+      "status": "deferred",
+      "cached": false,
+      "path": null,
+      "sha": null
+    },
+    {
+      "repo": "EthicalML/awesome-artificial-intelligence-regulation",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "0152335b14f71c81e74b7a6442674679528941b3"
+    },
+    {
+      "repo": "EthicalML/awesome-production-machine-learning",
+      "status": "verified",
+      "cached": true,
+      "path": "README.md",
+      "sha": "b48d9896b93ea226b18a0d2445897a5f5a83aea4"
     }
   ],
   "readme_budget": {
     "limit": 120,
     "used": 120,
-    "deferred": 1520
+    "deferred": 1480
   },
   "outside_rank_limit": []
 }

@@ -595,9 +595,19 @@
       "first_seen_at": "2026-10-27T16:17:18Z",
       "first_seen_is_baseline": false
     },
+    "frianasoa/ze-notes": {
+      "first_seen_date": "2026-11-02",
+      "first_seen_at": "2026-11-02T09:50:45Z",
+      "first_seen_is_baseline": false
+    },
     "future-scholars/paperlib": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:05:57Z",
+      "first_seen_is_baseline": false
+    },
+    "gai4se/llm4se": {
+      "first_seen_date": "2026-11-02",
+      "first_seen_at": "2026-11-02T09:50:45Z",
       "first_seen_is_baseline": false
     },
     "ganzhi-black/humanities-thesis-skill": {
@@ -612,6 +622,11 @@
     "genggng/hermes-arxiv-agent": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:17:18Z",
+      "first_seen_is_baseline": false
+    },
+    "georgian-io/multimodal-toolkit": {
+      "first_seen_date": "2026-11-02",
+      "first_seen_at": "2026-11-02T09:50:45Z",
       "first_seen_is_baseline": false
     },
     "gnekt/my-brain-is-full-crew": {
