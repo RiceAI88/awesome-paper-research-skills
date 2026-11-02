@@ -41,6 +41,11 @@
       "first_seen_at": "2026-10-28T08:55:06Z",
       "first_seen_is_baseline": false
     },
+    "9929y/genai-mesh-gradient": {
+      "first_seen_date": "2026-11-02",
+      "first_seen_at": "2026-11-02T03:20:20Z",
+      "first_seen_is_baseline": false
+    },
     "aarongig/pdf2zh-desktop": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:05:57Z",
@@ -627,6 +632,11 @@
     "gulucaptain/best-paper-writing-skill": {
       "first_seen_date": "2026-11-01",
       "first_seen_at": "2026-11-01T09:32:53Z",
+      "first_seen_is_baseline": false
+    },
+    "guozheng-de-baba/nursing-research-skills": {
+      "first_seen_date": "2026-11-02",
+      "first_seen_at": "2026-11-02T03:20:20Z",
       "first_seen_is_baseline": false
     },
     "gwisk/gradguide": {
@@ -1311,6 +1321,11 @@
     "tswoen/paper-agent": {
       "first_seen_date": "2026-10-28",
       "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "tuna/thuthesis": {
+      "first_seen_date": "2026-11-02",
+      "first_seen_at": "2026-11-02T03:20:20Z",
       "first_seen_is_baseline": false
     },
     "ustc-ai4science/academic-search": {
