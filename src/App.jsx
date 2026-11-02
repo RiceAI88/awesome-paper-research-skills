@@ -1,6 +1,7 @@
 import { SlidingTaskList } from "./components/SlidingTaskList";
 import { Reveal } from "./components/SiteMotion";
 import { DailyArrivals } from "./components/DailyArrivals";
+import { CommunityCard } from "./components/CommunityCard";
 import { RechargeAd } from "./components/RechargeAd";
 import { BackToTop } from "./components/BackToTop";
 import { VisitCounter } from "./components/VisitCounter";
@@ -487,6 +488,7 @@ function Dashboard({ state, update }) {
               {t("heroSubtitle")}
             </Reveal>
           </div>
+          <CommunityCard lang={state.lang} />
           <div
             className="page-tabs"
             data-section={state.section}
