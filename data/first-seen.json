@@ -468,6 +468,11 @@
       "first_seen_date": "2026-09-27",
       "first_seen_is_baseline": false
     },
+    "dr-dumpling/papersearch": {
+      "first_seen_date": "2026-11-03",
+      "first_seen_at": "2026-11-03T09:53:13Z",
+      "first_seen_is_baseline": false
+    },
     "drchronx/ai-agent-research-starter-kit": {
       "first_seen_date": "2026-09-19",
       "first_seen_is_baseline": false
@@ -1483,6 +1488,11 @@
       "first_seen_date": "2026-09-27",
       "first_seen_is_baseline": false
     },
+    "ycc-lover/research-starter-skills": {
+      "first_seen_date": "2026-11-03",
+      "first_seen_at": "2026-11-03T09:53:13Z",
+      "first_seen_is_baseline": false
+    },
     "yeti-791/awesome-offensive-ai-agentic-landscape": {
       "first_seen_date": "2026-10-28",
       "first_seen_at": "2026-10-28T05:55:35Z",
@@ -1553,6 +1563,11 @@
     "zhoucz97/mylearning": {
       "first_seen_date": "2026-10-28",
       "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "zhpmatrix/paperreading": {
+      "first_seen_date": "2026-11-03",
+      "first_seen_at": "2026-11-03T09:53:13Z",
       "first_seen_is_baseline": false
     },
     "zjunlp/sciatlas": {
