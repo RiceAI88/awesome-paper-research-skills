@@ -2099,5 +2099,15 @@
     "at": "2026-11-02T09:39:58Z",
     "repo": "georgian-io/multimodal-toolkit",
     "action": "added"
+  },
+  {
+    "at": "2026-11-03T03:45:30Z",
+    "repo": "duyunzhoudyz/dyz-med-paper-skills",
+    "action": "added"
+  },
+  {
+    "at": "2026-11-03T03:45:30Z",
+    "repo": "google-deepmind/science-skills",
+    "action": "added"
   }
 ]

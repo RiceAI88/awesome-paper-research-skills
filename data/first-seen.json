@@ -490,6 +490,11 @@
       "first_seen_date": "2026-10-15",
       "first_seen_is_baseline": false
     },
+    "duyunzhoudyz/dyz-med-paper-skills": {
+      "first_seen_date": "2026-11-03",
+      "first_seen_at": "2026-11-03T03:54:51Z",
+      "first_seen_is_baseline": false
+    },
     "dw-dengwei/daily-arxiv-ai-enhanced": {
       "first_seen_date": "2026-10-31",
       "first_seen_at": "2026-10-31T03:03:15Z",
@@ -632,6 +637,11 @@
     "gnekt/my-brain-is-full-crew": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:05:57Z",
+      "first_seen_is_baseline": false
+    },
+    "google-deepmind/science-skills": {
+      "first_seen_date": "2026-11-03",
+      "first_seen_at": "2026-11-03T03:54:51Z",
       "first_seen_is_baseline": false
     },
     "google-research/paper-orchestra": {
