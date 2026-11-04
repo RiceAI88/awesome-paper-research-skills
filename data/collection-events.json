@@ -2124,5 +2124,28 @@
     "at": "2026-11-03T09:43:04Z",
     "repo": "zhpmatrix/paperreading",
     "action": "added"
+  },
+  {
+    "at": "2026-11-04T06:43:54Z",
+    "repo": "chrisblattman/claudeblattman",
+    "action": "removed",
+    "reasons": [
+      "skill",
+      "skills",
+      "claude code",
+      "academic",
+      "research",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-11-04T06:43:54Z",
+    "repo": "o0000-code/paper-search-pro",
+    "action": "added"
+  },
+  {
+    "at": "2026-11-04T06:43:54Z",
+    "repo": "openraiser/paperfit",
+    "action": "added"
   }
 ]

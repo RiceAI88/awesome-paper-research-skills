@@ -5,71 +5,71 @@
     <link>https://riceai88.github.io/awesome-paper-research-skills/</link>
     <description>每日自动更新的学术论文与科研 Agent Skill 排行榜 · Daily ranking of academic research agent skills on GitHub</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 03 Nov 2026 09:53:13 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 04 Nov 2026 06:53:33 +0000</lastBuildDate>
     <atom:link href="https://riceai88.github.io/awesome-paper-research-skills/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>AccumulateMore/CV (24,199★, +5/7d)</title>
-      <link>https://github.com/AccumulateMore/CV</link>
-      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#AccumulateMore/CV</guid>
-      <description>✅（已完结）超级全面的 深度学习 笔记【土堆 Pytorch】【李沐 动手学深度学习】【吴恩达 深度学习】【大飞 大模型Agent】</description>
-      <category>Discipline Specific</category>
-      <pubDate>Tue, 03 Nov 2026 09:53:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>francescopace/espectre (9,728★, +1/7d)</title>
+      <title>francescopace/espectre (9,739★, +11/7d)</title>
       <link>https://github.com/francescopace/espectre</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#francescopace/espectre</guid>
       <description>Wi-Fi motion sensing platform for ESP32. C++ SDK, ESPHome, Native, and Matter frontends, browser tools, and a CLI for the full device lifecycle. GPLv3 and commercial licensing.</description>
       <category>Deep Research</category>
-      <pubDate>Tue, 03 Nov 2026 09:53:13 +0000</pubDate>
+      <pubDate>Wed, 04 Nov 2026 06:53:33 +0000</pubDate>
     </item>
     <item>
-      <title>datawhalechina/Agent-Learning-Hub (9,208★, +8/7d)</title>
+      <title>datawhalechina/Agent-Learning-Hub (9,228★, +20/7d)</title>
       <link>https://github.com/datawhalechina/Agent-Learning-Hub</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#datawhalechina/Agent-Learning-Hub</guid>
       <description>AI Agent 学习路线与资料库收集</description>
       <category>Deep Research</category>
-      <pubDate>Tue, 03 Nov 2026 09:53:13 +0000</pubDate>
+      <pubDate>Wed, 04 Nov 2026 06:53:33 +0000</pubDate>
     </item>
     <item>
-      <title>alchaincyf/darwin-skill (6,774★, +5/7d)</title>
-      <link>https://github.com/alchaincyf/darwin-skill</link>
-      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#alchaincyf/darwin-skill</guid>
-      <description>达尔文.skill —— 一个让你的Skill无限进化的系统：评估→改进→测试→保留或回滚 | Autoresearch-inspired autonomous skill optimization for Claude Code. Evaluate, improve, test, keep or revert.</description>
-      <category>General Research</category>
-      <pubDate>Tue, 03 Nov 2026 09:53:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>src-d/awesome-machine-learning-on-source-code (6,666★, +0/7d)</title>
-      <link>https://github.com/src-d/awesome-machine-learning-on-source-code</link>
-      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#src-d/awesome-machine-learning-on-source-code</guid>
-      <description>Cool links &amp; research papers related to Machine Learning applied to source code (MLonCode)</description>
-      <category>Discipline Specific</category>
-      <pubDate>Tue, 03 Nov 2026 09:53:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>SamuelSchmidgall/AgentLaboratory (5,916★, +0/7d)</title>
-      <link>https://github.com/SamuelSchmidgall/AgentLaboratory</link>
-      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#SamuelSchmidgall/AgentLaboratory</guid>
-      <description>Agent Laboratory is an end-to-end autonomous research workflow meant to assist you as the human researcher toward implementing your research ideas</description>
-      <category>Deep Research</category>
-      <pubDate>Tue, 03 Nov 2026 09:53:13 +0000</pubDate>
-    </item>
-    <item>
-      <title>tuna/thuthesis (5,477★, +2/7d)</title>
+      <title>tuna/thuthesis (5,476★, +0/7d)</title>
       <link>https://github.com/tuna/thuthesis</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#tuna/thuthesis</guid>
       <description>LaTeX Thesis Template for Tsinghua University</description>
       <category>Paper Writing</category>
-      <pubDate>Tue, 03 Nov 2026 09:53:13 +0000</pubDate>
+      <pubDate>Wed, 04 Nov 2026 06:53:33 +0000</pubDate>
     </item>
     <item>
-      <title>ScrapeCreators/social-media-research-skills (5,348★, +13/7d)</title>
-      <link>https://github.com/ScrapeCreators/social-media-research-skills</link>
-      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#ScrapeCreators/social-media-research-skills</guid>
-      <description>AI agent skills for social media research. Outlier posts, comment mining, competitor teardowns, ad libraries &amp; trends across TikTok, Instagram, YouTube, Reddit, X, LinkedIn &amp; more. Powered by ScrapeC…</description>
+      <title>CLUEbenchmark/CLUEDatasetSearch (4,459★, +0/7d)</title>
+      <link>https://github.com/CLUEbenchmark/CLUEDatasetSearch</link>
+      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#CLUEbenchmark/CLUEDatasetSearch</guid>
+      <description>搜索所有中文NLP数据集，附常用英文NLP数据集</description>
+      <category>Experiments</category>
+      <pubDate>Wed, 04 Nov 2026 06:53:33 +0000</pubDate>
+    </item>
+    <item>
+      <title>google-deepmind/science-skills (3,398★, +6/7d)</title>
+      <link>https://github.com/google-deepmind/science-skills</link>
+      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#google-deepmind/science-skills</guid>
+      <description>GDM Science Skills to speed up agentic scientific workflows with better grounding and higher token efficiency. Integrate insights from AlphaGenome, AFDB, UniProt and 30+ other databases and tools.</description>
       <category>General Research</category>
-      <pubDate>Tue, 03 Nov 2026 09:53:13 +0000</pubDate>
+      <pubDate>Wed, 04 Nov 2026 06:53:33 +0000</pubDate>
+    </item>
+    <item>
+      <title>blazickjp/arxiv-mcp-server (3,253★, +3/7d)</title>
+      <link>https://github.com/blazickjp/arxiv-mcp-server</link>
+      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#blazickjp/arxiv-mcp-server</guid>
+      <description>A local MCP server for agent literature work. Original-LaTeX section reads, BibTeX from arXiv metadata, and topic watches. Papers stay on disk. Search is optional.</description>
+      <category>Paper Writing</category>
+      <pubDate>Wed, 04 Nov 2026 06:53:33 +0000</pubDate>
+    </item>
+    <item>
+      <title>EvoMap/AutoResearch (3,086★, +0/7d)</title>
+      <link>https://github.com/EvoMap/AutoResearch</link>
+      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#EvoMap/AutoResearch</guid>
+      <description>AI/ML research agents from idea to paper-ready evidence. An EvoMap open-source project.</description>
+      <category>Deep Research</category>
+      <pubDate>Wed, 04 Nov 2026 06:53:33 +0000</pubDate>
+    </item>
+    <item>
+      <title>dw-dengwei/daily-arXiv-ai-enhanced (3,042★, +3/7d)</title>
+      <link>https://github.com/dw-dengwei/daily-arXiv-ai-enhanced</link>
+      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#dw-dengwei/daily-arXiv-ai-enhanced</guid>
+      <description>Automatically crawl arXiv papers daily and summarize them using AI. Illustrating them using GitHub Pages.</description>
+      <category>General Research</category>
+      <pubDate>Wed, 04 Nov 2026 06:53:33 +0000</pubDate>
     </item>
   </channel>
 </rss>
