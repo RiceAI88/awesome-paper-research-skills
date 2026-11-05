@@ -178,7 +178,7 @@ for (const [view, count] of [
     page,
   }) => {
     await page.goto(`./#view=${view}`);
-    await expect(page.getByTestId("gpt-recharge-ad")).toContainText("广告");
+    await expect(page.getByTestId("gpt-recharge-ad")).not.toContainText("广告");
     const ad = page.getByTestId("zhi1ke-ad");
     await expect(ad).toHaveCount(1);
     const result = await page.evaluate((view) => {

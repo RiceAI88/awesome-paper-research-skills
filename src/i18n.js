@@ -222,7 +222,7 @@ export const translations = {
     actions: "操作",
     advertisement: "广告",
     rechargeTitle: "自营 GPT / Codex 代充",
-    rechargeSummary: "自营 GPT / Codex 代充 · 有账单",
+    rechargeSummary: "自营 GPT / Codex 正规代充 · 可开发票",
     rechargeSupport: "支持一下本站",
     sponsorHeadline: "从一个题目，到一篇论文初稿。",
     sponsorDescription: "开题报告 · 文献综述 · 长文生成，一站式完成。",
@@ -503,7 +503,7 @@ export const translations = {
     actions: "Actions",
     advertisement: "Advertisement",
     rechargeTitle: "Self-operated GPT / Codex top-ups",
-    rechargeSummary: "Self-operated GPT / Codex top-ups · Billing records",
+    rechargeSummary: "Self-operated GPT / Codex top-ups · Invoices available",
     rechargeSupport: "Support this site",
     sponsorHeadline: "From a topic to a first draft.",
     sponsorDescription:
