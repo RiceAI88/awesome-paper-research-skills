@@ -2158,5 +2158,37 @@
     "at": "2026-11-05T02:09:22Z",
     "repo": "kalarislabs/research-agent-skills",
     "action": "added"
+  },
+  {
+    "at": "2026-11-05T09:39:28Z",
+    "repo": "neflibata-feng/myarxiv-agent",
+    "action": "removed",
+    "reasons": [
+      "archived",
+      "paper",
+      "arxiv",
+      "论文",
+      "missing_skill_signal"
+    ]
+  },
+  {
+    "at": "2026-11-05T09:39:28Z",
+    "repo": "14790897/paper-ai",
+    "action": "added"
+  },
+  {
+    "at": "2026-11-05T09:39:28Z",
+    "repo": "huh7i5/ai-prompts-writing",
+    "action": "added"
+  },
+  {
+    "at": "2026-11-05T09:39:28Z",
+    "repo": "m-3lab/awesome-industrial-anomaly-detection",
+    "action": "added"
+  },
+  {
+    "at": "2026-11-05T09:39:28Z",
+    "repo": "quacat748-droid/graduation-thesis-ai",
+    "action": "added"
   }
 ]

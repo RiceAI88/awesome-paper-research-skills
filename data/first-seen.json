@@ -14,6 +14,11 @@
       "first_seen_at": "2026-10-27T16:17:18Z",
       "first_seen_is_baseline": false
     },
+    "14790897/paper-ai": {
+      "first_seen_date": "2026-11-05",
+      "first_seen_at": "2026-11-05T09:48:29Z",
+      "first_seen_is_baseline": false
+    },
     "1692775560/dsh-mimir-academic-research": {
       "first_seen_date": "2026-09-27",
       "first_seen_is_baseline": false
@@ -763,6 +768,11 @@
       "first_seen_date": "2026-08-27",
       "first_seen_is_baseline": true
     },
+    "huh7i5/ai-prompts-writing": {
+      "first_seen_date": "2026-11-05",
+      "first_seen_at": "2026-11-05T09:48:29Z",
+      "first_seen_is_baseline": false
+    },
     "hzwer/writingaipaper": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:05:57Z",
@@ -989,6 +999,11 @@
       "first_seen_date": "2026-09-27",
       "first_seen_is_baseline": false
     },
+    "m-3lab/awesome-industrial-anomaly-detection": {
+      "first_seen_date": "2026-11-05",
+      "first_seen_at": "2026-11-05T09:48:29Z",
+      "first_seen_is_baseline": false
+    },
     "m1n-n9/paper-lifecycle": {
       "first_seen_date": "2026-09-27",
       "first_seen_is_baseline": false
@@ -1176,6 +1191,11 @@
     "qjhwc/paperforge": {
       "first_seen_date": "2026-10-28",
       "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "quacat748-droid/graduation-thesis-ai": {
+      "first_seen_date": "2026-11-05",
+      "first_seen_at": "2026-11-05T09:48:29Z",
       "first_seen_is_baseline": false
     },
     "quenithai/video-generation-paper-list": {
