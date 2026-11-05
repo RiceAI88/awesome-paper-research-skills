@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "./fixtures.js";
 
 test("community QR sits beside the title and opens an accessible full image", async ({ page }) => {
   await page.goto("./");

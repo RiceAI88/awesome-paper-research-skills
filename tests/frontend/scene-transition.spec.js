@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "./fixtures.js";
 async function aligned(page) {
   const line = page.locator(".task-selection-indicator");
   await expect

@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "./fixtures.js";
 test("all four charts stay vector when pixel density changes and resize correctly", async ({
   page,
 }) => {

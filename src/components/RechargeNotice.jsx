@@ -1,19 +1,14 @@
 import React, { useEffect, useRef } from "react";
 import { CloseOutlined, ArrowUpOutlined } from "@ant-design/icons";
 
-const storageKey = "prs-recharge-notice-seen-v1";
-const cooldown = 24 * 60 * 60 * 1000;
-
 export function RechargeNotice({ lang }) {
   const dialog = useRef(null);
   const zh = lang === "zh";
   useEffect(() => {
-    try {
-      const seen = Number(localStorage.getItem(storageKey));
-      if (seen > 0 && Date.now() - seen < cooldown) return;
-    } catch { /* The notice remains usable when browser storage is disabled. */ }
-    if (!dialog.current.open) dialog.current.showModal();
-    try { localStorage.setItem(storageKey, String(Date.now())); } catch { /* Optional frequency cap. */ }
+    if (!dialog.current.open) {
+      dialog.current.showModal();
+      dialog.current.querySelector("h2")?.focus();
+    }
   }, []);
   const close = () => dialog.current.close();
   return (

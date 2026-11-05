@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "./fixtures.js";
 
 test("slow first chart download shows skeletons until plots render", async ({ page }) => {
   let release;

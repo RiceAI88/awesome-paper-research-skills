@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "./fixtures.js";
 async function paintedArea(svg) {
   return svg.evaluate((element) =>
     Array.from(element.querySelectorAll(".element")).reduce((area, mark) => {

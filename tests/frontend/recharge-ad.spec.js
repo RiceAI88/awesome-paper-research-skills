@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "./fixtures.js";
 for (const width of [1280, 390])
   test(`small support card appears at the top once at ${width}px`, async ({
     page,

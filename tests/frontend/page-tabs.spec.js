@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures.js';
 test('tab selection slides one shared background and hover stays quiet',async({page})=>{
  await page.emulateMedia({reducedMotion:'no-preference'});await page.goto('./');
  const tabs=page.locator('.page-tabs');const buttons=tabs.getByRole('tab');

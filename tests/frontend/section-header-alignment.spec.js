@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "./fixtures.js";
 
 test("desktop section headings and actions share a compact aligned row", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });

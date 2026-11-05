@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "./fixtures.js";
 for (const theme of ["light", "dark"])
   test(`task tabs show underline selection and keyboard focus (${theme})`, async ({
     page,

@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "./fixtures.js";
 for (const width of [1440, 390]) {
   test(`task text/count are centered and owner/title rows have consistent baselines at ${width}px`, async ({
     page,

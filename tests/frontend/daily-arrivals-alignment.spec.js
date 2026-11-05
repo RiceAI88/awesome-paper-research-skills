@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures.js';
 import {readFileSync} from 'node:fs';
 const dataset=JSON.parse(readFileSync(new URL('../../data/rankings.json',import.meta.url),'utf8'));
 async function fixture(page){

@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "./fixtures.js";
 
 for (const [theme, color] of [
   ["light", "rgb(151, 145, 172)"],

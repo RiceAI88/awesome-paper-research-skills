@@ -1498,3 +1498,9 @@ a:focus-visible,
 
 .recharge-notice h2:focus { outline: none; }
 body:has(.recharge-notice[open]) { overflow: hidden; }
+
+.recharge-notice .recharge-notice-close:focus-visible {
+  outline: none;
+  box-shadow: none;
+  color: var(--prs-primary);
+}

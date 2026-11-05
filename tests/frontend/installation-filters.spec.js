@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "./fixtures.js";
 import { readFileSync } from "node:fs";
 const content = JSON.parse(
   readFileSync(new URL("../../config/editorial.json", import.meta.url), "utf8"),

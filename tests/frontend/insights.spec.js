@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "./fixtures.js";
 import { matchesResearchTask, RESEARCH_TASKS } from "../../src/domain.js";
 import { readFileSync } from "node:fs";
 const items = JSON.parse(

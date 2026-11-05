@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures.js';
 test('scene clicks do not create a rectangular wave while the underline still moves',async({page})=>{
  await page.addInitScript(()=>{
   window.__sceneWave=false;

@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "./fixtures.js";
 test("mobile card entry does not download table, detail or comparison code until requested", async ({
   page,
 }) => {

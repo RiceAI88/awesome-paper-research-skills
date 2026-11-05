@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "./fixtures.js";
 test("full project name and concise ranking and data source explanation", async ({
   page,
 }) => {

@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "./fixtures.js";
 const site = "https://riceai88.github.io/awesome-paper-research-skills/";
 const api = "https://busuanzi.9420.ltd/api";
 async function productionPage(page) {
