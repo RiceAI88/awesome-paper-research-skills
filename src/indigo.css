@@ -1473,3 +1473,28 @@ a:focus-visible,
   .hero-copy { grid-column: 1; grid-row: auto; }
   .community-card-copy strong { font-size: 16px; }
 }
+
+/* Entry notice for the site's own top-up service. */
+.recharge-notice {
+  width: min(440px, calc(100vw - 32px)); max-height: calc(100dvh - 32px);
+  box-sizing: border-box; padding: 26px; border: 1px solid var(--prs-border);
+  border-radius: 18px; background: var(--prs-panel); color: var(--prs-text);
+  box-shadow: 0 24px 80px #17152c24;
+}
+.recharge-notice::backdrop { background: #17152c88; }
+.recharge-notice-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; color: var(--prs-primary); font-size: 13px; }
+.recharge-notice-close { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 36px; width: 36px; height: 36px; padding: 0; border: 0; border-radius: 8px; background: transparent; color: var(--prs-muted); cursor: pointer; font-size: 16px; }
+.recharge-notice-close:hover { background: var(--prs-tint); color: var(--prs-text); }
+.recharge-notice h2 { margin: 22px 0 8px; font-size: 30px; font-weight: 600; line-height: 1.3; letter-spacing: -.02em; }
+.recharge-notice-invoice { margin: 0 0 18px; color: var(--prs-primary); font-size: 22px; font-weight: 500; }
+#recharge-notice-description { margin: 0; color: var(--prs-muted); font-size: 15px; line-height: 1.8; }
+.recharge-notice-actions { display: grid; gap: 10px; margin-top: 26px; }
+.recharge-notice-actions a, .recharge-notice-actions button { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 42px; padding: 9px 16px; box-sizing: border-box; border-radius: 9px; font: inherit; font-size: 14px; text-decoration: none; cursor: pointer; }
+.recharge-notice-actions a { background: var(--prs-primary); color: white; border: 1px solid var(--prs-primary); }
+.recharge-notice-actions a:hover { filter: brightness(1.08); }
+.recharge-notice-actions button { background: transparent; color: var(--prs-muted); border: 1px solid var(--prs-border); }
+.recharge-notice-actions button:hover { background: var(--prs-tint); color: var(--prs-text); }
+.recharge-notice :is(a, button):focus-visible { outline: 2px solid var(--prs-primary); outline-offset: 3px; }
+
+.recharge-notice h2:focus { outline: none; }
+body:has(.recharge-notice[open]) { overflow: hidden; }

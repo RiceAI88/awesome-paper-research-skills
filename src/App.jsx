@@ -2,6 +2,7 @@ import { SlidingTaskList } from "./components/SlidingTaskList";
 import { Reveal } from "./components/SiteMotion";
 import { DailyArrivals } from "./components/DailyArrivals";
 import { CommunityCard } from "./components/CommunityCard";
+import { RechargeNotice } from "./components/RechargeNotice";
 import { RechargeAd } from "./components/RechargeAd";
 import { BackToTop } from "./components/BackToTop";
 import { VisitCounter } from "./components/VisitCounter";
@@ -975,6 +976,7 @@ function Dashboard({ state, update }) {
           </Tooltip>
         </div>
       )}
+      <RechargeNotice lang={state.lang} />
       <BackToTop
         label={t("backToTop")}
         comparisonOpen={state.compare.length > 0}
