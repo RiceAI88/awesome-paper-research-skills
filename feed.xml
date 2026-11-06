@@ -5,23 +5,15 @@
     <link>https://riceai88.github.io/awesome-paper-research-skills/</link>
     <description>每日自动更新的学术论文与科研 Agent Skill 排行榜 · Daily ranking of academic research agent skills on GitHub</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 05 Nov 2026 09:48:29 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 06 Nov 2026 02:17:21 +0000</lastBuildDate>
     <atom:link href="https://riceai88.github.io/awesome-paper-research-skills/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>francescopace/espectre (9,742★, +2/7d)</title>
+      <title>francescopace/espectre (9,747★, +5/7d)</title>
       <link>https://github.com/francescopace/espectre</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#francescopace/espectre</guid>
       <description>Wi-Fi motion sensing platform for ESP32. C++ SDK, ESPHome, Native, and Matter frontends, browser tools, and a CLI for the full device lifecycle. GPLv3 and commercial licensing.</description>
       <category>Deep Research</category>
-      <pubDate>Thu, 05 Nov 2026 09:48:29 +0000</pubDate>
-    </item>
-    <item>
-      <title>datawhalechina/Agent-Learning-Hub (9,248★, +4/7d)</title>
-      <link>https://github.com/datawhalechina/Agent-Learning-Hub</link>
-      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#datawhalechina/Agent-Learning-Hub</guid>
-      <description>AI Agent 学习路线与资料库收集</description>
-      <category>Deep Research</category>
-      <pubDate>Thu, 05 Nov 2026 09:48:29 +0000</pubDate>
+      <pubDate>Fri, 06 Nov 2026 02:17:21 +0000</pubDate>
     </item>
     <item>
       <title>tuna/thuthesis (5,480★, +0/7d)</title>
@@ -29,23 +21,23 @@
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#tuna/thuthesis</guid>
       <description>LaTeX Thesis Template for Tsinghua University</description>
       <category>Paper Writing</category>
-      <pubDate>Thu, 05 Nov 2026 09:48:29 +0000</pubDate>
+      <pubDate>Fri, 06 Nov 2026 02:17:21 +0000</pubDate>
     </item>
     <item>
-      <title>M-3LAB/awesome-industrial-anomaly-detection (3,850★, +0/7d)</title>
+      <title>M-3LAB/awesome-industrial-anomaly-detection (3,851★, +1/7d)</title>
       <link>https://github.com/M-3LAB/awesome-industrial-anomaly-detection</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#M-3LAB/awesome-industrial-anomaly-detection</guid>
       <description>Paper list and datasets for industrial image anomaly/defect detection (updating). 工业异常/瑕疵检测论文及数据集检索库(持续更新)。</description>
       <category>Deep Research</category>
-      <pubDate>Thu, 05 Nov 2026 09:48:29 +0000</pubDate>
+      <pubDate>Fri, 06 Nov 2026 02:17:21 +0000</pubDate>
     </item>
     <item>
-      <title>google-deepmind/science-skills (3,405★, +1/7d)</title>
+      <title>google-deepmind/science-skills (3,417★, +12/7d)</title>
       <link>https://github.com/google-deepmind/science-skills</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#google-deepmind/science-skills</guid>
       <description>GDM Science Skills to speed up agentic scientific workflows with better grounding and higher token efficiency. Integrate insights from AlphaGenome, AFDB, UniProt and 30+ other databases and tools.</description>
       <category>General Research</category>
-      <pubDate>Thu, 05 Nov 2026 09:48:29 +0000</pubDate>
+      <pubDate>Fri, 06 Nov 2026 02:17:21 +0000</pubDate>
     </item>
     <item>
       <title>EvoMap/AutoResearch (3,089★, +0/7d)</title>
@@ -53,15 +45,15 @@
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#EvoMap/AutoResearch</guid>
       <description>AI/ML research agents from idea to paper-ready evidence. An EvoMap open-source project.</description>
       <category>Deep Research</category>
-      <pubDate>Thu, 05 Nov 2026 09:48:29 +0000</pubDate>
+      <pubDate>Fri, 06 Nov 2026 02:17:21 +0000</pubDate>
     </item>
     <item>
-      <title>dw-dengwei/daily-arXiv-ai-enhanced (3,044★, +1/7d)</title>
+      <title>dw-dengwei/daily-arXiv-ai-enhanced (3,046★, +2/7d)</title>
       <link>https://github.com/dw-dengwei/daily-arXiv-ai-enhanced</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#dw-dengwei/daily-arXiv-ai-enhanced</guid>
       <description>Automatically crawl arXiv papers daily and summarize them using AI. Illustrating them using GitHub Pages.</description>
       <category>General Research</category>
-      <pubDate>Thu, 05 Nov 2026 09:48:29 +0000</pubDate>
+      <pubDate>Fri, 06 Nov 2026 02:17:21 +0000</pubDate>
     </item>
     <item>
       <title>14790897/paper-ai (1,753★, +0/7d)</title>
@@ -69,7 +61,15 @@
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#14790897/paper-ai</guid>
       <description>搜索真实文献并生成引用对应文献的AI论文</description>
       <category>Deep Research</category>
-      <pubDate>Thu, 05 Nov 2026 09:48:29 +0000</pubDate>
+      <pubDate>Fri, 06 Nov 2026 02:17:21 +0000</pubDate>
+    </item>
+    <item>
+      <title>hang-jin/editaplot (1,100★, +0/7d)</title>
+      <link>https://github.com/hang-jin/editaplot</link>
+      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#hang-jin/editaplot</guid>
+      <description>AI-guided editable scientific figures with Codex and local Origin/OriginPro</description>
+      <category>General Research</category>
+      <pubDate>Fri, 06 Nov 2026 02:17:21 +0000</pubDate>
     </item>
   </channel>
 </rss>
