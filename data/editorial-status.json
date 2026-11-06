@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-06T02:21:02.153281Z",
+  "checked_at": "2026-11-06T09:43:56.942468Z",
   "repos": {
     "openags/paper-search-mcp": {
       "status": "current",
@@ -49,10 +49,10 @@
           "path": "README.md",
           "status": "changed",
           "reviewed_blob_sha": "64627eda97188c2c2e9de4d2cb8174a45fa877f4",
-          "current_blob_sha": "a27ce575382d35eeb5af8eebc5b4dfdae5a1caf5",
+          "current_blob_sha": "07f68bd6e80adb96b63cd07c8bf7d0de7addc010",
           "reviewed_url": "https://github.com/Imbad0202/academic-research-skills/blob/09a5d0b15c7b50a20d9fc68d5947bb9897f438b5/README.md",
-          "current_url": "https://github.com/Imbad0202/academic-research-skills/blob/530659d983c2f4aa584ba3f2df224df08d90b264/README.md",
-          "diff_url": "https://github.com/Imbad0202/academic-research-skills/compare/09a5d0b15c7b50a20d9fc68d5947bb9897f438b5...530659d983c2f4aa584ba3f2df224df08d90b264"
+          "current_url": "https://github.com/Imbad0202/academic-research-skills/blob/6d9388674de1ad0437ad95db3d52f92b92204d84/README.md",
+          "diff_url": "https://github.com/Imbad0202/academic-research-skills/compare/09a5d0b15c7b50a20d9fc68d5947bb9897f438b5...6d9388674de1ad0437ad95db3d52f92b92204d84"
         },
         {
           "path": "docs/SETUP.md",
@@ -60,8 +60,8 @@
           "reviewed_blob_sha": "a4445ca1b8ee558364f5770ee11250b2fb81ed94",
           "current_blob_sha": "426e092c212db4b969ce18608bd998b3a7e422cd",
           "reviewed_url": "https://github.com/Imbad0202/academic-research-skills/blob/09a5d0b15c7b50a20d9fc68d5947bb9897f438b5/docs/SETUP.md",
-          "current_url": "https://github.com/Imbad0202/academic-research-skills/blob/530659d983c2f4aa584ba3f2df224df08d90b264/docs/SETUP.md",
-          "diff_url": "https://github.com/Imbad0202/academic-research-skills/compare/09a5d0b15c7b50a20d9fc68d5947bb9897f438b5...530659d983c2f4aa584ba3f2df224df08d90b264"
+          "current_url": "https://github.com/Imbad0202/academic-research-skills/blob/6d9388674de1ad0437ad95db3d52f92b92204d84/docs/SETUP.md",
+          "diff_url": "https://github.com/Imbad0202/academic-research-skills/compare/09a5d0b15c7b50a20d9fc68d5947bb9897f438b5...6d9388674de1ad0437ad95db3d52f92b92204d84"
         }
       ]
     },
