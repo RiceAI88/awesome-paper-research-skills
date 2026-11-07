@@ -2215,5 +2215,44 @@
     "at": "2026-11-06T09:31:36Z",
     "repo": "saideao/research-idea-review",
     "action": "added"
+  },
+  {
+    "at": "2026-11-07T08:56:18Z",
+    "repo": "9929y/genai-mesh-gradient",
+    "action": "removed",
+    "reasons": [
+      "skill",
+      "agent skill",
+      "research",
+      "missing_strong_academic_signal",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-11-07T08:56:18Z",
+    "repo": "haipenglai/treasure-questions",
+    "action": "removed",
+    "reasons": [
+      "论文",
+      "文献",
+      "missing_skill_signal",
+      "missing_readme_project_purpose"
+    ]
+  },
+  {
+    "at": "2026-11-07T08:56:18Z",
+    "repo": "light0305/light-skills",
+    "action": "renamed",
+    "to": "light0305/light-science"
+  },
+  {
+    "at": "2026-11-07T08:56:18Z",
+    "repo": "light0305/light-science",
+    "action": "added"
+  },
+  {
+    "at": "2026-11-07T08:56:18Z",
+    "repo": "htlin222/meta-pipe",
+    "action": "added"
   }
 ]
