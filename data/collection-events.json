@@ -2254,5 +2254,15 @@
     "at": "2026-11-07T08:56:18Z",
     "repo": "htlin222/meta-pipe",
     "action": "added"
+  },
+  {
+    "at": "2026-11-08T09:11:42Z",
+    "repo": "poco-ai/agentero-dsh-plugin",
+    "action": "added"
+  },
+  {
+    "at": "2026-11-08T09:11:42Z",
+    "repo": "crunz-ailab/nativepdf-structurer",
+    "action": "added"
   }
 ]
