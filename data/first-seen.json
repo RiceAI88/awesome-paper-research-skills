@@ -27,6 +27,11 @@
       "first_seen_date": "2026-08-27",
       "first_seen_is_baseline": true
     },
+    "1sdv/lunwentocode": {
+      "first_seen_date": "2026-11-09",
+      "first_seen_at": "2026-11-09T07:40:22Z",
+      "first_seen_is_baseline": false
+    },
     "52cv/cvpr-2021-papers": {
       "first_seen_date": "2026-10-28",
       "first_seen_at": "2026-10-28T05:55:35Z",
@@ -547,6 +552,11 @@
     "eternity4719/howtolivebetter": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:05:57Z",
+      "first_seen_is_baseline": false
+    },
+    "eust-w/opengeniemaster": {
+      "first_seen_date": "2026-11-09",
+      "first_seen_at": "2026-11-09T07:40:22Z",
       "first_seen_is_baseline": false
     },
     "evomap/autoresearch": {
