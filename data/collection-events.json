@@ -2274,5 +2274,24 @@
     "at": "2026-11-09T07:30:01Z",
     "repo": "eust-w/opengeniemaster",
     "action": "added"
+  },
+  {
+    "at": "2026-11-09T09:56:16Z",
+    "repo": "917dhj/deeppapernote",
+    "action": "removed",
+    "reasons": [
+      "skill",
+      "skills",
+      "agent skill",
+      "research",
+      "paper",
+      "missing_high_confidence_academic_signal",
+      "missing_readme_academic_scope"
+    ]
+  },
+  {
+    "at": "2026-11-09T09:56:16Z",
+    "repo": "feijianghan/csu-cs-review-materials",
+    "action": "added"
   }
 ]
