@@ -732,6 +732,11 @@
       "first_seen_date": "2026-08-27",
       "first_seen_is_baseline": true
     },
+    "haojae/scipilot-figure-skill": {
+      "first_seen_date": "2026-11-10",
+      "first_seen_at": "2026-11-10T06:00:27Z",
+      "first_seen_is_baseline": false
+    },
     "haojae/scipilot-writing-skill": {
       "first_seen_date": "2026-09-27",
       "first_seen_is_baseline": false

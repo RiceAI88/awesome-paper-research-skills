@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-09T10:07:36.091502Z",
+  "checked_at": "2026-11-10T06:04:14.528937Z",
   "repos": {
     "openags/paper-search-mcp": {
       "status": "current",
@@ -51,8 +51,8 @@
           "reviewed_blob_sha": "64627eda97188c2c2e9de4d2cb8174a45fa877f4",
           "current_blob_sha": "07f68bd6e80adb96b63cd07c8bf7d0de7addc010",
           "reviewed_url": "https://github.com/Imbad0202/academic-research-skills/blob/09a5d0b15c7b50a20d9fc68d5947bb9897f438b5/README.md",
-          "current_url": "https://github.com/Imbad0202/academic-research-skills/blob/6d9388674de1ad0437ad95db3d52f92b92204d84/README.md",
-          "diff_url": "https://github.com/Imbad0202/academic-research-skills/compare/09a5d0b15c7b50a20d9fc68d5947bb9897f438b5...6d9388674de1ad0437ad95db3d52f92b92204d84"
+          "current_url": "https://github.com/Imbad0202/academic-research-skills/blob/06a2e6bd9743b68bb0ef2c5d161cf70abc00323e/README.md",
+          "diff_url": "https://github.com/Imbad0202/academic-research-skills/compare/09a5d0b15c7b50a20d9fc68d5947bb9897f438b5...06a2e6bd9743b68bb0ef2c5d161cf70abc00323e"
         },
         {
           "path": "docs/SETUP.md",
@@ -60,8 +60,8 @@
           "reviewed_blob_sha": "a4445ca1b8ee558364f5770ee11250b2fb81ed94",
           "current_blob_sha": "426e092c212db4b969ce18608bd998b3a7e422cd",
           "reviewed_url": "https://github.com/Imbad0202/academic-research-skills/blob/09a5d0b15c7b50a20d9fc68d5947bb9897f438b5/docs/SETUP.md",
-          "current_url": "https://github.com/Imbad0202/academic-research-skills/blob/6d9388674de1ad0437ad95db3d52f92b92204d84/docs/SETUP.md",
-          "diff_url": "https://github.com/Imbad0202/academic-research-skills/compare/09a5d0b15c7b50a20d9fc68d5947bb9897f438b5...6d9388674de1ad0437ad95db3d52f92b92204d84"
+          "current_url": "https://github.com/Imbad0202/academic-research-skills/blob/06a2e6bd9743b68bb0ef2c5d161cf70abc00323e/docs/SETUP.md",
+          "diff_url": "https://github.com/Imbad0202/academic-research-skills/compare/09a5d0b15c7b50a20d9fc68d5947bb9897f438b5...06a2e6bd9743b68bb0ef2c5d161cf70abc00323e"
         }
       ]
     },
@@ -76,10 +76,10 @@
           "path": "README.md",
           "status": "changed",
           "reviewed_blob_sha": "3e038d2f64f279e65c8d19465b351a6cae0f3ba6",
-          "current_blob_sha": "275b662c62d0505b975311b2203b49eca16bc1b9",
+          "current_blob_sha": "5c2a58b937c2b5b1e86756507060c424ea43c27b",
           "reviewed_url": "https://github.com/Yuan1z0825/nature-skills/blob/8f28a61d42c2b251d224cdb0a59229df9879a68e/README.md",
-          "current_url": "https://github.com/Yuan1z0825/nature-skills/blob/b6ae2cac022f4aac094d50f2938a3474ba315fbc/README.md",
-          "diff_url": "https://github.com/Yuan1z0825/nature-skills/compare/8f28a61d42c2b251d224cdb0a59229df9879a68e...b6ae2cac022f4aac094d50f2938a3474ba315fbc"
+          "current_url": "https://github.com/Yuan1z0825/nature-skills/blob/a1a8220366e82ecd8584ea3d7f46cb3969f4b018/README.md",
+          "diff_url": "https://github.com/Yuan1z0825/nature-skills/compare/8f28a61d42c2b251d224cdb0a59229df9879a68e...a1a8220366e82ecd8584ea3d7f46cb3969f4b018"
         }
       ]
     }
