@@ -5,39 +5,47 @@
     <link>https://riceai88.github.io/awesome-paper-research-skills/</link>
     <description>每日自动更新的学术论文与科研 Agent Skill 排行榜 · Daily ranking of academic research agent skills on GitHub</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 12 Nov 2026 03:33:40 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 12 Nov 2026 10:06:55 +0000</lastBuildDate>
     <atom:link href="https://riceai88.github.io/awesome-paper-research-skills/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>Haojae/scipilot-figure-skill (2,813★, +2/7d)</title>
+      <title>Haojae/scipilot-figure-skill (2,817★, +4/7d)</title>
       <link>https://github.com/Haojae/scipilot-figure-skill</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#Haojae/scipilot-figure-skill</guid>
       <description>SciPilot Skills family - Publication-grade scientific figure copilot for Claude Code</description>
       <category>General Research</category>
-      <pubDate>Thu, 12 Nov 2026 03:33:40 +0000</pubDate>
+      <pubDate>Thu, 12 Nov 2026 10:06:55 +0000</pubDate>
     </item>
     <item>
-      <title>hang-jin/editaplot (1,136★, +4/7d)</title>
+      <title>qwdwqfwq/topconf-paper-figure-gallery (1,572★, +0/7d)</title>
+      <link>https://github.com/qwdwqfwq/topconf-paper-figure-gallery</link>
+      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#qwdwqfwq/topconf-paper-figure-gallery</guid>
+      <description>3,516 curated Figure 1 / teasers from ICLR, ICML, NeurIPS, CVPR, ACL, AAAI (2023-2026), with tier badges and FigureForge retrieval-augmented figure drafting</description>
+      <category>Discipline Specific</category>
+      <pubDate>Thu, 12 Nov 2026 10:06:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>hang-jin/editaplot (1,137★, +1/7d)</title>
       <link>https://github.com/hang-jin/editaplot</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#hang-jin/editaplot</guid>
       <description>AI-guided editable scientific figures with Codex and local Origin/OriginPro</description>
       <category>General Research</category>
-      <pubDate>Thu, 12 Nov 2026 03:33:40 +0000</pubDate>
+      <pubDate>Thu, 12 Nov 2026 10:06:55 +0000</pubDate>
     </item>
     <item>
-      <title>Light0305/Light-Science (927★, +6/7d)</title>
+      <title>Light0305/Light-Science (933★, +6/7d)</title>
       <link>https://github.com/Light0305/Light-Science</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#Light0305/Light-Science</guid>
       <description>A research workflow skill pack connecting literature, experiments, figures, writing, memory and project coordination.</description>
       <category>General Research</category>
-      <pubDate>Thu, 12 Nov 2026 03:33:40 +0000</pubDate>
+      <pubDate>Thu, 12 Nov 2026 10:06:55 +0000</pubDate>
     </item>
     <item>
-      <title>hanlulong/awesome-ai-for-economists (707★, +0/7d)</title>
+      <title>hanlulong/awesome-ai-for-economists (708★, +1/7d)</title>
       <link>https://github.com/hanlulong/awesome-ai-for-economists</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#hanlulong/awesome-ai-for-economists</guid>
       <description>A curated list of AI tools, agent skills, libraries, and resources for economics research, teaching, and policy analysis. Maintained by the OpenEcon team.</description>
       <category>General Research</category>
-      <pubDate>Thu, 12 Nov 2026 03:33:40 +0000</pubDate>
+      <pubDate>Thu, 12 Nov 2026 10:06:55 +0000</pubDate>
     </item>
     <item>
       <title>crunz-ailab/nativePDF-structurer (382★, +0/7d)</title>
@@ -45,7 +53,15 @@
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#crunz-ailab/nativePDF-structurer</guid>
       <description>一个面向大体量数字原生 PDF 的、零 OCR、零模型依赖的文档结构化工具。</description>
       <category>Deep Research</category>
-      <pubDate>Thu, 12 Nov 2026 03:33:40 +0000</pubDate>
+      <pubDate>Thu, 12 Nov 2026 10:06:55 +0000</pubDate>
+    </item>
+    <item>
+      <title>eust-w/opengeniemaster (275★, +10/7d)</title>
+      <link>https://github.com/eust-w/opengeniemaster</link>
+      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#eust-w/opengeniemaster</guid>
+      <description>Open-source embodied agent framework: execution, feedback, and continual improvement</description>
+      <category>Peer Review</category>
+      <pubDate>Thu, 12 Nov 2026 10:06:55 +0000</pubDate>
     </item>
     <item>
       <title>FeijiangHan/CSU-CS-review-materials (271★, +0/7d)</title>
@@ -53,47 +69,23 @@
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#FeijiangHan/CSU-CS-review-materials</guid>
       <description>CSU - CS期末备考复习资料；中南大学计科&amp;计算机复习; Review material; Central South University</description>
       <category>Discipline Specific</category>
-      <pubDate>Thu, 12 Nov 2026 03:33:40 +0000</pubDate>
+      <pubDate>Thu, 12 Nov 2026 10:06:55 +0000</pubDate>
     </item>
     <item>
-      <title>eust-w/opengeniemaster (265★, +47/7d)</title>
-      <link>https://github.com/eust-w/opengeniemaster</link>
-      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#eust-w/opengeniemaster</guid>
-      <description>Open-source embodied agent framework: execution, feedback, and continual improvement</description>
-      <category>Peer Review</category>
-      <pubDate>Thu, 12 Nov 2026 03:33:40 +0000</pubDate>
-    </item>
-    <item>
-      <title>GuoZheng-de-BaBa/nursing-research-skills (231★, +0/7d)</title>
-      <link>https://github.com/GuoZheng-de-BaBa/nursing-research-skills</link>
-      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#GuoZheng-de-BaBa/nursing-research-skills</guid>
-      <description>护研搭子｜18个开源护理科研AI技能，覆盖检索、设计、数据、统计、写作与图表；新增队列研究和RCT流程、模板及合成示例。</description>
-      <category>General Research</category>
-      <pubDate>Thu, 12 Nov 2026 03:33:40 +0000</pubDate>
-    </item>
-    <item>
-      <title>ChenLiu-1996/figures4papers (11,037★, +1428/7d)</title>
+      <title>ChenLiu-1996/figures4papers (11,107★, +1498/7d)</title>
       <link>https://github.com/ChenLiu-1996/figures4papers</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#ChenLiu-1996/figures4papers</guid>
       <description>My Python scripts to make high-quality figures for publications in top AI conferences and journals.</description>
       <category>Discipline Specific</category>
-      <pubDate>Thu, 12 Nov 2026 03:33:40 +0000</pubDate>
+      <pubDate>Thu, 12 Nov 2026 10:06:55 +0000</pubDate>
     </item>
     <item>
-      <title>poco-ai/Agentero (2,382★, +1303/7d)</title>
+      <title>poco-ai/Agentero (2,415★, +1336/7d)</title>
       <link>https://github.com/poco-ai/Agentero</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#poco-ai/Agentero</guid>
       <description>Unified research workspace for humans &amp; agents — PDF Q&amp;A with citations, Vault, writing. 为人与 Agent 协作的科研工作台；补齐 Zotero 时代的人机上下文断点。</description>
       <category>Literature Review</category>
-      <pubDate>Thu, 12 Nov 2026 03:33:40 +0000</pubDate>
-    </item>
-    <item>
-      <title>Imbad0202/academic-research-skills (56,545★, +1167/7d)</title>
-      <link>https://github.com/Imbad0202/academic-research-skills</link>
-      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#Imbad0202/academic-research-skills</guid>
-      <description>Academic Research Skills for Claude Code: research → write → review → revise → finalize</description>
-      <category>Paper Writing</category>
-      <pubDate>Thu, 12 Nov 2026 03:33:40 +0000</pubDate>
+      <pubDate>Thu, 12 Nov 2026 10:06:55 +0000</pubDate>
     </item>
   </channel>
 </rss>
