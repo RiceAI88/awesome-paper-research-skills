@@ -5,47 +5,31 @@
     <link>https://riceai88.github.io/awesome-paper-research-skills/</link>
     <description>每日自动更新的学术论文与科研 Agent Skill 排行榜 · Daily ranking of academic research agent skills on GitHub</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 11 Nov 2026 09:46:48 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 12 Nov 2026 03:33:40 +0000</lastBuildDate>
     <atom:link href="https://riceai88.github.io/awesome-paper-research-skills/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>M-3LAB/awesome-industrial-anomaly-detection (3,860★, +0/7d)</title>
-      <link>https://github.com/M-3LAB/awesome-industrial-anomaly-detection</link>
-      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#M-3LAB/awesome-industrial-anomaly-detection</guid>
-      <description>Paper list and datasets for industrial image anomaly/defect detection (updating). 工业异常/瑕疵检测论文及数据集检索库(持续更新)。</description>
-      <category>Deep Research</category>
-      <pubDate>Wed, 11 Nov 2026 09:46:48 +0000</pubDate>
-    </item>
-    <item>
-      <title>Haojae/scipilot-figure-skill (2,811★, +2/7d)</title>
+      <title>Haojae/scipilot-figure-skill (2,813★, +2/7d)</title>
       <link>https://github.com/Haojae/scipilot-figure-skill</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#Haojae/scipilot-figure-skill</guid>
       <description>SciPilot Skills family - Publication-grade scientific figure copilot for Claude Code</description>
       <category>General Research</category>
-      <pubDate>Wed, 11 Nov 2026 09:46:48 +0000</pubDate>
+      <pubDate>Thu, 12 Nov 2026 03:33:40 +0000</pubDate>
     </item>
     <item>
-      <title>14790897/paper-ai (1,756★, +0/7d)</title>
-      <link>https://github.com/14790897/paper-ai</link>
-      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#14790897/paper-ai</guid>
-      <description>搜索真实文献并生成引用对应文献的AI论文</description>
-      <category>Deep Research</category>
-      <pubDate>Wed, 11 Nov 2026 09:46:48 +0000</pubDate>
-    </item>
-    <item>
-      <title>hang-jin/editaplot (1,132★, +3/7d)</title>
+      <title>hang-jin/editaplot (1,136★, +4/7d)</title>
       <link>https://github.com/hang-jin/editaplot</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#hang-jin/editaplot</guid>
       <description>AI-guided editable scientific figures with Codex and local Origin/OriginPro</description>
       <category>General Research</category>
-      <pubDate>Wed, 11 Nov 2026 09:46:48 +0000</pubDate>
+      <pubDate>Thu, 12 Nov 2026 03:33:40 +0000</pubDate>
     </item>
     <item>
-      <title>Light0305/Light-Science (921★, +3/7d)</title>
+      <title>Light0305/Light-Science (927★, +6/7d)</title>
       <link>https://github.com/Light0305/Light-Science</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#Light0305/Light-Science</guid>
       <description>A research workflow skill pack connecting literature, experiments, figures, writing, memory and project coordination.</description>
       <category>General Research</category>
-      <pubDate>Wed, 11 Nov 2026 09:46:48 +0000</pubDate>
+      <pubDate>Thu, 12 Nov 2026 03:33:40 +0000</pubDate>
     </item>
     <item>
       <title>hanlulong/awesome-ai-for-economists (707★, +0/7d)</title>
@@ -53,7 +37,7 @@
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#hanlulong/awesome-ai-for-economists</guid>
       <description>A curated list of AI tools, agent skills, libraries, and resources for economics research, teaching, and policy analysis. Maintained by the OpenEcon team.</description>
       <category>General Research</category>
-      <pubDate>Wed, 11 Nov 2026 09:46:48 +0000</pubDate>
+      <pubDate>Thu, 12 Nov 2026 03:33:40 +0000</pubDate>
     </item>
     <item>
       <title>crunz-ailab/nativePDF-structurer (382★, +0/7d)</title>
@@ -61,31 +45,55 @@
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#crunz-ailab/nativePDF-structurer</guid>
       <description>一个面向大体量数字原生 PDF 的、零 OCR、零模型依赖的文档结构化工具。</description>
       <category>Deep Research</category>
-      <pubDate>Wed, 11 Nov 2026 09:46:48 +0000</pubDate>
+      <pubDate>Thu, 12 Nov 2026 03:33:40 +0000</pubDate>
     </item>
     <item>
-      <title>quacat748-droid/graduation-thesis-ai (353★, +1/7d)</title>
-      <link>https://github.com/quacat748-droid/graduation-thesis-ai</link>
-      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#quacat748-droid/graduation-thesis-ai</guid>
-      <description>🔥🔥🔥毕业论文AI助手, AI毕业论文, 毕业论文写作, 开题报告, 文献综述, AI论文生成, 降AIGC率, 降重查重, 格式排版, 答辩PPT</description>
-      <category>Paper Writing</category>
-      <pubDate>Wed, 11 Nov 2026 09:46:48 +0000</pubDate>
+      <title>FeijiangHan/CSU-CS-review-materials (271★, +0/7d)</title>
+      <link>https://github.com/FeijiangHan/CSU-CS-review-materials</link>
+      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#FeijiangHan/CSU-CS-review-materials</guid>
+      <description>CSU - CS期末备考复习资料；中南大学计科&amp;计算机复习; Review material; Central South University</description>
+      <category>Discipline Specific</category>
+      <pubDate>Thu, 12 Nov 2026 03:33:40 +0000</pubDate>
     </item>
     <item>
-      <title>ChenLiu-1996/figures4papers (10,952★, +1368/7d)</title>
+      <title>eust-w/opengeniemaster (265★, +47/7d)</title>
+      <link>https://github.com/eust-w/opengeniemaster</link>
+      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#eust-w/opengeniemaster</guid>
+      <description>Open-source embodied agent framework: execution, feedback, and continual improvement</description>
+      <category>Peer Review</category>
+      <pubDate>Thu, 12 Nov 2026 03:33:40 +0000</pubDate>
+    </item>
+    <item>
+      <title>GuoZheng-de-BaBa/nursing-research-skills (231★, +0/7d)</title>
+      <link>https://github.com/GuoZheng-de-BaBa/nursing-research-skills</link>
+      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#GuoZheng-de-BaBa/nursing-research-skills</guid>
+      <description>护研搭子｜18个开源护理科研AI技能，覆盖检索、设计、数据、统计、写作与图表；新增队列研究和RCT流程、模板及合成示例。</description>
+      <category>General Research</category>
+      <pubDate>Thu, 12 Nov 2026 03:33:40 +0000</pubDate>
+    </item>
+    <item>
+      <title>ChenLiu-1996/figures4papers (11,037★, +1428/7d)</title>
       <link>https://github.com/ChenLiu-1996/figures4papers</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#ChenLiu-1996/figures4papers</guid>
       <description>My Python scripts to make high-quality figures for publications in top AI conferences and journals.</description>
       <category>Discipline Specific</category>
-      <pubDate>Wed, 11 Nov 2026 09:46:48 +0000</pubDate>
+      <pubDate>Thu, 12 Nov 2026 03:33:40 +0000</pubDate>
     </item>
     <item>
-      <title>poco-ai/Agentero (2,348★, +1270/7d)</title>
+      <title>poco-ai/Agentero (2,382★, +1303/7d)</title>
       <link>https://github.com/poco-ai/Agentero</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#poco-ai/Agentero</guid>
       <description>Unified research workspace for humans &amp; agents — PDF Q&amp;A with citations, Vault, writing. 为人与 Agent 协作的科研工作台；补齐 Zotero 时代的人机上下文断点。</description>
       <category>Literature Review</category>
-      <pubDate>Wed, 11 Nov 2026 09:46:48 +0000</pubDate>
+      <pubDate>Thu, 12 Nov 2026 03:33:40 +0000</pubDate>
+    </item>
+    <item>
+      <title>Imbad0202/academic-research-skills (56,545★, +1167/7d)</title>
+      <link>https://github.com/Imbad0202/academic-research-skills</link>
+      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#Imbad0202/academic-research-skills</guid>
+      <description>Academic Research Skills for Claude Code: research → write → review → revise → finalize</description>
+      <category>Paper Writing</category>
+      <pubDate>Thu, 12 Nov 2026 03:33:40 +0000</pubDate>
     </item>
   </channel>
 </rss>

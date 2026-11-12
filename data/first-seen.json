@@ -257,6 +257,11 @@
       "first_seen_at": "2026-10-29T03:21:50Z",
       "first_seen_is_baseline": false
     },
+    "bobli1128/assembly-language": {
+      "first_seen_date": "2026-11-12",
+      "first_seen_at": "2026-11-12T03:33:40Z",
+      "first_seen_is_baseline": false
+    },
     "bohyy/academic-ai-prompt": {
       "first_seen_date": "2026-09-03",
       "first_seen_is_baseline": false
@@ -557,6 +562,11 @@
     "eust-w/opengeniemaster": {
       "first_seen_date": "2026-11-09",
       "first_seen_at": "2026-11-09T07:40:22Z",
+      "first_seen_is_baseline": false
+    },
+    "evaleval/every_eval_ever": {
+      "first_seen_date": "2026-11-12",
+      "first_seen_at": "2026-11-12T03:33:40Z",
       "first_seen_is_baseline": false
     },
     "evomap/autoresearch": {
@@ -935,6 +945,11 @@
     "km1994/nlp_paper_study": {
       "first_seen_date": "2026-10-27",
       "first_seen_at": "2026-10-27T16:05:57Z",
+      "first_seen_is_baseline": false
+    },
+    "koloyaaa/foreign-academic-translator-skill": {
+      "first_seen_date": "2026-11-12",
+      "first_seen_at": "2026-11-12T03:33:40Z",
       "first_seen_is_baseline": false
     },
     "labarba/sciwrite": {
