@@ -306,6 +306,11 @@
       "first_seen_date": "2026-09-27",
       "first_seen_is_baseline": false
     },
+    "chengyi-ai/cy-carousel-skill": {
+      "first_seen_date": "2026-11-13",
+      "first_seen_at": "2026-11-13T02:37:43Z",
+      "first_seen_is_baseline": false
+    },
     "chenking2020/findthechatgpter": {
       "first_seen_date": "2026-10-29",
       "first_seen_at": "2026-10-29T08:49:02Z",
@@ -838,6 +843,11 @@
       "first_seen_at": "2026-10-27T16:05:57Z",
       "first_seen_is_baseline": false
     },
+    "imalwayshere/open-detector": {
+      "first_seen_date": "2026-11-13",
+      "first_seen_at": "2026-11-13T02:37:43Z",
+      "first_seen_is_baseline": false
+    },
     "imbad0202/academic-research-skills": {
       "first_seen_date": "2026-08-27",
       "first_seen_is_baseline": true
@@ -1290,6 +1300,11 @@
     "realxiaoze/humanoid-motion-intelligence": {
       "first_seen_date": "2026-10-28",
       "first_seen_at": "2026-10-28T05:55:35Z",
+      "first_seen_is_baseline": false
+    },
+    "renaissance-mind/drawai": {
+      "first_seen_date": "2026-11-13",
+      "first_seen_at": "2026-11-13T02:37:43Z",
       "first_seen_is_baseline": false
     },
     "rimagination/instsci": {
