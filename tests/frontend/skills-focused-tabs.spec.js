@@ -1,4 +1,4 @@
-import { test, expect } from "./fixtures.js";
+import { test, expect, openScope } from "./fixtures.js";
 import { readFileSync } from "node:fs";
 const data = JSON.parse(
   readFileSync(new URL("../../data/rankings.json", import.meta.url), "utf8"),
@@ -11,6 +11,7 @@ test("fresh scope, medals, original descriptions and related switch rerank toget
   await expect(page.locator('[data-task="all"]')).toContainText(
     String(skills.length),
   );
+  await openScope(page);
   await expect(page.getByTestId("include-related")).toHaveAttribute(
     "aria-checked",
     "false",
@@ -24,6 +25,7 @@ test("fresh scope, medals, original descriptions and related switch rerank toget
   await expect(cards.first().locator(".repo-title")).toContainText(
     skills[0].repo.split("/")[1],
   );
+  await openScope(page);
   await page.getByTestId("include-related").click();
   await expect(page.locator('[data-task="all"]')).toContainText(
     String(
@@ -35,10 +37,12 @@ test("fresh scope, medals, original descriptions and related switch rerank toget
     data.items[0].repo.split("/")[1],
   );
   await page.reload();
+  await openScope(page);
   await expect(page.getByTestId("include-related")).toHaveAttribute(
     "aria-checked",
     "true",
   );
+  await openScope(page);
   await page.getByTestId("include-related").click();
   await expect(cards.first().locator(".repo-title")).toContainText(
     skills[0].repo.split("/")[1],
@@ -137,7 +141,7 @@ test("arrivals use one short purple new badge with tooltip, zero growth is a das
   await expect(card.locator(".card-top .daily-new-badge")).toHaveText("新");
   await card.locator(".daily-new-badge").focus();
   await expect(page.getByRole("tooltip")).toContainText("今日新收录");
-  await expect(card.locator(".card-growth strong")).toHaveText("—");
+  await expect(card.locator(".card-growth strong")).toHaveText("暂无7日对比");
   await expect(card.locator(".card-maintenance")).toHaveText("90 天未更新");
   await expect(card.locator(".ant-tag-red")).toHaveCount(0);
   const recent = page.getByTestId("repo-card").nth(1);

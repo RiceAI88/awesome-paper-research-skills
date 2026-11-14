@@ -1,0 +1,27 @@
+{
+  "HKUSTDial/Supervisor-Skills": {
+    "levels": [
+      "postgraduate"
+    ],
+    "quote": "许多才华横溢的研究生，在踏入科研大门时，常常被相似的困境所困扰",
+    "source_url": "https://github.com/HKUSTDial/Supervisor-Skills/blob/main/README.md",
+    "reviewed_at": "2026-11-14"
+  },
+  "Norman-bury/research-writing-skill": {
+    "levels": [
+      "undergraduate",
+      "postgraduate"
+    ],
+    "quote": "这个 Skill 面向本科生、研究生和早期科研人员",
+    "source_url": "https://github.com/Norman-bury/research-writing-skill/blob/main/README.md",
+    "reviewed_at": "2026-11-14"
+  },
+  "lishix520/academic-paper-skills": {
+    "levels": [
+      "doctoral"
+    ],
+    "quote": "- **PhD students**: Transform dissertation chapters into publishable papers",
+    "source_url": "https://github.com/lishix520/academic-paper-skills/blob/main/README.md",
+    "reviewed_at": "2026-11-14"
+  }
+}

@@ -589,6 +589,10 @@ class SharingAssetsTest(unittest.TestCase):
         self.assertNotIn("#691eff", zh)
         en = render_og_cover(data, lang="en")
         self.assertIn("For your discipline", en)
+        self.assertIn("智一刻AI · 科研 Skills 导航", zh)
+        self.assertIn("面向大学生和研究生", zh)
+        self.assertIn("Zhiyike AI · Research Skills Directory", en)
+        self.assertIn("For undergraduate and postgraduate students", en)
         self.assertNotIn("论文科研", en)
         for svg in (zh, en, render_og_cover({"items": []})):
             ET.fromstring(svg)

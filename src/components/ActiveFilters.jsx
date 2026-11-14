@@ -62,7 +62,7 @@ export function ActiveFilters({ state, update, t, empty }) {
             className="active-filter-chip"
             data-filter-key={key}
             aria-label={t("removeFilter") + label}
-            onClick={() => update((s) => ({ ...s, [key]: resets[key], ...(key === "discipline" ? {major:"all"} : {}) }))}
+            onClick={() => update((s) => ({ ...s, [key]: resets[key], ...(key === "discipline" ? {major:"all", ...(s.sort === "fit" ? {sort:"rank"} : {})} : {}) }))}
           >
             <span className="active-filter-label">{label}</span>
             <CloseOutlined aria-hidden="true" />
@@ -71,7 +71,7 @@ export function ActiveFilters({ state, update, t, empty }) {
         <Button
           size="small"
           type="link"
-          onClick={() => update((s) => ({ ...s, ...resets }))}
+          onClick={() => update((s) => ({ ...s, ...resets, ...(s.sort === "fit" ? {sort:"rank"} : {}) }))}
         >
           {t("clearFilters")}
         </Button>

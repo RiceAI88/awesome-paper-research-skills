@@ -1638,3 +1638,46 @@ body:has(.recharge-notice[open]) { overflow: hidden; }
 @media(prefers-reduced-motion:reduce) {
  .filter-popover-panel:popover-open { animation:none; }
 }
+.scope-options { display:grid; gap:16px; margin-top:12px; }
+.scope-options label { display:flex; align-items:center; justify-content:space-between; gap:18px; }
+.scope-options label > span { display:grid; gap:4px; min-width:0; }
+.scope-options small { color:var(--prs-muted); font-size:12px; line-height:1.6; }
+.scope-option-count { color:var(--prs-muted); font-weight:400; }
+.scope-switch:disabled { cursor:not-allowed; opacity:.45; }
+.project-facts { margin:10px 0; font-size:12px; line-height:1.55; color:var(--prs-muted); }
+.project-fit-line { display:flex; align-items:center; gap:6px; min-width:0; }
+.project-fit-line .discipline-card-fit { flex-shrink:0; max-width:52%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; margin:0; }
+.card-tasks { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.project-facts-meta { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:6px; }
+.learner-level { color:var(--prs-body); white-space:nowrap; }
+.card-growth .growth-value { display:flex; align-items:baseline; gap:4px; }
+.card-growth .growth-value strong { font-size:13px; }
+.growth-short strong, .growth-unavailable strong, .growth-zero strong { color:var(--prs-muted); font-size:12px; font-weight:400; }
+.table-growth .growth-value strong { font-size:12px; }
+.scene-unclassified { color:var(--prs-muted); font-size:12px; }
+@media(max-width:760px) { .site-nav .brand > span:last-child { font-size:13px; line-height:1.5; overflow-wrap:anywhere; white-space:normal; min-width:0; flex:1; } }
+.beginner-entry { margin-top:12px; color:var(--prs-primary); border-color:var(--prs-border); }
+.beginner-guide { box-sizing:border-box; width:min(940px,calc(100vw - 32px)); max-height:88vh; padding:24px; overflow-y:auto; border:1px solid var(--prs-border); border-radius:18px; background:var(--prs-panel); color:var(--prs-text); font:inherit; font-size:14px; line-height:1.8; }
+.beginner-guide::backdrop { background:#17152366; }
+.beginner-guide > header { display:flex; justify-content:space-between; align-items:center; gap:16px; }
+.beginner-guide h2 { font-size:21px; margin:0; }
+.beginner-guide button { font:inherit; cursor:pointer; border:1px solid var(--prs-border); border-radius:7px; background:transparent; color:var(--prs-primary); padding:5px 10px; }
+.beginner-guide header button { border:0; font-size:25px; width:34px; height:34px; padding:0; color:var(--prs-muted); }
+.guide-tabs { display:flex; gap:8px; border-bottom:1px solid var(--prs-border); padding:16px 0; margin-bottom:16px; }
+.guide-tabs [aria-pressed="true"] { background:var(--prs-tint); border-color:var(--prs-primary); }
+.guide-basics h3 { font-size:16px; margin:20px 0 6px; }
+.guide-basics p { margin:0; }
+.guide-basics li { margin:6px 0; }
+.guide-primary { margin-top:12px; }
+.research-path-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.research-path-grid article { border:1px solid var(--prs-border); border-radius:12px; padding:18px; min-width:0; }
+.research-path-grid h3 { font-size:17px; margin:0; }
+.research-path-grid article > p { color:var(--prs-muted); font-size:12px; margin:4px 0 14px; }
+.research-path-grid ol { padding-left:22px; margin:0; }
+.research-path-grid li { margin:14px 0; }
+.beginner-guide .guide-project { display:block; border:0; padding:0; font-size:12px; text-align:left; overflow-wrap:anywhere; }
+.research-path-grid details { font-size:12px; color:var(--prs-body); margin-top:6px; }
+.research-path-grid summary { cursor:pointer; color:var(--prs-muted); }
+.research-path-grid pre { white-space:pre-wrap; overflow-wrap:anywhere; background:var(--prs-tint); padding:10px; border-radius:6px; line-height:1.6; }
+.research-path-grid details a,.research-path-grid small { display:block; margin-top:5px; }
+@media(max-width:760px) { .beginner-guide { padding:18px; width:calc(100vw - 20px); max-height:90vh; } .research-path-grid { grid-template-columns:minmax(0,1fr); } .guide-tabs { flex-wrap:wrap; } }

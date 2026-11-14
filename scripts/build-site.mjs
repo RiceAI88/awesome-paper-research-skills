@@ -61,7 +61,10 @@ for (const [file, lang] of [
   const schema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: lang === "zh" ? "科研 Skills 导航" : "Research Skills Directory",
+    name: lang === "zh" ? "智一刻AI · 科研 Skills 导航" : "Zhiyike AI · Research Skills Directory",
+    description: lang === "zh"
+      ? "面向本科生与研究生，按专业和科研任务查找 GitHub 开源 Skills，覆盖文献检索、论文阅读、写作、绘图与数据分析，提供安装指引。"
+      : "Find GitHub research Skills for undergraduate and postgraduate students by discipline and research task, with installation guidance for literature search, reading, writing, figures and data analysis.",
     url,
     numberOfItems: defaultItems.length,
     itemListElement: top.map((item, index) => ({
@@ -78,8 +81,8 @@ for (const [file, lang] of [
   );
   const title =
     lang === "zh"
-      ? "科研 Skills 导航 · 默认 Skills 榜单前 20 名"
-      : "Research Skills Directory · Default Skills Top 20";
+      ? "智一刻AI · 科研 Skills 导航 · 默认 Skills 榜单前 20 名"
+      : "Zhiyike AI · Research Skills Directory · Default Skills Top 20";
   const hint =
     lang === "zh"
       ? "按 GitHub Stars 排序，默认仅展示 Skills。启用 JavaScript 可按专业、任务和平台筛选，查看安装指引与增长趋势。"

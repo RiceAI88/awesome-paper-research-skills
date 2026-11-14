@@ -17,8 +17,9 @@ test("ranking precedes insights, beginner paths stay compact and normal status s
   await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, data.items.length));
   await expect(page.getByRole("tab",{name:"今日榜单",exact:true})).toHaveAttribute("aria-selected","true");
   await expect(page.getByTestId("insights-viewport")).toHaveCount(0);
+  await page.locator("#beginner-paths").scrollIntoViewIfNeeded();
   await expect(
-    page.getByRole("heading", { name: "新手路径", exact: true }),
+    page.getByRole("heading", { name: "编辑推荐", exact: true }),
   ).toBeVisible();
   await expect(page.locator(".editorial-details[open]")).toHaveCount(0);
   await expect(
@@ -30,7 +31,7 @@ test("ranking precedes insights, beginner paths stay compact and normal status s
   expect(summaries.some((text) => text.includes("↗"))).toBe(false);
   const adHeight = (await page.getByTestId("zhi1ke-ad").boundingBox()).height + 14;
   expect(
-    (await page.locator(".ant-table-row").first().boundingBox()).y,
+    await page.locator(".ant-table-row").first().evaluate(el=>el.getBoundingClientRect().y+scrollY),
   ).toBeLessThan(900 + adHeight);
   await page.locator(".editorial-details summary").first().click();
   await expect(page.getByTestId("pick-audience").first()).toBeVisible();

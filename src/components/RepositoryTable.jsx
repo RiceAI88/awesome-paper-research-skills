@@ -1,3 +1,4 @@
+import { GrowthValue } from "./ProjectFacts";
 import React, { createContext, useContext, useEffect } from "react";
 import { Button, Table, Tag, Tooltip } from "antd";
 import {
@@ -27,7 +28,7 @@ function SponsoredRow(props) {
 }
 function SceneTags({ item, t }) {
   const labels = sceneLabelsFor(item, t);
-  if (!labels.length) return null;
+  if (!labels.length) return <span className="scene-unclassified">{t("sceneUnclassified")}</span>;
   return (
     <div className="scene-tags">
       <Tag>{labels[0]}</Tag>
@@ -58,6 +59,7 @@ export default function RepositoryTable({
   actions,
   badges,
   history,
+  generatedAt,
   ...props
 }) {
   useEffect(() => {
@@ -174,9 +176,7 @@ export default function RepositoryTable({
         <span
           className={`table-growth${item.star_delta_7d ? "" : " no-growth"}`}
         >
-          {item.star_delta_7d
-            ? `${item.star_delta_7d > 0 ? "+" : ""}${fmt(item.star_delta_7d)}`
-            : "—"}
+          <GrowthValue {...{item,history,generatedAt,fmt}} lang={state.lang} />
         </span>
       ),
     },

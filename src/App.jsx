@@ -1,3 +1,5 @@
+import { growthState } from "./projectFacts";
+import { ScopeControl } from "./components/ScopeControl";
 import { ActionPopover } from "./components/ActionPopover";
 import { ScopeSwitch } from "./components/ScopeSwitch";
 import { DisciplineSelector } from "./components/DisciplineSelector";
@@ -70,6 +72,7 @@ const RepositoryDrawer = lazy(() =>
     default: module.RepositoryDrawer,
   })),
 );
+const BeginnerGuide = lazy(() => import("./components/BeginnerGuide"));
 const FilterControls = lazy(() => import("./components/FilterControls"));
 const ComparisonDialog = lazy(() => import("./components/ComparisonDialog"));
 import { ViewportInsights } from "./components/ViewportInsights";
@@ -189,6 +192,7 @@ function Dashboard({ state, update }) {
   );
   const message = useFeedback();
   const [compareOpen, setCompareOpen] = useState(false);
+  const [guideSection, setGuideSection] = useState(null);
   const [drawerRequested, setDrawerRequested] = useState(Boolean(state.repo));
   const [comparisonRequested, setComparisonRequested] = useState(false);
   useEffect(() => {
@@ -285,7 +289,7 @@ function Dashboard({ state, update }) {
     visible.find((item) => item.repo === state.repo) ||
     items.find((item) => item.repo === state.repo);
   const platformIds = new Set(items.flatMap(detectAgents));
-  const net7 = scopeItems.reduce((sum, i) => sum + (i.star_delta_7d || 0), 0);
+  const net7 = scopeItems.filter(i=>["value","zero"].includes(growthState(i,historyData,dataset.metadata?.generated_at))).reduce((sum, i) => sum + (i.star_delta_7d || 0), 0);
   const toggleCompare = (repo) => {
     if (!state.compare.includes(repo) && state.compare.length >= 3) {
       message.info(t("compareFull"));
@@ -313,6 +317,7 @@ function Dashboard({ state, update }) {
         e.metaKey ||
         e.altKey ||
         compareOpen ||
+        guideSection ||
         state.repo
       )
         return;
@@ -339,7 +344,7 @@ function Dashboard({ state, update }) {
     };
     document.addEventListener("keydown", handler);
     return () => document.removeEventListener("keydown", handler);
-  }, [compareOpen, state.repo, update, stickySearchVisible]);
+  }, [compareOpen, guideSection, state.repo, update, stickySearchVisible]);
   function exportFavorites() {
     const favorites = items
       .filter((i) => state.favorites.includes(i.repo))
@@ -398,8 +403,8 @@ function Dashboard({ state, update }) {
           aria-label="Primary"
         >
           <a className="brand" href={base}>
-            <span className="brand-mark">APRS</span>
-            <span>{state.lang === "zh" ? "科研 Skills 导航" : "Research Skills"}</span>
+            <span className="brand-mark">ZAI</span>
+            <span>{state.lang === "zh" ? "智一刻AI · 科研 Skills 导航" : "Zhiyike AI · Research Skills Directory"}</span>
           </a>
           <Space size={8} wrap className="nav-actions">
             <Segmented
@@ -463,6 +468,7 @@ function Dashboard({ state, update }) {
             <Reveal as="p" kind="hero" order={1} className="hero-subtitle">
               {t("heroSubtitle")}
             </Reveal>
+            <Button className="beginner-entry" onClick={()=>setGuideSection("basics")}>{state.lang === "zh" ? "30 秒看懂 Skill" : "Skills in 30 seconds"}</Button>
           </div>
           <CommunityCard lang={state.lang} />
           <div
@@ -646,9 +652,10 @@ function Dashboard({ state, update }) {
                 </h2>
                 <div className="ranking-status-line">
                   <span>
-                    {state.discipline !== 'all' && <>{state.lang === 'zh' ? '专业适用优先 · ' : 'Specialized first · '}</>}
+                    {state.sort === 'fit' && state.discipline !== 'all' && <>{state.lang === 'zh' ? '专业适用优先 · ' : 'Discipline fit first · '}</>}
                     {t(
                       {
+                        fit: "rankByStars",
                         rank: "rankByStars",
                         stars: "rankByStars",
                         trend: "sortTrend",
@@ -713,7 +720,7 @@ function Dashboard({ state, update }) {
                       {t("statNewWeek")} <strong>{fmt(newcomers)}</strong>
                     </button>
                   </Tooltip>
-                  <span>
+                  <span title={state.lang==="zh" ? "仅统计具有完整7日对比记录的项目，短期数值不计入。" : "Only projects with complete 7-day history; short-term values excluded."}>
                     {t("statNet7d")}{" "}
                     <strong>
                       {net7 > 0 ? "+" : ""}
@@ -736,32 +743,8 @@ function Dashboard({ state, update }) {
                 </section>
               </div>
               <Space wrap size={8}>
-                <label className="related-scope-control">
-                  <ScopeSwitch
-                    size="small"
-                    data-testid="include-related"
-                    checked={state.includeRelated}
-                    aria-label={t("includeRelated")}
-                    onChange={(includeRelated) =>
-                      update((s) => ({
-                        ...s,
-                        includeRelated,
-                        todayOnly:
-                          !includeRelated && s.todayOnly === "related"
-                            ? ""
-                            : s.todayOnly,
-                      }))
-                    }
-                  />
-                  <span>
-                    {t("includeRelated")} {relatedCount}
-                  </span>
-                </label>
-                {editorialPicks(visible).length > 0 && (
-                  <Button type="link" href="#beginner-paths">
-                    {t("editorialTitle")}
-                  </Button>
-                )}
+                <ScopeControl {...{state,update,relatedCount}} />
+                <Button type="link" onClick={()=>setGuideSection("paths")}>{state.lang === "zh" ? "专业路径" : "Research paths"}</Button>
                 <details className="export-menu">
                   <summary>{t("exportMenu")} ⌄</summary>
                   <div
@@ -803,6 +786,7 @@ function Dashboard({ state, update }) {
                 t,
                 fmt,
                 history: historyData,
+                generatedAt: dataset.metadata?.generated_at,
               }}
             />
           </Panel>
@@ -819,24 +803,7 @@ function Dashboard({ state, update }) {
           {state.section === "insights" && (
             <ViewportInsights
               scopeControl={
-                <label className="related-scope-control insights-scope-control">
-                  <ScopeSwitch
-                    size="small"
-                    checked={state.includeRelated}
-                    aria-label={t("includeRelated")}
-                    onChange={(includeRelated) =>
-                      update((s) => ({
-                        ...s,
-                        includeRelated,
-                        todayOnly:
-                          !includeRelated && s.todayOnly === "related"
-                            ? ""
-                            : s.todayOnly,
-                      }))
-                    }
-                  />
-                  {t("includeRelated")} {relatedCount}
-                </label>
+                <ScopeControl {...{state,update,relatedCount}} />
               }
               items={visible}
               professionItems={disciplineItems}
@@ -853,7 +820,7 @@ function Dashboard({ state, update }) {
       </main>
       <Reveal as="footer" className="site-footer container">
         <span>
-          Awesome Paper Research Skills · MIT ·{" "}
+          {state.lang === "zh" ? "智一刻AI · 科研 Skills 导航" : "Zhiyike AI · Research Skills Directory"} · MIT ·{" "}
           <a href={REPOSITORY_URL}>RiceAI88/awesome-paper-research-skills</a> ·{" "}
           {state.lang === "zh" ? "基于" : "Based on"}{" "}
           <a href="https://github.com/kael-odin/awesome-academic-research-skills">
@@ -907,6 +874,7 @@ function Dashboard({ state, update }) {
           </Tooltip>
         </div>
       )}
+      {guideSection && <DeferredFeature t={t}><BeginnerGuide initialSection={guideSection} lang={state.lang} items={items} onClose={()=>setGuideSection(null)} onOpenRepo={repo=>update(s=>({...s,repo}))} /></DeferredFeature>}
       <RechargeNotice lang={state.lang} />
       <BackToTop
         label={t("backToTop")}

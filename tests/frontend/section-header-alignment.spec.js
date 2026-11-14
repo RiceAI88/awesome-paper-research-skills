@@ -1,4 +1,4 @@
-import { test, expect } from "./fixtures.js";
+import { test, expect, openScope } from "./fixtures.js";
 
 test("desktop section headings and actions share a compact aligned row", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
@@ -14,9 +14,9 @@ test("desktop section headings and actions share a compact aligned row", async (
   await page.getByRole("tab", { name: "数据洞察", exact: true }).click();
   const insights = page.getByTestId("insights");
   await expect(insights).toBeVisible();
-  await expect(insights.locator(".insights-heading .related-scope-control")).toBeVisible();
+  await expect(insights.locator(".insights-heading .scope-control")).toBeVisible();
   const geometry = await insights.locator(".insights-heading").evaluate((el) => {
-    const rects = [el.querySelector("p"), el.querySelector(".related-scope-control")].map((node) => node.getBoundingClientRect());
+    const rects = [el.querySelector("p"), el.querySelector(".scope-control")].map((node) => node.getBoundingClientRect());
     const centers = rects.map((r) => r.y + r.height / 2);
     return { spread: Math.max(...centers) - Math.min(...centers), height: el.getBoundingClientRect().height };
   });
@@ -29,7 +29,8 @@ test("section controls fit a narrow screen and retain scope switching", async ({
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("./");
   await page.getByRole("tab", { name: "数据洞察", exact: true }).click();
-  const toggle = page.getByTestId("insights").getByRole("switch");
+  await openScope(page);
+  const toggle = page.getByTestId("insights").getByRole("switch",{name:"含科研相关项目",exact:true});
   await expect(toggle).toBeVisible();
   await toggle.click();
   await expect(toggle).toHaveAttribute("aria-checked", "true");

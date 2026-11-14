@@ -18,7 +18,7 @@ test("installation expectations and original command source are visible in list 
   await expect(drawer.locator(".install-command")).toHaveText(
     "npx skills add K-Dense-AI/scientific-agent-skills",
   );
-  await expect(drawer).toContainText("2026-10-25");
+  await expect(drawer).toContainText(content.installations["K-Dense-AI/scientific-agent-skills"].reviewed_at);
   await expect(
     drawer.getByRole("link", { name: "安装说明", exact: true }),
   ).toHaveAttribute(
@@ -28,7 +28,7 @@ test("installation expectations and original command source are visible in list 
   await page.goto("./#related=1&view=table&q=OpenNSWM-Lab%2FFAROS");
   await expect(
     page.locator(".ant-table-row").getByTestId("installation-mode"),
-  ).toHaveText("需手动配置");
+  ).toHaveText("需手动安装");
   const unknown = data.items.find((i) => !content.installations[i.repo]);
   await page.goto("./#related=1&q=" + encodeURIComponent(unknown.repo) + "&view=card");
   const card = page.getByTestId("repo-card").filter({
@@ -37,7 +37,7 @@ test("installation expectations and original command source are visible in list 
   await card.locator(".repo-title").click();
   const compactDetails = page.getByRole("dialog");
   await expect(compactDetails.getByTestId("installation-mode")).toHaveText(
-    "安装方式待核对",
+    "查看项目说明",
   );
   await expect(
     compactDetails.getByRole("link", { name: "项目文档", exact: true }),

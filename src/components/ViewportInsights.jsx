@@ -3,15 +3,15 @@ import { Reveal } from "./SiteMotion";
 import { ChartSkeleton } from "./ChartSkeleton";
 import { ChartBoundary } from "./ChartBoundary";
 const Insights = lazy(() => import("./Insights"));
-function Placeholder({ t, count, scopeControl, loading = false }) {
+function Placeholder({ t, count, scopeControl, loading = false, hideHeading = false }) {
   return (
     <section
-      className="insights insights-placeholder"
+      className="insights-placeholder"
       data-testid="insights-placeholder"
       aria-label={t("insightsTitle")}
       aria-busy={loading}
     >
-      <div className="insights-heading">
+      {!hideHeading && <div className="insights-heading">
         <div>
           <h2>{t("insightsTitle")}</h2>
           <p>
@@ -22,7 +22,7 @@ function Placeholder({ t, count, scopeControl, loading = false }) {
           {scopeControl}
           {loading && <p role="status">{t("chartsLoading")}</p>}
         </div>
-      </div>
+      </div>}
       {[
         ["insightGrowth", "disciplineCounts"],
         ["disciplineCoverage", "disciplineGaps"],
@@ -44,15 +44,14 @@ function Placeholder({ t, count, scopeControl, loading = false }) {
 export function ViewportInsights(props) {
   return (
     <Reveal id="data-insights" tabIndex={-1} data-testid="insights-viewport">
-      <ChartBoundary fallback={props.t("chartUnavailable")}>
-        <Suspense
-          fallback={
-            <Placeholder t={props.t} count={props.items.length} scopeControl={props.scopeControl} loading />
-          }
-        >
-          <Insights {...props} />
-        </Suspense>
-      </ChartBoundary>
+      <section className="insights" data-testid="insights" aria-labelledby="insights-heading">
+        <div className="insights-heading"><div><h2 id="insights-heading">{props.t("insightsTitle")}</h2><p>{props.t("insightsScope")} <b data-testid="insight-count">{props.items.length}</b> {props.t("repos")}</p></div><div className="insights-actions">{props.scopeControl}</div></div>
+        <ChartBoundary fallback={props.t("chartUnavailable")}>
+          <Suspense fallback={<Placeholder t={props.t} count={props.items.length} hideHeading loading />}>
+            <Insights {...props} hideHeading />
+          </Suspense>
+        </ChartBoundary>
+      </section>
     </Reveal>
   );
 }

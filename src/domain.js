@@ -1,3 +1,4 @@
+import reviewedUsage from "../config/project-usage.json" with {type:"json"};
 import { DISCIPLINES, matchesDiscipline, disciplineFit } from "./disciplines.js";
 import { createSearch } from "./search.js";
 export const RESEARCH_TASKS = [
@@ -84,7 +85,7 @@ export const FONT_FAMILY =
 export const REPOSITORY_URL =
   "https://github.com/RiceAI88/awesome-paper-research-skills";
 export function detectAgents(item) {
-  if (Array.isArray(item.agents) && item.agents.length) return item.agents;
+  if (Array.isArray(item.agents) && (item.agents.length || item.platforms_reviewed)) return item.agents;
   const text = [item.repo, item.description, ...(item.topics || [])]
     .join(" ")
     .toLowerCase();
@@ -139,8 +140,8 @@ export function restoreState(storage, hash = "", defaults = {}, items = []) {
       "all",
     ),
     sort: valid(
-      p.get("sort"),
-      ["rank", "trend", "stars", "updated", "delta30", "delta7", "newest"],
+      p.get("sort") === "fit" && !DISCIPLINES.some(d => d.id === p.get("discipline")) ? "rank" : p.get("sort"),
+      ["rank", "trend", "stars", "updated", "delta30", "delta7", "newest", "fit"],
       "rank",
     ),
     lang: valid(
@@ -192,6 +193,8 @@ export function serializeState(state) {
   return p.size ? "#" + p.toString() : "";
 }
 export function matchesResearchTask(item, task) {
+  const reviewed=reviewedUsage[item.repo];
+  if (reviewed?.reviewed_at && Array.isArray(reviewed.tasks)) return reviewed.tasks.includes(task.id);
   return (
     task.categories.includes(item.category?.id) ||
     task.pattern.test(
@@ -259,7 +262,7 @@ export function filterItems(items, state) {
   };
   return result
     .sort((a,b) => {
-      if (state.discipline && state.discipline !== 'all') {
+      if (state.sort === 'fit' && state.discipline && state.discipline !== 'all') {
         const priority = Number(disciplineFit(a,state) !== 'specific') - Number(disciplineFit(b,state) !== 'specific');
         if (priority) return priority;
       }

@@ -1,3 +1,4 @@
+import reviewedUsage from "../config/project-usage.json" with {type:"json"};
 import editorial from "../config/editorial.json" with { type: "json" };
 import { safeExternalUrl } from "./domain.js";
 export const EDITORIAL_CONTENT = editorial;
@@ -33,6 +34,8 @@ export function enrichItem(item, content = EDITORIAL_CONTENT) {
   return {
     ...item,
     agents: content.platforms?.[item.repo] || item.agents,
+    platforms_reviewed: Object.hasOwn(content.platforms || {}, item.repo),
+    documented_platform_names: reviewedUsage[item.repo]?.platform_names || [],
   };
 }
 export function editorialPicks(visibleItems, content = EDITORIAL_CONTENT) {
@@ -81,4 +84,10 @@ export function classifyUpdateRun(run, generatedAt) {
   )
     return { ...base, kind: "failure" };
   return { ...base, kind: "unknown" };
+}
+
+export function reviewedInstallSnapshot(item, details={}) {
+  const explicit=safeExternalUrl(details.source_snapshot_url);
+  if(explicit) return explicit;
+  return /^[a-f0-9]{40}$/.test(details.source_commit||'') ? installationFor(item).source_url.replace(/\/blob\/[^/]+\//, `/blob/${details.source_commit}/`) : null;
 }

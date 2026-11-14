@@ -20,3 +20,9 @@ export const test = base.extend({
   },
 });
 export { expect };
+
+export async function openScope(page) {
+ const trigger=page.getByRole('button',{name:/^(收录范围|Scope)/}).first();
+ if(await trigger.getAttribute('aria-expanded')!=='true')await trigger.click();
+ await expect(trigger).toHaveAttribute('aria-expanded','true');
+}

@@ -87,9 +87,11 @@ test.describe("metadata works without running application JavaScript", () => {
       await expect(
         page.locator('meta[property="og:image:height"]'),
       ).toHaveAttribute("content", "630");
-      const title=lang==="zh" ? "科研 Skills 导航｜按专业查找 GitHub 科研工具" : "Research Skills Directory | GitHub Tools by Discipline";
+      const brand=lang==="zh" ? "智一刻AI · 科研 Skills 导航" : "Zhiyike AI · Research Skills Directory";
+      const title=lang==="zh" ? brand + "｜大学生与研究生科研工具" : brand;
       await expect(page).toHaveTitle(title);
-      await expect(page.locator('meta[name="description"]')).toHaveAttribute('content',lang==="zh"?/按专业和科研任务/:/by discipline and task/);
+      await expect(page.locator('meta[property="og:site_name"]')).toHaveAttribute("content", brand);
+      await expect(page.locator('meta[name="description"]')).toHaveAttribute('content',lang==="zh"?/面向本科生与研究生，按专业和科研任务/:/undergraduate and postgraduate students by discipline and research task/);
       await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content',title);
       await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute('content',title);
       const filename="og-cover" + (lang === "en" ? "-en" : "") + ".png";
@@ -108,6 +110,8 @@ test.describe("metadata works without running application JavaScript", () => {
       expect(schema.itemListElement.map(i=>i.name)).toEqual(defaultItems.slice(0,20).map(i=>i.repo));
       expect(schema.numberOfItems).toBe(defaultItems.length);
       expect(schema.url).toBe(canonical);
+      expect(schema.name).toBe(brand);
+      expect(schema.description).toMatch(lang === "zh" ? /本科生与研究生/ : /undergraduate and postgraduate students/);
       await expect(page.locator("noscript a")).toHaveCount(20);
       const image = await request.get("./assets/" + cover);
       expect(image.ok()).toBe(true);

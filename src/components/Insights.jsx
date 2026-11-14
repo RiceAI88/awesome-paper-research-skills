@@ -128,6 +128,7 @@ export default function Insights({
   allItems,
   professionItems = items,
   scopeControl,
+  hideHeading=false,
   history,
   generatedAt,
   state,
@@ -348,11 +349,11 @@ export default function Insights({
   const categoryMax = Math.max(0, ...categories.map((c) => c.count));
   return (
     <section
-      className="insights"
-      data-testid="insights"
+      className={hideHeading ? "insights-body" : "insights"}
+      data-testid={hideHeading ? undefined : "insights"}
       aria-labelledby="insights-heading"
     >
-      <div className="insights-heading">
+      {!hideHeading && <div className="insights-heading">
         <div>
           <h2 id="insights-heading">{t("insightsTitle")}</h2>
           <p>
@@ -364,7 +365,7 @@ export default function Insights({
           {scopeControl}
 
         </div>
-      </div>
+      </div>}
       <div className="insights-top">
         <ChartFrame
           id="growth"

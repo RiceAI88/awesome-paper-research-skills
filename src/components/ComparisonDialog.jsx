@@ -1,3 +1,4 @@
+import { reviewedInstallSnapshot } from "../practical";
 import React from "react";
 import { Modal, Tag, Tooltip } from "antd";
 import { ComparisonChart } from "./TrendCharts";
@@ -89,17 +90,14 @@ export default function ComparisonDialog({
       "docsChecked",
       (item) => {
         const install = installationFor(item),
-          commit = installationDetails[item.repo]?.source_commit;
+          snapshot = reviewedInstallSnapshot(item, installationDetails[item.repo]);
         return install.reviewed_at ? (
           <>
             {install.reviewed_at}
-            {/^[a-f0-9]{40}$/.test(commit || "") && (
+            {snapshot && (
               <div>
                 <a
-                  href={install.source_url.replace(
-                    /\/blob\/[^/]+\//,
-                    `/blob/${commit}/`,
-                  )}
+                  href={snapshot}
                   target="_blank"
                   rel="noreferrer"
                 >

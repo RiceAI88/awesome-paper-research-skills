@@ -1,0 +1,604 @@
+{
+  "K-Dense-AI/scientific-agent-skills": {
+    "tasks": [
+      "find",
+      "read",
+      "write",
+      "figures",
+      "review",
+      "analyze",
+      "compute"
+    ],
+    "platform_names": [
+      "Claude Code",
+      "Claude Cowork",
+      "Codex",
+      "Gemini CLI",
+      "Google Antigravity",
+      "Cursor",
+      "OpenClaw",
+      "NemoClaw",
+      "Pi",
+      "Hermes"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "Imbad0202/academic-research-skills": {
+    "tasks": [
+      "find",
+      "read",
+      "write",
+      "review"
+    ],
+    "platform_names": [
+      "Claude Code",
+      "claude.ai",
+      "Claude Desktop",
+      "Claude Science"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "Yuan1z0825/nature-skills": {
+    "tasks": [
+      "find",
+      "read",
+      "write",
+      "figures",
+      "review"
+    ],
+    "platform_names": [
+      "Codex",
+      "Claude Code"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "wanshuiyin/Auto-claude-code-research-in-sleep": {
+    "tasks": [
+      "find",
+      "read",
+      "write",
+      "figures",
+      "review",
+      "compute"
+    ],
+    "platform_names": [
+      "Claude Code",
+      "Codex CLI",
+      "Cursor",
+      "Trae",
+      "Antigravity",
+      "GitHub Copilot CLI",
+      "OpenClaw",
+      "DeepSeek Harness"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "Imbad0202/academic-research-skills-codex": {
+    "tasks": [
+      "find",
+      "read",
+      "write",
+      "review",
+      "analyze"
+    ],
+    "platform_names": [
+      "Codex CLI",
+      "Codex Desktop"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "Orchestra-Research/AI-Research-SKILLs": {
+    "tasks": [
+      "find",
+      "write",
+      "figures",
+      "reproduce",
+      "analyze",
+      "compute"
+    ],
+    "platform_names": [
+      "Claude Code",
+      "Hermes Agent",
+      "OpenCode",
+      "Qoder",
+      "Cursor",
+      "Gemini CLI",
+      "OpenClaw"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "HKUSTDial/Supervisor-Skills": {
+    "tasks": [
+      "find",
+      "write",
+      "figures",
+      "review"
+    ],
+    "platform_names": [
+      "Claude Code",
+      "Cursor",
+      "Codex"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "ChenLiu-1996/figures4papers": {
+    "tasks": [
+      "figures"
+    ],
+    "platform_names": [
+      "Cursor",
+      "Claude Code",
+      "Codex"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "Master-cai/Research-Paper-Writing-Skills": {
+    "tasks": [
+      "write",
+      "review"
+    ],
+    "platform_names": [
+      "Codex",
+      "Claude Code",
+      "Gemini"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "dwzhu-pku/PaperBanana": {
+    "tasks": [
+      "figures"
+    ],
+    "platform_names": [
+      "ClawHub"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "alchaincyf/darwin-skill": {
+    "tasks": [],
+    "platform_names": [
+      "Claude Code"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "ScrapeCreators/social-media-research-skills": {
+    "tasks": [
+      "find",
+      "read",
+      "analyze"
+    ],
+    "platform_names": [
+      "Claude Code",
+      "Cursor",
+      "OpenAI Codex",
+      "GitHub Copilot",
+      "Gemini CLI",
+      "Windsurf",
+      "VS Code"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "jihe520/MathModelAgent": {
+    "tasks": [
+      "write",
+      "figures",
+      "analyze",
+      "compute",
+      "review"
+    ],
+    "platform_names": [
+      "Claude Code",
+      "Codex"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "WUBING2023/PaperSpine": {
+    "tasks": [
+      "find",
+      "read",
+      "write",
+      "figures",
+      "review"
+    ],
+    "platform_names": [
+      "Codex"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "Adkid-Zephyr/anti-defensive-writing-Skill": {
+    "tasks": [
+      "write",
+      "review"
+    ],
+    "platform_names": [
+      "Claude Code",
+      "Cursor",
+      "Codex"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "zLanqing/codex-claude-academic-skills": {
+    "tasks": [
+      "read",
+      "write",
+      "figures",
+      "analyze",
+      "compute"
+    ],
+    "platform_names": [
+      "Claude Code",
+      "Codex"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "brycewang-stanford/Auto-Empirical-Research-Skills": {
+    "tasks": [
+      "find",
+      "read",
+      "write",
+      "figures",
+      "review",
+      "analyze",
+      "compute"
+    ],
+    "platform_names": [
+      "Claude Code",
+      "Codex",
+      "WorkBuddy",
+      "CodeBuddy"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "AIScientists-Dev/academic-humanizer": {
+    "tasks": [
+      "write"
+    ],
+    "platform_names": [
+      "Claude Code",
+      "Codex",
+      "MorphMind"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "MLNLP-World/Paper-Writing-Tips": {
+    "tasks": [
+      "review"
+    ],
+    "platform_names": [
+      "Claude Code"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "synthetic-sciences/openscience": {
+    "tasks": [
+      "find",
+      "read",
+      "write",
+      "figures",
+      "reproduce",
+      "review",
+      "analyze",
+      "compute"
+    ],
+    "platform_names": [
+      "OpenScience"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "jmiao24/Paper2Agent": {
+    "tasks": [
+      "analyze"
+    ],
+    "platform_names": [
+      "Claude Code",
+      "Codex",
+      "Google Gemini CLI"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "Norman-bury/research-writing-skill": {
+    "tasks": [
+      "find",
+      "write",
+      "figures",
+      "review",
+      "analyze"
+    ],
+    "platform_names": [
+      "Codex",
+      "OpenCode"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "google-deepmind/science-skills": {
+    "tasks": [
+      "find"
+    ],
+    "platform_names": [
+      "Google Antigravity"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "blazickjp/arxiv-mcp-server": {
+    "tasks": [
+      "find",
+      "read"
+    ],
+    "platform_names": [
+      "Claude Code",
+      "OpenAI Codex",
+      "Hermes Agent",
+      "VS Code",
+      "Kiro",
+      "Claude Desktop"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "FreedomIntelligence/OpenClaw-Medical-Skills": {
+    "tasks": [
+      "find",
+      "read",
+      "write",
+      "figures",
+      "review",
+      "analyze",
+      "compute"
+    ],
+    "platform_names": [
+      "OpenClaw",
+      "NanoClaw"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "yb2460/harness-anything": {
+    "tasks": [
+      "find",
+      "write",
+      "figures",
+      "review",
+      "analyze"
+    ],
+    "platform_names": [],
+    "reviewed_at": "2026-11-14"
+  },
+  "EvoMap/AutoResearch": {
+    "tasks": [
+      "find",
+      "reproduce",
+      "review",
+      "analyze"
+    ],
+    "platform_names": [],
+    "reviewed_at": "2026-11-14"
+  },
+  "openags/paper-search-mcp": {
+    "tasks": [
+      "find",
+      "read"
+    ],
+    "platform_names": [
+      "Claude Desktop",
+      "DeepSeek Harness"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "dw-dengwei/daily-arXiv-ai-enhanced": {
+    "tasks": [
+      "find",
+      "read"
+    ],
+    "platform_names": [],
+    "reviewed_at": "2026-11-14"
+  },
+  "huangwb8/ChineseResearchLaTeX": {
+    "tasks": [
+      "find",
+      "read",
+      "write",
+      "review"
+    ],
+    "platform_names": [],
+    "reviewed_at": "2026-11-14"
+  },
+  "LigphiDonk/academic-figure-generator": {
+    "tasks": [
+      "read",
+      "figures"
+    ],
+    "platform_names": [],
+    "reviewed_at": "2026-11-14"
+  },
+  "Haojae/scipilot-figure-skill": {
+    "tasks": [
+      "figures",
+      "analyze"
+    ],
+    "platform_names": [],
+    "reviewed_at": "2026-11-14"
+  },
+  "wxyhgk/retain-pdf": {
+    "tasks": [
+      "read"
+    ],
+    "platform_names": [],
+    "reviewed_at": "2026-11-14"
+  },
+  "HughYau/AcademicForge": {
+    "tasks": [
+      "find",
+      "read",
+      "write",
+      "figures"
+    ],
+    "platform_names": [],
+    "reviewed_at": "2026-11-14"
+  },
+  "Weizhena/Deep-Research-skills": {
+    "tasks": [
+      "find",
+      "read",
+      "write"
+    ],
+    "platform_names": [],
+    "reviewed_at": "2026-11-14"
+  },
+  "poco-ai/Agentero": {
+    "tasks": [
+      "find",
+      "read",
+      "write"
+    ],
+    "platform_names": [
+      "ChatGPT Web",
+      "Claude Desktop",
+      "DeepSeek Harness"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "llmsresearch/paperbanana": {
+    "tasks": [
+      "figures"
+    ],
+    "platform_names": [],
+    "reviewed_at": "2026-11-14"
+  },
+  "tsingyuai/scientify": {
+    "tasks": [
+      "find",
+      "write",
+      "reproduce",
+      "review",
+      "analyze",
+      "compute"
+    ],
+    "platform_names": [],
+    "reviewed_at": "2026-11-14"
+  },
+  "aipoch/medical-research-skills": {
+    "tasks": [
+      "find",
+      "read",
+      "write",
+      "analyze",
+      "figures",
+      "review"
+    ],
+    "platform_names": [
+      "AIPOCH Open-Science"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "Kiterlin/anti-defensive-writing": {
+    "tasks": [
+      "write"
+    ],
+    "platform_names": [
+      "ChatGPT",
+      "Claude",
+      "Gemini"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "XiaoMaColtAI/math-modeling-skill": {
+    "tasks": [
+      "find",
+      "write",
+      "figures",
+      "analyze",
+      "compute"
+    ],
+    "platform_names": [
+      "Trae",
+      "Qoder",
+      "DeepSeek Harness"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "juliye2025/evil-read-arxiv": {
+    "tasks": [
+      "find",
+      "read",
+      "write"
+    ],
+    "platform_names": [],
+    "reviewed_at": "2026-11-14"
+  },
+  "mims-harvard/ToolUniverse": {
+    "tasks": [
+      "find",
+      "analyze",
+      "figures"
+    ],
+    "platform_names": [
+      "Claude Desktop"
+    ],
+    "reviewed_at": "2026-11-14"
+  },
+  "pedrohcgs/claude-code-my-workflow": {
+    "tasks": [
+      "write",
+      "figures",
+      "reproduce",
+      "review",
+      "analyze"
+    ],
+    "platform_names": [],
+    "reviewed_at": "2026-11-14"
+  },
+  "PaperDebugger/paperdebugger": {
+    "tasks": [
+      "write",
+      "review"
+    ],
+    "platform_names": [],
+    "reviewed_at": "2026-11-14"
+  },
+  "lishix520/academic-paper-skills": {
+    "tasks": [
+      "write",
+      "read",
+      "review"
+    ],
+    "platform_names": [],
+    "reviewed_at": "2026-11-14"
+  },
+  "zsyggg/paper-craft-skills": {
+    "tasks": [
+      "read",
+      "write",
+      "figures"
+    ],
+    "platform_names": [],
+    "reviewed_at": "2026-11-14"
+  },
+  "brycewang-stanford/Awesome-Journal-Skills": {
+    "tasks": [
+      "write",
+      "figures",
+      "reproduce",
+      "review"
+    ],
+    "platform_names": [],
+    "reviewed_at": "2026-11-14"
+  },
+  "917Dhj/DeepPaperNote": {
+    "tasks": [
+      "find",
+      "read",
+      "write"
+    ],
+    "platform_names": [],
+    "reviewed_at": "2026-11-14"
+  },
+  "huangkiki/dailypaper-skills": {
+    "tasks": [
+      "find",
+      "read",
+      "write"
+    ],
+    "platform_names": [
+      "copilot",
+      "openclaw"
+    ],
+    "reviewed_at": "2026-11-14"
+  }
+}

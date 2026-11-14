@@ -4,7 +4,7 @@ import { EditorialReviewNotice } from "./EditorialReviewNotice";
 import { Button, Space, Tag, Tooltip } from "antd";
 import { CopyOutlined, ExportOutlined } from "@ant-design/icons";
 import { AGENT_PLATFORMS, detectAgents, safeExternalUrl } from "../domain";
-import { EDITORIAL_CONTENT, installationFor } from "../practical";
+import { EDITORIAL_CONTENT, installationFor, reviewedInstallSnapshot } from "../practical";
 import { useFeedback } from "./FeedbackProvider";
 import { copyText } from "../clipboard";
 export function SummaryText({ item, t, query = "" }) {
@@ -21,10 +21,8 @@ export function SummaryText({ item, t, query = "" }) {
 }
 export function PlatformTags({ item, t, compact = false }) {
   const agents = detectAgents(item);
+  const labels = [...new Set([...agents.map(id=>AGENT_PLATFORMS.find(agent=>agent.id===id)?.label||id), ...(item.documented_platform_names||[])])];
   if (compact) {
-    const labels = agents.map(
-      (id) => AGENT_PLATFORMS.find((agent) => agent.id === id)?.label || id,
-    );
     return (
       <Tooltip title={labels.join(" · ") || t("platformUnspecifiedHint")}>
         <span className="card-platforms">
@@ -38,7 +36,7 @@ export function PlatformTags({ item, t, compact = false }) {
   return (
     <Tooltip
       title={t(
-        !agents.length
+        !labels.length
           ? "platformUnspecifiedHint"
           : verified
             ? "platformDocumented"
@@ -46,10 +44,10 @@ export function PlatformTags({ item, t, compact = false }) {
       )}
     >
       <Space size={[4, 4]} wrap className="platform-tags">
-        {agents.length ? (
-          agents.map((id) => (
-            <Tag key={id}>
-              {AGENT_PLATFORMS.find((agent) => agent.id === id)?.label || id}
+        {labels.length ? (
+          labels.map((label) => (
+            <Tag key={label}>
+              {label}
             </Tag>
           ))
         ) : (
@@ -133,7 +131,7 @@ export function InstallationRequirements({ item, lang, t, detailsInfo = {} }) {
           {installation[`context_${lang}`]}
         </p>
       )}
-      {installation.mode === "docs" && <p>{t("installUnreviewedHint")}</p>}
+      {installation.mode === "docs" && !installation.reviewed_at && <p>{t("installUnreviewedHint")}</p>}
       {(detailsInfo[`environment_${lang}`] ||
         detailsInfo[`dependencies_${lang}`]) && (
         <dl className="install-requirements">
@@ -157,12 +155,9 @@ export function InstallationRequirements({ item, lang, t, detailsInfo = {} }) {
           <small>
             {t("docsChecked")} {installation.reviewed_at}
           </small>
-          {/^[a-f0-9]{40}$/.test(detailsInfo.source_commit || "") && (
+          {reviewedInstallSnapshot(item,detailsInfo) && (
             <a
-              href={installation.source_url.replace(
-                /\/blob\/[^/]+\//,
-                `/blob/${detailsInfo.source_commit}/`,
-              )}
+              href={reviewedInstallSnapshot(item,detailsInfo)}
               target="_blank"
               rel="noreferrer"
             >
@@ -170,7 +165,7 @@ export function InstallationRequirements({ item, lang, t, detailsInfo = {} }) {
             </a>
           )}
           {(detailsInfo.additional_sources || [])
-            .map(safeExternalUrl)
+            .map(source => safeExternalUrl(typeof source === "string" ? source : source.source_url))
             .filter(Boolean)
             .map((url, index) => (
               <a key={url} href={url} target="_blank" rel="noreferrer">

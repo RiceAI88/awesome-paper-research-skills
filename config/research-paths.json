@@ -1,0 +1,18 @@
+[
+ {"id":"medicine","title_zh":"医学科研起步","title_en":"Medical research starter","audience_zh":"医学研究者","audience_en":"Medical researchers","steps":[
+  {"repo":"openags/paper-search-mcp","task_zh":"检索与整理文献","task_en":"Search and organize papers"},
+  {"repo":"aipoch/medical-research-skills","task_zh":"按研究任务选择医学工具","task_en":"Choose tools for a medical research task"},
+  {"repo":"Yuan1z0825/nature-skills","task_zh":"整理学术表达与图表","task_en":"Prepare academic prose and figures"}]},
+ {"id":"mathematics","title_zh":"数学建模路径","title_en":"Mathematical modelling","audience_zh":"数学与建模研究者","audience_en":"Mathematics and modelling researchers","steps":[
+  {"repo":"XiaoMaColtAI/math-modeling-skill","task_zh":"拆解问题与选择模型","task_en":"Define the problem and choose models"},
+  {"repo":"ChenLiu-1996/figures4papers","task_zh":"生成论文图表","task_en":"Generate research figures"},
+  {"repo":"Imbad0202/academic-research-skills","task_zh":"整理与修改论文","task_en":"Organize and revise a manuscript"}]},
+ {"id":"economics","title_zh":"经济学实证研究","title_en":"Empirical economics","audience_zh":"经济与计量研究者","audience_en":"Economics and econometrics researchers","steps":[
+  {"repo":"pedrohcgs/claude-code-my-workflow","task_zh":"搭建数据分析工作流","task_en":"Set up a data-analysis workflow"},
+  {"repo":"brycewang-stanford/Auto-Empirical-Research-Skills","task_zh":"选择识别策略与核查结果","task_en":"Choose identification strategies and audit results"},
+  {"repo":"brycewang-stanford/Awesome-Journal-Skills","task_zh":"核对目标期刊与投稿规范","task_en":"Check target journal and submission conventions"}]},
+ {"id":"philosophy","title_zh":"哲学论文与论证","title_en":"Philosophy papers and arguments","audience_zh":"哲学研究者","audience_en":"Philosophy researchers","steps":[
+  {"repo":"openags/paper-search-mcp","task_zh":"寻找相关研究与引用线索","task_en":"Find relevant research and references"},
+  {"repo":"lishix520/academic-paper-skills","task_zh":"规划论文结构与论证","task_en":"Plan the manuscript and argument"},
+  {"repo":"Norman-bury/research-writing-skill","task_zh":"修改章节与核查证据","task_en":"Revise sections and check evidence"}]}
+]

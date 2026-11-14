@@ -15,7 +15,8 @@ test('only sourced profiles classify, and common projects do not become speciali
  assert.equal(DISCIPLINES.length,12);
 });
 test('profession filtering keeps specialists first, supports common toggle and excludes unknown claims',()=>{
- assert.deepEqual(filterItems([common,bio,econ,unknown],state).map(x=>x.repo),[bio.repo,common.repo]);
+ assert.deepEqual(filterItems([common,bio,econ,unknown],state).map(x=>x.repo),[common.repo,bio.repo]);
+ assert.deepEqual(filterItems([common,bio,econ,unknown],{...state,sort:'fit'}).map(x=>x.repo),[bio.repo,common.repo]);
  assert.deepEqual(filterItems([common,bio,econ,unknown],{...state,includeCommon:false}).map(x=>x.repo),[bio.repo]);
  assert.equal(filterItems([common,bio,econ,unknown],{...state,discipline:'all',major:'all'}).length,4);
 });
@@ -42,4 +43,10 @@ test('every published profile has valid taxonomy IDs and traceable documentation
    assert.equal(p.evidence,true);
    assert.equal(sources[repo].review_kind,'documentation_only');
  }
+});
+
+test('fit sorting requires an active valid discipline',()=>{
+ assert.equal(restoreState(null,'#sort=fit').sort,'rank');
+ assert.equal(restoreState(null,'#discipline=unknown&sort=fit').sort,'rank');
+ assert.equal(restoreState(null,'#discipline=medicine&sort=fit').sort,'fit');
 });

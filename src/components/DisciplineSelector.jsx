@@ -1,7 +1,6 @@
 import { ActionPopover } from "./ActionPopover";
 import React, {useRef, useLayoutEffect} from "react";
 import { Tooltip } from "antd";
-import { ScopeSwitch } from "./ScopeSwitch";
 import { DISCIPLINES, disciplineCounts, disciplineFit, professionLabel, selectedDiscipline } from "../disciplines";
 
 export function DisciplineSelector({ items, visible, state, update }) {
@@ -17,7 +16,7 @@ export function DisciplineSelector({ items, visible, state, update }) {
   const counts = disciplineCounts(items);
   const specific = visible.filter(i => disciplineFit(i,state) === 'specific').length;
   const common = visible.filter(i => disciplineFit(i,state) === 'common').length;
-  const choose = (id) => update(s => ({...s,discipline:id,major:'all',repo:null}));
+  const choose = (id) => update(s => ({...s,discipline:id,major:'all',repo:null,...(id==='all' && s.sort==='fit'?{sort:'rank'}:{})}));
   return (
     <section className="discipline-selector" data-testid="discipline-selector" aria-labelledby="discipline-selector-title">
       <div className="discipline-selector-heading">
@@ -36,11 +35,7 @@ export function DisciplineSelector({ items, visible, state, update }) {
         <button data-major="all" aria-pressed={state.major === 'all'} onClick={() => update(s => ({...s,major:'all'}))}>{zh ? `全部${group.zh}` : `All ${group.en}`}</button>
         {group.majors.map(m => <button key={m.id} data-major={m.id} aria-pressed={state.major === m.id} onClick={() => update(s => ({...s,major:m.id}))}>{m[lang]}</button>)}
       </div>}
-      {group && <div className="discipline-selector-foot">
-
-        {group && <label><ScopeSwitch size="small" aria-label={zh ? '包含通用科研 Skills' : 'Include general research Skills'} checked={state.includeCommon !== false} onChange={includeCommon => update(s => ({...s,includeCommon}))}/>{zh ? '包含通用科研 Skills' : 'Include general research Skills'}</label>}
-      </div>}
-      {group && !specific && <p className="discipline-empty-note">{zh ? '当前条件下，本站尚无已核验专业归属的项目。这不代表没有相关 Skills，可开启通用科研 Skills，或推荐你发现的项目。' : 'No projects with reviewed discipline labels match these filters yet. This does not mean no such Skills exist. Include general Skills or suggest a project.'} <a href="https://github.com/RiceAI88/awesome-paper-research-skills/issues/new?template=recommend-repo.yml" target="_blank" rel="noopener noreferrer">{zh ? "推荐项目 ↗" : "Suggest a project ↗"}</a></p>}
+      {group && !specific && <p className="discipline-empty-note">{zh ? '当前条件下，本站尚无已核验专业归属的项目。这不代表没有相关 Skills，可在“收录范围”开启通用科研 Skills，或推荐你发现的项目。' : 'No projects with reviewed discipline labels match these filters yet. This does not mean no such Skills exist. Include general Skills or suggest a project.'} <a href="https://github.com/RiceAI88/awesome-paper-research-skills/issues/new?template=recommend-repo.yml" target="_blank" rel="noopener noreferrer">{zh ? "推荐项目 ↗" : "Suggest a project ↗"}</a></p>}
     </section>
   );
 }

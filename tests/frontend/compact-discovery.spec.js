@@ -22,7 +22,7 @@ test("compact first screen groups stats below controls and exposes visitor copy"
   const adHeight = (await page.getByTestId("zhi1ke-ad").boundingBox()).height + 14;
   expect(
     (await page.getByTestId("repo-card").first().boundingBox()).y,
-  ).toBeLessThan(760 + adHeight + (await page.getByTestId("discipline-selector").boundingBox()).height + 24);
+  ).toBeLessThan(760 + adHeight + (await page.getByTestId("discipline-selector").boundingBox()).height + 24 + (await page.locator(".beginner-entry").boundingBox()).height + 12);
   await expect(page.locator(".statistics")).toContainText(/近 30 天有更新.*\//);
   await expect(page.getByRole("button", { name: /本周新收录/ })).toBeVisible();
   await expect(page.locator(".task-count-note")).toContainText("多个场景");
@@ -185,7 +185,7 @@ test("mobile ranking stays compact apart from the approved leading ad, with task
   const adHeight = (await page.getByTestId("zhi1ke-ad").boundingBox()).height + 14;
   expect(
     (await page.getByTestId("repo-card").first().boundingBox()).y,
-  ).toBeLessThan(760 + adHeight + (await page.getByTestId("discipline-selector").boundingBox()).height + 24);
+  ).toBeLessThan(760 + adHeight + (await page.getByTestId("discipline-selector").boundingBox()).height + 24 + (await page.locator(".beginner-entry").boundingBox()).height + 12);
   const metric = await page
     .getByTestId("repo-card")
     .first()

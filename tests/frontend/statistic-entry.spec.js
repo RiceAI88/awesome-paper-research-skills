@@ -1,3 +1,5 @@
+import { growthState } from "../../src/projectFacts.js";
+import vm from "node:vm";
 import { test, expect } from "./fixtures.js";
 import { recentlyUpdatedCount, isNewThisWeek } from "../../src/domain.js";
 import { readFileSync } from "node:fs";
@@ -5,13 +7,15 @@ const { items: allItems, metadata } = JSON.parse(
   readFileSync(new URL("../../data/rankings.json", import.meta.url), "utf8"),
 );
 const items = allItems.filter((item) => ["skill", "related"].includes(item.repository_kind));
+const context={window:{}}; vm.runInNewContext(readFileSync(new URL("../../data/history.js",import.meta.url),"utf8"),context);
+const history=context.window.ACADEMIC_SKILLS_HISTORY;
 const expected = [
   String(items.length),
   String(
     items.filter((item) => isNewThisWeek(item, metadata.generated_at)).length,
   ),
   "+" +
-    items
+    items.filter(item=>["zero","value"].includes(growthState(item,history,metadata.generated_at)))
       .reduce((sum, item) => sum + (item.star_delta_7d || 0), 0)
       .toLocaleString("en-US"),
   `${recentlyUpdatedCount(items, metadata.generated_at)} / ${items.length}`,

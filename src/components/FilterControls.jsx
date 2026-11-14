@@ -27,6 +27,7 @@ export default function FilterControls({state,update,t,platformIds}) {
                 value={state.sort === "stars" ? "rank" : state.sort}
                 onChange={(sort) => update((s) => ({ ...s, sort }))}
                 options={[
+                  ...(state.discipline !== "all" ? [["fit", state.lang === "zh" ? "专业适用优先" : "Discipline fit first"]] : []),
                   ["rank", "Stars"],
                   ["delta7", t("sortDelta7")],
                   ["newest", t("sortNewest")],

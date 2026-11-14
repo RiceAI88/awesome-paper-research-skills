@@ -1,4 +1,4 @@
-import { DisciplineFitBadge } from "./DisciplineFitBadge";
+import { ProjectFacts, GrowthValue } from "./ProjectFacts";
 import { Zhi1keAd } from "./Zhi1keAd";
 import { SearchHighlight } from "./SearchHighlight";
 import { Panel } from "./Panel";
@@ -135,6 +135,7 @@ export function RepositoryActions({
   );
 }
 export function RepositoryViews({
+  generatedAt,
   items,
   filterHeight,
   onReady,
@@ -322,18 +323,12 @@ export function RepositoryViews({
                   </div>
                   <div
                     className={`card-growth${item.star_delta_7d ? "" : " no-growth"}`}
-                    aria-label={t("statNet7d")}
                   >
-                    <span>{state.lang === "zh" ? "近 7 日" : "7 days"}</span>
-                    <strong>
-                      {item.star_delta_7d
-                        ? `${item.star_delta_7d > 0 ? "+" : ""}${fmt(item.star_delta_7d)}`
-                        : "—"}
-                    </strong>
+                    <GrowthValue {...{item,history,generatedAt,fmt}} lang={state.lang} withPeriod />
                   </div>
                 </div>
                 <SummaryText item={item} t={t} query={state.query} />
-                <DisciplineFitBadge item={item} state={state} />
+                <ProjectFacts {...{item,state,t}} />
                 <div className="card-info-footer">
                   <PlatformTags item={item} t={t} compact />
                   {item.inactive90 ? (
@@ -364,7 +359,7 @@ export function RepositoryViews({
           onReady={onReady}
           className="ranking-table"
           rowKey="repo"
-          {...{ state, update, t, fmt, history, link, actions }}
+          {...{ state, update, t, fmt, history, generatedAt, link, actions }}
           badges={(item) => <QualityBadges item={item} t={t} />}
           dataSource={entries}
           pagination={false}

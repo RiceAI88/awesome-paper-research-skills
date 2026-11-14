@@ -1,4 +1,4 @@
-import { test, expect } from "./fixtures.js";
+import { test, expect, openScope } from "./fixtures.js";
 async function aligned(page) {
   const line = page.locator(".task-selection-indicator");
   await expect
@@ -64,6 +64,7 @@ test("scene indicator stays aligned through language, counts, resizing and horiz
   await aligned(page);
   await page.getByText("EN", { exact: true }).click();
   await aligned(page);
+  await openScope(page);
   await page.getByTestId("include-related").click();
   await aligned(page);
   await page.setViewportSize({ width: 320, height: 800 });

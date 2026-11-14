@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures.js';
+import { test, expect, openScope } from './fixtures.js';
 import { readFileSync } from 'node:fs';
 import { filterItems, restoreState } from '../../src/domain.js';
 const data=JSON.parse(readFileSync(new URL('../../data/rankings.json',import.meta.url),'utf8'));
@@ -9,6 +9,7 @@ test('profession filters use real counts, specialists first, and share via URL',
  await expect(page.getByTestId('repo-card')).toHaveCount(Math.min(expected.length,30));
  await expect(page.locator('[data-discipline="medicine"]')).toHaveAttribute('aria-pressed','true');
  await expect(page.locator('[data-major="bioinformatics"]')).toHaveAttribute('aria-pressed','true');
+ await openScope(page);
  await expect(page.getByRole('switch',{name:'包含通用科研 Skills'})).toHaveAttribute('aria-checked','false');
  await page.getByTestId('repo-card').first().click();
  const drawer=page.getByRole('dialog');
@@ -23,6 +24,7 @@ test('common tools can be disabled and an uncovered discipline stays honest',asy
  await page.goto('./#discipline=law');
  await expect(page.locator('.discipline-selector h2')).toContainText('法学');
  const before=await page.getByTestId('repo-card').count();
+ await openScope(page);
  await page.getByRole('switch',{name:'包含通用科研 Skills'}).click();
  await expect.poll(()=>page.getByTestId('repo-card').count()).toBeLessThan(before);
  await page.locator('[data-discipline="history"]').click();
@@ -67,5 +69,6 @@ test('comparison matrix count predicts results even with a different active prof
  await expect(cell).toBeVisible();
  await cell.click();
  await expect(page.getByTestId('repo-card')).toHaveCount(Math.min(30,expected));
+ await openScope(page);
  await expect(page.getByRole('switch',{name:'包含通用科研 Skills'})).toHaveAttribute('aria-checked','false');
 });

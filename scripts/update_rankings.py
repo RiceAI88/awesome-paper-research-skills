@@ -1722,15 +1722,15 @@ def render_og_cover(data: dict[str, Any], lang: str = "zh") -> str:
 
     title = "Research Skills" if lang == "en" else "找到适合你专业的"
     subtitle = "For your discipline" if lang == "en" else "科研 Skills"
-    caption = "By discipline · Literature · Writing · Data analysis" if lang == "en" else "按专业找工具 · 文献检索 · 写作 · 数据分析"
-    brand = "Research Skills Directory" if lang == "en" else "科研 Skills 导航"
+    caption = "For undergraduate and postgraduate students" if lang == "en" else "面向大学生和研究生 · 按专业与科研任务找 Skills"
+    brand = "Zhiyike AI · Research Skills Directory" if lang == "en" else "智一刻AI · 科研 Skills 导航"
     count_label = f"{total} Skill" + ("s" if total != 1 else "")
     scope_label = "Skills only · Ranked by GitHub Stars" if lang == "en" else "仅统计 Skills · 按 GitHub Stars 排序"
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="#FBFAF8"/>
   <rect x="64" y="56" width="64" height="48" rx="4" fill="#4A3FBF"/>
-  <text x="96" y="87" text-anchor="middle" font-family="{font}" font-size="18" font-weight="700" fill="#FFFFFF">APRS</text>
+  <text x="96" y="87" text-anchor="middle" font-family="{font}" font-size="18" font-weight="700" fill="#FFFFFF">ZAI</text>
   <text x="146" y="87" font-family="{font}" font-size="25" font-weight="600" fill="#1E1B3A">{brand}</text>
   <line x1="64" y1="128" x2="1136" y2="128" stroke="#E7E5F2"/>
   <text x="64" y="234" font-family="{font}" font-size="72" font-weight="700" fill="#1E1B3A">{title}</text>
