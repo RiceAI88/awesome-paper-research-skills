@@ -188,3 +188,13 @@ class DisciplineDiscoveryTest(unittest.TestCase):
         plan=discovery.search_plan({'min_stars':100,'search_queries':[],'discovery':{'queries':[],'discipline_queries':['"single-cell" "skill"']}},NOW)
         self.assertTrue(any('single-cell' in p['query'] and p['strategy']=='recent' for p in plan))
         self.assertTrue(any('single-cell' in p['query'] and p['strategy']=='star_band' for p in plan))
+
+class HumanitiesResearchAdmissionTest(unittest.TestCase):
+    def test_humanities_scholars_skill_with_documented_workflow_is_research(self):
+        text = '# Humanities Writing Companion\nAn agent skill for humanities scholars whose primary deliverable is a long-form argumentative text — history, philosophy, literature, art history.\n## Usage\nInstructions and workflow: research question, source reading, argument planning, revision.'
+        item = repo(description='Humanities writing assistant', _readme_evidence={'status':'verified','text':text})
+        self.assertTrue(is_academic_skill_repo(item)[0])
+
+    def test_generic_design_philosophy_does_not_become_humanities_research(self):
+        text = '# Software design philosophy\nA Claude Code skill for building software and architecture.\n## Usage\nInput code and output a design.'
+        self.assertFalse(is_academic_skill_repo(repo(_readme_evidence={'status':'verified','text':text}))[0])

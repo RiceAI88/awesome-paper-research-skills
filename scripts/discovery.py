@@ -30,6 +30,7 @@ DISCIPLINE_PURPOSE = re.compile(
     r'clinical (?:trial|research)|systematic review|meta[ -]analysis|materials? (?:science|simulation)|'
     r'legal (?:research|case analysis)|historical (?:research|source analysis)|'
     r'linguistic (?:research|corpus analysis)|educational research|agricultural research|'
+    r'humanities (?:research|scholars|writing)|(?:philosophical|literary) research|'
     r'单细胞|转录组|生物信息|分子对接|计算化学|理论物理|计量经济|因果推断|临床研究|'
     r'材料研究|法律研究|法学研究|案例研究|历史文献研究|语料分析|教育研究|农业研究', re.I)
 

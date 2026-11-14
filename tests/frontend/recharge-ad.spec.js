@@ -8,9 +8,9 @@ for (const width of [1280, 390])
     const ad = page.getByTestId("gpt-recharge-ad");
     await expect(ad).toHaveCount(1);
     await expect(ad).not.toContainText("广告");
-    await expect(ad).toContainText("自营 GPT / Codex 正规代充");
-    await expect(ad).toContainText("可开发票");
-    const link = ad.getByRole("link", { name: /支持一下本站/ });
+    await expect(ad.getByRole("link")).toHaveAttribute("title", /自营 GPT \/ Codex 正规代充/);
+    await expect(ad.getByRole("link")).toHaveAttribute("title", /可开发票/);
+    const link = ad.getByRole("link", { name: /支持本站/ });
     await expect(link).toHaveAttribute("href", "https://catfk.com/shop/1991");
     await expect(link).toHaveAttribute("rel", /sponsored.*noopener/);
     await expect(link).toHaveAttribute("target", "_blank");
@@ -40,7 +40,7 @@ test("English dark table retains the ad separately from repository rows", async 
   await page.goto("./#view=table&lang=en&theme=dark");
   const ad = page.getByTestId("gpt-recharge-ad");
   await expect(ad).not.toContainText("Advertisement");
-  await expect(ad).toContainText("Invoices available");
+  await expect(ad.getByRole("link")).toHaveAttribute("title", /Invoices available/);
   await expect(page.locator(".ant-table-row")).toHaveCount(30);
   expect(await ad.evaluate((e) => e.closest(".ant-table") === null)).toBe(true);
   await expect(ad.getByRole("link")).toHaveAttribute(
@@ -56,7 +56,7 @@ test("English recharge advertisement fits a narrow dark mobile screen", async ({
   await page.goto("./#view=card&lang=en&theme=dark");
   const ad = page.getByTestId("gpt-recharge-ad");
   await ad.scrollIntoViewIfNeeded();
-  await expect(ad).toContainText("Invoices available");
+  await expect(ad.getByRole("link")).toHaveAttribute("title", /Invoices available/);
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= innerWidth,

@@ -30,7 +30,7 @@ for (const width of [1440, 390])
     await expect
       .poll(async () => Math.round((await header.boundingBox()).y) - Math.ceil((await page.locator(".filters").boundingBox()).height) - Math.round((await page.locator(".filters").boundingBox()).y))
       .toBe(0);
-    await expect(page.locator("#sortSelect")).toBeInViewport();
+    await expect(page.getByRole("button", {name:/^筛选/})).toBeInViewport();
     expect(
       await page.evaluate(
         () => document.documentElement.scrollWidth <= innerWidth,

@@ -77,6 +77,7 @@ test("empty results recover by clearing restrictions while preserving saved favo
     .getByRole("button", { name: /^收藏 / });
   await favorite.click();
   await page.getByRole("searchbox").fill("no-results-xyz");
+  await page.getByRole("button", {name:/^筛选/}).click();
   await page.getByTestId("favorites-only").click();
   await expect(page.getByTestId("ranking-empty")).toBeVisible();
   const bar = page.getByTestId("active-filters");
@@ -85,6 +86,7 @@ test("empty results recover by clearing restrictions while preserving saved favo
   await expect(page.locator(".ant-table-row")).toHaveCount(Math.min(30, data.items.length));
   await expect(page.getByTestId("active-filters")).toHaveCount(0);
   await expect(favorite).toHaveAttribute("aria-pressed", "true");
+  await page.getByRole("button", {name:/^筛选/}).click();
   await expect(page.getByTestId("favorites-only")).toHaveAttribute(
     "aria-pressed",
     "false",

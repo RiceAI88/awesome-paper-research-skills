@@ -82,6 +82,7 @@ test("sorting resets batches, while saving and switching view preserve loaded re
     .locator("..")
     .click();
   await expect(page.locator(".ant-table-row")).toHaveCount(60);
+  await page.getByRole("button", {name:/^筛选/}).click();
   await page.locator("#sortSelect").click();
   await page.locator('.ant-select-item-option[title="排序：最近更新"]').click();
   await expect(page.locator(".ant-table-row")).toHaveCount(30);

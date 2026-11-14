@@ -154,6 +154,7 @@ test("scope and sorting remain clear without duplicate single-filter chips", asy
       .locator(".ranking-header h2")
       .evaluate((el) => getComputedStyle(el).position),
   ).toBe("absolute");
+  await page.getByRole("button", {name:/^筛选/}).click();
   await page.locator("#agentFilter").click();
   await page
     .locator(".ant-select-item-option")

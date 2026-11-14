@@ -23,7 +23,8 @@
     "LimHyungTae/awesome-claudecode-paper-proofreading",
     "hanlulong/econ-writing-skill",
     "fcakyon/phd-skills",
-    "OpenLAIR/dr-claw"
+    "OpenLAIR/dr-claw",
+    "tizzy916/humanities-writing-companion"
   ],
   "search_queries": [
     "academic skill in:name,description,readme",
@@ -69,7 +70,15 @@
       "\"computational chemistry\" \"skill\"",
       "\"physics\" \"research\" \"skill\"",
       "\"linguistics\" \"research\" \"skill\"",
-      "\"social science\" \"research\" \"skill\""
+      "\"social science\" \"research\" \"skill\"",
+      "\"humanities\" \"skill\"",
+      "\"philosophy\" \"skill\"",
+      "\"history\" \"research\" \"skill\"",
+      "\"art history\" \"skill\"",
+      "\"agronomy\" \"skill\"",
+      "\"crop\" \"research\" \"skill\"",
+      "\"文学\" \"skill\"",
+      "\"史料\" \"skill\""
     ]
   }
 }

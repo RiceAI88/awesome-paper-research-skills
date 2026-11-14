@@ -56,6 +56,7 @@ test("favorites persist, drawer copies commands and links restore detail", async
   await expect(page.getByRole("dialog")).toBeVisible();
   await page.keyboard.press("Escape");
   await expect(page.getByRole("dialog")).not.toBeVisible();
+  await page.getByRole("button", {name:/^筛选/}).click();
   await page.getByTestId("favorites-only").click();
   await expect(page.locator(".ant-table-row")).toHaveCount(1);
   await page.locator(".export-menu summary").click();

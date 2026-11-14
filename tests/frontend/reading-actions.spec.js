@@ -57,6 +57,8 @@ for (const width of [1440, 390]) {
       ).toBeGreaterThanOrEqual(minimum);
     }
     await page.locator("#beginner-paths").scrollIntoViewIfNeeded();
+    await page.getByRole("button", {name:/^筛选/}).click();
+    await expect(page.locator("#agentFilter")).toBeVisible();
     for (const selector of [
       ".task-list button",
       ".filter-fields .ant-select",

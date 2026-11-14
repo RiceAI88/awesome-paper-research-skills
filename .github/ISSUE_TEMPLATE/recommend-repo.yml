@@ -1,41 +1,42 @@
----
-name: 推荐新仓库
-about: 推荐一个学术/科研 Agent Skill 仓库加入榜单
-title: "[推荐] <owner/repo>"
-labels: recommendation
----
-
-## 仓库
-
-<!-- 例如 Imbad0202/academic-research-skills -->
-
-- 仓库链接：
-- GitHub Stars（大约）：
-- 主要语言：
-
-## 分类
-
-<!-- 选一个最贴近的：深度研究 / 论文写作 / 文献综述 / 评审反馈 / 实验复现 / 学科专项 / 综合研究 -->
-
-## 适用 Agent
-
-<!-- 勾选该仓库支持/面向的 Agent（可多选） -->
-
-- [ ] Claude Code
-- [ ] Codex
-- [ ] OpenCode
-- [ ] Cursor
-- [ ] Gemini
-- [ ] MCP
-- [ ] 通用 / 其他
-
-## 推荐理由
-
-<!-- 一句话说明它如何服务学术/科研/论文场景，以及它具备哪些 Skill/Agent/Workflow 信号 -->
-
-## 信号自检
-
-- [ ] 明确服务学术/科研/论文/文献/评审/实验复现
-- [ ] 具备 Skill/Agent/Workflow/Claude Code/Codex/OpenCode 信号
-- [ ] Stars ≥ 100
-- [ ] 非 fork、未归档
+name: 推荐 Skill
+description: 推荐你发现的科研 Skill 或相关工具；核验后收录。
+title: "[推荐] "
+labels: [recommendation]
+body:
+  - type: markdown
+    attributes:
+      value: 欢迎自荐或推荐。提交后会核验科研用途、Skill/Agent 能力和官方文档，提交不代表自动收录。请勿填写账号、密钥或其他隐私信息。
+  - type: input
+    id: repository
+    attributes:
+      label: GitHub 仓库链接
+      placeholder: https://github.com/owner/repository
+    validations:
+      required: true
+  - type: input
+    id: discipline
+    attributes:
+      label: 适用专业
+      description: 写明具体专业；跨专业适用可填写“通用”。
+      placeholder: 例如：历史学、临床医学、计算机科学，或通用
+    validations:
+      required: true
+  - type: checkboxes
+    id: tasks
+    attributes:
+      label: 科研任务
+      options:
+        - label: 找文献
+        - label: 读论文
+        - label: 写论文
+        - label: 科研绘图
+        - label: 实验复现
+        - label: 投稿审稿
+        - label: 数据分析
+        - label: 研究计算
+        - label: 其他（请在推荐理由中说明）
+  - type: textarea
+    id: reason
+    attributes:
+      label: 推荐理由（选填）
+      description: 可以附上专业用途、安装或使用说明的官方文档链接，方便核验。

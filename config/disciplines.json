@@ -537,6 +537,207 @@
       "common": true,
       "reviewed_at": "2026-11-14",
       "evidence": true
+    },
+    "ganzhi-black/humanities-thesis-skill": {
+      "disciplines": [],
+      "majors": [
+        "literature",
+        "history",
+        "philosophy",
+        "sociology"
+      ],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "lishix520/academic-paper-skills": {
+      "disciplines": [],
+      "majors": [
+        "philosophy"
+      ],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "anon-research-tools/academic-literature-route": {
+      "disciplines": [],
+      "majors": [
+        "history",
+        "linguistics"
+      ],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "haonanalex/mgmt-paper-skills": {
+      "disciplines": [
+        "management"
+      ],
+      "majors": [],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "juliaerror/econ-topjournal-writing-skill": {
+      "disciplines": [],
+      "majors": [
+        "economics"
+      ],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "pedrohcgs/claude-code-my-workflow": {
+      "disciplines": [],
+      "majors": [
+        "economics",
+        "politics"
+      ],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "feijianghan/paperforge": {
+      "disciplines": [],
+      "majors": [
+        "history",
+        "sociology",
+        "politics",
+        "philosophy",
+        "education"
+      ],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "brycewang-stanford/auto-empirical-research-skills": {
+      "disciplines": [],
+      "majors": [
+        "economics",
+        "statistics"
+      ],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "landawang-star/mathematical-modeling-review": {
+      "disciplines": [],
+      "majors": [
+        "mathematics"
+      ],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "kalarislabs/research-agent-skills": {
+      "disciplines": [],
+      "majors": [
+        "chemistry",
+        "materials",
+        "pharmacy",
+        "clinical",
+        "public-health",
+        "physics",
+        "geoscience",
+        "psychology",
+        "ai"
+      ],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "hkustdial/supervisor-skills": {
+      "disciplines": [],
+      "majors": [],
+      "common": true,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "wubing2023/paperspine": {
+      "disciplines": [],
+      "majors": [],
+      "common": true,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "aiscientists-dev/academic-humanizer": {
+      "disciplines": [],
+      "majors": [],
+      "common": true,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "wantongc/journal-adapt-writing-skill": {
+      "disciplines": [],
+      "majors": [],
+      "common": true,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "199-biotechnologies/claude-deep-research-skill": {
+      "disciplines": [],
+      "majors": [],
+      "common": true,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "liuxiangjian-ai/reference-checker-skill": {
+      "disciplines": [],
+      "majors": [],
+      "common": true,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "wycmochi/cn-academic-spark": {
+      "disciplines": [],
+      "majors": [],
+      "common": true,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "poemswe/co-researcher": {
+      "disciplines": [],
+      "majors": [],
+      "common": true,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "brycewang-stanford/awesome-journal-skills": {
+      "disciplines": [],
+      "majors": [
+        "mathematics",
+        "statistics",
+        "physics",
+        "chemistry",
+        "biology",
+        "psychology",
+        "geoscience",
+        "computer-science",
+        "ai",
+        "materials",
+        "mechanical",
+        "civil",
+        "clinical",
+        "public-health",
+        "bioinformatics",
+        "agronomy",
+        "economics",
+        "finance",
+        "business",
+        "information-management",
+        "law",
+        "politics",
+        "sociology",
+        "linguistics",
+        "literature",
+        "history",
+        "philosophy",
+        "education",
+        "arts"
+      ],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
     }
   }
 }

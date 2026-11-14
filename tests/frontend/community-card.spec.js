@@ -2,13 +2,13 @@ import { test, expect } from "./fixtures.js";
 
 test("community QR sits beside the title and opens an accessible full image", async ({ page }) => {
   await page.goto("./");
-  const card = page.getByRole("button", { name: "加入 AI 科研交流群，点击放大二维码" });
+  const card = page.getByRole("button", { name: "加入各专业科研 Skills 交流群，点击放大二维码" });
   await expect(card).toBeVisible();
   const cardBox = await card.boundingBox();
   const titleBox = await page.locator(".hero-copy").boundingBox();
   expect(cardBox.x).toBeGreaterThan(titleBox.x + titleBox.width - 1);
   await card.click();
-  const dialog = page.getByRole("dialog", { name: "AI 科研交流群" });
+  const dialog = page.getByRole("dialog", { name: "各专业科研 Skills 交流群" });
   await expect(dialog).toBeVisible();
   await expect(dialog.locator("img")).toHaveJSProperty("naturalWidth", 450);
   await page.keyboard.press("Escape");
@@ -19,7 +19,7 @@ test("community QR sits beside the title and opens an accessible full image", as
 test("mobile community card is below title without horizontal overflow", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("./");
-  const card = page.getByRole("button", { name: "加入 AI 科研交流群，点击放大二维码" });
+  const card = page.getByRole("button", { name: "加入各专业科研 Skills 交流群，点击放大二维码" });
   await expect(card).toBeVisible();
   const cardBox = await card.boundingBox();
   const titleBox = await page.locator(".hero-copy").boundingBox();
@@ -33,7 +33,7 @@ test("mobile community card is below title without horizontal overflow", async (
 
 test("dialog close icon stays centered with a quiet hover style", async ({ page }) => {
   await page.goto("./");
-  await page.getByRole("button", { name: "加入 AI 科研交流群，点击放大二维码" }).click();
+  await page.getByRole("button", { name: "加入各专业科研 Skills 交流群，点击放大二维码" }).click();
   const close = page.getByRole("button", { name: "关闭二维码" });
   const icon = close.locator("svg");
   await expect(icon).toBeVisible();

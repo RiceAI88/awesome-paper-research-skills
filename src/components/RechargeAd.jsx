@@ -12,6 +12,7 @@ export function RechargeAd({ t }) {
         href="https://catfk.com/shop/1991"
         target="_blank"
         rel="sponsored noopener noreferrer"
+        title={t("rechargeSummary")}
       >
         <span className="support-card-heading">
           <strong>{t("rechargeSupport")}</strong>
@@ -19,7 +20,7 @@ export function RechargeAd({ t }) {
             ↗
           </span>
         </span>
-        <span className="support-card-caption">{t("rechargeSummary")}</span>
+
       </a>
     </aside>
   );

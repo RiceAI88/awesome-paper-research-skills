@@ -259,5 +259,176 @@
     "source_sha": "0561c5b933b66714af9bfde24558de9d7add8d16",
     "reviewed_at": "2026-11-14",
     "review_kind": "documentation_only"
+  },
+  "ganzhi-black/humanities-thesis-skill": {
+    "use_zh": "人文社科论文选题、论证与文本评估",
+    "use_en": "Humanities and social-science research writing",
+    "source_quote": "覆盖 19 个学科：文学、历史、哲学、社会学、传播学、新闻学……</sub>\n\n</td>\n</tr>\n</tbody>\n</table>\n\n---\n\n## 🔬 文本评估引擎\n\n写完一段，跑一次检查。不是让模型\"自己检查自己\"——而是用**正则匹配 + 术语表比对**做确定性校验。\n\n```bash\npython scripts/review.py paper.md\n```\n\n```\n评估完成：2 个错误 / 5 个警告 / 1 个提示\n\n✗ [错误] R1-01 第12行\n  模糊引用：使用了「有学者指出」类表述但未给出具体文献\n  建议：替换为具体的作者名+出处，或删除这个引用\n\n⚠ [警告] L-07 第45行\n  总结句中堆砌了 5 个以上并列概念\n  建议：检查这些并列项是否都在前文得到了论证\n\n⚠ [警告] L-08 第38行\n  强断言「显然」附近未见充分的论据支撑\n  建议：删去强度词，或补充多重论据\n```\n\n### 六个维度 · 21 条规则\n\n| 维度 | 规则 | 做什么 |\n|------|------|--------|\n| 🔴 **可信度** | R1-01 ~ R3-01 | 模糊引用、未来年份引用（编造嫌疑）、过度断言 |\n| 🟡 **术语** | T-01 | 同一概念多个译名混用（灵晕/灵韵/灵光） |\n| 🟠 **格式** | F-01 ~ F-04 | 空脚注、参考文献缺 [M][J]、中英标点混用、标题编号混用 |\n| 🔵 **语体**",
+    "source_url": "https://github.com/ganzhi-black/humanities-thesis-skill/blob/main/README.md",
+    "source_sha": "6b1194249109383eb3cfcec94a18f82514b66459",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "lishix520/academic-paper-skills": {
+    "use_zh": "哲学论文规划与写作",
+    "use_en": "Philosophy paper planning and writing",
+    "source_quote": "A systematic framework for planning and writing philosophy and interdisciplinary academic papers using Claude Code. These skills transform your research ideas into submission-ready manuscripts through structured workflows with quality checkpoints.\n\n## Features\n\n- **End-to-End Pipeline**: From initial idea to polished manuscript\n- **Evidence-Based Gap Identification**: Every research gap backed by 3-5 citations\n- **Platform-Specific Style Learning**: Analyze 8-10 sample papers to extract writing standards\n- **Reviewer Simulation**: 7-dimension, 35-point assessment system\n- **Quality Assurance**: 3 validation gates + 2 Python verification scrip",
+    "source_url": "https://github.com/lishix520/academic-paper-skills/blob/main/README.md",
+    "source_sha": "8af1f9d58354e518b8d75c69e418c1e03fca02fb",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "anon-research-tools/academic-literature-route": {
+    "use_zh": "人文学术文献检索路线与核验",
+    "use_en": "Humanities literature search and verification",
+    "source_quote": "关注宗教学、文献学、历史学、语言学、数字人文、图书情报等领域。\n- 覆盖 CNKI、万方、维普、国家哲学社会科学文献中心、CSSCI、北大核心、台湾学术平台等中文学术来源。\n- 兼顾海外索引、出版社平台、开放仓储和 Google Scholar 引文链。\n- 强调“能不能支持论证”，而不只是“有没有搜到”。\n\n换句话说，它不是泛泛的搜索提示词，而是把人文学者实际做综述、开题、申报和论文修改时会遇到的问题，整理成了一套可执行的检索流程。\n\n### 2. 不是堆链接，而是一套完整流程\n\n很多所谓“论文搜索”工具最后只给一堆链接。这样的问题是：链接来源混杂，相关性不清楚，真假难辨，也不知道哪些可以引用、哪些只是线索。\n\n这个 Skill 的重点不是堆砌搜索结果，而是让检索过程形成闭环：\n\n1. 先拆解选题，明确研究对象、领域、问题意识和方法词。\n2. 再扩展检索式，生成中文、英文、同义词、历史术语和站点定向查询。\n3. 然后分层搜索，把数据库记录、出版社页面、开放元数据、网页线索、AI 线索和社交媒体线索分开。\n4. 接着核验条目，确认题名、作者、年份、刊物、DOI、URL 和全文来源。\n5. 再给文献分 A/B/C/D 等级，区分可引用文献、精读文献、背景文献和排除项。\n6. 最后保留检索审计日志，并从种子论文继续做向前引用、向后被引和相似论文扩展。\n\n所以，它输出的不只是“找到哪些链接”，而是一份可以继续使用、可以人工复核、可以写进研究过程说明的文献检索路线。\n\n## 这个 Ski",
+    "source_url": "https://github.com/anon-research-tools/academic-literature-route/blob/main/README.md",
+    "source_sha": "5d4052708491c783bbf6c23f18a8505a17f769c8",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "haonanalex/mgmt-paper-skills": {
+    "use_zh": "管理学研究、分析与写作",
+    "use_en": "Management research workflows",
+    "source_quote": "Practical Codex & Claude workflows for management research: idea development, literature work, data cleaning, SPSS/Stata/Python analysis, qualitative coding, mixed methods, journal figures, writing, and review.\n\n> 面向管理学科研的实用型 Codex / Claude 科研工作台：覆盖 idea 打磨、文献整理、数据清洗、SPSS/Stata/Python 分析、定性编码、混合方法、期刊图表、论文写作与审稿自查。\n\n![Status](https://img.shields.io/badge/status-beta-blue)\n![Tests](https://img.shields.io/badge/tests-22%20suites%20passing-brightgreen)\n![License](https://img.shields.io/badge/license-Apache--2.0-green)\n![Focus](https://img.shields.io/badge/focus-management%20research-purple)\n![Skills](https://img.shields.io/badge/category-MGMT%20Pa",
+    "source_url": "https://github.com/HaonanAlex/MGMT-Paper-Skills/blob/main/README.md",
+    "source_sha": "42ee3ca617df30c3b682d1c530b4cb98842c5aec",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "juliaerror/econ-topjournal-writing-skill": {
+    "use_zh": "经济学论文写作与修改",
+    "use_en": "Economics manuscript writing and review",
+    "source_quote": "This Codex workflow supports economics writing in English and Chinese: outlines, full drafts, revisions, tables and figures, and manuscript review. It combines writing instructions and reference modules with multi-agent review and an executable Python pipeline for preparing reviews and checking their coverage, citations, and file versions.\n\n**AI can assist research and writing, but key academic judgments remain with human researchers.** You provide the research question, evidence, and intended argument, and decide which changes to accept.\n\n这套 Codex 写作流程支持经济学论文的大纲、全文起草、修改、图表制作和稿件审阅，兼顾中文和英文写作。仓库既有写作规则和分项参考模块，也有多 agent 审阅流程与可执行的 Python 管线，用于准备审阅",
+    "source_url": "https://github.com/juliaError/econ-TopJournal-writing-Skill/blob/main/README.md",
+    "source_sha": "bd153af059df72da1a460c140f379a6c337b828b",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "pedrohcgs/claude-code-my-workflow": {
+    "use_zh": "经济学与政治学研究工作流",
+    "use_en": "Economics and political-science workflows",
+    "source_quote": "**Disciplines preloaded:** Economics (top-5 journal profiles, R conventions) and Political Science (APSR / AJPS / JOP profiles, formal-theory + survey-experiment paper types, conjoint/`cjoint` conventions). Forkers extend for psych / sociology / public-health via journal profiles + paper types + discipline cards.\n\n### One repo, many project types\n\nThis workflow is designed as a **single hub for an entire research program** — not one paper at a time. The same `CLAUDE.md`, rules, agents, and quality gates serve courses and lectures, papers and referee reports, data analysis and replication packages, **Monte Carlo simulation studies** (`/simulat",
+    "source_url": "https://github.com/pedrohcgs/claude-code-my-workflow/blob/main/README.md",
+    "source_sha": "0ac129a9bfe8ca2324700f8e10952e7da4f604ef",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "feijianghan/paperforge": {
+    "use_zh": "跨学科论文精读与方法分析",
+    "use_en": "Cross-disciplinary paper reading and method analysis",
+    "source_quote": "* history\n* sociology\n* political science\n* philosophy\n* anthropology\n* education\n* communication\n* economics\n* law\n* literary studies\n\n---\n\n## Reference\n\n小红书帖子【用AI读论文两年半，我认为最好用的prompt - 幸运降临中】\n\nhttps://www.xiaohongshu.com/discovery/item/6a300c2e00000000060363b6?source=webshare&xhsshare=pc_web&xsec_token=ABYfMQEP9MGgfWyKvWBWs6xOMpOBKCFU80meDyRtv5h5A=&xsec_source=pc_share",
+    "source_url": "https://github.com/FeijiangHan/PaperForge/blob/main/README.md",
+    "source_sha": "a3df32754ae1b3447c4570eadcde579a156d2c7a",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "brycewang-stanford/auto-empirical-research-skills": {
+    "use_zh": "社科实证建模、识别策略与复现审计",
+    "use_en": "Empirical modelling, identification and replication audit",
+    "source_quote": "**估计建模** — Python / Stata / R 三栈，900+ 估计器 | · ⭐ [00.1 Full Empirical · Python](skills/00.1-Full-empirical-analysis-skill_Python/) · ⭐ [00.2 Full Empirical · Stata](skills/00.2-Full-empirical-analysis-skill_Stata/) · ⭐ [00.3 Full Empirical · R](skills/00.3-Full-empirical-analysis-skill_R/) · [40 pyfixest](skills/40-py-econometrics-pyfixest/) · [39 marginaleffects](skills/39-vincentarelbundock-marginaleffects/) · [09 awesome-econ-ai](skills/09-meleantonio-awesome-econ-ai-stuff/) · ⭐ [74 SPSS + AMOS 问卷结构方程](skills/74-brycewang-spss-amos-sem/) |\n| 6️⃣ | **稳健性审计** — 复现包检查 · Honest-DiD · R&R 模拟 | · [41 sewage-econometrics-check](skills/41-sticerd-e",
+    "source_url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills/blob/main/README.md",
+    "source_sha": "c88a4a286e076011951dac449a2e68f8d4f73a60",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "landawang-star/mathematical-modeling-review": {
+    "use_zh": "数学建模论文评审与修改建议",
+    "use_en": "Mathematical modelling paper review",
+    "source_quote": "**把完整赛题和论文交给 AI 助手，得到一份能直接用于修改的 CUMCM 论文评审报告。** 这个 Skill 会逐问检查你的建模有没有真正回答题目，指出论文与建模方案的具体问题，给出五维诊断分，并在证据足够时先告诉你**大概率不获奖、获省奖还是获国奖**，再给出国一、国二、省一、省二或省三的细分预测。报告同时说明预测区间、置信度、可能跨档的原因，以及下一版应该先改哪里。\n\n适用赛事：**高教社杯全国大学生数学建模竞赛（CUMCM）**。可用于赛前预审、修改版复核和赛后复盘。当前版本：**v2.11.0**。这是独立的评审辅助工具，不代表竞赛组委会；奖项预测是非官方经验判断，不保证真实获奖。\n\n## 你会得到什么\n\n| 用户遇到的问题 | 本 Skill 给出的结果 | 你可以据此做什么 |\n|---|---|---|\n| “我们是不是答偏题了？是不是漏了一问？” | 按题目每一问列出要求、论文回应、缺失的结果、被忽略的约束和证据位置 | 在提交前补齐最影响评阅的任务，而不只是润色摘要 |\n| “模型看起来很复杂，结论到底站不站得住？” | 检查假设、量纲、可行性、数值、验证和结论边界；把确定错误、重大待核疑点、局部缺陷分开 | 知道哪些问题必须重算，哪些只需补证据或改说法 |\n| “这篇论文大概能拿什么奖？” | 先判**不获奖 / 省奖 / 国奖**，再细分省一/省二/省三或国一/国二 | 获得明确的两阶段结论，同时看清升档、降档风险 |\n| “评完之后，具体怎么改？” |",
+    "source_url": "https://github.com/landawang-star/mathematical-modeling-review/blob/main/README.md",
+    "source_sha": "eeacfb14665d5d0800326386395dedf94df00fae",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "kalarislabs/research-agent-skills": {
+    "use_zh": "专业科研数据分析、数据库与研究工作流",
+    "use_en": "Domain-specific research data and workflows",
+    "source_quote": "| Chemistry, materials and drug discovery | [`rdkit`](skills/rdkit/SKILL.md), [`deepchem`](skills/deepchem/SKILL.md), [`pymatgen`](skills/pymatgen/SKILL.md) | [Chemistry and drug discovery](catalog/lists/chemistry-and-drug-discovery.txt) |\n| Clinical, biomedical and health research | [`pydicom`](skills/pydicom/SKILL.md), [`pyhealth`](skills/pyhealth/SKILL.md), [`clinical-reports`](skills/clinical-reports/SKILL.md) | [Clinical and health](catalog/lists/clinical-and-health.txt) |\n| Physics, astronomy and earth science | [`astropy`](skills/astropy/SKILL.md), [`qiskit`](skills/qiskit/SKILL.md), [`geopandas`](skills/geopandas/SKILL.md) | [Physical",
+    "source_url": "https://github.com/KalarisLabs/research-agent-skills/blob/main/README.md",
+    "source_sha": "65662ee16ba6cee8e1d1c6c66eedc0d7e71d9027",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "hkustdial/supervisor-skills": {
+    "use_zh": "科研选题、论文与研究规划",
+    "use_en": "Research planning and paper workflows",
+    "source_quote": "**v2.1**：新增 `paper-writer`（证据门控的论文正文写作）、`paper-polish`（忠于原意的语言润色）、`deep-research`（综述级文献调研）三个技能；`intro-drafter` 升级为正文输出；评估与评审技能引入学科范式路由。详见 [CHANGELOG](CHANGELOG.md)。\n> - **[2026-07-03]** 🎤 受邀在 **2026 中国智能体大会** Skill 会场进行分享。\n> - **[2026-07-03]** 🧩 新增 `drawio-reconstruction` 技能：参考图一键重建为可编辑 Draw.io。\n> - **[2026-05-21]** ⭐ GitHub Star 突破 **1,000**（发布第 32 天）。\n> - **[2026-04-19]** 🎉 项目发布：七个锚点技能覆盖论文全生命周期，配套 handbook 系统课程。\n\n---\n\n## 为什么做这个项目？\n\n大家好，我是[骆昱宇](https://luoyuyu.vip/)，香港科技大学（广州）的助理教授。从自己读博到指导学生，我反复看到一个场景：许多才华横溢的研究生，在踏入科研大门时，常常被相似的困境所困扰：\n\n*   **理论与实践脱节**：读了再多\"科研指南\"，面对自己的课题时，依旧不知如何下笔。\n*   **指导资源稀缺**：导师日程繁忙，无法对你萌生的每一个想法进行及时、细致的评估。\n*   **投稿前的迷茫**：",
+    "source_url": "https://github.com/HKUSTDial/Supervisor-Skills/blob/main/README.md",
+    "source_sha": "4a8a134215dbb985490aae6876aefb3194034038",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "wubing2023/paperspine": {
+    "use_zh": "文献、写作、绘图与交付",
+    "use_en": "Literature, writing and research delivery",
+    "source_quote": "**PaperSpine5：从零开始，快速完成一篇图文完整的论文。**\n\nPaperSpine5 是一个覆盖论文全流程的 AI Skill。你提供研究方向、已有资料或实验数据，它帮你查文献、梳理论点、搭建大纲、撰写全文、生成科研配图，并完成引用核验、审阅修改和排版，最终交付可编辑的 Word / LaTeX 源文件和 PDF。\n\n从正文到数据图、机制示意图和方法框架图，在同一个任务中完成。通过 `paper-spine` 启动，在网页中选择方案、预览图文、提出修改意见并下载成果。研究材料优先保存在本地，论点、引用和图表均以真实资料与证据为依据。\n\n## 社区星图\n\n<p align=\"center\">\n  <a href=\"https://wubing2023.github.io/PaperSpine/v5/community/\">\n    <img src=\"website/assets/community-atlas-preview.png\" alt=\"PaperSpine 公开 GitHub Stargazer 社区星图\">\n  </a>\n</p>\n\n上图是公开 GitHub Stargazer 自报地理位置与机构信息的预览快照。它反映公开社区分布，不代表安装量、活跃用户、论文数量、产品能力或机构采用。点击图片可打开[每日刷新的可交互社区星图](https://wubing2023.github.io/PaperSpine/v5/community/)。\n\n## 下载\n\n-",
+    "source_url": "https://github.com/WUBING2023/PaperSpine/blob/main/README.md",
+    "source_sha": "a197e4767f4a344bfbc7af55bb333b3162288834",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "aiscientists-dev/academic-humanizer": {
+    "use_zh": "保留证据与作者声音的学术文字编辑",
+    "use_en": "Evidence-preserving academic editing",
+    "source_quote": "Six layers: general AI-tell catalog → academic-specific tells → preserve scholarly conventions →\nclaim↔evidence matching → voice/venue calibration → funding-proposal mode (NSF/NIH structure,\nfirst-page primacy, claim↔feasibility). The audit→rewrite loop is defined in [`SKILL.md`](SKILL.md).\n\n## References\n\nLayer 6 distills the *stable* structure of NSF and NIH proposals. For current, binding requirements\n(page limits, formatting, deadlines), consult the source:\n\n- NSF: [Proposal & Award Policies & Procedures Guide (PAPPG)](https://www.nsf.gov/policies/pappg)\n- NSF: [CAREER program](https://new.nsf.gov/funding/opportunities/career-faculty-earl",
+    "source_url": "https://github.com/AIScientists-Dev/academic-humanizer/blob/main/README.md",
+    "source_sha": "1de4a538786dd3651acc3c21b6a3bfe2634b8514",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "wantongc/journal-adapt-writing-skill": {
+    "use_zh": "论文目标期刊适配与写作规则",
+    "use_en": "Journal-adaptive academic writing",
+    "source_quote": "academic writing skill framework. Start with reusable writing rules, then generate a corpus-grounded dynamic skill for one manuscript and one writing destination.**\n\n![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)\n![Claude Code](https://img.shields.io/badge/Claude_Code-compatible-blueviolet)\n![Codex](https://img.shields.io/badge/Codex-compatible-green)\n![Version](https://img.shields.io/badge/version-1.1-brightgreen)\n\nThere are already many useful **static academic writing skills**: discipline templates, anti-AI phrasing rules, citation/equation safety rules, and general academic style guides. They are valuable, but they usu",
+    "source_url": "https://github.com/WantongC/journal-adapt-writing-skill/blob/main/README.md",
+    "source_sha": "974750012a3654ccd3c5f7122ea5d24b87e2761c",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "199-biotechnologies/claude-deep-research-skill": {
+    "use_zh": "带引用的研究报告与来源评估",
+    "use_en": "Citation-backed research and source evaluation",
+    "source_quote": "citation-backed reports with source credibility scoring, multi-provider search, and automated validation.\n\n## Installation\n\n```bash\n# Clone into Claude Code skills directory\ngit clone https://github.com/199-biotechnologies/claude-deep-research-skill.git ~/.claude/skills/deep-research\n```\n\nNo additional dependencies required for basic usage.\n\n### Optional: search-cli (multi-provider search)\n\nFor aggregated search across Brave, Serper, Exa, Jina, and Firecrawl:\n\n```bash\nbrew tap 199-biotechnologies/tap && brew install search-cli\nsearch config set keys.brave YOUR_KEY  # configure at least one provider\n```\n\n## Usage\n\n```\ndeep research on the curr",
+    "source_url": "https://github.com/199-biotechnologies/claude-deep-research-skill/blob/main/README.md",
+    "source_sha": "353fdaa6ff460a3ce6c9635e30a076f6317e33e0",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "liuxiangjian-ai/reference-checker-skill": {
+    "use_zh": "参考文献真实性核验",
+    "use_en": "Reference authenticity checking",
+    "source_quote": "# Reference Checker Skill｜参考文献核查 Skill\n\n🌐 Language: 中文 | [English](README.md)\n\n**不要让一条假文献毁掉整篇论文的可信度。**\n\nReference Checker Skill 是一个用于**学术论文投稿前参考文献逐条核查**的 AI Skill，适合研究生、科研作者、编辑、审稿助理和学术写作者使用。\n\n它的目标不是“帮你简单看一下参考文献”，而是让 AI 按照严格流程，对参考文献列表进行**逐条、结构化、可追踪的核验**，尽量发现投稿前最容易被忽略、但最可能影响论文可信度的问题。\n\nv1.4.0 起，本 Skill 明确支持**英文文献与中文文献的双语核查**。除 DOI、PubMed、Crossref、出版社页面等常规路径外，中文文献会优先使用**中文原题名**进行核查，并将**知网 CNKI、万方 Wanfang、维普 VIP/CQVIP、期刊官网、出版社目录、大学机构库、国家标准/政府官网**等纳入检索路径。\n\n---\n\n## v1.4.0 更新重点\n\n这一版主要增强了中文文献核查能力：\n\n* **支持中文文献逐条检查**：中文期刊论文、中文学位论文、中文图书、中文会议论文、标准、政策文件、专利等均可纳入核查。\n* **增加中文数据库检索路径**：中文期刊优先按“中文原题名”检索，推荐依次核对期刊官网、知网、万方、维普等来源。\n* **避免误判无 DOI 中文文献**：很多中文文献没有 DOI、",
+    "source_url": "https://github.com/Liuxiangjian-ai/reference-checker-skill/blob/main/README.md",
+    "source_sha": "77c21091a2c63af9d561b5919286ac007203a9a3",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "wycmochi/cn-academic-spark": {
+    "use_zh": "论文材料转可编辑学术汇报",
+    "use_en": "Editable presentations from research materials",
+    "source_quote": "CN-Academic-Spark 是一个面向中文学术汇报场景的 Codex skill 仓库。当前仓库的核心 skill 是 `cn-academic-spark-ppt-engine`，用于把论文、开题材料、课程报告、文献综述、政策报告等完整学术材料转换为中文学术 `.pptx`。\n\n它不是单纯的“文字转 PPT”提示词，而是一套包含来源解析、论文图表公式处理、中文学术叙事、模板解析、演讲稿 DOCX生成和质量检查的工作流。\n\n> [!TIP]\n> #### 🚀 直接使用\n>\n> **进入 [OrcaRouter 平台](https://www.orcarouter.ai/ref/ref_d855bef1e4b6b6cd0fcc) 直接使用本 Skill**。OrcaRouter 除了支持主流的 GPT、Claude 等大模型，还提供 DeepSeek V4 Pro、DeepSeek V4 Flash、千问 3.8 等免费模型。具体模型、额度和使用规则以平台当前页面为准。\n>\n> 如果想在自己订阅的 Agent 中本地使用 CN-Academic-Spark，请参考 [“4 安装”](https://github.com/wycmochi/cn-academic-spark/blob/main/README.md#installation) 部分内容。\n\n> [!IMPORTANT]\n> #### 🌐 英文 PPT / 演讲稿输出\n>\n> 如果想使用此 Skill 制作英文",
+    "source_url": "https://github.com/wycmochi/cn-academic-spark/blob/main/README.md",
+    "source_sha": "b533781d3988c7b6c40eb8e310de9f65724ffbdc",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "poemswe/co-researcher": {
+    "use_zh": "文献综述、引用核验与同行评审",
+    "use_en": "Literature reviews, citation checks and peer review",
+    "source_quote": "Co-Researcher is an academic research plugin for **Claude Code**, **Gemini CLI**, **OpenAI Codex** and **OpenCode**. It runs literature reviews, systematic reviews, peer review and citation checks inside the AI assistant you already use.\n\nSearches run against real scholarly databases (OpenAlex, arXiv, Europe PMC), and every bibliography passes a verification gate that catches fabricated, mismatched, and retracted citations before output.\n\n## Installation\n\n| Platform | Install |\n|---|---|\n| Claude Code | `/plugin marketplace add poemswe/co-researcher` then `/plugin install co-researcher` |\n| Gemini CLI | `gemini extension install https://githu",
+    "source_url": "https://github.com/poemswe/co-researcher/blob/main/README.md",
+    "source_sha": "66cb9623b74585ef7a70e75cad064ce86e44049c",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "brycewang-stanford/awesome-journal-skills": {
+    "use_zh": "按学科与期刊组织的写作、投稿及研究规范 Skills",
+    "use_en": "Discipline and journal-specific research and publication Skills",
+    "source_quote": "按**期刊与会议**组织的 Agent Skill 包索引——每个 skill 覆盖论文生命周期的一个环节：选题、定位核心进展、识别策略、表格与图件规范、复制包 / 数据可得性准备、投稿与修改回复。收录范围横跨以下 **11 个主流学科板块**：**综合·交叉**（综合性大刊、交叉科学、计算社会科学、生物信息、网络科学），**经管与商科**（经济学、金融、会计、管理、营销、运营、信息系统、创新创业），**社会科学**（社会学、人类学、政治学、法学、公共管理、人口学、传播学、地理学、心理学），**人文学科**（历史、哲学、文学、艺术、宗教学），**数学与物理科学**（数学、统计、物理、天文、化学、材料、能源），**生命科学**（细胞、分子、基因组、免疫、微生物、神经、植物、生态演化），**医学与健康**（临床综合、肿瘤、心血管、神经、感染、内科、公共卫生、转化医学），**工程与技术**（控制、通信、电子、电力、机器人、生医工程、制造、航空、土木交通、化工过程），**计算机科学与 AI**（机器学习、人工智能、数据挖掘、自然语言处理、计算机视觉、机器人、人机交互、系统、安全、软件工程），**农业·环境·地球科学**（农业、食品、植物、土壤、作物、环境、气候、地球、大气、水文、海洋），以及**体育科学**（运动人体科学、运动医学、训练学、体育人文社会学）。\n\n每个 pack 都是**针对单一期刊**的方法论沉淀：它编码了某一本期刊的编委偏好、格式规范、识别标准和审稿文化。通用的\"科研写作\"Skill 包做不到这一点。\n\n---\n\n> ### 🎯 一句话：把\"投哪本、怎么写、为什么被拒\"变成一套可安装、按刊定制的 AI 工作流。\n>\n> 你的稿子在 **AER** 卡在识别策略，在 **《管理世界》** 卡在缺中国制度背景，在 **《经济研究》** 卡在缺经典理论文献——**同一篇文章，退稿点完全不同**。一套泛泛的\"学术写作\"助手永远学不会这种差异。本仓库为每一本期刊单独编码它的编委偏好、格式红线和审稿文化。\n\n### ⚡ 30 秒上手\n\n```bash\n# 1) 把本仓库添加为 marketplace（一次即可）\n/plugin marketplace add https://github.com/brycewang-stanford/awesome-journal-skills\n# 2) 安装目标期刊的 pack（以 QJE 为例；pack 名见各深度包 / 广度合集页面）\n/plugin install qje-skills\n/reload-plugins\n```\n\n然后把目标期刊的稿子交给它的 workflow skill：\n\n```text\n用 qje-workflow 评估我这份稿子离 QJE 的发表标准还差什么，下一步该做什么。\n```\n\n**还没定投哪本？** 直接装跨刊工具包，让它替你选：\n\n```bash\n/plugin install research-toolkit-skills\n```\n\n```text\n用 rt-journal-match：这是我的摘要，该投哪几本、按什么顺序投？\n```\n\n它会先给稿子画像，再从 **744 本刊/会**的索引里排出 reach / match / safe 三档，并提前写好改投阶梯。\n\n选刊的检索环节不是自说自话，而是**一条可以自己跑的命令**：\n\n```bash\npython3 tools/match_venues.py --title \"...\" --abstract \"...\" \\\n        --discipline economics/labor --lane empirical --top 15\n```\n\n评测打的就是这条命令走的同一段代码——1738 篇论文的 gold set 切成调参一半、报数一半，**只给标题**这种最苛刻的问法，留出集 recall@10 = 65.3%；贴上摘要（作者真正会做的事）是 71.9%，给对学科是 77.7%（[`eval/RESULTS.md`](shared-resources/journal-selection/eval/RESULTS.md)）。每本刊/会有**两套词表**：一套来自这个仓库自己写的流程散文，一套来自它实际发表过的文章标题——后者是 2026-08 新增的，只它一项就把标题检索从 46.7% 抬到 65.3%，并把「真实 venue 在任何深度都检索不到」的比例从 15% 压到 3.8%。检索只负责**给出该读哪几本**，投不投仍要打开每本刊自己的 pack 和 source-map 来判断。\n\n定了阶梯还可以算账：`rt-ladder-ev` 把「先冲顶刊再降级」和「直接从第二档起投」换算成月数与最终发出去的概率——真正吃掉一年的是**顺序**，不是某一本刊。\n\n> **只想找某一本刊？**[**CATALOG.md**](CATALOG.md) 按学科列出全部 744 本刊/会，每本都标注了要安装的插件名（机器可读版：[`catalog.json`](catalog.json)）。\n\n### 🧭 目录\n\n| 🧭 入门 · 理念 | 📚 浏览 · 索引 | 🚀 使用 · 协作 |",
+    "source_url": "https://github.com/brycewang-stanford/Awesome-Journal-Skills/blob/main/README.md",
+    "source_sha": "471a27234bef8583f392895d1bf0c0ae6664343d",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
   }
 }

@@ -5,20 +5,20 @@ import qrImage from "../../assets/research-community-2026-11-02.png";
 export function CommunityCard({ lang }) {
   const dialog = useRef(null);
   const zh = lang === "zh";
-  const title = zh ? "AI 科研交流群" : "AI Research Community";
+  const title = zh ? "各专业科研 Skills 交流群" : "Research Skills Community";
   return (
     <>
       <button
         type="button"
         className="community-card"
-        aria-label={zh ? "加入 AI 科研交流群，点击放大二维码" : "Join AI Research Community, enlarge QR code"}
+        aria-label={zh ? "加入各专业科研 Skills 交流群，点击放大二维码" : "Join AI Research Community, enlarge QR code"}
         aria-haspopup="dialog"
         onClick={() => dialog.current.showModal()}
       >
         <span className="community-card-copy">
-          <span className="community-card-eyebrow">{zh ? "一起交流科研实践" : "Learn and share together"}</span>
-          <strong>{zh ? "加入 AI 科研交流群" : "Join our research community"}</strong>
-          <span>{zh ? "科研 Skills · 论文工具 · 使用经验" : "Research Skills · Tools · Practical tips"}</span>
+          <span className="community-card-eyebrow">{zh ? "一起发现好用的科研 Skills" : "Discover useful research Skills"}</span>
+          <strong>{zh ? <>加入各专业<br className="community-title-break" />科研 Skills 交流群</> : "Join our cross-discipline Skills community"}</strong>
+          <span>{zh ? "交流使用经验，分享或推荐你所在专业的 Skills。" : "Share experiences and recommend Skills for your discipline."}</span>
           <span className="community-card-hint">{zh ? "微信扫码入群 · 点击放大 ↗" : "Scan with WeChat · Enlarge ↗"}</span>
         </span>
         <span className="community-qr-padding" aria-hidden="true">

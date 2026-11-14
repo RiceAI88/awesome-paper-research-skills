@@ -26,8 +26,10 @@ test('common tools can be disabled and an uncovered discipline stays honest',asy
  await page.getByRole('switch',{name:'包含通用科研 Skills'}).click();
  await expect.poll(()=>page.getByTestId('repo-card').count()).toBeLessThan(before);
  await page.locator('[data-discipline="history"]').click();
+ await page.getByRole('searchbox').fill('no-reviewed-repository-xyz');
  await expect(page.locator('.discipline-empty-note')).toBeVisible();
  await expect(page.getByTestId('repo-card')).toHaveCount(0);
+ await page.getByRole('searchbox').clear();
  await page.locator('[data-discipline="all"]').click();
  await expect(page.getByTestId('repo-card')).toHaveCount(30);
 });

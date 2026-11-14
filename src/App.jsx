@@ -1,3 +1,4 @@
+import { ActionPopover } from "./components/ActionPopover";
 import { ScopeSwitch } from "./components/ScopeSwitch";
 import { DisciplineSelector } from "./components/DisciplineSelector";
 import { SlidingTaskList } from "./components/SlidingTaskList";
@@ -22,7 +23,6 @@ import {
   Button,
   ConfigProvider,
   Segmented,
-  Select,
   Space,
   Tag,
   Tooltip,
@@ -70,6 +70,7 @@ const RepositoryDrawer = lazy(() =>
     default: module.RepositoryDrawer,
   })),
 );
+const FilterControls = lazy(() => import("./components/FilterControls"));
 const ComparisonDialog = lazy(() => import("./components/ComparisonDialog"));
 import { ViewportInsights } from "./components/ViewportInsights";
 
@@ -414,7 +415,7 @@ function Dashboard({ state, update }) {
         >
           <a className="brand" href={base}>
             <span className="brand-mark">APRS</span>
-            <span>Awesome Paper Research Skills</span>
+            <span>{state.lang === "zh" ? "科研 Skills 导航" : "Research Skills"}</span>
           </a>
           <Space size={8} wrap className="nav-actions">
             <Segmented
@@ -458,6 +459,7 @@ function Dashboard({ state, update }) {
                 {t("themeLabel")}
               </Button>
             </Tooltip>
+            <Button href={`${REPOSITORY_URL}/issues/new?template=recommend-repo.yml`} target="_blank" rel="noopener noreferrer">{state.lang === "zh" ? "推荐 Skill" : "Suggest a Skill"}</Button>
             <Button
               icon={<GithubOutlined aria-hidden="true" />}
               href={REPOSITORY_URL}
@@ -474,11 +476,11 @@ function Dashboard({ state, update }) {
             <Reveal as="h1" kind="hero" tabIndex={-1}>
               {state.lang === "zh" ? (
                 <>
-                  各专业科研 Skills <em>排行榜</em>
+                  找到适合你专业的科研 Skills
                 </>
               ) : (
                 <>
-                  Paper Research <em>Skills</em>
+                  Find research Skills for your discipline
                 </>
               )}
             </Reveal>
@@ -619,39 +621,9 @@ function Dashboard({ state, update }) {
             <p className="task-count-note sr-only">{t("taskCountNote")}</p>
           </section>
           <div className="filter-fields">
-            <label htmlFor="agentFilter">
-              <span>{t("agentLabel")}</span>
-              <Select
-                id="agentFilter"
-                value={state.agent}
-                onChange={(agent) => update((s) => ({ ...s, agent }))}
-                options={[
-                  { value: "all", label: t("allAgents") },
-                  ...AGENT_PLATFORMS.filter((a) => platformIds.has(a.id)).map(
-                    (a) => ({ value: a.id, label: a.label }),
-                  ),
-                ]}
-              />
-            </label>
-            <label htmlFor="sortSelect">
-              <span>{t("sortLabel")}</span>
-              <Select
-                id="sortSelect"
-                value={state.sort === "stars" ? "rank" : state.sort}
-                onChange={(sort) => update((s) => ({ ...s, sort }))}
-                options={[
-                  ["rank", "Stars"],
-                  ["delta7", t("sortDelta7")],
-                  ["newest", t("sortNewest")],
-                  ["updated", t("sortUpdated")],
-                  ["trend", t("sortTrend")],
-                  ["delta30", t("sortDelta30")],
-                ].map(([value, label]) => ({
-                  value,
-                  label: `${t("sortLabel")}：${label}`,
-                }))}
-              />
-            </label>
+            <ActionPopover label={state.lang === "zh" ? "筛选" : "Filters"} filter lang={state.lang} count={Number(state.agent !== "all") + Number(!["rank","stars"].includes(state.sort)) + Number(state.favOnly)}>
+            {() => <DeferredFeature t={t}><FilterControls {...{state,update,t,platformIds}} /></DeferredFeature>}
+            </ActionPopover>
             <div className="view-controls">
               <Segmented
                 aria-label="View"
@@ -670,25 +642,7 @@ function Dashboard({ state, update }) {
                   },
                 ]}
               />
-              <Button
-                aria-label={t("favoritesOnly")}
-                data-testid="favorites-only"
-                icon={
-                  state.favOnly ? (
-                    <StarFilled aria-hidden="true" />
-                  ) : (
-                    <StarOutlined aria-hidden="true" />
-                  )
-                }
-                type={state.favOnly ? "primary" : "default"}
-                aria-pressed={state.favOnly}
-                onClick={() => update((s) => ({ ...s, favOnly: !s.favOnly }))}
-              >
-                <span className="favorite-filter-label">
-                  {t("favoritesOnly")}
-                </span>{" "}
-                <Tag variant="borderless">{state.favorites.length}</Tag>
-              </Button>
+
             </div>
           </div>
         </section>
@@ -923,7 +877,7 @@ function Dashboard({ state, update }) {
       </main>
       <Reveal as="footer" className="site-footer container">
         <span>
-          MIT ·{" "}
+          Awesome Paper Research Skills · MIT ·{" "}
           <a href={REPOSITORY_URL}>RiceAI88/awesome-paper-research-skills</a> ·{" "}
           {state.lang === "zh" ? "基于" : "Based on"}{" "}
           <a href="https://github.com/kael-odin/awesome-academic-research-skills">
