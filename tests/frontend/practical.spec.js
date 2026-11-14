@@ -25,9 +25,9 @@ test("practical information, editorial reasons and history provenance are visibl
     "通过 GitHub API 每日自动采集",
   );
   await expect(page.getByTestId("update-status")).toContainText("更新状态未知");
-  await page
-    .getByRole("searchbox")
-    .fill("juliaError/econ-TopJournal-writing-Skill");
+  await page.evaluate(() => scrollTo(0, 0));
+  await expect(page.locator("#searchInput")).toBeVisible();
+  await page.locator("#searchInput").fill("juliaError/econ-TopJournal-writing-Skill");
   await expect(page.locator(".ant-table-row")).toHaveCount(1);
   await expect(page.locator(".summary-pending")).toHaveCount(0);
   await expect(

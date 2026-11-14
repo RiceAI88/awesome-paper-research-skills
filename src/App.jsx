@@ -28,8 +28,7 @@ import {
   Tooltip,
   theme,
 } from "antd";
-import zhCN from "antd/locale/zh_CN";
-import enUS from "antd/locale/en_US";
+import { zhCN, enUS } from "./antd-locales";
 import {
   AppstoreOutlined,
   BarsOutlined,
