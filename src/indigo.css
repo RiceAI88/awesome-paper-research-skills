@@ -1451,7 +1451,7 @@ a:focus-visible,
 .community-card-hint { color: var(--prs-primary); }
 .community-qr-padding { flex: 0 0 auto; padding: 7px; background: white; border-radius: 8px; }
 .community-qr-crop { display: block; position: relative; overflow: hidden; width: 100px; height: 100px; }
-.community-qr-crop img { position: absolute; width: 150px; max-width: none; height: auto; left: -25px; top: -81.6667px; }
+.community-qr-crop img { position: absolute; width: 144.1px; max-width: none; height: auto; left: -22.05px; top: -83.41px; }
 .community-dialog { padding: 18px; border: 1px solid var(--prs-border); border-radius: 16px; width: min(450px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); box-sizing: border-box; background: var(--prs-panel); color: var(--prs-text); }
 .community-dialog::backdrop { background: #17152c88; }
 .community-dialog-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }

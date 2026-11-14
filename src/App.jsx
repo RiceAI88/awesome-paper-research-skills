@@ -775,10 +775,13 @@ function Dashboard({ state, update }) {
                 </details>
               </Space>
             </div>
-            <DailyArrivals {...{ items, state, update, t }} />
+            {(visible.length > 0 || !items.length || state.todayOnly) && (
+              <DailyArrivals {...{ items, state, update, t }} />
+            )}
             <RepositoryViews
               {...{
                 items: visible,
+                allItems: items,
                 filterHeight: filterHeight + (stickySearchVisible ? 48 : 0),
                 state,
                 update,

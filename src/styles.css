@@ -361,7 +361,51 @@ h1 em {
   line-height: 1.6;
 }
 .ranking-empty {
-  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 28px 20px 32px;
+  text-align: center;
+}
+.ranking-empty .ant-empty {
+  margin: 0;
+}
+.ranking-empty-title {
+  color: var(--prs-text);
+  font-size: 15px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.ranking-empty-hint {
+  margin: 0;
+  color: var(--prs-muted);
+  font-size: 13px;
+}
+.ranking-empty-actions,
+.ranking-empty-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.ranking-empty-keywords > span {
+  color: var(--prs-muted);
+  font-size: 13px;
+}
+.ranking-empty-count {
+  margin-left: 6px;
+  color: var(--prs-muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.ranking-empty .ant-btn-primary .ranking-empty-count {
+  color: inherit;
+  opacity: 0.8;
+}
+.ranking-empty-suggest {
+  font-size: 13px;
 }
 .repository-grid {
   display: grid;

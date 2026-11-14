@@ -1,11 +1,34 @@
 import React, { useEffect, useRef } from "react";
 import { CloseOutlined, ArrowUpOutlined } from "@ant-design/icons";
 
+export const NOTICE_STORAGE_KEY = "prs-recharge-notice-shown-v2";
+export const NOTICE_INTERVAL_MS = 12 * 60 * 60 * 1000;
+
+// Returns true when the entry notice has not been shown in the last 12 hours,
+// and records the current time so the next visit within the window is quiet.
+export function claimNoticeSlot(storage, now = Date.now()) {
+  try {
+    const last = Number(storage?.getItem(NOTICE_STORAGE_KEY));
+    if (Number.isFinite(last) && last > 0 && now - last >= 0 && now - last < NOTICE_INTERVAL_MS)
+      return false;
+    storage?.setItem(NOTICE_STORAGE_KEY, String(now));
+  } catch {
+    // Storage blocked: fall back to showing the notice.
+  }
+  return true;
+}
+
 export function RechargeNotice({ lang }) {
   const dialog = useRef(null);
   const zh = lang === "zh";
   useEffect(() => {
-    if (!dialog.current.open) {
+    let storage = null;
+    try {
+      storage = window.localStorage;
+    } catch {
+      storage = null;
+    }
+    if (!dialog.current.open && claimNoticeSlot(storage)) {
       dialog.current.showModal();
       dialog.current.querySelector("h2")?.focus();
     }

@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { CloseOutlined } from "@ant-design/icons";
-import qrImage from "../../assets/research-community-2026-11-02.png";
+import qrImage from "../../assets/research-community-2026-11-14.jpg";
 
 export function CommunityCard({ lang }) {
   const dialog = useRef(null);
@@ -22,7 +22,7 @@ export function CommunityCard({ lang }) {
           <span className="community-card-hint">{zh ? "微信扫码入群 · 点击放大 ↗" : "Scan with WeChat · Enlarge ↗"}</span>
         </span>
         <span className="community-qr-padding" aria-hidden="true">
-          <span className="community-qr-crop"><img src={qrImage} alt="" width="450" height="680" /></span>
+          <span className="community-qr-crop"><img src={qrImage} alt="" width="660" height="1024" /></span>
         </span>
       </button>
       <dialog
@@ -40,7 +40,7 @@ export function CommunityCard({ lang }) {
           <h2 id="community-dialog-title">{title}</h2>
           <button type="button" aria-label={zh ? "关闭二维码" : "Close QR code"} onClick={() => dialog.current.close()}><CloseOutlined aria-hidden="true" /></button>
         </div>
-        <img src={qrImage} alt={zh ? "AI科研交流群1 微信入群二维码，11月9日前有效" : "WeChat group QR code, valid before November 9"} width="450" height="680" />
+        <img src={qrImage} alt={zh ? "AI科研交流群1 微信入群二维码，11月21日前有效" : "WeChat group QR code, valid before November 21"} width="660" height="1024" />
         <p>{zh ? "微信扫码加入，手机端可长按保存图片。" : "Scan with WeChat, or save the image on your phone."}</p>
       </dialog>
     </>

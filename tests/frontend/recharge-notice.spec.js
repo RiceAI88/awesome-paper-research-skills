@@ -2,7 +2,7 @@ import { test, expect } from "./fixtures.js";
 
 test.use({ showEntryNotice: true });
 
-test("entry notice links to the shop and appears again after reload", async ({ page }) => {
+test("entry notice links to the shop and stays quiet for 12 hours after showing", async ({ page }) => {
   await page.goto("./");
   const dialog = page.getByRole("dialog", { name: "GPT 正规代充" });
   await expect(dialog).toBeVisible();
@@ -12,12 +12,15 @@ test("entry notice links to the shop and appears again after reload", async ({ p
   await expect(dialog).not.toBeVisible();
   await page.reload();
   await expect(page.locator(".hero h1")).toBeVisible();
-  await expect(dialog).toBeVisible();
+  await page.waitForTimeout(300);
+  await expect(page.locator(".recharge-notice")).not.toBeVisible();
 });
 
-test("notice ignores the old daily cap and closes on Escape on mobile", async ({ page }) => {
+test("notice returns once 12 hours have passed and closes on Escape on mobile", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.addInitScript(() => localStorage.setItem("prs-recharge-notice-seen-v1", String(Date.now())));
+  await page.addInitScript(() =>
+    localStorage.setItem("prs-recharge-notice-shown-v2", String(Date.now() - 12 * 60 * 60 * 1000 - 1000)),
+  );
   await page.goto("./");
   const dialog = page.getByRole("dialog", { name: "GPT 正规代充" });
   await expect(dialog).toBeVisible();
@@ -28,6 +31,15 @@ test("notice ignores the old daily cap and closes on Escape on mobile", async ({
   await expect(dialog).not.toBeVisible();
 });
 
+test("notice stays hidden within the 12-hour window", async ({ page }) => {
+  await page.addInitScript(() =>
+    localStorage.setItem("prs-recharge-notice-shown-v2", String(Date.now() - 11 * 60 * 60 * 1000)),
+  );
+  await page.goto("./");
+  await expect(page.locator(".hero h1")).toBeVisible();
+  await page.waitForTimeout(300);
+  await expect(page.locator(".recharge-notice")).not.toBeVisible();
+});
 
 test("close control has no outline frame when focused", async ({ page }) => {
   await page.goto("./");

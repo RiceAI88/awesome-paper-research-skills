@@ -1,9 +1,10 @@
 import { ProjectFacts, GrowthValue } from "./ProjectFacts";
 import { Zhi1keAd } from "./Zhi1keAd";
+import { EmptyResults } from "./EmptyResults";
 import { SearchHighlight } from "./SearchHighlight";
 import { Panel } from "./Panel";
 import React, { lazy, useEffect, useState } from "react";
-import { Button, Empty, Space, Tag, Tooltip } from "antd";
+import { Button, Space, Tag, Tooltip } from "antd";
 import { StarFilled, StarOutlined, SwapOutlined } from "@ant-design/icons";
 import {
   PlatformTags,
@@ -137,6 +138,7 @@ export function RepositoryActions({
 export function RepositoryViews({
   generatedAt,
   items,
+  allItems = items,
   filterHeight,
   onReady,
   state,
@@ -227,17 +229,7 @@ export function RepositoryViews({
     </a>
   );
   if (!items.length)
-    return (
-      <>
-        <Zhi1keAd t={t} />
-        <div data-testid="ranking-empty" className="ranking-empty">
-          <Empty
-            image={Empty.PRESENTED_IMAGE_SIMPLE}
-            description={t("empty")}
-          />
-        </div>
-      </>
-    );
+    return <EmptyResults items={allItems} state={state} update={update} t={t} />;
   if (state.view === "card")
     return (
       <>

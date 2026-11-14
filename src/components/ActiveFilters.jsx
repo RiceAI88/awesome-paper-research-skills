@@ -13,7 +13,7 @@ const taskKeys = {
   reproduce: "taskReproduce",
   review: "taskReview",
 };
-const resets = {
+export const resets = {
   query: "",
   task: "all",
   category: "all",

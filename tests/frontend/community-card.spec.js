@@ -10,7 +10,7 @@ test("community QR sits beside the title and opens an accessible full image", as
   await card.click();
   const dialog = page.getByRole("dialog", { name: "各专业科研 Skills 交流群" });
   await expect(dialog).toBeVisible();
-  await expect(dialog.locator("img")).toHaveJSProperty("naturalWidth", 450);
+  await expect(dialog.locator("img")).toHaveJSProperty("naturalWidth", 660);
   await page.keyboard.press("Escape");
   await expect(dialog).not.toBeVisible();
   await expect(card).toBeFocused();
