@@ -420,14 +420,6 @@ function Dashboard({ state, update }) {
                 {t("reportsLink")}
               </Button>
             </Tooltip>
-            <Tooltip title={t("subscribeTitle")}>
-              <Button
-                href={localFile("feed.xml")}
-                aria-label={t("subscribeTitle")}
-              >
-                RSS
-              </Button>
-            </Tooltip>
             <Tooltip title={state.lang === "zh" ? "切换主题" : "Toggle theme"}>
               <Button
                 aria-label="Toggle theme"
@@ -868,6 +860,7 @@ function Dashboard({ state, update }) {
             kael-odin
           </a>
         </span>
+        <a href={localFile("feed.xml")}>{t("subscribeTitle")}</a>
         <span className="keyboard-hint">{t("shortcuts")}</span>
         <VisitCounter t={t} lang={state.lang} />
       </Reveal>
