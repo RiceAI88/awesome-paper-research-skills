@@ -172,3 +172,19 @@ class DisplayAndPrimaryPurposeTest(unittest.TestCase):
         with patch.object(u,'rank_repositories',return_value=items),patch.object(u,'persist_first_seen'),patch.object(u,'save_history_snapshot'):
             result,_=u.build_dataset({'max_results':0},[],enrich_skills=False)
         self.assertEqual(len(result['items']),151)
+
+class DisciplineDiscoveryTest(unittest.TestCase):
+    def test_domain_research_skill_without_paper_keywords_is_admitted(self):
+        raw=repo(description='Single-cell RNA-seq analysis skill')
+        raw['_readme_evidence']={'status':'verified','text':'# Cell workflow\nAn agent skill for single-cell RNA-seq analysis. Includes workflow inputs, QC steps and documented output tables. Read SKILL.md and use the provided scripts.'}
+        self.assertTrue(discovery.readme_admission(raw)[0])
+
+    def test_domain_word_in_generic_software_does_not_make_it_a_research_skill(self):
+        raw=repo(description='A medical appointment booking website')
+        raw['_readme_evidence']={'status':'verified','text':'# Booking\nA medical appointment scheduling website. General administration tools and user management.'}
+        self.assertFalse(discovery.readme_admission(raw)[0])
+
+    def test_discipline_queries_keep_star_and_recent_search_strategies(self):
+        plan=discovery.search_plan({'min_stars':100,'search_queries':[],'discovery':{'queries':[],'discipline_queries':['"single-cell" "skill"']}},NOW)
+        self.assertTrue(any('single-cell' in p['query'] and p['strategy']=='recent' for p in plan))
+        self.assertTrue(any('single-cell' in p['query'] and p['strategy']=='star_band' for p in plan))

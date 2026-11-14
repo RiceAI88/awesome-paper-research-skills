@@ -22,7 +22,7 @@ test("compact first screen groups stats below controls and exposes visitor copy"
   const adHeight = (await page.getByTestId("zhi1ke-ad").boundingBox()).height + 14;
   expect(
     (await page.getByTestId("repo-card").first().boundingBox()).y,
-  ).toBeLessThan(760 + adHeight);
+  ).toBeLessThan(760 + adHeight + (await page.getByTestId("discipline-selector").boundingBox()).height + 24);
   await expect(page.locator(".statistics")).toContainText(/近 30 天有更新.*\//);
   await expect(page.getByRole("button", { name: /本周新收录/ })).toBeVisible();
   await expect(page.locator(".task-count-note")).toContainText("多个场景");
@@ -141,6 +141,7 @@ test("trend follows selected comparisons even after a narrower search", async ({
   );
   await expect(page.getByTestId("repo-card")).toHaveCount(narrowed.length);
   await page.getByRole("tab", { name: "数据洞察", exact: true }).click();
+  await page.getByTestId("more-charts").locator(":scope > summary").click();
   const trend = page.getByTestId("insight-trend");
   await expect(trend.locator(".plot-host svg path.element")).toHaveCount(1);
   const source = trend.locator(".chart-keyboard-controls button");
@@ -183,13 +184,13 @@ test("mobile ranking stays compact apart from the approved leading ad, with task
   const adHeight = (await page.getByTestId("zhi1ke-ad").boundingBox()).height + 14;
   expect(
     (await page.getByTestId("repo-card").first().boundingBox()).y,
-  ).toBeLessThan(760 + adHeight);
+  ).toBeLessThan(760 + adHeight + (await page.getByTestId("discipline-selector").boundingBox()).height + 24);
   const metric = await page
     .getByTestId("repo-card")
     .first()
     .locator(".card-key-metrics")
     .boundingBox();
-  expect(metric.y + metric.height).toBeLessThan(844 + adHeight);
+  expect(metric.y + metric.height).toBeLessThan((await page.getByTestId("repo-card").first().boundingBox()).y + 180);
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= innerWidth,

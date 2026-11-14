@@ -24,8 +24,8 @@ function Placeholder({ t, count, scopeControl, loading = false }) {
         </div>
       </div>
       {[
-        ["insightGrowth", "sceneDistribution"],
-        ["insightTrend", "insightScatter"],
+        ["insightGrowth", "disciplineCounts"],
+        ["disciplineCoverage", "disciplineGaps"],
       ].map((row, index) => (
         <div key={index} className={index ? "insights-bottom" : "insights-top"}>
           {row.map((title) => (
@@ -33,7 +33,7 @@ function Placeholder({ t, count, scopeControl, loading = false }) {
               <div className="insight-panel-heading">
                 <h3>{t(title)}</h3>
               </div>
-              <ChartSkeleton label={t("chartsLoading")} height={index ? title === "insightTrend" ? 280 : 300 : title === "insightGrowth" ? 220 : 192} />
+              <ChartSkeleton label={t("chartsLoading")} height={index ? title === "insightTrend" ? 280 : 300 : title === "insightGrowth" ? 300 : 300} />
             </article>
           ))}
         </div>

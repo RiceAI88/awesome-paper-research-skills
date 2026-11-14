@@ -961,7 +961,7 @@ def collect_repositories(config: dict[str, Any], token: str | None) -> collectio
         old = entries.get(repo["nameWithOwner"].lower(), {}).get("metadata", {}).get("_readme_evidence", {})
         corpus = text_corpus(repo)
         # Relevant unreviewed candidates first; cached decisions cost no API requests.
-        return (bool(old.get("checked_at")), not any(term in corpus for term in discovery.ACADEMIC), old.get("checked_at", ""), repo["nameWithOwner"].lower())
+        return (bool(old.get("checked_at")), not (any(term in corpus for term in discovery.ACADEMIC) or discovery.DISCIPLINE_PURPOSE.search(corpus)), old.get("checked_at", ""), repo["nameWithOwner"].lower())
     result = collection.collect({**config, "search_queries": list(specs)}, catalog=catalog, previous_items=previous,
         known_names=list(registry), fetch=fetch, search=search, eligible=eligible, prioritize=priority,
         now=now.replace(microsecond=0).isoformat().replace("+00:00", "Z"))

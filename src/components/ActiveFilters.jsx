@@ -1,8 +1,11 @@
+import { professionLabel } from "../disciplines";
 import React from "react";
 import { Button } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
 import { AGENT_PLATFORMS } from "../domain";
 const taskKeys = {
+  analyze: "taskAnalyze",
+  compute: "taskCompute",
   find: "taskFind",
   read: "taskRead",
   write: "taskWrite",
@@ -14,6 +17,8 @@ const resets = {
   query: "",
   task: "all",
   category: "all",
+  discipline: "all",
+  major: "all",
   agent: "all",
   favOnly: false,
   newOnly: false,
@@ -21,6 +26,7 @@ const resets = {
 };
 export function ActiveFilters({ state, update, t, empty }) {
   const conditions = [];
+  if (state.discipline && state.discipline !== "all") conditions.push(["discipline", professionLabel(state,state.lang)]);
   if (state.query.trim())
     conditions.push(["query", t("filterSearch") + state.query.trim()]);
   if (state.task !== "all") conditions.push(["task", t(taskKeys[state.task])]);
@@ -56,7 +62,7 @@ export function ActiveFilters({ state, update, t, empty }) {
             className="active-filter-chip"
             data-filter-key={key}
             aria-label={t("removeFilter") + label}
-            onClick={() => update((s) => ({ ...s, [key]: resets[key] }))}
+            onClick={() => update((s) => ({ ...s, [key]: resets[key], ...(key === "discipline" ? {major:"all"} : {}) }))}
           >
             <span className="active-filter-label">{label}</span>
             <CloseOutlined aria-hidden="true" />

@@ -1,3 +1,4 @@
+import { DisciplineCounts, DisciplineCoverage } from "./DisciplineInsights";
 import React, {
   useEffect,
   useLayoutEffect,
@@ -125,6 +126,7 @@ function NoData({ text }) {
 export default function Insights({
   items,
   allItems,
+  professionItems = items,
   scopeControl,
   history,
   generatedAt,
@@ -143,7 +145,7 @@ export default function Insights({
     query.addEventListener("change", change);
     return () => query.removeEventListener("change", change);
   }, []);
-  const showAdditional = !isMobile || expanded;
+  const showAdditional = expanded;
   const entered = useRef(new Set());
   const [reducedMotion, setReducedMotion] = useState(
     () => matchMedia("(prefers-reduced-motion: reduce)").matches,
@@ -311,6 +313,8 @@ export default function Insights({
       )
     : [1, 10];
   const taskKeys = {
+    analyze: "taskAnalyze",
+    compute: "taskCompute",
     find: "taskFind",
     read: "taskRead",
     write: "taskWrite",
@@ -358,28 +362,7 @@ export default function Insights({
         </div>
         <div className="insights-actions">
           {scopeControl}
-          <label className="history-window">
-            <span>{state.lang === "zh" ? "增长曲线窗口" : "Trend window"}</span>
-            <Select
-              aria-label={t("historyWindow")}
-              value={days}
-              onChange={setDays}
-              options={[30, 60, 90].map((value) => ({
-                value,
-                label: `${value} ${t("days")}`,
-              }))}
-            />
-          </label>
-          <Button
-            className="mobile-chart-toggle"
-            type="text"
-            size="small"
-            aria-expanded={showAdditional}
-            aria-controls="insight-panel-trend insight-panel-scatter"
-            onClick={() => setExpanded((value) => !value)}
-          >
-            {t(expanded ? "hideMoreCharts" : "showMoreCharts")}
-          </Button>
+
         </div>
       </div>
       <div className="insights-top">
@@ -401,7 +384,7 @@ export default function Insights({
                   plot={Bar}
                   {...base}
                   animate={entrance("growth")}
-                  height={220}
+                  height={300}
                   paddingRight={65}
                   data={data.growth}
                   xField="repo"
@@ -483,7 +466,26 @@ export default function Insights({
             <NoData text={t("noGrowth")} />
           )}
         </ChartFrame>
-        <ChartFrame
+        <DisciplineCounts items={professionItems} state={state} update={update} />
+      </div>
+      <DisciplineCoverage items={professionItems} state={state} update={update} t={t} />
+      <details className="more-chart-details" data-testid="more-charts" open={expanded} onToggle={event => setExpanded(event.currentTarget.open)}>
+        <summary>{state.lang === 'zh' ? '更多图表：相对增长、规模与场景分布' : 'More charts: growth trends, scale and task distribution'}</summary>
+        {expanded && <>
+        <div className="legacy-chart-controls">          <label className="history-window">
+            <span>{state.lang === "zh" ? "增长曲线窗口" : "Trend window"}</span>
+            <Select
+              aria-label={t("historyWindow")}
+              value={days}
+              onChange={setDays}
+              options={[30, 60, 90].map((value) => ({
+                value,
+                label: `${value} ${t("days")}`,
+              }))}
+            />
+          </label>
+</div>
+        <div className="legacy-category-chart">        <ChartFrame
           id="categories"
           title={t("sceneDistribution")}
           note={t("sceneDistributionHelp")}
@@ -585,8 +587,7 @@ export default function Insights({
           ) : (
             <NoData text={t("empty")} />
           )}
-        </ChartFrame>
-      </div>
+        </ChartFrame></div>
       <div className="insights-bottom" hidden={!showAdditional}>
         <ChartFrame
           id="trend"
@@ -847,6 +848,8 @@ export default function Insights({
           )}
         </ChartFrame>
       </div>
+        </>}
+      </details>
     </section>
   );
 }

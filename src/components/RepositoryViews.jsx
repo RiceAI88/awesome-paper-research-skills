@@ -1,3 +1,4 @@
+import { DisciplineFitBadge } from "./DisciplineFitBadge";
 import { Zhi1keAd } from "./Zhi1keAd";
 import { SearchHighlight } from "./SearchHighlight";
 import { Panel } from "./Panel";
@@ -332,6 +333,7 @@ export function RepositoryViews({
                   </div>
                 </div>
                 <SummaryText item={item} t={t} query={state.query} />
+                <DisciplineFitBadge item={item} state={state} />
                 <div className="card-info-footer">
                   <PlatformTags item={item} t={t} compact />
                   {item.inactive90 ? (

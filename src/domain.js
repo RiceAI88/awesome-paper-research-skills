@@ -1,3 +1,4 @@
+import { DISCIPLINES, matchesDiscipline, disciplineFit } from "./disciplines.js";
 import { createSearch } from "./search.js";
 export const RESEARCH_TASKS = [
   {
@@ -36,9 +37,14 @@ export const RESEARCH_TASKS = [
     pattern:
       /\b(?:peer[ -]review|reviewers?|referee|rebuttal|submission|revision|revise|review[ -](?:paper|manuscript)|pre[ -]submission)\b|审稿|评审|投稿|返修|回复审稿/i,
   },
+  { id:'analyze', categories:[], pattern:/single[ -]cell|scRNA|genomics|bioinformatics|econometrics|stata|statistics|statistical|data analysis|meta.analysis|计量|统计分析|数据分析|生物信息|数学建模|单细胞/i },
+  { id:'compute', categories:[], pattern:/scientific computing|simulation|mathematical model|theoretical.physics|molecular|numerical|研究计算|科研计算|数值计算|数学建模|仿真|分子/i },
+
 ];
 
 export const TASK_LABEL_KEYS = {
+  analyze: "taskAnalyze",
+  compute: "taskCompute",
   find: "taskFind",
   read: "taskRead",
   write: "taskWrite",
@@ -113,6 +119,9 @@ export function restoreState(storage, hash = "", defaults = {}, items = []) {
     includeRelated: p.get("related") === "1" || p.get("today") === "related",
     section: valid(p.get("section"), ["ranking", "insights"], "ranking"),
     category: "all",
+    discipline: valid(p.get("discipline"), DISCIPLINES.map(d => d.id), "all"),
+    major: valid(p.get("major"), DISCIPLINES.find(d => d.id === p.get("discipline"))?.majors.map(m => m.id) || [], "all"),
+    includeCommon: p.get("common") !== "0",
     task: valid(
       p.get("task") ||
         {
@@ -172,6 +181,9 @@ export function serializeState(state) {
     ["theme", "theme", "light"],
   ])
     if (state[key] !== fallback) p.set(param, state[key]);
+  if (state.discipline && state.discipline !== "all") p.set("discipline", state.discipline);
+  if (state.major && state.major !== "all") p.set("major", state.major);
+  if (state.includeCommon === false) p.set("common", "0");
   if (state.includeRelated) p.set("related", "1");
   if (state.favOnly) p.set("fav", "1");
   if (state.newOnly) p.set("new", "1");
@@ -192,6 +204,7 @@ export function filterItems(items, state) {
   const search = createSearch(q);
   const task = RESEARCH_TASKS.find((t) => t.id === state.task);
   const result = items.filter((item) => {
+    if (!matchesDiscipline(item, state)) return false;
     if (
       state.includeRelated !== undefined &&
       item.repository_kind !== "skill" &&
@@ -245,7 +258,13 @@ export function filterItems(items, state) {
         (a.star_delta_30d ?? a.star_delta_7d ?? 0) || b.stars - a.stars,
   };
   return result
-    .sort(sorts[state.sort] || ranks)
+    .sort((a,b) => {
+      if (state.discipline && state.discipline !== 'all') {
+        const priority = Number(disciplineFit(a,state) !== 'specific') - Number(disciplineFit(b,state) !== 'specific');
+        if (priority) return priority;
+      }
+      return (sorts[state.sort] || ranks)(a,b);
+    })
     .map((item, index) => ({ ...item, rank: index + 1 }));
 }
 export function persistState(storage, state) {

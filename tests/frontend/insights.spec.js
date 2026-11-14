@@ -12,6 +12,7 @@ test("real charts render, filter by category, change window and open repository 
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("./#related=1&view=table");
   await page.getByRole("tab", { name: "数据洞察", exact: true }).click();
+  await page.getByTestId("more-charts").locator(":scope > summary").click();
   await expect(
     page.getByTestId("insights").locator(".plot-host svg"),
   ).toHaveCount(4);
@@ -51,6 +52,7 @@ test("missing historical data has an honest empty state and current charts still
   );
   await page.goto("./#related=1&view=table");
   await page.getByRole("tab", { name: "数据洞察", exact: true }).click();
+  await page.getByTestId("more-charts").locator(":scope > summary").click();
   await expect(page.getByTestId("insight-trend")).toContainText("暂无历史数据");
   await expect(
     page.getByTestId("insight-scatter").locator(".plot-host svg"),
@@ -89,6 +91,7 @@ test("scatter has visible data marks and clicking a point opens details", async 
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("./#related=1&view=table");
   await page.getByRole("tab", { name: "数据洞察", exact: true }).click();
+  await page.getByTestId("more-charts").locator(":scope > summary").click();
   const marks = page
     .getByTestId("insight-scatter")
     .locator(".plot-host svg .element");

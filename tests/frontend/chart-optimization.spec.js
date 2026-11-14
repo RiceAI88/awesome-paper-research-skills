@@ -44,7 +44,7 @@ test("chart clicks use current results after expanding an initial narrow search"
   await marks.nth(topIndex).click();
   await expect(page.getByRole("dialog")).toBeVisible();
   await expect(page.getByRole("dialog")).toContainText(
-    "K-Dense-AI/scientific-agent-skills",
+    [...items].sort((a,b)=>(b.star_delta_7d||0)-(a.star_delta_7d||0))[0].repo,
   );
 });
 test("offscreen charts defer download, then load once with the latest selection", async ({
@@ -66,10 +66,8 @@ test("offscreen charts defer download, then load once with the latest selection"
   await expect(page.getByTestId("insight-count")).toHaveText(narrowCount);
   await expect(
     page.getByTestId("insights").locator(".plot-host svg"),
-  ).toHaveCount(2);
-  await page
-    .getByRole("button", { name: "展开其他 2 张图", exact: true })
-    .click();
+  ).toHaveCount(1);
+  await page.getByTestId("more-charts").locator(":scope > summary").click();
   await expect(
     page.getByTestId("insights").locator(".plot-host svg"),
   ).toHaveCount(4);
@@ -92,10 +90,8 @@ test("browsers without IntersectionObserver still show functional charts", async
   await page.goto("./#related=1&view=table&section=insights");
   await expect(
     page.getByTestId("insights").locator(".plot-host svg"),
-  ).toHaveCount(2);
-  await page
-    .getByRole("button", { name: "展开其他 2 张图", exact: true })
-    .click();
+  ).toHaveCount(1);
+  await page.getByTestId("more-charts").locator(":scope > summary").click();
   await expect(
     page.getByTestId("insights").locator(".plot-host svg"),
   ).toHaveCount(4);

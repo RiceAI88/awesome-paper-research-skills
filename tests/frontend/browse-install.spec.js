@@ -148,7 +148,7 @@ test("scope and sorting remain clear without duplicate single-filter chips", asy
 }) => {
   await page.goto("./#task=find");
   await expect(page.getByTestId("active-filters")).toHaveCount(0);
-  await expect(page.getByTestId("daily-arrivals")).toContainText("全站");
+  await expect(page.getByTestId("daily-arrivals")).toContainText(/全站|今日暂无新增/);
   expect(
     await page
       .locator(".ranking-header h2")

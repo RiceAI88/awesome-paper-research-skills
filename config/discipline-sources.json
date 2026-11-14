@@ -1,0 +1,263 @@
+{
+  "k-dense-ai/scientific-agent-skills": {
+    "use_zh": "科学数据分析、专业数据库与科研流程",
+    "use_en": "Domain data analysis, scientific databases and workflows",
+    "source_quote": "The skills cover biology, chemistry, medicine, physics, engineering, Earth science, data analysis, and scientific communication. Each provides guidance for a specific package, data source, or workflow, including the scientific…",
+    "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/README.md",
+    "source_sha": "3fcebf5c0e49e39dc87e5b577d0368d313124862",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "wanshuiyin/auto-claude-code-research-in-sleep": {
+    "use_zh": "机器学习研究、实验与论文工作流",
+    "use_en": "Machine learning research and experiment workflows",
+    "source_quote": "ML research project — the AI reviewer's score climbed **5.0/10 (borderline reject) → 7.5/10 (review-ready)** as the loop autonomously ran **20+ GPU…",
+    "source_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/blob/main/README.md",
+    "source_sha": "fe0f6ce807e51cb51f14ad710043533058235964",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "orchestra-research/ai-research-skills": {
+    "use_zh": "人工智能研究与工程实验",
+    "use_en": "AI research and engineering experiments",
+    "source_quote": "AI Research `Skills` Library > **The most comprehensive open-source skills library enabling AI agents to autonomously conduct AI research — from idea to…",
+    "source_url": "https://github.com/Orchestra-Research/AI-Research-SKILLs/blob/main/README.md",
+    "source_sha": "2d58d4faaf1b503943c40ff6f0fb1179a195f8b9",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "jihe520/mathmodelagent": {
+    "use_zh": "数学建模与模型论文",
+    "use_en": "Mathematical modelling and reporting",
+    "source_quote": "专为数学建模设计的 Agent<br> 自动完成数学建模，生成一份完整的可以直接提交的论文。 </h4> <h5 align=\"center\">简体中文 | <a href=\"README_EN.md\">English</a></h5> <p align=\"center\"> <a…",
+    "source_url": "https://github.com/jihe520/MathModelAgent/blob/main/README.md",
+    "source_sha": "6318f8e48157de791f8bdaff0dd0afd3a5b27b87",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "google-deepmind/science-skills": {
+    "use_zh": "基因组学与结构生物学研究",
+    "use_en": "Genomics and structural biology research",
+    "source_quote": "genomics, structural biology, literature search, and more. Each skill provides structured instructions, scripts, and resources that extend an AI agent's capabilities for…",
+    "source_url": "https://github.com/google-deepmind/science-skills/blob/main/README.md",
+    "source_sha": "c005a9298078d98ec26976f1e680b6b29b1c7f76",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "aipoch/medical-research-skills": {
+    "use_zh": "医学研究流程、数据分析与论文",
+    "use_en": "Medical research workflows and writing",
+    "source_quote": "Medical Research Agent Skills [![License](https://img.shields.io/badge/License-MIT-ff6b6b?style=for-the-badge)](./LICENSE) ![Skills…",
+    "source_url": "https://github.com/aipoch/medical-research-skills/blob/main/README.md",
+    "source_sha": "8efb6c46ce771ae927393d9b86dd6bc486412192",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "xiaomacoltai/math-modeling-skill": {
+    "use_zh": "数学建模分析与编程",
+    "use_en": "Mathematical modelling and coding",
+    "source_quote": "数学建模竞赛与建模项目的三阶段工作流** [![Version](https://img.shields.io/badge/version-1.3.0-blue.svg)](VERSION) [![Agent…",
+    "source_url": "https://github.com/XiaoMaColtAI/math-modeling-skill/blob/main/README.md",
+    "source_sha": "8f33eec96e5fb31cf6d732e0c18ffbb4f4fdc134",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "hanlulong/econ-writing-skill": {
+    "use_zh": "经济学论文结构与学术写作",
+    "use_en": "Economics paper structure and writing",
+    "source_quote": "economics paper writers, synthesizing best practices from 50+ authoritative guides by Nobel laureates, Clark Medal winners, and leading economists.** [![License:…",
+    "source_url": "https://github.com/hanlulong/econ-writing-skill/blob/main/README.md",
+    "source_sha": "dae83fecfb52ce54a11d155e47b253e7bcbd1994",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "maxwell2732/codex-stata-for-economists": {
+    "use_zh": "Stata 实证分析与可复现研究",
+    "use_en": "Stata empirical and reproducible research",
+    "source_quote": "面向经管专业的 Stata 可复现 Codex 工作流 **作者：** 朱 晨 | 遗传社科研究 Chen Zhu | China Agricultural University (CAU) **最后更新：** 2026-06-02 **致谢：**…",
+    "source_url": "https://github.com/maxwell2732/codex-stata-for-economists/blob/main/README.md",
+    "source_sha": "0e7ff065e1aa2a4c2b5c3163f2b7badd26acbc89",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "franklee16/academic-research-skills": {
+    "use_zh": "经济金融与社会科学研究流程",
+    "use_en": "Economics, finance and social research workflows",
+    "source_quote": "economics, finance, and the broader social sciences — organized by the common **types of skills** a researcher needs across a project's lifecycle. Each subfolder groups skills of one type (e.g.,…",
+    "source_url": "https://github.com/franklee16/academic-research-skills/blob/master/README.md",
+    "source_sha": "e5c0bf0abcbcaab8715ac06aa043a7052e56ac93",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "yanlin-cheng/skill-thesis-writer": {
+    "use_zh": "按学科组织论文与统计报告",
+    "use_en": "Discipline-specific thesis and statistical reporting",
+    "source_quote": "支持工科、心理学、教育学、管理学等多学科领域，提供符合中国学术规范（GB/T 7714-2015）的论文写作、数据分析、参考文献管理一体化解决方案。当用户需要撰写论文内容、设计论文框架、优化论文章节、处理参考文献格式、进行统计分析、或降低AI生成文本痕迹时使用此技能。 ## 核心特性 - 🎯…",
+    "source_url": "https://github.com/yanlin-cheng/skill-thesis-writer/blob/master/README.md",
+    "source_sha": "0761dd885148239f2678f0bb41cd950aca1c3825",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "wilbert-md-phd/medical-illustration": {
+    "use_zh": "医学插图与研究机制图",
+    "use_en": "Medical illustration and mechanism figures",
+    "source_quote": "医学绘图 Skill。支持原生 Skill 的运行平台可加载完整目录，其他 Agent 可读取 `SKILL.md` 及相关资源，并根据自身可调用的工具来执行。告诉它主题、读者和用途，它会帮助你查找医学参考、编写脚本、设计画面、生成插图，再完成可编辑排字和检查。…",
+    "source_url": "https://github.com/wilbert-MD-PhD/medical-illustration/blob/main/README.md",
+    "source_sha": "46bb68bf9f53bb238a0405834358abdb1e6f51e6",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "gaoyuan-0423/biomedical-paper-reader": {
+    "use_zh": "生物医学论文精读与证据整理",
+    "use_en": "Biomedical paper reading and evidence appraisal",
+    "source_quote": "生物医学论文精读：看懂实验为什么做，判断证据支持到哪里，提炼可以借鉴的研究设计。** 版本：v0.13.1。修复推理模型读图和长文整理时因生成额度不足而中止的问题，识别不完整回答并保留已有笔记。对智谱官方 GLM-5.3／Flash…",
+    "source_url": "https://github.com/Gaoyuan-0423/biomedical-paper-reader/blob/main/README.md",
+    "source_sha": "ddf0e2edc36bbd04a2e01ee7d0bffdb3ee3ad0de",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "htlin222/meta-pipe": {
+    "use_zh": "系统综述与 Meta 分析工作流",
+    "use_en": "Systematic review and meta-analysis workflows",
+    "source_quote": "Meta-Analysis Pipeline [![GitHub…",
+    "source_url": "https://github.com/htlin222/meta-pipe/blob/main/README.md",
+    "source_sha": "52d62fb4516bfa484747950ec0a74f7965457a69",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "liangdabiao/stem-illustration-skill": {
+    "use_zh": "专业科研示意图与机制插图",
+    "use_en": "Discipline-aware scientific illustrations",
+    "source_quote": "生命科学/医学/化学/物理/工程/数学 - **4 种风格变体**：academic / textbook / infographic / 3d-render - **统一生图脚本**：自动兼容 OpenAI 同步 API 和 apimart.ai 异步 API - **学术诚信保护**：禁止用 AI 生成真实实验数据图 ##…",
+    "source_url": "https://github.com/liangdabiao/stem-illustration-skill/blob/main/README.md",
+    "source_sha": "f89b5642296f511ffe1b90f24f5c4284dbc1b519",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "tririver/arc": {
+    "use_zh": "理论物理论文、推导与计算",
+    "use_en": "Theoretical physics papers and calculations",
+    "source_quote": "theoretical-physics papers. It provides academic-paper access and source-aware research-domain, idea, planning, calculation, and checking workflows. ARC v2 depends on [AC…",
+    "source_url": "https://github.com/tririver/arc/blob/main/README.md",
+    "source_sha": "836d8b91c9eb5a68aa6e0dfaf78c2bbb35ccd8da",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "csmar432/finai-research": {
+    "use_zh": "经济金融研究与计量分析",
+    "use_en": "Economics, finance and econometrics",
+    "source_quote": "Economic and Financial Research}, author = {csmar432}, year = {2026}, month = jun, url = {https://github.com/csmar432/finai-research}, note = {GitHub repository. For a permanent…",
+    "source_url": "https://github.com/csmar432/finai-research/blob/main/README.md",
+    "source_sha": "062aabe627e17f795cf76d3e51551f0953e38b72",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "aperivue/medsci-skills": {
+    "use_zh": "医学文献、统计与投稿工作流",
+    "use_en": "Medical literature, statistics and submission",
+    "source_quote": "Medical Research Lifecycle}}, year = {2026}, publisher = {Zenodo}, doi = {10.5281/zenodo.20155321}, url = {https://github.com/Aperivue/medsci-skills} }…",
+    "source_url": "https://github.com/Aperivue/medsci-skills/blob/main/README.md",
+    "source_sha": "6982baf7cd4b74b6d0709827e71b1690a2f0539e",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "duyunzhoudyz/dyz-med-paper-skills": {
+    "use_zh": "医学选题、写作与审稿修回",
+    "use_en": "Medical writing and peer-review revision",
+    "source_quote": "面向中国医生与医学研究生，支持中文沟通、中英论文写作、PubMed 文献检索与审稿修回。</p> <p align=\"center\"><a href=\"https://duyunzhoudyz.github.io/dyz-med-paper-skills/\">中文文档站</a> · <a…",
+    "source_url": "https://github.com/duyunzhoudyz/dyz-med-paper-skills/blob/main/README.md",
+    "source_sha": "d299fd470ddeff12af89ccf2360c14391eed106c",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "norman-bury/research-writing-skill": {
+    "use_zh": "按学科分流的论文写作流程",
+    "use_en": "Discipline-routed research writing",
+    "source_quote": "工科、社科、医学、法学模块分流 - **文献综述支持**：英文检索整合与中文文献整理协作 - **LaTeX模板支持**：用户提供学校/期刊模板，自动生成可编译的LaTeX项目 - **环境自动化**：Miniconda 安装、虚拟环境创建、绘图依赖安装与排错 ## 适用平台 本 Skill 采用目录化设计，已适配以下平台：…",
+    "source_url": "https://github.com/Norman-bury/research-writing-skill/blob/main/README.md",
+    "source_sha": "b3bc0be97990cf73cbb7c1821bd1d3561eb60b43",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "yuan1z0825/nature-skills": {
+    "use_zh": "论文表达与科研绘图",
+    "use_en": "Scientific writing and figures",
+    "source_quote": "科研 Skill 库\" width=\"100%\"> </p> <p> <a href=\"LICENSE\"><img alt=\"License\" src=\"https://img.shields.io/badge/license-Apache--2.0-2ea44f\"></a> <a…",
+    "source_url": "https://github.com/Yuan1z0825/nature-skills/blob/main/README.md",
+    "source_sha": "3fd61766da94bfbe7e61a73ebda1b5b7fad28463",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "imbad0202/academic-research-skills": {
+    "use_zh": "文献到论文的科研流程",
+    "use_en": "Literature-to-paper research workflows",
+    "source_quote": "Academic Research Skills for Claude Code…",
+    "source_url": "https://github.com/Imbad0202/academic-research-skills/blob/main/README.md",
+    "source_sha": "07f68bd6e80adb96b63cd07c8bf7d0de7addc010",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "openags/paper-search-mcp": {
+    "use_zh": "跨来源检索与获取学术论文",
+    "use_en": "Search and retrieve academic papers",
+    "source_quote": "searching and downloading academic papers from multiple sources. The project follows a free-first strategy: prioritize open and public data sources, support optional API keys when they…",
+    "source_url": "https://github.com/openags/paper-search-mcp/blob/main/README.md",
+    "source_sha": "a68831a246ea113b0ce1520375f7032d8a273aec",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "zlanqing/codex-claude-academic-skills": {
+    "use_zh": "学术写作、办公与科研计算",
+    "use_en": "Academic writing, documents and computation",
+    "source_quote": "覆盖论文写作、学术 Office 文档生成与科研计算三大场景。 > 所有 skill 均可在 **Claude Code** 和 **Codex** 两个平台上直接使用。 <p align=\"center\"> <img…",
+    "source_url": "https://github.com/zLanqing/codex-claude-academic-skills/blob/main/README.md",
+    "source_sha": "72e7a54db2b4f52a865a660252dcbf412a23ba4d",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "zsyggg/paper-craft-skills": {
+    "use_zh": "论文精读、图示与组会表达",
+    "use_en": "Paper reading, figures and presentations",
+    "source_quote": "academic papers into polished method figures, visual slide decks, and in-depth articles — zero config, one command.** <p align=\"center\"> <img…",
+    "source_url": "https://github.com/zsyggg/paper-craft-skills/blob/main/README.md",
+    "source_sha": "aee77e7778c34957d9c0fa29779acd98eb06b3ec",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "master-cai/research-paper-writing-skills": {
+    "use_zh": "研究论文写作与结构组织",
+    "use_en": "Research paper writing and structure",
+    "source_quote": "one skill package: - `research-paper-writing/` - `SKILL.md`: core workflow and usage rules - `references/`: section-specific writing guides and templates -…",
+    "source_url": "https://github.com/Master-cai/Research-Paper-Writing-Skills/blob/main/README.md",
+    "source_sha": "82ca6bcd77449238fd96f512c4179679f7e23a14",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "cookjohn/cnki-skills": {
+    "use_zh": "知网文献检索与信息整理",
+    "use_en": "CNKI literature search and information management",
+    "source_quote": "Search papers, browse journals, check indexing status, download PDFs, and export to Zotero — all from the Claude Code CLI. ### Prerequisites - [Claude…",
+    "source_url": "https://github.com/cookjohn/cnki-skills/blob/master/README.md",
+    "source_sha": "9a2ced535c89209f0eb80b399323571155c2b912",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "chenliu-1996/figures4papers": {
+    "use_zh": "用 Python 绘制论文图表",
+    "use_en": "Python publication figures",
+    "source_quote": "Python scripts for high-quality figures**. These figures are published at top venues, including ***Nature Machine Intelligence***, ***ICML***, ***NeurIPS***, ***ECCV***, etc. &#127881;…",
+    "source_url": "https://github.com/ChenLiu-1996/figures4papers/blob/main/README.md",
+    "source_sha": "f6705cc651ad7094ebc44001cdd26fd56b008e59",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  },
+  "snl-ucsb/literature-survey-skill": {
+    "use_zh": "文献调研与综述整理",
+    "use_en": "Literature surveys and synthesis",
+    "source_quote": "literature surveys. Most of that time is plumbing — finding papers, extracting claims, cross-referencing terminology, building comparison tables, chasing citation…",
+    "source_url": "https://github.com/SNL-UCSB/literature-survey-skill/blob/main/README.md",
+    "source_sha": "0561c5b933b66714af9bfde24558de9d7add8d16",
+    "reviewed_at": "2026-11-14",
+    "review_kind": "documentation_only"
+  }
+}

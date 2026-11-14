@@ -28,7 +28,7 @@ for (const width of [1280, 390])
     const height = await toolbar.evaluate(
       (e) => e.getBoundingClientRect().height,
     );
-    await page.evaluate(() => scrollTo({ top: 600, behavior: "instant" }));
+    await toolbar.evaluate(el => scrollTo({top:el.getBoundingClientRect().top + scrollY + 10,behavior:"instant"}));
     await expect(page.locator(".prs-page")).toHaveClass(/sticky-search-active/);
     expect(
       await toolbar.evaluate((e) => e.getBoundingClientRect().height),

@@ -73,7 +73,7 @@ for (const lang of ["zh", "en"])
     expect(new Set(ys).size).toBe(1);
     expect(
       (await page.getByTestId("repo-card").first().boundingBox()).y,
-    ).toBeLessThan(1300);
+    ).toBeLessThan(1300 + (await page.getByTestId("discipline-selector").boundingBox()).height + 24);
     expect(
       await page.evaluate(
         () => document.documentElement.scrollWidth <= innerWidth,
@@ -111,6 +111,7 @@ test("growth lines have distinct strokes and dashes; category bars show counts a
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("./#related=1&view=table");
   await page.getByRole("tab", { name: "数据洞察", exact: true }).click();
+  await page.getByTestId("more-charts").locator(":scope > summary").click();
   const trend = page.getByTestId("insight-trend");
   await expect(trend.locator("svg path.element")).toHaveCount(3);
   const styles = await trend.locator("svg path.element").evaluateAll((els) =>

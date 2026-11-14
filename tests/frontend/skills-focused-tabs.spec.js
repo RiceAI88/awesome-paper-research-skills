@@ -55,6 +55,7 @@ test("insights is a peer tab, lazy SVG charts share scene counts and filters", a
   await page.goto("./");
   expect(requests.some((url) => /assets\/Insights-/.test(url))).toBe(false);
   await page.getByRole("tab", { name: "数据洞察", exact: true }).click();
+  await page.getByTestId("more-charts").locator(":scope > summary").click();
   await expect(
     page.getByTestId("insights").locator(".plot-host svg"),
   ).toHaveCount(4);
@@ -156,7 +157,7 @@ for (const lang of ["zh", "en"])
   }) => {
     await page.setViewportSize({ width: 320, height: 800 });
     await page.goto(`./#lang=${lang}`);
-    await page.evaluate(() => scrollTo(0, 900));
+    await page.locator(".filters").evaluate(el => scrollTo(0, el.getBoundingClientRect().top + scrollY + 10));
     await expect(page.locator("#stickySearchInput")).toBeVisible();
     await expect(page.locator(".task-list")).toBeVisible();
     expect(

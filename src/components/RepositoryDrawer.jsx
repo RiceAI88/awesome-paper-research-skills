@@ -1,3 +1,4 @@
+import { DisciplineEvidence } from "./DisciplineEvidence";
 import React, { useEffect, useRef } from "react";
 import installationDetails from "../../config/installation-details.json";
 import { Button, Descriptions, Drawer, Space, Tag } from "antd";
@@ -239,6 +240,7 @@ export function RepositoryDrawer({
               </dd>
             </div>
           </dl>
+          <DisciplineEvidence item={item} state={state} />
           <details className="drawer-more">
             <summary>{t("moreRepositoryDetails")}</summary>
             {item.description && (

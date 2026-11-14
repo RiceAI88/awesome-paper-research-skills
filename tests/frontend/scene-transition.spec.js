@@ -74,7 +74,7 @@ test("scene indicator stays aligned through language, counts, resizing and horiz
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(
     320,
   );
-  await page.evaluate(() => scrollTo(0, 900));
+  await page.locator(".filters").evaluate(el => scrollTo(0, el.getBoundingClientRect().top + scrollY + 10));
   await expect(page.locator("#stickySearchInput")).toBeVisible();
   await aligned(page);
 });

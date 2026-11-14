@@ -11,6 +11,8 @@ import {
 import { installationFor } from "../practical";
 import installationDetails from "../../config/installation-details.json";
 const labels = {
+  analyze:"taskAnalyze",
+  compute:"taskCompute",
   find: "taskFind",
   read: "taskRead",
   write: "taskWrite",

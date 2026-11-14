@@ -33,29 +33,25 @@ test.describe("mobile charts and touch", () => {
     await expect(page.getByTestId("insight-trend")).toBeHidden();
     await expect(
       page.getByTestId("insights").locator(".plot-host svg"),
-    ).toHaveCount(2);
-    const expand = page.getByRole("button", {
-      name: "展开其他 2 张图",
-      exact: true,
-    });
-    await expect(expand).toHaveAttribute("aria-expanded", "false");
+    ).toHaveCount(1);
+    const expand = page.getByTestId("more-charts").locator(":scope > summary");
+    await expect(page.getByTestId("more-charts")).not.toHaveAttribute("open", "");
+    await expand.click();
     const history = page.getByRole("combobox", { name: "历史窗口", exact: true });
     await history.click();
     await history.press("ArrowUp");
     await history.press("Enter");
     await expect(page.locator(".history-window")).toContainText("30 天");
-    await expand.click();
     await expect(
       page.getByTestId("insights").locator(".plot-host svg"),
     ).toHaveCount(4);
     await page.locator('[data-chart-category="write"]').focus();
     await page.locator('[data-chart-category="write"]').press("Enter");
-    await page
-      .getByRole("button", { name: "收起其他图表", exact: true })
-      .click();
+    await expand.click();
     await expect(
       page.getByTestId("insights").locator(".plot-host svg"),
-    ).toHaveCount(2);
+    ).toHaveCount(1);
+    await expand.click();
     await expect(page.locator(".history-window")).toContainText("30 天");
     await expect(page).toHaveURL(/task=write/);
     await page.setViewportSize({ width: 1440, height: 900 });

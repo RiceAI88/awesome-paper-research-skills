@@ -56,6 +56,20 @@
       "\"科研\"",
       "\"论文\""
     ],
-    "readme_budget": 120
+    "readme_budget": 120,
+    "discipline_queries": [
+      "\"single-cell\" \"skill\"",
+      "\"econometrics\" \"skill\"",
+      "\"legal research\" \"skill\"",
+      "\"agricultural research\" \"skill\"",
+      "\"historical research\" \"skill\"",
+      "\"educational research\" \"skill\"",
+      "\"materials science\" \"skill\"",
+      "\"psychology\" \"research\" \"skill\"",
+      "\"computational chemistry\" \"skill\"",
+      "\"physics\" \"research\" \"skill\"",
+      "\"linguistics\" \"research\" \"skill\"",
+      "\"social science\" \"research\" \"skill\""
+    ]
   }
 }

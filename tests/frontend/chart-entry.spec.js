@@ -21,6 +21,7 @@ test("charts animate their entrance and stay still after filtering", async ({
   const initial = await paintedArea(svg);
   await page.waitForTimeout(1100);
   expect(await paintedArea(svg)).toBeGreaterThan(initial * 1.05);
+  await page.getByTestId('more-charts').locator(':scope > summary').click();
   await page.locator('[data-chart-category="write"]').focus();
   await page.locator('[data-chart-category="write"]').press("Enter");
   await expect(page.getByTestId("insight-count")).not.toHaveText("115");

@@ -156,6 +156,7 @@ test("English entry and responsive layouts retain usable task shortcuts", async 
     const errors = [];
     page.on("pageerror", (e) => errors.push(e.message));
     await page.goto("./en/");
+    await page.getByRole("button", {name:"Continue browsing",exact:true}).click();
     await expect(
       page.getByRole("button", { name: "Create figures", exact: true }),
     ).toBeVisible();

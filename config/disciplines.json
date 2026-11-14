@@ -1,0 +1,542 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-11-14",
+  "count_unit": "unique_repositories",
+  "disciplines": [
+    {
+      "id": "science",
+      "zh": "理学",
+      "en": "Sciences",
+      "majors": [
+        {
+          "id": "mathematics",
+          "zh": "数学",
+          "en": "Mathematics"
+        },
+        {
+          "id": "statistics",
+          "zh": "统计学",
+          "en": "Statistics"
+        },
+        {
+          "id": "physics",
+          "zh": "物理学",
+          "en": "Physics"
+        },
+        {
+          "id": "chemistry",
+          "zh": "化学",
+          "en": "Chemistry"
+        },
+        {
+          "id": "biology",
+          "zh": "生物学",
+          "en": "Biology"
+        },
+        {
+          "id": "psychology",
+          "zh": "心理学",
+          "en": "Psychology"
+        },
+        {
+          "id": "geoscience",
+          "zh": "地球科学",
+          "en": "Earth sciences"
+        }
+      ]
+    },
+    {
+      "id": "engineering",
+      "zh": "工学",
+      "en": "Engineering",
+      "majors": [
+        {
+          "id": "computer-science",
+          "zh": "计算机",
+          "en": "Computer science"
+        },
+        {
+          "id": "ai",
+          "zh": "人工智能",
+          "en": "Artificial intelligence"
+        },
+        {
+          "id": "materials",
+          "zh": "材料科学",
+          "en": "Materials science"
+        },
+        {
+          "id": "mechanical",
+          "zh": "机械工程",
+          "en": "Mechanical engineering"
+        },
+        {
+          "id": "civil",
+          "zh": "土木工程",
+          "en": "Civil engineering"
+        }
+      ]
+    },
+    {
+      "id": "medicine",
+      "zh": "医学",
+      "en": "Medicine",
+      "majors": [
+        {
+          "id": "clinical",
+          "zh": "临床医学",
+          "en": "Clinical medicine"
+        },
+        {
+          "id": "pharmacy",
+          "zh": "药学",
+          "en": "Pharmacy"
+        },
+        {
+          "id": "public-health",
+          "zh": "公共卫生",
+          "en": "Public health"
+        },
+        {
+          "id": "bioinformatics",
+          "zh": "生物信息学",
+          "en": "Bioinformatics"
+        }
+      ]
+    },
+    {
+      "id": "agriculture",
+      "zh": "农学",
+      "en": "Agriculture",
+      "majors": [
+        {
+          "id": "agronomy",
+          "zh": "农学",
+          "en": "Agronomy"
+        },
+        {
+          "id": "forestry",
+          "zh": "林学",
+          "en": "Forestry"
+        },
+        {
+          "id": "veterinary",
+          "zh": "兽医学",
+          "en": "Veterinary medicine"
+        }
+      ]
+    },
+    {
+      "id": "economics",
+      "zh": "经济学",
+      "en": "Economics",
+      "majors": [
+        {
+          "id": "economics",
+          "zh": "经济学",
+          "en": "Economics"
+        },
+        {
+          "id": "finance",
+          "zh": "金融学",
+          "en": "Finance"
+        }
+      ]
+    },
+    {
+      "id": "management",
+      "zh": "管理学",
+      "en": "Management",
+      "majors": [
+        {
+          "id": "business",
+          "zh": "工商管理",
+          "en": "Business administration"
+        },
+        {
+          "id": "information-management",
+          "zh": "信息管理",
+          "en": "Information management"
+        }
+      ]
+    },
+    {
+      "id": "law",
+      "zh": "法学",
+      "en": "Law & social studies",
+      "majors": [
+        {
+          "id": "law",
+          "zh": "法学",
+          "en": "Law"
+        },
+        {
+          "id": "politics",
+          "zh": "政治学",
+          "en": "Political science"
+        },
+        {
+          "id": "sociology",
+          "zh": "社会学",
+          "en": "Sociology"
+        }
+      ]
+    },
+    {
+      "id": "literature",
+      "zh": "文学",
+      "en": "Languages & literature",
+      "majors": [
+        {
+          "id": "linguistics",
+          "zh": "语言学",
+          "en": "Linguistics"
+        },
+        {
+          "id": "literature",
+          "zh": "文学",
+          "en": "Literature"
+        }
+      ]
+    },
+    {
+      "id": "history",
+      "zh": "历史学",
+      "en": "History",
+      "majors": [
+        {
+          "id": "history",
+          "zh": "历史学",
+          "en": "History"
+        },
+        {
+          "id": "archaeology",
+          "zh": "考古学",
+          "en": "Archaeology"
+        }
+      ]
+    },
+    {
+      "id": "philosophy",
+      "zh": "哲学",
+      "en": "Philosophy",
+      "majors": [
+        {
+          "id": "philosophy",
+          "zh": "哲学",
+          "en": "Philosophy"
+        }
+      ]
+    },
+    {
+      "id": "education",
+      "zh": "教育学",
+      "en": "Education",
+      "majors": [
+        {
+          "id": "education",
+          "zh": "教育学",
+          "en": "Education"
+        },
+        {
+          "id": "educational-technology",
+          "zh": "教育技术",
+          "en": "Educational technology"
+        }
+      ]
+    },
+    {
+      "id": "arts",
+      "zh": "艺术学",
+      "en": "Arts",
+      "majors": [
+        {
+          "id": "design",
+          "zh": "设计学",
+          "en": "Design"
+        },
+        {
+          "id": "arts",
+          "zh": "艺术学",
+          "en": "Arts"
+        }
+      ]
+    }
+  ],
+  "profiles": {
+    "k-dense-ai/scientific-agent-skills": {
+      "disciplines": [],
+      "majors": [
+        "biology",
+        "chemistry",
+        "clinical",
+        "pharmacy",
+        "physics",
+        "materials",
+        "bioinformatics",
+        "ai",
+        "geoscience"
+      ],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "wanshuiyin/auto-claude-code-research-in-sleep": {
+      "disciplines": [],
+      "majors": [
+        "computer-science",
+        "ai"
+      ],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "orchestra-research/ai-research-skills": {
+      "disciplines": [],
+      "majors": [
+        "computer-science",
+        "ai"
+      ],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "jihe520/mathmodelagent": {
+      "disciplines": [],
+      "majors": [
+        "mathematics"
+      ],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "google-deepmind/science-skills": {
+      "disciplines": [],
+      "majors": [
+        "biology",
+        "bioinformatics"
+      ],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "aipoch/medical-research-skills": {
+      "disciplines": [
+        "medicine"
+      ],
+      "majors": [],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "xiaomacoltai/math-modeling-skill": {
+      "disciplines": [],
+      "majors": [
+        "mathematics"
+      ],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "hanlulong/econ-writing-skill": {
+      "disciplines": [],
+      "majors": [
+        "economics"
+      ],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "maxwell2732/codex-stata-for-economists": {
+      "disciplines": [
+        "economics",
+        "management"
+      ],
+      "majors": [],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "franklee16/academic-research-skills": {
+      "disciplines": [],
+      "majors": [
+        "economics",
+        "finance",
+        "sociology"
+      ],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "yanlin-cheng/skill-thesis-writer": {
+      "disciplines": [
+        "engineering",
+        "education",
+        "management"
+      ],
+      "majors": [
+        "psychology"
+      ],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "wilbert-md-phd/medical-illustration": {
+      "disciplines": [
+        "medicine"
+      ],
+      "majors": [],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "gaoyuan-0423/biomedical-paper-reader": {
+      "disciplines": [
+        "medicine"
+      ],
+      "majors": [
+        "biology",
+        "bioinformatics"
+      ],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "htlin222/meta-pipe": {
+      "disciplines": [],
+      "majors": [
+        "clinical",
+        "public-health"
+      ],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "liangdabiao/stem-illustration-skill": {
+      "disciplines": [
+        "engineering"
+      ],
+      "majors": [
+        "biology",
+        "clinical",
+        "chemistry",
+        "physics",
+        "mathematics"
+      ],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "tririver/arc": {
+      "disciplines": [],
+      "majors": [
+        "physics"
+      ],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "csmar432/finai-research": {
+      "disciplines": [],
+      "majors": [
+        "economics",
+        "finance"
+      ],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "aperivue/medsci-skills": {
+      "disciplines": [
+        "medicine"
+      ],
+      "majors": [],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "duyunzhoudyz/dyz-med-paper-skills": {
+      "disciplines": [
+        "medicine"
+      ],
+      "majors": [],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "norman-bury/research-writing-skill": {
+      "disciplines": [
+        "engineering",
+        "medicine",
+        "law"
+      ],
+      "majors": [],
+      "common": false,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "yuan1z0825/nature-skills": {
+      "disciplines": [],
+      "majors": [],
+      "common": true,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "imbad0202/academic-research-skills": {
+      "disciplines": [],
+      "majors": [],
+      "common": true,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "openags/paper-search-mcp": {
+      "disciplines": [],
+      "majors": [],
+      "common": true,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "zlanqing/codex-claude-academic-skills": {
+      "disciplines": [],
+      "majors": [],
+      "common": true,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "zsyggg/paper-craft-skills": {
+      "disciplines": [],
+      "majors": [],
+      "common": true,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "master-cai/research-paper-writing-skills": {
+      "disciplines": [],
+      "majors": [],
+      "common": true,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "cookjohn/cnki-skills": {
+      "disciplines": [],
+      "majors": [],
+      "common": true,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "chenliu-1996/figures4papers": {
+      "disciplines": [],
+      "majors": [],
+      "common": true,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    },
+    "snl-ucsb/literature-survey-skill": {
+      "disciplines": [],
+      "majors": [],
+      "common": true,
+      "reviewed_at": "2026-11-14",
+      "evidence": true
+    }
+  }
+}

@@ -1,3 +1,5 @@
+import { ScopeSwitch } from "./components/ScopeSwitch";
+import { DisciplineSelector } from "./components/DisciplineSelector";
 import { SlidingTaskList } from "./components/SlidingTaskList";
 import { Reveal } from "./components/SiteMotion";
 import { DailyArrivals } from "./components/DailyArrivals";
@@ -98,6 +100,8 @@ const defaults = {
 };
 const base = import.meta.env.BASE_URL;
 const taskLabels = {
+  analyze: "taskAnalyze",
+  compute: "taskCompute",
   find: "taskFind",
   read: "taskRead",
   write: "taskWrite",
@@ -106,20 +110,6 @@ const taskLabels = {
   review: "taskReview",
 };
 const localFile = (name) => base + name;
-function ScopeSwitch({ checked, onChange, size, ...props }) {
-  return (
-    <button
-      {...props}
-      type="button"
-      role="switch"
-      aria-checked={checked}
-      className="scope-switch"
-      onClick={() => onChange(!checked)}
-    >
-      <span />
-    </button>
-  );
-}
 export default function App() {
   const items = sourceItems;
   const [state, update] = useState(() =>
@@ -129,7 +119,7 @@ export default function App() {
     persistState(storage, state);
     document.documentElement.dataset.theme = state.theme;
     document.documentElement.lang = state.lang === "zh" ? "zh-CN" : "en";
-    document.title = `${state.lang === "zh" ? "论文科研 Skills 排行榜" : "Paper Research Skills Ranking"} · Awesome Paper Research Skills`;
+    document.title = `${state.lang === "zh" ? "各专业科研 Skills 排行榜" : "Research Skills by Discipline"} · Awesome Paper Research Skills`;
     const hash = serializeState(state);
     if (location.hash !== hash)
       window.history.replaceState(
@@ -241,6 +231,7 @@ function Dashboard({ state, update }) {
   }, []);
   const visible = useMemo(() => filterItems(items, state), [items, state]);
   const [overviewOpen, setOverviewOpen] = useState(false);
+  const disciplineItems = useMemo(() => filterItems(items, {...state, discipline:'all', major:'all', task:'all'}), [items,state]);
   const scopeItems = useMemo(
     () =>
       items.filter(
@@ -301,6 +292,9 @@ function Dashboard({ state, update }) {
       state.newOnly,
       state.todayOnly,
       state.includeRelated,
+      state.discipline,
+      state.major,
+      state.includeCommon,
     ],
   );
   const selected =
@@ -325,6 +319,10 @@ function Dashboard({ state, update }) {
   }, [state.compare]);
   useEffect(() => {
     const handler = (e) => {
+      if (e.key === "Escape" && compareOpen) {
+        setCompareOpen(false);
+        return;
+      }
       if (
         e.defaultPrevented ||
         e.ctrlKey ||
@@ -477,7 +475,7 @@ function Dashboard({ state, update }) {
             <Reveal as="h1" kind="hero" tabIndex={-1}>
               {state.lang === "zh" ? (
                 <>
-                  论文科研 Skills <em>排行榜</em>
+                  各专业科研 Skills <em>排行榜</em>
                 </>
               ) : (
                 <>
@@ -548,6 +546,7 @@ function Dashboard({ state, update }) {
           "--ranking-filter-height": `${filterHeight + (stickySearchVisible ? 48 : 0)}px`,
         }}
       >
+        <DisciplineSelector items={disciplineItems} visible={visible} state={state} update={update} />
         <section
           ref={filterRef}
           className="filters"
@@ -718,6 +717,7 @@ function Dashboard({ state, update }) {
                 </h2>
                 <div className="ranking-status-line">
                   <span>
+                    {state.discipline !== 'all' && <>{state.lang === 'zh' ? '专业适用优先 · ' : 'Specialized first · '}</>}
                     {t(
                       {
                         rank: "rankByStars",
@@ -910,6 +910,7 @@ function Dashboard({ state, update }) {
                 </label>
               }
               items={visible}
+              professionItems={disciplineItems}
               allItems={scopeItems}
               history={historyData}
               generatedAt={dataset.metadata?.generated_at}

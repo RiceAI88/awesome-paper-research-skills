@@ -16,7 +16,7 @@ test("desktop section headings and actions share a compact aligned row", async (
   await expect(insights).toBeVisible();
   await expect(insights.locator(".insights-heading .related-scope-control")).toBeVisible();
   const geometry = await insights.locator(".insights-heading").evaluate((el) => {
-    const rects = [el.querySelector("p"), el.querySelector(".related-scope-control"), el.querySelector(".history-window")].map((node) => node.getBoundingClientRect());
+    const rects = [el.querySelector("p"), el.querySelector(".related-scope-control")].map((node) => node.getBoundingClientRect());
     const centers = rects.map((r) => r.y + r.height / 2);
     return { spread: Math.max(...centers) - Math.min(...centers), height: el.getBoundingClientRect().height };
   });
