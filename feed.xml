@@ -5,7 +5,7 @@
     <link>https://riceai88.github.io/awesome-paper-research-skills/</link>
     <description>每日自动更新的学术论文与科研 Agent Skill 排行榜 · Daily ranking of academic research agent skills on GitHub</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 14 Nov 2026 06:02:17 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Nov 2026 09:21:34 +0000</lastBuildDate>
     <atom:link href="https://riceai88.github.io/awesome-paper-research-skills/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>FreedomIntelligence/OpenClaw-Medical-Skills (3,107★, +0/7d)</title>
@@ -13,23 +13,23 @@
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#FreedomIntelligence/OpenClaw-Medical-Skills</guid>
       <description>The largest open-source medical AI skills library for OpenClaw🦞.</description>
       <category>Discipline Specific</category>
-      <pubDate>Sat, 14 Nov 2026 06:02:17 +0000</pubDate>
+      <pubDate>Sat, 14 Nov 2026 09:21:34 +0000</pubDate>
     </item>
     <item>
-      <title>Haojae/scipilot-figure-skill (2,824★, +6/7d)</title>
+      <title>Haojae/scipilot-figure-skill (2,827★, +3/7d)</title>
       <link>https://github.com/Haojae/scipilot-figure-skill</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#Haojae/scipilot-figure-skill</guid>
       <description>SciPilot Skills family - Publication-grade scientific figure copilot for Claude Code</description>
       <category>General Research</category>
-      <pubDate>Sat, 14 Nov 2026 06:02:17 +0000</pubDate>
+      <pubDate>Sat, 14 Nov 2026 09:21:34 +0000</pubDate>
     </item>
     <item>
-      <title>qwdwqfwq/topconf-paper-figure-gallery (1,597★, +11/7d)</title>
+      <title>qwdwqfwq/topconf-paper-figure-gallery (1,599★, +2/7d)</title>
       <link>https://github.com/qwdwqfwq/topconf-paper-figure-gallery</link>
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#qwdwqfwq/topconf-paper-figure-gallery</guid>
       <description>3,516 curated Figure 1 / teasers from ICLR, ICML, NeurIPS, CVPR, ACL, AAAI (2023-2026), with tier badges and FigureForge retrieval-augmented figure drafting</description>
       <category>Discipline Specific</category>
-      <pubDate>Sat, 14 Nov 2026 06:02:17 +0000</pubDate>
+      <pubDate>Sat, 14 Nov 2026 09:21:34 +0000</pubDate>
     </item>
     <item>
       <title>K-Dense-AI/k-dense-byok (1,446★, +0/7d)</title>
@@ -37,7 +37,7 @@
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#K-Dense-AI/k-dense-byok</guid>
       <description>An AI co-scientist running on your desktop. Claude Science but better.</description>
       <category>General Research</category>
-      <pubDate>Sat, 14 Nov 2026 06:02:17 +0000</pubDate>
+      <pubDate>Sat, 14 Nov 2026 09:21:34 +0000</pubDate>
     </item>
     <item>
       <title>matteocourthoud/awesome-causal-inference (1,212★, +0/7d)</title>
@@ -45,7 +45,7 @@
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#matteocourthoud/awesome-causal-inference</guid>
       <description>A curated list of causal inference libraries, resources, and applications.</description>
       <category>Deep Research</category>
-      <pubDate>Sat, 14 Nov 2026 06:02:17 +0000</pubDate>
+      <pubDate>Sat, 14 Nov 2026 09:21:34 +0000</pubDate>
     </item>
     <item>
       <title>ClawBio/ClawBio (1,182★, +0/7d)</title>
@@ -53,7 +53,15 @@
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#ClawBio/ClawBio</guid>
       <description>🦖 ClawBio - The first bioinformatics-native AI agent skill library. Local-first. Reproducible. Open. Free.</description>
       <category>Experiments</category>
-      <pubDate>Sat, 14 Nov 2026 06:02:17 +0000</pubDate>
+      <pubDate>Sat, 14 Nov 2026 09:21:34 +0000</pubDate>
+    </item>
+    <item>
+      <title>xuzhougeng/wisp-science (1,075★, +0/7d)</title>
+      <link>https://github.com/xuzhougeng/wisp-science</link>
+      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#xuzhougeng/wisp-science</guid>
+      <description>Open-source, local-first desktop AI research workbench for scientific computing with Python/R, MCP bioinformatics tools, SSH/WSL/GPU runtimes, and OpenAI/Anthropic models.</description>
+      <category>General Research</category>
+      <pubDate>Sat, 14 Nov 2026 09:21:34 +0000</pubDate>
     </item>
     <item>
       <title>instadeepai/nucleotide-transformer (942★, +0/7d)</title>
@@ -61,15 +69,7 @@
       <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#instadeepai/nucleotide-transformer</guid>
       <description>Foundation Models for Genomics &amp; Transcriptomics</description>
       <category>Discipline Specific</category>
-      <pubDate>Sat, 14 Nov 2026 06:02:17 +0000</pubDate>
-    </item>
-    <item>
-      <title>xjtulyc/MedgeClaw (620★, +0/7d)</title>
-      <link>https://github.com/xjtulyc/MedgeClaw</link>
-      <guid isPermaLink="false">https://riceai88.github.io/awesome-paper-research-skills/#xjtulyc/MedgeClaw</guid>
-      <description>Open-source AI research assistant for biomedicine — chat to run RNA-seq, drug discovery, clinical analysis, and more. Built on Claude Code with 140 K-Dense scientific skills, real-time dashboard, and…</description>
-      <category>Discipline Specific</category>
-      <pubDate>Sat, 14 Nov 2026 06:02:17 +0000</pubDate>
+      <pubDate>Sat, 14 Nov 2026 09:21:34 +0000</pubDate>
     </item>
   </channel>
 </rss>
