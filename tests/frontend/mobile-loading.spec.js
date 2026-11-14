@@ -60,3 +60,15 @@ test("mobile first-load application code stays below 250 kB compressed", async (
   expect(bytes).toBeGreaterThan(0);
   expect(bytes).toBeLessThan(250000);
 });
+
+test('below-fold editorial code waits until its section is near the viewport',async({page})=>{
+ await page.setViewportSize({width:390,height:844});
+ const requests=[];
+ page.on('request',r=>{if(/\/assets\/EditorialPicks-.*\.js/.test(r.url())) requests.push(r.url());});
+ await page.goto('./');
+ await expect(page.getByRole('searchbox')).toBeVisible();
+ expect(requests.length).toBe(0);
+ await page.locator('#beginner-paths').scrollIntoViewIfNeeded();
+ await expect(page.getByTestId('editorial-picks')).toBeVisible();
+ expect(requests.length).toBe(1);
+});

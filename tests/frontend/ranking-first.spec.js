@@ -61,6 +61,7 @@ for (const lang of ["zh", "en"])
   }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(`./#related=1&lang=${lang}&view=card`);
+    await page.locator("#beginner-paths").scrollIntoViewIfNeeded();
     const grid = page.locator(".editorial-grid");
     expect(await grid.evaluate((el) => el.scrollWidth > el.clientWidth)).toBe(
       true,
@@ -72,7 +73,7 @@ for (const lang of ["zh", "en"])
       );
     expect(new Set(ys).size).toBe(1);
     expect(
-      (await page.getByTestId("repo-card").first().boundingBox()).y,
+      await page.getByTestId("repo-card").first().evaluate(el=>el.getBoundingClientRect().y+scrollY),
     ).toBeLessThan(1300 + (await page.getByTestId("discipline-selector").boundingBox()).height + 24);
     expect(
       await page.evaluate(

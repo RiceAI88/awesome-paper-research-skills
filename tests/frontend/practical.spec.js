@@ -18,6 +18,7 @@ test("practical information, editorial reasons and history provenance are visibl
   await expect(
     row.getByRole("button", { name: "复制安装命令", exact: true }),
   ).toBeVisible();
+  await page.locator("#beginner-paths").scrollIntoViewIfNeeded();
   await expect(page.locator("[data-featured]")).toHaveCount(4);
   await expect(page.getByTestId("editorial-picks")).toContainText("推荐理由：");
   await expect(page.getByTestId("data-transparency")).toContainText(

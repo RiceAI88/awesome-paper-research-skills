@@ -56,6 +56,7 @@ for (const width of [1440, 390]) {
           .evaluate((e) => parseFloat(getComputedStyle(e).fontSize)),
       ).toBeGreaterThanOrEqual(minimum);
     }
+    await page.locator("#beginner-paths").scrollIntoViewIfNeeded();
     for (const selector of [
       ".task-list button",
       ".filter-fields .ant-select",

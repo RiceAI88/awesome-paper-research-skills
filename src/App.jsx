@@ -59,7 +59,7 @@ import {
 } from "./domain";
 import { translations } from "./i18n";
 import { enrichItem, editorialPicks } from "./practical";
-import { EditorialPicks } from "./components/EditorialPicks";
+import { ViewportEditorialPicks } from "./components/ViewportEditorialPicks";
 import { UpdateStatus } from "./components/UpdateStatus";
 import { DataTransparency } from "./components/DataTransparency";
 import { ActiveFilters } from "./components/ActiveFilters";
@@ -878,7 +878,7 @@ function Dashboard({ state, update }) {
             />
           </Panel>
           <div id="beginner-paths">
-            <EditorialPicks items={visible} state={state} t={t} />
+            {editorialPicks(visible).length > 0 && <ViewportEditorialPicks items={visible} state={state} t={t} />}
           </div>
         </div>
         <div

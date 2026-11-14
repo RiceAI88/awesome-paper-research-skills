@@ -26,6 +26,7 @@ test("compact first screen groups stats below controls and exposes visitor copy"
   await expect(page.locator(".statistics")).toContainText(/近 30 天有更新.*\//);
   await expect(page.getByRole("button", { name: /本周新收录/ })).toBeVisible();
   await expect(page.locator(".task-count-note")).toContainText("多个场景");
+  await page.locator("#beginner-paths").scrollIntoViewIfNeeded();
   await expect(page.locator(".editorial-preview")).toHaveCount(4);
   await expect(page.locator(".editorial-review-notice:visible")).toHaveCount(0);
   await expect(page.locator(".ranking-header")).not.toContainText("精准过滤");

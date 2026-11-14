@@ -64,6 +64,7 @@ test("curated documents expose current state and evidence without altering revie
     ),
   );
   await page.goto("./");
+  await page.locator("#beginner-paths").scrollIntoViewIfNeeded();
   const card = page.locator(`[data-featured="${known}"]`);
   await expect(card.locator("[data-review-state]").first()).toHaveAttribute(
     "data-review-state",

@@ -1579,3 +1579,5 @@ body:has(.recharge-notice[open]) { overflow: hidden; }
  .discipline-options > button { flex-shrink:0; }
  .discipline-options .discipline-row-label { flex:0 0 auto; white-space:nowrap; }
 }
+.editorial-viewport-placeholder { min-height:140px; padding:16px 0; box-sizing:border-box; }
+.editorial-viewport-placeholder h2 { margin:0; font-size:18px; }

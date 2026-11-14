@@ -12,6 +12,7 @@ for (const lang of ["zh", "en"]) {
   }) => {
     if (lang === "en") await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(lang === "en" ? "./en/" : "./");
+    await page.locator("#beginner-paths").scrollIntoViewIfNeeded();
     const picks = page.locator("[data-featured]");
     await expect(picks).toHaveCount(4);
     for (const pick of editorial.featured) {
