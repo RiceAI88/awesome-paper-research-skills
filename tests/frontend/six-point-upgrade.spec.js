@@ -49,3 +49,9 @@ test('English brand and support entry never overlap on a narrow screen',async({p
  const text=page.locator('.brand span').last();
  expect(await text.evaluate(el=>el.scrollWidth<=el.clientWidth+1)).toBe(true);
 });
+
+for(const lang of ['zh','en'])test(`runtime document title keeps the ${lang} public brand`,async({page})=>{
+ await page.goto(`./#lang=${lang}`);
+ await expect(page.locator('.brand')).toBeVisible();
+ await expect(page).toHaveTitle(lang==='zh'?'智一刻AI · 科研 Skills 导航｜大学生与研究生科研工具':'Zhiyike AI · Research Skills Directory');
+});

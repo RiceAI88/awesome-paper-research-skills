@@ -122,7 +122,7 @@ export default function App() {
     persistState(storage, state);
     document.documentElement.dataset.theme = state.theme;
     document.documentElement.lang = state.lang === "zh" ? "zh-CN" : "en";
-    document.title = `${state.lang === "zh" ? "各专业科研 Skills 排行榜" : "Research Skills by Discipline"} · Awesome Paper Research Skills`;
+    document.title = state.lang === "zh" ? "智一刻AI · 科研 Skills 导航｜大学生与研究生科研工具" : "Zhiyike AI · Research Skills Directory";
     const hash = serializeState(state);
     if (location.hash !== hash)
       window.history.replaceState(
