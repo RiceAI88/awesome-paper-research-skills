@@ -581,18 +581,29 @@ class SharingAssetsTest(unittest.TestCase):
         self.assertIn("/en/</loc>", sitemap)
         self.assertIn("/reports/</loc>", sitemap)
 
-    def test_covers_are_localized_warm_and_escape_repository_names(self):
+    def test_covers_are_localized_indigo_and_escape_repository_names(self):
         import xml.etree.ElementTree as ET
-        data = {"items": [{"repo": "sample/a&b<tool>", "stars": 1234}], "metadata": {"generated_at": "2026-10-25"}}
+        data = {"items": [{"repo": "sample/a&b<tool>", "stars": 1234,"repository_kind":"skill"}], "metadata": {"generated_at": "2026-10-25"}}
         zh = render_og_cover(data)
-        self.assertIn("#866178", zh)
+        self.assertIn("#4A3FBF", zh)
         self.assertNotIn("#691eff", zh)
         en = render_og_cover(data, lang="en")
-        self.assertIn("Paper Research", en)
+        self.assertIn("For your discipline", en)
         self.assertNotIn("论文科研", en)
         for svg in (zh, en, render_og_cover({"items": []})):
             ET.fromstring(svg)
         self.assertIn("a&amp;b&lt;tool&gt;", en)
+
+    def test_share_cover_counts_only_default_skills_not_related_or_pending(self):
+        data={"metadata":{"total":3},"items":[
+          {"repo":"related/leader","stars":9000,"repository_kind":"related"},
+          {"repo":"skill/valid","stars":1000,"repository_kind":"skill"},
+          {"repo":"pending/entry","stars":2000,"repository_kind":"unknown"}]}
+        svg=render_og_cover(data,lang="en")
+        self.assertIn("1 Skill",svg)
+        self.assertIn("skill/valid",svg)
+        self.assertNotIn("related/leader",svg)
+        self.assertNotIn("pending/entry",svg)
 
 
 if __name__ == "__main__":

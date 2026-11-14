@@ -1,11 +1,14 @@
 import { test, expect } from "./fixtures.js";
 import { readFileSync } from "node:fs";
+import { filterItems, restoreState } from "../../src/domain.js";
+import { createHash } from "node:crypto";
 const editorial = JSON.parse(
   readFileSync(new URL("../../config/editorial.json", import.meta.url), "utf8"),
 );
 const data = JSON.parse(
   readFileSync(new URL("../../data/rankings.json", import.meta.url), "utf8"),
 );
+const defaultItems = filterItems(data.items, restoreState(null,"",{},data.items));
 for (const lang of ["zh", "en"]) {
   test(`${lang} picks expose audience and task with individual documentation evidence`, async ({
     page,
@@ -84,7 +87,14 @@ test.describe("metadata works without running application JavaScript", () => {
       await expect(
         page.locator('meta[property="og:image:height"]'),
       ).toHaveAttribute("content", "630");
-      const cover = "og-cover" + (lang === "en" ? "-en" : "") + ".png";
+      const title=lang==="zh" ? "科研 Skills 导航｜按专业查找 GitHub 科研工具" : "Research Skills Directory | GitHub Tools by Discipline";
+      await expect(page).toHaveTitle(title);
+      await expect(page.locator('meta[name="description"]')).toHaveAttribute('content',lang==="zh"?/按专业和科研任务/:/by discipline and task/);
+      await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content',title);
+      await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute('content',title);
+      const filename="og-cover" + (lang === "en" ? "-en" : "") + ".png";
+      const version=createHash('sha256').update(readFileSync('dist/assets/'+filename)).digest('hex').slice(0,12);
+      const cover=filename+'?v='+version;
       await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
         "content",
         root + "assets/" + cover,
@@ -95,7 +105,8 @@ test.describe("metadata works without running application JavaScript", () => {
       );
       const schema = JSON.parse(await page.locator("#ld-json").textContent());
       expect(schema.itemListElement).toHaveLength(20);
-      expect(schema.itemListElement[0].name).toBe(data.items[0].repo);
+      expect(schema.itemListElement.map(i=>i.name)).toEqual(defaultItems.slice(0,20).map(i=>i.repo));
+      expect(schema.numberOfItems).toBe(defaultItems.length);
       expect(schema.url).toBe(canonical);
       await expect(page.locator("noscript a")).toHaveCount(20);
       const image = await request.get("./assets/" + cover);
@@ -105,4 +116,12 @@ test.describe("metadata works without running application JavaScript", () => {
       expect(bytes.readUInt32BE(16)).toBe(1200);
       expect(bytes.readUInt32BE(20)).toBe(630);
     });
+});
+
+test("running application preserves the canonical default Skills structured list",async({page})=>{
+ await page.goto('./#related=1');
+ await expect(page.getByRole('searchbox')).toBeVisible();
+ const schema=JSON.parse(await page.locator('#ld-json').textContent());
+ expect(schema.itemListElement.map(i=>i.name)).toEqual(defaultItems.slice(0,20).map(i=>i.repo));
+ expect(schema.numberOfItems).toBe(defaultItems.length);
 });

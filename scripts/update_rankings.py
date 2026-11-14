@@ -1703,10 +1703,12 @@ def render_feed(data: dict[str, Any], window_snapshot: dict[str, Any] | None = N
 def render_og_cover(data: dict[str, Any], lang: str = "zh") -> str:
     """Generate a simple SVG Open Graph cover showing the day's headline stats."""
     metadata = data.get("metadata", {})
-    items = data.get("items", [])
-    total = metadata.get("total", len(items))
+    items = sorted(
+        [item for item in data.get("items", []) if item.get("repository_kind") == "skill"],
+        key=lambda item: (item.get("rank", float("inf")),),
+    )
+    total = len(items)
     generated = (metadata.get("generated_at") or "")[:10]
-    total_stars = sum(it.get("stars", 0) for it in items)
     top = items[0] if items else None
     # Short enough that a 36px name never collides with the star count below.
     top_name = truncate(top["repo"], 30) if top else "—"
@@ -1718,25 +1720,28 @@ def render_og_cover(data: dict[str, Any], lang: str = "zh") -> str:
     # later entries keep local (Windows/macOS) previews readable.
     font = "Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif"
 
-    title = "Paper Research" if lang == "en" else "论文科研 Skills"
-    subtitle = "Skills Ranking" if lang == "en" else "排行榜"
-    caption = "GitHub rankings · Growth trends · Editorial picks" if lang == "en" else "GitHub 排行 · 增长趋势 · 编辑精选"
+    title = "Research Skills" if lang == "en" else "找到适合你专业的"
+    subtitle = "For your discipline" if lang == "en" else "科研 Skills"
+    caption = "By discipline · Literature · Writing · Data analysis" if lang == "en" else "按专业找工具 · 文献检索 · 写作 · 数据分析"
+    brand = "Research Skills Directory" if lang == "en" else "科研 Skills 导航"
+    count_label = f"{total} Skill" + ("s" if total != 1 else "")
+    scope_label = "Skills only · Ranked by GitHub Stars" if lang == "en" else "仅统计 Skills · 按 GitHub Stars 排序"
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#FEFDFC"/>
-  <rect x="64" y="56" width="64" height="48" rx="4" fill="#866178"/>
+  <rect width="1200" height="630" fill="#FBFAF8"/>
+  <rect x="64" y="56" width="64" height="48" rx="4" fill="#4A3FBF"/>
   <text x="96" y="87" text-anchor="middle" font-family="{font}" font-size="18" font-weight="700" fill="#FFFFFF">APRS</text>
-  <text x="146" y="87" font-family="{font}" font-size="25" font-weight="600" fill="#292628">Awesome Paper Research Skills</text>
-  <line x1="64" y1="128" x2="1136" y2="128" stroke="#E9E4E2"/>
-  <text x="64" y="234" font-family="{font}" font-size="72" font-weight="700" fill="#292628">{title}</text>
-  <text x="64" y="324" font-family="{font}" font-size="72" font-weight="700" fill="#866178">{subtitle}</text>
-  <text x="68" y="384" font-family="{font}" font-size="25" fill="#777074">{caption}</text>
-  <line x1="64" y1="426" x2="1136" y2="426" stroke="#E9E4E2"/>
-  <text x="68" y="475" font-family="{font}" font-size="24" fill="#292628">{total} repos · {total_stars:,} Stars</text>
-  <text x="1136" y="475" text-anchor="end" font-family="{font}" font-size="20" fill="#777074">Updated {generated}</text>
-  <text x="68" y="542" font-family="{font}" font-size="19" fill="#777074">#1 {xml_escape(top_name)}</text>
-  <text x="1136" y="542" text-anchor="end" font-family="{font}" font-size="24" font-weight="600" fill="#B47C7D">{xml_escape(top_stars)}</text>
-  <rect x="0" y="618" width="1200" height="12" fill="#866178"/>
+  <text x="146" y="87" font-family="{font}" font-size="25" font-weight="600" fill="#1E1B3A">{brand}</text>
+  <line x1="64" y1="128" x2="1136" y2="128" stroke="#E7E5F2"/>
+  <text x="64" y="234" font-family="{font}" font-size="72" font-weight="700" fill="#1E1B3A">{title}</text>
+  <text x="64" y="324" font-family="{font}" font-size="72" font-weight="700" fill="#4A3FBF">{subtitle}</text>
+  <text x="68" y="384" font-family="{font}" font-size="25" fill="#67638C">{caption}</text>
+  <line x1="64" y1="426" x2="1136" y2="426" stroke="#E7E5F2"/>
+  <text x="68" y="475" font-family="{font}" font-size="24" fill="#1E1B3A">{count_label} · {scope_label}</text>
+  <text x="1136" y="475" text-anchor="end" font-family="{font}" font-size="20" fill="#67638C">Updated {generated}</text>
+  <text x="68" y="542" font-family="{font}" font-size="19" fill="#67638C">#1 {xml_escape(top_name)}</text>
+  <text x="1136" y="542" text-anchor="end" font-family="{font}" font-size="24" font-weight="600" fill="#4A3FBF">{xml_escape(top_stars)}</text>
+  <rect x="0" y="618" width="1200" height="12" fill="#4A3FBF"/>
 </svg>
 """
 

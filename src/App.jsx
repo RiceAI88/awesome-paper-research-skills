@@ -138,22 +138,6 @@ export default function App() {
     addEventListener("hashchange", change);
     return () => removeEventListener("hashchange", change);
   }, []);
-  useEffect(() => {
-    const el = document.getElementById("ld-json");
-    if (el)
-      el.textContent = JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        name: "Awesome Paper Research Skills",
-        url: document.querySelector('link[rel="canonical"]')?.href,
-        itemListElement: items.slice(0, 20).map((item, index) => ({
-          "@type": "ListItem",
-          position: index + 1,
-          name: item.repo,
-          url: item.url,
-        })),
-      });
-  }, []);
   return (
     <ConfigProvider
       locale={state.lang === "zh" ? zhCN : enUS}
