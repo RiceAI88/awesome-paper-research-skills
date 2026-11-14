@@ -20,7 +20,8 @@ for (const width of [1280,390,320]) test(`filter panel and honest counts at ${wi
  await panel.locator('#sortSelect').click();
  await page.locator('.ant-select-item-option[title="排序：最新收录"]').click();
  await expect(trigger).toContainText('2');
- await panel.getByRole('button',{name:'完成',exact:true}).click();
+ await expect(panel.getByRole('button',{name:'完成',exact:true})).toHaveCount(0);
+ await panel.getByRole('button',{name:'关闭',exact:true}).click();
  await expect(panel).not.toBeVisible();
  await trigger.click();
  await page.keyboard.press('Escape');
